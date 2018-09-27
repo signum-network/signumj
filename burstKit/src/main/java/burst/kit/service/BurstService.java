@@ -9,6 +9,8 @@ import burst.kit.entity.response.AccountResponse;
 import burst.kit.entity.response.AtIDsResponse;
 import burst.kit.entity.response.AtLongResponse;
 import burst.kit.entity.response.BlockResponse;
+import burst.kit.service.impl.BurstServiceImpl;
+import burst.kit.util.SchedulerAssigner;
 import io.reactivex.Single;
 
 public interface BurstService {
@@ -21,4 +23,12 @@ public interface BurstService {
     Single<ATResponse> getAt(BurstID atId);
     Single<AtIDsResponse> getAtIds();
     Single<AtLongResponse> getAtLong(String hexString);
+
+    static BurstService getInstance(SchedulerAssigner schedulerAssigner) {
+        return new BurstServiceImpl(schedulerAssigner);
+    }
+
+    static BurstService getInstance() {
+        return new BurstServiceImpl();
+    }
 }
