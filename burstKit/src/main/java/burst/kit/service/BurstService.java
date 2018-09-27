@@ -21,5 +21,4 @@ public interface BurstService {
     Single<ATResponse> getAt(BurstID atId);
     Single<AtIDsResponse> getAtIds();
     Single<AtLongResponse> getAtLong(String hexString);
-
 }

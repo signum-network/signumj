@@ -1,5 +1,6 @@
 package burst.kit.service.impl;
 
+import burst.kit.util.SchedulerAssigner;
 import com.google.gson.GsonBuilder;
 
 import burst.kit.entity.BurstAddress;
@@ -23,10 +24,22 @@ import retrofit2.http.Query;
 
 public class BurstServiceImpl implements BurstService {
 
+    private final SchedulerAssigner schedulerAssigner;
+
     private BlockchainService blockchainService;
 
-    public BurstServiceImpl() {
+    public BurstServiceImpl(SchedulerAssigner schedulerAssigner) {
+        this.schedulerAssigner = schedulerAssigner;
         buildServices("https://wallet.burst.cryptoguru.org");
+    }
+
+    public BurstServiceImpl() {
+        this(new SchedulerAssigner() {
+            @Override
+            public <T> Single<T> assignSchedulers(Single<T> source) {
+                return source.subscribeOn(Schedulers.io());
+            }
+        });
     }
 
     private void buildServices(String baseUrl) {
@@ -48,7 +61,7 @@ public class BurstServiceImpl implements BurstService {
                         .registerTypeAdapter(BurstValue.class, BurstValue.DESERIALIZER)
                         .registerTypeAdapter(BurstValue.class, BurstValue.SERIALIZER)
                         .create()))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //.client(client)
                 .build();
 
@@ -57,17 +70,17 @@ public class BurstServiceImpl implements BurstService {
 
     @Override
     public Single<BlockResponse> getBlock(BurstID block) {
-        return blockchainService.getBlock(block.getID(), null, null, null);
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(block.getID(), null, null, null));
     }
 
     @Override
     public Single<BlockResponse> getBlock(long height) {
-        return blockchainService.getBlock(null, String.valueOf(height), null, null);
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(null, String.valueOf(height), null, null));
     }
 
     @Override
     public Single<BlockResponse> getBlock(BurstTimestamp timestamp) {
-        return blockchainService.getBlock(null, null, String.valueOf(timestamp.getTimestamp()), null);
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(null, null, String.valueOf(timestamp.getTimestamp()), null));
     }
 
     @Override
@@ -76,32 +89,32 @@ public class BurstServiceImpl implements BurstService {
         for(int i = 0; i < includedTransactions.length; i++) {
             transactions[i] = includedTransactions[i].getID();
         }
-        return blockchainService.getBlock(null, null, null, transactions);
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(null, null, null, transactions));
     }
 
     @Override
     public Single<AccountResponse> getAccount(BurstAddress accountId) {
-        return blockchainService.getAccount(accountId.getNumericID());
+        return schedulerAssigner.assignSchedulers(blockchainService.getAccount(accountId.getNumericID()));
     }
 
     @Override
     public Single<AccountATsResponse> getAccountATs(BurstAddress accountId) {
-        return blockchainService.getAccountATs(accountId.getNumericID());
+        return schedulerAssigner.assignSchedulers(blockchainService.getAccountATs(accountId.getNumericID()));
     }
 
     @Override
     public Single<ATResponse> getAt(BurstID atId) {
-        return blockchainService.getAt(atId.getID());
+        return schedulerAssigner.assignSchedulers(blockchainService.getAt(atId.getID()));
     }
 
     @Override
     public Single<AtIDsResponse> getAtIds() {
-        return blockchainService.getAtIds();
+        return schedulerAssigner.assignSchedulers(blockchainService.getAtIds());
     }
 
     @Override
     public Single<AtLongResponse> getAtLong(String hexString) {
-        return blockchainService.getAtLong(hexString);
+        return schedulerAssigner.assignSchedulers(blockchainService.getAtLong(hexString));
     }
 
     private interface BlockchainService {
