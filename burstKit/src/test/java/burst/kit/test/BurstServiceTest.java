@@ -40,6 +40,12 @@ public class BurstServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetBlocks() {
+        BlocksResponse blocksResponse = SingleTestUtils.testSingle(burstService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
+        assertEquals(99, blocksResponse.getBlocks().length);
+    }
+
+    @Test
     public void testBurstServiceGetAccount() {
         AccountResponse accountResponse = SingleTestUtils.testSingle(burstService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
     }

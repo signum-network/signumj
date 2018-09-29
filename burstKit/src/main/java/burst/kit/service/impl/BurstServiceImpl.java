@@ -99,6 +99,11 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<BlocksResponse> getBlocks(long firstIndex, long lastIndex) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlocks(String.valueOf(firstIndex), String.valueOf(lastIndex), null));
+    }
+
+    @Override
     public Single<AccountResponse> getAccount(BurstAddress accountId) {
         return schedulerAssigner.assignSchedulers(blockchainService.getAccount(accountId.getNumericID()));
     }
@@ -132,6 +137,9 @@ public class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getBlockchainStatus")
         Single<BlockchainStatusResponse> getBlockchainStatus();
+
+        @GET("burst?requestType=getBlocks")
+        Single<BlocksResponse> getBlocks(@Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("includeTransactions") String[] transactions);
 
         @GET("burst?requestType=getAccount")
         Single<AccountResponse> getAccount(@Query("account") String accountId);
