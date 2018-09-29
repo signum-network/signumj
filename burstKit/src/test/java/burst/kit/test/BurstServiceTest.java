@@ -18,7 +18,7 @@ public class BurstServiceTest {
 
     @Before
     public void setUpBurstServiceTest() {
-        burstService = new BurstServiceImpl();
+        burstService = BurstService.getInstance();
     }
 
     @Test
@@ -43,6 +43,11 @@ public class BurstServiceTest {
     public void testBurstServiceGetBlocks() {
         BlocksResponse blocksResponse = SingleTestUtils.testSingle(burstService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
         assertEquals(99, blocksResponse.getBlocks().length);
+    }
+
+    @Test
+    public void testBurstServiceGetConstants() {
+        ConstantsResponse constantsResponse = SingleTestUtils.testSingle(burstService.getConstants());
     }
 
     @Test
