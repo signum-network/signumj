@@ -10,7 +10,6 @@ import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
 import burst.kit.service.BurstService;
 import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,30 +22,14 @@ public class BurstServiceImpl implements BurstService {
 
     private BlockchainService blockchainService;
 
-    public BurstServiceImpl(SchedulerAssigner schedulerAssigner) {
+    public BurstServiceImpl(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         this.schedulerAssigner = schedulerAssigner;
-        //buildServices("https://wallet.burst.cryptoguru.org");
-        buildServices("https://wallet1.burst-team.us:2083");
+        buildServices(nodeAddress);
     }
 
-    public BurstServiceImpl() {
-        this(new SchedulerAssigner() {
-            @Override
-            public <T> Single<T> assignSchedulers(Single<T> source) {
-                return source.subscribeOn(Schedulers.io());
-            }
-        });
-    }
-
-    private void buildServices(String baseUrl) {
-        /*HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(interceptor)
-                .build();*/
-
+    private void buildServices(String nodeAddress) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(nodeAddress)
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
                         .registerTypeAdapter(BurstAddress.class, BurstAddress.DESERIALIZER)
                         .registerTypeAdapter(BurstAddress.class, BurstAddress.SERIALIZER)
@@ -58,10 +41,14 @@ public class BurstServiceImpl implements BurstService {
                         .registerTypeAdapter(BurstValue.class, BurstValue.SERIALIZER)
                         .create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                //.client(client)
                 .build();
 
         blockchainService = retrofit.create(BlockchainService.class);
+    }
+
+    @Override
+    public void updateNodeAddress(String newNodeAddress) {
+        buildServices(newNodeAddress);
     }
 
     @Override

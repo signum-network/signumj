@@ -17,7 +17,7 @@ public class BurstServiceTest {
 
     @Before
     public void setUpBurstServiceTest() {
-        burstService = BurstService.getInstance();
+        burstService = BurstService.getInstance("https://wallet1.burst-team.us:2083");
     }
 
     @Test
