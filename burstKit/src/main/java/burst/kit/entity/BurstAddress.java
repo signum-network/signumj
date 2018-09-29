@@ -92,6 +92,6 @@ public class BurstAddress {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return numericID.hashCode();
     }
 }

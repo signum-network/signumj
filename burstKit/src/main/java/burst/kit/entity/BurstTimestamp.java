@@ -7,6 +7,7 @@ import com.google.gson.JsonSerializer;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.Objects;
 
 public class BurstTimestamp {
 
@@ -16,8 +17,8 @@ public class BurstTimestamp {
     private final int timestamp;
     private final Date date;
 
-    public BurstTimestamp(int rawTimestamp) {
-        this.timestamp = rawTimestamp;
+    public BurstTimestamp(int timestamp) {
+        this.timestamp = timestamp;
         this.date = Convert.fromEpochTime(timestamp + 1);
     }
 
@@ -31,5 +32,20 @@ public class BurstTimestamp {
 
     public Instant getAsInstant() {
         return date.toInstant();
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(timestamp);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof BurstTimestamp && Objects.equals(timestamp, ((BurstTimestamp)obj).timestamp);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getTimestamp());
     }
 }

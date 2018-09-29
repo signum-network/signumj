@@ -47,6 +47,6 @@ public class BurstID {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Long.hashCode(id);
     }
 }
