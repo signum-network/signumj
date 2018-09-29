@@ -1,21 +1,14 @@
-apply plugin: "java"
-
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     // Gson
     implementation 'com.google.code.gson:gson:2.8.2'
 
     // RxJava
     implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
-
-    // Joda-Time
-    //implementation 'joda-time:joda-time:2.10'
     
+    // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    //testCompileOnly 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 
     // Testing
     testCompileOnly 'junit:junit:4.12'

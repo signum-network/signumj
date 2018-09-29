@@ -1,21 +1,6 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
 allprojects {
     repositories {
         jcenter()
-        mavenCentral()
     }
 }
 
@@ -23,7 +8,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'maven'
 
-    sourceCompatibility = 1.8 // java 8
+    sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
     task sourcesJar(type: Jar, dependsOn: classes) {

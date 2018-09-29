@@ -3,7 +3,8 @@ package burst.kit.test;
 import io.reactivex.Single;
 import io.reactivex.observers.TestObserver;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class SingleTestUtils {
     public static <T> T testSingle(Single<T> single) {

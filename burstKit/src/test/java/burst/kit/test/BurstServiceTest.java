@@ -3,7 +3,6 @@ package burst.kit.test;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstService;
-import burst.kit.service.impl.BurstServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
