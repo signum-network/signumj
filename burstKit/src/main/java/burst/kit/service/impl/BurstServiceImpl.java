@@ -1,18 +1,13 @@
 package burst.kit.service.impl;
 
+import burst.kit.entity.response.*;
 import burst.kit.util.SchedulerAssigner;
 import com.google.gson.GsonBuilder;
 
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
-import burst.kit.entity.response.ATResponse;
-import burst.kit.entity.response.AccountATsResponse;
-import burst.kit.entity.response.AccountResponse;
 import burst.kit.entity.BurstValue;
-import burst.kit.entity.response.AtIDsResponse;
-import burst.kit.entity.response.AtLongResponse;
-import burst.kit.entity.response.BlockResponse;
 import burst.kit.service.BurstService;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
@@ -93,6 +88,11 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<BlockIDResponse> getBlockId(long height) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlockID(String.valueOf(height)));
+    }
+
+    @Override
     public Single<AccountResponse> getAccount(BurstAddress accountId) {
         return schedulerAssigner.assignSchedulers(blockchainService.getAccount(accountId.getNumericID()));
     }
@@ -120,6 +120,9 @@ public class BurstServiceImpl implements BurstService {
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
+
+        @GET("burst?requestType=getBlockId")
+        Single<BlockIDResponse> getBlockID(@Query("height") String blockHeight);
 
         @GET("burst?requestType=getAccount")
         Single<AccountResponse> getAccount(@Query("account") String accountId);

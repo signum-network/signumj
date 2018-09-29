@@ -32,6 +32,11 @@ public class BurstServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetBlockID() {
+        BlockIDResponse blockIDResponse = SingleTestUtils.testSingle(burstService.getBlockId(TestVariables.EXAMPLE_BLOCK_HEIGHT));
+    }
+
+    @Test
     public void testBurstServiceGetAccount() {
         AccountResponse accountResponse = SingleTestUtils.testSingle(burstService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
