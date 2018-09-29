@@ -25,7 +25,8 @@ public class BurstServiceImpl implements BurstService {
 
     public BurstServiceImpl(SchedulerAssigner schedulerAssigner) {
         this.schedulerAssigner = schedulerAssigner;
-        buildServices("https://wallet.burst.cryptoguru.org");
+        //buildServices("https://wallet.burst.cryptoguru.org");
+        buildServices("https://wallet1.burst-team.us:2083");
     }
 
     public BurstServiceImpl() {
@@ -93,6 +94,11 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<BlockchainStatusResponse> getBlockchainStatus() {
+        return schedulerAssigner.assignSchedulers(blockchainService.getBlockchainStatus());
+    }
+
+    @Override
     public Single<AccountResponse> getAccount(BurstAddress accountId) {
         return schedulerAssigner.assignSchedulers(blockchainService.getAccount(accountId.getNumericID()));
     }
@@ -123,6 +129,9 @@ public class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getBlockId")
         Single<BlockIDResponse> getBlockID(@Query("height") String blockHeight);
+
+        @GET("burst?requestType=getBlockchainStatus")
+        Single<BlockchainStatusResponse> getBlockchainStatus();
 
         @GET("burst?requestType=getAccount")
         Single<AccountResponse> getAccount(@Query("account") String accountId);

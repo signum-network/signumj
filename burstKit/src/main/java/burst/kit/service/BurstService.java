@@ -14,6 +14,7 @@ public interface BurstService {
     Single<BlockResponse> getBlock(BurstTimestamp timestamp);
     Single<BlockResponse> getBlock(BurstID[] includedTransactions); // TODO actually use array
     Single<BlockIDResponse> getBlockId(long height);
+    Single<BlockchainStatusResponse> getBlockchainStatus();
     Single<AccountResponse> getAccount(BurstAddress accountId);
     Single<AccountATsResponse> getAccountATs(BurstAddress accountId);
     Single<ATResponse> getAt(BurstID atId);

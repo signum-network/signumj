@@ -1,11 +1,9 @@
 package burst.kit.test;
 
 import burst.kit.entity.BurstID;
-import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstService;
 import burst.kit.service.impl.BurstServiceImpl;
-import io.reactivex.Single;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +32,11 @@ public class BurstServiceTest {
     @Test
     public void testBurstServiceGetBlockID() {
         BlockIDResponse blockIDResponse = SingleTestUtils.testSingle(burstService.getBlockId(TestVariables.EXAMPLE_BLOCK_HEIGHT));
+    }
+
+    @Test
+    public void testBurstServiceGetBlockchainStatus() {
+        BlockchainStatusResponse blockchainStatusResponse = SingleTestUtils.testSingle(burstService.getBlockchainStatus());
     }
 
     @Test
