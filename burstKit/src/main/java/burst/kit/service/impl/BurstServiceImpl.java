@@ -106,6 +106,16 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<AccountBlockIDsResponse> getAccountBlockIDs(BurstAddress accountId) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getAccountBlockIDs(accountId.getNumericID(), null, null, null));
+    }
+
+    @Override
+    public Single<AccountBlocksResponse> getAccountBlocks(BurstAddress accountId) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getAccountBlocks(accountId.getNumericID(), null, null, null, null));
+    }
+
+    @Override
     public Single<ATResponse> getAt(BurstID atId) {
         return schedulerAssigner.assignSchedulers(blockchainService.getAt(atId.getID()));
     }
@@ -141,6 +151,12 @@ public class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getAccountATs")
         Single<AccountATsResponse> getAccountATs(@Query("account") String accountId);
+
+        @GET("burst?requestType=getAccountBlockIds")
+        Single<AccountBlockIDsResponse> getAccountBlockIDs(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex);
+
+        @GET("burst?requestType=getAccountBlocks")
+        Single<AccountBlocksResponse> getAccountBlocks(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("includeTransactions") String[] includedTransactions);
 
         @GET("burst?requestType=getAt")
         Single<ATResponse> getAt(@Query("at") String atId);

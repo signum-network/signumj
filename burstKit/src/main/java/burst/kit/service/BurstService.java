@@ -22,6 +22,8 @@ public interface BurstService {
     Single<ConstantsResponse> getConstants();
     Single<AccountResponse> getAccount(BurstAddress accountId);
     Single<AccountATsResponse> getAccountATs(BurstAddress accountId);
+    Single<AccountBlockIDsResponse> getAccountBlockIDs(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex
+    Single<AccountBlocksResponse> getAccountBlocks(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex, includeTransactions
     Single<ATResponse> getAt(BurstID atId);
     Single<AtIDsResponse> getAtIds();
     Single<AtLongResponse> getAtLong(String hexString);

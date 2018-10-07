@@ -41,7 +41,7 @@ public class BurstServiceTest {
     @Test
     public void testBurstServiceGetBlocks() {
         BlocksResponse blocksResponse = SingleTestUtils.testSingle(burstService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
-        assertEquals(99, blocksResponse.getBlocks().length);
+        assertEquals(100, blocksResponse.getBlocks().length);
     }
 
     @Test
@@ -57,6 +57,16 @@ public class BurstServiceTest {
     @Test
     public void testBurstServiceGetAccountATs() {
         AccountATsResponse accountATsResponse = SingleTestUtils.testSingle(burstService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID));
+    }
+
+    @Test
+    public void testBurstServiceGetAccountBlockIDs() {
+        AccountBlockIDsResponse accountBlockIDsResponse = SingleTestUtils.testSingle(burstService.getAccountBlockIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
+    }
+
+    @Test
+    public void testBurstServiceGetAccountBlocks() {
+        AccountBlocksResponse accountBlocksResponse = SingleTestUtils.testSingle(burstService.getAccountBlocks(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
