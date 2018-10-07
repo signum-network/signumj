@@ -27,6 +27,8 @@ public interface BurstService {
     Single<ATResponse> getAt(BurstID atId);
     Single<AtIDsResponse> getAtIds();
     Single<AtLongResponse> getAtLong(String hexString);
+    Single<TransactionResponse> getTransaction(BurstID transactionId);
+    Single<TransactionResponse> getTransaction(String fullHash);
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);
