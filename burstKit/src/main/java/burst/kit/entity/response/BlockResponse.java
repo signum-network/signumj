@@ -1,25 +1,22 @@
 package burst.kit.entity.response;
 
-import burst.kit.entity.BurstAddress;
-import burst.kit.entity.BurstID;
-import burst.kit.entity.BurstTimestamp;
-import burst.kit.entity.BurstValue;
+import burst.kit.entity.*;
 
 @SuppressWarnings("unused")
 public class BlockResponse extends BRSResponse {
-    private String previousBlockHash;
+    private HexStringByteArray previousBlockHash;
     private int payloadLength;
     private BurstValue totalAmountNQT;
-    private String generationSignature;
+    private HexStringByteArray generationSignature;
     private BurstAddress creator;
-    private String generatorPublicKey;
+    private HexStringByteArray generatorPublicKey;
     private long baseTarget;
-    private String payloadHash;
-    private String blockReward;
+    private HexStringByteArray payloadHash;
+    private String blockReward; // Converted to BurstValue in getter
     private BurstID nextBlock;
     private int scoopNum;
     private int numberOfTransactions;
-    private String blockSignature;
+    private HexStringByteArray blockSignature;
     private BurstID[] transactions;
     private String nonce;
     private int version;
@@ -31,7 +28,7 @@ public class BlockResponse extends BRSResponse {
 
     private BlockResponse() {}
 
-    public String getPreviousBlockHash() {
+    public HexStringByteArray getPreviousBlockHash() {
         return previousBlockHash;
     }
 
@@ -43,7 +40,7 @@ public class BlockResponse extends BRSResponse {
         return totalAmountNQT;
     }
 
-    public String getGenerationSignature() {
+    public HexStringByteArray getGenerationSignature() {
         return generationSignature;
     }
 
@@ -51,7 +48,7 @@ public class BlockResponse extends BRSResponse {
         return creator;
     }
 
-    public String getGeneratorPublicKey() {
+    public HexStringByteArray getGeneratorPublicKey() {
         return generatorPublicKey;
     }
 
@@ -59,7 +56,7 @@ public class BlockResponse extends BRSResponse {
         return baseTarget;
     }
 
-    public String getPayloadHash() {
+    public HexStringByteArray getPayloadHash() {
         return payloadHash;
     }
 
@@ -79,7 +76,7 @@ public class BlockResponse extends BRSResponse {
         return numberOfTransactions;
     }
 
-    public String getBlockSignature() {
+    public HexStringByteArray getBlockSignature() {
         return blockSignature;
     }
 

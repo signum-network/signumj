@@ -1,17 +1,17 @@
 package burst.kit.entity.response;
 
 import burst.kit.entity.BurstAddress;
+import burst.kit.entity.HexStringByteArray;
 import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
 public class ATResponse extends BRSResponse {
     private int atVersion;
     private BurstAddress creator;
-    private String creatorRS;
     private boolean stopped;
-    private String machineCode;
+    private HexStringByteArray machineCode;
     private String description;
-    private String machineData;
+    private HexStringByteArray machineData;
     private boolean frozen;
     private boolean finished;
     private boolean dead;
@@ -35,15 +35,11 @@ public class ATResponse extends BRSResponse {
         return creator;
     }
 
-    public String getCreatorRS() {
-        return creatorRS;
-    }
-
     public boolean isStopped() {
         return stopped;
     }
 
-    public String getMachineCode() {
+    public HexStringByteArray getMachineCode() {
         return machineCode;
     }
 
@@ -51,7 +47,7 @@ public class ATResponse extends BRSResponse {
         return description;
     }
 
-    public String getMachineData() {
+    public HexStringByteArray getMachineData() {
         return machineData;
     }
 

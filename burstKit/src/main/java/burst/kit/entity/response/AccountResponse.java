@@ -1,6 +1,7 @@
 package burst.kit.entity.response;
 
 import burst.kit.entity.BurstAddress;
+import burst.kit.entity.HexStringByteArray;
 import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
@@ -12,7 +13,7 @@ public class AccountResponse extends BRSResponse {
     private String description;
     private BurstValue forgedBalanceNQT;
     private BurstValue balanceNQT;
-    private String publicKey;
+    private HexStringByteArray publicKey;
     private BurstAddress account;
 
     private AccountResponse() {}
@@ -45,7 +46,7 @@ public class AccountResponse extends BRSResponse {
         return balanceNQT;
     }
 
-    public String getPublicKey() {
+    public HexStringByteArray getPublicKey() {
         return publicKey;
     }
 

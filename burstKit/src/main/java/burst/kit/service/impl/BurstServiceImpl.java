@@ -1,13 +1,10 @@
 package burst.kit.service.impl;
 
+import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.util.SchedulerAssigner;
 import com.google.gson.GsonBuilder;
 
-import burst.kit.entity.BurstAddress;
-import burst.kit.entity.BurstID;
-import burst.kit.entity.BurstTimestamp;
-import burst.kit.entity.BurstValue;
 import burst.kit.service.BurstService;
 import io.reactivex.Single;
 import retrofit2.Retrofit;
@@ -33,6 +30,8 @@ public class BurstServiceImpl implements BurstService {
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
                         .registerTypeAdapter(BurstAddress.class, BurstAddress.DESERIALIZER)
                         .registerTypeAdapter(BurstAddress.class, BurstAddress.SERIALIZER)
+                        .registerTypeAdapter(HexStringByteArray.class, HexStringByteArray.DESERIALIZER)
+                        .registerTypeAdapter(HexStringByteArray.class, HexStringByteArray.SERIALIZER)
                         .registerTypeAdapter(BurstID.class, BurstID.DESERIALIZER)
                         .registerTypeAdapter(BurstID.class, BurstID.SERIALIZER)
                         .registerTypeAdapter(BurstTimestamp.class, BurstTimestamp.SERIALIZER)
@@ -126,8 +125,8 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
-    public Single<AtLongResponse> getAtLong(String hexString) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAtLong(hexString));
+    public Single<AtLongResponse> getAtLong(HexStringByteArray hex) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getAtLong(hex.toHexString()));
     }
 
     @Override
@@ -136,8 +135,8 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
-    public Single<TransactionResponse> getTransaction(String fullHash) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getTransaction(null, fullHash));
+    public Single<TransactionResponse> getTransaction(HexStringByteArray fullHash) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getTransaction(null, fullHash.toHexString()));
     }
 
     private interface BlockchainService {

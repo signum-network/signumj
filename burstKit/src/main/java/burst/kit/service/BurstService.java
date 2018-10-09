@@ -1,6 +1,7 @@
 package burst.kit.service;
 
 import burst.kit.entity.BurstAddress;
+import burst.kit.entity.HexStringByteArray;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.response.*;
@@ -26,9 +27,9 @@ public interface BurstService {
     Single<AccountBlocksResponse> getAccountBlocks(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex, includeTransactions
     Single<ATResponse> getAt(BurstID atId);
     Single<AtIDsResponse> getAtIds();
-    Single<AtLongResponse> getAtLong(String hexString);
+    Single<AtLongResponse> getAtLong(HexStringByteArray hex);
     Single<TransactionResponse> getTransaction(BurstID transactionId);
-    Single<TransactionResponse> getTransaction(String fullHash);
+    Single<TransactionResponse> getTransaction(HexStringByteArray fullHash);
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);

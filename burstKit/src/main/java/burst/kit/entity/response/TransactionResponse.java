@@ -1,24 +1,21 @@
 package burst.kit.entity.response;
 
-import burst.kit.entity.BurstAddress;
-import burst.kit.entity.BurstID;
-import burst.kit.entity.BurstTimestamp;
-import burst.kit.entity.BurstValue;
+import burst.kit.entity.*;
 import com.google.gson.JsonObject;
 
 @SuppressWarnings("unused")
 public class TransactionResponse extends BRSResponse {
-    private String senderPublicKey;
-    private String signature;
+    private HexStringByteArray senderPublicKey;
+    private HexStringByteArray signature;
     private BurstValue feeNQT;
     private BurstValue amountNQT;
     private int type;
     private int subtype;
     private int confirmations;
-    private String fullHash;
+    private HexStringByteArray fullHash;
     private int version;
     private BurstID ecBlockId;
-    private String signatureHash;
+    private HexStringByteArray signatureHash;
     private JsonObject attachment;
     private BurstAddress sender;
     private int ecBlockHeight;
@@ -29,11 +26,11 @@ public class TransactionResponse extends BRSResponse {
 
     private TransactionResponse() {} // TODO get attachment
 
-    public String getSenderPublicKey() {
+    public HexStringByteArray getSenderPublicKey() {
         return senderPublicKey;
     }
 
-    public String getSignature() {
+    public HexStringByteArray getSignature() {
         return signature;
     }
 
@@ -57,7 +54,7 @@ public class TransactionResponse extends BRSResponse {
         return confirmations;
     }
 
-    public String getFullHash() {
+    public HexStringByteArray getFullHash() {
         return fullHash;
     }
 
@@ -69,7 +66,7 @@ public class TransactionResponse extends BRSResponse {
         return ecBlockId;
     }
 
-    public String getSignatureHash() {
+    public HexStringByteArray getSignatureHash() {
         return signatureHash;
     }
 
