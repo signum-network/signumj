@@ -30,6 +30,7 @@ public interface BurstService {
     Single<AtLongResponse> getAtLong(HexStringByteArray hex);
     Single<TransactionResponse> getTransaction(BurstID transactionId);
     Single<TransactionResponse> getTransaction(HexStringByteArray fullHash);
+    Single<TransactionBytesResponse> getTransactionBytes(BurstID transactionId);
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);

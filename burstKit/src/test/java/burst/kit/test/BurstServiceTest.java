@@ -90,4 +90,9 @@ public class BurstServiceTest {
         TransactionResponse transactionIdTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
         TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));
     }
+
+    @Test
+    public void testBurstServiceGetTransactionBytes() {
+        TransactionBytesResponse transactionBytesResponse = SingleTestUtils.testSingle(burstService.getTransactionBytes(TestVariables.EXAMPLE_TRANSACTION_ID));
+    }
 }

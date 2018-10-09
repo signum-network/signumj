@@ -139,6 +139,11 @@ public class BurstServiceImpl implements BurstService {
         return schedulerAssigner.assignSchedulers(blockchainService.getTransaction(null, fullHash.toHexString()));
     }
 
+    @Override
+    public Single<TransactionBytesResponse> getTransactionBytes(BurstID transactionId) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getTransactionBytes(transactionId.getID()));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -178,5 +183,8 @@ public class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getTransaction")
         Single<TransactionResponse> getTransaction(@Query("transaction") String transaction, @Query("fullHash") String fullHash);
+
+        @GET("burst?requestType=getTransactionBytes")
+        Single<TransactionBytesResponse> getTransactionBytes(@Query("transaction") String transaction);
     }
 }
