@@ -2,6 +2,8 @@ package burst.kit.test;
 
 import burst.kit.entity.BurstID;
 import burst.kit.entity.response.*;
+import burst.kit.entity.response.attachment.AttachmentType;
+import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.service.BurstService;
 import org.junit.Before;
 import org.junit.Test;
@@ -89,6 +91,10 @@ public class BurstServiceTest {
     public void testBurstServiceGetTransaction() {
         TransactionResponse transactionIdTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
         TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));
+
+        TransactionResponse multiOutTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
+        assertEquals(AttachmentType.MULTI_OUT, multiOutTransactionResponse.getAttachment().getType());
+        assertEquals(22, ((MultiOutAttachment) multiOutTransactionResponse.getAttachment()).getRecipients().length);
     }
 
     @Test

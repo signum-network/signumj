@@ -1,7 +1,7 @@
 package burst.kit.entity.response;
 
 import burst.kit.entity.*;
-import com.google.gson.JsonObject;
+import burst.kit.entity.response.attachment.TransactionAttachment;
 
 @SuppressWarnings("unused")
 public class TransactionResponse extends BRSResponse {
@@ -16,7 +16,7 @@ public class TransactionResponse extends BRSResponse {
     private int version;
     private BurstID ecBlockId;
     private HexStringByteArray signatureHash;
-    private JsonObject attachment;
+    private TransactionAttachment attachment;
     private BurstAddress sender;
     private int ecBlockHeight;
     private int deadline;
@@ -24,7 +24,7 @@ public class TransactionResponse extends BRSResponse {
     private BurstTimestamp timestamp;
     private int height;
 
-    private TransactionResponse() {} // TODO get attachment
+    private TransactionResponse() {}
 
     public HexStringByteArray getSenderPublicKey() {
         return senderPublicKey;
@@ -68,6 +68,10 @@ public class TransactionResponse extends BRSResponse {
 
     public HexStringByteArray getSignatureHash() {
         return signatureHash;
+    }
+
+    public TransactionAttachment getAttachment() {
+        return attachment;
     }
 
     public BurstAddress getSender() {

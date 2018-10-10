@@ -2,6 +2,7 @@ package burst.kit.service.impl;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
+import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
 import com.google.gson.GsonBuilder;
 
@@ -27,18 +28,7 @@ public class BurstServiceImpl implements BurstService {
     private void buildServices(String nodeAddress) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(nodeAddress)
-                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
-                        .registerTypeAdapter(BurstAddress.class, BurstAddress.DESERIALIZER)
-                        .registerTypeAdapter(BurstAddress.class, BurstAddress.SERIALIZER)
-                        .registerTypeAdapter(HexStringByteArray.class, HexStringByteArray.DESERIALIZER)
-                        .registerTypeAdapter(HexStringByteArray.class, HexStringByteArray.SERIALIZER)
-                        .registerTypeAdapter(BurstID.class, BurstID.DESERIALIZER)
-                        .registerTypeAdapter(BurstID.class, BurstID.SERIALIZER)
-                        .registerTypeAdapter(BurstTimestamp.class, BurstTimestamp.SERIALIZER)
-                        .registerTypeAdapter(BurstTimestamp.class, BurstTimestamp.DESERIALIZER)
-                        .registerTypeAdapter(BurstValue.class, BurstValue.DESERIALIZER)
-                        .registerTypeAdapter(BurstValue.class, BurstValue.SERIALIZER)
-                        .create()))
+                .addConverterFactory(GsonConverterFactory.create(BurstKitUtils.buildGson().create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
