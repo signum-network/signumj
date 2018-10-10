@@ -14,6 +14,7 @@ public class TestVariables {
     public static final String EXAMPLE_ACCOUNT_RS = "BURST-W5YR-ZZQC-KUBJ-G78KB";
 
     public static final BurstID EXAMPLE_TRANSACTION_ID = new BurstID("10489995701880641892");
+    public static final BurstID EXAMPLE_AT_CREATION_TRANSACTION_ID = new BurstID("3474457271106823767");
     public static final BurstID EXAMPLE_MULTI_OUT_TRANSACTION_ID = new BurstID("3631659512270044993");
     public static final BurstID EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID = new BurstID("5032020914938737522");
     public static final HexStringByteArray EXAMPLE_TRANSACTION_FULL_HASH = new HexStringByteArray("e475946429c220d33f414a9d6106452547abe23ee1379fc38f571cac1c037c6f");

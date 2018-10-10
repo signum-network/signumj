@@ -2,6 +2,7 @@ package burst.kit.test;
 
 import burst.kit.entity.BurstID;
 import burst.kit.entity.response.*;
+import burst.kit.entity.response.attachment.ATCreationAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstService;
@@ -99,6 +100,9 @@ public class BurstServiceTest {
         TransactionResponse multiOutSameTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID));
         assertEquals(MultiOutSameAttachment.class, multiOutSameTransactionResponse.getAttachment().getType());
         assertEquals(128, ((MultiOutSameAttachment) multiOutSameTransactionResponse.getAttachment()).getRecipients().length);
+
+        TransactionResponse atCreationTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_AT_CREATION_TRANSACTION_ID));
+        assertEquals(ATCreationAttachment.class, atCreationTransactionResponse.getAttachment().getType());
     }
 
     @Test

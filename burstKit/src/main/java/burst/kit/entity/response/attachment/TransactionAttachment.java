@@ -17,6 +17,10 @@ public abstract class TransactionAttachment {
             return gson.fromJson(source, MultiOutAttachment.class);
         } else if (source.has("version.MultiSameOutCreation")) {
             return gson.fromJson(source, MultiOutSameAttachment.class);
+        } else if (source.has("version.RewardRecipientAssignment")) {
+            return gson.fromJson(source, RewardRecipientAssignmentAttachment.class);
+        } else if (source.has("version.AutomatedTransactionsCreation")) {
+            return gson.fromJson(source, ATCreationAttachment.class);
         } else {
             return new UnsupportedAttachment();
         }
