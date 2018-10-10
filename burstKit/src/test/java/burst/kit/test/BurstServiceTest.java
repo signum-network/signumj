@@ -2,8 +2,8 @@ package burst.kit.test;
 
 import burst.kit.entity.BurstID;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.attachment.AttachmentType;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
+import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstService;
 import org.junit.Before;
 import org.junit.Test;
@@ -93,8 +93,12 @@ public class BurstServiceTest {
         TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));
 
         TransactionResponse multiOutTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
-        assertEquals(AttachmentType.MULTI_OUT, multiOutTransactionResponse.getAttachment().getType());
+        assertEquals(MultiOutAttachment.class, multiOutTransactionResponse.getAttachment().getType());
         assertEquals(22, ((MultiOutAttachment) multiOutTransactionResponse.getAttachment()).getRecipients().length);
+
+        TransactionResponse multiOutSameTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID));
+        assertEquals(MultiOutSameAttachment.class, multiOutSameTransactionResponse.getAttachment().getType());
+        assertEquals(128, ((MultiOutSameAttachment) multiOutSameTransactionResponse.getAttachment()).getRecipients().length);
     }
 
     @Test
