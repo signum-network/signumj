@@ -15,9 +15,9 @@ public abstract class TransactionAttachment {
             return gson.fromJson(source, AccountInfoAttachment.class);
         } else if (source.has("version.MultiOutCreation")) {
             return gson.fromJson(source, MultiOutAttachment.class);
+        } else {
+            return new UnsupportedAttachment();
         }
-
-        return null;
     }
 
     private static JsonElement serialize(TransactionAttachment source) {
@@ -28,5 +28,7 @@ public abstract class TransactionAttachment {
         return BurstKitUtils.buildGson().create();
     }
 
-    public abstract AttachmentType getType();
+    public Class<? extends TransactionAttachment> getType() {
+        return getClass();
+    }
 }

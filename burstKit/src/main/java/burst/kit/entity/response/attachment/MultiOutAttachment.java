@@ -15,17 +15,14 @@ public class MultiOutAttachment extends TransactionAttachment {
     @SerializedName("version.MultiOutCreation")
     private int version;
 
+    private MultiOutAttachment() {}
+
     public MultiOutRecipient[] getRecipients() {
         return recipients;
     }
 
     public int getVersion() {
         return version;
-    }
-
-    @Override
-    public AttachmentType getType() {
-        return AttachmentType.MULTI_OUT;
     }
 
     public static class MultiOutRecipient {

@@ -9,6 +9,8 @@ public class AccountInfoAttachment extends TransactionAttachment {
     @SerializedName("version.AccountInfo")
     private int version;
 
+    private AccountInfoAttachment() {}
+
     public String getName() {
         return name;
     }
@@ -19,10 +21,5 @@ public class AccountInfoAttachment extends TransactionAttachment {
 
     public int getVersion() {
         return version;
-    }
-
-    @Override
-    public AttachmentType getType() {
-        return AttachmentType.ACCOUNT_INFO;
     }
 }
