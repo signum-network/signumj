@@ -10,7 +10,7 @@ import java.math.RoundingMode;
 public class BurstValue extends BigDecimal {
 
     public static final JsonDeserializer<BurstValue> DESERIALIZER = (json, typeOfT, context) -> json.isJsonNull() ? null : BurstValue.fromPlanck(json.getAsString());
-    public static final JsonSerializer<BurstValue> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.toUnformattedString());
+    public static final JsonSerializer<BurstValue> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.toPlanck());
 
     @SuppressWarnings("BigDecimalMethodWithoutRoundingCalled")
     private BurstValue(String val) {
@@ -56,5 +56,9 @@ public class BurstValue extends BigDecimal {
 
     public String toUnformattedString() {
         return super.stripTrailingZeros().toPlainString();
+    }
+
+    public String toPlanck() {
+        return multiply(BigDecimal.TEN.pow(8)).toBigInteger().toString();
     }
 }
