@@ -3,7 +3,7 @@ package burst.kit.entity.response;
 import burst.kit.entity.HexStringByteArray;
 
 @SuppressWarnings("unused")
-public class TransactionBytesResponse extends BRSResponse {
+public final class TransactionBytesResponse extends BRSResponse {
     private HexStringByteArray unsignedTransactionBytes;
     private int confirmations;
     private HexStringByteArray transactionBytes;

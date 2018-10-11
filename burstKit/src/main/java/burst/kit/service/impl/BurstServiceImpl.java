@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public class BurstServiceImpl implements BurstService {
+public final class BurstServiceImpl implements BurstService {
 
     private final SchedulerAssigner schedulerAssigner;
 
@@ -33,6 +33,10 @@ public class BurstServiceImpl implements BurstService {
 
         blockchainService = retrofit.create(BlockchainService.class);
     }
+    
+    private <T> Single<T> assign(Single<T> source) {
+        return schedulerAssigner.assignSchedulers(source);
+    }
 
     @Override
     public void updateNodeAddress(String newNodeAddress) {
@@ -41,17 +45,17 @@ public class BurstServiceImpl implements BurstService {
 
     @Override
     public Single<BlockResponse> getBlock(BurstID block) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(block.getID(), null, null, null));
+        return assign(blockchainService.getBlock(block.getID(), null, null, null));
     }
 
     @Override
     public Single<BlockResponse> getBlock(long height) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(null, String.valueOf(height), null, null));
+        return assign(blockchainService.getBlock(null, String.valueOf(height), null, null));
     }
 
     @Override
     public Single<BlockResponse> getBlock(BurstTimestamp timestamp) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(null, null, String.valueOf(timestamp.getTimestamp()), null));
+        return assign(blockchainService.getBlock(null, null, String.valueOf(timestamp.getTimestamp()), null));
     }
 
     @Override
@@ -60,82 +64,82 @@ public class BurstServiceImpl implements BurstService {
         for(int i = 0; i < includedTransactions.length; i++) {
             transactions[i] = includedTransactions[i].getID();
         }
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlock(null, null, null, transactions));
+        return assign(blockchainService.getBlock(null, null, null, transactions));
     }
 
     @Override
     public Single<BlockIDResponse> getBlockId(long height) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlockID(String.valueOf(height)));
+        return assign(blockchainService.getBlockID(String.valueOf(height)));
     }
 
     @Override
     public Single<BlockchainStatusResponse> getBlockchainStatus() {
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlockchainStatus());
+        return assign(blockchainService.getBlockchainStatus());
     }
 
     @Override
     public Single<BlocksResponse> getBlocks(long firstIndex, long lastIndex) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getBlocks(String.valueOf(firstIndex), String.valueOf(lastIndex), null));
+        return assign(blockchainService.getBlocks(String.valueOf(firstIndex), String.valueOf(lastIndex), null));
     }
 
     @Override
     public Single<ConstantsResponse> getConstants() {
-        return schedulerAssigner.assignSchedulers(blockchainService.getConstants());
+        return assign(blockchainService.getConstants());
     }
 
     @Override
     public Single<AccountResponse> getAccount(BurstAddress accountId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAccount(accountId.getNumericID()));
+        return assign(blockchainService.getAccount(accountId.getNumericID()));
     }
 
     @Override
     public Single<AccountATsResponse> getAccountATs(BurstAddress accountId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAccountATs(accountId.getNumericID()));
+        return assign(blockchainService.getAccountATs(accountId.getNumericID()));
     }
 
     @Override
     public Single<AccountBlockIDsResponse> getAccountBlockIDs(BurstAddress accountId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAccountBlockIDs(accountId.getNumericID(), null, null, null));
+        return assign(blockchainService.getAccountBlockIDs(accountId.getNumericID(), null, null, null));
     }
 
     @Override
     public Single<AccountBlocksResponse> getAccountBlocks(BurstAddress accountId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAccountBlocks(accountId.getNumericID(), null, null, null, null));
+        return assign(blockchainService.getAccountBlocks(accountId.getNumericID(), null, null, null, null));
     }
 
     @Override
     public Single<AccountPublicKeyResponse> getAccountPublicKey(BurstAddress accountId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAccountPublicKey(accountId.getNumericID()));
+        return assign(blockchainService.getAccountPublicKey(accountId.getNumericID()));
     }
 
     @Override
     public Single<ATResponse> getAt(BurstID atId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAt(atId.getID()));
+        return assign(blockchainService.getAt(atId.getID()));
     }
 
     @Override
     public Single<AtIDsResponse> getAtIds() {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAtIds());
+        return assign(blockchainService.getAtIds());
     }
 
     @Override
     public Single<AtLongResponse> getAtLong(HexStringByteArray hex) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getAtLong(hex.toHexString()));
+        return assign(blockchainService.getAtLong(hex.toHexString()));
     }
 
     @Override
     public Single<TransactionResponse> getTransaction(BurstID transactionId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getTransaction(transactionId.getID(), null));
+        return assign(blockchainService.getTransaction(transactionId.getID(), null));
     }
 
     @Override
     public Single<TransactionResponse> getTransaction(HexStringByteArray fullHash) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getTransaction(null, fullHash.toHexString()));
+        return assign(blockchainService.getTransaction(null, fullHash.toHexString()));
     }
 
     @Override
     public Single<TransactionBytesResponse> getTransactionBytes(BurstID transactionId) {
-        return schedulerAssigner.assignSchedulers(blockchainService.getTransactionBytes(transactionId.getID()));
+        return assign(blockchainService.getTransactionBytes(transactionId.getID()));
     }
 
     private interface BlockchainService {

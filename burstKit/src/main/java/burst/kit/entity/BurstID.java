@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import brs.util.Convert;
 
-public class BurstID {
+public final class BurstID {
 
     public static final JsonDeserializer<BurstID> DESERIALIZER = (json, typeOfT, context) -> new BurstID(json.getAsString());
     public static final JsonSerializer<BurstID> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getID());

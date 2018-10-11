@@ -3,7 +3,7 @@ package burst.kit.entity.response.attachment;
 import burst.kit.entity.BurstAddress;
 import com.google.gson.annotations.SerializedName;
 
-public class MultiOutSameAttachment extends TransactionAttachment {
+public final class MultiOutSameAttachment extends TransactionAttachment {
     @SerializedName("version.MultiSameOutCreation")
     private int version;
     private BurstAddress[] recipients;

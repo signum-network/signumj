@@ -9,7 +9,7 @@ import com.google.gson.JsonSerializer;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public class MultiOutAttachment extends TransactionAttachment {
+public final class MultiOutAttachment extends TransactionAttachment {
 
     private MultiOutRecipient[] recipients;
     @SerializedName("version.MultiOutCreation")

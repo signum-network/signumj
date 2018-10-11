@@ -7,7 +7,7 @@ import com.google.gson.JsonSerializer;
 
 import java.util.Arrays;
 
-public class HexStringByteArray {
+public final class HexStringByteArray {
 
     public static final JsonDeserializer<HexStringByteArray> DESERIALIZER = (json, typeOfT, context) -> new HexStringByteArray(json.getAsString());
     public static final JsonSerializer<HexStringByteArray> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.toString());

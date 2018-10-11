@@ -7,7 +7,7 @@ import com.google.gson.JsonSerializer;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class BurstValue extends BigDecimal {
+public final class BurstValue extends BigDecimal {
 
     public static final JsonDeserializer<BurstValue> DESERIALIZER = (json, typeOfT, context) -> json.isJsonNull() ? null : BurstValue.fromPlanck(json.getAsString());
     public static final JsonSerializer<BurstValue> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.toPlanck());

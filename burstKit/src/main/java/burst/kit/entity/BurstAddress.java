@@ -8,7 +8,8 @@ import java.util.Objects;
 
 import brs.util.Convert;
 
-public class BurstAddress {
+@SuppressWarnings("WeakerAccess")
+public final class BurstAddress {
 
     public static final JsonDeserializer<BurstAddress> DESERIALIZER = (json, typeOfT, context) -> fromEither(json.getAsString());
     public static final JsonSerializer<BurstAddress> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getNumericID());

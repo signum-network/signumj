@@ -3,7 +3,7 @@ package burst.kit.entity.response.attachment;
 import burst.kit.entity.HexStringByteArray;
 import com.google.gson.annotations.SerializedName;
 
-public class ATCreationAttachment extends TransactionAttachment {
+public final class ATCreationAttachment extends TransactionAttachment {
     private String name;
     private String description;
     private HexStringByteArray creationBytes;

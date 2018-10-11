@@ -1,7 +1,7 @@
 package burst.kit.entity.response;
 
 @SuppressWarnings("unused")
-public class BRSResponse {
+public abstract class BRSResponse {
     private String errorDescription;
     private int errorCode;
     private int requestProcessingTime;

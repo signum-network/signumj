@@ -3,7 +3,7 @@ package burst.kit.entity.response;
 import burst.kit.entity.*;
 
 @SuppressWarnings("unused")
-public class BlockResponse extends BRSResponse {
+public final class BlockResponse extends BRSResponse {
     private HexStringByteArray previousBlockHash;
     private int payloadLength;
     private BurstValue totalAmountNQT;

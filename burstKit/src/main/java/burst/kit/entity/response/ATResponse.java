@@ -5,7 +5,7 @@ import burst.kit.entity.HexStringByteArray;
 import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
-public class ATResponse extends BRSResponse {
+public final class ATResponse extends BRSResponse {
     private int atVersion;
     private BurstAddress creator;
     private boolean stopped;

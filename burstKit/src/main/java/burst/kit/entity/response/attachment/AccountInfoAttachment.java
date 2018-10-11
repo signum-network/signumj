@@ -3,7 +3,7 @@ package burst.kit.entity.response.attachment;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public class AccountInfoAttachment extends TransactionAttachment {
+public final class AccountInfoAttachment extends TransactionAttachment {
     private String name;
     private String description;
     @SerializedName("version.AccountInfo")

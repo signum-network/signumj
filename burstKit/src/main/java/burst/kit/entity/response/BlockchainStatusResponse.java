@@ -6,7 +6,7 @@ import burst.kit.entity.BurstTimestamp;
 import java.math.BigInteger;
 
 @SuppressWarnings("unused")
-public class BlockchainStatusResponse extends BRSResponse {
+public final class BlockchainStatusResponse extends BRSResponse {
     private BurstID lastBlock;
     private String application;
     private boolean isScanning;

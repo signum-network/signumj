@@ -5,7 +5,7 @@ import burst.kit.entity.HexStringByteArray;
 import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
-public class AccountResponse extends BRSResponse {
+public final class AccountResponse extends BRSResponse {
     private BurstValue unconfirmedBalanceNQT;
     private BurstValue guaranteedBalanceNQT;
     private BurstValue effectiveBalanceNQT;

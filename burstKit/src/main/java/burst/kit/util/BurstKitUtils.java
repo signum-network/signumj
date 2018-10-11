@@ -5,7 +5,8 @@ import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.TransactionAttachment;
 import com.google.gson.GsonBuilder;
 
-public class BurstKitUtils {
+@SuppressWarnings("WeakerAccess")
+public final class BurstKitUtils {
     public static GsonBuilder buildGson(GsonBuilder builder) {
         return builder
                 // Main Burst Entities

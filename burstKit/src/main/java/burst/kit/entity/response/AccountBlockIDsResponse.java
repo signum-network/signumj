@@ -3,7 +3,7 @@ package burst.kit.entity.response;
 import burst.kit.entity.BurstID;
 
 @SuppressWarnings("unused")
-public class AccountBlockIDsResponse extends BRSResponse {
+public final class AccountBlockIDsResponse extends BRSResponse {
     private BurstID[] blockIds;
 
     private AccountBlockIDsResponse() {}

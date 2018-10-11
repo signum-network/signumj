@@ -4,7 +4,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 
 @SuppressWarnings("unused")
-public class ConstantsResponse extends BRSResponse {
+public final class ConstantsResponse extends BRSResponse {
     private int maxBlockPayloadLength;
     private BurstAddress genesisAccountId;
     private BurstID genesisBlockId;

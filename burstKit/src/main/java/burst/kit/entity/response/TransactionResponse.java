@@ -4,7 +4,7 @@ import burst.kit.entity.*;
 import burst.kit.entity.response.attachment.TransactionAttachment;
 
 @SuppressWarnings("unused")
-public class TransactionResponse extends BRSResponse {
+public final class TransactionResponse extends BRSResponse {
     private HexStringByteArray senderPublicKey;
     private HexStringByteArray signature;
     private BurstValue feeNQT;

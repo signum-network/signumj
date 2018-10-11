@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 
-public class BurstTimestamp {
+public final class BurstTimestamp {
 
     public static final JsonDeserializer<BurstTimestamp> DESERIALIZER = (json, typeOfT, context) -> new BurstTimestamp(json.getAsInt());
     public static final JsonSerializer<BurstTimestamp> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getTimestamp());
