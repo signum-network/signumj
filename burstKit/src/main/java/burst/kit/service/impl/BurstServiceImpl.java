@@ -4,7 +4,6 @@ import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
-import com.google.gson.GsonBuilder;
 
 import burst.kit.service.BurstService;
 import io.reactivex.Single;
@@ -105,6 +104,11 @@ public class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<AccountPublicKeyResponse> getAccountPublicKey(BurstAddress accountId) {
+        return schedulerAssigner.assignSchedulers(blockchainService.getAccountPublicKey(accountId.getNumericID()));
+    }
+
+    @Override
     public Single<ATResponse> getAt(BurstID atId) {
         return schedulerAssigner.assignSchedulers(blockchainService.getAt(atId.getID()));
     }
@@ -161,6 +165,9 @@ public class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getAccountBlocks")
         Single<AccountBlocksResponse> getAccountBlocks(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("includeTransactions") String[] includedTransactions);
+
+        @GET("burst?requestType=getAccountPublicKey")
+        Single<AccountPublicKeyResponse> getAccountPublicKey(@Query("account") String accountId);
 
         @GET("burst?requestType=getAt")
         Single<ATResponse> getAt(@Query("at") String atId);

@@ -73,6 +73,11 @@ public class BurstServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetAccountPublicKey() {
+        AccountPublicKeyResponse accountPublicKeyResponse = SingleTestUtils.testSingle(burstService.getAccountPublicKey(TestVariables.EXAMPLE_ACCOUNT_ID));
+    }
+
+    @Test
     public void testBurstServiceGetAT() {
         ATResponse accountATsResponse = SingleTestUtils.testSingle(burstService.getAt(TestVariables.EXAMPLE_AT_ID));
     }
