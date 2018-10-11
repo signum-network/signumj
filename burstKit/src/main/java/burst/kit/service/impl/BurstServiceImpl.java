@@ -113,6 +113,16 @@ public final class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<AccountTransactionIDsResponse> getAccountTransactionIDs(BurstAddress accountId) {
+        return assign(blockchainService.getAccountTransactionIDs(accountId.getNumericID(), null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<AccountTransactionsResponse> getAccountTransactions(BurstAddress accountId) {
+        return assign(blockchainService.getAccountTransactions(accountId.getNumericID(), null, null, null, null, null, null));
+    }
+
+    @Override
     public Single<ATResponse> getAt(BurstID atId) {
         return assign(blockchainService.getAt(atId.getID()));
     }
@@ -172,6 +182,12 @@ public final class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getAccountPublicKey")
         Single<AccountPublicKeyResponse> getAccountPublicKey(@Query("account") String accountId);
+
+        @GET("burst?requestType=getAccountTransactionIds")
+        Single<AccountTransactionIDsResponse> getAccountTransactionIDs(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type, @Query("subtype") String subtype, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
+
+        @GET("burst?requestType=getAccountTransactions")
+        Single<AccountTransactionsResponse> getAccountTransactions(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type, @Query("subtype") String subtype, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
 
         @GET("burst?requestType=getAt")
         Single<ATResponse> getAt(@Query("at") String atId);

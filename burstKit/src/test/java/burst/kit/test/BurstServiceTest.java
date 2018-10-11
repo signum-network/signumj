@@ -78,6 +78,16 @@ public class BurstServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetAccountTransactionIDs() {
+        AccountTransactionIDsResponse accountTransactionIDsResponse = SingleTestUtils.testSingle(burstService.getAccountTransactionIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
+    }
+
+    @Test
+    public void testBurstServiceGetAccountTransactions() {
+        AccountTransactionsResponse accountTransactionsResponse = SingleTestUtils.testSingle(burstService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
+    }
+
+    @Test
     public void testBurstServiceGetAT() {
         ATResponse accountATsResponse = SingleTestUtils.testSingle(burstService.getAt(TestVariables.EXAMPLE_AT_ID));
     }
