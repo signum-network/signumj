@@ -10,6 +10,7 @@ public class TestVariables {
     public static final BurstTimestamp EXAMPLE_TIMESTAMP = new BurstTimestamp(126144000); // 4 years
     public static final BurstID EXAMPLE_BLOCK_ID = new BurstID("9466704733664017405");
     public static final BurstAddress EXAMPLE_ACCOUNT_ID = BurstAddress.fromNumericId(new BurstID("7009665667967103287"));
+    public static final BurstAddress EXAMPLE_POOL_ACCOUNT_ID = BurstAddress.fromNumericId(new BurstID("888561138747819634"));
     public static final HexStringByteArray EXAMPLE_ACCOUNT_PUBKEY = new HexStringByteArray("34d010e80c0d6dc409f8d7a99d0815bfbff9387909a9fca4c65253ec44fad360");
     public static final String EXAMPLE_ACCOUNT_RS = "BURST-W5YR-ZZQC-KUBJ-G78KB";
 

@@ -123,6 +123,11 @@ public final class BurstServiceImpl implements BurstService {
     }
 
     @Override
+    public Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(BurstAddress accountId) {
+        return assign(blockchainService.getAccountsWithRewardRecipient(accountId.getNumericID()));
+    }
+
+    @Override
     public Single<ATResponse> getAt(BurstID atId) {
         return assign(blockchainService.getAt(atId.getID()));
     }
@@ -188,6 +193,9 @@ public final class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getAccountTransactions")
         Single<AccountTransactionsResponse> getAccountTransactions(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type, @Query("subtype") String subtype, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
+
+        @GET("burst?requestType=getAccountsWithRewardRecipient")
+        Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(@Query("account") String accountId);
 
         @GET("burst?requestType=getAt")
         Single<ATResponse> getAt(@Query("at") String atId);

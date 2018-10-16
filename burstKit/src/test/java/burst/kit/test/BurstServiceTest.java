@@ -88,6 +88,11 @@ public class BurstServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetAccountWithRewardRecipient() {
+        AccountsWithRewardRecipientResponse accountsWithRewardRecipientResponse = SingleTestUtils.testSingle(burstService.getAccountsWithRewardRecipient(TestVariables.EXAMPLE_POOL_ACCOUNT_ID));
+    }
+
+    @Test
     public void testBurstServiceGetAT() {
         ATResponse accountATsResponse = SingleTestUtils.testSingle(burstService.getAt(TestVariables.EXAMPLE_AT_ID));
     }

@@ -28,6 +28,7 @@ public interface BurstService {
     Single<AccountPublicKeyResponse> getAccountPublicKey(BurstAddress accountId);
     Single<AccountTransactionIDsResponse> getAccountTransactionIDs(BurstAddress accountId); // TODO filtering
     Single<AccountTransactionsResponse> getAccountTransactions(BurstAddress accountId); // TODO filtering
+    Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(BurstAddress accountId); // TODO finish
     Single<ATResponse> getAt(BurstID atId);
     Single<AtIDsResponse> getAtIds();
     Single<AtLongResponse> getAtLong(HexStringByteArray hex);
