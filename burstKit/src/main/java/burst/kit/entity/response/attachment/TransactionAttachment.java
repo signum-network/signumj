@@ -11,7 +11,13 @@ public abstract class TransactionAttachment {
     private static TransactionAttachment deserialize(JsonObject source) {
         Gson gson = newGson();
 
-        if (source.has("version.AccountInfo")) {
+        if (source.has("version.Message")) {
+            return gson.fromJson(source, MessageAttachment.class);
+        } else if (source.has("version.EncryptedMessage")) {
+            return gson.fromJson(source, EncryptedMessageAttachment.class);
+        } else if (source.has("version.EncryptToSelfMessage")) {
+            return gson.fromJson(source, EncryptToSelfMessageAttachment.class);
+        } else if (source.has("version.AccountInfo")) {
             return gson.fromJson(source, AccountInfoAttachment.class);
         } else if (source.has("version.MultiOutCreation")) {
             return gson.fromJson(source, MultiOutAttachment.class);
