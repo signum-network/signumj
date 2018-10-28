@@ -1,9 +1,6 @@
 package burst.kit.service;
 
-import burst.kit.entity.BurstAddress;
-import burst.kit.entity.HexStringByteArray;
-import burst.kit.entity.BurstID;
-import burst.kit.entity.BurstTimestamp;
+import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.impl.BurstServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
@@ -35,6 +32,24 @@ public interface BurstService {
     Single<TransactionResponse> getTransaction(BurstID transactionId);
     Single<TransactionResponse> getTransaction(HexStringByteArray fullHash);
     Single<TransactionBytesResponse> getTransactionBytes(BurstID transactionId);
+    Single<GenerateTransactionResponse> generateTransaction(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
+    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<GenerateTransactionResponse> sendMoney(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline);
+    Single<GenerateTransactionResponse> sendMoneyWithMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> sendMoneyWithMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);

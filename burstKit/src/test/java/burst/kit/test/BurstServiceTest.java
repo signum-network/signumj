@@ -1,6 +1,7 @@
 package burst.kit.test;
 
 import burst.kit.entity.BurstID;
+import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.*;
 import burst.kit.entity.response.attachment.ATCreationAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
@@ -128,5 +129,12 @@ public class BurstServiceTest {
     @Test
     public void testBurstServiceGetTransactionBytes() {
         TransactionBytesResponse transactionBytesResponse = SingleTestUtils.testSingle(burstService.getTransactionBytes(TestVariables.EXAMPLE_TRANSACTION_ID));
+    }
+
+    @Test
+    public void testBurstServiceGenerateTransaction() {
+        GenerateTransactionResponse withoutMessage = SingleTestUtils.testSingle(burstService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
+        GenerateTransactionResponse withStringMessage = SingleTestUtils.testSingle(burstService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, "Test Transaction"));
+        GenerateTransactionResponse withBytesMessage = SingleTestUtils.testSingle(burstService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY));
     }
 }

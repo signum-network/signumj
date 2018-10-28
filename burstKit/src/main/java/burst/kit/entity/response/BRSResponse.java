@@ -3,8 +3,8 @@ package burst.kit.entity.response;
 @SuppressWarnings("unused")
 public abstract class BRSResponse {
     private String errorDescription;
-    private int errorCode;
-    private int requestProcessingTime;
+    private Integer errorCode;
+    private Integer requestProcessingTime;
 
     BRSResponse() {}
 
@@ -16,11 +16,11 @@ public abstract class BRSResponse {
         return errorDescription;
     }
 
-    public int getErrorCode() {
+    public Integer getErrorCode() {
         return errorCode;
     }
 
-    public int getRequestProcessingTime() {
+    public Integer getRequestProcessingTime() {
         return requestProcessingTime;
     }
 }

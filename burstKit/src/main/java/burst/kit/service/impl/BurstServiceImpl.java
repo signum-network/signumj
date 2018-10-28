@@ -11,6 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public final class BurstServiceImpl implements BurstService {
@@ -157,6 +158,96 @@ public final class BurstServiceImpl implements BurstService {
         return assign(blockchainService.getTransactionBytes(transactionId.getID()));
     }
 
+    @Override
+    public Single<GenerateTransactionResponse> generateTransaction(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, message, true, null, null, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, message.toHexString(), false, null, null, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, message, true, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, message.toHexString(), false, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, message.isText(), message.getData().toHexString(), message.getNonce().toHexString() ,null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, message, true, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, message.toHexString(), false, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, message.isText(), message.getData().toHexString(), message.getNonce().toHexString()));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoney(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, message, true, null, null, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, message.toHexString(), false, null, null, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, message, true, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, message.toHexString(), false, null, null, null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, message.isText(), message.getData().toHexString(), message.getNonce().toHexString() ,null, null, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, message, true, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, message.toHexString(), false, null, null));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(blockchainService.sendMoney(recipient.getNumericID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, null, message.isText(), message.getData().toHexString(), message.getNonce().toHexString()));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -211,5 +302,8 @@ public final class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getTransactionBytes")
         Single<TransactionBytesResponse> getTransactionBytes(@Query("transaction") String transaction);
+
+        @POST("burst?requestType=sendMoney")
+        Single<GenerateTransactionResponse> sendMoney(@Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey, @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase, @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline, @Query("referencedTransactionFullHash") String referencedTransactionFullHash, @Query("broadcast") boolean broadcast, @Query("message") String message, @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt, @Query("messageToEncryptIsText") Boolean messageToEncryptIsText, @Query("encryptedMessageData") String encryptedMessageData, @Query("encryptedMessageNonce") String encryptedMessageNonce, @Query("messageToEncryptToSelf") String messageToEncryptToSelf, @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText, @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData, @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
     }
 }

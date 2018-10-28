@@ -23,6 +23,7 @@ public final class TransactionResponse extends BRSResponse {
     private BurstID transaction;
     private BurstTimestamp timestamp;
     private int height;
+    private HexStringByteArray referencedTransactionFullHash;
 
     private TransactionResponse() {}
 
@@ -96,5 +97,9 @@ public final class TransactionResponse extends BRSResponse {
 
     public int getHeight() {
         return height;
+    }
+
+    public HexStringByteArray getReferencedTransactionFullHash() {
+        return referencedTransactionFullHash;
     }
 }
