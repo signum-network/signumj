@@ -5,15 +5,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 
-//import org.bouncycastle.crypto.CipherParameters;
-//import org.bouncycastle.crypto.InvalidCipherTextException;
-//import org.bouncycastle.crypto.engines.AESEngine;
-//import org.bouncycastle.crypto.modes.CBCBlockCipher;
-//import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-//import org.bouncycastle.crypto.params.KeyParameter;
-//import org.bouncycastle.crypto.params.ParametersWithIV;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import org.bouncycastle.crypto.CipherParameters;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.engines.AESEngine;
+import org.bouncycastle.crypto.modes.CBCBlockCipher;
+import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
+import org.bouncycastle.crypto.params.KeyParameter;
+import org.bouncycastle.crypto.params.ParametersWithIV;
 
 import brs.util.Convert;
 
@@ -55,6 +53,12 @@ public final class Crypto {
     byte[] s = Crypto.sha256().digest(Convert.toBytes(secretPhrase));
     Curve25519.clamp(s);
     return s;
+  }
+
+  public static byte[] privateToPublicKey(byte[] privateKey) {
+    byte[] publicKey = new byte[32];
+    Curve25519.keygen(publicKey, null, privateKey);
+    return publicKey;
   }
 
   public static void curve(byte[] Z, byte[] k, byte[] P) {
@@ -115,7 +119,7 @@ public final class Crypto {
     return Arrays.equals(h, h2);
   }
 
-  /*public static byte[] aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey) {
+  public static byte[] aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey) {
     return aesEncrypt(plaintext, myPrivateKey, theirPublicKey, new byte[32]);
   }
 
@@ -173,7 +177,7 @@ public final class Crypto {
     } catch (InvalidCipherTextException e) {
       throw new RuntimeException(e.getMessage(), e);
     }
-  }*/
+  }
 
   public static byte[] getSharedSecret(byte[] myPrivateKey, byte[] theirPublicKey) {
     try {

@@ -10,6 +10,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 
+    // Bouncy Castle
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.60'
+
     // Testing
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.0'
