@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-public class EncryptedMessageTest {
+public class BurstCryptoTest {
     @Test
-    public void TestEncryptedMessage() {
+    public void TestEncryptTextMessage() {
         String message = "Test message";
 
         byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
@@ -25,5 +25,14 @@ public class EncryptedMessageTest {
 
         Assert.assertEquals(message, result1);
         Assert.assertEquals(message, result2);
+    }
+
+    @Test
+    public void TestSignAndVerify() {
+        byte[] myMessage = "A Message".getBytes();
+        byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
+        byte[] myPublic = BurstCrypto.getInstance().getPublicKey(myPrivateKey);
+        byte[] signature = BurstCrypto.getInstance().sign(myMessage, myPrivateKey);
+        Assert.assertTrue(BurstCrypto.getInstance().verify(signature, myMessage, myPublic, true));
     }
 }

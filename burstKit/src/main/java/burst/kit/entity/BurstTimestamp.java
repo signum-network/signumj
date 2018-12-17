@@ -19,7 +19,7 @@ public final class BurstTimestamp {
 
     public BurstTimestamp(int timestamp) {
         this.timestamp = timestamp;
-        this.date = BurstCrypto.getInstance().fromEpochTime(timestamp + 1);
+        this.date = BurstCrypto.getInstance().fromEpochTime(timestamp);
     }
 
     public long getTimestamp() {

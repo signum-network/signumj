@@ -357,6 +357,7 @@ final class Curve25519 {
   }
 
   private static int numsize(byte[] x, int n) {
+    while (n-- != 0 && x[n] == 0);
     return n + 1;
   }
 

@@ -29,13 +29,10 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     static final BurstCryptoImpl INSTANCE = new BurstCryptoImpl();
 
-    private final MessageDigest sha256;
     private final ThreadLocal<SecureRandom> secureRandom = ThreadLocal.withInitial(SecureRandom::new);
     private final long EPOCH_BEGINNING;
 
     private BurstCryptoImpl() {
-        this.sha256 = getSha256();
-
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.YEAR, 2014);
         calendar.set(Calendar.MONTH, Calendar.AUGUST);
@@ -53,7 +50,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] getPrivateKey(String passphrase) {
-        byte[] s = sha256.digest(stringToBytes(passphrase));
+        byte[] s = getSha256().digest(stringToBytes(passphrase));
         Curve25519.clamp(s);
         return s;
     }
@@ -67,7 +64,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public BurstAddress getBurstAddressFromPublic(byte[] publicKey) {
-        byte[] hash = sha256.digest(publicKey);
+        byte[] hash = getSha256().digest(publicKey);
         BigInteger bigInteger = new BigInteger(1, new byte[] {hash[7], hash[6], hash[5], hash[4], hash[3], hash[2], hash[1], hash[0]});
         return BurstAddress.fromNumericId(new BurstID(bigInteger.longValue()));
     }
@@ -144,7 +141,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             for (int i = 0; i < 32; i++) {
                 sharedSecret[i] ^= nonce[i];
             }
-            byte[] key = sha256.digest(sharedSecret);
+            byte[] key = getSha256().digest(sharedSecret);
             byte[] iv = new byte[16];
             secureRandom.get().nextBytes(iv);
             PaddedBufferedBlockCipher aes = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()));
@@ -174,7 +171,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             for (int i = 0; i < 32; i++) {
                 sharedSecret[i] ^= nonce[i];
             }
-            byte[] key = sha256.digest(sharedSecret);
+            byte[] key = getSha256().digest(sharedSecret);
             PaddedBufferedBlockCipher aes = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()));
             CipherParameters ivAndKey = new ParametersWithIV(new KeyParameter(key), iv);
             aes.init(false, ivAndKey);
