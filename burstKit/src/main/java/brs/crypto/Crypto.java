@@ -66,7 +66,6 @@ public final class Crypto {
   }
 
   public static byte[] sign(byte[] message, String secretPhrase) {
-
     byte[] P = new byte[32];
     byte[] s = new byte[32];
     MessageDigest digest = Crypto.sha256();
