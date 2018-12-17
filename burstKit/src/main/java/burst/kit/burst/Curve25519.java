@@ -22,7 +22,7 @@ final class Curve25519 {
       (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 255, (byte) 127 };
 
   /* group order (a prime near 2^252+2^124) */
-  protected static final byte[] ORDER = { (byte) 237, (byte) 211, (byte) 245, (byte) 92, (byte) 26, (byte) 99, (byte) 18, (byte) 88, (byte) 214, (byte) 156, (byte) 247, (byte) 162, (byte) 222, (byte) 249, (byte) 222, (byte) 20, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0,
+  private static final byte[] ORDER = { (byte) 237, (byte) 211, (byte) 245, (byte) 92, (byte) 26, (byte) 99, (byte) 18, (byte) 88, (byte) 214, (byte) 156, (byte) 247, (byte) 162, (byte) 222, (byte) 249, (byte) 222, (byte) 20, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0,
       (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 0, (byte) 16 };
 
   /********* KEY AGREEMENT *********/
@@ -31,7 +31,7 @@ final class Curve25519 {
    *   k [out] your private key for key agreement
    *   k  [in]  32 random bytes
    */
-  public static void clamp(byte[] k) {
+  static void clamp(byte[] k) {
     k[31] &= 0x7F;
     k[31] |= 0x40;
     k[0] &= 0xF8;
@@ -45,7 +45,7 @@ final class Curve25519 {
    * s may be NULL if you don't care
    *
    * WARNING: if s is not NULL, this function has data-dependent timing */
-  public static void keygen(byte[] P, byte[] s, byte[] k) {
+  static void keygen(byte[] P, byte[] s, byte[] k) {
     clamp(k);
     core(P, s, k, null);
   }
@@ -55,7 +55,7 @@ final class Curve25519 {
    *   @param k  [in]  your private key for key agreement
    *   @param P  [in]  peer's public key
    */
-  public static void curve(byte[] Z, byte[] k, byte[] P) {
+  static void curve(byte[] Z, byte[] k, byte[] P) {
     core(Z, null, k, P);
   }
 
@@ -103,7 +103,7 @@ final class Curve25519 {
    *   @param s  [in]  private key for signing
    * returns true on success, false on failure (use different x or h)
    */
-  public static boolean sign(byte[] v, byte[] h, byte[] x, byte[] s) {
+  static boolean sign(byte[] v, byte[] h, byte[] x, byte[] s) {
     // v = (x - h) s  mod q
     int w, i;
     byte[] h1 = new byte[32], x1 = new byte[32];
@@ -141,7 +141,7 @@ final class Curve25519 {
    *   @param h  [in]  signature hash
    *   @param P  [in]  public key
    */
-  public static void verify(byte[] Y, byte[] v, byte[] h, byte[] P) {
+  static void verify(byte[] Y, byte[] v, byte[] h, byte[] P) {
     /* Y = v abs(P) + h G  */
     byte[] d = new byte[32];
     long10[] p = new long10[] { new long10(), new long10() }, s = new long10[] { new long10(), new long10() }, yx = new long10[] { new long10(), new long10(), new long10() }, yz = new long10[] { new long10(), new long10(), new long10() },
@@ -242,7 +242,7 @@ final class Curve25519 {
     pack(t1[1], Y);
   }
 
-  public static boolean isCanonicalSignature(byte[] v) {
+  static boolean isCanonicalSignature(byte[] v) {
     byte[] vCopy = java.util.Arrays.copyOfRange(v, 0, 32);
     byte[] tmp = new byte[32];
     divmod(tmp, vCopy, 32, ORDER, 32);
@@ -253,7 +253,7 @@ final class Curve25519 {
     return true;
   }
 
-  public static boolean isCanonicalPublicKey(byte[] publicKey) {
+  static boolean isCanonicalPublicKey(byte[] publicKey) {
     if (publicKey.length != 32) {
       return false;
     }
@@ -274,10 +274,9 @@ final class Curve25519 {
   /* sahn0:
    * Using this class instead of long[10] to avoid bounds checks. */
   private static final class long10 {
-    public long10() {
-    }
+    private long10() {}
 
-    public long10(long _0, long _1, long _2, long _3, long _4, long _5, long _6, long _7, long _8, long _9) {
+    private long10(long _0, long _1, long _2, long _3, long _4, long _5, long _6, long _7, long _8, long _9) {
       this._0 = _0;
       this._1 = _1;
       this._2 = _2;
@@ -358,8 +357,6 @@ final class Curve25519 {
   }
 
   private static int numsize(byte[] x, int n) {
-    while (n-- != 0 && x[n] == 0)
-      ;
     return n + 1;
   }
 
@@ -424,7 +421,7 @@ final class Curve25519 {
    *     set --  if input in range 0 .. P25
    * If you're unsure if the number is reduced, first multiply it by 1.  */
   private static void pack(long10 x, byte[] m) {
-    int ld = 0, ud = 0;
+    int ld, ud;
     long t;
     ld = (is_overflow(x) ? 1 : 0) - ((x._9 < 0) ? 1 : 0);
     ud = ld * -(P25 + 1);
@@ -785,9 +782,6 @@ final class Curve25519 {
     set(z[1], 1);
 
     for (i = 32; i-- != 0;) {
-      if (i == 0) {
-        i = 0;
-      }
       for (j = 8; j-- != 0;) {
         /* swap arguments depending on bit */
         int bit1 = (k[i] & 0xFF) >> j & 1;

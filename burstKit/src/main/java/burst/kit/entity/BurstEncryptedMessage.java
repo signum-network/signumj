@@ -2,8 +2,6 @@ package burst.kit.entity;
 
 import burst.kit.burst.BurstCrypto;
 
-import java.security.SecureRandom;
-
 public class BurstEncryptedMessage {
     /**
      Needs to be a HexStringByteArray for serialization.

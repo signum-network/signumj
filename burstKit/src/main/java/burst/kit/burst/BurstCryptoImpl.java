@@ -203,8 +203,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (message.length == 0) {
             return new BurstEncryptedMessage(new byte[0], new byte[0], isText);
         }
-        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
-             GZIPOutputStream gzip = new GZIPOutputStream(bos)) {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream(); GZIPOutputStream gzip = new GZIPOutputStream(bos)) {
             gzip.write(message);
             gzip.flush();
             gzip.close();
@@ -212,7 +211,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             byte[] nonce = new byte[32];
             secureRandom.get().nextBytes(nonce);
             byte[] data = aesEncrypt(compressedPlaintext, myPrivateKey, theirPublicKey, nonce);
-            return new BurstEncryptedMessage(data, nonce, true);
+            return new BurstEncryptedMessage(data, nonce, isText);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
@@ -224,12 +223,10 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             return message.getData();
         }
         byte[] compressedPlaintext = aesDecrypt(message.getData(), myPrivateKey, theirPublicKey, message.getNonce());
-        try (ByteArrayInputStream bis = new ByteArrayInputStream(compressedPlaintext);
-             GZIPInputStream gzip = new GZIPInputStream(bis);
-             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+        try (ByteArrayInputStream bis = new ByteArrayInputStream(compressedPlaintext); GZIPInputStream gzip = new GZIPInputStream(bis); ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[1024];
             int nRead;
-            while ((nRead = gzip.read(buffer, 0, buffer.length)) > 0) {
+            while((nRead = gzip.read(buffer, 0, buffer.length)) > 0) {
                 bos.write(buffer, 0, nRead);
             }
             bos.flush();

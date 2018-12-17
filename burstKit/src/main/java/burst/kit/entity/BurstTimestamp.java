@@ -1,6 +1,5 @@
 package burst.kit.entity;
 
-import brs.util.Convert;
 import burst.kit.burst.BurstCrypto;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;

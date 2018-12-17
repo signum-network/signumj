@@ -6,6 +6,7 @@ import burst.kit.entity.BurstEncryptedMessage;
 
 import java.nio.charset.StandardCharsets;
 
+@SuppressWarnings("WeakerAccess")
 abstract class AbstractBurstCrypto implements BurstCrypto {
     protected byte[] stringToBytes(String string) {
         return string.getBytes(StandardCharsets.UTF_8);

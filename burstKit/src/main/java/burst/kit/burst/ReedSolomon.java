@@ -84,7 +84,7 @@ final class ReedSolomon {
     for (int i = 0; i < cypher_string.length(); i++) {
       int position_in_alphabet = ReedSolomon.alphabet.indexOf(cypher_string.charAt(i));
 
-      if (position_in_alphabet <= -1 || position_in_alphabet > ReedSolomon.alphabet.length()) {
+      if (position_in_alphabet <= -1) {
         continue;
       }
 
@@ -97,7 +97,7 @@ final class ReedSolomon {
       codeword_length += 1;
     }
 
-    if (codeword_length == 17 && !ReedSolomon.is_codeword_valid(codeword) || codeword_length != 17) {
+    if (codeword_length != 17 || !ReedSolomon.is_codeword_valid(codeword)) {
       throw new CodewordInvalidException();
     }
 
