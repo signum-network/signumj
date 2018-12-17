@@ -1,9 +1,9 @@
 package burst.kit.entity;
 
-import brs.util.Convert;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.util.Arrays;
 
@@ -15,7 +15,7 @@ public final class HexStringByteArray {
     private final byte[] bytes;
 
     public HexStringByteArray(String stringRepresentation) {
-        this.bytes = Convert.parseHexString(stringRepresentation);
+        this.bytes = Hex.decode(stringRepresentation);
     }
 
     public HexStringByteArray(byte[] bytes) {
@@ -27,7 +27,7 @@ public final class HexStringByteArray {
     }
 
     public String toHexString() {
-        return Convert.toHexString(bytes);
+        return Hex.toHexString(bytes);
     }
 
     @Override

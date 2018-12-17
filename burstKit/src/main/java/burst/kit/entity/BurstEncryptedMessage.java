@@ -1,20 +1,10 @@
 package burst.kit.entity;
 
-import brs.crypto.Crypto;
 import burst.kit.burst.BurstCrypto;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 public class BurstEncryptedMessage {
-
-    private static final ThreadLocal<SecureRandom> secureRandom = ThreadLocal.withInitial(SecureRandom::new);
-
     /**
      Needs to be a HexStringByteArray for serialization.
       */
@@ -24,32 +14,42 @@ public class BurstEncryptedMessage {
      */
     private final HexStringByteArray nonce;
 
-    private final boolean isText = true; // TODO
+    private final boolean isText;
 
-    public BurstEncryptedMessage(HexStringByteArray data, HexStringByteArray nonce) {
+    public BurstEncryptedMessage(HexStringByteArray data, HexStringByteArray nonce, boolean isText) {
         this.data = data;
         this.nonce = nonce;
+        this.isText = isText;
     }
 
-    public BurstEncryptedMessage(byte[] data, byte[] nonce) {
+    public BurstEncryptedMessage(byte[] data, byte[] nonce, boolean isText) {
         this.data = new HexStringByteArray(data);
         this.nonce = new HexStringByteArray(nonce);
+        this.isText = isText;
     }
 
-    public static BurstEncryptedMessage encrypt(String message, byte[] myPrivateKey, byte[] theirPublicKey) {
-        return BurstCrypto.getInstance().encryptMessage(message, myPrivateKey, theirPublicKey);
+    public byte[] decrypt(String myPassphrase, byte[] theirPublicKey) {
+        return BurstCrypto.getInstance().decryptMessage(this, myPassphrase, theirPublicKey);
     }
 
     public byte[] decrypt(byte[] myPrivateKey, byte[] theirPublicKey) {
         return BurstCrypto.getInstance().decryptMessage(this, myPrivateKey, theirPublicKey);
     }
 
-    public HexStringByteArray getData() {
+    public HexStringByteArray getHexStringData() {
         return data;
     }
 
-    public HexStringByteArray getNonce() {
+    public byte[] getData() {
+        return data.getBytes();
+    }
+
+    public HexStringByteArray getHexStringNonce() {
         return nonce;
+    }
+
+    public byte[] getNonce() {
+        return nonce.getBytes();
     }
 
     public boolean isText() {

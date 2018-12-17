@@ -1,6 +1,7 @@
 package burst.kit.entity;
 
 import brs.util.Convert;
+import burst.kit.burst.BurstCrypto;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
@@ -19,7 +20,7 @@ public final class BurstTimestamp {
 
     public BurstTimestamp(int timestamp) {
         this.timestamp = timestamp;
-        this.date = Convert.fromEpochTime(timestamp + 1);
+        this.date = BurstCrypto.getInstance().fromEpochTime(timestamp + 1);
     }
 
     public long getTimestamp() {

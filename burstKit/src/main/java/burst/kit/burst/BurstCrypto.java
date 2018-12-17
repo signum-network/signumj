@@ -2,67 +2,64 @@ package burst.kit.burst;
 
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
-import burst.kit.entity.HexStringByteArray;
+import burst.kit.entity.BurstID;
 
-import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 public interface BurstCrypto {
-    HexStringByteArray getPrivateKey(String passphrase); // Converged.
+    byte[] getPrivateKey(String passphrase);
     
-    HexStringByteArray getPublicKey(String passphrase);
-    HexStringByteArray getPublicKey(byte[] privateKey); // Converged.
-    HexStringByteArray getPublicKey(HexStringByteArray privateKey);
+    byte[] getPublicKey(String passphrase);
+    byte[] getPublicKey(byte[] privateKey);
     
     BurstAddress getBurstAddressFromPassphrase(String passphrase);
     BurstAddress getBurstAddressFromPrivate(byte[] privateKey);
-    BurstAddress getBurstAddressFromPrivate(HexStringByteArray privateKey);
-    BurstAddress getBurstAddressFromPublic(byte[] publicKey); // Converged.
-    BurstAddress getBurstAddressFromPublic(HexStringByteArray publicKey);
+    BurstAddress getBurstAddressFromPublic(byte[] publicKey);
 
-    HexStringByteArray getSharedSecret(String myPassphrase, byte[] theirPublicKey);
-    HexStringByteArray getSharedSecret(String myPassphrase, HexStringByteArray theirPublicKey);
-    HexStringByteArray getSharedSecret(byte[] myPrivateKey, byte[] theirPublicKey); // Converged.
-    HexStringByteArray getSharedSecret(byte[] myPrivateKey, HexStringByteArray theirPublicKey);
-    HexStringByteArray getSharedSecret(HexStringByteArray myPrivateKey, byte[] theirPublicKey);
-    HexStringByteArray getSharedSecret(HexStringByteArray myPrivateKey, HexStringByteArray theirPublicKey);
+    BurstID fullHashToId(byte[] fullHash) throws IllegalArgumentException;
 
-    HexStringByteArray sign(byte[] message, String passphrase);
-    HexStringByteArray sign(byte[] message, byte[] privateKey); // Converged.
-    HexStringByteArray sign(byte[] message, HexStringByteArray privateKey);
-    HexStringByteArray sign(HexStringByteArray message, String passphrase);
-    HexStringByteArray sign(HexStringByteArray message, byte[] privateKey);
-    HexStringByteArray sign(HexStringByteArray message, HexStringByteArray privateKey);
-    HexStringByteArray sign(String message, String passphrase);
-    HexStringByteArray sign(String message, byte[] privateKey);
-    HexStringByteArray sign(String message, HexStringByteArray privateKey);
+    byte[] getSharedSecret(String myPassphrase, byte[] theirPublicKey);
+    byte[] getSharedSecret(byte[] myPrivateKey, byte[] theirPublicKey);
 
-    boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical); // Converged.
-    boolean verify(HexStringByteArray signature, HexStringByteArray message, HexStringByteArray publicKey, boolean enforceCanonical);
+    byte[] sign(byte[] message, String passphrase);
+    byte[] sign(byte[] message, byte[] privateKey);
+    byte[] sign(String message, String passphrase);
+    byte[] sign(String message, byte[] privateKey);
 
-    // TODO multiplex this properly.
-    HexStringByteArray aesEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey);
-    HexStringByteArray aesEncrypt(HexStringByteArray plaintext, String myPassphrase, byte[] theirPublicKey);
-    HexStringByteArray aesEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey);
-    HexStringByteArray aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey);
-    HexStringByteArray aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce); // Converged.
-    HexStringByteArray aesEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce);
-    HexStringByteArray aesEncrypt(HexStringByteArray plaintext, HexStringByteArray myPrivateKey, HexStringByteArray theirPublicKey);
-    HexStringByteArray aesEncrypt(HexStringByteArray plaintext, HexStringByteArray myPrivateKey, HexStringByteArray theirPublicKey, HexStringByteArray nonce);
-    HexStringByteArray aesEncrypt(String plaintext, HexStringByteArray myPrivateKey, HexStringByteArray theirPublicKey, HexStringByteArray nonce);
+    boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical);
 
-    // TODO multiplex this properly.
-    HexStringByteArray aesDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey);
-    HexStringByteArray aesDecrypt(HexStringByteArray encrypted, String myPassphrase, byte[] theirPublicKey);
-    HexStringByteArray aesDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey);
-    HexStringByteArray aesDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce); // Converged.
-    HexStringByteArray aesDecrypt(HexStringByteArray encrypted, HexStringByteArray myPrivateKey, HexStringByteArray theirPublicKey);
-    HexStringByteArray aesDecrypt(HexStringByteArray encrypted, HexStringByteArray myPrivateKey, HexStringByteArray theirPublicKey, HexStringByteArray nonce);
+    byte[] aesEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey);
+    byte[] aesEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey, byte[] nonce);
+    byte[] aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey);
+    byte[] aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce);
+    byte[] aesEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey);
+    byte[] aesEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey, byte[] nonce);
+    byte[] aesEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey);
+    byte[] aesEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce);
 
-    BurstEncryptedMessage encryptMessage(String message, byte[] myPrivateKey, byte[] theirPublicKey);
+    byte[] aesDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey);
+    byte[] aesDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey, byte[] nonce);
+    byte[] aesDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey);
+    byte[] aesDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce);
+    byte[] aesDecrypt(String encrypted, String myPassphrase, byte[] theirPublicKey);
+    byte[] aesDecrypt(String encrypted, String myPassphrase, byte[] theirPublicKey, byte[] nonce);
+    byte[] aesDecrypt(String encrypted, byte[] myPrivateKey, byte[] theirPublicKey);
+    byte[] aesDecrypt(String encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce);
 
+    BurstEncryptedMessage encryptBytesMessage(byte[] message, String myPassphrase, byte[] theirPublicKey);
+    BurstEncryptedMessage encryptBytesMessage(byte[] message, byte[] myPrivateKey, byte[] theirPublicKey);
+    BurstEncryptedMessage encryptTextMessage(String message, String myPassphrase, byte[] theirPublicKey);
+    BurstEncryptedMessage encryptTextMessage(String message, byte[] myPrivateKey, byte[] theirPublicKey);
+
+    byte[] decryptMessage(BurstEncryptedMessage message, String myPassphrase, byte[] theirPublicKey);
     byte[] decryptMessage(BurstEncryptedMessage message, byte[] myPrivateKey, byte[] theirPublicKey);
 
+    String rsEncode(BurstID burstID);
+    BurstID rsDecode(String rs) throws IllegalArgumentException;
+
+    Date fromEpochTime(long epochTime);
+
     static BurstCrypto getInstance() {
-        return new BurstCryptoImpl(); // TODO singleton
+        return BurstCryptoImpl.INSTANCE;
     }
 }

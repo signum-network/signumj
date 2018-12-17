@@ -1,12 +1,11 @@
 package burst.kit.entity;
 
+import burst.kit.burst.BurstCrypto;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
 
 import java.util.Objects;
-
-import brs.util.Convert;
 
 @SuppressWarnings("WeakerAccess")
 public final class BurstAddress {
@@ -22,7 +21,7 @@ public final class BurstAddress {
 
     private BurstAddress(BurstID numericID) {
         this.numericID = numericID;
-        this.address = Convert.rsAccount(numericID.getSignedLongId()).substring(6);
+        this.address = BurstCrypto.getInstance().rsEncode(numericID);
     }
 
     /**
@@ -39,12 +38,7 @@ public final class BurstAddress {
         if (RS.startsWith("BURST-")) {
             RS = RS.substring(6);
         }
-
-        try {
-            return new BurstAddress(new BurstID(Convert.parseAccountId("BURST-" + RS)));
-        } catch (RuntimeException e) {
-            throw new IllegalArgumentException("RS was invalid.", e);
-        }
+        return new BurstAddress(BurstCrypto.getInstance().rsDecode(RS));
     }
 
     /**

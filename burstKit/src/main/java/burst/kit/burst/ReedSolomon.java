@@ -6,7 +6,7 @@
 */
 package burst.kit.burst;
 
-import brs.util.Convert;
+import burst.kit.entity.BurstID;
 
 import java.math.BigInteger;
 
@@ -22,8 +22,7 @@ final class ReedSolomon {
   private static final int base_10_length = 20;
 
   static String encode(long plain) {
-
-    String plain_string = Convert.toUnsignedLong(plain);
+    String plain_string = new BurstID(plain).getID();
     int length = plain_string.length();
     int[] plain_string_10 = new int[ReedSolomon.base_10_length];
     for (int i = 0; i < length; i++) {
