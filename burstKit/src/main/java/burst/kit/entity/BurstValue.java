@@ -17,6 +17,10 @@ public final class BurstValue extends BigDecimal {
         super(new BigDecimal(val).divide(BigDecimal.TEN.pow(8)).toString());
     }
 
+    /**
+     * @param planck The number of planck
+     * @return The BurstValue representing this number of planck, or a BurstValue representing 0 Burst if the string could not be parsed
+     */
     public static BurstValue fromPlanck(String planck) {
         try {
             return new BurstValue(planck);
@@ -25,10 +29,18 @@ public final class BurstValue extends BigDecimal {
         }
     }
 
+    /**
+     * @param planck The number of planck
+     * @return The BurstValue representing this number of planck
+     */
     public static BurstValue fromPlanck(long planck) {
         return fromPlanck(String.valueOf(planck));
     }
 
+    /**
+     * @param burst The number of burst
+     * @return The BurstValue representing this number of burst, or a BurstValue representing 0 Burst if the string could not be parsed
+     */
     public static BurstValue fromBurst(String burst) {
         try {
             return new BurstValue(new BigDecimal(burst).multiply(BigDecimal.TEN.pow(8)).toString());
@@ -37,6 +49,10 @@ public final class BurstValue extends BigDecimal {
         }
     }
 
+    /**
+     * @param burst The number of burst
+     * @return The BurstValue representing this number of burst
+     */
     public static BurstValue fromBurst(double burst) {
         return fromBurst(String.valueOf(burst));
     }
@@ -54,10 +70,23 @@ public final class BurstValue extends BigDecimal {
         }
     }
 
+    /**
+     * @return The value with the "BURST" suffix and rounded to 3 decimal places
+     */
+    public String toFormattedString() {
+        return toString();
+    }
+
+    /**
+     * @return The value without the "BURST" suffix and without rounding
+     */
     public String toUnformattedString() {
         return super.stripTrailingZeros().toPlainString();
     }
 
+    /**
+     * @return A string representing the number of planck
+     */
     public String toPlanck() {
         return multiply(BigDecimal.TEN.pow(8)).toBigInteger().toString();
     }

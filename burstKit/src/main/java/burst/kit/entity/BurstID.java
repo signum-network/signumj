@@ -9,9 +9,19 @@ import java.util.Objects;
 
 public final class BurstID {
 
-    public static final JsonDeserializer<BurstID> DESERIALIZER = (json, typeOfT, context) -> new BurstID(json.getAsString());
+    /**
+     * GSON Serializer.
+     */
     public static final JsonSerializer<BurstID> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getID());
 
+    /**
+     * GSON Deserializer.
+     */
+    public static final JsonDeserializer<BurstID> DESERIALIZER = (json, typeOfT, context) -> new BurstID(json.getAsString());
+
+    /**
+     * Used by unsigned long translation.
+     */
     private static final BigInteger two64 = new BigInteger("18446744073709551616");
 
     /**
@@ -20,18 +30,30 @@ public final class BurstID {
      */
     private final long id;
 
+    /**
+     * @param unsignedLongID The numeric ID of the transaction, account, block, etc.
+     */
     public BurstID(String unsignedLongID) {
         this.id = parseUnsignedLong(unsignedLongID);
     }
 
+    /**
+     * @param signedLongID The numeric ID of the transaction, account, block, etc as a signed long - they are normally expressed as an unsigned long.
+     */
     public BurstID(long signedLongID) {
         this.id = signedLongID;
     }
 
+    /**
+     * @return The unsigned long numeric ID
+     */
     public String getID() {
         return toUnsignedLong(id);
     }
 
+    /**
+     * @return The signed long ID
+     */
     public long getSignedLongId() {
         return id;
     }

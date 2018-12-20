@@ -10,8 +10,15 @@ import java.util.Objects;
 @SuppressWarnings("WeakerAccess")
 public final class BurstAddress {
 
+    /**
+     * GSON Serializer.
+     */
+    public static final JsonSerializer<BurstAddress> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getID());
+
+    /**
+     * GSON Deserializer
+     */
     public static final JsonDeserializer<BurstAddress> DESERIALIZER = (json, typeOfT, context) -> fromEither(json.getAsString());
-    public static final JsonSerializer<BurstAddress> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getNumericID());
 
     /**
      * Stored without "BURST-" prefix.
@@ -19,19 +26,19 @@ public final class BurstAddress {
     private final String address;
     private final BurstID numericID;
 
-    private BurstAddress(BurstID numericID) {
-        this.numericID = numericID;
+    private BurstAddress(BurstID burstID) {
+        this.numericID = burstID;
         this.address = BurstCrypto.getInstance().rsEncode(numericID);
     }
 
     /**
-     * @param numericId The numeric id that represents this Burst Address
+     * @param burstID The numeric id that represents this Burst Address
      * @return A BurstAddress object that represents the specified numericId
      * @throws NumberFormatException if the numericId is not a valid number
      * @throws IllegalArgumentException if the numericId is outside the range of accepted numbers (less than 0 or greater than / equal to 2^64)
      */
-    public static BurstAddress fromNumericId(BurstID numericId) {
-        return new BurstAddress(numericId);
+    public static BurstAddress fromId(BurstID burstID) {
+        return new BurstAddress(burstID);
     }
 
     public static BurstAddress fromRs(String RS) throws IllegalArgumentException {
@@ -49,7 +56,7 @@ public final class BurstAddress {
      */
     public static BurstAddress fromEither(String input) {
         try {
-            return BurstAddress.fromNumericId(new BurstID(input));
+            return BurstAddress.fromId(new BurstID(input));
         } catch (IllegalArgumentException e1) {
             try {
                 return BurstAddress.fromRs(input);
@@ -59,14 +66,23 @@ public final class BurstAddress {
         }
     }
 
-    public String getNumericID() {
+    /**
+     * @return The unsigned long numeric ID this BurstAddress points to
+     */
+    public String getID() {
         return numericID.getID();
     }
 
+    /**
+     * @return The ReedSolomon encoded address, without the "BURST-" prefix
+     */
     public String getRawAddress() {
         return address;
     }
 
+    /**
+     * @return The ReedSolomon encoded address, with the "BURST-" prefix
+     */
     public String getFullAddress() {
         if (address == null || address.length() == 0) {
             return "";

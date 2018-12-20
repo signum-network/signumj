@@ -9,23 +9,46 @@ import java.util.Arrays;
 
 public final class HexStringByteArray {
 
-    public static final JsonDeserializer<HexStringByteArray> DESERIALIZER = (json, typeOfT, context) -> new HexStringByteArray(json.getAsString());
+    /**
+     * GSON Serializer.
+     */
     public static final JsonSerializer<HexStringByteArray> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.toString());
+
+    /**
+     * GSON Deserializer.
+     */
+    public static final JsonDeserializer<HexStringByteArray> DESERIALIZER = (json, typeOfT, context) -> new HexStringByteArray(json.getAsString());
 
     private final byte[] bytes;
 
+    /**
+     * @param stringRepresentation The string representation of the byte array eg. 01AB23
+     */
     public HexStringByteArray(String stringRepresentation) {
+        if (stringRepresentation.startsWith("0x")) {
+            stringRepresentation = stringRepresentation.substring(2);
+        }
         this.bytes = Hex.decode(stringRepresentation);
     }
 
+    /**
+     * Wrap a byte array in a HexStringByteArray
+     * @param bytes The raw byte array
+     */
     public HexStringByteArray(byte[] bytes) {
         this.bytes = bytes;
     }
 
+    /**
+     * @return The raw bytes
+     */
     public byte[] getBytes() {
         return bytes;
     }
 
+    /**
+     * @return The hex encoded string eg. 01AB23
+     */
     public String toHexString() {
         return Hex.toHexString(bytes);
     }
