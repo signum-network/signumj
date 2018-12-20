@@ -66,7 +66,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     public BurstAddress getBurstAddressFromPublic(byte[] publicKey) {
         byte[] hash = getSha256().digest(publicKey);
         BigInteger bigInteger = new BigInteger(1, new byte[] {hash[7], hash[6], hash[5], hash[4], hash[3], hash[2], hash[1], hash[0]});
-        return BurstAddress.fromNumericId(new BurstID(bigInteger.longValue()));
+        return BurstAddress.fromId(new BurstID(bigInteger.longValue()));
     }
 
     @Override

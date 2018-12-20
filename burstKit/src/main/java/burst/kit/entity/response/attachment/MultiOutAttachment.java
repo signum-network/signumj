@@ -30,12 +30,12 @@ public final class MultiOutAttachment extends TransactionAttachment {
         public static final JsonSerializer<MultiOutRecipient> SERIALIZER = (src, typeOfSrc, context) -> serialize(src);
 
         private static MultiOutRecipient deserialize(JsonArray source) {
-            return new MultiOutRecipient(BurstAddress.fromNumericId(new BurstID(source.get(0).getAsString())), BurstValue.fromPlanck(source.get(1).getAsString()));
+            return new MultiOutRecipient(BurstAddress.fromId(new BurstID(source.get(0).getAsString())), BurstValue.fromPlanck(source.get(1).getAsString()));
         }
 
         private static JsonArray serialize(MultiOutRecipient source) {
             JsonArray array = new JsonArray(2);
-            array.add(source.getRecipient().getNumericID());
+            array.add(source.getRecipient().getID());
             array.add(source.getAmount().toPlanck());
             return array;
         }
