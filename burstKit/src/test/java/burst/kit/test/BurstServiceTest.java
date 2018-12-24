@@ -105,12 +105,6 @@ public class BurstServiceTest {
     }
 
     @Test
-    public void testBurstServiceGetAtLong() {
-        AtLongResponse atLongResponse = SingleTestUtils.testSingle(burstService.getAtLong(TestVariables.EXAMPLE_AT_LONG));
-        assertEquals(TestVariables.EXAMPLE_AT_LONG_HEX2LONG, atLongResponse.getHex2long());
-    }
-
-    @Test
     public void testBurstServiceGetTransaction() {
         TransactionResponse transactionIdTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
         TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));

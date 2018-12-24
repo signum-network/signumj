@@ -22,6 +22,5 @@ public class TestVariables {
 
     public static final BurstID EXAMPLE_AT_ID = new BurstID("3474457271106823767");
 
-    public static final HexStringByteArray EXAMPLE_AT_LONG = new HexStringByteArray("abcdef0123456789");
     public static final String EXAMPLE_AT_LONG_HEX2LONG = "9900958322455989675";
 }

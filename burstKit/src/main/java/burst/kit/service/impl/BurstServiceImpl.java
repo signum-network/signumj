@@ -139,11 +139,6 @@ public final class BurstServiceImpl implements BurstService {
     }
 
     @Override
-    public Single<AtLongResponse> getAtLong(HexStringByteArray hex) {
-        return assign(blockchainService.getAtLong(hex.toHexString()));
-    }
-
-    @Override
     public Single<TransactionResponse> getTransaction(BurstID transactionId) {
         return assign(blockchainService.getTransaction(transactionId.getID(), null));
     }
@@ -174,78 +169,13 @@ public final class BurstServiceImpl implements BurstService {
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, message, true, null, null, null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, message.toHexString(), false, null, null, null, null, null, null));
-    }
-
-    @Override
     public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString() ,null, null, null, null));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, message, true, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, message.toHexString(), false, null, null));
-    }
-
-    @Override
     public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, senderPublicKey.toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString()));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoney(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, message, true, null, null, null, null, null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, message.toHexString(), false, null, null, null, null, null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, message, true, null, null, null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, message.toHexString(), false, null, null, null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessage(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString() ,null, null, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, message, true, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, message.toHexString(), false, null, null));
-    }
-
-    @Override
-    public Single<GenerateTransactionResponse> sendMoneyWithEncryptedMessageToSelf(BurstAddress recipient, String passphrase, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), passphrase, null, fee.toPlanck(), deadline, null, true, null, null, null, null, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString()));
     }
 
     private interface BlockchainService {
@@ -293,9 +223,6 @@ public final class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getATIds")
         Single<AtIDsResponse> getAtIds();
-
-        @GET("burst?requestType=getATLong")
-        Single<AtLongResponse> getAtLong(@Query("hexString") String hexString);
 
         @GET("burst?requestType=getTransaction")
         Single<TransactionResponse> getTransaction(@Query("transaction") String transaction, @Query("fullHash") String fullHash);
