@@ -107,7 +107,7 @@ public class BurstServiceTest {
     @Test
     public void testBurstServiceGetTransaction() {
         TransactionResponse transactionIdTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
-        TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));
+        TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH.getBytes()));
 
         TransactionResponse multiOutTransactionResponse = SingleTestUtils.testSingle(burstService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
         assertEquals(MultiOutAttachment.class, multiOutTransactionResponse.getAttachment().getType());
@@ -128,9 +128,9 @@ public class BurstServiceTest {
 
     @Test
     public void testBurstServiceGenerateTransaction() {
-        GenerateTransactionResponse withoutMessage = SingleTestUtils.testSingle(burstService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
-        GenerateTransactionResponse withStringMessage = SingleTestUtils.testSingle(burstService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, "Test Transaction"));
-        GenerateTransactionResponse withBytesMessage = SingleTestUtils.testSingle(burstService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY));
+        GenerateTransactionResponse withoutMessage = SingleTestUtils.testSingle(burstService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
+        GenerateTransactionResponse withStringMessage = SingleTestUtils.testSingle(burstService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, "Test Transaction"));
+        GenerateTransactionResponse withBytesMessage = SingleTestUtils.testSingle(burstService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes()));
         // TODO GenerateTransactionResponse enc = SingleTestUtils.testSingle(burstService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY));
 
         System.out.println(BurstKitUtils.buildGson().setPrettyPrinting().create().toJson(withoutMessage));

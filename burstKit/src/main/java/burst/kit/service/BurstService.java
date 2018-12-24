@@ -151,7 +151,7 @@ public interface BurstService {
      * @param fullHash The full hash of the transaction
      * @return The transaction details, wrapped in a single
      */
-    Single<TransactionResponse> getTransaction(HexStringByteArray fullHash);
+    Single<TransactionResponse> getTransaction(byte[] fullHash);
 
     /**
      * Get the transaction bytes
@@ -169,7 +169,7 @@ public interface BurstService {
      * @param deadline The deadline for the transaction
      * @return The generated transaction, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransaction(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
+    Single<GenerateTransactionResponse> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
 
     /**
      * Generate a transaction with a plaintext message
@@ -181,7 +181,7 @@ public interface BurstService {
      * @param message The message to include in the transaction
      * @return The generated transaction, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
 
     /**
      * Generate a transaction with a plaintext message
@@ -193,7 +193,7 @@ public interface BurstService {
      * @param message The message to include in the transaction
      * @return The generated transaction, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, HexStringByteArray message);
+    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message);
 
     /**
      * Generate a transaction with an encrypted message (can be read by sender and recipient)
@@ -205,7 +205,7 @@ public interface BurstService {
      * @param message The encrypted message to include in the transaction
      * @return The generated transaction, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     /**
      * Generate a transaction with an encrypted-to-self message (can be read by only sender)
@@ -217,7 +217,7 @@ public interface BurstService {
      * @param message The encrypted message to include in the transaction (Use sender public key and sender private key to encrypt)
      * @return The generated transaction, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, HexStringByteArray senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);
