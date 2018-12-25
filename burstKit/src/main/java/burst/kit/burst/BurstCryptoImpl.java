@@ -17,6 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -45,7 +46,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     private MessageDigest getSha256() {
-        return new SHA256.Digest();
+        try {
+            return MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            return new SHA256.Digest(); // Fallback to Bouncy Castle's implementation
+        }
     }
 
     @Override
@@ -70,7 +75,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public BurstID fullHashToId(byte[] hash) throws IllegalArgumentException {
+    public BurstID hashToId(byte[] hash) throws IllegalArgumentException {
         if (hash == null || hash.length < 8) {
             throw new IllegalArgumentException("Invalid hash: " + Arrays.toString(hash));
         }
@@ -135,13 +140,15 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
+    public byte[] aesEncrypt(byte[] plaintext, byte[] signingKey, byte[] nonce) throws IllegalArgumentException {
+        if (signingKey.length != 32) {
+            throw new IllegalArgumentException("Key length must be 32 bytes");
+        }
         try {
-            byte[] sharedSecret = getSharedSecret(myPrivateKey, theirPublicKey);
             for (int i = 0; i < 32; i++) {
-                sharedSecret[i] ^= nonce[i];
+                signingKey[i] ^= nonce[i];
             }
-            byte[] key = getSha256().digest(sharedSecret);
+            byte[] key = getSha256().digest(signingKey);
             byte[] iv = new byte[16];
             secureRandom.get().nextBytes(iv);
             PaddedBufferedBlockCipher aes = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()));
@@ -160,18 +167,20 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] aesDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
+    public byte[] aesDecrypt(byte[] encrypted, byte[] signingKey, byte[] nonce) throws IllegalArgumentException {
+        if (signingKey.length != 32) {
+            throw new IllegalArgumentException("Key length must be 32 bytes");
+        }
         try {
             if (encrypted.length < 16 || encrypted.length % 16 != 0) {
-                throw new InvalidCipherTextException("invalid ciphertext");
+                throw new InvalidCipherTextException("invalid ciphertext"); // TODO
             }
             byte[] iv = Arrays.copyOfRange(encrypted, 0, 16);
             byte[] ciphertext = Arrays.copyOfRange(encrypted, 16, encrypted.length);
-            byte[] sharedSecret = getSharedSecret(myPrivateKey, theirPublicKey);
             for (int i = 0; i < 32; i++) {
-                sharedSecret[i] ^= nonce[i];
+                signingKey[i] ^= nonce[i];
             }
-            byte[] key = getSha256().digest(sharedSecret);
+            byte[] key = getSha256().digest(signingKey);
             PaddedBufferedBlockCipher aes = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()));
             CipherParameters ivAndKey = new ParametersWithIV(new KeyParameter(key), iv);
             aes.init(false, ivAndKey);
@@ -207,7 +216,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             byte[] compressedPlaintext = bos.toByteArray();
             byte[] nonce = new byte[32];
             secureRandom.get().nextBytes(nonce);
-            byte[] data = aesEncrypt(compressedPlaintext, myPrivateKey, theirPublicKey, nonce);
+            byte[] data = aesSharedEncrypt(compressedPlaintext, myPrivateKey, theirPublicKey, nonce);
             return new BurstEncryptedMessage(data, nonce, isText);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
@@ -219,7 +228,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (message.getData().length == 0) {
             return message.getData();
         }
-        byte[] compressedPlaintext = aesDecrypt(message.getData(), myPrivateKey, theirPublicKey, message.getNonce());
+        byte[] compressedPlaintext = aesSharedDecrypt(message.getData(), myPrivateKey, theirPublicKey, message.getNonce());
         try (ByteArrayInputStream bis = new ByteArrayInputStream(compressedPlaintext); GZIPInputStream gzip = new GZIPInputStream(bis); ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[1024];
             int nRead;

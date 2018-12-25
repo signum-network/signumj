@@ -48,73 +48,113 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     }
 
     @Override
-    public byte[] aesEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey) {
-        return aesEncrypt(plaintext, getPrivateKey(myPassphrase), theirPublicKey);
+    public byte[] aesEncrypt(byte[] plaintext, byte[] signingKey) throws IllegalArgumentException {
+        return aesEncrypt(plaintext, signingKey, new byte[32]);
     }
 
     @Override
-    public byte[] aesEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
-        return aesEncrypt(plaintext, getPrivateKey(myPassphrase), theirPublicKey, nonce);
+    public byte[] aesEncrypt(String plaintext, byte[] signingKey) throws IllegalArgumentException {
+        return aesEncrypt(stringToBytes(plaintext), signingKey);
     }
 
     @Override
-    public byte[] aesEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey) {
-        return aesEncrypt(plaintext, myPrivateKey, theirPublicKey, new byte[32]);
+    public byte[] aesEncrypt(String plaintext, byte[] signingKey, byte[] nonce) throws IllegalArgumentException {
+        return aesEncrypt(stringToBytes(plaintext), signingKey, nonce);
     }
 
     @Override
-    public byte[] aesEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey) {
-        return aesEncrypt(stringToBytes(plaintext), getPrivateKey(myPassphrase), theirPublicKey);
+    public byte[] aesSharedEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey) {
+        return aesSharedEncrypt(plaintext, getPrivateKey(myPassphrase), theirPublicKey);
     }
 
     @Override
-    public byte[] aesEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
-        return aesEncrypt(stringToBytes(plaintext), getPrivateKey(myPassphrase), theirPublicKey, nonce);
+    public byte[] aesSharedEncrypt(byte[] plaintext, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
+        return aesSharedEncrypt(plaintext, getPrivateKey(myPassphrase), theirPublicKey, nonce);
     }
 
     @Override
-    public byte[] aesEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey) {
-        return aesEncrypt(stringToBytes(plaintext), myPrivateKey, theirPublicKey);
+    public byte[] aesSharedEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey) {
+        return aesEncrypt(plaintext, getSharedSecret(myPrivateKey, theirPublicKey));
     }
 
     @Override
-    public byte[] aesEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
-        return aesEncrypt(stringToBytes(plaintext), myPrivateKey, theirPublicKey, nonce);
+    public byte[] aesSharedEncrypt(byte[] plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
+        return aesEncrypt(plaintext, getSharedSecret(myPrivateKey, theirPublicKey), nonce);
     }
 
     @Override
-    public byte[] aesDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey) {
-        return aesDecrypt(encrypted, getPrivateKey(myPassphrase), theirPublicKey);
+    public byte[] aesSharedEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey) {
+        return aesSharedEncrypt(stringToBytes(plaintext), getPrivateKey(myPassphrase), theirPublicKey);
     }
 
     @Override
-    public byte[] aesDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
-        return aesDecrypt(encrypted, getPrivateKey(myPassphrase), theirPublicKey, nonce);
+    public byte[] aesSharedEncrypt(String plaintext, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
+        return aesSharedEncrypt(stringToBytes(plaintext), getPrivateKey(myPassphrase), theirPublicKey, nonce);
     }
 
     @Override
-    public byte[] aesDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey) {
-        return aesDecrypt(encrypted, myPrivateKey, theirPublicKey, new byte[32]);
+    public byte[] aesSharedEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey) {
+        return aesSharedEncrypt(stringToBytes(plaintext), myPrivateKey, theirPublicKey);
     }
 
     @Override
-    public byte[] aesDecrypt(String encrypted, String myPassphrase, byte[] theirPublicKey) {
-        return aesDecrypt(stringToBytes(encrypted), getPrivateKey(myPassphrase), theirPublicKey);
+    public byte[] aesSharedEncrypt(String plaintext, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
+        return aesSharedEncrypt(stringToBytes(plaintext), myPrivateKey, theirPublicKey, nonce);
     }
 
     @Override
-    public byte[] aesDecrypt(String encrypted, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
-        return aesDecrypt(stringToBytes(encrypted), getPrivateKey(myPassphrase), theirPublicKey, nonce);
+    public byte[] aesDecrypt(byte[] encrypted, byte[] signingKey) throws IllegalArgumentException {
+        return aesDecrypt(encrypted, signingKey, new byte[32]);
     }
 
     @Override
-    public byte[] aesDecrypt(String encrypted, byte[] myPrivateKey, byte[] theirPublicKey) {
-        return aesDecrypt(stringToBytes(encrypted), myPrivateKey, theirPublicKey);
+    public byte[] aesDecrypt(String encrypted, byte[] signingKey) throws IllegalArgumentException {
+        return aesDecrypt(stringToBytes(encrypted), signingKey);
     }
 
     @Override
-    public byte[] aesDecrypt(String encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
-        return aesDecrypt(stringToBytes(encrypted), myPrivateKey, theirPublicKey, nonce);
+    public byte[] aesDecrypt(String encrypted, byte[] signingKey, byte[] nonce) throws IllegalArgumentException {
+        return aesDecrypt(stringToBytes(encrypted), signingKey, nonce);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey) {
+        return aesSharedDecrypt(encrypted, getPrivateKey(myPassphrase), theirPublicKey);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(byte[] encrypted, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
+        return aesSharedDecrypt(encrypted, getPrivateKey(myPassphrase), theirPublicKey, nonce);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey) {
+        return aesDecrypt(encrypted, getSharedSecret(myPrivateKey, theirPublicKey));
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(byte[] encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
+        return aesDecrypt(encrypted, getSharedSecret(myPrivateKey, theirPublicKey), nonce);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(String encrypted, String myPassphrase, byte[] theirPublicKey) {
+        return aesSharedDecrypt(stringToBytes(encrypted), getPrivateKey(myPassphrase), theirPublicKey);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(String encrypted, String myPassphrase, byte[] theirPublicKey, byte[] nonce) {
+        return aesSharedDecrypt(stringToBytes(encrypted), getPrivateKey(myPassphrase), theirPublicKey, nonce);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(String encrypted, byte[] myPrivateKey, byte[] theirPublicKey) {
+        return aesSharedDecrypt(stringToBytes(encrypted), myPrivateKey, theirPublicKey);
+    }
+
+    @Override
+    public byte[] aesSharedDecrypt(String encrypted, byte[] myPrivateKey, byte[] theirPublicKey, byte[] nonce) {
+        return aesSharedDecrypt(stringToBytes(encrypted), myPrivateKey, theirPublicKey, nonce);
     }
 
     @Override

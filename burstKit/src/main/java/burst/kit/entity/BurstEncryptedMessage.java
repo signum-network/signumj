@@ -2,7 +2,7 @@ package burst.kit.entity;
 
 import burst.kit.burst.BurstCrypto;
 
-public class BurstEncryptedMessage {
+public final class BurstEncryptedMessage {
     /**
      Needs to be a HexStringByteArray for serialization.
       */
