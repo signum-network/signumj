@@ -219,6 +219,12 @@ public interface BurstService {
      */
     Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
+    /**
+     * Get the currently suggested transaction fees, which are calculated based on current network congestion -
+     * @return Suggested transaction fees - Priority, standard and cheap in descending speed and cost
+     */
+    Single<SuggestFeeResponse> suggestFee();
+
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);
     }

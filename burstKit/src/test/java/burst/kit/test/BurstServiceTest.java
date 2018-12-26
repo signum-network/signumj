@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
 public class BurstServiceTest {
@@ -134,5 +135,12 @@ public class BurstServiceTest {
         // TODO GenerateTransactionResponse enc = SingleTestUtils.testSingle(burstService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY));
 
         System.out.println(BurstKitUtils.buildGson().setPrettyPrinting().create().toJson(withoutMessage));
+    }
+
+    @Test
+    public void testBurstServiceSuggestFee() {
+        SuggestFeeResponse suggestFeeResponse = SingleTestUtils.testSingle(burstService.suggestFee());
+        assertTrue(suggestFeeResponse.getPriority().compareTo(suggestFeeResponse.getStandard()) >= 0);
+        assertTrue(suggestFeeResponse.getStandard().compareTo(suggestFeeResponse.getCheap()) >= 0);
     }
 }
