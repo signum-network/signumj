@@ -8,6 +8,7 @@ import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstService;
 import burst.kit.util.BurstKitUtils;
+import org.bouncycastle.util.IPAddress;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -142,5 +143,10 @@ public class BurstServiceTest {
         SuggestFeeResponse suggestFeeResponse = SingleTestUtils.testSingle(burstService.suggestFee());
         assertTrue(suggestFeeResponse.getPriority().compareTo(suggestFeeResponse.getStandard()) >= 0);
         assertTrue(suggestFeeResponse.getStandard().compareTo(suggestFeeResponse.getCheap()) >= 0);
+    }
+
+    @Test
+    public void testBurstServiceGetMiningInfo() {
+        MiningInfoResponse miningInfoResponse = SingleTestUtils.testSingle(burstService.getMiningInfo());
     }
 }

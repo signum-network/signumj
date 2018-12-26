@@ -7,6 +7,12 @@ import org.bouncycastle.util.encoders.Hex;
 
 import java.util.Arrays;
 
+/**
+ * This class exists to serialize byte arrays in Hex notation.
+ * Specifically, it is used in this library so that GSON can
+ * interpret byte arrays properly when they are serialized in
+ * Hex notation in a JSON response (Usually from a node).
+ */
 public final class HexStringByteArray {
 
     /**

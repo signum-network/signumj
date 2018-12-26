@@ -221,9 +221,15 @@ public interface BurstService {
 
     /**
      * Get the currently suggested transaction fees, which are calculated based on current network congestion -
-     * @return Suggested transaction fees - Priority, standard and cheap in descending speed and cost
+     * @return Suggested transaction fees - Priority, standard and cheap in descending speed and cost, wrapped in a single
      */
     Single<SuggestFeeResponse> suggestFee();
+
+    /**
+     * Get the current mining info
+     * @return The mining info, wrapped in a single
+     */
+    Single<MiningInfoResponse> getMiningInfo();
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);
