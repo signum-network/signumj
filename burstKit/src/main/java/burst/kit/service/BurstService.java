@@ -5,6 +5,7 @@ import burst.kit.entity.response.*;
 import burst.kit.service.impl.BurstServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;
+import com.google.gson.JsonObject;
 import io.reactivex.Single;
 
 public interface BurstService {
@@ -233,9 +234,16 @@ public interface BurstService {
 
     /**
      * Returns info about the host IP and your IP address (? Needs checking)
-     * @return your info
+     * @return Your info, wrapped in a single
      */
     Single<MyInfoResponse> getMyInfo();
+
+    /**
+     * Broadcast a transaction on the network
+     * @param transactionBytes The signed transaction bytes
+     * @return The full hash and transaction ID or an error, wrapped in a single
+     */
+    Single<JsonObject> broadcastTransaction(byte[] transactionBytes);
 
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);

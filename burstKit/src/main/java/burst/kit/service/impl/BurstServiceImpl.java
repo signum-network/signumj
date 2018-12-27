@@ -6,6 +6,7 @@ import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
 
 import burst.kit.service.BurstService;
+import com.google.gson.JsonObject;
 import io.reactivex.Single;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -193,6 +194,11 @@ public final class BurstServiceImpl implements BurstService {
         return assign(blockchainService.getMyInfo());
     }
 
+    @Override
+    public Single<JsonObject> broadcastTransaction(byte[] transactionBytes) {
+        return assign(blockchainService.broadcastTransaction(new HexStringByteArray(transactionBytes).toHexString()));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -256,5 +262,8 @@ public final class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getMyInfo")
         Single<MyInfoResponse> getMyInfo();
+
+        @POST("burst?requestType=broadcastTransaction")
+        Single<JsonObject> broadcastTransaction(@Query("transactionBytes") String transactionBytes);
     }
 }
