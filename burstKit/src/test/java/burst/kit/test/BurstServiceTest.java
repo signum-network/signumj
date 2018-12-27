@@ -149,4 +149,9 @@ public class BurstServiceTest {
     public void testBurstServiceGetMiningInfo() {
         MiningInfoResponse miningInfoResponse = SingleTestUtils.testSingle(burstService.getMiningInfo());
     }
+
+    @Test
+    public void testBurstServiceGetMyInfo() {
+        MyInfoResponse myInfoResponse = SingleTestUtils.testSingle(burstService.getMyInfo());
+    }
 }

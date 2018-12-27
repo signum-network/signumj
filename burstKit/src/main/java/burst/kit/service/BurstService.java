@@ -231,6 +231,12 @@ public interface BurstService {
      */
     Single<MiningInfoResponse> getMiningInfo();
 
+    /**
+     * Returns info about the host IP and your IP address (? Needs checking)
+     * @return your info
+     */
+    Single<MyInfoResponse> getMyInfo();
+
     static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstServiceImpl(nodeAddress, schedulerAssigner);
     }

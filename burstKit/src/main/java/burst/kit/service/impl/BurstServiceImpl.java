@@ -188,6 +188,11 @@ public final class BurstServiceImpl implements BurstService {
         return assign(blockchainService.getMiningInfo());
     }
 
+    @Override
+    public Single<MyInfoResponse> getMyInfo() {
+        return assign(blockchainService.getMyInfo());
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -248,5 +253,8 @@ public final class BurstServiceImpl implements BurstService {
 
         @GET("burst?requestType=getMiningInfo")
         Single<MiningInfoResponse> getMiningInfo();
+
+        @GET("burst?requestType=getMyInfo")
+        Single<MyInfoResponse> getMyInfo();
     }
 }

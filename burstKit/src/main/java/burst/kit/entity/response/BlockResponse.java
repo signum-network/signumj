@@ -8,7 +8,7 @@ public final class BlockResponse extends BRSResponse {
     private int payloadLength;
     private BurstValue totalAmountNQT;
     private HexStringByteArray generationSignature;
-    private BurstAddress creator;
+    private BurstAddress generator;
     private HexStringByteArray generatorPublicKey;
     private long baseTarget;
     private HexStringByteArray payloadHash;
@@ -44,8 +44,8 @@ public final class BlockResponse extends BRSResponse {
         return generationSignature;
     }
 
-    public BurstAddress getCreator() {
-        return creator;
+    public BurstAddress getGenerator() {
+        return generator;
     }
 
     public HexStringByteArray getGeneratorPublicKey() {
