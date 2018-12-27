@@ -119,6 +119,15 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
+    public byte[] signTransaction(byte[] privateKey, byte[] unsignedTransaction) {
+        byte[] signature = sign(unsignedTransaction, privateKey);
+        byte[] signedTransaction = new byte[unsignedTransaction.length];
+        System.arraycopy(unsignedTransaction, 0, signedTransaction, 0, unsignedTransaction.length); // Duplicate the transaction
+        System.arraycopy(signature, 0, signedTransaction, 96, 64); // Insert the signature
+        return signedTransaction;
+    }
+
+    @Override
     public boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical) {
         if (enforceCanonical && (!Curve25519.isCanonicalSignature(signature) || !Curve25519.isCanonicalPublicKey(publicKey))) {
             return false;

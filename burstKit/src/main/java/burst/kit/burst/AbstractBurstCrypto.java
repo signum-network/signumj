@@ -48,6 +48,11 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     }
 
     @Override
+    public byte[] signTransaction(String passphrase, byte[] unsignedTransaction) {
+        return signTransaction(getPrivateKey(passphrase), unsignedTransaction);
+    }
+
+    @Override
     public byte[] aesEncrypt(byte[] plaintext, byte[] signingKey) throws IllegalArgumentException {
         return aesEncrypt(plaintext, signingKey, new byte[32]);
     }

@@ -81,7 +81,7 @@ public interface BurstCrypto {
      * @return The signature
      */
     byte[] sign(byte[] message, String passphrase);
-    
+
     /**
      * Generate the signature of a message
      * @param message The message to sign
@@ -105,6 +105,22 @@ public interface BurstCrypto {
      * @return The signature
      */
     byte[] sign(String message, byte[] privateKey);
+
+    /**
+     * Sign an unsigned transaction
+     * @param passphrase Passphrase to sign with
+     * @param unsignedTransaction The unsigned transaction bytes
+     * @return The signed transaction bytes
+     */
+    byte[] signTransaction(String passphrase, byte[] unsignedTransaction);
+
+    /**
+     * Sign an unsigned transaction
+     * @param privateKey Private key to sign with
+     * @param unsignedTransaction The unsigned transaction bytes
+     * @return The signed transaction bytes
+     */
+    byte[] signTransaction(byte[] privateKey, byte[] unsignedTransaction);
 
     /**
      * Verify is a signature is valid
