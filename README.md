@@ -49,13 +49,20 @@ dependencies {
 
 The `BurstNodeService` wraps the returned values in RxJava Singles. You can create your own `SchedulerAssigner` to automatically make all returned values subscribe on the specified schedulers. If you don't want to use RxJava, call `toFuture()` on any Single.
 
-GSON is used for JSON serialization/deserialization. To obtain a `GsonBuilder` customized to serialize/deserialize BurstKit entities. This can be obtained by calling `BurstKitUtils.buildGson()`.
+GSON is used for JSON serialization/deserialization. To obtain a `GsonBuilder` customized to serialize/deserialize BurstKit entities, call `BurstKitUtils.buildGson()`.
 
 ## Examples
 
 * Sending a transaction containing an encrypted message
 
 ```java
+import burst.kit.burst.BurstCrypto;
+import burst.kit.entity.BurstValue;
+import burst.kit.entity.HexStringByteArray;
+import burst.kit.entity.response.BroadcastTransactionResponse;
+import burst.kit.entity.response.GenerateTransactionResponse;
+import burst.kit.service.BurstNodeService;
+
 public class TransactionSender {
     /**
     * Example which sends 1 BURST to another account with a fee of 0.1 BURST

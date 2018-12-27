@@ -40,6 +40,13 @@ public abstract class TransactionAttachment {
         return BurstKitUtils.buildGson().create();
     }
 
+    /**
+     * Gets the type of transaction attachment - use this to cast this object to
+     * obtain the information in the attachment.
+     * @return The type of transaction. You should use this to decide which
+     * type of transaction to cast this to, which will allow you to obtain the
+     * information contained in the attachment.
+     */
     public Class<? extends TransactionAttachment> getType() {
         return getClass();
     }
