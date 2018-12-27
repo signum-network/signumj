@@ -5,7 +5,7 @@ import burst.kit.entity.response.*;
 import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
 
-import burst.kit.service.BurstService;
+import burst.kit.service.BurstNodeService;
 import com.google.gson.JsonObject;
 import io.reactivex.Single;
 import retrofit2.Retrofit;
@@ -15,13 +15,13 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public final class BurstServiceImpl implements BurstService {
+public final class BurstNodeServiceImpl implements BurstNodeService {
 
     private final SchedulerAssigner schedulerAssigner;
 
     private BlockchainService blockchainService;
 
-    public BurstServiceImpl(String nodeAddress, SchedulerAssigner schedulerAssigner) {
+    public BurstNodeServiceImpl(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         this.schedulerAssigner = schedulerAssigner;
         buildServices(nodeAddress);
     }
@@ -195,7 +195,7 @@ public final class BurstServiceImpl implements BurstService {
     }
 
     @Override
-    public Single<JsonObject> broadcastTransaction(byte[] transactionBytes) {
+    public Single<BroadcastTransactionResponse> broadcastTransaction(byte[] transactionBytes) {
         return assign(blockchainService.broadcastTransaction(new HexStringByteArray(transactionBytes).toHexString()));
     }
 
@@ -264,6 +264,6 @@ public final class BurstServiceImpl implements BurstService {
         Single<MyInfoResponse> getMyInfo();
 
         @POST("burst?requestType=broadcastTransaction")
-        Single<JsonObject> broadcastTransaction(@Query("transactionBytes") String transactionBytes);
+        Single<BroadcastTransactionResponse> broadcastTransaction(@Query("transactionBytes") String transactionBytes);
     }
 }

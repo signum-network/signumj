@@ -2,13 +2,13 @@ package burst.kit.service;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.service.impl.BurstServiceImpl;
+import burst.kit.service.impl.BurstNodeServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;
 import com.google.gson.JsonObject;
 import io.reactivex.Single;
 
-public interface BurstService {
+public interface BurstNodeService {
     /**
      * Set the node address the the service connects to for future requests
      * @param newNodeAddress The full URL of the node, including port number if different from 80, not including /burst API locator
@@ -243,13 +243,13 @@ public interface BurstService {
      * @param transactionBytes The signed transaction bytes
      * @return The full hash and transaction ID or an error, wrapped in a single
      */
-    Single<JsonObject> broadcastTransaction(byte[] transactionBytes);
+    Single<BroadcastTransactionResponse> broadcastTransaction(byte[] transactionBytes);
 
-    static BurstService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
-        return new BurstServiceImpl(nodeAddress, schedulerAssigner);
+    static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
+        return new BurstNodeServiceImpl(nodeAddress, schedulerAssigner);
     }
 
-    static BurstService getInstance(String nodeAddress) {
-        return new BurstServiceImpl(nodeAddress, new DefaultSchedulerAssigner());
+    static BurstNodeService getInstance(String nodeAddress) {
+        return new BurstNodeServiceImpl(nodeAddress, new DefaultSchedulerAssigner());
     }
 }
