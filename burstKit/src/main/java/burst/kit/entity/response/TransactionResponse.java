@@ -2,6 +2,7 @@ package burst.kit.entity.response;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.attachment.TransactionAttachment;
+import io.reactivex.annotations.Nullable;
 
 @SuppressWarnings("unused")
 public final class TransactionResponse extends BRSResponse {
@@ -18,12 +19,15 @@ public final class TransactionResponse extends BRSResponse {
     private HexStringByteArray signatureHash;
     private TransactionAttachment attachment;
     private BurstAddress sender;
+    private BurstAddress recipient;
     private int ecBlockHeight;
     private int deadline;
     private BurstID transaction;
     private BurstTimestamp timestamp;
     private int height;
     private HexStringByteArray referencedTransactionFullHash;
+    private BurstID block;
+    private BurstTimestamp blockTimestamp;
 
     private TransactionResponse() {}
 
@@ -79,6 +83,14 @@ public final class TransactionResponse extends BRSResponse {
         return sender;
     }
 
+    /**
+     * @return The recipient OR NULL if the transaction does not have a recipient
+     */
+    @Nullable
+    public BurstAddress getRecipient() {
+        return recipient;
+    }
+
     public int getEcBlockHeight() {
         return ecBlockHeight;
     }
@@ -101,5 +113,13 @@ public final class TransactionResponse extends BRSResponse {
 
     public HexStringByteArray getReferencedTransactionFullHash() {
         return referencedTransactionFullHash;
+    }
+
+    public BurstID getBlockId() {
+        return block;
+    }
+
+    public BurstTimestamp getBlockTimestamp() {
+        return blockTimestamp;
     }
 }
