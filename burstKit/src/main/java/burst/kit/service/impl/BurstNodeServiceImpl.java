@@ -199,6 +199,11 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         return assign(blockchainService.broadcastTransaction(new HexStringByteArray(transactionBytes).toHexString()));
     }
 
+    @Override
+    public Single<RewardRecipientResponse> getRewardRecipient(BurstAddress account) {
+        return assign(blockchainService.getRewardRecipient(account.getID()));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -265,5 +270,8 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
         @POST("burst?requestType=broadcastTransaction")
         Single<BroadcastTransactionResponse> broadcastTransaction(@Query("transactionBytes") String transactionBytes);
+
+        @GET("burst?requestType=getRewardRecipient")
+        Single<RewardRecipientResponse> getRewardRecipient(@Query("account") String account);
     }
 }

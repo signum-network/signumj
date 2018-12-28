@@ -245,6 +245,13 @@ public interface BurstNodeService {
      */
     Single<BroadcastTransactionResponse> broadcastTransaction(byte[] transactionBytes);
 
+    /**
+     * Get the reward recipient of the account
+     * @param account The account
+     * @return The reward recipient, wrapped in a single
+     */
+    Single<RewardRecipientResponse> getRewardRecipient(BurstAddress account);
+
     static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstNodeServiceImpl(nodeAddress, schedulerAssigner);
     }

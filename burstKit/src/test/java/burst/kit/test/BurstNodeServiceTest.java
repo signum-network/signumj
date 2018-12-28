@@ -150,4 +150,9 @@ public class BurstNodeServiceTest {
     public void testBurstServiceGetMyInfo() {
         MyInfoResponse myInfoResponse = SingleTestUtils.testSingle(burstNodeService.getMyInfo());
     }
+
+    @Test
+    public void testBurstServiceGetRewardRecipient() {
+        RewardRecipientResponse rewardRecipientResponse = SingleTestUtils.testSingle(burstNodeService.getRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID));
+    }
 }
