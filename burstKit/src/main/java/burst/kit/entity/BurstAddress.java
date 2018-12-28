@@ -41,6 +41,16 @@ public final class BurstAddress {
         return new BurstAddress(burstID);
     }
 
+    /**
+     * @param unsignedLongId The numeric id that represents this Burst Address
+     * @return A BurstAddress object that represents the specified numericId
+     * @throws NumberFormatException if the numericId is not a valid number
+     * @throws IllegalArgumentException if the numericId is outside the range of accepted numbers (less than 0 or greater than / equal to 2^64)
+     */
+    public static BurstAddress fromId(String unsignedLongId) {
+        return new BurstAddress(new BurstID(unsignedLongId));
+    }
+
     public static BurstAddress fromRs(String RS) throws IllegalArgumentException {
         if (RS.startsWith("BURST-")) {
             RS = RS.substring(6);
@@ -64,6 +74,13 @@ public final class BurstAddress {
                 return null;
             }
         }
+    }
+
+    /**
+     * @return The BurstID of this address
+     */
+    public BurstID getBurstID() {
+        return numericID;
     }
 
     /**
