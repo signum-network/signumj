@@ -2,7 +2,8 @@
 
 Burstcoin Java Development Framework
 
-[![Build Status](https://travis-ci.com/harry1453/burstkit4j.svg?token=YRshfVv1szv21KJ3KRSM&branch=master)](https://travis-ci.com/harry1453/burstkit4j)
+[![Build Status](https://travis-ci.com/burst-apps-team/burstkit4j.svg?branch=master)](https://travis-ci.com/burst-apps-team/burstkit4j)
+[![](https://jitpack.io/v/burst-apps-team/burstkit4j.svg)](https://jitpack.io/#burst-apps-team/burstkit4j)
 
 ## Beta Status
 
