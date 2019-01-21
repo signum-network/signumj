@@ -252,6 +252,15 @@ public interface BurstNodeService {
      */
     Single<RewardRecipientResponse> getRewardRecipient(BurstAddress account);
 
+    /**
+     * Submit a nonce for mining
+     * @param passphrase The passphrase of the miner (if solo mining) or null if pool mining
+     * @param nonce The nonce that results in the deadline you want to submit
+     * @param accountId The account ID of the miner
+     * @return The result and calculated deadline, wrapped in a single
+     */
+    Single<SubmitNonceResponse> submitNonce(String passphrase, long nonce, BurstID accountId);
+
     static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstNodeServiceImpl(nodeAddress, schedulerAssigner);
     }

@@ -201,6 +201,11 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         return assign(blockchainService.getRewardRecipient(account.getID()));
     }
 
+    @Override
+    public Single<SubmitNonceResponse> submitNonce(String passphrase, long nonce, BurstID accountId) {
+        return assign(blockchainService.submitNonce(passphrase, String.valueOf(nonce), accountId == null ? null : accountId.getID(), ""));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -270,5 +275,8 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
         @GET("burst?requestType=getRewardRecipient")
         Single<RewardRecipientResponse> getRewardRecipient(@Query("account") String account);
+
+        @POST("burst?requestType=submitNonce")
+        Single<SubmitNonceResponse> submitNonce(@Query("secretPhrase") String passphrase, @Query("nonce") String nonce, @Query("accountId") String accountId, @Query("blockheight") String blockheight);
     }
 }

@@ -155,4 +155,9 @@ public class BurstNodeServiceTest {
     public void testBurstServiceGetRewardRecipient() {
         RewardRecipientResponse rewardRecipientResponse = SingleTestUtils.testSingle(burstNodeService.getRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
+
+    @Test
+    public void testBurstServiceSubmitNonce() {
+        SubmitNonceResponse submitNonceResponse = SingleTestUtils.testSingle(burstNodeService.submitNonce("example", 0, null));
+    }
 }
