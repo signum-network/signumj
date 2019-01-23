@@ -202,8 +202,8 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<SubmitNonceResponse> submitNonce(String passphrase, long nonce, BurstID accountId) {
-        return assign(blockchainService.submitNonce(passphrase, String.valueOf(nonce), accountId == null ? null : accountId.getID(), ""));
+    public Single<SubmitNonceResponse> submitNonce(String passphrase, String nonce, BurstID accountId) {
+        return assign(blockchainService.submitNonce(passphrase, nonce, accountId == null ? null : accountId.getID(), ""));
     }
 
     private interface BlockchainService {

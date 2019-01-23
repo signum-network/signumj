@@ -259,7 +259,7 @@ public interface BurstNodeService {
      * @param accountId The account ID of the miner
      * @return The result and calculated deadline, wrapped in a single
      */
-    Single<SubmitNonceResponse> submitNonce(String passphrase, long nonce, BurstID accountId);
+    Single<SubmitNonceResponse> submitNonce(String passphrase, String nonce, BurstID accountId);
 
     static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstNodeServiceImpl(nodeAddress, schedulerAssigner);
