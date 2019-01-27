@@ -60,54 +60,52 @@ GSON is used for JSON serialization/deserialization. To obtain a `GsonBuilder` c
 import burst.kit.burst.BurstCrypto;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.HexStringByteArray;
+import burst.kit.entity.response.BRSError;
 import burst.kit.entity.response.BroadcastTransactionResponse;
-import burst.kit.entity.response.GenerateTransactionResponse;
 import burst.kit.service.BurstNodeService;
+import io.reactivex.disposables.Disposable;
 
 public class TransactionSender {
     /**
-    * Example which sends 1 BURST to another account with a fee of 0.1 BURST
-    * and includes an encrypted message which only the sender or recipient
-    * can read. Performs all cryptographic functions (encrypting the message
-    * and signing the transaction) offline so does not send the passphrase
-    * to the node (which would be a huge security risk!)
-    */
+     * Example which sends 1 BURST to another account with a fee of 0.1 BURST
+     * and includes an encrypted message which only the sender or recipient
+     * can read. Performs all cryptographic functions (encrypting the message
+     * and signing the transaction) offline so does not send the passphrase
+     * to the node (which would be a huge security risk!)
+     */
     public void sendTransactionWithEncryptedMessage() {
         // Obtain handles to services
         BurstCrypto burstCrypto = BurstCrypto.getInstance();
         BurstNodeService burstNodeService = BurstNodeService.getInstance("https://wallet.dev.burst-test.net");
-        
+
         String passphrase = "passphrase"; // Your burst wallet passphrase
         byte[] recipientPublicKey = new HexStringByteArray("AABBCC112233").getBytes(); // Recipient public key
 
-        // Generate the transaction we want to, without sending any sensitive information to the node
-        // WARNING: Do not use blockingGet() in a non-test environment as it blocks the current thread until a response is received or the request times out.
-        GenerateTransactionResponse generatedTransaction = burstNodeService.generateTransactionWithEncryptedMessage(burstCrypto.getBurstAddressFromPublic(recipientPublicKey), burstCrypto.getPublicKey(passphrase), BurstValue.fromBurst(1), BurstValue.fromBurst(0.1), 1440, burstCrypto.encryptTextMessage("Sent from burstkit4j!", passphrase, recipientPublicKey)).blockingGet();
-        
-        // Check no errors occurred in generating the transaction
-        if (generatedTransaction.hasError()) {
-            System.err.println("Error generating transaction: " + generatedTransaction.getErrorDescription());
-            return;
-        }
-        
-        // Get the unsigned transaction bytes from the node's response
-        byte[] unsignedTransactionBytes = generatedTransaction.getUnsignedTransactionBytes().getBytes();
-        
-        // Locally sign the transaction using our passphrase
-        byte[] signedTransactionBytes = burstCrypto.signTransaction(passphrase, unsignedTransactionBytes);
-
-        // Broadcast the transaction through the node, still not sending it any sensitive information
-        // WARNING: Do not use blockingGet() in a non-test environment as it blocks the current thread until a response is received or the request times out.
-        BroadcastTransactionResponse broadcastTransactionResponse = burstNodeService.broadcastTransaction(signedTransactionBytes).blockingGet();
-        
-        // Check no errors occurred in broadcasting the transaction
-        if (broadcastTransactionResponse.hasError()) {
-            System.err.println("Error broadcasting transaction: " + broadcastTransactionResponse.getErrorDescription());
-            return;
-        }
-        
+        // Generate the transaction without signing it
+        Disposable disposable = burstNodeService.generateTransactionWithEncryptedMessage(burstCrypto.getBurstAddressFromPublic(recipientPublicKey), burstCrypto.getPublicKey(passphrase), BurstValue.fromBurst(1), BurstValue.fromBurst(0.1), 1440, burstCrypto.encryptTextMessage("Sent from burstkit4j!", passphrase, recipientPublicKey))
+                .flatMap(response -> {
+                    // Now we need to locally sign the transaction.
+                    // Get the unsigned transaction bytes from the node's response
+                    byte[] unsignedTransactionBytes = response.getUnsignedTransactionBytes().getBytes();
+                    // Locally sign the transaction using our passphrase
+                    byte[] signedTransactionBytes = burstCrypto.signTransaction(passphrase, unsignedTransactionBytes);
+                    // Broadcast the transaction through the node, still not sending it any sensitive information. Use this as the result of the flatMap so we do not have to call subscribe() twice
+                    return burstNodeService.broadcastTransaction(signedTransactionBytes);
+                })
+                .subscribe(this::onTransactionSent, this::handleError);
+    }
+    
+    private void onTransactionSent(BroadcastTransactionResponse response) {
         // Get the transaction ID of the newly sent transaction!
-        System.out.println("Transaction sent! Transaction ID: " + broadcastTransactionResponse.getTransactionID().getID());
+        System.out.println("Transaction sent! Transaction ID: " + response.getTransactionID().getID());
+    }
+    
+    private void handleError(Throwable t) {
+        if (t instanceof BRSError) {
+            System.out.println("Caught BRS Error: " + ((BRSError) t).getDescription());
+        } else {
+            t.printStackTrace();
+        }
     }
 }
 ``` 
