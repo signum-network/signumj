@@ -17,6 +17,10 @@ public final class BurstValue extends BigDecimal {
         super(new BigDecimal(val).divide(BigDecimal.TEN.pow(8)).toString());
     }
 
+    public BurstValue(BigDecimal bigDecimal) {
+        super(bigDecimal.toPlainString());
+    }
+
     /**
      * @param planck The number of planck
      * @return The BurstValue representing this number of planck, or a BurstValue representing 0 Burst if the string could not be parsed

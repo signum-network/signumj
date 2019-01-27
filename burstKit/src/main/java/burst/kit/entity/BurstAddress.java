@@ -65,6 +65,7 @@ public final class BurstAddress {
      * @return a BurstAddress if one could be parsed from the input, null otherwise
      */
     public static BurstAddress fromEither(String input) {
+        if (input == null) return null;
         try {
             return BurstAddress.fromId(new BurstID(input));
         } catch (IllegalArgumentException e1) {
