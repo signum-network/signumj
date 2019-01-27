@@ -12,6 +12,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.*;
 
+import java.util.Map;
+import java.util.Set;
+
 public final class BurstNodeServiceImpl implements BurstNodeService {
 
     private final SchedulerAssigner schedulerAssigner;
@@ -206,6 +209,32 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         return assign(blockchainService.submitNonce(passphrase, nonce, accountId == null ? null : accountId.getID(), ""));
     }
 
+    @Override
+    public Single<GenerateTransactionResponse> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException {
+        StringBuilder recipientsString = new StringBuilder();
+        if (recipients.size() > 64 || recipients.size() < 2) {
+            throw new IllegalArgumentException("Must have 2-64 recipients, had " + recipients.size());
+        }
+        for (Map.Entry<BurstAddress, BurstValue> recipient : recipients.entrySet()) {
+            recipientsString.append(recipient.getKey().getID()).append(":").append(recipient.getValue().toPlanck()).append(";");
+        }
+        recipientsString.setLength(recipientsString.length() - 1);
+        return assign(blockchainService.sendMoneyMulti(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString()));
+    }
+
+    @Override
+    public Single<GenerateTransactionResponse> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
+        StringBuilder recipientsString = new StringBuilder();
+        if (recipients.size() > 128 || recipients.size() < 2) {
+            throw new IllegalArgumentException("Must have 2-128 recipients, had " + recipients.size());
+        }
+        for (BurstAddress recipient : recipients) {
+            recipientsString.append(recipient.getID()).append(";");
+        }
+        recipientsString.setLength(recipientsString.length() - 1);
+        return assign(blockchainService.sendMoneyMultiSame(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString(), amount.toPlanck()));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -278,5 +307,11 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
         @POST("burst?requestType=submitNonce")
         Single<SubmitNonceResponse> submitNonce(@Query("secretPhrase") String passphrase, @Query("nonce") String nonce, @Query("accountId") String accountId, @Query("blockheight") String blockheight);
+
+        @POST("burst?requestType=sendMoneyMulti")
+        Single<GenerateTransactionResponse> sendMoneyMulti(@Query("secretPhrase") String secretPhrase, @Query("publicKey") String publicKey, @Query("feeNQT") String feeNQT, @Query("deadline") String deadline, @Query("referencedTransactionFullHash") String referencedTransactionFullHash, @Query("broadcast") boolean broadcast, @Query("recipients") String recipients);
+
+        @POST("burst?requestType=sendMoneyMultiSame")
+        Single<GenerateTransactionResponse> sendMoneyMultiSame(@Query("secretPhrase") String secretPhrase, @Query("publicKey") String publicKey, @Query("feeNQT") String feeNQT, @Query("deadline") String deadline, @Query("referencedTransactionFullHash") String referencedTransactionFullHash, @Query("broadcast") boolean broadcast, @Query("recipients") String recipients, @Query("amountNQT") String amountNQT);
     }
 }

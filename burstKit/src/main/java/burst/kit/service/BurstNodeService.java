@@ -8,6 +8,9 @@ import burst.kit.util.SchedulerAssigner;
 import com.google.gson.JsonObject;
 import io.reactivex.Single;
 
+import java.util.Map;
+import java.util.Set;
+
 public interface BurstNodeService {
     /**
      * Set the node address the the service connects to for future requests
@@ -260,6 +263,29 @@ public interface BurstNodeService {
      * @return The result and calculated deadline, wrapped in a single
      */
     Single<SubmitNonceResponse> submitNonce(String passphrase, String nonce, BurstID accountId);
+
+    /**
+     * Generate a multi-out transaction
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param recipients A map of recipients and how much they get. Length must be 2-64 inclusive
+     * @return The generated transaction, wrapped in a single
+     * @throws IllegalArgumentException If the number of recipients is not in the range of 2-64 inclusive
+     */
+    Single<GenerateTransactionResponse> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException;
+
+    /**
+     * Generate a multi-out transaction
+     * @param senderPublicKey The public key of the sender
+     * @param amount The amount each recipient gets
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param recipients A list of recipients. Each will get the amount specified. Length must be 2-128 inclusive
+     * @return The generated transaction, wrapped in a single
+     * @throws IllegalArgumentException If the number of recipients is not in the range of 2-128 inclusive
+     */
+    Single<GenerateTransactionResponse> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
 
     static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
         return new BurstNodeServiceImpl(nodeAddress, schedulerAssigner);

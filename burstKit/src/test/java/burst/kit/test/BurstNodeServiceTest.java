@@ -1,5 +1,7 @@
 package burst.kit.test;
 
+import burst.kit.burst.BurstCrypto;
+import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.*;
@@ -7,11 +9,15 @@ import burst.kit.entity.response.attachment.ATCreationAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstNodeService;
-import burst.kit.util.BurstKitUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -20,10 +26,12 @@ import static org.junit.Assert.assertTrue;
 public class BurstNodeServiceTest {
 
     private BurstNodeService burstNodeService;
+    private BurstCrypto burstCrypto;
 
     @Before
     public void setUpBurstServiceTest() {
         burstNodeService = BurstNodeService.getInstance("https://wallet1.burst-team.us:2083");
+        burstCrypto = BurstCrypto.getInstance();
     }
 
     @Test
@@ -159,5 +167,21 @@ public class BurstNodeServiceTest {
     @Test
     public void testBurstServiceSubmitNonce() {
         SubmitNonceResponse submitNonceResponse = SingleTestUtils.testSingle(burstNodeService.submitNonce("example", "0", null));
+    }
+
+    @Test
+    public void testBurstServiceGenerateMultiOut() {
+        Map<BurstAddress, BurstValue> recipients = new HashMap<>();
+        recipients.put(burstCrypto.getBurstAddressFromPassphrase("example1"), BurstValue.fromBurst(1));
+        recipients.put(burstCrypto.getBurstAddressFromPassphrase("example2"), BurstValue.fromBurst(2));
+        GenerateTransactionResponse multiOutResponse = SingleTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromPlanck(753000), 1440, recipients));
+    }
+
+    @Test
+    public void testBurstServiceGenerateMultiOutSame() {
+        Set<BurstAddress> recipients = new HashSet<>();
+        recipients.add(burstCrypto.getBurstAddressFromPassphrase("example1"));
+        recipients.add(burstCrypto.getBurstAddressFromPassphrase("example2"));
+        GenerateTransactionResponse multiOutSameResponse = SingleTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromPlanck(753000), 1440, recipients));
     }
 }
