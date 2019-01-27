@@ -8,16 +8,10 @@ public abstract class BRSResponse {
 
     BRSResponse() {}
 
-    public boolean hasError() {
-        return errorDescription != null;
-    }
-
-    public String getErrorDescription() {
-        return errorDescription;
-    }
-
-    public Integer getErrorCode() {
-        return errorCode;
+    public void throwIfError() throws BRSError {
+        if (errorDescription != null) {
+            throw new BRSError(errorCode, errorDescription);
+        }
     }
 
     public Integer getRequestProcessingTime() {

@@ -37,7 +37,14 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
     
     private <T> Single<T> assign(Single<T> source) {
-        return schedulerAssigner.assignSchedulers(source);
+        return schedulerAssigner.assignSchedulers(source.map(this::checkBrsResponse));
+    }
+
+    private <T> T checkBrsResponse(T source) throws BRSError {
+        if (source instanceof BRSResponse) {
+            ((BRSResponse) source).throwIfError();
+        }
+        return source;
     }
 
     @Override
