@@ -158,6 +158,6 @@ public class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceSubmitNonce() {
-        SubmitNonceResponse submitNonceResponse = SingleTestUtils.testSingle(burstNodeService.submitNonce("example", 0, null));
+        SubmitNonceResponse submitNonceResponse = SingleTestUtils.testSingle(burstNodeService.submitNonce("example", "0", null));
     }
 }

@@ -246,7 +246,7 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         @GET("burst?requestType=getAccountsWithRewardRecipient")
         Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(@Query("account") String accountId);
 
-        @GET("burst?requestType=getAt")
+        @GET("burst?requestType=getAT")
         Single<ATResponse> getAt(@Query("at") String atId);
 
         @GET("burst?requestType=getATIds")
