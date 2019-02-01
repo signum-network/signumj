@@ -36,137 +36,137 @@ public class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceGetBlock() {
-        BlockResponse blockIDResponse = SingleTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_ID));
-        BlockResponse blockHeightResponse = SingleTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_HEIGHT));
-        BlockResponse blockTimestampResponse = SingleTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_TIMESTAMP));
-        BlockResponse blockTransactionResponse = SingleTestUtils.testSingle(burstNodeService.getBlock(new BurstID[]{TestVariables.EXAMPLE_TRANSACTION_ID}));
+        BlockResponse blockIDResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_ID));
+        BlockResponse blockHeightResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_HEIGHT));
+        BlockResponse blockTimestampResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_TIMESTAMP));
+        BlockResponse blockTransactionResponse = RxTestUtils.testSingle(burstNodeService.getBlock(new BurstID[]{TestVariables.EXAMPLE_TRANSACTION_ID}));
     }
 
     @Test
     public void testBurstServiceGetBlockID() {
-        BlockIDResponse blockIDResponse = SingleTestUtils.testSingle(burstNodeService.getBlockId(TestVariables.EXAMPLE_BLOCK_HEIGHT));
+        BlockIDResponse blockIDResponse = RxTestUtils.testSingle(burstNodeService.getBlockId(TestVariables.EXAMPLE_BLOCK_HEIGHT));
     }
 
     @Test
     public void testBurstServiceGetBlockchainStatus() {
-        BlockchainStatusResponse blockchainStatusResponse = SingleTestUtils.testSingle(burstNodeService.getBlockchainStatus());
+        BlockchainStatusResponse blockchainStatusResponse = RxTestUtils.testSingle(burstNodeService.getBlockchainStatus());
     }
 
     @Test
     public void testBurstServiceGetBlocks() {
-        BlocksResponse blocksResponse = SingleTestUtils.testSingle(burstNodeService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
+        BlocksResponse blocksResponse = RxTestUtils.testSingle(burstNodeService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
         //assertEquals(100, blocksResponse.getBlocks().length);
     }
 
     @Test
     public void testBurstServiceGetConstants() {
-        ConstantsResponse constantsResponse = SingleTestUtils.testSingle(burstNodeService.getConstants());
+        ConstantsResponse constantsResponse = RxTestUtils.testSingle(burstNodeService.getConstants());
     }
 
     @Test
     public void testBurstServiceGetAccount() {
-        AccountResponse accountResponse = SingleTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountResponse accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountATs() {
-        AccountATsResponse accountATsResponse = SingleTestUtils.testSingle(burstNodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountATsResponse accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountBlockIDs() {
-        AccountBlockIDsResponse accountBlockIDsResponse = SingleTestUtils.testSingle(burstNodeService.getAccountBlockIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountBlockIDsResponse accountBlockIDsResponse = RxTestUtils.testSingle(burstNodeService.getAccountBlockIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountBlocks() {
-        AccountBlocksResponse accountBlocksResponse = SingleTestUtils.testSingle(burstNodeService.getAccountBlocks(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountBlocksResponse accountBlocksResponse = RxTestUtils.testSingle(burstNodeService.getAccountBlocks(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountPublicKey() {
-        AccountPublicKeyResponse accountPublicKeyResponse = SingleTestUtils.testSingle(burstNodeService.getAccountPublicKey(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountPublicKeyResponse accountPublicKeyResponse = RxTestUtils.testSingle(burstNodeService.getAccountPublicKey(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountTransactionIDs() {
-        AccountTransactionIDsResponse accountTransactionIDsResponse = SingleTestUtils.testSingle(burstNodeService.getAccountTransactionIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountTransactionIDsResponse accountTransactionIDsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactionIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountTransactions() {
-        AccountTransactionsResponse accountTransactionsResponse = SingleTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AccountTransactionsResponse accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAccountWithRewardRecipient() {
-        AccountsWithRewardRecipientResponse accountsWithRewardRecipientResponse = SingleTestUtils.testSingle(burstNodeService.getAccountsWithRewardRecipient(TestVariables.EXAMPLE_POOL_ACCOUNT_ID));
+        AccountsWithRewardRecipientResponse accountsWithRewardRecipientResponse = RxTestUtils.testSingle(burstNodeService.getAccountsWithRewardRecipient(TestVariables.EXAMPLE_POOL_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceGetAT() {
-        ATResponse accountATsResponse = SingleTestUtils.testSingle(burstNodeService.getAt(TestVariables.EXAMPLE_AT_ID));
+        ATResponse accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAt(TestVariables.EXAMPLE_AT_ID));
     }
 
     @Test
     public void testBurstServiceGetAtIDs() {
-        AtIDsResponse atIDsResponse = SingleTestUtils.testSingle(burstNodeService.getAtIds());
+        AtIDsResponse atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
     }
 
     @Test
     public void testBurstServiceGetTransaction() {
-        TransactionResponse transactionIdTransactionResponse = SingleTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
-        TransactionResponse fullHashTransactionResponse = SingleTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH.getBytes()));
+        TransactionResponse transactionIdTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
+        TransactionResponse fullHashTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH.getBytes()));
 
-        TransactionResponse multiOutTransactionResponse = SingleTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
+        TransactionResponse multiOutTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
         assertEquals(MultiOutAttachment.class, multiOutTransactionResponse.getAttachment().getType());
         assertEquals(22, ((MultiOutAttachment) multiOutTransactionResponse.getAttachment()).getRecipients().length);
 
-        TransactionResponse multiOutSameTransactionResponse = SingleTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID));
+        TransactionResponse multiOutSameTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID));
         assertEquals(MultiOutSameAttachment.class, multiOutSameTransactionResponse.getAttachment().getType());
         assertEquals(128, ((MultiOutSameAttachment) multiOutSameTransactionResponse.getAttachment()).getRecipients().length);
 
-        TransactionResponse atCreationTransactionResponse = SingleTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_AT_CREATION_TRANSACTION_ID));
+        TransactionResponse atCreationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_AT_CREATION_TRANSACTION_ID));
         assertEquals(ATCreationAttachment.class, atCreationTransactionResponse.getAttachment().getType());
     }
 
     @Test
     public void testBurstServiceGetTransactionBytes() {
-        TransactionBytesResponse transactionBytesResponse = SingleTestUtils.testSingle(burstNodeService.getTransactionBytes(TestVariables.EXAMPLE_TRANSACTION_ID));
+        TransactionBytesResponse transactionBytesResponse = RxTestUtils.testSingle(burstNodeService.getTransactionBytes(TestVariables.EXAMPLE_TRANSACTION_ID));
     }
 
     @Test
     public void testBurstServiceGenerateTransaction() {
-        GenerateTransactionResponse withoutMessage = SingleTestUtils.testSingle(burstNodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
-        GenerateTransactionResponse withStringMessage = SingleTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, "Test Transaction"));
-        GenerateTransactionResponse withBytesMessage = SingleTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes()));
+        GenerateTransactionResponse withoutMessage = RxTestUtils.testSingle(burstNodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
+        GenerateTransactionResponse withStringMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, "Test Transaction"));
+        GenerateTransactionResponse withBytesMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes()));
     }
 
     @Test
     public void testBurstServiceSuggestFee() {
-        SuggestFeeResponse suggestFeeResponse = SingleTestUtils.testSingle(burstNodeService.suggestFee());
+        SuggestFeeResponse suggestFeeResponse = RxTestUtils.testSingle(burstNodeService.suggestFee());
         assertTrue(suggestFeeResponse.getPriority().compareTo(suggestFeeResponse.getStandard()) >= 0);
         assertTrue(suggestFeeResponse.getStandard().compareTo(suggestFeeResponse.getCheap()) >= 0);
     }
 
     @Test
     public void testBurstServiceGetMiningInfo() {
-        MiningInfoResponse miningInfoResponse = SingleTestUtils.testSingle(burstNodeService.getMiningInfo());
+        MiningInfoResponse miningInfoResponse = RxTestUtils.testObservable(burstNodeService.getMiningInfo(), 1).get(0);
     }
 
     @Test
     public void testBurstServiceGetMyInfo() {
-        MyInfoResponse myInfoResponse = SingleTestUtils.testSingle(burstNodeService.getMyInfo());
+        MyInfoResponse myInfoResponse = RxTestUtils.testSingle(burstNodeService.getMyInfo());
     }
 
     @Test
     public void testBurstServiceGetRewardRecipient() {
-        RewardRecipientResponse rewardRecipientResponse = SingleTestUtils.testSingle(burstNodeService.getRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID));
+        RewardRecipientResponse rewardRecipientResponse = RxTestUtils.testSingle(burstNodeService.getRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID));
     }
 
     @Test
     public void testBurstServiceSubmitNonce() {
-        SubmitNonceResponse submitNonceResponse = SingleTestUtils.testSingle(burstNodeService.submitNonce("example", "0", null));
+        SubmitNonceResponse submitNonceResponse = RxTestUtils.testSingle(burstNodeService.submitNonce("example", "0", null));
     }
 
     @Test
@@ -174,7 +174,7 @@ public class BurstNodeServiceTest {
         Map<BurstAddress, BurstValue> recipients = new HashMap<>();
         recipients.put(burstCrypto.getBurstAddressFromPassphrase("example1"), BurstValue.fromBurst(1));
         recipients.put(burstCrypto.getBurstAddressFromPassphrase("example2"), BurstValue.fromBurst(2));
-        GenerateTransactionResponse multiOutResponse = SingleTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromPlanck(753000), 1440, recipients));
+        GenerateTransactionResponse multiOutResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromPlanck(753000), 1440, recipients));
     }
 
     @Test
@@ -182,6 +182,6 @@ public class BurstNodeServiceTest {
         Set<BurstAddress> recipients = new HashSet<>();
         recipients.add(burstCrypto.getBurstAddressFromPassphrase("example1"));
         recipients.add(burstCrypto.getBurstAddressFromPassphrase("example2"));
-        GenerateTransactionResponse multiOutSameResponse = SingleTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromPlanck(753000), 1440, recipients));
+        GenerateTransactionResponse multiOutSameResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY.getBytes(), BurstValue.fromBurst(1), BurstValue.fromPlanck(753000), 1440, recipients));
     }
 }
