@@ -8,8 +8,7 @@ public class SuggestFeeResponse extends BRSResponse {
     private final BurstValue standard;
     private final BurstValue priority;
 
-    public SuggestFeeResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, BurstValue cheap, BurstValue standard, BurstValue priority) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public SuggestFeeResponse(BurstValue cheap, BurstValue standard, BurstValue priority) {
         this.cheap = cheap;
         this.standard = standard;
         this.priority = priority;

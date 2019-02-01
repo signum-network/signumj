@@ -8,8 +8,7 @@ public final class TransactionBytesResponse extends BRSResponse {
     private final int confirmations;
     private final HexStringByteArray transactionBytes;
 
-    public TransactionBytesResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, HexStringByteArray unsignedTransactionBytes, int confirmations, HexStringByteArray transactionBytes) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public TransactionBytesResponse(HexStringByteArray unsignedTransactionBytes, int confirmations, HexStringByteArray transactionBytes) {
         this.unsignedTransactionBytes = unsignedTransactionBytes;
         this.confirmations = confirmations;
         this.transactionBytes = transactionBytes;

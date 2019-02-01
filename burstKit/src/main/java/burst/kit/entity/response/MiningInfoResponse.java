@@ -8,8 +8,7 @@ public class MiningInfoResponse extends BRSResponse {
     private final long baseTarget;
     private final long height;
 
-    public MiningInfoResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, HexStringByteArray generationSignature, long baseTarget, long height) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public MiningInfoResponse(HexStringByteArray generationSignature, long baseTarget, long height) {
         this.generationSignature = generationSignature;
         this.baseTarget = baseTarget;
         this.height = height;

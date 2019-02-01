@@ -14,8 +14,7 @@ public final class ConstantsResponse extends BRSResponse {
     // TODO requestTypes
 
 
-    public ConstantsResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int maxBlockPayloadLength, BurstAddress genesisAccountId, BurstID genesisBlockId, TransactionTypeResponse[] transactionTypes, PeerStateResponse[] peerStates, int maxArbitraryMessageLength) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public ConstantsResponse(int maxBlockPayloadLength, BurstAddress genesisAccountId, BurstID genesisBlockId, TransactionTypeResponse[] transactionTypes, PeerStateResponse[] peerStates, int maxArbitraryMessageLength) {
         this.maxBlockPayloadLength = maxBlockPayloadLength;
         this.genesisAccountId = genesisAccountId;
         this.genesisBlockId = genesisBlockId;

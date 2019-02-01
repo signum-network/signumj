@@ -29,8 +29,7 @@ public final class TransactionResponse extends BRSResponse {
     private final BurstID block;
     private final BurstTimestamp blockTimestamp;
 
-    public TransactionResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachment attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, int deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public TransactionResponse(HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachment attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, int deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
         this.senderPublicKey = senderPublicKey;
         this.signature = signature;
         this.feeNQT = feeNQT;

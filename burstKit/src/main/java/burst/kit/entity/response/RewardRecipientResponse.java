@@ -6,8 +6,7 @@ import burst.kit.entity.BurstAddress;
 public class RewardRecipientResponse extends BRSResponse {
     private final BurstAddress rewardRecipient;
 
-    public RewardRecipientResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, BurstAddress rewardRecipient) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public RewardRecipientResponse(BurstAddress rewardRecipient) {
         this.rewardRecipient = rewardRecipient;
     }
 

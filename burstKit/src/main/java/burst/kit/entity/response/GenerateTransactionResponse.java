@@ -16,8 +16,7 @@ public class GenerateTransactionResponse extends BRSResponse {
     @SerializedName("transaction")
     private final BurstID transactionID;
 
-    public GenerateTransactionResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, boolean broadcasted, HexStringByteArray signatureHash, HexStringByteArray fullHash, HexStringByteArray transactionBytes, HexStringByteArray unsignedTransactionBytes, TransactionResponse transactionResponse, BurstID transactionID) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public GenerateTransactionResponse(boolean broadcasted, HexStringByteArray signatureHash, HexStringByteArray fullHash, HexStringByteArray transactionBytes, HexStringByteArray unsignedTransactionBytes, TransactionResponse transactionResponse, BurstID transactionID) {
         this.broadcasted = broadcasted;
         this.signatureHash = signatureHash;
         this.fullHash = fullHash;

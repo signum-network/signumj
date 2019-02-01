@@ -5,8 +5,7 @@ public class MyInfoResponse extends BRSResponse {
     private final String address;
     private final String host;
 
-    public MyInfoResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String address, String host) {
-        super(errorDescription, errorCode, requestProcessingTime);
+    public MyInfoResponse(String address, String host) {
         this.address = address;
         this.host = host;
     }
