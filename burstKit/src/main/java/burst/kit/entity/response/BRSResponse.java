@@ -12,6 +12,12 @@ public abstract class BRSResponse {
         this.requestProcessingTime = requestProcessingTime;
     }
 
+    public BRSResponse() {
+        this.errorDescription = null;
+        this.errorCode = null;
+        this.requestProcessingTime = null;
+    }
+
     public void throwIfError() throws BRSError {
         if (errorDescription != null) {
             throw new BRSError(errorCode, errorDescription);
