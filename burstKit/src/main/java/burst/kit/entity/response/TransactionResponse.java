@@ -6,30 +6,54 @@ import io.reactivex.annotations.Nullable;
 
 @SuppressWarnings("unused")
 public final class TransactionResponse extends BRSResponse {
-    private HexStringByteArray senderPublicKey;
-    private HexStringByteArray signature;
-    private BurstValue feeNQT;
-    private BurstValue amountNQT;
-    private int type;
-    private int subtype;
-    private int confirmations;
-    private HexStringByteArray fullHash;
-    private int version;
-    private BurstID ecBlockId;
-    private HexStringByteArray signatureHash;
-    private TransactionAttachment attachment;
-    private BurstAddress sender;
-    private BurstAddress recipient;
-    private int ecBlockHeight;
-    private int deadline;
-    private BurstID transaction;
-    private BurstTimestamp timestamp;
-    private int height;
-    private HexStringByteArray referencedTransactionFullHash;
-    private BurstID block;
-    private BurstTimestamp blockTimestamp;
+    private final HexStringByteArray senderPublicKey;
+    private final HexStringByteArray signature;
+    private final BurstValue feeNQT;
+    private final BurstValue amountNQT;
+    private final int type;
+    private final int subtype;
+    private final int confirmations;
+    private final HexStringByteArray fullHash;
+    private final int version;
+    private final BurstID ecBlockId;
+    private final HexStringByteArray signatureHash;
+    private final TransactionAttachment attachment;
+    private final BurstAddress sender;
+    private final BurstAddress recipient;
+    private final int ecBlockHeight;
+    private final int deadline;
+    private final BurstID transaction;
+    private final BurstTimestamp timestamp;
+    private final int height;
+    private final HexStringByteArray referencedTransactionFullHash;
+    private final BurstID block;
+    private final BurstTimestamp blockTimestamp;
 
-    private TransactionResponse() {}
+    public TransactionResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachment attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, int deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.senderPublicKey = senderPublicKey;
+        this.signature = signature;
+        this.feeNQT = feeNQT;
+        this.amountNQT = amountNQT;
+        this.type = type;
+        this.subtype = subtype;
+        this.confirmations = confirmations;
+        this.fullHash = fullHash;
+        this.version = version;
+        this.ecBlockId = ecBlockId;
+        this.signatureHash = signatureHash;
+        this.attachment = attachment;
+        this.sender = sender;
+        this.recipient = recipient;
+        this.ecBlockHeight = ecBlockHeight;
+        this.deadline = deadline;
+        this.transaction = transaction;
+        this.timestamp = timestamp;
+        this.height = height;
+        this.referencedTransactionFullHash = referencedTransactionFullHash;
+        this.block = block;
+        this.blockTimestamp = blockTimestamp;
+    }
 
     public HexStringByteArray getSenderPublicKey() {
         return senderPublicKey;

@@ -4,9 +4,11 @@ import burst.kit.entity.HexStringByteArray;
 
 @SuppressWarnings("unused")
 public final class AccountPublicKeyResponse extends BRSResponse {
-    private HexStringByteArray publicKey;
+    private final HexStringByteArray publicKey;
 
-    private AccountPublicKeyResponse() {}
+    public AccountPublicKeyResponse(HexStringByteArray publicKey) {
+        this.publicKey = publicKey;
+    }
 
     public HexStringByteArray getPublicKey() {
         return publicKey;

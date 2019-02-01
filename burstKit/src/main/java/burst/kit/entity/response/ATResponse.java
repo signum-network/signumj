@@ -6,26 +6,45 @@ import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
 public final class ATResponse extends BRSResponse {
-    private int atVersion;
-    private BurstAddress creator;
-    private boolean stopped;
-    private HexStringByteArray machineCode;
-    private String description;
-    private HexStringByteArray machineData;
-    private boolean frozen;
-    private boolean finished;
-    private boolean dead;
-    private BurstValue balanceNQT;
-    private int nextBlock;
-    private BurstValue minActivation;
-    private boolean running;
-    private BurstAddress at;
-    private BurstAddress atRS;
-    private String name;
-    private BurstValue prevBalanceNQT;
-    private int creationBlock;
+    private final int atVersion;
+    private final BurstAddress creator;
+    private final boolean stopped;
+    private final HexStringByteArray machineCode;
+    private final String description;
+    private final HexStringByteArray machineData;
+    private final boolean frozen;
+    private final boolean finished;
+    private final boolean dead;
+    private final BurstValue balanceNQT;
+    private final int nextBlock;
+    private final BurstValue minActivation;
+    private final boolean running;
+    private final BurstAddress at;
+    private final BurstAddress atRS;
+    private final String name;
+    private final BurstValue prevBalanceNQT;
+    private final int creationBlock;
 
-    private ATResponse() {}
+    public ATResponse(int atVersion, BurstAddress creator, boolean stopped, HexStringByteArray machineCode, String description, HexStringByteArray machineData, boolean frozen, boolean finished, boolean dead, BurstValue balanceNQT, int nextBlock, BurstValue minActivation, boolean running, BurstAddress at, BurstAddress atRS, String name, BurstValue prevBalanceNQT, int creationBlock) {
+        this.atVersion = atVersion;
+        this.creator = creator;
+        this.stopped = stopped;
+        this.machineCode = machineCode;
+        this.description = description;
+        this.machineData = machineData;
+        this.frozen = frozen;
+        this.finished = finished;
+        this.dead = dead;
+        this.balanceNQT = balanceNQT;
+        this.nextBlock = nextBlock;
+        this.minActivation = minActivation;
+        this.running = running;
+        this.at = at;
+        this.atRS = atRS;
+        this.name = name;
+        this.prevBalanceNQT = prevBalanceNQT;
+        this.creationBlock = creationBlock;
+    }
 
     public int getAtVersion() {
         return atVersion;

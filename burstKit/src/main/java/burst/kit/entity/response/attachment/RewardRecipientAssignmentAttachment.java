@@ -5,9 +5,11 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("WeakerAccess")
 public final class RewardRecipientAssignmentAttachment extends TransactionAttachment {
     @SerializedName("version.RewardRecipientAssignment")
-    private int version;
+    private final int version;
 
-    private RewardRecipientAssignmentAttachment() {}
+    public RewardRecipientAssignmentAttachment(int version) {
+        this.version = version;
+    }
 
     public int getVersion() {
         return version;

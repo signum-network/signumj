@@ -4,9 +4,11 @@ import burst.kit.entity.BurstAddress;
 
 @SuppressWarnings("unused")
 public final class AtIDsResponse extends BRSResponse {
-    private BurstAddress[] atIds;
+    private final BurstAddress[] atIds;
 
-    private AtIDsResponse() {}
+    public AtIDsResponse(BurstAddress[] atIds) {
+        this.atIds = atIds;
+    }
 
     public BurstAddress[] getAtIds() {
         return atIds;

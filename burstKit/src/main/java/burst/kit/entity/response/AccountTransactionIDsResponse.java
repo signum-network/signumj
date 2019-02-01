@@ -4,9 +4,11 @@ import burst.kit.entity.BurstID;
 
 @SuppressWarnings("unused")
 public final class AccountTransactionIDsResponse extends BRSResponse {
-    private BurstID[] transactionIds;
+    private final BurstID[] transactionIds;
 
-    private AccountTransactionIDsResponse() {}
+    public AccountTransactionIDsResponse(BurstID[] transactionIds) {
+        this.transactionIds = transactionIds;
+    }
 
     public BurstID[] getTransactionIds() {
         return transactionIds;

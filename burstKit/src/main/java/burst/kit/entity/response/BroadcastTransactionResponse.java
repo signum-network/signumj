@@ -5,10 +5,13 @@ import burst.kit.entity.HexStringByteArray;
 
 @SuppressWarnings("unused")
 public class BroadcastTransactionResponse extends BRSResponse {
-    private HexStringByteArray fullHash;
-    private BurstID transaction;
+    private final HexStringByteArray fullHash;
+    private final BurstID transaction;
 
-    private BroadcastTransactionResponse() {}
+    public BroadcastTransactionResponse(HexStringByteArray fullHash, BurstID transaction) {
+        this.fullHash = fullHash;
+        this.transaction = transaction;
+    }
 
     public HexStringByteArray getFullHash() {
         return fullHash;

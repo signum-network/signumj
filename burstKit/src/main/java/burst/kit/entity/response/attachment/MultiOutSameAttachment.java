@@ -5,10 +5,13 @@ import com.google.gson.annotations.SerializedName;
 
 public final class MultiOutSameAttachment extends TransactionAttachment {
     @SerializedName("version.MultiSameOutCreation")
-    private int version;
-    private BurstAddress[] recipients;
+    private final int version;
+    private final BurstAddress[] recipients;
 
-    private MultiOutSameAttachment() {}
+    public MultiOutSameAttachment(int version, BurstAddress[] recipients) {
+        this.version = version;
+        this.recipients = recipients;
+    }
 
     public int getVersion() {
         return version;

@@ -2,10 +2,14 @@ package burst.kit.entity.response;
 
 @SuppressWarnings("unused")
 public class MyInfoResponse extends BRSResponse {
-    private String address;
-    private String host;
+    private final String address;
+    private final String host;
 
-    private MyInfoResponse() {}
+    public MyInfoResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String address, String host) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.address = address;
+        this.host = host;
+    }
 
     public String getAddress() {
         return address;

@@ -6,17 +6,27 @@ import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
 public final class AccountResponse extends BRSResponse {
-    private BurstValue unconfirmedBalanceNQT;
-    private BurstValue guaranteedBalanceNQT;
-    private BurstValue effectiveBalanceNQT;
-    private String name;
-    private String description;
-    private BurstValue forgedBalanceNQT;
-    private BurstValue balanceNQT;
-    private HexStringByteArray publicKey;
-    private BurstAddress account;
+    private final BurstValue unconfirmedBalanceNQT;
+    private final BurstValue guaranteedBalanceNQT;
+    private final BurstValue effectiveBalanceNQT;
+    private final String name;
+    private final String description;
+    private final BurstValue forgedBalanceNQT;
+    private final BurstValue balanceNQT;
+    private final HexStringByteArray publicKey;
+    private final BurstAddress account;
 
-    private AccountResponse() {}
+    public AccountResponse(BurstValue unconfirmedBalanceNQT, BurstValue guaranteedBalanceNQT, BurstValue effectiveBalanceNQT, String name, String description, BurstValue forgedBalanceNQT, BurstValue balanceNQT, HexStringByteArray publicKey, BurstAddress account) {
+        this.unconfirmedBalanceNQT = unconfirmedBalanceNQT;
+        this.guaranteedBalanceNQT = guaranteedBalanceNQT;
+        this.effectiveBalanceNQT = effectiveBalanceNQT;
+        this.name = name;
+        this.description = description;
+        this.forgedBalanceNQT = forgedBalanceNQT;
+        this.balanceNQT = balanceNQT;
+        this.publicKey = publicKey;
+        this.account = account;
+    }
 
     public BurstValue getUnconfirmedBalanceNQT() {
         return unconfirmedBalanceNQT;

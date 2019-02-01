@@ -2,9 +2,11 @@ package burst.kit.entity.response;
 
 @SuppressWarnings("unused")
 public final class AccountTransactionsResponse extends BRSResponse {
-    private TransactionResponse[] transactions;
+    private final TransactionResponse[] transactions;
 
-    private AccountTransactionsResponse() {}
+    public AccountTransactionsResponse(TransactionResponse[] transactions) {
+        this.transactions = transactions;
+    }
 
     public TransactionResponse[] getTransactions() {
         return transactions;

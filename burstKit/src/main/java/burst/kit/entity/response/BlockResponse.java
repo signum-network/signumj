@@ -4,29 +4,51 @@ import burst.kit.entity.*;
 
 @SuppressWarnings("unused")
 public final class BlockResponse extends BRSResponse {
-    private HexStringByteArray previousBlockHash;
-    private int payloadLength;
-    private BurstValue totalAmountNQT;
-    private HexStringByteArray generationSignature;
-    private BurstAddress generator;
-    private HexStringByteArray generatorPublicKey;
-    private long baseTarget;
-    private HexStringByteArray payloadHash;
-    private String blockReward; // Converted to BurstValue in getter
-    private BurstID nextBlock;
-    private int scoopNum;
-    private int numberOfTransactions;
-    private HexStringByteArray blockSignature;
-    private BurstID[] transactions;
-    private String nonce;
-    private int version;
-    private BurstValue totalFeeNQT;
-    private BurstID previousBlock;
-    private BurstID block;
-    private long height;
-    private BurstTimestamp timestamp;
+    private final HexStringByteArray previousBlockHash;
+    private final int payloadLength;
+    private final BurstValue totalAmountNQT;
+    private final HexStringByteArray generationSignature;
+    private final BurstAddress generator;
+    private final HexStringByteArray generatorPublicKey;
+    private final long baseTarget;
+    private final HexStringByteArray payloadHash;
+    private final String blockReward; // Converted to BurstValue in getter
+    private final BurstID nextBlock;
+    private final int scoopNum;
+    private final int numberOfTransactions;
+    private final HexStringByteArray blockSignature;
+    private final BurstID[] transactions;
+    private final String nonce;
+    private final int version;
+    private final BurstValue totalFeeNQT;
+    private final BurstID previousBlock;
+    private final BurstID block;
+    private final long height;
+    private final BurstTimestamp timestamp;
 
-    private BlockResponse() {}
+    public BlockResponse(HexStringByteArray previousBlockHash, int payloadLength, BurstValue totalAmountNQT, HexStringByteArray generationSignature, BurstAddress generator, HexStringByteArray generatorPublicKey, long baseTarget, HexStringByteArray payloadHash, String blockReward, BurstID nextBlock, int scoopNum, int numberOfTransactions, HexStringByteArray blockSignature, BurstID[] transactions, String nonce, int version, BurstValue totalFeeNQT, BurstID previousBlock, BurstID block, long height, BurstTimestamp timestamp) {
+        this.previousBlockHash = previousBlockHash;
+        this.payloadLength = payloadLength;
+        this.totalAmountNQT = totalAmountNQT;
+        this.generationSignature = generationSignature;
+        this.generator = generator;
+        this.generatorPublicKey = generatorPublicKey;
+        this.baseTarget = baseTarget;
+        this.payloadHash = payloadHash;
+        this.blockReward = blockReward;
+        this.nextBlock = nextBlock;
+        this.scoopNum = scoopNum;
+        this.numberOfTransactions = numberOfTransactions;
+        this.blockSignature = blockSignature;
+        this.transactions = transactions;
+        this.nonce = nonce;
+        this.version = version;
+        this.totalFeeNQT = totalFeeNQT;
+        this.previousBlock = previousBlock;
+        this.block = block;
+        this.height = height;
+        this.timestamp = timestamp;
+    }
 
     public HexStringByteArray getPreviousBlockHash() {
         return previousBlockHash;

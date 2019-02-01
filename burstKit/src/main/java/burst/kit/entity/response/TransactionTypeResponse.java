@@ -5,11 +5,15 @@ package burst.kit.entity.response;
  */
 @SuppressWarnings("unused")
 public final class TransactionTypeResponse {
-    private String description;
-    private int value;
-    private TransactionSubtypeResponse[] subtypes;
+    private final String description;
+    private final int value;
+    private final TransactionSubtypeResponse[] subtypes;
 
-    private TransactionTypeResponse() {}
+    public TransactionTypeResponse(String description, int value, TransactionSubtypeResponse[] subtypes) {
+        this.description = description;
+        this.value = value;
+        this.subtypes = subtypes;
+    }
 
     public String getDescription() {
         return description;

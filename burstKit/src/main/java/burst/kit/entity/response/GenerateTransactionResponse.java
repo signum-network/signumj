@@ -6,17 +6,26 @@ import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
 public class GenerateTransactionResponse extends BRSResponse {
-    private boolean broadcasted;
-    private HexStringByteArray signatureHash;
-    private HexStringByteArray fullHash;
-    private HexStringByteArray transactionBytes;
-    private HexStringByteArray unsignedTransactionBytes;
+    private final boolean broadcasted;
+    private final HexStringByteArray signatureHash;
+    private final HexStringByteArray fullHash;
+    private final HexStringByteArray transactionBytes;
+    private final HexStringByteArray unsignedTransactionBytes;
     @SerializedName("transactionJSON")
-    private TransactionResponse transactionResponse;
+    private final TransactionResponse transactionResponse;
     @SerializedName("transaction")
-    private BurstID transactionID;
+    private final BurstID transactionID;
 
-    private GenerateTransactionResponse() {}
+    public GenerateTransactionResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, boolean broadcasted, HexStringByteArray signatureHash, HexStringByteArray fullHash, HexStringByteArray transactionBytes, HexStringByteArray unsignedTransactionBytes, TransactionResponse transactionResponse, BurstID transactionID) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.broadcasted = broadcasted;
+        this.signatureHash = signatureHash;
+        this.fullHash = fullHash;
+        this.transactionBytes = transactionBytes;
+        this.unsignedTransactionBytes = unsignedTransactionBytes;
+        this.transactionResponse = transactionResponse;
+        this.transactionID = transactionID;
+    }
 
     public boolean isBroadcasted() {
         return broadcasted;

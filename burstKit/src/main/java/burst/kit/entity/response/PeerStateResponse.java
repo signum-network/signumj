@@ -5,10 +5,13 @@ package burst.kit.entity.response;
  */
 @SuppressWarnings("unused")
 public final class PeerStateResponse {
-    private String description;
-    private int value;
+    private final String description;
+    private final int value;
 
-    private PeerStateResponse() {}
+    public PeerStateResponse(String description, int value) {
+        this.description = description;
+        this.value = value;
+    }
 
     public String getDescription() {
         return description;

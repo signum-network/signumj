@@ -4,9 +4,11 @@ import burst.kit.entity.BurstID;
 
 @SuppressWarnings("unused")
 public final class AccountBlockIDsResponse extends BRSResponse {
-    private BurstID[] blockIds;
+    private final BurstID[] blockIds;
 
-    private AccountBlockIDsResponse() {}
+    public AccountBlockIDsResponse(BurstID[] blockIds) {
+        this.blockIds = blockIds;
+    }
 
     public BurstID[] getBlockIds() {
         return blockIds;

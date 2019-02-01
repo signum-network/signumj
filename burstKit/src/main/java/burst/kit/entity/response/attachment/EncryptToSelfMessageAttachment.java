@@ -4,11 +4,14 @@ import burst.kit.entity.BurstEncryptedMessage;
 import com.google.gson.annotations.SerializedName;
 
 public class EncryptToSelfMessageAttachment extends TransactionAttachment {
-    private BurstEncryptedMessage encryptToSelfMessage;
+    private final BurstEncryptedMessage encryptToSelfMessage;
     @SerializedName("version.EncryptToSelfMessage")
-    private int version;
+    private final int version;
 
-    private EncryptToSelfMessageAttachment() {}
+    public EncryptToSelfMessageAttachment(BurstEncryptedMessage encryptToSelfMessage, int version) {
+        this.encryptToSelfMessage = encryptToSelfMessage;
+        this.version = version;
+    }
 
     public int getVersion() {
         return version;

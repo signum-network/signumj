@@ -4,9 +4,12 @@ import burst.kit.entity.BurstAddress;
 
 @SuppressWarnings("unused")
 public class RewardRecipientResponse extends BRSResponse {
-    private BurstAddress rewardRecipient;
+    private final BurstAddress rewardRecipient;
 
-    private RewardRecipientResponse() {}
+    public RewardRecipientResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, BurstAddress rewardRecipient) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.rewardRecipient = rewardRecipient;
+    }
 
     public BurstAddress getRewardRecipient() {
         return rewardRecipient;

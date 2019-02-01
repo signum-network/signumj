@@ -4,11 +4,16 @@ import burst.kit.entity.BurstValue;
 
 @SuppressWarnings("unused")
 public class SuggestFeeResponse extends BRSResponse {
-    private BurstValue cheap;
-    private BurstValue standard;
-    private BurstValue priority;
+    private final BurstValue cheap;
+    private final BurstValue standard;
+    private final BurstValue priority;
 
-    private SuggestFeeResponse() {}
+    public SuggestFeeResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, BurstValue cheap, BurstValue standard, BurstValue priority) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.cheap = cheap;
+        this.standard = standard;
+        this.priority = priority;
+    }
 
     public BurstValue getCheap() {
         return cheap;

@@ -4,11 +4,16 @@ import burst.kit.entity.HexStringByteArray;
 
 @SuppressWarnings("unused")
 public final class TransactionBytesResponse extends BRSResponse {
-    private HexStringByteArray unsignedTransactionBytes;
-    private int confirmations;
-    private HexStringByteArray transactionBytes;
+    private final HexStringByteArray unsignedTransactionBytes;
+    private final int confirmations;
+    private final HexStringByteArray transactionBytes;
 
-    private TransactionBytesResponse() {}
+    public TransactionBytesResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, HexStringByteArray unsignedTransactionBytes, int confirmations, HexStringByteArray transactionBytes) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.unsignedTransactionBytes = unsignedTransactionBytes;
+        this.confirmations = confirmations;
+        this.transactionBytes = transactionBytes;
+    }
 
     public HexStringByteArray getUnsignedTransactionBytes() {
         return unsignedTransactionBytes;

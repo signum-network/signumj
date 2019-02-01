@@ -5,15 +5,24 @@ import burst.kit.entity.BurstID;
 
 @SuppressWarnings("unused")
 public final class ConstantsResponse extends BRSResponse {
-    private int maxBlockPayloadLength;
-    private BurstAddress genesisAccountId;
-    private BurstID genesisBlockId;
-    private TransactionTypeResponse[] transactionTypes;
-    private PeerStateResponse[] peerStates;
-    private int maxArbitraryMessageLength;
+    private final int maxBlockPayloadLength;
+    private final BurstAddress genesisAccountId;
+    private final BurstID genesisBlockId;
+    private final TransactionTypeResponse[] transactionTypes;
+    private final PeerStateResponse[] peerStates;
+    private final int maxArbitraryMessageLength;
     // TODO requestTypes
 
-    private ConstantsResponse() {}
+
+    public ConstantsResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int maxBlockPayloadLength, BurstAddress genesisAccountId, BurstID genesisBlockId, TransactionTypeResponse[] transactionTypes, PeerStateResponse[] peerStates, int maxArbitraryMessageLength) {
+        super(errorDescription, errorCode, requestProcessingTime);
+        this.maxBlockPayloadLength = maxBlockPayloadLength;
+        this.genesisAccountId = genesisAccountId;
+        this.genesisBlockId = genesisBlockId;
+        this.transactionTypes = transactionTypes;
+        this.peerStates = peerStates;
+        this.maxArbitraryMessageLength = maxArbitraryMessageLength;
+    }
 
     public int getMaxBlockPayloadLength() {
         return maxBlockPayloadLength;

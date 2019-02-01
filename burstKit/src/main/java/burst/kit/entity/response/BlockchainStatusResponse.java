@@ -7,17 +7,27 @@ import java.math.BigInteger;
 
 @SuppressWarnings("unused")
 public final class BlockchainStatusResponse extends BRSResponse {
-    private BurstID lastBlock;
-    private String application;
-    private boolean isScanning;
-    private BigInteger cumulativeDifficulty;
-    private long lastBlockchainFeederHeight;
-    private long numberOfBlocks;
-    private BurstTimestamp time;
-    private String version;
-    private String lastBlockchainFeeder;
+    private final BurstID lastBlock;
+    private final String application;
+    private final boolean isScanning;
+    private final BigInteger cumulativeDifficulty;
+    private final long lastBlockchainFeederHeight;
+    private final long numberOfBlocks;
+    private final BurstTimestamp time;
+    private final String version;
+    private final String lastBlockchainFeeder;
 
-    private BlockchainStatusResponse() {}
+    public BlockchainStatusResponse(BurstID lastBlock, String application, boolean isScanning, BigInteger cumulativeDifficulty, long lastBlockchainFeederHeight, long numberOfBlocks, BurstTimestamp time, String version, String lastBlockchainFeeder) {
+        this.lastBlock = lastBlock;
+        this.application = application;
+        this.isScanning = isScanning;
+        this.cumulativeDifficulty = cumulativeDifficulty;
+        this.lastBlockchainFeederHeight = lastBlockchainFeederHeight;
+        this.numberOfBlocks = numberOfBlocks;
+        this.time = time;
+        this.version = version;
+        this.lastBlockchainFeeder = lastBlockchainFeeder;
+    }
 
     public BurstID getLastBlock() {
         return lastBlock;

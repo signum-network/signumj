@@ -2,9 +2,11 @@ package burst.kit.entity.response;
 
 @SuppressWarnings("unused")
 public final class BlocksResponse extends BRSResponse {
-    private BlockResponse[] blocks;
+    private final BlockResponse[] blocks;
 
-    private BlocksResponse() {}
+    public BlocksResponse(BlockResponse[] blocks) {
+        this.blocks = blocks;
+    }
 
     public BlockResponse[] getBlocks() {
         return blocks;

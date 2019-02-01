@@ -4,13 +4,18 @@ import burst.kit.entity.HexStringByteArray;
 import com.google.gson.annotations.SerializedName;
 
 public final class ATCreationAttachment extends TransactionAttachment {
-    private String name;
-    private String description;
-    private HexStringByteArray creationBytes;
+    private final String name;
+    private final String description;
+    private final HexStringByteArray creationBytes;
     @SerializedName("version.AutomatedTransactionsCreation")
-    private int version;
+    private final int version;
 
-    private ATCreationAttachment() {}
+    public ATCreationAttachment(String name, String description, HexStringByteArray creationBytes, int version) {
+        this.name = name;
+        this.description = description;
+        this.creationBytes = creationBytes;
+        this.version = version;
+    }
 
     public String getName() {
         return name;

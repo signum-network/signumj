@@ -4,12 +4,16 @@ import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
 public final class AccountInfoAttachment extends TransactionAttachment {
-    private String name;
-    private String description;
+    private final String name;
+    private final String description;
     @SerializedName("version.AccountInfo")
-    private int version;
+    private final int version;
 
-    private AccountInfoAttachment() {}
+    public AccountInfoAttachment(String name, String description, int version) {
+        this.name = name;
+        this.description = description;
+        this.version = version;
+    }
 
     public String getName() {
         return name;

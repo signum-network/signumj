@@ -11,11 +11,14 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("unused")
 public final class MultiOutAttachment extends TransactionAttachment {
 
-    private MultiOutRecipient[] recipients;
+    private final MultiOutRecipient[] recipients;
     @SerializedName("version.MultiOutCreation")
-    private int version;
+    private final int version;
 
-    private MultiOutAttachment() {}
+    public MultiOutAttachment(MultiOutRecipient[] recipients, int version) {
+        this.recipients = recipients;
+        this.version = version;
+    }
 
     public MultiOutRecipient[] getRecipients() {
         return recipients;

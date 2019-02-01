@@ -2,11 +2,15 @@ package burst.kit.entity.response;
 
 @SuppressWarnings("unused")
 public abstract class BRSResponse {
-    private String errorDescription;
-    private Integer errorCode;
-    private Integer requestProcessingTime;
+    private final String errorDescription;
+    private final Integer errorCode;
+    private final Integer requestProcessingTime;
 
-    BRSResponse() {}
+    public BRSResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime) {
+        this.errorDescription = errorDescription;
+        this.errorCode = errorCode;
+        this.requestProcessingTime = requestProcessingTime;
+    }
 
     public void throwIfError() throws BRSError {
         if (errorDescription != null) {
