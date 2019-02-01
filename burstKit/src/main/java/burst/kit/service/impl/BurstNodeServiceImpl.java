@@ -6,6 +6,7 @@ import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
 
 import burst.kit.service.BurstNodeService;
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -13,7 +14,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.*;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 public final class BurstNodeServiceImpl implements BurstNodeService {
 
@@ -38,6 +42,10 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     
     private <T> Single<T> assign(Single<T> source) {
         return schedulerAssigner.assignSchedulers(source.map(this::checkBrsResponse));
+    }
+
+    private <T> Observable<T> assign(Observable<T> source) {
+        return schedulerAssigner.assignSchedulers(source);
     }
 
     private <T> T checkBrsResponse(T source) throws BRSError {
@@ -192,8 +200,20 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<MiningInfoResponse> getMiningInfo() {
-        return assign(blockchainService.getMiningInfo());
+    public Observable<MiningInfoResponse> getMiningInfo() {
+        AtomicReference<MiningInfoResponse> miningInfo = new AtomicReference<>();
+        return assign(Observable.interval(0, 1, TimeUnit.SECONDS)
+                .flatMapSingle(l -> blockchainService.getMiningInfo())
+                .filter(newMiningInfo -> {
+                    synchronized (miningInfo) {
+                        if (miningInfo.get() == null || !Objects.equals(miningInfo.get().getGenerationSignature(), newMiningInfo.getGenerationSignature()) || !Objects.equals(miningInfo.get().getHeight(), newMiningInfo.getHeight())) {
+                            miningInfo.set(newMiningInfo);
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                })); // todo scheduler assigner
     }
 
     @Override

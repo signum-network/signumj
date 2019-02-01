@@ -5,7 +5,7 @@ import burst.kit.entity.response.*;
 import burst.kit.service.impl.BurstNodeServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;
-import com.google.gson.JsonObject;
+import io.reactivex.Observable;
 import io.reactivex.Single;
 
 import java.util.Map;
@@ -231,9 +231,9 @@ public interface BurstNodeService {
 
     /**
      * Get the current mining info
-     * @return The mining info, wrapped in a single
+     * @return An observable that returns the current mining info when it changes.
      */
-    Single<MiningInfoResponse> getMiningInfo();
+    Observable<MiningInfoResponse> getMiningInfo();
 
     /**
      * Returns info about the host IP and your IP address (? Needs checking)
