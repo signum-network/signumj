@@ -1,5 +1,6 @@
 package burst.kit.service.impl;
 
+import burst.kit.Constants;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.util.BurstKitUtils;
@@ -8,6 +9,8 @@ import burst.kit.util.SchedulerAssigner;
 import burst.kit.service.BurstNodeService;
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -25,13 +28,22 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
     private BlockchainService blockchainService;
 
-    public BurstNodeServiceImpl(String nodeAddress, SchedulerAssigner schedulerAssigner) {
+    public BurstNodeServiceImpl(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
         this.schedulerAssigner = schedulerAssigner;
-        buildServices(nodeAddress);
+        buildServices(nodeAddress, userAgent);
     }
 
-    private void buildServices(String nodeAddress) {
+    private void buildServices(String nodeAddress, String providedUserAgent) {
+        String userAgent = providedUserAgent == null ? "burstkit4j/"+ Constants.VERSION : providedUserAgent;
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(chain -> chain.proceed(chain.request().newBuilder()
+                        .header("User-Agent", userAgent)
+                        .build()))
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
+                .client(okHttpClient)
                 .baseUrl(nodeAddress)
                 .addConverterFactory(GsonConverterFactory.create(BurstKitUtils.buildGson().create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -56,8 +68,8 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public void updateNodeAddress(String newNodeAddress) {
-        buildServices(newNodeAddress);
+    public void updateConnection(String newNodeAddress, String newUserAgent) {
+        buildServices(newNodeAddress, newUserAgent);
     }
 
     @Override

@@ -15,8 +15,9 @@ public interface BurstNodeService {
     /**
      * Set the node address the the service connects to for future requests
      * @param newNodeAddress The full URL of the node, including port number if different from 80, not including /burst API locator
+     * @param newUserAgent The new User-Agent header value to send to the node
      */
-    void updateNodeAddress(String newNodeAddress);
+    void updateConnection(String newNodeAddress, String newUserAgent);
 
     /**
      * Get a block via a block ID
@@ -287,11 +288,19 @@ public interface BurstNodeService {
      */
     Single<GenerateTransactionResponse> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
 
+    static BurstNodeService getInstance(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
+        return new BurstNodeServiceImpl(nodeAddress, userAgent, schedulerAssigner);
+    }
+
+    static BurstNodeService getInstance(String nodeAddress, String userAgent) {
+        return new BurstNodeServiceImpl(nodeAddress, userAgent, new DefaultSchedulerAssigner());
+    }
+
     static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
-        return new BurstNodeServiceImpl(nodeAddress, schedulerAssigner);
+        return new BurstNodeServiceImpl(nodeAddress, null, schedulerAssigner);
     }
 
     static BurstNodeService getInstance(String nodeAddress) {
-        return new BurstNodeServiceImpl(nodeAddress, new DefaultSchedulerAssigner());
+        return new BurstNodeServiceImpl(nodeAddress, null, new DefaultSchedulerAssigner());
     }
 }
