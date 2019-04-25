@@ -274,6 +274,11 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         return assign(blockchainService.sendMoneyMultiSame(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString(), amount.toPlanck()));
     }
 
+    @Override
+    public Single<GenerateTransactionResponse> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount) {
+        return assign(blockchainService.createATProgram(new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, false, name, description, new HexStringByteArray(creationBytes).toHexString(), new HexStringByteArray(code).toHexString(), new HexStringByteArray(data).toHexString(), dpages, cspages, uspages, minActivationAmount.toPlanck()));
+    }
+
     private interface BlockchainService {
         @GET("burst?requestType=getBlock")
         Single<BlockResponse> getBlock(@Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
@@ -352,5 +357,8 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
         @POST("burst?requestType=sendMoneyMultiSame")
         Single<GenerateTransactionResponse> sendMoneyMultiSame(@Query("secretPhrase") String secretPhrase, @Query("publicKey") String publicKey, @Query("feeNQT") String feeNQT, @Query("deadline") String deadline, @Query("referencedTransactionFullHash") String referencedTransactionFullHash, @Query("broadcast") boolean broadcast, @Query("recipients") String recipients, @Query("amountNQT") String amountNQT);
+
+        @POST("burst?requestType=createATProgram")
+        Single<GenerateTransactionResponse> createATProgram(@Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline, @Query("broadcast") boolean broadcast, @Query("name") String name, @Query("description") String description, @Query("creationBytes") String creationBytes, @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages, @Query("cspages") int cspages, @Query("uspages") int uspages, @Query("minActivationAmountNQT") String minActivationAmountNQT);
     }
 }

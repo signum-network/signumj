@@ -288,6 +288,23 @@ public interface BurstNodeService {
      */
     Single<GenerateTransactionResponse> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
 
+    /**
+     * TODO javadoc
+     * @param senderPublicKey
+     * @param fee
+     * @param deadline
+     * @param name
+     * @param description
+     * @param creationBytes
+     * @param code
+     * @param dpages
+     * @param cspages
+     * @param uspages
+     * @param minActivationAmount
+     * @return
+     */
+    Single<GenerateTransactionResponse> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount);
+
     static BurstNodeService getInstance(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
         return new BurstNodeServiceImpl(nodeAddress, userAgent, schedulerAssigner);
     }
