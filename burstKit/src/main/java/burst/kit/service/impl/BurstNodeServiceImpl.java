@@ -2,7 +2,7 @@ package burst.kit.service.impl;
 
 import burst.kit.Constants;
 import burst.kit.entity.*;
-import burst.kit.entity.response.*;
+import burst.kit.entity.response.http.*;
 import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
 
@@ -10,7 +10,6 @@ import burst.kit.service.BurstNodeService;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -1,7 +1,7 @@
 package burst.kit.service;
 
 import burst.kit.entity.*;
-import burst.kit.entity.response.*;
+import burst.kit.entity.response.http.*;
 import burst.kit.service.impl.BurstNodeServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;

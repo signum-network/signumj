@@ -1,8 +1,8 @@
 package burst.kit.util;
 
 import burst.kit.entity.*;
-import burst.kit.entity.response.attachment.MultiOutAttachment;
-import burst.kit.entity.response.attachment.TransactionAttachment;
+import burst.kit.entity.response.http.attachment.MultiOutAttachment;
+import burst.kit.entity.response.http.attachment.TransactionAttachment;
 import com.google.gson.GsonBuilder;
 
 @SuppressWarnings("WeakerAccess")
