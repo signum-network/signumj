@@ -30,6 +30,29 @@ public class Block {
     private final int version;
     private final long baseTarget;
 
+    public Block(BigInteger nonce, BurstAddress generator, BurstID id, BurstID nextBlock, BurstID previousBlock, BurstID[] transactions, BurstTimestamp timestamp, BurstValue blockReward, BurstValue totalAmount, BurstValue totalFee, byte[] generationSignature, byte[] generatorPublicKey, byte[] payloadHash, byte[] previousBlockHash, byte[] signature, int height, int payloadLength, int scoopNum, int version, long baseTarget) {
+        this.nonce = nonce;
+        this.generator = generator;
+        this.id = id;
+        this.nextBlock = nextBlock;
+        this.previousBlock = previousBlock;
+        this.transactions = transactions;
+        this.timestamp = timestamp;
+        this.blockReward = blockReward;
+        this.totalAmount = totalAmount;
+        this.totalFee = totalFee;
+        this.generationSignature = generationSignature;
+        this.generatorPublicKey = generatorPublicKey;
+        this.payloadHash = payloadHash;
+        this.previousBlockHash = previousBlockHash;
+        this.signature = signature;
+        this.height = height;
+        this.payloadLength = payloadLength;
+        this.scoopNum = scoopNum;
+        this.version = version;
+        this.baseTarget = baseTarget;
+    }
+
     public Block(BlockResponse blockResponse) {
         this.nonce = new BigInteger(blockResponse.getNonce());
         this.generator = blockResponse.getGenerator();
@@ -51,5 +74,85 @@ public class Block {
         this.scoopNum = blockResponse.getScoopNum();
         this.version = blockResponse.getVersion();
         this.baseTarget = blockResponse.getBaseTarget();
+    }
+
+    public BigInteger getNonce() {
+        return nonce;
+    }
+
+    public BurstAddress getGenerator() {
+        return generator;
+    }
+
+    public BurstID getId() {
+        return id;
+    }
+
+    public BurstID getNextBlock() {
+        return nextBlock;
+    }
+
+    public BurstID getPreviousBlock() {
+        return previousBlock;
+    }
+
+    public BurstID[] getTransactions() {
+        return transactions;
+    }
+
+    public BurstTimestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public BurstValue getBlockReward() {
+        return blockReward;
+    }
+
+    public BurstValue getTotalAmount() {
+        return totalAmount;
+    }
+
+    public BurstValue getTotalFee() {
+        return totalFee;
+    }
+
+    public byte[] getGenerationSignature() {
+        return generationSignature;
+    }
+
+    public byte[] getGeneratorPublicKey() {
+        return generatorPublicKey;
+    }
+
+    public byte[] getPayloadHash() {
+        return payloadHash;
+    }
+
+    public byte[] getPreviousBlockHash() {
+        return previousBlockHash;
+    }
+
+    public byte[] getSignature() {
+        return signature;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getPayloadLength() {
+        return payloadLength;
+    }
+
+    public int getScoopNum() {
+        return scoopNum;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public long getBaseTarget() {
+        return baseTarget;
     }
 }

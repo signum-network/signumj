@@ -21,7 +21,7 @@ public final class TransactionResponse extends BRSResponse {
     private final BurstAddress sender;
     private final BurstAddress recipient;
     private final int ecBlockHeight;
-    private final int deadline;
+    private final short deadline;
     private final BurstID transaction;
     private final BurstTimestamp timestamp;
     private final int height;
@@ -29,7 +29,7 @@ public final class TransactionResponse extends BRSResponse {
     private final BurstID block;
     private final BurstTimestamp blockTimestamp;
 
-    public TransactionResponse(HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachment attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, int deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
+    public TransactionResponse(HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachment attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, short deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
         this.senderPublicKey = senderPublicKey;
         this.signature = signature;
         this.feeNQT = feeNQT;
@@ -118,7 +118,7 @@ public final class TransactionResponse extends BRSResponse {
         return ecBlockHeight;
     }
 
-    public int getDeadline() {
+    public short getDeadline() {
         return deadline;
     }
 
