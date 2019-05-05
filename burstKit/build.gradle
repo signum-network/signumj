@@ -11,7 +11,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 
     // Bouncy Castle
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.60'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.61'
 
     // Testing
     testCompileOnly 'junit:junit:4.12'
