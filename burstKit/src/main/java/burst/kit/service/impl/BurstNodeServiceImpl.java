@@ -2,6 +2,7 @@ package burst.kit.service.impl;
 
 import burst.kit.Constants;
 import burst.kit.entity.*;
+import burst.kit.entity.response.*;
 import burst.kit.entity.response.http.*;
 import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
@@ -15,11 +16,13 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.*;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 public final class BurstNodeServiceImpl implements BurstNodeService {
 
@@ -72,42 +75,36 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<BlockResponse> getBlock(BurstID block) {
-        return assign(blockchainService.getBlock(block.getID(), null, null, null));
+    public Single<Block> getBlock(BurstID block) {
+        return assign(blockchainService.getBlock(block.getID(), null, null, null)
+                .map(Block::new));
     }
 
     @Override
-    public Single<BlockResponse> getBlock(long height) {
-        return assign(blockchainService.getBlock(null, String.valueOf(height), null, null));
+    public Single<Block> getBlock(long height) {
+        return assign(blockchainService.getBlock(null, String.valueOf(height), null, null)
+                .map(Block::new));
     }
 
     @Override
-    public Single<BlockResponse> getBlock(BurstTimestamp timestamp) {
-        return assign(blockchainService.getBlock(null, null, String.valueOf(timestamp.getTimestamp()), null));
+    public Single<Block> getBlock(BurstTimestamp timestamp) {
+        return assign(blockchainService.getBlock(null, null, String.valueOf(timestamp.getTimestamp()), null)
+                .map(Block::new));
     }
 
     @Override
-    public Single<BlockResponse> getBlock(BurstID[] includedTransactions) {
-        String[] transactions = new String[includedTransactions.length];
-        for(int i = 0; i < includedTransactions.length; i++) {
-            transactions[i] = includedTransactions[i].getID();
-        }
-        return assign(blockchainService.getBlock(null, null, null, transactions));
+    public Single<BurstID> getBlockId(long height) {
+        return assign(blockchainService.getBlockID(String.valueOf(height))
+                .map(BlockIDResponse::getBlockID));
     }
 
     @Override
-    public Single<BlockIDResponse> getBlockId(long height) {
-        return assign(blockchainService.getBlockID(String.valueOf(height)));
-    }
-
-    @Override
-    public Single<BlockchainStatusResponse> getBlockchainStatus() {
-        return assign(blockchainService.getBlockchainStatus());
-    }
-
-    @Override
-    public Single<BlocksResponse> getBlocks(long firstIndex, long lastIndex) {
-        return assign(blockchainService.getBlocks(String.valueOf(firstIndex), String.valueOf(lastIndex), null));
+    public Single<Block[]> getBlocks(long firstIndex, long lastIndex) {
+        return assign(blockchainService.getBlocks(String.valueOf(firstIndex), String.valueOf(lastIndex), null)
+                .map(response -> Arrays.stream(response.getBlocks())
+                        .map(Block::new)
+                        .collect(Collectors.toList())
+                        .toArray(new Block[0])));
     }
 
     @Override
@@ -116,68 +113,84 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<AccountResponse> getAccount(BurstAddress accountId) {
-        return assign(blockchainService.getAccount(accountId.getID()));
+    public Single<Account> getAccount(BurstAddress accountId) {
+        return assign(blockchainService.getAccount(accountId.getID())
+                .map(Account::new));
     }
 
     @Override
-    public Single<AccountATsResponse> getAccountATs(BurstAddress accountId) {
-        return assign(blockchainService.getAccountATs(accountId.getID()));
+    public Single<AT[]> getAccountATs(BurstAddress accountId) {
+        return assign(blockchainService.getAccountATs(accountId.getID())
+                .map(response -> Arrays.stream(response.getATs())
+                        .map(AT::new)
+                        .collect(Collectors.toList())
+                        .toArray(new AT[0])));
     }
 
     @Override
-    public Single<AccountBlockIDsResponse> getAccountBlockIDs(BurstAddress accountId) {
-        return assign(blockchainService.getAccountBlockIDs(accountId.getID(), null, null, null));
+    public Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId) {
+        return assign(blockchainService.getAccountBlockIDs(accountId.getID(), null, null, null)
+                .map(AccountBlockIDsResponse::getBlockIds));
     }
 
     @Override
-    public Single<AccountBlocksResponse> getAccountBlocks(BurstAddress accountId) {
-        return assign(blockchainService.getAccountBlocks(accountId.getID(), null, null, null, null));
+    public Single<Block[]> getAccountBlocks(BurstAddress accountId) {
+        return assign(blockchainService.getAccountBlocks(accountId.getID(), null, null, null, null)
+                .map(response -> Arrays.stream(response.getBlocks())
+                        .map(Block::new)
+                        .collect(Collectors.toList())
+                        .toArray(new Block[0])));
     }
 
     @Override
-    public Single<AccountPublicKeyResponse> getAccountPublicKey(BurstAddress accountId) {
-        return assign(blockchainService.getAccountPublicKey(accountId.getID()));
+    public Single<BurstID[]> getAccountTransactionIDs(BurstAddress accountId) {
+        return assign(blockchainService.getAccountTransactionIDs(accountId.getID(), null, null, null, null, null, null)
+                .map(AccountTransactionIDsResponse::getTransactionIds));
     }
 
     @Override
-    public Single<AccountTransactionIDsResponse> getAccountTransactionIDs(BurstAddress accountId) {
-        return assign(blockchainService.getAccountTransactionIDs(accountId.getID(), null, null, null, null, null, null));
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
+        return assign(blockchainService.getAccountTransactions(accountId.getID(), null, null, null, null, null, null)
+                .map(response -> Arrays.stream(response.getTransactions())
+                        .map(Transaction::new)
+                        .collect(Collectors.toList())
+                        .toArray(new Transaction[0])));
     }
 
     @Override
-    public Single<AccountTransactionsResponse> getAccountTransactions(BurstAddress accountId) {
-        return assign(blockchainService.getAccountTransactions(accountId.getID(), null, null, null, null, null, null));
+    public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
+        return assign(blockchainService.getAccountsWithRewardRecipient(accountId.getID())
+                .map(AccountsWithRewardRecipientResponse::getAccounts));
     }
 
     @Override
-    public Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(BurstAddress accountId) {
-        return assign(blockchainService.getAccountsWithRewardRecipient(accountId.getID()));
+    public Single<AT> getAt(BurstID atId) {
+        return assign(blockchainService.getAt(atId.getID())
+                .map(AT::new));
     }
 
     @Override
-    public Single<ATResponse> getAt(BurstID atId) {
-        return assign(blockchainService.getAt(atId.getID()));
+    public Single<BurstID[]> getAtIds() {
+        return assign(blockchainService.getAtIds()
+                .map(AtIDsResponse::getAtIds));
     }
 
     @Override
-    public Single<AtIDsResponse> getAtIds() {
-        return assign(blockchainService.getAtIds());
+    public Single<Transaction> getTransaction(BurstID transactionId) {
+        return assign(blockchainService.getTransaction(transactionId.getID(), null)
+                .map(Transaction::new));
     }
 
     @Override
-    public Single<TransactionResponse> getTransaction(BurstID transactionId) {
-        return assign(blockchainService.getTransaction(transactionId.getID(), null));
+    public Single<Transaction> getTransaction(byte[] fullHash) {
+        return assign(blockchainService.getTransaction(null, new HexStringByteArray(fullHash).toHexString())
+                .map(Transaction::new));
     }
 
     @Override
-    public Single<TransactionResponse> getTransaction(byte[] fullHash) {
-        return assign(blockchainService.getTransaction(null, new HexStringByteArray(fullHash).toHexString()));
-    }
-
-    @Override
-    public Single<TransactionBytesResponse> getTransactionBytes(BurstID transactionId) {
-        return assign(blockchainService.getTransactionBytes(transactionId.getID()));
+    public Single<byte[]> getTransactionBytes(BurstID transactionId) {
+        return assign(blockchainService.getTransactionBytes(transactionId.getID())
+                .map(response -> response.getTransactionBytes().getBytes()));
     }
 
     @Override
@@ -211,7 +224,7 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Observable<MiningInfoResponse> getMiningInfo() {
+    public Observable<MiningInfo> getMiningInfo() {
         AtomicReference<MiningInfoResponse> miningInfo = new AtomicReference<>();
         return assign(Observable.interval(0, 1, TimeUnit.SECONDS)
                 .flatMapSingle(l -> blockchainService.getMiningInfo())
@@ -224,12 +237,8 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
                             return false;
                         }
                     }
-                })); // todo scheduler assigner
-    }
-
-    @Override
-    public Single<MyInfoResponse> getMyInfo() {
-        return assign(blockchainService.getMyInfo());
+                })
+                .map(MiningInfo::new));
     }
 
     @Override
@@ -238,8 +247,9 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<RewardRecipientResponse> getRewardRecipient(BurstAddress account) {
-        return assign(blockchainService.getRewardRecipient(account.getID()));
+    public Single<BurstAddress> getRewardRecipient(BurstAddress account) {
+        return assign(blockchainService.getRewardRecipient(account.getID())
+                .map(RewardRecipientResponse::getRewardRecipient));
     }
 
     @Override
@@ -285,9 +295,6 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         @GET("burst?requestType=getBlockId")
         Single<BlockIDResponse> getBlockID(@Query("height") String blockHeight);
 
-        @GET("burst?requestType=getBlockchainStatus")
-        Single<BlockchainStatusResponse> getBlockchainStatus();
-
         @GET("burst?requestType=getBlocks")
         Single<BlocksResponse> getBlocks(@Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("includeTransactions") String[] transactions);
 
@@ -305,9 +312,6 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
         @GET("burst?requestType=getAccountBlocks")
         Single<AccountBlocksResponse> getAccountBlocks(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("includeTransactions") String[] includedTransactions);
-
-        @GET("burst?requestType=getAccountPublicKey")
-        Single<AccountPublicKeyResponse> getAccountPublicKey(@Query("account") String accountId);
 
         @GET("burst?requestType=getAccountTransactionIds")
         Single<AccountTransactionIDsResponse> getAccountTransactionIDs(@Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type, @Query("subtype") String subtype, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
@@ -338,9 +342,6 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
         @GET("burst?requestType=getMiningInfo")
         Single<MiningInfoResponse> getMiningInfo();
-
-        @GET("burst?requestType=getMyInfo")
-        Single<MyInfoResponse> getMyInfo();
 
         @POST("burst?requestType=broadcastTransaction")
         Single<BroadcastTransactionResponse> broadcastTransaction(@Query("transactionBytes") String transactionBytes);

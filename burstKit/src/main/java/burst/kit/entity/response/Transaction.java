@@ -27,11 +27,11 @@ public class Transaction {
     private final int subtype;
     private final int type;
     private final int version;
-    private final Object attachment; // TODO
-    private final Object[] appendages; // TODO
+    private final Attachment attachment;
+    private final Appendix[] appendages;
     private final short deadline;
 
-    public Transaction(BurstAddress recipient, BurstAddress sender, BurstID blockId, BurstID ecBlockId, BurstID id, BurstTimestamp blockTimestamp, BurstTimestamp timestamp, BurstValue amount, BurstValue fee, byte[] fullHash, byte[] referencedTransactionFullHash, byte[] senderPublicKey, byte[] signature, byte[] signatureHash, int blockHeight, int confirmations, int ecBlockHeight, int subtype, int type, int version, Object attachment, Object[] appendages, short deadline) {
+    public Transaction(BurstAddress recipient, BurstAddress sender, BurstID blockId, BurstID ecBlockId, BurstID id, BurstTimestamp blockTimestamp, BurstTimestamp timestamp, BurstValue amount, BurstValue fee, byte[] fullHash, byte[] referencedTransactionFullHash, byte[] senderPublicKey, byte[] signature, byte[] signatureHash, int blockHeight, int confirmations, int ecBlockHeight, int subtype, int type, int version, Attachment attachment, Appendix[] appendages, short deadline) {
         this.recipient = recipient;
         this.sender = sender;
         this.blockId = blockId;
@@ -78,8 +78,8 @@ public class Transaction {
         this.subtype = transactionResponse.getSubtype();
         this.type = transactionResponse.getType();
         this.version = transactionResponse.getVersion();
-        this.attachment = transactionResponse.getAttachment();
-        this.appendages = new Object[0]; // TODO
+        this.attachment = Attachment.fromResponse(transactionResponse.getAttachment());
+        this.appendages = new Appendix[0]; // TODO
         this.deadline = transactionResponse.getDeadline();
     }
 
@@ -163,11 +163,11 @@ public class Transaction {
         return version;
     }
 
-    public Object getAttachment() {
+    public Attachment getAttachment() {
         return attachment;
     }
 
-    public Object[] getAppendages() {
+    public Appendix[] getAppendages() {
         return appendages;
     }
 

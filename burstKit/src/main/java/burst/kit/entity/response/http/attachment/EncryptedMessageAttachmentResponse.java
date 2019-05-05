@@ -3,12 +3,12 @@ package burst.kit.entity.response.http.attachment;
 import burst.kit.entity.BurstEncryptedMessage;
 import com.google.gson.annotations.SerializedName;
 
-public class EncryptedMessageAttachment extends TransactionAttachment {
+public class EncryptedMessageAttachmentResponse extends TransactionAttachment {
     private final BurstEncryptedMessage encryptedMessage;
     @SerializedName("version.EncryptedMessage")
     private final int version;
 
-    public EncryptedMessageAttachment(BurstEncryptedMessage encryptedMessage, int version) {
+    public EncryptedMessageAttachmentResponse(BurstEncryptedMessage encryptedMessage, int version) {
         this.encryptedMessage = encryptedMessage;
         this.version = version;
     }

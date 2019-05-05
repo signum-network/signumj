@@ -1,6 +1,7 @@
 package burst.kit.service;
 
 import burst.kit.entity.*;
+import burst.kit.entity.response.*;
 import burst.kit.entity.response.http.*;
 import burst.kit.service.impl.BurstNodeServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
@@ -24,42 +25,28 @@ public interface BurstNodeService {
      * @param block The block ID of the requested block
      * @return The block details, wrapped in a Single
      */
-    Single<BlockResponse> getBlock(BurstID block);
+    Single<Block> getBlock(BurstID block);
 
     /**
      * Get the block at a specific height
      * @param height The height of the block
      * @return The block details, wrapped in a Single
      */
-    Single<BlockResponse> getBlock(long height);
+    Single<Block> getBlock(long height);
 
     /**
      * Get the block at the specified timestamp
      * @param timestamp The timestamp of the block
      * @return The block details, wrapped in a Single
      */
-    Single<BlockResponse> getBlock(BurstTimestamp timestamp);
-
-    /**
-     * Get the block by specifying transactions included in it
-     * WARNING: Not tested.
-     * @param includedTransactions The transactions included in the block - NEEDS TESTING
-     * @return The block details, wrapped in a Single
-     */
-    Single<BlockResponse> getBlock(BurstID[] includedTransactions); // TODO actually use array
+    Single<Block> getBlock(BurstTimestamp timestamp);
 
     /**
      * Get the block ID at a specified height
      * @param height The height of the block
      * @return The Block ID response, wrapped in a single
      */
-    Single<BlockIDResponse> getBlockId(long height);
-
-    /**
-     * Get the blockchain status
-     * @return The blockchain status, wrapped in a single
-     */
-    Single<BlockchainStatusResponse> getBlockchainStatus();
+    Single<BurstID> getBlockId(long height);
 
     /**
      * Gets all the blocks between the first index and last index.
@@ -67,7 +54,7 @@ public interface BurstNodeService {
      * @param lastIndex The end index from the most recent blocks
      * @return The blocks, wrapped in a single
      */
-    Single<BlocksResponse> getBlocks(long firstIndex, long lastIndex); // TODO includeTransactions?
+    Single<Block[]> getBlocks(long firstIndex, long lastIndex); // TODO includeTransactions?
 
     /**
      * Get the Constants in use by the node
@@ -80,90 +67,83 @@ public interface BurstNodeService {
      * @param accountId The address of the account
      * @return The block details, wrapped in a single
      */
-    Single<AccountResponse> getAccount(BurstAddress accountId);
+    Single<Account> getAccount(BurstAddress accountId);
 
     /**
      * Get the ATs created by the account
      * @param accountId The address of the account
      * @return A list of the ATs, wrapped in a single
      */
-    Single<AccountATsResponse> getAccountATs(BurstAddress accountId);
+    Single<AT[]> getAccountATs(BurstAddress accountId);
 
     /**
      * Get the IDs of the blocks forged by an account
      * @param accountId The address of the account
      * @return The block IDs, wrapped in a single
      */
-    Single<AccountBlockIDsResponse> getAccountBlockIDs(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex
+    Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex
 
     /**
      * Get the blocks forged by an account
      * @param accountId The address of the account
      * @return The blocks, wrapped in a single
      */
-    Single<AccountBlocksResponse> getAccountBlocks(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex, includeTransactions
-
-    /**
-     * Get the public key of an account
-     * @param accountId The address of the account
-     * @return The public key, wrapped in a single
-     */
-    Single<AccountPublicKeyResponse> getAccountPublicKey(BurstAddress accountId);
+    Single<Block[]> getAccountBlocks(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex, includeTransactions
 
     /**
      * Get the transaction IDs of an account
      * @param accountId The address of the account
      * @return The account's transaction IDs, wrapped in a single
      */
-    Single<AccountTransactionIDsResponse> getAccountTransactionIDs(BurstAddress accountId); // TODO filtering
+    Single<BurstID[]> getAccountTransactionIDs(BurstAddress accountId); // TODO filtering
 
     /**
      * Get the transactions of an account
      * @param accountId The address of the account
      * @return The account's transactions, wrapped in a single
      */
-    Single<AccountTransactionsResponse> getAccountTransactions(BurstAddress accountId); // TODO filtering
+    Single<Transaction[]> getAccountTransactions(BurstAddress accountId); // TODO filtering
 
     /**
      * Get the list of accounts which have their reward recipient set to the specified account
      * @param accountId The address of the account
      * @return The list of account IDs with reward recipients set to the account, wrapped in a single
      */
-    Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(BurstAddress accountId); // TODO finish
+    Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId); // TODO finish
 
     /**
      * Get the details of an AT
      * @param atId The ID of the AT
      * @return The details of the AT, wrapped in a single
      */
-    Single<ATResponse> getAt(BurstID atId);
+    Single<AT> getAt(BurstID atId);
 
     /**
      * Get the list of IDs of all ATs
      * @return The list of AT IDs, wrapped in a single
      */
-    Single<AtIDsResponse> getAtIds();
+    Single<BurstID[]> getAtIds();
 
     /**
      * Get the details of a transaction
      * @param transactionId The ID of the transaction
      * @return The transaction details, wrapped in a single
      */
-    Single<TransactionResponse> getTransaction(BurstID transactionId);
+    Single<Transaction> getTransaction(BurstID transactionId);
 
     /**
      * Get the details of a transaction
      * @param fullHash The full hash of the transaction
      * @return The transaction details, wrapped in a single
      */
-    Single<TransactionResponse> getTransaction(byte[] fullHash);
+    Single<Transaction> getTransaction(byte[] fullHash);
 
     /**
      * Get the transaction bytes
      * @param transactionId The ID of the transaction
      * @return The transaction bytes, wrapped in a single
      */
-    Single<TransactionBytesResponse> getTransactionBytes(BurstID transactionId);
+    Single<byte[]> getTransactionBytes(BurstID transactionId);
 
     /**
      * Generate a simple transaction (only sending money)
@@ -234,13 +214,7 @@ public interface BurstNodeService {
      * Get the current mining info
      * @return An observable that returns the current mining info when it changes.
      */
-    Observable<MiningInfoResponse> getMiningInfo();
-
-    /**
-     * Returns info about the host IP and your IP address (? Needs checking)
-     * @return Your info, wrapped in a single
-     */
-    Single<MyInfoResponse> getMyInfo();
+    Observable<MiningInfo> getMiningInfo();
 
     /**
      * Broadcast a transaction on the network
@@ -254,7 +228,7 @@ public interface BurstNodeService {
      * @param account The account
      * @return The reward recipient, wrapped in a single
      */
-    Single<RewardRecipientResponse> getRewardRecipient(BurstAddress account);
+    Single<BurstAddress> getRewardRecipient(BurstAddress account);
 
     /**
      * Submit a nonce for mining

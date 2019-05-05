@@ -12,23 +12,23 @@ public abstract class TransactionAttachment {
         Gson gson = newGson();
 
         if (source.has("version.Message")) {
-            return gson.fromJson(source, MessageAttachment.class);
+            return gson.fromJson(source, MessageAttachmentResponse.class);
         } else if (source.has("version.EncryptedMessage")) {
-            return gson.fromJson(source, EncryptedMessageAttachment.class);
+            return gson.fromJson(source, EncryptedMessageAttachmentResponse.class);
         } else if (source.has("version.EncryptToSelfMessage")) {
-            return gson.fromJson(source, EncryptToSelfMessageAttachment.class);
+            return gson.fromJson(source, EncryptToSelfMessageAttachmentResponse.class);
         } else if (source.has("version.AccountInfo")) {
-            return gson.fromJson(source, AccountInfoAttachment.class);
+            return gson.fromJson(source, AccountInfoAttachmentResponse.class);
         } else if (source.has("version.MultiOutCreation")) {
-            return gson.fromJson(source, MultiOutAttachment.class);
+            return gson.fromJson(source, MultiOutAttachmentResponse.class);
         } else if (source.has("version.MultiSameOutCreation")) {
-            return gson.fromJson(source, MultiOutSameAttachment.class);
+            return gson.fromJson(source, MultiOutSameAttachmentResponse.class);
         } else if (source.has("version.RewardRecipientAssignment")) {
-            return gson.fromJson(source, RewardRecipientAssignmentAttachment.class);
+            return gson.fromJson(source, RewardRecipientAssignmentAttachmentResponse.class);
         } else if (source.has("version.AutomatedTransactionsCreation")) {
-            return gson.fromJson(source, ATCreationAttachment.class);
+            return gson.fromJson(source, ATCreationAttachmentResponse.class);
         } else {
-            return new UnsupportedAttachment();
+            return new UnsupportedAttachmentResponse();
         }
     }
 
@@ -38,16 +38,5 @@ public abstract class TransactionAttachment {
 
     private static Gson newGson() {
         return BurstKitUtils.buildGson().create();
-    }
-
-    /**
-     * Gets the type of transaction attachment - use this to cast this object to
-     * obtain the information in the attachment.
-     * @return The type of transaction. You should use this to decide which
-     * type of transaction to cast this to, which will allow you to obtain the
-     * information contained in the attachment.
-     */
-    public Class<? extends TransactionAttachment> getType() {
-        return getClass();
     }
 }

@@ -1,19 +1,17 @@
 package burst.kit.entity.response.http.attachment;
 
-import burst.kit.entity.HexStringByteArray;
 import com.google.gson.annotations.SerializedName;
 
-public final class ATCreationAttachment extends TransactionAttachment {
+@SuppressWarnings("unused")
+public final class AccountInfoAttachmentResponse extends TransactionAttachment {
     private final String name;
     private final String description;
-    private final HexStringByteArray creationBytes;
-    @SerializedName("version.AutomatedTransactionsCreation")
+    @SerializedName("version.AccountInfo")
     private final int version;
 
-    public ATCreationAttachment(String name, String description, HexStringByteArray creationBytes, int version) {
+    public AccountInfoAttachmentResponse(String name, String description, int version) {
         this.name = name;
         this.description = description;
-        this.creationBytes = creationBytes;
         this.version = version;
     }
 
@@ -23,10 +21,6 @@ public final class ATCreationAttachment extends TransactionAttachment {
 
     public String getDescription() {
         return description;
-    }
-
-    public HexStringByteArray getCreationBytes() {
-        return creationBytes;
     }
 
     public int getVersion() {

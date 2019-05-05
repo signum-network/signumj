@@ -9,13 +9,13 @@ import com.google.gson.JsonSerializer;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public final class MultiOutAttachment extends TransactionAttachment {
+public final class MultiOutAttachmentResponse extends TransactionAttachment {
 
     private final MultiOutRecipient[] recipients;
     @SerializedName("version.MultiOutCreation")
     private final int version;
 
-    public MultiOutAttachment(MultiOutRecipient[] recipients, int version) {
+    public MultiOutAttachmentResponse(MultiOutRecipient[] recipients, int version) {
         this.recipients = recipients;
         this.version = version;
     }

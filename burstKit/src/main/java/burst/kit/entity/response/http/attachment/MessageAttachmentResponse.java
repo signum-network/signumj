@@ -2,13 +2,13 @@ package burst.kit.entity.response.http.attachment;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MessageAttachment extends TransactionAttachment {
+public class MessageAttachmentResponse extends TransactionAttachment {
     private final String message;
     private final boolean messageIsText;
     @SerializedName("version.Message")
     private final int version;
 
-    public MessageAttachment(String message, boolean messageIsText, int version) {
+    public MessageAttachmentResponse(String message, boolean messageIsText, int version) {
         this.message = message;
         this.messageIsText = messageIsText;
         this.version = version;

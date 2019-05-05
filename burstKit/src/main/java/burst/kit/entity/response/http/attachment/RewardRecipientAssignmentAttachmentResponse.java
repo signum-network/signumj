@@ -3,11 +3,11 @@ package burst.kit.entity.response.http.attachment;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("WeakerAccess")
-public final class RewardRecipientAssignmentAttachment extends TransactionAttachment {
+public final class RewardRecipientAssignmentAttachmentResponse extends TransactionAttachment {
     @SerializedName("version.RewardRecipientAssignment")
     private final int version;
 
-    public RewardRecipientAssignmentAttachment(int version) {
+    public RewardRecipientAssignmentAttachmentResponse(int version) {
         this.version = version;
     }
 

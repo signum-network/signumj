@@ -1,16 +1,16 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstAddress;
+import burst.kit.entity.BurstID;
 
 @SuppressWarnings("unused")
 public final class AtIDsResponse extends BRSResponse {
-    private final BurstAddress[] atIds;
+    private final BurstID[] atIds;
 
-    public AtIDsResponse(BurstAddress[] atIds) {
+    public AtIDsResponse(BurstID[] atIds) {
         this.atIds = atIds;
     }
 
-    public BurstAddress[] getAtIds() {
+    public BurstID[] getAtIds() {
         return atIds;
     }
 }
