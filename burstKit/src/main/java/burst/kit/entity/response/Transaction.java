@@ -7,6 +7,7 @@ import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.attachment.OrdinaryPaymentAttachment;
 import burst.kit.entity.response.http.TransactionResponse;
 import burst.kit.entity.response.http.attachment.TransactionAppendixResponse;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.util.Arrays;
 
@@ -62,20 +63,20 @@ public class Transaction {
     }
 
     public Transaction(TransactionResponse transactionResponse) {
-        this.recipient = transactionResponse.getRecipient();
-        this.sender = transactionResponse.getSender();
-        this.blockId = transactionResponse.getBlockId();
-        this.ecBlockId = transactionResponse.getEcBlockId();
-        this.id = transactionResponse.getTransactionID();
-        this.blockTimestamp = transactionResponse.getBlockTimestamp();
-        this.timestamp = transactionResponse.getTimestamp();
-        this.amount = transactionResponse.getAmountNQT();
-        this.fee = transactionResponse.getFeeNQT();
-        this.fullHash = transactionResponse.getFullHash().getBytes();
-        this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash() == null ? null : transactionResponse.getReferencedTransactionFullHash().getBytes();
-        this.senderPublicKey = transactionResponse.getSenderPublicKey().getBytes();
-        this.signature = transactionResponse.getSignature().getBytes();
-        this.signatureHash = transactionResponse.getSignatureHash().getBytes();
+        this.recipient = BurstAddress.fromEither(transactionResponse.getRecipient());
+        this.sender = BurstAddress.fromEither(transactionResponse.getSender());
+        this.blockId = BurstID.fromLong(transactionResponse.getBlock());
+        this.ecBlockId = BurstID.fromLong(transactionResponse.getEcBlockId());
+        this.id = BurstID.fromLong(transactionResponse.getTransaction());
+        this.blockTimestamp = new BurstTimestamp(transactionResponse.getBlockTimestamp());
+        this.timestamp = new BurstTimestamp(transactionResponse.getTimestamp());
+        this.amount = BurstValue.fromPlanck(transactionResponse.getAmountNQT());
+        this.fee = BurstValue.fromPlanck(transactionResponse.getFeeNQT());
+        this.fullHash = Hex.decode(transactionResponse.getFullHash());
+        this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash() == null ? null : Hex.decode(transactionResponse.getReferencedTransactionFullHash());
+        this.senderPublicKey = Hex.decode(transactionResponse.getSenderPublicKey());
+        this.signature = Hex.decode(transactionResponse.getSignature());
+        this.signatureHash = Hex.decode(transactionResponse.getSignatureHash());
         this.blockHeight = transactionResponse.getHeight();
         this.confirmations = transactionResponse.getConfirmations();
         this.ecBlockHeight = transactionResponse.getEcBlockHeight();

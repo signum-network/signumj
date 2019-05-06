@@ -1,35 +1,34 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.*;
 import burst.kit.entity.response.http.attachment.TransactionAttachmentAndAppendagesResponse;
-import io.reactivex.annotations.Nullable;
 
 @SuppressWarnings("unused")
 public final class TransactionResponse extends BRSResponse {
-    private final HexStringByteArray senderPublicKey;
-    private final HexStringByteArray signature;
-    private final BurstValue feeNQT;
-    private final BurstValue amountNQT;
+    private final String senderPublicKey;
+    private final String signature;
+    private final String feeNQT;
+    private final String amountNQT;
     private final int type;
     private final int subtype;
     private final int confirmations;
-    private final HexStringByteArray fullHash;
+    private final String fullHash;
     private final int version;
-    private final BurstID ecBlockId;
-    private final HexStringByteArray signatureHash;
+    private final String ecBlockId;
+    private final String signatureHash;
     private final TransactionAttachmentAndAppendagesResponse attachment;
-    private final BurstAddress sender;
-    private final BurstAddress recipient;
+    private final String sender;
+    private final String recipient;
     private final int ecBlockHeight;
     private final short deadline;
-    private final BurstID transaction;
-    private final BurstTimestamp timestamp;
+    private final String transaction;
+    private final int timestamp;
     private final int height;
-    private final HexStringByteArray referencedTransactionFullHash;
-    private final BurstID block;
-    private final BurstTimestamp blockTimestamp;
+    private final String referencedTransactionFullHash;
+    private final String block;
+    private final int blockTimestamp;
 
-    public TransactionResponse(HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachmentAndAppendagesResponse attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, short deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
+    public TransactionResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String senderPublicKey, String signature, String feeNQT, String amountNQT, int type, int subtype, int confirmations, String fullHash, int version, String ecBlockId, String signatureHash, TransactionAttachmentAndAppendagesResponse attachment, String sender, String recipient, int ecBlockHeight, short deadline, String transaction, int timestamp, int height, String referencedTransactionFullHash, String block, int blockTimestamp) {
+        super(errorDescription, errorCode, requestProcessingTime);
         this.senderPublicKey = senderPublicKey;
         this.signature = signature;
         this.feeNQT = feeNQT;
@@ -54,19 +53,19 @@ public final class TransactionResponse extends BRSResponse {
         this.blockTimestamp = blockTimestamp;
     }
 
-    public HexStringByteArray getSenderPublicKey() {
+    public String getSenderPublicKey() {
         return senderPublicKey;
     }
 
-    public HexStringByteArray getSignature() {
+    public String getSignature() {
         return signature;
     }
 
-    public BurstValue getFeeNQT() {
+    public String getFeeNQT() {
         return feeNQT;
     }
 
-    public BurstValue getAmountNQT() {
+    public String getAmountNQT() {
         return amountNQT;
     }
 
@@ -82,7 +81,7 @@ public final class TransactionResponse extends BRSResponse {
         return confirmations;
     }
 
-    public HexStringByteArray getFullHash() {
+    public String getFullHash() {
         return fullHash;
     }
 
@@ -90,11 +89,11 @@ public final class TransactionResponse extends BRSResponse {
         return version;
     }
 
-    public BurstID getEcBlockId() {
+    public String getEcBlockId() {
         return ecBlockId;
     }
 
-    public HexStringByteArray getSignatureHash() {
+    public String getSignatureHash() {
         return signatureHash;
     }
 
@@ -102,15 +101,11 @@ public final class TransactionResponse extends BRSResponse {
         return attachment;
     }
 
-    public BurstAddress getSender() {
+    public String getSender() {
         return sender;
     }
 
-    /**
-     * @return The recipient OR NULL if the transaction does not have a recipient
-     */
-    @Nullable
-    public BurstAddress getRecipient() {
+    public String getRecipient() {
         return recipient;
     }
 
@@ -122,11 +117,11 @@ public final class TransactionResponse extends BRSResponse {
         return deadline;
     }
 
-    public BurstID getTransactionID() {
+    public String getTransaction() {
         return transaction;
     }
 
-    public BurstTimestamp getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 
@@ -134,15 +129,15 @@ public final class TransactionResponse extends BRSResponse {
         return height;
     }
 
-    public HexStringByteArray getReferencedTransactionFullHash() {
+    public String getReferencedTransactionFullHash() {
         return referencedTransactionFullHash;
     }
 
-    public BurstID getBlockId() {
+    public String getBlock() {
         return block;
     }
 
-    public BurstTimestamp getBlockTimestamp() {
+    public int getBlockTimestamp() {
         return blockTimestamp;
     }
 }

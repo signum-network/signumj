@@ -9,18 +9,6 @@ import com.google.gson.GsonBuilder;
 public final class BurstKitUtils {
     public static GsonBuilder buildGson(GsonBuilder builder) {
         return builder
-                // Main Burst Entities
-                .registerTypeAdapter(BurstAddress.class, BurstAddress.DESERIALIZER)
-                .registerTypeAdapter(BurstAddress.class, BurstAddress.SERIALIZER)
-                .registerTypeAdapter(HexStringByteArray.class, HexStringByteArray.DESERIALIZER)
-                .registerTypeAdapter(HexStringByteArray.class, HexStringByteArray.SERIALIZER)
-                .registerTypeAdapter(BurstID.class, BurstID.DESERIALIZER)
-                .registerTypeAdapter(BurstID.class, BurstID.SERIALIZER)
-                .registerTypeAdapter(BurstTimestamp.class, BurstTimestamp.SERIALIZER)
-                .registerTypeAdapter(BurstTimestamp.class, BurstTimestamp.DESERIALIZER)
-                .registerTypeAdapter(BurstValue.class, BurstValue.DESERIALIZER)
-                .registerTypeAdapter(BurstValue.class, BurstValue.SERIALIZER)
-
                 // Response entities
                 .registerTypeAdapter(TransactionAttachmentAndAppendagesResponse.class, TransactionAttachmentAndAppendagesResponse.SERIALIZER)
                 .registerTypeAdapter(TransactionAttachmentAndAppendagesResponse.class, TransactionAttachmentAndAppendagesResponse.DESERIALIZER)

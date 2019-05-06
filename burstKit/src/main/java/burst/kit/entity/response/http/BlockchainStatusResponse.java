@@ -1,23 +1,21 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstID;
-import burst.kit.entity.BurstTimestamp;
-
 import java.math.BigInteger;
 
 @SuppressWarnings("unused")
 public final class BlockchainStatusResponse extends BRSResponse {
-    private final BurstID lastBlock;
+    private final String lastBlock;
     private final String application;
     private final boolean isScanning;
     private final BigInteger cumulativeDifficulty;
     private final long lastBlockchainFeederHeight;
     private final long numberOfBlocks;
-    private final BurstTimestamp time;
+    private final int time;
     private final String version;
     private final String lastBlockchainFeeder;
 
-    public BlockchainStatusResponse(BurstID lastBlock, String application, boolean isScanning, BigInteger cumulativeDifficulty, long lastBlockchainFeederHeight, long numberOfBlocks, BurstTimestamp time, String version, String lastBlockchainFeeder) {
+    public BlockchainStatusResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String lastBlock, String application, boolean isScanning, BigInteger cumulativeDifficulty, long lastBlockchainFeederHeight, long numberOfBlocks, int time, String version, String lastBlockchainFeeder) {
+        super(errorDescription, errorCode, requestProcessingTime);
         this.lastBlock = lastBlock;
         this.application = application;
         this.isScanning = isScanning;
@@ -29,7 +27,7 @@ public final class BlockchainStatusResponse extends BRSResponse {
         this.lastBlockchainFeeder = lastBlockchainFeeder;
     }
 
-    public BurstID getLastBlock() {
+    public String getLastBlock() {
         return lastBlock;
     }
 
@@ -53,7 +51,7 @@ public final class BlockchainStatusResponse extends BRSResponse {
         return numberOfBlocks;
     }
 
-    public BurstTimestamp getTime() {
+    public int getTime() {
         return time;
     }
 

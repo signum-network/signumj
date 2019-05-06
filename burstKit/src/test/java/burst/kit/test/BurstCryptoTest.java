@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.nio.charset.StandardCharsets;
+
 @RunWith(JUnit4.class)
 public class BurstCryptoTest {
     @Test
@@ -29,7 +31,7 @@ public class BurstCryptoTest {
 
     @Test
     public void TestSignAndVerify() {
-        byte[] myMessage = "A Message".getBytes();
+        byte[] myMessage = "A Message".getBytes(StandardCharsets.UTF_8);
         byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
         byte[] myPublic = BurstCrypto.getInstance().getPublicKey(myPrivateKey);
         byte[] signature = BurstCrypto.getInstance().sign(myMessage, myPrivateKey);

@@ -1,28 +1,26 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstValue;
-
 @SuppressWarnings("unused")
 public class SuggestFeeResponse extends BRSResponse {
-    private final BurstValue cheap;
-    private final BurstValue standard;
-    private final BurstValue priority;
+    private final String cheap;
+    private final String standard;
+    private final String priority;
 
-    public SuggestFeeResponse(BurstValue cheap, BurstValue standard, BurstValue priority) {
+    public SuggestFeeResponse(String cheap, String standard, String priority) {
         this.cheap = cheap;
         this.standard = standard;
         this.priority = priority;
     }
 
-    public BurstValue getCheap() {
+    public String getCheap() {
         return cheap;
     }
 
-    public BurstValue getStandard() {
+    public String getStandard() {
         return standard;
     }
 
-    public BurstValue getPriority() {
+    public String getPriority() {
         return priority;
     }
 }

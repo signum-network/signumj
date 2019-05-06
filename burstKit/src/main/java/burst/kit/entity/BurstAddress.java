@@ -11,16 +11,6 @@ import java.util.Objects;
 public final class BurstAddress {
 
     /**
-     * GSON Serializer.
-     */
-    public static final JsonSerializer<BurstAddress> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.getID());
-
-    /**
-     * GSON Deserializer
-     */
-    public static final JsonDeserializer<BurstAddress> DESERIALIZER = (json, typeOfT, context) -> fromEither(json.getAsString());
-
-    /**
      * Stored without "BURST-" prefix.
      */
     private final String address;
@@ -48,7 +38,7 @@ public final class BurstAddress {
      * @throws IllegalArgumentException if the numericId is outside the range of accepted numbers (less than 0 or greater than / equal to 2^64)
      */
     public static BurstAddress fromId(String unsignedLongId) {
-        return new BurstAddress(new BurstID(unsignedLongId));
+        return new BurstAddress(BurstID.fromLong(unsignedLongId));
     }
 
     public static BurstAddress fromRs(String RS) throws IllegalArgumentException {
@@ -67,7 +57,7 @@ public final class BurstAddress {
     public static BurstAddress fromEither(String input) {
         if (input == null) return null;
         try {
-            return BurstAddress.fromId(new BurstID(input));
+            return BurstAddress.fromId(BurstID.fromLong(input));
         } catch (IllegalArgumentException e1) {
             try {
                 return BurstAddress.fromRs(input);

@@ -1,18 +1,18 @@
 package burst.kit.entity.response.http.attachment;
 
-import burst.kit.entity.HexStringByteArray;
 import burst.kit.entity.response.TransactionAttachment;
 import burst.kit.entity.response.attachment.ATCreationAttachment;
 import com.google.gson.annotations.SerializedName;
+import org.bouncycastle.util.encoders.Hex;
 
 public final class ATCreationAttachmentResponse extends TransactionAttachmentResponse {
     private final String name;
     private final String description;
-    private final HexStringByteArray creationBytes;
+    private final String creationBytes;
     @SerializedName("version.AutomatedTransactionsCreation")
     private final int version;
 
-    public ATCreationAttachmentResponse(String name, String description, HexStringByteArray creationBytes, int version) {
+    public ATCreationAttachmentResponse(String name, String description, String creationBytes, int version) {
         this.name = name;
         this.description = description;
         this.creationBytes = creationBytes;
@@ -27,7 +27,7 @@ public final class ATCreationAttachmentResponse extends TransactionAttachmentRes
         return description;
     }
 
-    public HexStringByteArray getCreationBytes() {
+    public String getCreationBytes() {
         return creationBytes;
     }
 
@@ -37,6 +37,6 @@ public final class ATCreationAttachmentResponse extends TransactionAttachmentRes
 
     @Override
     public TransactionAttachment toAttachment() {
-        return new ATCreationAttachment(version, name, description, creationBytes.getBytes());
+        return new ATCreationAttachment(version, name, description, Hex.decode(creationBytes));
     }
 }

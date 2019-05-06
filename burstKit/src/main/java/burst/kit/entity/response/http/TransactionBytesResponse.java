@@ -1,20 +1,18 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.HexStringByteArray;
-
 @SuppressWarnings("unused")
 public final class TransactionBytesResponse extends BRSResponse {
-    private final HexStringByteArray unsignedTransactionBytes;
+    private final String unsignedTransactionBytes;
     private final int confirmations;
-    private final HexStringByteArray transactionBytes;
+    private final String transactionBytes;
 
-    public TransactionBytesResponse(HexStringByteArray unsignedTransactionBytes, int confirmations, HexStringByteArray transactionBytes) {
+    public TransactionBytesResponse(String unsignedTransactionBytes, int confirmations, String transactionBytes) {
         this.unsignedTransactionBytes = unsignedTransactionBytes;
         this.confirmations = confirmations;
         this.transactionBytes = transactionBytes;
     }
 
-    public HexStringByteArray getUnsignedTransactionBytes() {
+    public String getUnsignedTransactionBytes() {
         return unsignedTransactionBytes;
     }
 
@@ -22,7 +20,7 @@ public final class TransactionBytesResponse extends BRSResponse {
         return confirmations;
     }
 
-    public HexStringByteArray getTransactionBytes() {
+    public String getTransactionBytes() {
         return transactionBytes;
     }
 }

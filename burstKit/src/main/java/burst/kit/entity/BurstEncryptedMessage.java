@@ -3,15 +3,8 @@ package burst.kit.entity;
 import burst.kit.crypto.BurstCrypto;
 
 public final class BurstEncryptedMessage {
-    /**
-     Needs to be a HexStringByteArray for serialization.
-      */
-    private final HexStringByteArray data;
-
-    /**
-     Needs to be a HexStringByteArray for serialization.
-     */
-    private final HexStringByteArray nonce;
+    private final byte[] data;
+    private final byte[] nonce;
 
     private final boolean isText;
 
@@ -21,21 +14,9 @@ public final class BurstEncryptedMessage {
      * @param nonce The nonce bytes
      * @param isText Whether the data is text
      */
-    public BurstEncryptedMessage(HexStringByteArray data, HexStringByteArray nonce, boolean isText) {
+    public BurstEncryptedMessage(byte[] data, byte[] nonce, boolean isText) {
         this.data = data;
         this.nonce = nonce;
-        this.isText = isText;
-    }
-
-    /**
-     * Create from known encrypted data
-     * @param data The data bytes
-     * @param nonce The nonce bytes
-     * @param isText Whether the data is text
-     */
-    public BurstEncryptedMessage(byte[] data, byte[] nonce, boolean isText) {
-        this.data = new HexStringByteArray(data);
-        this.nonce = new HexStringByteArray(nonce);
         this.isText = isText;
     }
 
@@ -60,30 +41,17 @@ public final class BurstEncryptedMessage {
     }
 
     /**
-     * @return The data bytes wrapped in a HexStringByteArray
-     */
-    public HexStringByteArray getHexStringData() {
-        return data;
-    }
-    /**
      * @return The data bytes
      */
     public byte[] getData() {
-        return data.getBytes();
-    }
-
-    /**
-     * @return The nonce bytes wrapped in a HexStringByteArray
-     */
-    public HexStringByteArray getHexStringNonce() {
-        return nonce;
+        return data;
     }
 
     /**
      * @return The nonce bytes
      */
     public byte[] getNonce() {
-        return nonce.getBytes();
+        return nonce;
     }
 
     /**

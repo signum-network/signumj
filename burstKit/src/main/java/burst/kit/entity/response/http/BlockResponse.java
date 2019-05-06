@@ -1,32 +1,31 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.*;
-
 @SuppressWarnings("unused")
 public final class BlockResponse extends BRSResponse {
-    private final HexStringByteArray previousBlockHash;
+    private final String previousBlockHash;
     private final int payloadLength;
-    private final BurstValue totalAmountNQT;
-    private final HexStringByteArray generationSignature;
-    private final BurstAddress generator;
-    private final HexStringByteArray generatorPublicKey;
+    private final String totalAmountNQT;
+    private final String generationSignature;
+    private final String generator;
+    private final String generatorPublicKey;
     private final long baseTarget;
-    private final HexStringByteArray payloadHash;
+    private final String payloadHash;
     private final String blockReward; // Converted to BurstValue in getter
-    private final BurstID nextBlock;
+    private final String nextBlock;
     private final int scoopNum;
     private final int numberOfTransactions;
-    private final HexStringByteArray blockSignature;
-    private final BurstID[] transactions;
+    private final String blockSignature;
+    private final String[] transactions;
     private final String nonce;
     private final int version;
-    private final BurstValue totalFeeNQT;
-    private final BurstID previousBlock;
-    private final BurstID block;
+    private final String totalFeeNQT;
+    private final String previousBlock;
+    private final String block;
     private final int height;
-    private final BurstTimestamp timestamp;
+    private final int timestamp;
 
-    public BlockResponse(HexStringByteArray previousBlockHash, int payloadLength, BurstValue totalAmountNQT, HexStringByteArray generationSignature, BurstAddress generator, HexStringByteArray generatorPublicKey, long baseTarget, HexStringByteArray payloadHash, String blockReward, BurstID nextBlock, int scoopNum, int numberOfTransactions, HexStringByteArray blockSignature, BurstID[] transactions, String nonce, int version, BurstValue totalFeeNQT, BurstID previousBlock, BurstID block, int height, BurstTimestamp timestamp) {
+    public BlockResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String previousBlockHash, int payloadLength, String totalAmountNQT, String generationSignature, String generator, String generatorPublicKey, long baseTarget, String payloadHash, String blockReward, String nextBlock, int scoopNum, int numberOfTransactions, String blockSignature, String[] transactions, String nonce, int version, String totalFeeNQT, String previousBlock, String block, int height, int timestamp) {
+        super(errorDescription, errorCode, requestProcessingTime);
         this.previousBlockHash = previousBlockHash;
         this.payloadLength = payloadLength;
         this.totalAmountNQT = totalAmountNQT;
@@ -50,7 +49,7 @@ public final class BlockResponse extends BRSResponse {
         this.timestamp = timestamp;
     }
 
-    public HexStringByteArray getPreviousBlockHash() {
+    public String getPreviousBlockHash() {
         return previousBlockHash;
     }
 
@@ -58,19 +57,19 @@ public final class BlockResponse extends BRSResponse {
         return payloadLength;
     }
 
-    public BurstValue getTotalAmountNQT() {
+    public String getTotalAmountNQT() {
         return totalAmountNQT;
     }
 
-    public HexStringByteArray getGenerationSignature() {
+    public String getGenerationSignature() {
         return generationSignature;
     }
 
-    public BurstAddress getGenerator() {
+    public String getGenerator() {
         return generator;
     }
 
-    public HexStringByteArray getGeneratorPublicKey() {
+    public String getGeneratorPublicKey() {
         return generatorPublicKey;
     }
 
@@ -78,15 +77,15 @@ public final class BlockResponse extends BRSResponse {
         return baseTarget;
     }
 
-    public HexStringByteArray getPayloadHash() {
+    public String getPayloadHash() {
         return payloadHash;
     }
 
-    public BurstValue getBlockReward() {
-        return BurstValue.fromBurst(blockReward);
+    public String getBlockReward() {
+        return blockReward;
     }
 
-    public BurstID getNextBlock() {
+    public String getNextBlock() {
         return nextBlock;
     }
 
@@ -98,11 +97,11 @@ public final class BlockResponse extends BRSResponse {
         return numberOfTransactions;
     }
 
-    public HexStringByteArray getBlockSignature() {
+    public String getBlockSignature() {
         return blockSignature;
     }
 
-    public BurstID[] getTransactions() {
+    public String[] getTransactions() {
         return transactions;
     }
 
@@ -114,15 +113,15 @@ public final class BlockResponse extends BRSResponse {
         return version;
     }
 
-    public BurstValue getTotalFeeNQT() {
+    public String getTotalFeeNQT() {
         return totalFeeNQT;
     }
 
-    public BurstID getPreviousBlock() {
+    public String getPreviousBlock() {
         return previousBlock;
     }
 
-    public BurstID getBlock() {
+    public String getBlock() {
         return block;
     }
 
@@ -130,7 +129,7 @@ public final class BlockResponse extends BRSResponse {
         return height;
     }
 
-    public BurstTimestamp getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 }

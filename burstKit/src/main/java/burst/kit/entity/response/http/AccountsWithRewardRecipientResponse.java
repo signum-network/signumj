@@ -1,16 +1,14 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstAddress;
-
 @SuppressWarnings("unused")
 public final class AccountsWithRewardRecipientResponse extends BRSResponse {
-    private final BurstAddress[] accounts;
+    private final String[] accounts;
 
-    public AccountsWithRewardRecipientResponse(BurstAddress[] accounts) {
+    public AccountsWithRewardRecipientResponse(String[] accounts) {
         this.accounts = accounts;
     }
 
-    public BurstAddress[] getAccounts() {
+    public String[] getAccounts() {
         return accounts;
     }
 }

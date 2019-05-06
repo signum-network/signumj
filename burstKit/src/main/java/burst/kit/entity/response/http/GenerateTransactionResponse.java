@@ -1,22 +1,20 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstID;
-import burst.kit.entity.HexStringByteArray;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
 public class GenerateTransactionResponse extends BRSResponse {
     private final boolean broadcasted;
-    private final HexStringByteArray signatureHash;
-    private final HexStringByteArray fullHash;
-    private final HexStringByteArray transactionBytes;
-    private final HexStringByteArray unsignedTransactionBytes;
+    private final String signatureHash;
+    private final String fullHash;
+    private final String transactionBytes;
+    private final String unsignedTransactionBytes;
     @SerializedName("transactionJSON")
     private final TransactionResponse transactionResponse;
     @SerializedName("transaction")
-    private final BurstID transactionID;
+    private final String transactionID;
 
-    public GenerateTransactionResponse(boolean broadcasted, HexStringByteArray signatureHash, HexStringByteArray fullHash, HexStringByteArray transactionBytes, HexStringByteArray unsignedTransactionBytes, TransactionResponse transactionResponse, BurstID transactionID) {
+    public GenerateTransactionResponse(boolean broadcasted, String signatureHash, String fullHash, String transactionBytes, String unsignedTransactionBytes, TransactionResponse transactionResponse, String transactionID) {
         this.broadcasted = broadcasted;
         this.signatureHash = signatureHash;
         this.fullHash = fullHash;
@@ -30,19 +28,19 @@ public class GenerateTransactionResponse extends BRSResponse {
         return broadcasted;
     }
 
-    public HexStringByteArray getSignatureHash() {
+    public String getSignatureHash() {
         return signatureHash;
     }
 
-    public HexStringByteArray getFullHash() {
+    public String getFullHash() {
         return fullHash;
     }
 
-    public HexStringByteArray getTransactionBytes() {
+    public String getTransactionBytes() {
         return transactionBytes;
     }
 
-    public HexStringByteArray getUnsignedTransactionBytes() {
+    public String getUnsignedTransactionBytes() {
         return unsignedTransactionBytes;
     }
 
@@ -50,7 +48,7 @@ public class GenerateTransactionResponse extends BRSResponse {
         return transactionResponse;
     }
 
-    public BurstID getTransactionID() {
+    public String getTransactionID() {
         return transactionID;
     }
 }

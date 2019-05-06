@@ -23,7 +23,7 @@ public final class ReedSolomonImpl implements ReedSolomon {
 
   @Override
   public String encode(long plain) {
-    String plain_string = new BurstID(plain).getID();
+    String plain_string = BurstID.fromLong(plain).getID();
     int length = plain_string.length();
     int[] plain_string_10 = new int[base_10_length];
     for (int i = 0; i < length; i++) {

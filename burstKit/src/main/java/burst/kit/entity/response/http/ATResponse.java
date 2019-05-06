@@ -1,31 +1,28 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstAddress;
-import burst.kit.entity.HexStringByteArray;
-import burst.kit.entity.BurstValue;
-
 @SuppressWarnings("unused")
 public final class ATResponse extends BRSResponse {
     private final int atVersion;
-    private final BurstAddress creator;
+    private final String creator;
     private final boolean stopped;
-    private final HexStringByteArray machineCode;
+    private final String machineCode;
     private final String description;
-    private final HexStringByteArray machineData;
+    private final String machineData;
     private final boolean frozen;
     private final boolean finished;
     private final boolean dead;
-    private final BurstValue balanceNQT;
+    private final String balanceNQT;
     private final int nextBlock;
-    private final BurstValue minActivation;
+    private final String minActivation;
     private final boolean running;
-    private final BurstAddress at;
-    private final BurstAddress atRS;
+    private final String at;
+    private final String atRS;
     private final String name;
-    private final BurstValue prevBalanceNQT;
+    private final String prevBalanceNQT;
     private final int creationBlock;
 
-    public ATResponse(int atVersion, BurstAddress creator, boolean stopped, HexStringByteArray machineCode, String description, HexStringByteArray machineData, boolean frozen, boolean finished, boolean dead, BurstValue balanceNQT, int nextBlock, BurstValue minActivation, boolean running, BurstAddress at, BurstAddress atRS, String name, BurstValue prevBalanceNQT, int creationBlock) {
+    public ATResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int atVersion, String creator, boolean stopped, String machineCode, String description, String machineData, boolean frozen, boolean finished, boolean dead, String balanceNQT, int nextBlock, String minActivation, boolean running, String at, String atRS, String name, String prevBalanceNQT, int creationBlock) {
+        super(errorDescription, errorCode, requestProcessingTime);
         this.atVersion = atVersion;
         this.creator = creator;
         this.stopped = stopped;
@@ -50,7 +47,7 @@ public final class ATResponse extends BRSResponse {
         return atVersion;
     }
 
-    public BurstAddress getCreator() {
+    public String getCreator() {
         return creator;
     }
 
@@ -58,7 +55,7 @@ public final class ATResponse extends BRSResponse {
         return stopped;
     }
 
-    public HexStringByteArray getMachineCode() {
+    public String getMachineCode() {
         return machineCode;
     }
 
@@ -66,7 +63,7 @@ public final class ATResponse extends BRSResponse {
         return description;
     }
 
-    public HexStringByteArray getMachineData() {
+    public String getMachineData() {
         return machineData;
     }
 
@@ -82,7 +79,7 @@ public final class ATResponse extends BRSResponse {
         return dead;
     }
 
-    public BurstValue getBalanceNQT() {
+    public String getBalanceNQT() {
         return balanceNQT;
     }
 
@@ -90,7 +87,7 @@ public final class ATResponse extends BRSResponse {
         return nextBlock;
     }
 
-    public BurstValue getMinActivation() {
+    public String getMinActivation() {
         return minActivation;
     }
 
@@ -98,7 +95,11 @@ public final class ATResponse extends BRSResponse {
         return running;
     }
 
-    public BurstAddress getAt() {
+    public String getAt() {
+        return at;
+    }
+
+    public String getAtRS() {
         return atRS;
     }
 
@@ -106,7 +107,7 @@ public final class ATResponse extends BRSResponse {
         return name;
     }
 
-    public BurstValue getPrevBalanceNQT() {
+    public String getPrevBalanceNQT() {
         return prevBalanceNQT;
     }
 

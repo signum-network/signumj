@@ -4,6 +4,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.ATResponse;
+import org.bouncycastle.util.encoders.Hex;
 
 public class AT {
     private final boolean dead;
@@ -50,13 +51,13 @@ public class AT {
         this.frozen = atResponse.isFrozen();
         this.running = atResponse.isRunning();
         this.stopped = atResponse.isStopped();
-        this.creator = atResponse.getCreator();
-        this.id = atResponse.getAt().getBurstID();
-        this.balance = atResponse.getBalanceNQT();
-        this.minimumActivation = atResponse.getMinActivation();
-        this.previousBalance = atResponse.getPrevBalanceNQT();
-        this.machineCode = atResponse.getMachineCode().getBytes();
-        this.machineData = atResponse.getMachineData().getBytes();
+        this.creator = BurstAddress.fromEither(atResponse.getCreator());
+        this.id = BurstID.fromLong(atResponse.getAt());
+        this.balance = BurstValue.fromPlanck(atResponse.getBalanceNQT());
+        this.minimumActivation = BurstValue.fromPlanck(atResponse.getMinActivation());
+        this.previousBalance = BurstValue.fromPlanck(atResponse.getPrevBalanceNQT());
+        this.machineCode = Hex.decode(atResponse.getMachineCode());
+        this.machineData = Hex.decode(atResponse.getMachineData());
         this.creationHeight = atResponse.getCreationBlock();
         this.nextBlockHeight = atResponse.getNextBlock();
         this.version = atResponse.getAtVersion();

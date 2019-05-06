@@ -3,6 +3,7 @@ package burst.kit.entity.response;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.AccountResponse;
+import org.bouncycastle.util.encoders.Hex;
 
 public class Account {
     private final BurstAddress id;
@@ -26,12 +27,12 @@ public class Account {
     }
 
     public Account(AccountResponse accountResponse) {
-        this.id = accountResponse.getAccount();
-        this.balance = accountResponse.getBalanceNQT();
-        this.effectiveBalance = accountResponse.getEffectiveBalanceNQT();
-        this.forgedBalance = accountResponse.getForgedBalanceNQT();
-        this.unconfirmedBalance = accountResponse.getUnconfirmedBalanceNQT();
-        this.publicKey = accountResponse.getPublicKey().getBytes();
+        this.id = BurstAddress.fromEither(accountResponse.getAccount());
+        this.balance = BurstValue.fromPlanck(accountResponse.getBalanceNQT());
+        this.effectiveBalance = BurstValue.fromPlanck(accountResponse.getEffectiveBalanceNQT());
+        this.forgedBalance = BurstValue.fromPlanck(accountResponse.getForgedBalanceNQT());
+        this.unconfirmedBalance = BurstValue.fromPlanck(accountResponse.getUnconfirmedBalanceNQT());
+        this.publicKey = Hex.decode(accountResponse.getPublicKey());
         this.description = accountResponse.getDescription();
         this.name = accountResponse.getName();
     }

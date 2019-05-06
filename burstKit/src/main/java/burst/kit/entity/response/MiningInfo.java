@@ -1,6 +1,7 @@
 package burst.kit.entity.response;
 
 import burst.kit.entity.response.http.MiningInfoResponse;
+import org.bouncycastle.util.encoders.Hex;
 
 public class MiningInfo {
     private final byte[] generationSignature;
@@ -14,7 +15,7 @@ public class MiningInfo {
     }
 
     public MiningInfo(MiningInfoResponse miningInfoResponse) {
-        this.generationSignature = miningInfoResponse.getGenerationSignature().getBytes();
+        this.generationSignature = Hex.decode(miningInfoResponse.getGenerationSignature());
         this.baseTarget = miningInfoResponse.getBaseTarget();
         this.height = miningInfoResponse.getHeight();
     }

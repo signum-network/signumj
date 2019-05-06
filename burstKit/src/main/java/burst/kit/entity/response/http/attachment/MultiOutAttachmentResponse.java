@@ -43,7 +43,7 @@ public final class MultiOutAttachmentResponse extends TransactionAttachmentRespo
         public static final JsonSerializer<MultiOutRecipient> SERIALIZER = (src, typeOfSrc, context) -> serialize(src);
 
         private static MultiOutRecipient deserialize(JsonArray source) {
-            return new MultiOutRecipient(BurstAddress.fromId(new BurstID(source.get(0).getAsString())), BurstValue.fromPlanck(source.get(1).getAsString()));
+            return new MultiOutRecipient(source.get(0).getAsString(), source.get(1).getAsString());
         }
 
         private static JsonArray serialize(MultiOutRecipient source) {
@@ -53,20 +53,20 @@ public final class MultiOutAttachmentResponse extends TransactionAttachmentRespo
             return array;
         }
 
-        private final BurstAddress recipient;
-        private final BurstValue amount;
+        private final String recipient;
+        private final String amount;
 
-        private MultiOutRecipient(BurstAddress recipient, BurstValue amount) {
+        private MultiOutRecipient(String recipient, String amount) {
             this.recipient = recipient;
             this.amount = amount;
         }
 
         public BurstAddress getRecipient() {
-            return recipient;
+            return BurstAddress.fromEither(recipient);
         }
 
         public BurstValue getAmount() {
-            return amount;
+            return BurstValue.fromPlanck(recipient);
         }
     }
 }

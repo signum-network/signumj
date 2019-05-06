@@ -5,8 +5,10 @@ import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.BlockResponse;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class Block {
     private final BigInteger nonce;
@@ -55,20 +57,22 @@ public class Block {
 
     public Block(BlockResponse blockResponse) {
         this.nonce = new BigInteger(blockResponse.getNonce());
-        this.generator = blockResponse.getGenerator();
-        this.id = blockResponse.getBlock();
-        this.nextBlock = blockResponse.getNextBlock();
-        this.previousBlock = blockResponse.getPreviousBlock();
-        this.transactions = blockResponse.getTransactions();
-        this.timestamp = blockResponse.getTimestamp();
-        this.blockReward = blockResponse.getBlockReward();
-        this.totalAmount = blockResponse.getTotalAmountNQT();
-        this.totalFee = blockResponse.getTotalFeeNQT();
-        this.generationSignature = blockResponse.getGenerationSignature().getBytes();
-        this.generatorPublicKey = blockResponse.getGeneratorPublicKey().getBytes();
-        this.payloadHash = blockResponse.getPayloadHash().getBytes();
-        this.previousBlockHash = blockResponse.getPreviousBlockHash().getBytes();
-        this.signature = blockResponse.getBlockSignature().getBytes();
+        this.generator = BurstAddress.fromEither(blockResponse.getGenerator());
+        this.id = BurstID.fromLong(blockResponse.getBlock());
+        this.nextBlock = BurstID.fromLong(blockResponse.getNextBlock());
+        this.previousBlock = BurstID.fromLong(blockResponse.getPreviousBlock());
+        this.transactions = Arrays.stream(blockResponse.getTransactions())
+                .map(BurstID::fromLong)
+                .toArray(BurstID[]::new);
+        this.timestamp = new BurstTimestamp(blockResponse.getTimestamp());
+        this.blockReward = BurstValue.fromPlanck(blockResponse.getBlockReward());
+        this.totalAmount = BurstValue.fromPlanck(blockResponse.getTotalAmountNQT());
+        this.totalFee = BurstValue.fromPlanck(blockResponse.getTotalFeeNQT());
+        this.generationSignature = Hex.decode(blockResponse.getGenerationSignature());
+        this.generatorPublicKey = Hex.decode(blockResponse.getGeneratorPublicKey());
+        this.payloadHash = Hex.decode(blockResponse.getPayloadHash());
+        this.previousBlockHash = Hex.decode(blockResponse.getPreviousBlockHash());
+        this.signature = Hex.decode(blockResponse.getBlockSignature());
         this.height = blockResponse.getHeight();
         this.payloadLength = blockResponse.getPayloadLength();
         this.scoopNum = blockResponse.getScoopNum();

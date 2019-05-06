@@ -1,5 +1,7 @@
-package burst.kit.entity;
+package burst.kit.entity.response;
 
+import burst.kit.entity.BurstAddress;
+import burst.kit.entity.BurstID;
 import burst.kit.entity.response.http.ConstantsResponse;
 import burst.kit.entity.response.http.TransactionSubtypeResponse;
 import burst.kit.entity.response.http.TransactionTypeResponse;
@@ -24,8 +26,8 @@ public class Constants {
     public Constants(ConstantsResponse constantsResponse) {
         this.maxBlockPayloadLength = constantsResponse.getMaxBlockPayloadLength();
         this.maxArbitraryMessageLength = constantsResponse.getMaxArbitraryMessageLength();
-        this.genesisBlockId = constantsResponse.getGenesisBlockId();
-        this.genesisAccountId = constantsResponse.getGenesisAccountId();
+        this.genesisBlockId = BurstID.fromLong(constantsResponse.getGenesisBlockId());
+        this.genesisAccountId = BurstAddress.fromEither(constantsResponse.getGenesisAccountId());
         this.transactionTypes = Arrays.stream(constantsResponse.getTransactionTypes())
                 .map(TransactionType::new)
                 .toArray(TransactionType[]::new);

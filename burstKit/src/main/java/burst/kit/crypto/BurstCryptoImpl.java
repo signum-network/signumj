@@ -114,7 +114,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             result <<= 8;
             result |= (hash[7-i] & 0xFF);
         }
-        return new BurstID(result);
+        return BurstID.fromLong(result);
     }
 
     @Override
@@ -258,7 +258,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         } catch (ReedSolomon.DecodeException e) {
             throw new IllegalArgumentException("Reed-Solomon decode failed", e);
         }
-        return new BurstID(rsValue);
+        return BurstID.fromLong(rsValue);
     }
 
     @Override

@@ -8,10 +8,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public final class BurstValue extends BigDecimal {
-
-    public static final JsonDeserializer<BurstValue> DESERIALIZER = (json, typeOfT, context) -> json.isJsonNull() ? null : BurstValue.fromPlanck(json.getAsString());
-    public static final JsonSerializer<BurstValue> SERIALIZER = (src, typeOfSrc, context) -> new JsonPrimitive(src.toPlanck());
-
     @SuppressWarnings("BigDecimalMethodWithoutRoundingCalled")
     private BurstValue(String val) {
         super(new BigDecimal(val).divide(BigDecimal.TEN.pow(8)).toString());
@@ -26,6 +22,7 @@ public final class BurstValue extends BigDecimal {
      * @return The BurstValue representing this number of planck, or a BurstValue representing 0 Burst if the string could not be parsed
      */
     public static BurstValue fromPlanck(String planck) {
+        if (planck == null) return null;
         try {
             return new BurstValue(planck);
         } catch (NumberFormatException e) {
@@ -46,6 +43,7 @@ public final class BurstValue extends BigDecimal {
      * @return The BurstValue representing this number of burst, or a BurstValue representing 0 Burst if the string could not be parsed
      */
     public static BurstValue fromBurst(String burst) {
+        if (burst == null) return null;
         try {
             return new BurstValue(new BigDecimal(burst).multiply(BigDecimal.TEN.pow(8)).toString());
         } catch (NumberFormatException e) {
@@ -62,7 +60,7 @@ public final class BurstValue extends BigDecimal {
     }
 
     @Override
-    public String toString() {
+    public String toString() { // TODO this causes bug with arithmetic
         return roundToThreeDP(this).toPlainString() + " BURST";
     }
 

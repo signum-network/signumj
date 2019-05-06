@@ -1,16 +1,14 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstID;
-
 @SuppressWarnings("unused")
 public final class AccountTransactionIDsResponse extends BRSResponse {
-    private final BurstID[] transactionIds;
+    private final String[] transactionIds;
 
-    public AccountTransactionIDsResponse(BurstID[] transactionIds) {
+    public AccountTransactionIDsResponse(String[] transactionIds) {
         this.transactionIds = transactionIds;
     }
 
-    public BurstID[] getTransactionIds() {
+    public String[] getTransactionIds() {
         return transactionIds;
     }
 }

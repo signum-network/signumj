@@ -1,16 +1,14 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstAddress;
-
 @SuppressWarnings("unused")
 public class RewardRecipientResponse extends BRSResponse {
-    private final BurstAddress rewardRecipient;
+    private final String rewardRecipient;
 
-    public RewardRecipientResponse(BurstAddress rewardRecipient) {
+    public RewardRecipientResponse(String rewardRecipient) {
         this.rewardRecipient = rewardRecipient;
     }
 
-    public BurstAddress getRewardRecipient() {
+    public String getRewardRecipient() {
         return rewardRecipient;
     }
 }

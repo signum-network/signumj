@@ -1,16 +1,14 @@
 package burst.kit.entity.response.http;
 
-import burst.kit.entity.BurstID;
-
 @SuppressWarnings("unused")
 public final class AccountBlockIDsResponse extends BRSResponse {
-    private final BurstID[] blockIds;
+    private final String[] blockIds;
 
-    public AccountBlockIDsResponse(BurstID[] blockIds) {
+    public AccountBlockIDsResponse(String[] blockIds) {
         this.blockIds = blockIds;
     }
 
-    public BurstID[] getBlockIds() {
+    public String[] getBlockIds() {
         return blockIds;
     }
 }
