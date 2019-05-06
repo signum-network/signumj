@@ -7,10 +7,12 @@ import burst.kit.entity.HexStringByteArray;
 public class BroadcastTransactionResponse extends BRSResponse {
     private final HexStringByteArray fullHash;
     private final BurstID transaction;
+    private final Integer numberPeersSentTo;
 
-    public BroadcastTransactionResponse(HexStringByteArray fullHash, BurstID transaction) {
+    public BroadcastTransactionResponse(HexStringByteArray fullHash, BurstID transaction, Integer numberPeersSentTo) {
         this.fullHash = fullHash;
         this.transaction = transaction;
+        this.numberPeersSentTo = numberPeersSentTo;
     }
 
     public HexStringByteArray getFullHash() {
@@ -19,5 +21,9 @@ public class BroadcastTransactionResponse extends BRSResponse {
 
     public BurstID getTransactionID() {
         return transaction;
+    }
+
+    public Integer getNumberPeersSentTo() {
+        return numberPeersSentTo;
     }
 }

@@ -1,6 +1,6 @@
 package burst.kit.service.impl;
 
-import burst.kit.Constants;
+import burst.kit.entity.Constants;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.entity.response.http.*;
@@ -31,13 +31,10 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
 
     private BlockchainService blockchainService;
 
-    public BurstNodeServiceImpl(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
+    public BurstNodeServiceImpl(String nodeAddress, String providedUserAgent, SchedulerAssigner schedulerAssigner) {
         this.schedulerAssigner = schedulerAssigner;
-        buildServices(nodeAddress, userAgent);
-    }
 
-    private void buildServices(String nodeAddress, String providedUserAgent) {
-        String userAgent = providedUserAgent == null ? "burstkit4j/"+ Constants.VERSION : providedUserAgent;
+        String userAgent = providedUserAgent == null ? "burstkit4j/"+ burst.kit.Constants.VERSION : providedUserAgent;
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(chain -> chain.proceed(chain.request().newBuilder()
@@ -68,11 +65,6 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
             ((BRSResponse) source).throwIfError();
         }
         return source;
-    }
-
-    @Override
-    public void updateConnection(String newNodeAddress, String newUserAgent) {
-        buildServices(newNodeAddress, newUserAgent);
     }
 
     @Override
@@ -109,8 +101,9 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<ConstantsResponse> getConstants() {
-        return assign(blockchainService.getConstants());
+    public Single<Constants> getConstants() {
+        return assign(blockchainService.getConstants()
+                .map(Constants::new));
     }
 
     @Override
@@ -195,28 +188,33 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, null, null, null));
+    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
+        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, null, null, null)
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, message, true, null, null, null, null, null, null, null, null));
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, message, true, null, null, null, null, null, null, null, null)
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, new HexStringByteArray(message).toHexString(), false, null, null, null, null, null, null, null, null));
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
+        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, new HexStringByteArray(message).toHexString(), false, null, null, null, null, null, null, null, null)
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString() ,null, null, null, null));
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString() ,null, null, null, null)
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString()));
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(blockchainService.sendMoney(recipient.getID(), null, amount.toPlanck(), null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, null, false, null, null, null, null, null, null, null, message.isText(), message.getHexStringData().toString(), message.getHexStringNonce().toString())
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
@@ -244,8 +242,9 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<BroadcastTransactionResponse> broadcastTransaction(byte[] transactionBytes) {
-        return assign(blockchainService.broadcastTransaction(new HexStringByteArray(transactionBytes).toHexString()));
+    public Single<Integer> broadcastTransaction(byte[] transactionBytes) {
+        return assign(blockchainService.broadcastTransaction(new HexStringByteArray(transactionBytes).toHexString())
+                .map(BroadcastTransactionResponse::getNumberPeersSentTo));
     }
 
     @Override
@@ -255,12 +254,13 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<SubmitNonceResponse> submitNonce(String passphrase, String nonce, BurstID accountId) {
-        return assign(blockchainService.submitNonce(passphrase, nonce, accountId == null ? null : accountId.getID(), ""));
+    public Single<Long> submitNonce(String passphrase, String nonce, BurstID accountId) {
+        return assign(blockchainService.submitNonce(passphrase, nonce, accountId == null ? null : accountId.getID(), "")
+                .map(SubmitNonceResponse::getDeadline));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException {
+    public Single<byte[]> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException {
         StringBuilder recipientsString = new StringBuilder();
         if (recipients.size() > 64 || recipients.size() < 2) {
             throw new IllegalArgumentException("Must have 2-64 recipients, had " + recipients.size());
@@ -269,11 +269,12 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
             recipientsString.append(recipient.getKey().getID()).append(":").append(recipient.getValue().toPlanck()).append(";");
         }
         recipientsString.setLength(recipientsString.length() - 1);
-        return assign(blockchainService.sendMoneyMulti(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString()));
+        return assign(blockchainService.sendMoneyMulti(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString())
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
+    public Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
         StringBuilder recipientsString = new StringBuilder();
         if (recipients.size() > 128 || recipients.size() < 2) {
             throw new IllegalArgumentException("Must have 2-128 recipients, had " + recipients.size());
@@ -282,12 +283,18 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
             recipientsString.append(recipient.getID()).append(";");
         }
         recipientsString.setLength(recipientsString.length() - 1);
-        return assign(blockchainService.sendMoneyMultiSame(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString(), amount.toPlanck()));
+        return assign(blockchainService.sendMoneyMultiSame(null, new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), String.valueOf(deadline), null, false, recipientsString.toString(), amount.toPlanck())
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     @Override
-    public Single<GenerateTransactionResponse> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount) {
-        return assign(blockchainService.createATProgram(new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, false, name, description, new HexStringByteArray(creationBytes).toHexString(), new HexStringByteArray(code).toHexString(), new HexStringByteArray(data).toHexString(), dpages, cspages, uspages, minActivationAmount.toPlanck()));
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount) {
+        return assign(blockchainService.createATProgram(new HexStringByteArray(senderPublicKey).toHexString(), fee.toPlanck(), deadline, false, name, description, new HexStringByteArray(creationBytes).toHexString(), new HexStringByteArray(code).toHexString(), new HexStringByteArray(data).toHexString(), dpages, cspages, uspages, minActivationAmount.toPlanck())
+                .map(response -> {
+                    if (response.getError() != null) throw new IllegalArgumentException(response.getError());
+                    return response;
+                })
+                .map(response -> response.getUnsignedTransactionBytes().getBytes()));
     }
 
     private interface BlockchainService {
@@ -361,6 +368,6 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
         Single<GenerateTransactionResponse> sendMoneyMultiSame(@Query("secretPhrase") String secretPhrase, @Query("publicKey") String publicKey, @Query("feeNQT") String feeNQT, @Query("deadline") String deadline, @Query("referencedTransactionFullHash") String referencedTransactionFullHash, @Query("broadcast") boolean broadcast, @Query("recipients") String recipients, @Query("amountNQT") String amountNQT);
 
         @POST("burst?requestType=createATProgram")
-        Single<GenerateTransactionResponse> createATProgram(@Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline, @Query("broadcast") boolean broadcast, @Query("name") String name, @Query("description") String description, @Query("creationBytes") String creationBytes, @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages, @Query("cspages") int cspages, @Query("uspages") int uspages, @Query("minActivationAmountNQT") String minActivationAmountNQT);
+        Single<CreateATResponse> createATProgram(@Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline, @Query("broadcast") boolean broadcast, @Query("name") String name, @Query("description") String description, @Query("creationBytes") String creationBytes, @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages, @Query("cspages") int cspages, @Query("uspages") int uspages, @Query("minActivationAmountNQT") String minActivationAmountNQT);
     }
 }

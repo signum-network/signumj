@@ -2,10 +2,6 @@ package burst.kit.service;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.http.BroadcastTransactionResponse;
-import burst.kit.entity.response.http.ConstantsResponse;
-import burst.kit.entity.response.http.GenerateTransactionResponse;
-import burst.kit.entity.response.http.SubmitNonceResponse;
 import burst.kit.service.impl.BurstNodeServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;
@@ -16,13 +12,6 @@ import java.util.Map;
 import java.util.Set;
 
 public interface BurstNodeService {
-    /**
-     * Set the node address the the service connects to for future requests
-     * @param newNodeAddress The full URL of the node, including port number if different from 80, not including /burst API locator
-     * @param newUserAgent The new User-Agent header value to send to the node
-     */
-    void updateConnection(String newNodeAddress, String newUserAgent);
-
     /**
      * Get a block via a block ID
      * @param block The block ID of the requested block
@@ -63,7 +52,7 @@ public interface BurstNodeService {
      * Get the Constants in use by the node
      * @return The constants, wrapped in a single
      */
-    Single<ConstantsResponse> getConstants();
+    Single<Constants> getConstants();
 
     /**
      * Get the account details of the specified account
@@ -155,9 +144,9 @@ public interface BurstNodeService {
      * @param amount The amount to send
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
+    Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
 
     /**
      * Generate a transaction with a plaintext message
@@ -167,9 +156,9 @@ public interface BurstNodeService {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The message to include in the transaction
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
 
     /**
      * Generate a transaction with a plaintext message
@@ -179,9 +168,9 @@ public interface BurstNodeService {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The message to include in the transaction
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message);
+    Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message);
 
     /**
      * Generate a transaction with an encrypted message (can be read by sender and recipient)
@@ -191,9 +180,9 @@ public interface BurstNodeService {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The encrypted message to include in the transaction
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     /**
      * Generate a transaction with an encrypted-to-self message (can be read by only sender)
@@ -203,9 +192,9 @@ public interface BurstNodeService {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The encrypted message to include in the transaction (Use sender public key and sender private key to encrypt)
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<GenerateTransactionResponse> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+    Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     /**
      * Get the currently suggested transaction fees, which are calculated based on current network congestion -
@@ -222,9 +211,9 @@ public interface BurstNodeService {
     /**
      * Broadcast a transaction on the network
      * @param transactionBytes The signed transaction bytes
-     * @return The full hash and transaction ID or an error, wrapped in a single
+     * @return The number of peers this transaction was broadcast to, wrapped in a single
      */
-    Single<BroadcastTransactionResponse> broadcastTransaction(byte[] transactionBytes);
+    Single<Integer> broadcastTransaction(byte[] transactionBytes);
 
     /**
      * Get the reward recipient of the account
@@ -238,9 +227,9 @@ public interface BurstNodeService {
      * @param passphrase The passphrase of the miner (if solo mining) or null if pool mining
      * @param nonce The nonce that results in the deadline you want to submit
      * @param accountId The account ID of the miner
-     * @return The result and calculated deadline, wrapped in a single
+     * @return The calculated deadline, wrapped in a single
      */
-    Single<SubmitNonceResponse> submitNonce(String passphrase, String nonce, BurstID accountId);
+    Single<Long> submitNonce(String passphrase, String nonce, BurstID accountId);
 
     /**
      * Generate a multi-out transaction
@@ -248,10 +237,10 @@ public interface BurstNodeService {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param recipients A map of recipients and how much they get. Length must be 2-64 inclusive
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      * @throws IllegalArgumentException If the number of recipients is not in the range of 2-64 inclusive
      */
-    Single<GenerateTransactionResponse> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException;
+    Single<byte[]> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException;
 
     /**
      * Generate a multi-out transaction
@@ -260,10 +249,10 @@ public interface BurstNodeService {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param recipients A list of recipients. Each will get the amount specified. Length must be 2-128 inclusive
-     * @return The generated transaction, wrapped in a single
+     * @return The unsigned transaction bytes, wrapped in a single
      * @throws IllegalArgumentException If the number of recipients is not in the range of 2-128 inclusive
      */
-    Single<GenerateTransactionResponse> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
+    Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
 
     /**
      * TODO javadoc
@@ -280,7 +269,7 @@ public interface BurstNodeService {
      * @param minActivationAmount
      * @return
      */
-    Single<GenerateTransactionResponse> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount);
+    Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount);
 
     static BurstNodeService getInstance(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
         return new BurstNodeServiceImpl(nodeAddress, userAgent, schedulerAssigner);
