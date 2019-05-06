@@ -1,9 +1,11 @@
 package burst.kit.entity.response.http.attachment;
 
 import burst.kit.entity.BurstEncryptedMessage;
+import burst.kit.entity.response.TransactionAppendix;
+import burst.kit.entity.response.appendix.EncryptedMessageAppendix;
 import com.google.gson.annotations.SerializedName;
 
-public class EncryptedMessageAttachmentResponse extends TransactionAttachment {
+public class EncryptedMessageAttachmentResponse extends TransactionAppendixResponse {
     private final BurstEncryptedMessage encryptedMessage;
     @SerializedName("version.EncryptedMessage")
     private final int version;
@@ -19,5 +21,10 @@ public class EncryptedMessageAttachmentResponse extends TransactionAttachment {
 
     public int getVersion() {
         return version;
+    }
+
+    @Override
+    public TransactionAppendix toAppendix() {
+        return new EncryptedMessageAppendix.ToRecipient(version, encryptedMessage);
     }
 }

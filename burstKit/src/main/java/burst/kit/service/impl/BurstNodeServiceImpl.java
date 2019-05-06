@@ -4,17 +4,18 @@ import burst.kit.Constants;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.entity.response.http.*;
+import burst.kit.service.BurstNodeService;
 import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
-
-import burst.kit.service.BurstNodeService;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.*;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -219,8 +220,9 @@ public final class BurstNodeServiceImpl implements BurstNodeService {
     }
 
     @Override
-    public Single<SuggestFeeResponse> suggestFee() {
-        return assign(blockchainService.suggestFee());
+    public Single<FeeSuggestion> suggestFee() {
+        return assign(blockchainService.suggestFee()
+                .map(FeeSuggestion::new));
     }
 
     @Override

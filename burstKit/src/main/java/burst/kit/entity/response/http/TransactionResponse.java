@@ -1,7 +1,7 @@
 package burst.kit.entity.response.http;
 
 import burst.kit.entity.*;
-import burst.kit.entity.response.http.attachment.TransactionAttachment;
+import burst.kit.entity.response.http.attachment.TransactionAttachmentAndAppendagesResponse;
 import io.reactivex.annotations.Nullable;
 
 @SuppressWarnings("unused")
@@ -17,7 +17,7 @@ public final class TransactionResponse extends BRSResponse {
     private final int version;
     private final BurstID ecBlockId;
     private final HexStringByteArray signatureHash;
-    private final TransactionAttachment attachment;
+    private final TransactionAttachmentAndAppendagesResponse attachment;
     private final BurstAddress sender;
     private final BurstAddress recipient;
     private final int ecBlockHeight;
@@ -29,7 +29,7 @@ public final class TransactionResponse extends BRSResponse {
     private final BurstID block;
     private final BurstTimestamp blockTimestamp;
 
-    public TransactionResponse(HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachment attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, short deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
+    public TransactionResponse(HexStringByteArray senderPublicKey, HexStringByteArray signature, BurstValue feeNQT, BurstValue amountNQT, int type, int subtype, int confirmations, HexStringByteArray fullHash, int version, BurstID ecBlockId, HexStringByteArray signatureHash, TransactionAttachmentAndAppendagesResponse attachment, BurstAddress sender, BurstAddress recipient, int ecBlockHeight, short deadline, BurstID transaction, BurstTimestamp timestamp, int height, HexStringByteArray referencedTransactionFullHash, BurstID block, BurstTimestamp blockTimestamp) {
         this.senderPublicKey = senderPublicKey;
         this.signature = signature;
         this.feeNQT = feeNQT;
@@ -98,7 +98,7 @@ public final class TransactionResponse extends BRSResponse {
         return signatureHash;
     }
 
-    public TransactionAttachment getAttachment() {
+    public TransactionAttachmentAndAppendagesResponse getAttachment() {
         return attachment;
     }
 

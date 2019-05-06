@@ -4,7 +4,11 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
+import burst.kit.entity.response.attachment.OrdinaryPaymentAttachment;
 import burst.kit.entity.response.http.TransactionResponse;
+import burst.kit.entity.response.http.attachment.TransactionAppendixResponse;
+
+import java.util.Arrays;
 
 public class Transaction {
     private final BurstAddress recipient;
@@ -27,11 +31,11 @@ public class Transaction {
     private final int subtype;
     private final int type;
     private final int version;
-    private final Attachment attachment;
-    private final Appendix[] appendages;
+    private final TransactionAttachment attachment;
+    private final TransactionAppendix[] appendages;
     private final short deadline;
 
-    public Transaction(BurstAddress recipient, BurstAddress sender, BurstID blockId, BurstID ecBlockId, BurstID id, BurstTimestamp blockTimestamp, BurstTimestamp timestamp, BurstValue amount, BurstValue fee, byte[] fullHash, byte[] referencedTransactionFullHash, byte[] senderPublicKey, byte[] signature, byte[] signatureHash, int blockHeight, int confirmations, int ecBlockHeight, int subtype, int type, int version, Attachment attachment, Appendix[] appendages, short deadline) {
+    public Transaction(BurstAddress recipient, BurstAddress sender, BurstID blockId, BurstID ecBlockId, BurstID id, BurstTimestamp blockTimestamp, BurstTimestamp timestamp, BurstValue amount, BurstValue fee, byte[] fullHash, byte[] referencedTransactionFullHash, byte[] senderPublicKey, byte[] signature, byte[] signatureHash, int blockHeight, int confirmations, int ecBlockHeight, int subtype, int type, int version, TransactionAttachment attachment, TransactionAppendix[] appendages, short deadline) {
         this.recipient = recipient;
         this.sender = sender;
         this.blockId = blockId;
@@ -68,7 +72,7 @@ public class Transaction {
         this.amount = transactionResponse.getAmountNQT();
         this.fee = transactionResponse.getFeeNQT();
         this.fullHash = transactionResponse.getFullHash().getBytes();
-        this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash().getBytes();
+        this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash() == null ? null : transactionResponse.getReferencedTransactionFullHash().getBytes();
         this.senderPublicKey = transactionResponse.getSenderPublicKey().getBytes();
         this.signature = transactionResponse.getSignature().getBytes();
         this.signatureHash = transactionResponse.getSignatureHash().getBytes();
@@ -78,8 +82,10 @@ public class Transaction {
         this.subtype = transactionResponse.getSubtype();
         this.type = transactionResponse.getType();
         this.version = transactionResponse.getVersion();
-        this.attachment = Attachment.fromResponse(transactionResponse.getAttachment());
-        this.appendages = new Appendix[0]; // TODO
+        this.attachment = transactionResponse.getAttachment() == null ? new OrdinaryPaymentAttachment(transactionResponse.getVersion()) : transactionResponse.getAttachment().getAttachment().toAttachment();
+        this.appendages = transactionResponse.getAttachment() == null ? new TransactionAppendix[0] : Arrays.stream(transactionResponse.getAttachment().getAppendages())
+                .map(TransactionAppendixResponse::toAppendix)
+                .toArray(TransactionAppendix[]::new);
         this.deadline = transactionResponse.getDeadline();
     }
 
@@ -163,11 +169,11 @@ public class Transaction {
         return version;
     }
 
-    public Attachment getAttachment() {
+    public TransactionAttachment getAttachment() {
         return attachment;
     }
 
-    public Appendix[] getAppendages() {
+    public TransactionAppendix[] getAppendages() {
         return appendages;
     }
 

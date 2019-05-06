@@ -3,13 +3,18 @@ package burst.kit.entity.response.http.attachment;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
+import burst.kit.entity.response.TransactionAttachment;
+import burst.kit.entity.response.attachment.MultiOutAttachment;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @SuppressWarnings("unused")
-public final class MultiOutAttachmentResponse extends TransactionAttachment {
+public final class MultiOutAttachmentResponse extends TransactionAttachmentResponse {
 
     private final MultiOutRecipient[] recipients;
     @SerializedName("version.MultiOutCreation")
@@ -26,6 +31,11 @@ public final class MultiOutAttachmentResponse extends TransactionAttachment {
 
     public int getVersion() {
         return version;
+    }
+
+    @Override
+    public TransactionAttachment toAttachment() {
+        return new MultiOutAttachment(version, Arrays.stream(recipients).collect(Collectors.toMap(MultiOutRecipient::getRecipient, MultiOutRecipient::getAmount)));
     }
 
     public static class MultiOutRecipient {

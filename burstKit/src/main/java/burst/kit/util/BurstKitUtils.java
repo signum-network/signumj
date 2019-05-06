@@ -2,7 +2,7 @@ package burst.kit.util;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.http.attachment.MultiOutAttachmentResponse;
-import burst.kit.entity.response.http.attachment.TransactionAttachment;
+import burst.kit.entity.response.http.attachment.TransactionAttachmentAndAppendagesResponse;
 import com.google.gson.GsonBuilder;
 
 @SuppressWarnings("WeakerAccess")
@@ -22,8 +22,8 @@ public final class BurstKitUtils {
                 .registerTypeAdapter(BurstValue.class, BurstValue.SERIALIZER)
 
                 // Response entities
-                .registerTypeAdapter(TransactionAttachment.class, TransactionAttachment.SERIALIZER)
-                .registerTypeAdapter(TransactionAttachment.class, TransactionAttachment.DESERIALIZER)
+                .registerTypeAdapter(TransactionAttachmentAndAppendagesResponse.class, TransactionAttachmentAndAppendagesResponse.SERIALIZER)
+                .registerTypeAdapter(TransactionAttachmentAndAppendagesResponse.class, TransactionAttachmentAndAppendagesResponse.DESERIALIZER)
                 .registerTypeAdapter(MultiOutAttachmentResponse.MultiOutRecipient.class, MultiOutAttachmentResponse.MultiOutRecipient.SERIALIZER)
                 .registerTypeAdapter(MultiOutAttachmentResponse.MultiOutRecipient.class, MultiOutAttachmentResponse.MultiOutRecipient.DESERIALIZER)
                 ;

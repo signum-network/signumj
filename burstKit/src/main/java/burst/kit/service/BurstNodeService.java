@@ -2,7 +2,10 @@ package burst.kit.service;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.http.*;
+import burst.kit.entity.response.http.BroadcastTransactionResponse;
+import burst.kit.entity.response.http.ConstantsResponse;
+import burst.kit.entity.response.http.GenerateTransactionResponse;
+import burst.kit.entity.response.http.SubmitNonceResponse;
 import burst.kit.service.impl.BurstNodeServiceImpl;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;
@@ -208,7 +211,7 @@ public interface BurstNodeService {
      * Get the currently suggested transaction fees, which are calculated based on current network congestion -
      * @return Suggested transaction fees - Priority, standard and cheap in descending speed and cost, wrapped in a single
      */
-    Single<SuggestFeeResponse> suggestFee();
+    Single<FeeSuggestion> suggestFee();
 
     /**
      * Get the current mining info

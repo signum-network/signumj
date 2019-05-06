@@ -1,9 +1,11 @@
 package burst.kit.entity.response.http.attachment;
 
+import burst.kit.entity.response.TransactionAttachment;
+import burst.kit.entity.response.attachment.AccountInfoAttachment;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
-public final class AccountInfoAttachmentResponse extends TransactionAttachment {
+public final class AccountInfoAttachmentResponse extends TransactionAttachmentResponse {
     private final String name;
     private final String description;
     @SerializedName("version.AccountInfo")
@@ -25,5 +27,10 @@ public final class AccountInfoAttachmentResponse extends TransactionAttachment {
 
     public int getVersion() {
         return version;
+    }
+
+    @Override
+    public TransactionAttachment toAttachment() {
+        return new AccountInfoAttachment(version, name, description);
     }
 }
