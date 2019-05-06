@@ -1,12 +1,28 @@
-package burst.kit.burst;
+package burst.kit.crypto;
 
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
 
+import java.security.MessageDigest;
 import java.util.Date;
 
 public interface BurstCrypto {
+
+    /**
+     * @return A new SHA-256 MessageDigest
+     */
+    MessageDigest getSha256();
+
+    /**
+     * @return A new Shabal-256 MessageDigest
+     */
+    MessageDigest getShabal256();
+
+    /**
+     * @return A new RIPEMD-160 MessageDigest
+     */
+    MessageDigest getRipeMD160();
 
     /**
      * Derive the private key of the passphrase

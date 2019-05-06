@@ -1,6 +1,6 @@
 package burst.kit.entity;
 
-import burst.kit.burst.BurstCrypto;
+import burst.kit.crypto.BurstCrypto;
 
 public final class BurstEncryptedMessage {
     /**

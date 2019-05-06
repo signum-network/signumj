@@ -1,6 +1,6 @@
 package burst.kit.entity;
 
-import burst.kit.burst.BurstCrypto;
+import burst.kit.crypto.BurstCrypto;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;

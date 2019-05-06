@@ -1,6 +1,6 @@
 package burst.kit.test;
 
-import burst.kit.burst.BurstCrypto;
+import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.BurstEncryptedMessage;
 import org.junit.Assert;
 import org.junit.Test;

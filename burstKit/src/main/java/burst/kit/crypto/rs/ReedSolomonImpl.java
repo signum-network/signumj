@@ -4,13 +4,13 @@
   Version: 1.0, license: Public Domain, coder: NxtChg (admin@nxtchg.com)
   Java Version: ChuckOne (ChuckOne@mail.de).
 */
-package burst.kit.burst;
+package burst.kit.crypto.rs;
 
 import burst.kit.entity.BurstID;
 
 import java.math.BigInteger;
 
-final class ReedSolomon {
+public final class ReedSolomonImpl implements ReedSolomon {
 
   private static final int[] initial_codeword = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
   private static final int[] gexp = {1, 2, 4, 8, 16, 5, 10, 20, 13, 26, 17, 7, 14, 28, 29, 31, 27, 19, 3, 6, 12, 24, 21, 15, 30, 25, 23, 11, 22, 9, 18, 1};
@@ -21,16 +21,17 @@ final class ReedSolomon {
   private static final int base_32_length = 13;
   private static final int base_10_length = 20;
 
-  static String encode(long plain) {
+  @Override
+  public String encode(long plain) {
     String plain_string = new BurstID(plain).getID();
     int length = plain_string.length();
-    int[] plain_string_10 = new int[ReedSolomon.base_10_length];
+    int[] plain_string_10 = new int[base_10_length];
     for (int i = 0; i < length; i++) {
       plain_string_10[i] = (int)plain_string.charAt(i) - (int)'0';
     }
 
     int codeword_length = 0;
-    int[] codeword = new int[ReedSolomon.initial_codeword.length];
+    int[] codeword = new int[initial_codeword.length];
 
     do {  // base 10 to base 32 conversion
       int new_length = 0;
@@ -52,21 +53,21 @@ final class ReedSolomon {
     } while(length > 0);
 
     int[] p = {0, 0, 0, 0};
-    for (int i = ReedSolomon.base_32_length - 1; i >= 0; i--) {
+    for (int i = base_32_length - 1; i >= 0; i--) {
       final int fb = codeword[i] ^ p[3];
-      p[3] = p[2] ^ ReedSolomon.gmult(30, fb);
-      p[2] = p[1] ^ ReedSolomon.gmult(6, fb);
-      p[1] = p[0] ^ ReedSolomon.gmult(9, fb);
-      p[0] =        ReedSolomon.gmult(17, fb);
+      p[3] = p[2] ^ this.gmult(30, fb);
+      p[2] = p[1] ^ this.gmult(6, fb);
+      p[1] = p[0] ^ this.gmult(9, fb);
+      p[0] =        this.gmult(17, fb);
     }
 
-    System.arraycopy(p, 0, codeword, ReedSolomon.base_32_length, ReedSolomon.initial_codeword.length - ReedSolomon.base_32_length);
+    System.arraycopy(p, 0, codeword, base_32_length, initial_codeword.length - base_32_length);
 
     StringBuilder cypher_string_builder = new StringBuilder();
     for (int i = 0; i < 17; i++) {
-      final int codework_index = ReedSolomon.codeword_map[i];
+      final int codework_index = codeword_map[i];
       final int alphabet_index = codeword[codework_index];
-      cypher_string_builder.append(ReedSolomon.alphabet.charAt(alphabet_index));
+      cypher_string_builder.append(alphabet.charAt(alphabet_index));
 
       if ((i & 3) == 3 && i < 13) {
         cypher_string_builder.append('-');
@@ -75,14 +76,15 @@ final class ReedSolomon {
     return cypher_string_builder.toString();
   }
 
-  static long decode(String cypher_string) throws DecodeException {
+  @Override
+  public long decode(String cypher_string) throws DecodeException {
 
-    int[] codeword = new int[ReedSolomon.initial_codeword.length];
-    System.arraycopy(ReedSolomon.initial_codeword, 0, codeword, 0, ReedSolomon.initial_codeword.length);
+    int[] codeword = new int[initial_codeword.length];
+    System.arraycopy(initial_codeword, 0, codeword, 0, initial_codeword.length);
 
     int codeword_length = 0;
     for (int i = 0; i < cypher_string.length(); i++) {
-      int position_in_alphabet = ReedSolomon.alphabet.indexOf(cypher_string.charAt(i));
+      int position_in_alphabet = alphabet.indexOf(cypher_string.charAt(i));
 
       if (position_in_alphabet <= -1) {
         continue;
@@ -92,16 +94,16 @@ final class ReedSolomon {
         throw new CodewordTooLongException();
       }
 
-      int codework_index = ReedSolomon.codeword_map[codeword_length];
+      int codework_index = codeword_map[codeword_length];
       codeword[codework_index] = position_in_alphabet;
       codeword_length += 1;
     }
 
-    if (codeword_length != 17 || !ReedSolomon.is_codeword_valid(codeword)) {
+    if (codeword_length != 17 || !this.is_codeword_valid(codeword)) {
       throw new CodewordInvalidException();
     }
 
-    int length = ReedSolomon.base_32_length;
+    int length = base_32_length;
     int[] cypher_string_32 = new int[length];
     for (int i = 0; i < length; i++) {
       cypher_string_32[i] = codeword[length - i - 1];
@@ -132,17 +134,17 @@ final class ReedSolomon {
     return bigInt.longValue();
   }
 
-  private static int gmult(int a, int b) {
+  private int gmult(int a, int b) {
     if (a == 0 || b == 0) {
       return 0;
     }
 
-    int idx = (ReedSolomon.glog[a] + ReedSolomon.glog[b]) % 31;
+    int idx = (glog[a] + glog[b]) % 31;
 
-    return ReedSolomon.gexp[idx];
+    return gexp[idx];
   }
 
-  private static boolean is_codeword_valid(int[] codeword) {
+  private boolean is_codeword_valid(int[] codeword) {
     int sum = 0;
 
     for (int i = 1; i < 5; i++) {
@@ -158,7 +160,7 @@ final class ReedSolomon {
           pos -= 14;
         }
 
-        t ^= ReedSolomon.gmult(codeword[pos], ReedSolomon.gexp[(i * j) % 31]);
+        t ^= this.gmult(codeword[pos], gexp[(i * j) % 31]);
       }
 
       sum |= t;
@@ -167,16 +169,9 @@ final class ReedSolomon {
     return sum == 0;
   }
 
-  abstract static class DecodeException extends Exception {
+  private final class CodewordTooLongException extends DecodeException {
   }
 
-  static final class CodewordTooLongException extends DecodeException {
+  private final class CodewordInvalidException extends DecodeException {
   }
-
-  static final class CodewordInvalidException extends DecodeException {
-  }
-
-  private ReedSolomon() {} // never
 }
-
-

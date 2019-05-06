@@ -1,5 +1,11 @@
-package burst.kit.burst;
+package burst.kit.crypto;
 
+import burst.kit.crypto.ec.Curve25519;
+import burst.kit.crypto.ec.Curve25519Impl;
+import burst.kit.crypto.hash.BurstHashProvider;
+import burst.kit.crypto.hash.shabal.Shabal256;
+import burst.kit.crypto.rs.ReedSolomon;
+import burst.kit.crypto.rs.ReedSolomonImpl;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
@@ -10,12 +16,12 @@ import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
+import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 import org.bouncycastle.jcajce.provider.digest.SHA256;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -31,9 +37,18 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     static final BurstCryptoImpl INSTANCE = new BurstCryptoImpl();
 
     private final ThreadLocal<SecureRandom> secureRandom = ThreadLocal.withInitial(SecureRandom::new);
-    private final long EPOCH_BEGINNING;
+    private final Curve25519 curve25519;
+    private final ReedSolomon reedSolomon;
+    private final long epochBeginning;
 
     private BurstCryptoImpl() {
+        this.curve25519 = new Curve25519Impl(this::getSha256);
+        this.reedSolomon = new ReedSolomonImpl();
+        this.epochBeginning = calculateEpochBeginning();
+        BurstHashProvider.init();
+    }
+
+    private long calculateEpochBeginning() {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.set(Calendar.YEAR, 2014);
         calendar.set(Calendar.MONTH, Calendar.AUGUST);
@@ -42,10 +57,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        this.EPOCH_BEGINNING = calendar.getTimeInMillis();
+        return calendar.getTimeInMillis();
     }
 
-    private MessageDigest getSha256() {
+    @Override
+    public MessageDigest getSha256() {
         try {
             return MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
@@ -54,17 +70,33 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
+    public MessageDigest getShabal256() {
+        try {
+            return MessageDigest.getInstance("Shabal-256");
+        } catch (NoSuchAlgorithmException e) {
+            return new Shabal256();
+        }
+    }
+
+    @Override
+    public MessageDigest getRipeMD160() {
+        try {
+            return MessageDigest.getInstance("RIPEMD-160");
+        } catch (NoSuchAlgorithmException e) {
+            return new RIPEMD160.Digest(); // Fallback to Bouncy Castle's implementation
+        }
+    }
+
+    @Override
     public byte[] getPrivateKey(String passphrase) {
-        byte[] s = getSha256().digest(stringToBytes(passphrase));
-        Curve25519.clamp(s);
-        return s;
+        byte[] privateKey = getSha256().digest(stringToBytes(passphrase));
+        curve25519.clampPrivateKey(privateKey);
+        return privateKey;
     }
 
     @Override
     public byte[] getPublicKey(byte[] privateKey) {
-        byte[] publicKey = new byte[32];
-        Curve25519.keygen(publicKey, null, privateKey);
-        return publicKey;
+        return curve25519.getPublicKey(privateKey);
     }
 
     @Override
@@ -77,43 +109,22 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (hash == null || hash.length < 8) {
             throw new IllegalArgumentException("Invalid hash: " + Arrays.toString(hash));
         }
-        BigInteger bigInteger = new BigInteger(1, new byte[] {hash[7], hash[6], hash[5], hash[4], hash[3], hash[2], hash[1], hash[0]});
-        return new BurstID(bigInteger.longValue());
+        long result = 0;
+        for (int i = 0; i < 8; i++) {
+            result <<= 8;
+            result |= (hash[7-i] & 0xFF);
+        }
+        return new BurstID(result);
     }
 
     @Override
     public byte[] getSharedSecret(byte[] myPrivateKey, byte[] theirPublicKey) {
-        byte[] sharedSecret = new byte[32];
-        Curve25519.curve(sharedSecret, myPrivateKey, theirPublicKey);
-        return sharedSecret;
+        return curve25519.getSharedSecret(myPrivateKey, theirPublicKey);
     }
 
     @Override
     public byte[] sign(byte[] message, byte[] privateKey) {
-        byte[] P = new byte[32];
-        byte[] s = new byte[32];
-        MessageDigest digest = getSha256();
-
-        Curve25519.keygen(P, s, privateKey);
-        byte[] m = digest.digest(message);
-
-        digest.update(m);
-        byte[] x = digest.digest(s);
-
-        byte[] Y = new byte[32];
-        Curve25519.keygen(Y, null, x);
-
-        digest.update(m);
-        byte[] h = digest.digest(Y);
-
-        byte[] v = new byte[32];
-        Curve25519.sign(v, h, x, s);
-
-        byte[] signature = new byte[64];
-        System.arraycopy(v, 0, signature, 0, 32);
-        System.arraycopy(h, 0, signature, 32, 32);
-
-        return signature;
+        return curve25519.sign(message, privateKey);
     }
 
     @Override
@@ -127,23 +138,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical) {
-        if (enforceCanonical && (!Curve25519.isCanonicalSignature(signature) || !Curve25519.isCanonicalPublicKey(publicKey))) {
-            return false;
-        }
-
-        byte[] Y = new byte[32];
-        byte[] v = new byte[32];
-        System.arraycopy(signature, 0, v, 0, 32);
-        byte[] h = new byte[32];
-        System.arraycopy(signature, 32, h, 0, 32);
-        Curve25519.verify(Y, v, h, publicKey);
-
-        MessageDigest digest = getSha256();
-        byte[] m = digest.digest(message);
-        digest.update(m);
-        byte[] h2 = digest.digest(Y);
-
-        return Arrays.equals(h, h2);
+        return curve25519.verify(message, signature, publicKey, enforceCanonical);
     }
 
     @Override
@@ -251,7 +246,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public String rsEncode(BurstID burstID) {
-        return ReedSolomon.encode(burstID.getSignedLongId());
+        return reedSolomon.encode(burstID.getSignedLongId());
     }
 
     @Override
@@ -259,7 +254,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         rs = rs.toUpperCase();
         long rsValue;
         try {
-            rsValue = ReedSolomon.decode(rs);
+            rsValue = reedSolomon.decode(rs);
         } catch (ReedSolomon.DecodeException e) {
             throw new IllegalArgumentException("Reed-Solomon decode failed", e);
         }
@@ -268,6 +263,6 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public Date fromEpochTime(long epochTime) {
-        return new Date(EPOCH_BEGINNING + epochTime * 1000L);
+        return new Date(epochBeginning + epochTime * 1000L);
     }
 }

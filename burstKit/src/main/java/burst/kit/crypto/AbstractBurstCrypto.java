@@ -1,4 +1,4 @@
-package burst.kit.burst;
+package burst.kit.crypto;
 
 
 import burst.kit.entity.BurstAddress;
