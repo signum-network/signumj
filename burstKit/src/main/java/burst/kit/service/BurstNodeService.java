@@ -2,7 +2,7 @@ package burst.kit.service;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.service.impl.BurstNodeServiceImpl;
+import burst.kit.service.impl.HttpBurstNodeService;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.util.SchedulerAssigner;
 import io.reactivex.Observable;
@@ -255,35 +255,35 @@ public interface BurstNodeService {
     Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
 
     /**
-     * TODO javadoc
-     * @param senderPublicKey
-     * @param fee
-     * @param deadline
-     * @param name
-     * @param description
-     * @param creationBytes
-     * @param code
-     * @param dpages
-     * @param cspages
-     * @param uspages
-     * @param minActivationAmount
-     * @return
+     * Generate the transaction for creating an AT
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param name The name of the AT
+     * @param description The description of the AT
+     * @param creationBytes The creation bytes of the AT (if pre-calculated and not using the following fields)
+     * @param code The AT code
+     * @param dpages The AT data
+     * @param cspages Number of CS pages
+     * @param uspages Number of US pages
+     * @param minActivationAmount The minimum activation amount for the AT
+     * @return The unsigned transaction bytes, wrapped in a single
      */
     Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount);
 
     static BurstNodeService getInstance(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
-        return new BurstNodeServiceImpl(nodeAddress, userAgent, schedulerAssigner);
+        return new HttpBurstNodeService(nodeAddress, userAgent, schedulerAssigner);
     }
 
     static BurstNodeService getInstance(String nodeAddress, String userAgent) {
-        return new BurstNodeServiceImpl(nodeAddress, userAgent, new DefaultSchedulerAssigner());
+        return new HttpBurstNodeService(nodeAddress, userAgent, new DefaultSchedulerAssigner());
     }
 
     static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
-        return new BurstNodeServiceImpl(nodeAddress, null, schedulerAssigner);
+        return new HttpBurstNodeService(nodeAddress, null, schedulerAssigner);
     }
 
     static BurstNodeService getInstance(String nodeAddress) {
-        return new BurstNodeServiceImpl(nodeAddress, null, new DefaultSchedulerAssigner());
+        return new HttpBurstNodeService(nodeAddress, null, new DefaultSchedulerAssigner());
     }
 }

@@ -26,13 +26,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-public final class BurstNodeServiceImpl implements BurstNodeService {
+public final class HttpBurstNodeService implements BurstNodeService {
 
     private final SchedulerAssigner schedulerAssigner;
 
     private BlockchainService blockchainService;
 
-    public BurstNodeServiceImpl(String nodeAddress, String providedUserAgent, SchedulerAssigner schedulerAssigner) {
+    public HttpBurstNodeService(String nodeAddress, String providedUserAgent, SchedulerAssigner schedulerAssigner) {
         this.schedulerAssigner = schedulerAssigner;
 
         String userAgent = providedUserAgent == null ? "burstkit4j/"+ burst.kit.Constants.VERSION : providedUserAgent;

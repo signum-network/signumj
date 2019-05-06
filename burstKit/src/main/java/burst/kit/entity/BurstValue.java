@@ -59,11 +59,6 @@ public final class BurstValue extends BigDecimal {
         return fromBurst(String.valueOf(burst));
     }
 
-    @Override
-    public String toString() { // TODO this causes bug with arithmetic
-        return roundToThreeDP(this).toPlainString() + " BURST";
-    }
-
     private static BigDecimal roundToThreeDP(BigDecimal in) {
         if (in.compareTo(BigDecimal.ZERO) == 0) {
             return BigDecimal.ZERO;
@@ -76,7 +71,7 @@ public final class BurstValue extends BigDecimal {
      * @return The value with the "BURST" suffix and rounded to 3 decimal places
      */
     public String toFormattedString() {
-        return toString();
+        return roundToThreeDP(this).toPlainString() + " BURST";
     }
 
     /**
