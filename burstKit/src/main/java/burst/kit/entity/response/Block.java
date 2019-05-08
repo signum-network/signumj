@@ -65,7 +65,7 @@ public class Block {
                 .map(BurstID::fromLong)
                 .toArray(BurstID[]::new);
         this.timestamp = new BurstTimestamp(blockResponse.getTimestamp());
-        this.blockReward = BurstValue.fromPlanck(blockResponse.getBlockReward());
+        this.blockReward = BurstValue.fromBurst(blockResponse.getBlockReward());
         this.totalAmount = BurstValue.fromPlanck(blockResponse.getTotalAmountNQT());
         this.totalFee = BurstValue.fromPlanck(blockResponse.getTotalFeeNQT());
         this.generationSignature = Hex.decode(blockResponse.getGenerationSignature());
