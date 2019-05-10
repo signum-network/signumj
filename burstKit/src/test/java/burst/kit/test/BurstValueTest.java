@@ -21,6 +21,12 @@ public class BurstValueTest {
         assertEquals("123456789", BurstValue.fromPlanck("123456789").toPlanck().toString());
         assertEquals("123456789", BurstValue.fromPlanck(123456789).toPlanck().toString());
         assertEquals("123456789", BurstValue.fromPlanck(new BigInteger("123456789")).toPlanck().toString());
+
+        // Test null -> 0
+        assertEquals(BurstValue.ZERO, BurstValue.fromPlanck((String) null));
+        assertEquals(BurstValue.ZERO, BurstValue.fromPlanck((BigInteger) null));
+        assertEquals(BurstValue.ZERO, BurstValue.fromBurst((String) null));
+        assertEquals(BurstValue.ZERO, BurstValue.fromBurst((BigDecimal) null));
     }
 
     @Test

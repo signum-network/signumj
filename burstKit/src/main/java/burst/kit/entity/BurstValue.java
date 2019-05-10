@@ -6,6 +6,8 @@ import java.math.RoundingMode;
 
 public final class BurstValue implements Comparable<BurstValue> {
     private static final int decimals = 8;
+
+    public static final BurstValue ZERO = BurstValue.fromPlanck(0);
     
     private final BigInteger planck;
 
@@ -18,7 +20,7 @@ public final class BurstValue implements Comparable<BurstValue> {
      * @return The BurstValue representing this number of planck, or a BurstValue representing 0 Burst if the string could not be parsed
      */
     public static BurstValue fromPlanck(String planck) {
-        if (planck == null) return null;
+        if (planck == null) return ZERO;
         try {
             return fromPlanck(new BigInteger(planck));
         } catch (NumberFormatException e) {
@@ -35,7 +37,7 @@ public final class BurstValue implements Comparable<BurstValue> {
     }
 
     public static BurstValue fromPlanck(BigInteger planck) {
-        if (planck == null) return null;
+        if (planck == null) return ZERO;
         return new BurstValue(planck);
     }
 
@@ -44,7 +46,7 @@ public final class BurstValue implements Comparable<BurstValue> {
      * @return The BurstValue representing this number of burst, or a BurstValue representing 0 Burst if the string could not be parsed
      */
     public static BurstValue fromBurst(String burst) {
-        if (burst == null) return null;
+        if (burst == null) return ZERO;
         try {
             return fromBurst(new BigDecimal(burst));
         } catch (NumberFormatException e) {
@@ -61,7 +63,7 @@ public final class BurstValue implements Comparable<BurstValue> {
     }
 
     public static BurstValue fromBurst(BigDecimal burst) {
-        if (burst == null) return null;
+        if (burst == null) return ZERO;
         return new BurstValue(burst.multiply(BigDecimal.TEN.pow(decimals)).toBigInteger());
     }
 
@@ -149,6 +151,7 @@ public final class BurstValue implements Comparable<BurstValue> {
 
     @Override
     public int compareTo(BurstValue other) {
+        if (other == null) return 1;
         return planck.compareTo(other.planck);
     }
 
