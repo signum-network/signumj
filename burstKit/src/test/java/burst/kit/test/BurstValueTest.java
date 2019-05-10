@@ -115,6 +115,13 @@ public class BurstValueTest {
         assertEquals(BurstValue.fromBurst(1.6), BurstValue.fromBurst(-4).divide(-2.5));
         assertEquals(BurstValue.fromBurst(0.4), BurstValue.fromBurst(-2).divide(BigInteger.valueOf(-5)));
         assertEquals(BurstValue.fromBurst(1.6), BurstValue.fromBurst(-4).divide(BigDecimal.valueOf(-2.5)));
+
+        // Recurring divisions
+        assertEquals(BurstValue.fromPlanck(33333333), BurstValue.fromBurst(1).divide(3));
+        assertEquals(BurstValue.fromPlanck(66666666), BurstValue.fromBurst(2).divide(3));
+
+        // Divisor < 1
+        assertEquals(BurstValue.fromBurst(3), BurstValue.fromBurst(1).divide(1.0/3.0));
     }
 
     @Test
