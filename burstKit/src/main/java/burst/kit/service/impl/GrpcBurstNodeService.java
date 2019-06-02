@@ -1,115 +1,219 @@
 package burst.kit.service.impl;
 
-import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstNodeService;
+import burst.kit.service.impl.grpc.BrsApi;
 import burst.kit.service.impl.grpc.BrsApiServiceGrpc;
+import burst.kit.util.SchedulerAssigner;
+import com.google.protobuf.ByteString;
+import com.google.protobuf.Empty;
 import io.grpc.ManagedChannelBuilder;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
 
 public class GrpcBurstNodeService implements BurstNodeService {
 
     private final BrsApiServiceGrpc.BrsApiServiceBlockingStub brsGrpc;
-    private final BurstCrypto burstCrypto = BurstCrypto.getInstance();
+    private final SchedulerAssigner schedulerAssigner;
 
-    public GrpcBurstNodeService(String nodeAddress) {
+    public GrpcBurstNodeService(String nodeAddress, SchedulerAssigner schedulerAssigner) {
+        this.schedulerAssigner = schedulerAssigner;
         // TODO don't use plaintext
         this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());
     }
 
-    @Override
-    public Single<Block> getBlock(BurstID block) {
-        return null;
+    private <T> Single<T> assign(Callable<T> callable) {
+        return assign(Single.fromCallable(callable));
+    }
+
+    private <T> Single<T> assign(Single<T> single) {
+        return schedulerAssigner.assignSchedulers(single);
+    }
+
+    private final BrsApi.GetAccountRequest getAccountRequestFromId(BurstAddress id) {
+        return BrsApi.GetAccountRequest.newBuilder()
+                .setAccountId(id.getBurstID().getSignedLongId())
+                .build();
+    }
+
+    private final BrsApi.GetByIdRequest getByIdRequestFromId(BurstID id) {
+        return BrsApi.GetByIdRequest.newBuilder()
+                .setId(id.getSignedLongId())
+                .build();
     }
 
     @Override
-    public Single<Block> getBlock(long height) {
-        return null;
+    public Single<Block> getBlock(BurstID block) {
+        return assign(() -> brsGrpc.getBlock(
+                BrsApi.GetBlockRequest.newBuilder()
+                        .setBlockId(block.getSignedLongId())
+                        .build()))
+                .map(Block::new);
+    }
+
+    @Override
+    public Single<Block> getBlock(int height) {
+        return assign(() -> brsGrpc.getBlock(
+                BrsApi.GetBlockRequest.newBuilder()
+                        .setHeight(height)
+                        .build()))
+                .map(Block::new);
     }
 
     @Override
     public Single<Block> getBlock(BurstTimestamp timestamp) {
-        return null;
+        return assign(() -> brsGrpc.getBlock(
+                BrsApi.GetBlockRequest.newBuilder()
+                        .setTimestamp(timestamp.getTimestamp())
+                        .build()))
+                .map(Block::new);
     }
 
     @Override
-    public Single<BurstID> getBlockId(long height) {
-        return null;
+    public Single<BurstID> getBlockId(int height) {
+        return getBlock(height)
+                .map(Block::getId);
     }
 
     @Override
-    public Single<Block[]> getBlocks(long firstIndex, long lastIndex) {
-        return null;
+    public Single<Block[]> getBlocks(int firstIndex, int lastIndex) {
+        return assign(() -> brsGrpc.getBlocks(
+                BrsApi.GetBlocksRequest.newBuilder()
+                        .setIncludeTransactions(false)
+                        .setIndexRange(
+                                BrsApi.IndexRange.newBuilder()
+                                        .setFirstIndex(firstIndex)
+                                        .setLastIndex(lastIndex)
+                                        .build())
+                        .build()))
+                .map(blocks -> blocks.getBlocksList()
+                        .stream()
+                        .map(Block::new)
+                        .toArray(Block[]::new));
     }
 
     @Override
     public Single<Constants> getConstants() {
-        return null;
+        return assign(() -> brsGrpc.getConstants(Empty.getDefaultInstance()))
+                .map(Constants::new);
     }
 
     @Override
     public Single<Account> getAccount(BurstAddress accountId) {
-        return null;
+        return assign(() -> brsGrpc.getAccount(getAccountRequestFromId(accountId)))
+                .map(Account::new);
     }
 
     @Override
     public Single<AT[]> getAccountATs(BurstAddress accountId) {
-        return null;
+        return assign(() -> brsGrpc.getAccountATs(getAccountRequestFromId(accountId)))
+                .map(accountATs -> accountATs.getAtsList()
+                        .stream()
+                        .map(AT::new)
+                        .toArray(AT[]::new));
     }
 
     @Override
     public Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId) {
-        return null;
+        return getAccountBlocks(accountId)
+                .map(blocks -> Arrays.stream(blocks)
+                        .map(Block::getId)
+                        .toArray(BurstID[]::new));
     }
 
     @Override
     public Single<Block[]> getAccountBlocks(BurstAddress accountId) {
-        return null;
+        return assign(() -> brsGrpc.getAccountBlocks(
+                BrsApi.GetAccountBlocksRequest.newBuilder()
+                        .setAccountId(accountId.getBurstID().getSignedLongId())
+                        .setIncludeTransactions(false)
+                        .build()))
+                .map(accountATs -> accountATs.getBlocksList()
+                        .stream()
+                        .map(Block::new)
+                        .toArray(Block[]::new));
     }
 
     @Override
-    public Single<BurstID[]> getAccountTransactionIDs(BurstAddress accountId) {
-        return null;
+    public Single<BurstID[]> getAccountTransactionIDs(BurstAddress accountId) { // TODO should this be deprecated?
+        return getAccountTransactions(accountId)
+                .map(transactions -> Arrays.stream(transactions)
+                        .map(Transaction::getId)
+                        .toArray(BurstID[]::new));
     }
 
     @Override
     public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
-        return null;
+        return assign(() -> brsGrpc.getAccountTransactions(
+                BrsApi.GetAccountTransactionsRequest.newBuilder()
+                        .setAccountId(accountId.getBurstID().getSignedLongId())
+                        .build()))
+                .map(transactions -> transactions.getTransactionsList()
+                        .stream()
+                        .map(Transaction::new)
+                        .toArray(Transaction[]::new));
     }
 
     @Override
     public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
-        return null;
+        return assign(() -> brsGrpc.getAccounts(
+                BrsApi.GetAccountsRequest.newBuilder()
+                        .setRewardRecipient(accountId.getBurstID().getSignedLongId())
+                        .setIncludeAccounts(false)
+                        .build()))
+                .map(accounts -> accounts.getIdsList()
+                        .stream()
+                        .map(BurstAddress::fromId)
+                        .toArray(BurstAddress[]::new));
     }
 
     @Override
     public Single<AT> getAt(BurstID atId) {
-        return null;
+        return assign(() -> brsGrpc.getAT(getByIdRequestFromId(atId)))
+                .map(AT::new);
     }
 
     @Override
     public Single<BurstID[]> getAtIds() {
-        return null;
+        return assign(() -> brsGrpc.getATIds(Empty.getDefaultInstance()))
+                .map(atIds -> atIds.getIdsList()
+                        .stream()
+                        .map(BurstID::fromLong)
+                        .toArray(BurstID[]::new));
     }
 
     @Override
     public Single<Transaction> getTransaction(BurstID transactionId) {
-        return null;
+        return assign(() -> brsGrpc.getTransaction(
+                BrsApi.GetTransactionRequest.newBuilder()
+                        .setTransactionId(transactionId.getSignedLongId())
+                        .build()))
+                .map(Transaction::new);
     }
 
     @Override
     public Single<Transaction> getTransaction(byte[] fullHash) {
-        return null;
+        return assign(() -> brsGrpc.getTransaction(
+                BrsApi.GetTransactionRequest.newBuilder()
+                        .setFullHash(ByteString.copyFrom(fullHash))
+                        .build()))
+                .map(Transaction::new);
     }
 
     @Override
-    public Single<byte[]> getTransactionBytes(BurstID transactionId) {
-        return null;
+    public Single<byte[]> getTransactionBytes(BurstID transactionId) { // TODO should this be deprecated?
+        return assign(() -> brsGrpc.getTransaction(
+                BrsApi.GetTransactionRequest.newBuilder()
+                        .setTransactionId(transactionId.getSignedLongId())
+                        .build()))
+                .map(transaction -> brsGrpc.getTransactionBytes(transaction.getTransaction()))
+                .map(transactionBytes -> transactionBytes.getTransactionBytes().toByteArray());
     }
 
     @Override

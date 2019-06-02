@@ -75,7 +75,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Block> getBlock(long height) {
+    public Single<Block> getBlock(int height) {
         return assign(blockchainService.getBlock(null, String.valueOf(height), null, null))
                 .map(Block::new);
     }
@@ -87,13 +87,13 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<BurstID> getBlockId(long height) {
+    public Single<BurstID> getBlockId(int height) {
         return assign(blockchainService.getBlockID(String.valueOf(height)))
                 .map(response -> BurstID.fromLong(response.getBlockID()));
     }
 
     @Override
-    public Single<Block[]> getBlocks(long firstIndex, long lastIndex) {
+    public Single<Block[]> getBlocks(int firstIndex, int lastIndex) {
         return assign(blockchainService.getBlocks(String.valueOf(firstIndex), String.valueOf(lastIndex), null))
                 .map(response -> Arrays.stream(response.getBlocks())
                         .map(Block::new)

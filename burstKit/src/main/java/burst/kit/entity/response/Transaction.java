@@ -93,7 +93,7 @@ public class Transaction {
         this.deadline = transactionResponse.getDeadline();
     }
 
-    public Transaction(BrsApi.Transaction transaction) throws InvalidProtocolBufferException {
+    public Transaction(BrsApi.Transaction transaction) {
         BurstCrypto burstCrypto = BurstCrypto.getInstance();
         BrsApi.BasicTransaction basicTransaction = transaction.getTransaction();
         this.recipient = BurstAddress.fromId(transaction.getId());

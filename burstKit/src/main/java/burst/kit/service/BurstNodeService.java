@@ -24,7 +24,7 @@ public interface BurstNodeService {
      * @param height The height of the block
      * @return The block details, wrapped in a Single
      */
-    Single<Block> getBlock(long height);
+    Single<Block> getBlock(int height);
 
     /**
      * Get the block at the specified timestamp
@@ -37,8 +37,10 @@ public interface BurstNodeService {
      * Get the block ID at a specified height
      * @param height The height of the block
      * @return The Block ID response, wrapped in a single
+     * @deprecated Just use getBlock and then getId instead
      */
-    Single<BurstID> getBlockId(long height);
+    @Deprecated
+    Single<BurstID> getBlockId(int height);
 
     /**
      * Gets all the blocks between the first index and last index.
@@ -46,7 +48,7 @@ public interface BurstNodeService {
      * @param lastIndex The end index from the most recent blocks
      * @return The blocks, wrapped in a single
      */
-    Single<Block[]> getBlocks(long firstIndex, long lastIndex); // TODO includeTransactions?
+    Single<Block[]> getBlocks(int firstIndex, int lastIndex); // TODO includeTransactions?
 
     /**
      * Get the Constants in use by the node
@@ -72,7 +74,9 @@ public interface BurstNodeService {
      * Get the IDs of the blocks forged by an account
      * @param accountId The address of the account
      * @return The block IDs, wrapped in a single
+     * @deprecated Just use getAccountBlocks and then getId instead
      */
+    @Deprecated
     Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex
 
     /**
