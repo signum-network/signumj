@@ -1,3 +1,12 @@
+buildscript {
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+    }
+}
+
+apply plugin: 'com.google.protobuf'
+def grpcVersion = '1.21.0'
+
 dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -10,10 +19,37 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
 
+    // gRPC
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
     // Bouncy Castle
     implementation 'org.bouncycastle:bcprov-jdk15on:1.61'
 
     // Testing
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.4.2'
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.7.1"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.onlyIf {System.getProperty("runProtoc") == "true"}
+        }
+        all()*.plugins {
+            grpc {
+                outputSubDir = 'java'
+            }
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src/"
 }
