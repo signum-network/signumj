@@ -1,5 +1,6 @@
 package burst.kit.entity.response;
 
+import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
@@ -7,6 +8,8 @@ import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.attachment.OrdinaryPaymentAttachment;
 import burst.kit.entity.response.http.TransactionResponse;
 import burst.kit.entity.response.http.attachment.TransactionAppendixResponse;
+import burst.kit.service.impl.grpc.BrsApi;
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.bouncycastle.util.encoders.Hex;
 
 import java.util.Arrays;
@@ -88,6 +91,37 @@ public class Transaction {
                 .map(TransactionAppendixResponse::toAppendix)
                 .toArray(TransactionAppendix[]::new);
         this.deadline = transactionResponse.getDeadline();
+    }
+
+    public Transaction(BrsApi.Transaction transaction) throws InvalidProtocolBufferException {
+        BurstCrypto burstCrypto = BurstCrypto.getInstance();
+        BrsApi.BasicTransaction basicTransaction = transaction.getTransaction();
+        this.recipient = BurstAddress.fromId(transaction.getId());
+        this.sender = burstCrypto.getBurstAddressFromPublic(basicTransaction.getSender().toByteArray());
+        this.blockId = BurstID.fromLong(transaction.getBlock());
+        this.ecBlockId = BurstID.fromLong(basicTransaction.getEcBlockId());
+        this.id = BurstID.fromLong(transaction.getId());
+        this.blockTimestamp = new BurstTimestamp(transaction.getBlockTimestamp());
+        this.timestamp = new BurstTimestamp(basicTransaction.getTimestamp());
+        this.amount = BurstValue.fromPlanck(basicTransaction.getAmount());
+        this.fee = BurstValue.fromPlanck(basicTransaction.getFee());
+        this.fullHash = transaction.getFullHash().toByteArray();
+        this.referencedTransactionFullHash = basicTransaction.getReferencedTransactionFullHash().toByteArray();
+        this.senderPublicKey = basicTransaction.getSender().toByteArray();
+        this.signature = basicTransaction.getSignature().toByteArray();
+        this.signatureHash = burstCrypto.getSha256().digest(basicTransaction.getSignature().toByteArray()); // TODO check this is correct
+        this.blockHeight = transaction.getBlockHeight();
+        this.confirmations = transaction.getConfirmations();
+        this.ecBlockHeight = basicTransaction.getEcBlockHeight();
+        this.subtype = basicTransaction.getSubtype();
+        this.type = basicTransaction.getType();
+        this.version = basicTransaction.getVersion();
+        this.attachment = TransactionAttachment.fromProtobuf(basicTransaction.getAttachment(), basicTransaction.getVersion());
+        this.appendages = basicTransaction.getAppendagesList()
+                .stream()
+                .map(TransactionAppendix::fromProtobuf)
+                .toArray(TransactionAppendix[]::new);
+        this.deadline = (short) basicTransaction.getDeadline();
     }
 
     public BurstAddress getRecipient() {

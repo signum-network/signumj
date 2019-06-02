@@ -32,6 +32,16 @@ public final class BurstAddress {
     }
 
     /**
+     * @param signedLongId The numeric id that represents this Burst Address, as a signed long
+     * @return A BurstAddress object that represents the specified numericId
+     * @throws NumberFormatException if the numericId is not a valid number
+     * @throws IllegalArgumentException if the numericId is outside the range of accepted numbers (less than 0 or greater than / equal to 2^64)
+     */
+    public static BurstAddress fromId(long signedLongId) {
+        return new BurstAddress(BurstID.fromLong(signedLongId));
+    }
+
+    /**
      * @param unsignedLongId The numeric id that represents this Burst Address
      * @return A BurstAddress object that represents the specified numericId
      * @throws NumberFormatException if the numericId is not a valid number

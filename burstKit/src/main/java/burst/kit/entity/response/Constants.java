@@ -5,6 +5,7 @@ import burst.kit.entity.BurstID;
 import burst.kit.entity.response.http.ConstantsResponse;
 import burst.kit.entity.response.http.TransactionSubtypeResponse;
 import burst.kit.entity.response.http.TransactionTypeResponse;
+import burst.kit.service.impl.grpc.BrsApi;
 
 import java.util.Arrays;
 
@@ -29,6 +30,17 @@ public class Constants {
         this.genesisBlockId = BurstID.fromLong(constantsResponse.getGenesisBlockId());
         this.genesisAccountId = BurstAddress.fromEither(constantsResponse.getGenesisAccountId());
         this.transactionTypes = Arrays.stream(constantsResponse.getTransactionTypes())
+                .map(TransactionType::new)
+                .toArray(TransactionType[]::new);
+    }
+
+    public Constants(BrsApi.Constants constants) {
+        this.maxBlockPayloadLength = constants.getMaxBlockPayloadLength();
+        this.maxArbitraryMessageLength = constants.getMaxArbitraryMessageLength();
+        this.genesisBlockId = BurstID.fromLong(constants.getGenesisBlock());
+        this.genesisAccountId = BurstAddress.fromId(constants.getGenesisAccount());
+        this.transactionTypes = constants.getTransactionTypesList()
+                .stream()
                 .map(TransactionType::new)
                 .toArray(TransactionType[]::new);
     }
@@ -72,6 +84,15 @@ public class Constants {
                     .toArray(Subtype[]::new);
         }
 
+        public TransactionType(BrsApi.Constants.TransactionType transactionType) {
+            this.description = transactionType.getDescription();
+            this.type = transactionType.getType();
+            this.subtypes = transactionType.getSubtypesList()
+                    .stream()
+                    .map(Subtype::new)
+                    .toArray(Subtype[]::new);
+        }
+
         public String getDescription() {
             return description;
         }
@@ -96,6 +117,11 @@ public class Constants {
             public Subtype(TransactionSubtypeResponse transactionSubtypeResponse) {
                 this.description = transactionSubtypeResponse.getDescription();
                 this.subtype = transactionSubtypeResponse.getValue();
+            }
+
+            public Subtype(BrsApi.Constants.TransactionType.TransactionSubtype transactionSubtype) {
+                this.description = transactionSubtype.getDescription();
+                this.subtype = transactionSubtype.getSubtype();
             }
 
             public String getDescription() {

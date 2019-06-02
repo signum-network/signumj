@@ -4,7 +4,7 @@ package burst.kit.entity.response.http;
 public final class AccountResponse extends BRSResponse {
     private final String unconfirmedBalanceNQT;
     private final String guaranteedBalanceNQT;
-    private final String effectiveBalanceNQT;
+    private final String effectiveBalanceNQT; // TODO we don't use this...
     private final String name;
     private final String description;
     private final String forgedBalanceNQT;

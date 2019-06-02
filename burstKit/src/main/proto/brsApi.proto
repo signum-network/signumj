@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
-option java_package = "brs.grpc.proto";
+option java_package = "burst.kit.service.impl.grpc";
 
 service BrsApiService {
     // Broadcast a transaction to the network.
@@ -545,7 +545,7 @@ message Block {
     uint64 totalAmount = 4;
     uint64 totalFee = 5;
     uint64 blockReward = 6;
-    uint64 payloadLength = 7;
+    uint32 payloadLength = 7;
     int32 version = 8;
     uint64 baseTarget = 9;
     uint32 timestamp = 10;
