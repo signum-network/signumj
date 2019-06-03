@@ -10,31 +10,26 @@ import burst.kit.entity.response.attachment.ATCreationAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstNodeService;
+import burst.kit.service.impl.DefaultSchedulerAssigner;
+import burst.kit.service.impl.GrpcBurstNodeService;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.junit.runners.Parameterized;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-@RunWith(JUnit4.class)
-public class BurstNodeServiceTest {
+public abstract class BurstNodeServiceTest {
 
-    private BurstNodeService burstNodeService;
-    private BurstCrypto burstCrypto;
+    private final BurstNodeService burstNodeService = getBurstNodeService();
+    private final BurstCrypto burstCrypto = BurstCrypto.getInstance();
 
-    @Before
-    public void setUpBurstServiceTest() {
-        burstNodeService = BurstNodeService.getInstance("https://wallet1.burst-team.us:2083");
-        burstCrypto = BurstCrypto.getInstance();
-    }
+    protected abstract BurstNodeService getBurstNodeService();
 
     @Test
     public void testBurstServiceGetBlock() {

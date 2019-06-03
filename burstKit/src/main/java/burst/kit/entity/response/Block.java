@@ -89,7 +89,7 @@ public class Block {
         this.generator = burstCrypto.getBurstAddressFromPublic(block.getGeneratorPublicKey().toByteArray());
         this.id = BurstID.fromLong(block.getId());
         this.nextBlock = BurstID.fromLong(block.getNextBlockId());
-        this.previousBlock = burstCrypto.hashToId(block.getPreviousBlockHash().toByteArray());
+        this.previousBlock = block.getPreviousBlockHash().size() == 0 ? BurstID.fromLong(0) : burstCrypto.hashToId(block.getPreviousBlockHash().toByteArray());
         this.transactions = block.getTransactionIdsList()
                 .stream()
                 .map(BurstID::fromLong)
