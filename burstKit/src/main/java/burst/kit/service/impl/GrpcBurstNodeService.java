@@ -33,6 +33,17 @@ public class GrpcBurstNodeService implements BurstNodeService {
         this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());
     }
 
+    private <T> Observable<T> assign(Iterator<T> iterable) {
+        return Observable.fromIterable(() -> iterable)
+                .onErrorResumeNext(t -> {
+                    if (t instanceof StatusRuntimeException && ((StatusRuntimeException) t).getStatus().getCode() == Status.Code.ABORTED) {
+                        return Observable.error(new BurstApiException(((StatusRuntimeException) t).getStatus().getDescription()));
+                    } else {
+                        return Observable.error(t);
+                    }
+                });
+    }
+
     private <T> Single<T> assign(Callable<T> callable) {
         return assign(Single.fromCallable(callable))
                 .onErrorResumeNext(t -> {
@@ -260,7 +271,8 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Observable<MiningInfo> getMiningInfo() {
-        return null;
+        return assign(brsGrpc.getMiningInfo(Empty.getDefaultInstance()))
+                .map(MiningInfo::new);
     }
 
     @Override
