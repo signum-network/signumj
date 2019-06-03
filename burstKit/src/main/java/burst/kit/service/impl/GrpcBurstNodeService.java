@@ -2,6 +2,7 @@ package burst.kit.service.impl;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
+import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
 import burst.kit.service.impl.grpc.BrsApiServiceGrpc;
@@ -9,10 +10,14 @@ import burst.kit.util.SchedulerAssigner;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Empty;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
 import io.reactivex.Single;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
@@ -29,7 +34,14 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     private <T> Single<T> assign(Callable<T> callable) {
-        return assign(Single.fromCallable(callable));
+        return assign(Single.fromCallable(callable))
+                .onErrorResumeNext(t -> {
+                    if (t instanceof StatusRuntimeException && ((StatusRuntimeException) t).getStatus().getCode() == Status.Code.ABORTED) {
+                        return Single.error(new BurstApiException(((StatusRuntimeException) t).getStatus().getDescription()));
+                    } else {
+                        return Single.error(t);
+                    }
+                });
     }
 
     private <T> Single<T> assign(Single<T> single) {
