@@ -92,6 +92,13 @@ public final class BurstAddress {
     }
 
     /**
+     * @return The signed long numeric ID this BurstAddress points to
+     */
+    public long getSignedLongId() {
+        return numericID.getSignedLongId();
+    }
+
+    /**
      * @return The ReedSolomon encoded address, without the "BURST-" prefix
      */
     public String getRawAddress() {

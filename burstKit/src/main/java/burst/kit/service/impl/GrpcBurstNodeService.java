@@ -7,15 +7,16 @@ import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
 import burst.kit.service.impl.grpc.BrsApiServiceGrpc;
 import burst.kit.util.SchedulerAssigner;
+import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Empty;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.Single;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
@@ -239,29 +240,102 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(transactionBytes -> transactionBytes.getTransactionBytes().toByteArray());
     }
 
+    private Single<Any> ordinaryTransactionOrArbitraryMessage(BurstValue amount) {
+        return Single.fromCallable(() -> {
+            if (amount.equals(BurstValue.ZERO)) {
+                return Any.pack(BrsApi.ArbitraryMessageAttachment.getDefaultInstance());
+            } else {
+                return Any.pack(BrsApi.OrdinaryPaymentAttachment.getDefaultInstance());
+            }
+        });
+    }
+
+    private BrsApi.BasicTransaction.Builder basicTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Any attachment) {
+        return BrsApi.BasicTransaction.newBuilder()
+                .setSender(ByteString.copyFrom(senderPublicKey))
+                .setAmount(amount.toPlanck().longValueExact())
+                .setFee(fee.toPlanck().longValueExact())
+                .setDeadline(deadline)
+                .setAttachment(attachment);
+    }
+
+    private BrsApi.BasicTransaction.Builder basicTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Any attachment) {
+        return basicTransaction(senderPublicKey, amount, fee, deadline, attachment)
+                .setRecipient(recipient.getSignedLongId());
+    }
+
     @Override
     public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
-        return null;
+        return ordinaryTransactionOrArbitraryMessage(amount)
+                .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
+                        .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return null;
+        return ordinaryTransactionOrArbitraryMessage(amount)
+                .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
+                        .addAppendages(Any.pack(BrsApi.MessageAppendix.newBuilder()
+                                .setMessage(ByteString.copyFrom(message.getBytes(StandardCharsets.UTF_8)))
+                                .setIsText(true)
+                                .build()))
+                        .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
-        return null;
+        return ordinaryTransactionOrArbitraryMessage(amount)
+                .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
+                        .addAppendages(Any.pack(BrsApi.MessageAppendix.newBuilder()
+                                .setMessage(ByteString.copyFrom(message))
+                                .setIsText(false)
+                                .build()))
+                        .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return null;
+        return ordinaryTransactionOrArbitraryMessage(amount)
+                .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
+                        .addAppendages(Any.pack(BrsApi.EncryptedMessageAppendix.newBuilder()
+                                .setEncryptedData(BrsApi.EncryptedData.newBuilder()
+                                        .setData(ByteString.copyFrom(message.getData()))
+                                        .setNonce(ByteString.copyFrom(message.getNonce()))
+                                        .build())
+                                .setIsText(message.isText())
+                                .setType(BrsApi.EncryptedMessageAppendix.Type.TO_RECIPIENT)
+                                .build()))
+                        .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return null;
+        return ordinaryTransactionOrArbitraryMessage(amount)
+                .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
+                        .addAppendages(Any.pack(BrsApi.EncryptedMessageAppendix.newBuilder()
+                                .setEncryptedData(BrsApi.EncryptedData.newBuilder()
+                                        .setData(ByteString.copyFrom(message.getData()))
+                                        .setNonce(ByteString.copyFrom(message.getNonce()))
+                                        .build())
+                                .setIsText(message.isText())
+                                .setType(BrsApi.EncryptedMessageAppendix.Type.TO_SELF)
+                                .build()))
+                        .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
@@ -292,12 +366,35 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException {
-        return null;
+        return Single.fromCallable(() -> {
+            BurstValue totalValue = BurstValue.ZERO;
+            for (BurstValue value : recipients.values()) {
+                totalValue = totalValue.add(value);
+            }
+            return totalValue;
+        }).map(totalValue -> basicTransaction(senderPublicKey, totalValue, fee, deadline, Any.pack(BrsApi.MultiOutAttachment.newBuilder()
+                .addAllRecipients(() -> recipients.entrySet().stream()
+                        .map(entry -> BrsApi.MultiOutAttachment.MultiOutRecipient.newBuilder()
+                                .setRecipient(entry.getKey().getSignedLongId())
+                                .setAmount(entry.getValue().toPlanck().longValueExact())
+                                .build())
+                        .iterator()).build()))
+                .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
     public Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
-        return null;
+        return Single.fromCallable(() -> basicTransaction(senderPublicKey, amount, fee, deadline, Any.pack(BrsApi.MultiOutSameAttachment.newBuilder()
+                .addAllRecipients(() -> recipients.stream()
+                        .map(BurstAddress::getSignedLongId)
+                        .iterator()).build()))
+                .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
