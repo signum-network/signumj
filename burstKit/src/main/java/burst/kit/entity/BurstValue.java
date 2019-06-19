@@ -171,6 +171,10 @@ public final class BurstValue implements Comparable<BurstValue> {
         return (a.compareTo(b) >= 0) ? a : b;
     }
 
+    public double doubleValue() { // TODO test
+        return toBurst().doubleValue();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

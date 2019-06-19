@@ -14,7 +14,7 @@ public class AT {
     private final boolean running;
     private final boolean stopped;
     private final BurstAddress creator;
-    private final BurstID id;
+    private final BurstAddress id;
     private final BurstValue balance;
     private final BurstValue minimumActivation;
     private final BurstValue previousBalance;
@@ -26,7 +26,7 @@ public class AT {
     private final String description;
     private final String name;
 
-    public AT(boolean dead, boolean finished, boolean frozen, boolean running, boolean stopped, BurstAddress creator, BurstID id, BurstValue balance, BurstValue minimumActivation, BurstValue previousBalance, byte[] machineCode, byte[] machineData, int creationHeight, int nextBlockHeight, int version, String description, String name) {
+    public AT(boolean dead, boolean finished, boolean frozen, boolean running, boolean stopped, BurstAddress creator, BurstAddress id, BurstValue balance, BurstValue minimumActivation, BurstValue previousBalance, byte[] machineCode, byte[] machineData, int creationHeight, int nextBlockHeight, int version, String description, String name) {
         this.dead = dead;
         this.finished = finished;
         this.frozen = frozen;
@@ -53,7 +53,7 @@ public class AT {
         this.running = atResponse.isRunning();
         this.stopped = atResponse.isStopped();
         this.creator = BurstAddress.fromEither(atResponse.getCreator());
-        this.id = BurstID.fromLong(atResponse.getAt());
+        this.id = BurstAddress.fromEither(atResponse.getAt());
         this.balance = BurstValue.fromPlanck(atResponse.getBalanceNQT());
         this.minimumActivation = BurstValue.fromPlanck(atResponse.getMinActivation());
         this.previousBalance = BurstValue.fromPlanck(atResponse.getPrevBalanceNQT());
@@ -73,7 +73,7 @@ public class AT {
         this.running = at.getRunning();
         this.stopped = at.getStopped();
         this.creator = BurstAddress.fromId(at.getCreator());
-        this.id = BurstID.fromLong(at.getId());
+        this.id = BurstAddress.fromId(at.getId());
         this.balance = BurstValue.fromPlanck(at.getBalance());
         this.minimumActivation = BurstValue.fromPlanck(at.getMinActivation());
         this.previousBalance = BurstValue.fromPlanck(at.getPreviousBalance());
@@ -110,7 +110,7 @@ public class AT {
         return creator;
     }
 
-    public BurstID getId() {
+    public BurstAddress getId() {
         return id;
     }
 
