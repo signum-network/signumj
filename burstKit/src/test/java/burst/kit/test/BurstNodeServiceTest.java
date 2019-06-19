@@ -96,7 +96,7 @@ public abstract class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAtIDs() {
-        BurstID[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
+        BurstAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
     }
 
     @Test

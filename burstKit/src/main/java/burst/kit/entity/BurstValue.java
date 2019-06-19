@@ -171,8 +171,18 @@ public final class BurstValue implements Comparable<BurstValue> {
         return (a.compareTo(b) >= 0) ? a : b;
     }
 
+    /**
+     * @return The number of Burst as a double
+     */
     public double doubleValue() { // TODO test
         return toBurst().doubleValue();
+    }
+
+    /**
+     * @return The number of planck as a long
+     */
+    public long longValue() { // TODO test
+        return toPlanck().longValue();
     }
 
     @Override

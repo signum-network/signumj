@@ -109,16 +109,16 @@ public interface BurstNodeService {
 
     /**
      * Get the details of an AT
-     * @param atId The ID of the AT
+     * @param at The address of the AT
      * @return The details of the AT, wrapped in a single
      */
-    Single<AT> getAt(BurstID atId);
+    Single<AT> getAt(BurstAddress at);
 
     /**
-     * Get the list of IDs of all ATs
-     * @return The list of AT IDs, wrapped in a single
+     * Get the list of addresses of all ATs
+     * @return The list of AT addresses, wrapped in a single
      */
-    Single<BurstID[]> getAtIds();
+    Single<BurstAddress[]> getAtIds();
 
     /**
      * Get the details of a transaction

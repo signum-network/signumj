@@ -198,18 +198,18 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AT> getAt(BurstID atId) {
-        return assign(() -> brsGrpc.getAT(getByIdRequestFromId(atId)))
+    public Single<AT> getAt(BurstAddress atId) {
+        return assign(() -> brsGrpc.getAT(getByIdRequestFromId(atId.getBurstID())))
                 .map(AT::new);
     }
 
     @Override
-    public Single<BurstID[]> getAtIds() {
+    public Single<BurstAddress[]> getAtIds() {
         return assign(() -> brsGrpc.getATIds(Empty.getDefaultInstance()))
                 .map(atIds -> atIds.getIdsList()
                         .stream()
-                        .map(BurstID::fromLong)
-                        .toArray(BurstID[]::new));
+                        .map(BurstAddress::fromId)
+                        .toArray(BurstAddress[]::new));
     }
 
     @Override

@@ -163,17 +163,17 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AT> getAt(BurstID atId) {
+    public Single<AT> getAt(BurstAddress atId) {
         return assign(blockchainService.getAt(atId.getID()))
                 .map(AT::new);
     }
 
     @Override
-    public Single<BurstID[]> getAtIds() {
+    public Single<BurstAddress[]> getAtIds() {
         return assign(blockchainService.getAtIds())
                 .map(response -> Arrays.stream(response.getAtIds())
-                        .map(BurstID::fromLong)
-                        .toArray(BurstID[]::new));
+                        .map(BurstAddress::fromId)
+                        .toArray(BurstAddress[]::new));
     }
 
     @Override
