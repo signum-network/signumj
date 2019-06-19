@@ -3,6 +3,8 @@ package burst.kit.entity;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 
 public final class BurstValue implements Comparable<BurstValue> {
     private static final int decimals = 8;
@@ -21,6 +23,9 @@ public final class BurstValue implements Comparable<BurstValue> {
      */
     public static BurstValue fromPlanck(String planck) {
         if (planck == null) return ZERO;
+        if (planck.toLowerCase(Locale.ENGLISH).endsWith(" planck")) {
+            planck = planck.substring(0, planck.length() - 7);
+        }
         try {
             return fromPlanck(new BigInteger(planck));
         } catch (NumberFormatException e) {
@@ -47,6 +52,9 @@ public final class BurstValue implements Comparable<BurstValue> {
      */
     public static BurstValue fromBurst(String burst) {
         if (burst == null) return ZERO;
+        if (burst.toLowerCase(Locale.ENGLISH).endsWith(" burst")) {
+            burst = burst.substring(0, burst.length() - 6);
+        }
         try {
             return fromBurst(new BigDecimal(burst));
         } catch (NumberFormatException e) {

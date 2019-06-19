@@ -217,7 +217,7 @@ public interface BurstNodeService {
      * @param transactionBytes The signed transaction bytes
      * @return The number of peers this transaction was broadcast to, wrapped in a single
      */
-    Single<Integer> broadcastTransaction(byte[] transactionBytes);
+    Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes);
 
     /**
      * Get the reward recipient of the account

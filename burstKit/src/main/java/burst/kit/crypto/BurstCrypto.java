@@ -453,6 +453,27 @@ public interface BurstCrypto {
     Date fromEpochTime(long epochTime);
 
     /**
+     * Converts up to the first 8 bytes of a byte array to a long.
+     * @param bytes The byte array
+     * @return The long representation of the first 8 bytes
+     */
+    long byteToLong(byte[] bytes);
+
+    /**
+     * Hex-encode a byte array
+     * @param bytes Data to be encoded
+     * @return Hexadecimal encoded form of bytes
+     */
+    String toHexString(byte[] bytes);
+
+    /**
+     * Decode a hex-encoded byte array
+     * @param string The hexadecimal encoded form of the bytes
+     * @return The decoded bytes
+     */
+    byte[] parseHexString(String string);
+
+    /**
      * Get a singleton instance of this class
      * @return Singleton instance of this class.
      */

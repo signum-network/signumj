@@ -350,7 +350,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Integer> broadcastTransaction(byte[] transactionBytes) {
+    public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
         return null;
     }
 

@@ -18,6 +18,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 import org.bouncycastle.jcajce.provider.digest.SHA256;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -109,12 +110,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (hash == null || hash.length < 8) {
             throw new IllegalArgumentException("Invalid hash: " + Arrays.toString(hash));
         }
-        long result = 0;
-        for (int i = 0; i < 8; i++) {
-            result <<= 8;
-            result |= (hash[7-i] & 0xFF);
-        }
-        return BurstID.fromLong(result);
+        return BurstID.fromLong(byteToLong(hash));
     }
 
     @Override
@@ -264,5 +260,25 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     @Override
     public Date fromEpochTime(long epochTime) {
         return new Date(epochBeginning + epochTime * 1000L);
+    }
+
+    @Override
+    public long byteToLong(byte[] bytes) {
+        long result = 0;
+        for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
+            result <<= 8;
+            result |= (bytes[length-i] & 0xFF);
+        }
+        return result;
+    }
+
+    @Override
+    public String toHexString(byte[] bytes) {
+        return Hex.toHexString(bytes);
+    }
+
+    @Override
+    public byte[] parseHexString(String string) {
+        return Hex.decode(string);
     }
 }

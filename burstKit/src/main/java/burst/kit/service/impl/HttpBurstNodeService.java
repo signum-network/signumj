@@ -4,6 +4,7 @@ import burst.kit.entity.response.Constants;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.entity.response.http.*;
+import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.util.BurstKitUtils;
 import burst.kit.util.SchedulerAssigner;
@@ -249,9 +250,9 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Integer> broadcastTransaction(byte[] transactionBytes) {
+    public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
         return assign(blockchainService.broadcastTransaction(Hex.toHexString(transactionBytes)))
-                .map(BroadcastTransactionResponse::getNumberPeersSentTo);
+                .map(TransactionBroadcast::new);
     }
 
     @Override
@@ -263,6 +264,12 @@ public final class HttpBurstNodeService implements BurstNodeService {
     @Override
     public Single<Long> submitNonce(String passphrase, String nonce, BurstID accountId) {
         return assign(blockchainService.submitNonce(passphrase, nonce, accountId == null ? null : accountId.getID(), ""))
+                .map(submitNonceResponse -> {
+                    if (!Objects.equals(submitNonceResponse.getResult(), "success")) {
+                        throw new BurstApiException("Failed to submit nonce: " + submitNonceResponse.getResult());
+                    }
+                    return submitNonceResponse;
+                })
                 .map(SubmitNonceResponse::getDeadline);
     }
 
