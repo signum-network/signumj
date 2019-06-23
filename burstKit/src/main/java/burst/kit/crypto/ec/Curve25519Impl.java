@@ -33,26 +33,23 @@ public class Curve25519Impl implements Curve25519 {
 
     @Override
     public byte[] sign(byte[] message, byte[] privateKey) {
-        byte[] P = new byte[32];
-        byte[] s = new byte[32];
+        byte[] publicKey = new byte[32];
+        byte[] sharedKey = new byte[32];
         MessageDigest digest = sha256Supplier.get();
-        Curve25519.keygen(P, s, privateKey);
-        byte[] m = digest.digest(message);
+        Curve25519.keygen(publicKey, sharedKey, privateKey);
+        byte[] messageDigest = digest.digest(message);
 
-        digest.update(m);
-        byte[] x = digest.digest(s);
+        digest.update(messageDigest);
+        byte[] x = digest.digest(sharedKey);
 
-        byte[] Y = new byte[32];
-        Curve25519.keygen(Y, null, x);
+        byte[] y = new byte[32];
+        Curve25519.keygen(y, null, x);
 
-        digest.update(m);
-        byte[] h = digest.digest(Y);
-
-        byte[] v = new byte[32];
-        Curve25519.sign(v, h, x, s);
+        digest.update(messageDigest);
+        byte[] h = digest.digest(y);
 
         byte[] signature = new byte[64];
-        System.arraycopy(v, 0, signature, 0, 32);
+        Curve25519.sign(signature, h, x, sharedKey);
         System.arraycopy(h, 0, signature, 32, 32);
 
         return signature;
