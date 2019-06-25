@@ -31,7 +31,7 @@ public class Account {
         this.balance = BurstValue.fromPlanck(accountResponse.getBalanceNQT());
         this.forgedBalance = BurstValue.fromPlanck(accountResponse.getForgedBalanceNQT());
         this.unconfirmedBalance = BurstValue.fromPlanck(accountResponse.getUnconfirmedBalanceNQT());
-        this.publicKey = Hex.decode(accountResponse.getPublicKey());
+        this.publicKey = accountResponse.getPublicKey() == null ? new byte[32] : Hex.decode(accountResponse.getPublicKey());
         this.description = accountResponse.getDescription();
         this.name = accountResponse.getName();
     }
