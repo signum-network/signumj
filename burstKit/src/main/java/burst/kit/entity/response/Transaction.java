@@ -9,7 +9,6 @@ import burst.kit.entity.response.attachment.OrdinaryPaymentAttachment;
 import burst.kit.entity.response.http.TransactionResponse;
 import burst.kit.entity.response.http.attachment.TransactionAppendixResponse;
 import burst.kit.service.impl.grpc.BrsApi;
-import com.google.protobuf.InvalidProtocolBufferException;
 import org.bouncycastle.util.encoders.Hex;
 
 import java.util.Arrays;
@@ -97,7 +96,7 @@ public class Transaction {
         BurstCrypto burstCrypto = BurstCrypto.getInstance();
         BrsApi.BasicTransaction basicTransaction = transaction.getTransaction();
         this.recipient = BurstAddress.fromId(transaction.getId());
-        this.sender = burstCrypto.getBurstAddressFromPublic(basicTransaction.getSender().toByteArray());
+        this.sender = BurstAddress.fromId(basicTransaction.getSenderId());
         this.blockId = BurstID.fromLong(transaction.getBlock());
         this.ecBlockId = BurstID.fromLong(basicTransaction.getEcBlockId());
         this.id = BurstID.fromLong(transaction.getId());
@@ -107,7 +106,7 @@ public class Transaction {
         this.fee = BurstValue.fromPlanck(basicTransaction.getFee());
         this.fullHash = transaction.getFullHash().toByteArray();
         this.referencedTransactionFullHash = basicTransaction.getReferencedTransactionFullHash().toByteArray();
-        this.senderPublicKey = basicTransaction.getSender().toByteArray();
+        this.senderPublicKey = basicTransaction.getSenderPublicKey().toByteArray();
         this.signature = basicTransaction.getSignature().toByteArray();
         this.signatureHash = burstCrypto.getSha256().digest(basicTransaction.getSignature().toByteArray()); // TODO check this is correct
         this.blockHeight = transaction.getBlockHeight();

@@ -1,5 +1,6 @@
 package burst.kit.service.impl;
 
+import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstApiException;
@@ -251,8 +252,10 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     private BrsApi.BasicTransaction.Builder basicTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Any attachment) {
+        BurstCrypto burstCrypto = BurstCrypto.getInstance();
         return BrsApi.BasicTransaction.newBuilder()
-                .setSender(ByteString.copyFrom(senderPublicKey))
+                .setSenderPublicKey(ByteString.copyFrom(senderPublicKey))
+                .setSenderId(burstCrypto.getBurstAddressFromPublic(senderPublicKey).getSignedLongId())
                 .setAmount(amount.toPlanck().longValueExact())
                 .setFee(fee.toPlanck().longValueExact())
                 .setDeadline(deadline)
@@ -340,7 +343,8 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<FeeSuggestion> suggestFee() {
-        return null;
+        return assign(() -> brsGrpc.suggestFee(Empty.getDefaultInstance()))
+                .map(FeeSuggestion::new);
     }
 
     @Override
@@ -351,17 +355,26 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
-        return null;
+        return assign(() -> brsGrpc.broadcastTransactionBytes(BrsApi.TransactionBytes.newBuilder()
+                .setTransactionBytes(ByteString.copyFrom(transactionBytes))
+                .build()))
+                .map(result -> new TransactionBroadcast(result, transactionBytes));
     }
 
     @Override
-    public Single<BurstAddress> getRewardRecipient(BurstAddress account) {
-        return null;
+    public Single<BurstAddress> getRewardRecipient(BurstAddress address) {
+        return assign(() -> brsGrpc.getAccount(getAccountRequestFromId(address)))
+                .map(account -> BurstAddress.fromId(account.getRewardRecipient()));
     }
 
     @Override
     public Single<Long> submitNonce(String passphrase, String nonce, BurstID accountId) {
-        return null;
+        return assign(() -> brsGrpc.submitNonce(BrsApi.SubmitNonceRequest.newBuilder()
+                .setSecretPhrase(passphrase)
+                .setAccount(accountId.getSignedLongId())
+                .setNonce(Long.parseUnsignedLong(nonce))
+                .build()))
+                .map(BrsApi.SubmitNonceResponse::getDeadline);
     }
 
     @Override
@@ -373,6 +386,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
             }
             return totalValue;
         }).map(totalValue -> basicTransaction(senderPublicKey, totalValue, fee, deadline, Any.pack(BrsApi.MultiOutAttachment.newBuilder()
+                .setVersion(1)
                 .addAllRecipients(() -> recipients.entrySet().stream()
                         .map(entry -> BrsApi.MultiOutAttachment.MultiOutRecipient.newBuilder()
                                 .setRecipient(entry.getKey().getSignedLongId())
@@ -388,6 +402,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
         return Single.fromCallable(() -> basicTransaction(senderPublicKey, amount, fee, deadline, Any.pack(BrsApi.MultiOutSameAttachment.newBuilder()
+                .setVersion(1)
                 .addAllRecipients(() -> recipients.stream()
                         .map(BurstAddress::getSignedLongId)
                         .iterator()).build()))

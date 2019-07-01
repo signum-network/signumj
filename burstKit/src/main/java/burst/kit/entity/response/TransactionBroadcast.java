@@ -1,7 +1,9 @@
 package burst.kit.entity.response;
 
+import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.response.http.BroadcastTransactionResponse;
+import burst.kit.service.impl.grpc.BrsApi;
 import org.bouncycastle.util.encoders.Hex;
 
 public class TransactionBroadcast {
@@ -16,9 +18,16 @@ public class TransactionBroadcast {
     }
 
     public TransactionBroadcast(BroadcastTransactionResponse response) {
-        fullHash = Hex.decode(response.getFullHash());
-        transactionId = BurstID.fromLong(response.getTransactionID());
-        numberPeersSentTo = response.getNumberPeersSentTo();
+        this.fullHash = Hex.decode(response.getFullHash());
+        this.transactionId = BurstID.fromLong(response.getTransactionID());
+        this.numberPeersSentTo = response.getNumberPeersSentTo();
+    }
+
+    public TransactionBroadcast(BrsApi.TransactionBroadcastResult transactionBroadcastResult, byte[] transactionBytes) {
+        BurstCrypto burstCrypto = BurstCrypto.getInstance();
+        this.fullHash = burstCrypto.getSha256().digest(transactionBytes);
+        this.transactionId = burstCrypto.hashToId(this.fullHash);
+        this.numberPeersSentTo = transactionBroadcastResult.getNumberOfPeersSentTo();
     }
 
     public byte[] getFullHash() {

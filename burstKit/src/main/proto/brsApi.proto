@@ -400,21 +400,22 @@ message AccountATs {
 
 // A basic transaction represents all of the data that you would find in the transaction bytes.
 message BasicTransaction {
-    bytes sender = 1;
-    uint64 recipient = 2;
-    uint32 version = 3; // Auto-filled if needed
-    uint32 type = 4; // Auto-filled if needed
-    uint32 subtype = 5; // Auto-filled if needed
-    uint64 amount = 6;
-    uint64 fee = 7;
-    uint32 timestamp = 8; // Auto-filled if needed
-    uint32 deadline = 9;
-    repeated google.protobuf.Any appendages = 10;
-    google.protobuf.Any attachment = 11;
-    bytes referencedTransactionFullHash = 12;
-    uint64 ecBlockId = 13;
-    uint32 ecBlockHeight = 14;
-    bytes signature = 15;
+    bytes senderPublicKey = 1;
+    uint64 senderId = 2;
+    uint64 recipient = 3;
+    uint32 version = 4; // Auto-filled if needed
+    uint32 type = 5; // Auto-filled if needed
+    uint32 subtype = 6; // Auto-filled if needed
+    uint64 amount = 7;
+    uint64 fee = 8;
+    uint32 timestamp = 9; // Auto-filled if needed
+    uint32 deadline = 10;
+    repeated google.protobuf.Any appendages = 11;
+    google.protobuf.Any attachment = 12;
+    bytes referencedTransactionFullHash = 13;
+    uint64 ecBlockId = 14;
+    uint32 ecBlockHeight = 15;
+    bytes signature = 16;
 }
 
 message GetPeerRequest {
