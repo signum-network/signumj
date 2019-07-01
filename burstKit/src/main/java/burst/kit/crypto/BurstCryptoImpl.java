@@ -4,6 +4,8 @@ import burst.kit.crypto.ec.Curve25519;
 import burst.kit.crypto.ec.Curve25519Impl;
 import burst.kit.crypto.hash.BurstHashProvider;
 import burst.kit.crypto.hash.shabal.Shabal256;
+import burst.kit.crypto.plot.PlotCalculator;
+import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
 import burst.kit.crypto.rs.ReedSolomon;
 import burst.kit.crypto.rs.ReedSolomonImpl;
 import burst.kit.entity.BurstAddress;
@@ -23,6 +25,7 @@ import org.bouncycastle.util.encoders.Hex;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -40,11 +43,13 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private final ThreadLocal<SecureRandom> secureRandom = ThreadLocal.withInitial(SecureRandom::new);
     private final Curve25519 curve25519;
     private final ReedSolomon reedSolomon;
+    private final PlotCalculator plotCalculator;
     private final long epochBeginning;
 
     private BurstCryptoImpl() {
         this.curve25519 = new Curve25519Impl(this::getSha256);
         this.reedSolomon = new ReedSolomonImpl();
+        this.plotCalculator = new PlotCalculatorImpl(this::getShabal256);
         this.epochBeginning = calculateEpochBeginning();
         BurstHashProvider.init();
     }
@@ -280,5 +285,30 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     @Override
     public byte[] parseHexString(String string) {
         return Hex.decode(string);
+    }
+
+    @Override
+    public byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId) {
+        return plotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+    }
+
+    @Override
+    public int calculateScoop(byte[] genSig, long height) {
+        return plotCalculator.calculateScoop(genSig, height);
+    }
+
+    @Override
+    public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
+        return plotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+    }
+
+    @Override
+    public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData) {
+        return plotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+    }
+
+    @Override
+    public BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
+        return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
     }
 }

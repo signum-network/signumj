@@ -4,6 +4,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.Date;
 
@@ -472,6 +473,55 @@ public interface BurstCrypto {
      * @return The decoded bytes
      */
     byte[] parseHexString(String string);
+
+    /**
+     * Calculate the generation signature of a block
+     * @param lastGenSig The generation signature of the previous block
+     * @param lastGenId The ID of the last block's generator
+     * @return The generation signature of the block
+     */
+    byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId);
+
+    /**
+     * Calculate which scoop a block will use
+     * @param genSig The generation signature of the block
+     * @param height The height of the block
+     * @return The scoop for the block
+     */
+    int calculateScoop(byte[] genSig, long height);
+
+    /**
+     * Calculate the hit (raw value obtained from a scoop)
+     * @param accountId The account ID
+     * @param nonce The nonce
+     * @param genSig The generation signature
+     * @param scoop The scoop
+     * @param pocVersion The PoC version. If unsure, use 2.
+     * @return The hit of that scoop
+     */
+    BigInteger calculateHit(long accountId, long nonce, byte[] genSig, int scoop, int pocVersion);
+
+    /**
+     * Calculate the hit (raw value obtained from a scoop)
+     * @param accountId The account ID
+     * @param nonce The nonce
+     * @param genSig The generation signature
+     * @param scoopData The scoop data, usually read from a disk.
+     * @return The hit of that scoop
+     */
+    BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData);
+
+    /**
+     * Calculate the deadline (hit / baseTarget)
+     * @param accountId The account ID
+     * @param nonce The nonce
+     * @param genSig The generation signature
+     * @param scoop The scoop
+     * @param baseTarget The base target
+     * @param pocVersion The PoC version. If unsure, use 2.
+     * @return The hit of that scoop
+     */
+    BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion);
 
     /**
      * Get a singleton instance of this class

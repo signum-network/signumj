@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.util.function.Supplier;
 
-public class PlotCalculatorImpl implements PlotCalculator {
+public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this can be optimized
     private final Supplier<MessageDigest> shabal256Supplier;
 
     public PlotCalculatorImpl(Supplier<MessageDigest> shabal256Supplier) {
