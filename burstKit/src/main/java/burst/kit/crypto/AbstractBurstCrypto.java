@@ -4,6 +4,7 @@ package burst.kit.crypto;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings("WeakerAccess")
@@ -175,5 +176,25 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     @Override
     public byte[] decryptMessage(BurstEncryptedMessage message, String myPassphrase, byte[] theirPublicKey) {
         return decryptMessage(message, getPrivateKey(myPassphrase), theirPublicKey);
+    }
+
+    @Override
+    public byte[] calculateGenerationSignature(byte[] lastGenSig, BurstAddress lastGenerator) {
+        return calculateGenerationSignature(lastGenSig, lastGenerator.getSignedLongId());
+    }
+
+    @Override
+    public BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
+        return calculateHit(accountId.getSignedLongId(), nonce, genSig, scoop, pocVersion);
+    }
+
+    @Override
+    public BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, byte[] scoopData) {
+        return calculateHit(accountId.getSignedLongId(), nonce, genSig, scoopData);
+    }
+
+    @Override
+    public BigInteger calculateDeadline(BurstAddress accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
+        return calculateDeadline(accountId.getSignedLongId(), nonce, genSig, scoop, baseTarget, pocVersion);
     }
 }

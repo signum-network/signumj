@@ -477,10 +477,18 @@ public interface BurstCrypto {
     /**
      * Calculate the generation signature of a block
      * @param lastGenSig The generation signature of the previous block
-     * @param lastGenId The ID of the last block's generator
+     * @param lastGenerator The ID of the last block's generator
      * @return The generation signature of the block
      */
-    byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId);
+    byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenerator);
+
+    /**
+     * Calculate the generation signature of a block
+     * @param lastGenSig The generation signature of the previous block
+     * @param lastGenerator The ID of the last block's generator
+     * @return The generation signature of the block
+     */
+    byte[] calculateGenerationSignature(byte[] lastGenSig, BurstAddress lastGenerator);
 
     /**
      * Calculate which scoop a block will use
@@ -506,10 +514,31 @@ public interface BurstCrypto {
      * @param accountId The account ID
      * @param nonce The nonce
      * @param genSig The generation signature
+     * @param scoop The scoop
+     * @param pocVersion The PoC version. If unsure, use 2.
+     * @return The hit of that scoop
+     */
+    BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, int scoop, int pocVersion);
+
+    /**
+     * Calculate the hit (raw value obtained from a scoop)
+     * @param accountId The account ID
+     * @param nonce The nonce
+     * @param genSig The generation signature
      * @param scoopData The scoop data, usually read from a disk.
      * @return The hit of that scoop
      */
     BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData);
+
+    /**
+     * Calculate the hit (raw value obtained from a scoop)
+     * @param accountId The account ID
+     * @param nonce The nonce
+     * @param genSig The generation signature
+     * @param scoopData The scoop data, usually read from a disk.
+     * @return The hit of that scoop
+     */
+    BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, byte[] scoopData);
 
     /**
      * Calculate the deadline (hit / baseTarget)
@@ -522,6 +551,18 @@ public interface BurstCrypto {
      * @return The hit of that scoop
      */
     BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion);
+
+    /**
+     * Calculate the deadline (hit / baseTarget)
+     * @param accountId The account ID
+     * @param nonce The nonce
+     * @param genSig The generation signature
+     * @param scoop The scoop
+     * @param baseTarget The base target
+     * @param pocVersion The PoC version. If unsure, use 2.
+     * @return The hit of that scoop
+     */
+    BigInteger calculateDeadline(BurstAddress accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion);
 
     /**
      * Get a singleton instance of this class
