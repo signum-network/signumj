@@ -414,6 +414,15 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
-        return null;
+        return Single.fromCallable(() -> basicTransaction(senderPublicKey, BurstValue.ZERO, fee, deadline, Any.pack(BrsApi.ATCreationAttachment.newBuilder()
+                .setVersion(1)
+                .setName(name)
+                .setDescription(description)
+                .setCreationBytes(ByteString.copyFrom(creationBytes))
+                .build()))
+                .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 }
