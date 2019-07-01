@@ -1,9 +1,9 @@
 package burst.kit.crypto.plot.impl;
 
+import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.PlotCalculator;
 
 import java.math.BigInteger;
-import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.util.function.Supplier;
 
@@ -16,19 +16,19 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
 
     @Override
     public byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId) {
-        ByteBuffer gensigbuf = ByteBuffer.allocate(32 + 8);
-        gensigbuf.put(lastGenSig);
-        gensigbuf.putLong(lastGenId);
-        return shabal256Supplier.get().digest(gensigbuf.array());
+        MessageDigest shabal256 = shabal256Supplier.get();
+        shabal256.update(lastGenSig);
+        shabal256.update(BurstCrypto.getInstance().longToBytes(lastGenId));
+        return shabal256.digest();
     }
 
     @Override
     public int calculateScoop(byte[] genSig, long height) {
-        ByteBuffer posbuf = ByteBuffer.allocate(32 + 8);
-        posbuf.put(genSig);
-        posbuf.putLong(height);
-        BigInteger hashnum = new BigInteger(1, shabal256Supplier.get().digest(posbuf.array()));
-        return hashnum.mod(BigInteger.valueOf(MiningPlot.SCOOPS_PER_PLOT)).intValue();
+        MessageDigest shabal256 = shabal256Supplier.get();
+        shabal256.update(genSig);
+        shabal256.update(BurstCrypto.getInstance().longToBytes(height));
+        BigInteger hashnum = new BigInteger(1, shabal256.digest());
+        return hashnum.mod(MiningPlot.SCOOPS_PER_PLOT_BIGINT).intValue();
     }
 
     @Override
