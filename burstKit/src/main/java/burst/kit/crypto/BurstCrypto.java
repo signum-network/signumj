@@ -458,7 +458,28 @@ public interface BurstCrypto {
      * @param bytes The byte array
      * @return The long representation of the first 8 bytes
      */
-    long byteToLong(byte[] bytes);
+    long bytesToLong(byte[] bytes);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param bytes The byte array
+     * @return The int representation of the first 4 bytes
+     */
+    int bytesToInt(byte[] bytes);
+
+    /**
+     * Converts up to the first 8 bytes of a byte array to a long.
+     * @param l The long to be converted
+     * @return The long represented as an 8 long byte array.
+     */
+    byte[] longToBytes(long l);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param i The integer to be converted
+     * @return The int represented as a 4 long byte array.
+     */
+    byte[] intToBytes(int i);
 
     /**
      * Hex-encode a byte array

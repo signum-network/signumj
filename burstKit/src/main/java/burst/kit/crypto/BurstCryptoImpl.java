@@ -115,7 +115,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (hash == null || hash.length < 8) {
             throw new IllegalArgumentException("Invalid hash: " + Arrays.toString(hash));
         }
-        return BurstID.fromLong(byteToLong(hash));
+        return BurstID.fromLong(bytesToLong(hash));
     }
 
     @Override
@@ -268,11 +268,41 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public long byteToLong(byte[] bytes) {
+    public long bytesToLong(byte[] bytes) {
         long result = 0;
         for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
             result <<= 8;
             result |= (bytes[length-i] & 0xFF);
+        }
+        return result;
+    }
+
+    @Override
+    public int bytesToInt(byte[] bytes) {
+        int result = 0;
+        for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
+            result <<= 8;
+            result |= (bytes[length-i] & 0xFF);
+        }
+        return result;
+    }
+
+    @Override
+    public byte[] longToBytes(long l) {
+        byte[] result = new byte[8];
+        for (int i = 7; i >= 0; i--) {
+            result[i] = (byte)(l & 0xFF);
+            l >>= 8;
+        }
+        return result;
+    }
+
+    @Override
+    public byte[] intToBytes(int i) {
+        byte[] result = new byte[8];
+        for (int index = 3; index >= 0; index--) {
+            result[index] = (byte)(i & 0xFF);
+            i >>= 8;
         }
         return result;
     }
