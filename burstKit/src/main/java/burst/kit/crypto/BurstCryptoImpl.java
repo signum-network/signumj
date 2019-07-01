@@ -11,6 +11,7 @@ import burst.kit.crypto.rs.ReedSolomonImpl;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
+import burst.kit.entity.BurstValue;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.engines.AESEngine;
@@ -26,6 +27,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -340,5 +343,49 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     @Override
     public BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
         return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+    }
+
+    private void putLength(int nPages, int length, ByteBuffer buffer) {
+        if (nPages * 256 <= 256) {
+            buffer.put((byte) length);
+        } else if (nPages * 256 <= 32767) {
+            buffer.putShort((short) length);
+        } else {
+            buffer.putInt(length);
+        }
+    }
+
+    @Override
+    public byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, int dPages, int csPages, int usPages, BurstValue minActivationAmount) {
+        int cPages = (code.length / 256) + ((code.length % 256) != 0 ? 1 : 0);
+
+        if (dPages < 0 || csPages < 0 || usPages < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        long minActivationAmountPlanck = minActivationAmount.toPlanck().longValueExact();
+
+        int creationLength = 4; // version + reserved
+        creationLength += 8; // pages
+        creationLength += 8; // minActivationAmount
+        creationLength += cPages * 256 <= 256 ? 1 : (cPages * 256 <= 32767 ? 2 : 4); // code size
+        creationLength += code.length;
+        creationLength += dPages * 256 <= 256 ? 1 : (dPages * 256 <= 32767 ? 2 : 4); // data size
+        creationLength += data.length;
+
+        ByteBuffer creation = ByteBuffer.allocate(creationLength);
+        creation.order(ByteOrder.LITTLE_ENDIAN);
+        creation.putShort(atVersion);
+        creation.putShort((short) 0);
+        creation.putShort((short) cPages);
+        creation.putShort((short) dPages);
+        creation.putShort((short) csPages);
+        creation.putShort((short) usPages);
+        creation.putLong(minActivationAmountPlanck);
+        putLength(cPages, code.length, creation);
+        creation.put(code);
+        putLength(dPages, data.length, creation);
+        creation.put(data);
+        return creation.array();
     }
 }

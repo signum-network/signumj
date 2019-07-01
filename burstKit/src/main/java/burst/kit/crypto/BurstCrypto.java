@@ -3,6 +3,7 @@ package burst.kit.crypto;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
+import burst.kit.entity.BurstValue;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -584,6 +585,19 @@ public interface BurstCrypto {
      * @return The hit of that scoop
      */
     BigInteger calculateDeadline(BurstAddress accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion);
+
+    /**
+     * TODO javadoc
+     * @param atVersion
+     * @param code
+     * @param data
+     * @param dPages
+     * @param csPages
+     * @param usPages
+     * @param minActivationAmount
+     * @return
+     */
+    byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, int dPages, int csPages, int usPages, BurstValue minActivationAmount);
 
     /**
      * Get a singleton instance of this class

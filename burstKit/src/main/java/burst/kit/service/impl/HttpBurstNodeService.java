@@ -1,6 +1,5 @@
 package burst.kit.service.impl;
 
-import burst.kit.entity.response.Constants;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.entity.response.http.*;
@@ -306,8 +305,8 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount) {
-        return assign(blockchainService.createATProgram(Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), Hex.toHexString(code), Hex.toHexString(data), dpages, cspages, uspages, minActivationAmount.toPlanck().toString()))
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
+        return assign(blockchainService.createATProgram(Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null, null, 0, 0, 0, null))
                 .map(response -> {
                     if (response.getError() != null) throw new IllegalArgumentException(response.getError());
                     return response;

@@ -2,8 +2,8 @@ package burst.kit.service;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.service.impl.HttpBurstNodeService;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
+import burst.kit.service.impl.HttpBurstNodeService;
 import burst.kit.util.SchedulerAssigner;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -273,7 +273,7 @@ public interface BurstNodeService {
      * @param minActivationAmount The minimum activation amount for the AT
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount);
+    Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes);
 
     static BurstNodeService getInstance(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
         return new HttpBurstNodeService(nodeAddress, userAgent, schedulerAssigner);

@@ -371,7 +371,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     public Single<Long> submitNonce(String passphrase, String nonce, BurstID accountId) {
         return assign(() -> brsGrpc.submitNonce(BrsApi.SubmitNonceRequest.newBuilder()
                 .setSecretPhrase(passphrase)
-                .setAccount(accountId.getSignedLongId())
+                .setAccount(accountId == null ? 0 : accountId.getSignedLongId())
                 .setNonce(Long.parseUnsignedLong(nonce))
                 .build()))
                 .map(BrsApi.SubmitNonceResponse::getDeadline);
@@ -413,7 +413,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes, byte[] code, byte[] data, int dpages, int cspages, int uspages, BurstValue minActivationAmount) {
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
         return null;
     }
 }
