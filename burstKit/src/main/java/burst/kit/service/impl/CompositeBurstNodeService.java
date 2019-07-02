@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
@@ -23,29 +24,26 @@ public class CompositeBurstNodeService implements BurstNodeService {
         this.burstNodeServices = burstNodeServices;
     }
 
+    private <T, U> List<U> map(T[] ts, Function<T, U> mapper) {
+        return Arrays.stream(ts)
+            .map(mapper)
+            .collect(Collectors.toList());
+    }
+
     private <T> Single<T> performFastest(Function<BurstNodeService, Single<T>> function) {
-        return Single.amb(Arrays.stream(burstNodeServices)
-                .map(function)
-                .collect(Collectors.toList()));
+        return Single.amb(map(burstNodeServices, function));
     }
 
     private <T> Observable<T> performFastestObservable(Function<BurstNodeService, Observable<T>> function) {
-        return Observable.amb(Arrays.stream(burstNodeServices)
-                .map(function)
-                .collect(Collectors.toList()));
+        return Observable.amb(map(burstNodeServices, function));
     }
 
     private <T> Single<T> performOnOne(Function<BurstNodeService, Single<T>> function) {
-        Single<T> single = null;
-        for (BurstNodeService burstNodeService : burstNodeServices) {
-            Single<T> newSingle = function.apply(burstNodeService);
-            if (single == null) {
-                single = newSingle;
-            } else {
-                single = single.onErrorResumeNext(newSingle);
-            }
+        List<Single<T>> singles = map(burstNodeServices, function);
+        for (int i = singles.size() - 2; i >= 0; i--) {
+            singles.set(i, singles.get(i).onErrorResumeNext(singles.get(i+1)));
         }
-        return single;
+        return singles.get(0);
     }
 
     @Override
