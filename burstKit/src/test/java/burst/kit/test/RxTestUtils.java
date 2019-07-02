@@ -4,16 +4,11 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.observers.TestObserver;
 import io.reactivex.schedulers.Schedulers;
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
-import org.junit.matchers.JUnitMatchers;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import static com.google.common.collect.Range.greaterThan;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class RxTestUtils {
@@ -31,6 +26,9 @@ public class RxTestUtils {
 
     public static <T> List<T> testObservable(Observable<T> observable, int awaitCount) {
         assertNotNull(observable);
+        if (awaitCount == 1) {
+            return Collections.singletonList(testSingle(observable.firstOrError()));
+        }
         // If you don't do this it blocks trying to do the operation and therefore can't observe the results
         observable = observable.subscribeOn(Schedulers.io());
         TestObserver<T> observer = observable.test();

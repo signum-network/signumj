@@ -11,6 +11,7 @@ import io.reactivex.disposables.Disposable;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -42,15 +43,20 @@ public class CompositeBurstNodeService implements BurstNodeService {
         });
     }
 
-    private synchronized <T> void doIfUsedObservable(ObservableEmitter<T> emitter, AtomicInteger usedObservable, List<Disposable> disposables, int myI, Runnable runnable) {
+    private synchronized <T> void doIfUsedObservable(ObservableEmitter<T> emitter, AtomicInteger usedObservable, AtomicReferenceArray<Disposable> disposables, int myI, Runnable runnable) {
         int used = usedObservable.get();
         if (used == -1) {
             // We are the first!
             usedObservable.set(myI);
             runnable.run();
             // Kill all of the others.
-            Disposable myDisposable = disposables.remove(myI);
-            emitter.setCancellable(myDisposable::dispose); // Calling this calls the previous one, so all of the others get disposed.
+            Disposable myDisposable = disposables.get(myI);
+            disposables.set(myI, null);
+            emitter.setCancellable(() -> {
+                if (myDisposable != null) {
+                    myDisposable.dispose();
+                }
+            }); // Calling this calls the previous one, so all of the others get disposed.
         } else if (used == myI) {
             // We are the used observable.
             runnable.run();
@@ -61,18 +67,21 @@ public class CompositeBurstNodeService implements BurstNodeService {
         return Observable.create(emitter -> {
             AtomicInteger usedObservable = new AtomicInteger(-1);
             AtomicInteger errorCount = new AtomicInteger(0);
-            List<Disposable> disposables = new ArrayList<>();
-            emitter.setCancellable(() -> disposables.forEach(Disposable::dispose));
+            AtomicReferenceArray<Disposable> disposables = new AtomicReferenceArray<>(observables.size());
+            emitter.setCancellable(() -> {
+                for (int i = 0; i < disposables.length(); i++) {
+                    Disposable disposable = disposables.get(i);
+                    if (disposable != null) disposable.dispose();
+                }
+            });
             for (int i = 0; i < observables.size(); i++) {
                 final int myI = i;
                 Observable<T> observable = observables.get(i);
                 disposables.set(myI, observable.subscribe(t -> doIfUsedObservable(emitter, usedObservable, disposables, myI, () -> emitter.onNext(t)),
                         error -> {
                             synchronized (errorCount) {
-                                if (errorCount.getAndIncrement() == observables.size()) { // Every single has errored
+                                if (errorCount.incrementAndGet() == observables.size() || usedObservable.get() == myI) { // Every single has errored
                                     emitter.onError(error);
-                                } else {
-                                    doIfUsedObservable(emitter, usedObservable, disposables, myI, () -> emitter.onError(error));
                                 }
                             }
                         },
@@ -83,8 +92,8 @@ public class CompositeBurstNodeService implements BurstNodeService {
 
     private <T, U> List<U> map(T[] ts, Function<T, U> mapper) {
         return Arrays.stream(ts)
-            .map(mapper)
-            .collect(Collectors.toList());
+                .map(mapper)
+                .collect(Collectors.toList());
     }
 
     private <T> Single<T> performFastest(Function<BurstNodeService, Single<T>> function) {
@@ -92,7 +101,7 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     private <T> Observable<T> performFastestObservable(Function<BurstNodeService, Observable<T>> function) {
-        return Observable.amb(map(burstNodeServices, function));
+        return compositeObservable(map(burstNodeServices, function));
     }
 
     private <T> Single<T> performOnOne(Function<BurstNodeService, Single<T>> function) {
