@@ -30,6 +30,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     private final SchedulerAssigner schedulerAssigner;
 
     public GrpcBurstNodeService(String nodeAddress, SchedulerAssigner schedulerAssigner) {
+        if (nodeAddress.startsWith("grpc://")) nodeAddress = nodeAddress.substring(7);
         this.schedulerAssigner = schedulerAssigner;
         // TODO don't use plaintext
         this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());

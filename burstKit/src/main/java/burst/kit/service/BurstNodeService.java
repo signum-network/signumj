@@ -2,12 +2,14 @@ package burst.kit.service;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
+import burst.kit.service.impl.CompositeBurstNodeService;
 import burst.kit.service.impl.DefaultSchedulerAssigner;
+import burst.kit.service.impl.GrpcBurstNodeService;
 import burst.kit.service.impl.HttpBurstNodeService;
-import burst.kit.util.SchedulerAssigner;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
@@ -266,28 +268,29 @@ public interface BurstNodeService {
      * @param name The name of the AT
      * @param description The description of the AT
      * @param creationBytes The creation bytes of the AT (if pre-calculated and not using the following fields)
-     * @param code The AT code
-     * @param dpages The AT data
-     * @param cspages Number of CS pages
-     * @param uspages Number of US pages
-     * @param minActivationAmount The minimum activation amount for the AT
      * @return The unsigned transaction bytes, wrapped in a single
      */
     Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes);
 
-    static BurstNodeService getInstance(String nodeAddress, String userAgent, SchedulerAssigner schedulerAssigner) {
-        return new HttpBurstNodeService(nodeAddress, userAgent, schedulerAssigner);
-    }
-
-    static BurstNodeService getInstance(String nodeAddress, String userAgent) {
-        return new HttpBurstNodeService(nodeAddress, userAgent, new DefaultSchedulerAssigner());
-    }
-
-    static BurstNodeService getInstance(String nodeAddress, SchedulerAssigner schedulerAssigner) {
-        return new HttpBurstNodeService(nodeAddress, null, schedulerAssigner);
-    }
-
     static BurstNodeService getInstance(String nodeAddress) {
-        return new HttpBurstNodeService(nodeAddress, null, new DefaultSchedulerAssigner());
+        return getInstance(nodeAddress, null);
+    }
+
+    static BurstNodeService getInstance(String nodeAddress, String httpUserAgent) {
+        if (nodeAddress.startsWith("grpc://")) {
+            return new GrpcBurstNodeService(nodeAddress, new DefaultSchedulerAssigner());
+        } else {
+            return new HttpBurstNodeService(nodeAddress, httpUserAgent, new DefaultSchedulerAssigner());
+        }
+    }
+
+    static BurstNodeService getCompositeInstance(String... nodeAddresses) {
+        return getCompositeInstanceWithUserAgent(null, nodeAddresses);
+    }
+
+    static BurstNodeService getCompositeInstanceWithUserAgent(String httpUserAgent, String... nodeAddresses) {
+        return new CompositeBurstNodeService(Arrays.stream(nodeAddresses)
+                .map(nodeAddress -> getInstance(nodeAddress, httpUserAgent))
+                .toArray(BurstNodeService[]::new));
     }
 }
