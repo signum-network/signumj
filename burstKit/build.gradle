@@ -22,7 +22,7 @@ dependencies {
     // gRPC
     implementation "io.grpc:grpc-protobuf:${grpcVersion}"
     implementation "io.grpc:grpc-stub:${grpcVersion}"
-    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+    implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
 
     // Bouncy Castle
     implementation 'org.bouncycastle:bcprov-jdk15on:1.62'
