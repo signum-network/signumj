@@ -4,12 +4,13 @@ import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstNodeService;
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
 import io.reactivex.Single;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -19,9 +20,65 @@ public class CompositeBurstNodeService implements BurstNodeService {
     /**
      * @param burstNodeServices The burst node services this will wrap, in order of priority
      */
-    public CompositeBurstNodeService(BurstNodeService[] burstNodeServices) {
+    public CompositeBurstNodeService(BurstNodeService... burstNodeServices) {
         if (burstNodeServices == null || burstNodeServices.length == 0) throw new IllegalArgumentException("No Burst Node Services Provided");
         this.burstNodeServices = burstNodeServices;
+    }
+
+    private <T> Single<T> compositeSingle(Collection<Single<T>> singles) {
+        return Single.create(emitter -> {
+            AtomicInteger errorCount = new AtomicInteger(0);
+            CompositeDisposable compositeDisposable = new CompositeDisposable();
+            emitter.setCancellable(compositeDisposable::dispose);
+            for (Single<T> single : singles) {
+                compositeDisposable.add(single.subscribe(emitter::onSuccess, error -> {
+                    synchronized (errorCount) {
+                        if (errorCount.incrementAndGet() == singles.size()) { // Every single has errored
+                            emitter.onError(error);
+                        }
+                    }
+                }));
+            }
+        });
+    }
+
+    private synchronized <T> void doIfUsedObservable(ObservableEmitter<T> emitter, AtomicInteger usedObservable, List<Disposable> disposables, int myI, Runnable runnable) {
+        int used = usedObservable.get();
+        if (used == -1) {
+            // We are the first!
+            usedObservable.set(myI);
+            runnable.run();
+            // Kill all of the others.
+            Disposable myDisposable = disposables.remove(myI);
+            emitter.setCancellable(myDisposable::dispose); // Calling this calls the previous one, so all of the others get disposed.
+        } else if (used == myI) {
+            // We are the used observable.
+            runnable.run();
+        }
+    }
+
+    private <T> Observable<T> compositeObservable(List<Observable<T>> observables) {
+        return Observable.create(emitter -> {
+            AtomicInteger usedObservable = new AtomicInteger(-1);
+            AtomicInteger errorCount = new AtomicInteger(0);
+            List<Disposable> disposables = new ArrayList<>();
+            emitter.setCancellable(() -> disposables.forEach(Disposable::dispose));
+            for (int i = 0; i < observables.size(); i++) {
+                final int myI = i;
+                Observable<T> observable = observables.get(i);
+                disposables.set(myI, observable.subscribe(t -> doIfUsedObservable(emitter, usedObservable, disposables, myI, () -> emitter.onNext(t)),
+                        error -> {
+                            synchronized (errorCount) {
+                                if (errorCount.getAndIncrement() == observables.size()) { // Every single has errored
+                                    emitter.onError(error);
+                                } else {
+                                    doIfUsedObservable(emitter, usedObservable, disposables, myI, () -> emitter.onError(error));
+                                }
+                            }
+                        },
+                        () -> doIfUsedObservable(emitter, usedObservable, disposables, myI, emitter::onComplete)));
+            }
+        });
     }
 
     private <T, U> List<U> map(T[] ts, Function<T, U> mapper) {
@@ -31,7 +88,7 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     private <T> Single<T> performFastest(Function<BurstNodeService, Single<T>> function) {
-        return Single.amb(map(burstNodeServices, function));
+        return compositeSingle(map(burstNodeServices, function));
     }
 
     private <T> Observable<T> performFastestObservable(Function<BurstNodeService, Observable<T>> function) {

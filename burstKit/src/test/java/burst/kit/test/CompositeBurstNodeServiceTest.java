@@ -8,14 +8,12 @@ import burst.kit.service.impl.HttpBurstNodeService;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.Arrays;
-
 @RunWith(JUnit4.class)
 public class CompositeBurstNodeServiceTest extends BurstNodeServiceTest {
     @Override
     protected BurstNodeService getBurstNodeService() {
         BurstNodeService http = new HttpBurstNodeService("https://wallet.burst-alliance.org:8125", "burstkit4j-TEST", new DefaultSchedulerAssigner());
         BurstNodeService grpc = new GrpcBurstNodeService("localhost:6878", new DefaultSchedulerAssigner());
-        return new CompositeBurstNodeService(Arrays.asList(http, grpc));
+        return new CompositeBurstNodeService(http, grpc);
     }
 }
