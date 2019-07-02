@@ -6,38 +6,46 @@ import burst.kit.service.BurstNodeService;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class CompositeBurstNodeService implements BurstNodeService {
-    private final Collection<BurstNodeService> burstNodeServices;
+    private final BurstNodeService[] burstNodeServices;
 
-    public CompositeBurstNodeService(Collection<BurstNodeService> burstNodeServices) {
-        if (burstNodeServices.isEmpty()) throw new IllegalArgumentException("No Burst Node Services Provided");
+    /**
+     * @param burstNodeServices The burst node services this will wrap, in order of priority
+     */
+    public CompositeBurstNodeService(BurstNodeService[] burstNodeServices) {
+        if (burstNodeServices == null || burstNodeServices.length == 0) throw new IllegalArgumentException("No Burst Node Services Provided");
         this.burstNodeServices = burstNodeServices;
     }
 
     private <T> Single<T> performFastest(Function<BurstNodeService, Single<T>> function) {
+        return Single.amb(Arrays.stream(burstNodeServices)
+                .map(function)
+                .collect(Collectors.toList()));
+    }
+
+    private <T> Observable<T> performFastestObservable(Function<BurstNodeService, Observable<T>> function) {
+        return Observable.amb(Arrays.stream(burstNodeServices)
+                .map(function)
+                .collect(Collectors.toList()));
+    }
+
+    private <T> Single<T> performOnOne(Function<BurstNodeService, Single<T>> function) {
         Single<T> single = null;
         for (BurstNodeService burstNodeService : burstNodeServices) {
             Single<T> newSingle = function.apply(burstNodeService);
             if (single == null) {
                 single = newSingle;
             } else {
-                single = single.ambWith(newSingle);
+                single = single.onErrorResumeNext(newSingle);
             }
         }
         return single;
-    }
-
-    private <T> Observable<T> performFastestObservable(Function<BurstNodeService, Observable<T>> function) {
-        return null; // TODO
-    }
-
-    private <T> Single<T> performOnOne(Function<BurstNodeService, Single<T>> function) { // TODO remember failover! Do we have one priority node or what?
-        return null; // TODO
     }
 
     @Override
