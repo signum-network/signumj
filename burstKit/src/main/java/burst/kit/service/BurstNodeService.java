@@ -3,7 +3,6 @@ package burst.kit.service;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.impl.CompositeBurstNodeService;
-import burst.kit.service.impl.DefaultSchedulerAssigner;
 import burst.kit.service.impl.GrpcBurstNodeService;
 import burst.kit.service.impl.HttpBurstNodeService;
 import io.reactivex.Observable;
@@ -278,9 +277,9 @@ public interface BurstNodeService {
 
     static BurstNodeService getInstance(String nodeAddress, String httpUserAgent) {
         if (nodeAddress.startsWith("grpc://")) {
-            return new GrpcBurstNodeService(nodeAddress, new DefaultSchedulerAssigner());
+            return new GrpcBurstNodeService(nodeAddress);
         } else {
-            return new HttpBurstNodeService(nodeAddress, httpUserAgent, new DefaultSchedulerAssigner());
+            return new HttpBurstNodeService(nodeAddress, httpUserAgent);
         }
     }
 

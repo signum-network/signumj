@@ -6,7 +6,6 @@ import burst.kit.entity.response.http.*;
 import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.util.BurstKitUtils;
-import burst.kit.util.SchedulerAssigner;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
@@ -28,13 +27,9 @@ import java.util.stream.Collectors;
 
 public final class HttpBurstNodeService implements BurstNodeService {
 
-    private final SchedulerAssigner schedulerAssigner;
-
     private BlockchainService blockchainService;
 
-    public HttpBurstNodeService(String nodeAddress, String providedUserAgent, SchedulerAssigner schedulerAssigner) {
-        this.schedulerAssigner = schedulerAssigner;
-
+    public HttpBurstNodeService(String nodeAddress, String providedUserAgent) {
         String userAgent = providedUserAgent == null ? "burstkit4j/"+ burst.kit.Constants.VERSION : providedUserAgent;
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -54,11 +49,12 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
     
     private <T> Single<T> assign(Single<T> source) {
-        return schedulerAssigner.assignSchedulers(source.map(this::checkBrsResponse));
+        return source.map(this::checkBrsResponse)
+                .subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
     }
 
     private <T> Observable<T> assign(Observable<T> source) {
-        return schedulerAssigner.assignSchedulers(source);
+        return source.subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
     }
 
     private <T> T checkBrsResponse(T source) throws BRSError {

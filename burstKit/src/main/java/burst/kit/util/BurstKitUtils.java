@@ -1,9 +1,10 @@
 package burst.kit.util;
 
-import burst.kit.entity.*;
 import burst.kit.entity.response.http.attachment.MultiOutAttachmentResponse;
 import burst.kit.entity.response.http.attachment.TransactionAttachmentAndAppendagesResponse;
 import com.google.gson.GsonBuilder;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 
 @SuppressWarnings("WeakerAccess")
 public final class BurstKitUtils {
@@ -15,6 +16,10 @@ public final class BurstKitUtils {
                 .registerTypeAdapter(MultiOutAttachmentResponse.MultiOutRecipient.class, MultiOutAttachmentResponse.MultiOutRecipient.SERIALIZER)
                 .registerTypeAdapter(MultiOutAttachmentResponse.MultiOutRecipient.class, MultiOutAttachmentResponse.MultiOutRecipient.DESERIALIZER)
                 ;
+    }
+
+    public static Scheduler defaultBurstNodeServiceScheduler() {
+        return Schedulers.io();
     }
 
     public static GsonBuilder buildGson() {

@@ -7,7 +7,7 @@ import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
 import burst.kit.service.impl.grpc.BrsApiServiceGrpc;
-import burst.kit.util.SchedulerAssigner;
+import burst.kit.util.BurstKitUtils;
 import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Empty;
@@ -27,11 +27,9 @@ import java.util.concurrent.Callable;
 public class GrpcBurstNodeService implements BurstNodeService {
 
     private final BrsApiServiceGrpc.BrsApiServiceBlockingStub brsGrpc;
-    private final SchedulerAssigner schedulerAssigner;
 
-    public GrpcBurstNodeService(String nodeAddress, SchedulerAssigner schedulerAssigner) {
+    public GrpcBurstNodeService(String nodeAddress) {
         if (nodeAddress.startsWith("grpc://")) nodeAddress = nodeAddress.substring(7);
-        this.schedulerAssigner = schedulerAssigner;
         // TODO don't use plaintext
         this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());
     }
@@ -59,7 +57,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     private <T> Single<T> assign(Single<T> single) {
-        return schedulerAssigner.assignSchedulers(single);
+        return single.subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
     }
 
     private final BrsApi.GetAccountRequest getAccountRequestFromId(BurstAddress id) {

@@ -3,9 +3,11 @@ package burst.kit.service.impl;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstNodeService;
+import burst.kit.util.BurstKitUtils;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -27,7 +29,7 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     private <T> Single<T> compositeSingle(Collection<Single<T>> singles) {
-        return Single.create(emitter -> {
+        return Single.create((SingleEmitter<T> emitter) -> {
             AtomicInteger errorCount = new AtomicInteger(0);
             CompositeDisposable compositeDisposable = new CompositeDisposable();
             emitter.setCancellable(compositeDisposable::dispose);
@@ -40,7 +42,8 @@ public class CompositeBurstNodeService implements BurstNodeService {
                     }
                 }));
             }
-        });
+        })
+                .subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
     }
 
     private synchronized <T> void doIfUsedObservable(ObservableEmitter<T> emitter, AtomicInteger usedObservable, AtomicReferenceArray<Disposable> disposables, int myI, Runnable runnable) {
@@ -64,7 +67,7 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     private <T> Observable<T> compositeObservable(List<Observable<T>> observables) {
-        return Observable.create(emitter -> {
+        return Observable.create((ObservableEmitter<T> emitter) -> {
             AtomicInteger usedObservable = new AtomicInteger(-1);
             AtomicInteger errorCount = new AtomicInteger(0);
             AtomicReferenceArray<Disposable> disposables = new AtomicReferenceArray<>(observables.size());
@@ -87,7 +90,8 @@ public class CompositeBurstNodeService implements BurstNodeService {
                         },
                         () -> doIfUsedObservable(emitter, usedObservable, disposables, myI, emitter::onComplete)));
             }
-        });
+        })
+                .subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
     }
 
     private <T, U> List<U> map(T[] ts, Function<T, U> mapper) {
