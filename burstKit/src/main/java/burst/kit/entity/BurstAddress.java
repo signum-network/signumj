@@ -1,9 +1,7 @@
 package burst.kit.entity;
 
 import burst.kit.crypto.BurstCrypto;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializer;
+import burst.kit.util.BurstKitUtils;
 
 import java.util.Objects;
 
@@ -52,7 +50,7 @@ public final class BurstAddress {
     }
 
     public static BurstAddress fromRs(String RS) throws IllegalArgumentException {
-        if (RS.startsWith("BURST-")) {
+        if (RS.startsWith(BurstKitUtils.getAddressPrefix()+"-")) {
             RS = RS.substring(6);
         }
         return new BurstAddress(BurstCrypto.getInstance().rsDecode(RS));
@@ -112,7 +110,7 @@ public final class BurstAddress {
         if (address == null || address.length() == 0) {
             return "";
         } else {
-            return "BURST-" + address;
+            return BurstKitUtils.getAddressPrefix() +  "-" + address;
         }
     }
 

@@ -1,9 +1,10 @@
 package burst.kit.entity;
 
+import burst.kit.util.BurstKitUtils;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
-import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 public final class BurstValue implements Comparable<BurstValue> {
@@ -52,7 +53,7 @@ public final class BurstValue implements Comparable<BurstValue> {
      */
     public static BurstValue fromBurst(String burst) {
         if (burst == null) return ZERO;
-        if (burst.toLowerCase(Locale.ENGLISH).endsWith(" burst")) {
+        if (burst.toLowerCase(Locale.ENGLISH).endsWith(" " + BurstKitUtils.getValueSuffix().toLowerCase(Locale.ENGLISH))) {
             burst = burst.substring(0, burst.length() - 6);
         }
         try {
@@ -92,7 +93,7 @@ public final class BurstValue implements Comparable<BurstValue> {
      * @return The value with the "BURST" suffix and rounded to 3 decimal places
      */
     public String toFormattedString() {
-        return roundToThreeDP(toBurst()).toPlainString() + " BURST";
+        return roundToThreeDP(toBurst()).toPlainString() + " " + BurstKitUtils.getValueSuffix();
     }
 
     /**

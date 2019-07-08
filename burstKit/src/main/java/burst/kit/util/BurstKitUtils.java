@@ -6,8 +6,14 @@ import com.google.gson.GsonBuilder;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 @SuppressWarnings("WeakerAccess")
 public final class BurstKitUtils {
+    private static final AtomicReference<String> endpoint = new AtomicReference<>("burst");
+    private static final AtomicReference<String> addressPrefix = new AtomicReference<>("BURST");
+    private static final AtomicReference<String> valueSuffix = new AtomicReference<>("BURST");
+
     public static GsonBuilder buildGson(GsonBuilder builder) {
         return builder
                 // Response entities
@@ -16,6 +22,36 @@ public final class BurstKitUtils {
                 .registerTypeAdapter(MultiOutAttachmentResponse.MultiOutRecipient.class, MultiOutAttachmentResponse.MultiOutRecipient.SERIALIZER)
                 .registerTypeAdapter(MultiOutAttachmentResponse.MultiOutRecipient.class, MultiOutAttachmentResponse.MultiOutRecipient.DESERIALIZER)
                 ;
+    }
+
+    public static String getEndpoint() {
+        return endpoint.get();
+    }
+
+    public static void setEndpoint(String newEndpoint) {
+        if (newEndpoint != null) {
+            endpoint.set(newEndpoint);
+        }
+    }
+
+    public static String getAddressPrefix() {
+        return addressPrefix.get();
+    }
+
+    public static void setAddressPrefix(String newAddressPrefix) {
+        if (newAddressPrefix != null) {
+            addressPrefix.set(newAddressPrefix);
+        }
+    }
+
+    public static String getValueSuffix() {
+        return valueSuffix.get();
+    }
+
+    public static void setValueSuffix(String newValueSuffix) {
+        if (newValueSuffix != null) {
+            valueSuffix.set(newValueSuffix);
+        }
     }
 
     public static Scheduler defaultBurstNodeServiceScheduler() {
