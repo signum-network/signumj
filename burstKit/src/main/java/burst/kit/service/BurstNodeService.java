@@ -288,6 +288,7 @@ public interface BurstNodeService {
     }
 
     static BurstNodeService getCompositeInstanceWithUserAgent(String httpUserAgent, String... nodeAddresses) {
+        if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], httpUserAgent);
         return new CompositeBurstNodeService(Arrays.stream(nodeAddresses)
                 .map(nodeAddress -> getInstance(nodeAddress, httpUserAgent))
                 .toArray(BurstNodeService[]::new));
