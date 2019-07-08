@@ -4,14 +4,12 @@ import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.BurstNodeService;
 import burst.kit.util.BurstKitUtils;
-import com.google.gson.Gson;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -39,21 +37,13 @@ public class CompositeBurstNodeService implements BurstNodeService {
                 compositeDisposable.add(single.subscribe(emitter::onSuccess, error -> {
                     synchronized (errorCount) {
                         if (errorCount.incrementAndGet() == singles.size()) { // Every single has errored
-                            emitter.onError(error);
+                            emitter.tryOnError(error);
                         }
                     }
                 }));
             }
         })
                 .subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        BurstNodeService nodeService = BurstNodeService.getInstance("grpc://localhost:6878", "http://localhost:6876");
-        nodeService.getMiningInfo()
-                .subscribeOn(Schedulers.io())
-                .subscribe(a -> System.out.println(new Gson().toJson(a)), Throwable::printStackTrace, () -> System.out.println("Complete"));
-        Thread.sleep(100000000);
     }
 
     private synchronized <T> void doIfUsedObservable(ObservableEmitter<T> emitter, AtomicInteger usedObservable, AtomicReferenceArray<Disposable> disposables, int myI, Runnable runnable) {
@@ -94,7 +84,7 @@ public class CompositeBurstNodeService implements BurstNodeService {
                         error -> {
                             synchronized (errorCount) {
                                 if (errorCount.incrementAndGet() == observables.size() || usedObservable.get() == myI) { // Every single has errored
-                                    emitter.onError(error);
+                                    emitter.tryOnError(error);
                                 }
                             }
                         },
