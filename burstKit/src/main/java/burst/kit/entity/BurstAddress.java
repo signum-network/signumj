@@ -50,8 +50,9 @@ public final class BurstAddress {
     }
 
     public static BurstAddress fromRs(String RS) throws IllegalArgumentException {
-        if (RS.startsWith(BurstKitUtils.getAddressPrefix()+"-")) {
-            RS = RS.substring(6);
+        String addressPrefix = BurstKitUtils.getAddressPrefix();
+        if (RS.startsWith(addressPrefix+"-")) {
+            RS = RS.substring(addressPrefix.length() + 1);
         }
         return new BurstAddress(BurstCrypto.getInstance().rsDecode(RS));
     }
