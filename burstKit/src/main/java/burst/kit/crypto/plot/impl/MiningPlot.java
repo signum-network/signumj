@@ -6,21 +6,21 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.function.Supplier;
 
-class MiningPlot {
-    private static final int HASH_SIZE = 32;
-    private static final int HASHES_PER_SCOOP = 2;
-    private static final int SCOOP_SIZE = HASHES_PER_SCOOP * HASH_SIZE;
-    private static final int SCOOPS_PER_PLOT = 4096;
-    static final BigInteger SCOOPS_PER_PLOT_BIGINT = BigInteger.valueOf(SCOOPS_PER_PLOT);
-    private static final int PLOT_SIZE = SCOOPS_PER_PLOT * SCOOP_SIZE;
-    private static final int BASE_LENGTH = 16;
-    private static final int PLOT_TOTAL_SIZE = PLOT_SIZE + BASE_LENGTH;
+public class MiningPlot {
+    public static final int HASH_SIZE = 32;
+    public static final int HASHES_PER_SCOOP = 2;
+    public static final int SCOOP_SIZE = HASHES_PER_SCOOP * HASH_SIZE;
+    public static final int SCOOPS_PER_PLOT = 4096;
+    public static final BigInteger SCOOPS_PER_PLOT_BIGINT = BigInteger.valueOf(SCOOPS_PER_PLOT);
+    public static final int PLOT_SIZE = SCOOPS_PER_PLOT * SCOOP_SIZE;
+    public static final int BASE_LENGTH = 16;
+    public static final int PLOT_TOTAL_SIZE = PLOT_SIZE + BASE_LENGTH;
 
     private static final int HASH_CAP = 4096;
 
     private final byte[] data = new byte[PLOT_TOTAL_SIZE];
 
-    MiningPlot(Supplier<MessageDigest> shabal256Supplier, long addr, long nonce, int pocVersion) {
+    public MiningPlot(Supplier<MessageDigest> shabal256Supplier, long addr, long nonce, int pocVersion) {
         System.arraycopy(BurstCrypto.getInstance().longToBytes(addr), 0, data, PLOT_SIZE, 8);
         System.arraycopy(BurstCrypto.getInstance().longToBytes(nonce), 0, data, PLOT_SIZE + 8, 8);
         MessageDigest shabal256 = shabal256Supplier.get();
@@ -52,7 +52,7 @@ class MiningPlot {
         }
     }
 
-    void hashScoop(MessageDigest shabal256, int pos) {
+    public void hashScoop(MessageDigest shabal256, int pos) {
         shabal256.update(data, pos * SCOOP_SIZE, SCOOP_SIZE);
     }
 }
