@@ -4,6 +4,7 @@ import burst.kit.crypto.BurstCrypto;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 public class MiningPlot {
@@ -50,6 +51,10 @@ public class MiningPlot {
                 revPos -= 64; // move backwards
             }
         }
+    }
+
+    public byte[] getScoop(int pos) {
+        return Arrays.copyOfRange(data, pos * SCOOP_SIZE, (pos + 1) * SCOOP_SIZE);
     }
 
     public void hashScoop(MessageDigest shabal256, int pos) {
