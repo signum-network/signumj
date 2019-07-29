@@ -37,12 +37,12 @@ import java.util.List;
  * @author    Thomas Pornin &lt;thomas.pornin@cryptolog.com&gt;
  */
 
-public class Shabal256 extends MessageDigest {
+public class Shabal256 extends MessageDigest implements Cloneable {
 
     public static final String ALGORITHM = "Shabal-256";
     public static final List<String> ALIASES = Arrays.asList("SHABAL-256", "shabal-256", "Shabal256", "SHABAL256", "shabal256", "Shabal", "SHABAL", "shabal");
 
-    private static int[] IV;
+    private static final int[] IV = new int[]{1392002386, -448038503, 764339180, -1184607855, -536376442, -1149483831, -759840310, -1328354420, 349067845, 581914844, -268583829, -350111926, -1252669714, 1047594390, -1490393809, -1828630177, -634863110, 1768937576, -1665745038, 184434690, -1495255531, 1362674132, -1105108218, -1282701168, 1051244907, 848932068, 814894548, 1439380645, -1274679247, -1004323142, -1284294279, -1059218091, -988010322, -1557677855, 1455776103, -312392653, -2001363616, 1625476794, 1972063115, -2081936769, -1130985432, -421524489, -1165779371, -1689707424};
 
     private final byte[] buf = new byte[64];
     private int ptr;
@@ -61,7 +61,7 @@ public class Shabal256 extends MessageDigest {
 
     @Override
     protected void engineReset() {
-        System.arraycopy(getIV(), 0, state, 0, 44);
+        System.arraycopy(IV, 0, state, 0, 44);
         W = 1;
         ptr = 0;
     }
@@ -125,6 +125,9 @@ public class Shabal256 extends MessageDigest {
         return out;
     }
 
+    /**
+     * This function is unused and exists only as a demonstration of how the IV is calculated.
+     */
     private static int[] getIV() {
         if (IV == null) {
             Shabal256 sg = new Shabal256(false);
@@ -167,7 +170,7 @@ public class Shabal256 extends MessageDigest {
             sg.buf[60] = 31;
 
             sg.core1(sg.buf);
-            IV = new int[sg.state.length];
+            int[] IV = new int[sg.state.length];
             System.arraycopy(sg.state, 0, IV, 0, IV.length);
         }
         return IV;
@@ -181,10 +184,6 @@ public class Shabal256 extends MessageDigest {
         System.arraycopy(state, 0, d.state, 0, 44);
         d.W = W;
         return d;
-    }
-
-    public int getBlockLength() {
-        return 64;
     }
 
     private static int decodeLEInt(byte[] data, int off) {
