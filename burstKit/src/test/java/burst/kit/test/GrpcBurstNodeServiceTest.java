@@ -9,6 +9,6 @@ import org.junit.runners.JUnit4;
 public class GrpcBurstNodeServiceTest extends BurstNodeServiceTest {
     @Override
     protected BurstNodeService getBurstNodeService() {
-        return new GrpcBurstNodeService("localhost:6878");
+        return new GrpcBurstNodeService("grpc://wallet.burst-alliance.org:8121");
     }
 }
