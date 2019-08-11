@@ -1,7 +1,6 @@
 package burst.kit.entity.response.http.attachment;
 
 import burst.kit.entity.BurstAddress;
-import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.TransactionAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
@@ -66,7 +65,7 @@ public final class MultiOutAttachmentResponse extends TransactionAttachmentRespo
         }
 
         public BurstValue getAmount() {
-            return BurstValue.fromPlanck(recipient);
+            return BurstValue.fromPlanck(amount);
         }
     }
 }
