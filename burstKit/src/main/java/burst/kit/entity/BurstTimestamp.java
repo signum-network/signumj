@@ -1,9 +1,6 @@
 package burst.kit.entity;
 
 import burst.kit.crypto.BurstCrypto;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializer;
 
 import java.time.Instant;
 import java.util.Date;
@@ -14,11 +11,33 @@ public final class BurstTimestamp {
     private final Date date;
 
     /**
-     * @param timestamp The burst timestamp (number of seconds since Burst epoch)
+     * @param timestamp The Burst Epoch Time (number of seconds since Burst epoch)
      */
-    public BurstTimestamp(int timestamp) {
+    private BurstTimestamp(int timestamp) {
         this.timestamp = timestamp;
         this.date = BurstCrypto.getInstance().fromEpochTime(timestamp);
+    }
+
+    /**
+     * @param date The Java Date object to be represented
+     */
+    private BurstTimestamp(Date date) {
+        this.timestamp = BurstCrypto.getInstance().toEpochTime(date);
+        this.date = date;
+    }
+
+    /**
+     * @param secondsSinceEpoch The Burst Epoch Time (number of seconds since Burst epoch)
+     */
+    public static BurstTimestamp fromBurstTimestamp(int secondsSinceEpoch) {
+        return new BurstTimestamp(secondsSinceEpoch);
+    }
+
+    /**
+     * @param date The Java Date object to be represented
+     */
+    public static BurstTimestamp fromDate(Date date) {
+        return new BurstTimestamp(date);
     }
 
     /**

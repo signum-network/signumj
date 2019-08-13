@@ -452,7 +452,9 @@ public interface BurstCrypto {
      * @param epochTime The number of seconds since the Burst epoch
      * @return The timestamp
      */
-    Date fromEpochTime(long epochTime);
+    Date fromEpochTime(int epochTime);
+
+    int toEpochTime(Date date);
 
     /**
      * Converts up to the first 8 bytes of a byte array to a long.

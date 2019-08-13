@@ -70,8 +70,8 @@ public class Transaction {
         this.blockId = BurstID.fromLong(transactionResponse.getBlock());
         this.ecBlockId = BurstID.fromLong(transactionResponse.getEcBlockId());
         this.id = BurstID.fromLong(transactionResponse.getTransaction());
-        this.blockTimestamp = new BurstTimestamp(transactionResponse.getBlockTimestamp());
-        this.timestamp = new BurstTimestamp(transactionResponse.getTimestamp());
+        this.blockTimestamp = BurstTimestamp.fromBurstTimestamp(transactionResponse.getBlockTimestamp());
+        this.timestamp = BurstTimestamp.fromBurstTimestamp(transactionResponse.getTimestamp());
         this.amount = BurstValue.fromPlanck(transactionResponse.getAmountNQT());
         this.fee = BurstValue.fromPlanck(transactionResponse.getFeeNQT());
         this.fullHash = Hex.decode(transactionResponse.getFullHash());
@@ -100,8 +100,8 @@ public class Transaction {
         this.blockId = BurstID.fromLong(transaction.getBlock());
         this.ecBlockId = BurstID.fromLong(basicTransaction.getEcBlockId());
         this.id = BurstID.fromLong(transaction.getId());
-        this.blockTimestamp = new BurstTimestamp(transaction.getBlockTimestamp());
-        this.timestamp = new BurstTimestamp(basicTransaction.getTimestamp());
+        this.blockTimestamp = BurstTimestamp.fromBurstTimestamp(transaction.getBlockTimestamp());
+        this.timestamp = BurstTimestamp.fromBurstTimestamp(basicTransaction.getTimestamp());
         this.amount = BurstValue.fromPlanck(basicTransaction.getAmount());
         this.fee = BurstValue.fromPlanck(basicTransaction.getFee());
         this.fullHash = transaction.getFullHash().toByteArray();

@@ -266,8 +266,13 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public Date fromEpochTime(long epochTime) {
+    public Date fromEpochTime(int epochTime) {
         return new Date(epochBeginning + epochTime * 1000L);
+    }
+
+    @Override
+    public int toEpochTime(Date date) {
+        return Math.toIntExact((date.getTime() - epochBeginning) / 1000);
     }
 
     @Override
