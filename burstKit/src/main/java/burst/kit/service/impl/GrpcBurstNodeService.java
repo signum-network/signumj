@@ -30,7 +30,6 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     public GrpcBurstNodeService(String nodeAddress) {
         if (nodeAddress.startsWith("grpc://")) nodeAddress = nodeAddress.substring(7);
-        // TODO don't use plaintext
         this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());
     }
 

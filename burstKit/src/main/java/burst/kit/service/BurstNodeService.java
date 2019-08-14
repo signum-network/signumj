@@ -49,7 +49,7 @@ public interface BurstNodeService {
      * @param lastIndex The end index from the most recent blocks
      * @return The blocks, wrapped in a single
      */
-    Single<Block[]> getBlocks(int firstIndex, int lastIndex); // TODO includeTransactions?
+    Single<Block[]> getBlocks(int firstIndex, int lastIndex);
 
     /**
      * Get the Constants in use by the node
@@ -85,7 +85,7 @@ public interface BurstNodeService {
      * @param accountId The address of the account
      * @return The blocks, wrapped in a single
      */
-    Single<Block[]> getAccountBlocks(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex, includeTransactions
+    Single<Block[]> getAccountBlocks(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex
 
     /**
      * Get the transaction IDs of an account
@@ -106,7 +106,7 @@ public interface BurstNodeService {
      * @param accountId The address of the account
      * @return The list of account IDs with reward recipients set to the account, wrapped in a single
      */
-    Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId); // TODO finish
+    Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId);
 
     /**
      * Get the details of an AT
@@ -257,7 +257,7 @@ public interface BurstNodeService {
      * @return The unsigned transaction bytes, wrapped in a single
      * @throws IllegalArgumentException If the number of recipients is not in the range of 2-128 inclusive
      */
-    Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException;
+    Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients);
 
     /**
      * Generate the transaction for creating an AT

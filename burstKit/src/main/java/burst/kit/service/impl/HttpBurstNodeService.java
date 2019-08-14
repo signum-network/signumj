@@ -67,19 +67,19 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Block> getBlock(BurstID block) {
-        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), block.getID(), null, null, null))
+        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), block.getID(), null, null, false))
                 .map(Block::new);
     }
 
     @Override
     public Single<Block> getBlock(int height) {
-        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), null, String.valueOf(height), null, null))
+        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), null, String.valueOf(height), null, false))
                 .map(Block::new);
     }
 
     @Override
     public Single<Block> getBlock(BurstTimestamp timestamp) {
-        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), null, null, String.valueOf(timestamp.getTimestamp()), null))
+        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), null, null, String.valueOf(timestamp.getTimestamp()), false))
                 .map(Block::new);
     }
 
@@ -313,7 +313,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     private interface BlockchainService {
         @GET("{endpoint}?requestType=getBlock")
-        Single<BlockResponse> getBlock(@Path("endpoint") String endpoint, @Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") String[] transactions); // TODO Array of transactions
+        Single<BlockResponse> getBlock(@Path("endpoint") String endpoint, @Query("block") String blockId, @Query("height") String blockHeight, @Query("timestamp") String timestamp, @Query("includeTransactions") boolean includeTransactions);
 
         @GET("{endpoint}?requestType=getBlockId")
         Single<BlockIDResponse> getBlockID(@Path("endpoint") String endpoint, @Query("height") String blockHeight);
