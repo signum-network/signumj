@@ -77,10 +77,8 @@ public class Transaction {
         this.fullHash = Hex.decode(transactionResponse.getFullHash());
         this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash() == null ? null : Hex.decode(transactionResponse.getReferencedTransactionFullHash());
         this.senderPublicKey = Hex.decode(transactionResponse.getSenderPublicKey());
-        if(transactionResponse.getSignature() != null)
-            this.signature = Hex.decode(transactionResponse.getSignature());
-        if(transactionResponse.getSignatureHash() != null)
-            this.signatureHash = Hex.decode(transactionResponse.getSignatureHash());
+        this.signature = transactionResponse.getSignature() == null ? null : Hex.decode(transactionResponse.getSignature());
+        this.signatureHash = transactionResponse.getSignatureHash() == null ? null : Hex.decode(transactionResponse.getSignatureHash());
         this.blockHeight = transactionResponse.getHeight();
         this.confirmations = transactionResponse.getConfirmations();
         this.ecBlockHeight = transactionResponse.getEcBlockHeight();
