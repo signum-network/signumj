@@ -9,6 +9,7 @@ public class TestVariables {
     public static final int EXAMPLE_BLOCK_HEIGHT = 470000;
     public static final BurstTimestamp EXAMPLE_TIMESTAMP = BurstTimestamp.fromBurstTimestamp(126144000); // 4 years
     public static final BurstID EXAMPLE_BLOCK_ID = BurstID.fromLong("9466704733664017405");
+    public static final BurstID EXAMPLE_ASSET_ID = BurstID.fromLong("2864220132438361643");
     public static final BurstAddress EXAMPLE_ACCOUNT_ID = BurstAddress.fromId(BurstID.fromLong("7009665667967103287"));
     public static final BurstAddress EXAMPLE_POOL_ACCOUNT_ID = BurstAddress.fromId(BurstID.fromLong("888561138747819634"));
     public static final byte[] EXAMPLE_ACCOUNT_PUBKEY = Hex.decode("34d010e80c0d6dc409f8d7a99d0815bfbff9387909a9fca4c65253ec44fad360");

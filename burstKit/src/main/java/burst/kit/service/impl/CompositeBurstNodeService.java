@@ -177,8 +177,18 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
+        return performFastest(service -> service.getUnconfirmedTransactions(accountId));
+    }
+
+    @Override
     public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
         return performFastest(service -> service.getAccountsWithRewardRecipient(accountId));
+    }
+
+    @Override
+    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
+        return performFastest(service -> service.getAssetAccounts(assetId));
     }
 
     @Override

@@ -184,6 +184,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
+        return null; // TODO: implement
+    }
+
+    @Override
     public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
         return assign(() -> brsGrpc.getAccounts(
                 BrsApi.GetAccountsRequest.newBuilder()
@@ -194,6 +199,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
                         .stream()
                         .map(BurstAddress::fromId)
                         .toArray(BurstAddress[]::new));
+    }
+
+    @Override
+    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
+        // TODO: implement
+        return null;
     }
 
     @Override

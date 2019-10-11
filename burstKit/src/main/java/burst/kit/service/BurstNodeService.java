@@ -102,11 +102,25 @@ public interface BurstNodeService {
     Single<Transaction[]> getAccountTransactions(BurstAddress accountId); // TODO filtering
 
     /**
+     * Get the unconfirmed transactions of an account
+     * @param accountId The address of the account
+     * @return The account's transactions, wrapped in a single
+     */
+    Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId);
+
+    /**
      * Get the list of accounts which have their reward recipient set to the specified account
      * @param accountId The address of the account
      * @return The list of account IDs with reward recipients set to the account, wrapped in a single
      */
     Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId);
+
+    /**
+     * Get the accounts holding the given asset
+     * @param assetId The asset id
+     * @return A list of the addresses, wrapped in a single
+     */
+    Single<AssetAccount[]> getAssetAccounts(BurstID assetId);
 
     /**
      * Get the details of an AT

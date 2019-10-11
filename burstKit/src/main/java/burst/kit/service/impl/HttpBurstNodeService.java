@@ -151,11 +151,27 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
+        return assign(blockchainService.getUnconfirmedTransactions(BurstKitUtils.getEndpoint(), accountId.getID()))
+                .map(response -> Arrays.stream(response.getUnconfirmedTransactions())
+                        .map(Transaction::new)
+                        .toArray(Transaction[]::new));
+    }
+
+    @Override
     public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
         return assign(blockchainService.getAccountsWithRewardRecipient(BurstKitUtils.getEndpoint(), accountId.getID()))
                 .map(response -> Arrays.stream(response.getAccounts())
                         .map(BurstAddress::fromEither)
                         .toArray(BurstAddress[]::new));
+    }
+
+    @Override
+    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
+        return assign(blockchainService.getAssetAccounts(BurstKitUtils.getEndpoint(), assetId.getID()))
+                .map(response -> Arrays.stream(response.getAccountsAsset())
+                        .map(AssetAccount::new)
+                        .toArray(AssetAccount[]::new));
     }
 
     @Override
@@ -342,8 +358,14 @@ public final class HttpBurstNodeService implements BurstNodeService {
         @GET("{endpoint}?requestType=getAccountTransactions")
         Single<AccountTransactionsResponse> getAccountTransactions(@Path("endpoint") String endpoint, @Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type, @Query("subtype") String subtype, @Query("firstIndex") String firstIndex, @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
 
+        @GET("{endpoint}?requestType=getUnconfirmedTransactions")
+        Single<AccountUnconfirmedTransactionsResponse> getUnconfirmedTransactions(@Path("endpoint") String endpoint, @Query("account") String accountId);
+
         @GET("{endpoint}?requestType=getAccountsWithRewardRecipient")
         Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(@Path("endpoint") String endpoint, @Query("account") String accountId);
+
+        @GET("{endpoint}?requestType=getAssetAccounts")
+        Single<AccountsAssetResponse> getAssetAccounts(@Path("endpoint") String endpoint, @Query("asset") String assetId);
 
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId);
