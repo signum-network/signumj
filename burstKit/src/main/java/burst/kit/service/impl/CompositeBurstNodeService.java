@@ -192,6 +192,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Trade[]> getAssetTrades(BurstID assetId) {
+        return performFastest(service -> service.getAssetTrades(assetId));
+    }
+
+    @Override
     public Single<AT> getAt(BurstAddress at) {
         return performFastest(service -> service.getAt(at));
     }

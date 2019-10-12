@@ -175,6 +175,14 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Trade[]> getAssetTrades(BurstID assetId) {
+                return assign(blockchainService.getAssetTrades(BurstKitUtils.getEndpoint(), assetId.getID()))
+                .map(response -> Arrays.stream(response.getTrades())
+                        .map(Trade::new)
+                        .toArray(Trade[]::new));
+    }
+
+    @Override
     public Single<AT> getAt(BurstAddress atId) {
         return assign(blockchainService.getAt(BurstKitUtils.getEndpoint(), atId.getID()))
                 .map(AT::new);
@@ -366,6 +374,9 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
         @GET("{endpoint}?requestType=getAssetAccounts")
         Single<AccountsAssetResponse> getAssetAccounts(@Path("endpoint") String endpoint, @Query("asset") String assetId);
+
+        @GET("{endpoint}?requestType=getTrades")
+        Single<AssetTradesResponse> getAssetTrades(@Path("endpoint") String endpoint, @Query("asset") String assetId);
 
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId);

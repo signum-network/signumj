@@ -22,6 +22,7 @@ service BrsApiService {
     rpc GetAccounts(GetAccountsRequest) returns (Accounts) {}
     rpc GetAccountSubscriptions(GetAccountRequest) returns (Subscriptions) {}
     rpc GetAccountTransactions(GetAccountTransactionsRequest) returns (Transactions) {}
+    rpc GetUnconfirmedTransactions(GetUnconfirmedTransactionsRequest) returns (Transactions) {}
     rpc GetAlias(GetAliasRequest) returns (Alias) {}
     rpc GetAliases(GetAliasesRequest) returns (Aliases) {}
     rpc GetAsset(GetByIdRequest) returns (Asset) {}
@@ -77,6 +78,16 @@ service BrsApiService {
 }
 
 message GetAccountTransactionsRequest {
+    uint64 accountId = 1;
+    uint32 timestamp = 2;
+    IndexRange indexRange = 3;
+    uint32 confirmations = 4;
+    bool filterByType = 5; // This is needed because protobuf cannot distinguish between 0 and unset values.
+    uint32 type = 6;
+    uint32 subtype = 7;
+}
+
+message GetUnconfirmedTransactionsRequest {
     uint64 accountId = 1;
     uint32 timestamp = 2;
     IndexRange indexRange = 3;

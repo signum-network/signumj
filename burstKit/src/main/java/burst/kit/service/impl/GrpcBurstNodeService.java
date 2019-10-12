@@ -208,6 +208,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Trade[]> getAssetTrades(BurstID assetId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
     public Single<AT> getAt(BurstAddress atId) {
         return assign(() -> brsGrpc.getAT(getByIdRequestFromId(atId.getBurstID())))
                 .map(AT::new);

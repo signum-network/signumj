@@ -8,22 +8,22 @@ import burst.kit.entity.response.http.AssetAccountResponse;
 public class AssetAccount {
     private final BurstAddress account;
     private final BurstID asset;
-    private final BurstValue quantityQNT;
-    private final BurstValue unconfirmedQuantityQNT;
+    private final BurstValue quantity;
+    private final BurstValue unconfirmedQuantity;
 
-    public AssetAccount(BurstAddress account, BurstID asset, BurstValue quantityQNT,
-            BurstValue unconfirmedQuantityQNT) {
+    public AssetAccount(BurstAddress account, BurstID asset, BurstValue quantity,
+            BurstValue unconfirmedQuantity) {
         this.account = account;
         this.asset = asset;
-        this.quantityQNT = quantityQNT;
-        this.unconfirmedQuantityQNT = unconfirmedQuantityQNT;
+        this.quantity = quantity;
+        this.unconfirmedQuantity = unconfirmedQuantity;
     }
 
     public AssetAccount(AssetAccountResponse accountResponse) {
         this.account = BurstAddress.fromEither(accountResponse.getAccount());
         this.asset = BurstID.fromLong(accountResponse.getAsset());
-        this.quantityQNT= BurstValue.fromPlanck(accountResponse.getQuantityQNT());
-        this.unconfirmedQuantityQNT = BurstValue.fromPlanck(accountResponse.getUnconfirmedQuantityQNT());
+        this.quantity= BurstValue.fromPlanck(accountResponse.getQuantityQNT());
+        this.unconfirmedQuantity = BurstValue.fromPlanck(accountResponse.getUnconfirmedQuantityQNT());
     }
 
     public BurstAddress getAccount() {
@@ -34,12 +34,12 @@ public class AssetAccount {
         return asset;
     }
 
-    public BurstValue getQuantityQNT() {
-        return quantityQNT;
+    public BurstValue getQuantity() {
+        return quantity;
     }
 
-    public BurstValue getUnconfirmedQuantityQNT() {
-        return unconfirmedQuantityQNT;
+    public BurstValue getUnconfirmedQuantity() {
+        return unconfirmedQuantity;
     }
 
 }
