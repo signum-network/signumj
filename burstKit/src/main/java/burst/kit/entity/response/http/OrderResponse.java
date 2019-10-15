@@ -7,18 +7,18 @@ public final class OrderResponse extends BRSResponse {
     private final String asset;
     private final String account;
     private final String accountRS;
-    private final String quantityNQT;
+    private final String quantityQNT;
     private final String priceNQT;
     private final int height;
     private final String type;
 
-    public OrderResponse(String order, String asset, String account, String accountRS, String quantityNQT,
+    public OrderResponse(String order, String asset, String account, String accountRS, String quantityQNT,
             String priceNQT, int height, String type) {
         this.order = order;
         this.asset = asset;
         this.account = account;
         this.accountRS = accountRS;
-        this.quantityNQT = quantityNQT;
+        this.quantityQNT = quantityQNT;
         this.priceNQT = priceNQT;
         this.height = height;
         this.type = type;
@@ -40,8 +40,8 @@ public final class OrderResponse extends BRSResponse {
         return accountRS;
     }
 
-    public String getQuantityNQT() {
-        return quantityNQT;
+    public String getQuantityQNT() {
+        return quantityQNT;
     }
 
     public String getPriceNQT() {

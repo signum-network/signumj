@@ -19,8 +19,8 @@ public class Order {
         order = BurstID.fromLong(orderResponse.getOrder());
         asset = BurstID.fromLong(orderResponse.getAsset());
         account = BurstAddress.fromId(orderResponse.getAccount());
-        quantity = BurstValue.fromPlanck(orderResponse.getQuantityNQT());
-        price = BurstValue.fromPlanck(orderResponse.getPriceNQT());
+        quantity = BurstValue.fromPlanck(orderResponse.getQuantityQNT());
+        price = BurstValue.fromBurst(orderResponse.getPriceNQT());
         height = orderResponse.getHeight();
         type = orderResponse.getType();
     }
