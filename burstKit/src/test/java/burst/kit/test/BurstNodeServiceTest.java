@@ -81,11 +81,6 @@ public abstract class BurstNodeServiceTest {
     }
 
     @Test
-    public void testBurstServiceGetUnconfirmedTransactions() {
-        Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getUnconfirmedTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
-    }
-
-    @Test
     public void testBurstServiceGetAssetAccounts() {
         AssetAccount[] assetAccountsResponse = RxTestUtils.testSingle(burstNodeService.getAssetAccounts(TestVariables.EXAMPLE_ASSET_ID));
     }
@@ -103,6 +98,11 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetAtIDs() {
         BurstAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
+    }
+
+    @Test
+    public void testBurstServiceGetUnconfirmedTransactions() {
+        Transaction[] unconfReponse = RxTestUtils.testSingle(burstNodeService.getUnconfirmedTransactions(null));
     }
 
     @Test

@@ -130,6 +130,10 @@ public interface BurstNodeService {
      */
     Single<Trade[]> getAssetTrades(BurstID assetId);
 
+    Single<Order[]> getAskOrders(BurstID assetId);
+
+    Single<Order[]> getBidOrders(BurstID assetId);
+
     /**
      * Get the details of an AT
      * @param at The address of the AT
