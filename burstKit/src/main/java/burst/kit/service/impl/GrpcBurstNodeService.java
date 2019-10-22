@@ -452,4 +452,39 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(brsGrpc::getTransactionBytes)
                 .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
+
+        @Override
+        public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity,
+                        BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId,
+                        BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId,
+                        BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee,
+                        int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee,
+                        int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
 }

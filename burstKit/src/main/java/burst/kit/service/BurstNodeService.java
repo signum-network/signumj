@@ -130,8 +130,20 @@ public interface BurstNodeService {
      */
     Single<Trade[]> getAssetTrades(BurstID assetId);
 
+    /**
+     * Get the ask orders for a given asset
+     * @param assetId The asset id
+     * 
+     * @return A list trades, wrapped in a single
+     */
     Single<Order[]> getAskOrders(BurstID assetId);
 
+    /**
+     * Get the bid orders for a given asset
+     * @param assetId The asset id
+     * 
+     * @return A list trades, wrapped in a single
+     */
     Single<Order[]> getBidOrders(BurstID assetId);
 
     /**
@@ -296,6 +308,62 @@ public interface BurstNodeService {
      * @return The unsigned transaction bytes, wrapped in a single
      */
     Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes);
+
+    /**
+     * Generate the transaction for transfering assets
+     * @param senderPublicKey The public key of the sender
+     * @param recipient The recipient
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The quantity to transfer
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for a bid order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for cancelling an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param orderId The ID of the asset being transfered
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for cancelling a bid order
+     * @param senderPublicKey The public key of the sender
+     * @param orderId The ID of the asset being transfered
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline);
 
     static BurstNodeService getInstance(String nodeAddress) {
         return getInstance(nodeAddress, null);

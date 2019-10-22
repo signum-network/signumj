@@ -255,6 +255,46 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity,
+            BurstValue fee, int deadline) {
+        return assign(blockchainService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price,
+            BurstValue fee, int deadline) {
+        return assign(blockchainService.placeAskOrder(BurstKitUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price,
+            BurstValue fee, int deadline) {
+        return assign(blockchainService.placeBidOrder(BurstKitUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderId,
+            BurstValue fee, int deadline) {
+        return assign(blockchainService.cancelAskOrder(BurstKitUtils.getEndpoint(), orderId.getID(), null,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId,
+            BurstValue fee, int deadline) {
+        return assign(blockchainService.cancelBidOrder(BurstKitUtils.getEndpoint(), orderId.getID(), null,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<FeeSuggestion> suggestFee() {
         return assign(blockchainService.suggestFee(BurstKitUtils.getEndpoint())).map(FeeSuggestion::new);
     }
@@ -451,6 +491,87 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
 
+        @POST("{endpoint}?requestType=transferAsset")
+        Single<GenerateTransactionResponse> transferAsset(@Path("endpoint") String endpoint,
+                @Query("recipient") String recipient, @Query("asset") String asset, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("quantityQNT") String quantity, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=placeAskOrder")
+        Single<GenerateTransactionResponse> placeAskOrder(@Path("endpoint") String endpoint,
+                @Query("asset") String asset, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("quantityQNT") String quantity, @Query("priceNQT") String price, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=placeBidOrder")
+        Single<GenerateTransactionResponse> placeBidOrder(@Path("endpoint") String endpoint,
+                @Query("asset") String asset, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("quantityQNT") String quantity, @Query("priceNQT") String price, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=placeBidOrder")
+        Single<GenerateTransactionResponse> cancelAskOrder(@Path("endpoint") String endpoint,
+                @Query("order") String order, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+                
+        
+        @POST("{endpoint}?requestType=placeBidOrder")
+        Single<GenerateTransactionResponse> cancelBidOrder(@Path("endpoint") String endpoint,
+                @Query("order") String order, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+        
         @GET("{endpoint}?requestType=suggestFee")
         Single<SuggestFeeResponse> suggestFee(@Path("endpoint") String endpoint);
 
@@ -494,4 +615,5 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("cspages") int cspages, @Query("uspages") int uspages,
                 @Query("minActivationAmountNQT") String minActivationAmountNQT);
     }
+
 }
