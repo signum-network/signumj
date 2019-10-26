@@ -281,7 +281,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderId,
             BurstValue fee, int deadline) {
-        return assign(blockchainService.cancelAskOrder(BurstKitUtils.getEndpoint(), orderId.getID(), null,
+        return assign(blockchainService.cancelAskOrder(BurstKitUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -289,7 +289,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId,
             BurstValue fee, int deadline) {
-        return assign(blockchainService.cancelBidOrder(BurstKitUtils.getEndpoint(), orderId.getID(), null,
+        return assign(blockchainService.cancelBidOrder(BurstKitUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -541,7 +541,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
         @POST("{endpoint}?requestType=placeBidOrder")
         Single<GenerateTransactionResponse> cancelAskOrder(@Path("endpoint") String endpoint,
-                @Query("order") String order, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("order") String order,
                 @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
@@ -558,7 +558,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
         
         @POST("{endpoint}?requestType=placeBidOrder")
         Single<GenerateTransactionResponse> cancelBidOrder(@Path("endpoint") String endpoint,
-                @Query("order") String order, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("order") String order,
                 @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
