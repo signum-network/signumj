@@ -539,7 +539,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
 
-        @POST("{endpoint}?requestType=placeBidOrder")
+        @POST("{endpoint}?requestType=cancelAskOrder")
         Single<GenerateTransactionResponse> cancelAskOrder(@Path("endpoint") String endpoint,
                 @Query("order") String order,
                 @Query("secretPhrase") String secretPhrase,
@@ -556,7 +556,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
                 
         
-        @POST("{endpoint}?requestType=placeBidOrder")
+        @POST("{endpoint}?requestType=cancelBidOrder")
         Single<GenerateTransactionResponse> cancelBidOrder(@Path("endpoint") String endpoint,
                 @Query("order") String order,
                 @Query("secretPhrase") String secretPhrase,
