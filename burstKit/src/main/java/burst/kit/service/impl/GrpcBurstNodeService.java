@@ -461,6 +461,13 @@ public class GrpcBurstNodeService implements BurstNodeService {
         }
 
         @Override
+        public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description,
+                        BurstValue quantity, int decimals, BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
         public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId,
                         BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
                 // TODO Auto-generated method stub

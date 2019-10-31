@@ -302,6 +302,12 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description,
+            BurstValue quantity, int decimals, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateIssueAssetTransaction(senderPublicKey, name, description, quantity, decimals, fee, deadline));
+    }
+
+    @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
         return performFastest(service -> service.generatePlaceAskOrderTransaction(senderPublicKey, assetId, quantity, price, fee, deadline));
     }

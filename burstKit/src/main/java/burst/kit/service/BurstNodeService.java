@@ -319,6 +319,18 @@ public interface BurstNodeService {
      * @param quantity The quantity to transfer
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, BurstValue quantity, int decimals, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for transfering assets
+     * @param senderPublicKey The public key of the sender
+     * @param recipient The recipient
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The quantity to transfer
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
     Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline);
 
     /**
