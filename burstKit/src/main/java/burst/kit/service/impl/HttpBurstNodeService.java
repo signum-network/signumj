@@ -141,7 +141,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
-        return assign(blockchainService.getUnconfirmedTransactions(BurstKitUtils.getEndpoint(), accountId.getID()))
+        return assign(blockchainService.getUnconfirmedTransactions(BurstKitUtils.getEndpoint(), accountId==null ? null : accountId.getID()))
                 .map(response -> Arrays.stream(response.getUnconfirmedTransactions()).map(Transaction::new)
                         .toArray(Transaction[]::new));
     }
