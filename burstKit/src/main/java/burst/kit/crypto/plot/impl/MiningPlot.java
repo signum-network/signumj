@@ -3,6 +3,7 @@ package burst.kit.crypto.plot.impl;
 import burst.kit.crypto.BurstCrypto;
 
 import java.math.BigInteger;
+import java.security.DigestException;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.function.Supplier;
@@ -22,17 +23,21 @@ public class MiningPlot {
     private final byte[] data = new byte[PLOT_TOTAL_SIZE];
 
     public MiningPlot(Supplier<MessageDigest> shabal256Supplier, long addr, long nonce, int pocVersion) {
-        System.arraycopy(BurstCrypto.getInstance().longToBytes(addr), 0, data, PLOT_SIZE, 8);
-        System.arraycopy(BurstCrypto.getInstance().longToBytes(nonce), 0, data, PLOT_SIZE + 8, 8);
+        System.arraycopy(BurstCrypto.getInstance().longToBytesBE(addr), 0, data, PLOT_SIZE, 8);
+        System.arraycopy(BurstCrypto.getInstance().longToBytesBE(nonce), 0, data, PLOT_SIZE + 8, 8);
         MessageDigest shabal256 = shabal256Supplier.get();
         int len;
-        for (int i = PLOT_SIZE; i > 0; i -= HASH_SIZE) {
-            len = PLOT_TOTAL_SIZE - i;
-            if (len > HASH_CAP) {
-                len = HASH_CAP;
+        try {
+            for (int i = PLOT_SIZE; i > 0; i -= HASH_SIZE) {
+                len = PLOT_TOTAL_SIZE - i;
+                if (len > HASH_CAP) {
+                    len = HASH_CAP;
+                }
+                shabal256.update(data, i, len);
+                shabal256.digest(data, i - HASH_SIZE, HASH_SIZE);
             }
-            shabal256.update(data, i, len);
-            System.arraycopy(shabal256.digest(), 0, data, i - HASH_SIZE, HASH_SIZE);
+        } catch (DigestException e) {
+            throw new RuntimeException(e);
         }
         byte[] finalHash = shabal256.digest(data);
         for (int i = 0, j = 0; i < PLOT_SIZE; i++, j++) {
