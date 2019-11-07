@@ -458,10 +458,17 @@ public interface BurstCrypto {
 
     /**
      * Converts up to the first 8 bytes of a byte array to a long.
-     * @param bytes The byte array
+     * @param bytes The byte array, in big endian order
      * @return The long representation of the first 8 bytes
      */
-    long bytesToLong(byte[] bytes);
+    long bytesToLongBE(byte[] bytes);
+
+    /**
+     * Converts up to the first 8 bytes of a byte array to a long.
+     * @param bytes The byte array, in little endian order
+     * @return The long representation of the first 8 bytes
+     */
+    long bytesToLongLE(byte[] bytes);
 
     /**
      * Converts up to the first 4 bytes of a byte array to a long.
@@ -473,9 +480,16 @@ public interface BurstCrypto {
     /**
      * Converts up to the first 8 bytes of a byte array to a long.
      * @param l The long to be converted
-     * @return The long represented as an 8 long byte array.
+     * @return The long represented as an 8 long byte array in big endian order.
      */
-    byte[] longToBytes(long l);
+    byte[] longToBytesBE(long l);
+
+    /**
+     * Converts up to the first 8 bytes of a byte array to a long.
+     * @param l The long to be converted
+     * @return The long represented as an 8 long byte array in little endian order.
+     */
+    byte[] longToBytesLE(long l);
 
     /**
      * Converts up to the first 4 bytes of a byte array to a long.

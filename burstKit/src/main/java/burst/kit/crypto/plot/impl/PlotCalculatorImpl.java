@@ -18,7 +18,7 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
     public byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId) {
         MessageDigest shabal256 = shabal256Supplier.get();
         shabal256.update(lastGenSig);
-        shabal256.update(BurstCrypto.getInstance().longToBytes(lastGenId));
+        shabal256.update(BurstCrypto.getInstance().longToBytesBE(lastGenId));
         return shabal256.digest();
     }
 
@@ -26,7 +26,7 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
     public int calculateScoop(byte[] genSig, long height) {
         MessageDigest shabal256 = shabal256Supplier.get();
         shabal256.update(genSig);
-        shabal256.update(BurstCrypto.getInstance().longToBytes(height));
+        shabal256.update(BurstCrypto.getInstance().longToBytesBE(height));
         BigInteger hashnum = new BigInteger(1, shabal256.digest());
         return hashnum.mod(MiningPlot.SCOOPS_PER_PLOT_BIGINT).intValue();
     }
