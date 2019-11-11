@@ -26,7 +26,10 @@ public interface BurstCrypto {
      */
     MessageDigest getRipeMD160();
 
-    // TODO getMd5()
+    /**
+     * @return A new MD5 MessageDigest
+     */
+    MessageDigest getMD5();
 
     /**
      * Derive the private key of the passphrase
@@ -475,6 +478,24 @@ public interface BurstCrypto {
     /**
      * Converts up to the first 8 bytes of a byte array to a long.
      * @param l The long to be converted
+     * @param target The target array into which the long represented as an
+     *               8 byte long byte array in big endian order will be copied
+     * @param offset The offset into target to begin storing the long
+     */
+    void longToBytesBE(long l, byte[] target, int offset);
+
+    /**
+     * Converts up to the first 8 bytes of a byte array to a long.
+     * @param l The long to be converted
+     * @param target The target array into which the long represented as an
+     *               8 byte long byte array in little endian order will be copied
+     * @param offset The offset into target to begin storing the long
+     */
+    void longToBytesLE(long l, byte[] target, int offset);
+
+    /**
+     * Converts up to the first 8 bytes of a byte array to a long.
+     * @param l The long to be converted
      * @return The long represented as an 8 long byte array in big endian order.
      */
     byte[] longToBytesBE(long l);
@@ -499,6 +520,24 @@ public interface BurstCrypto {
      * @return The int representation of the first 4 bytes
      */
     int bytesToIntLE(byte[] bytes);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param i The integer to be converted
+     * @param target The target array into which the int represented as a
+     *               4 byte long byte array in big endian order will be copied
+     * @param offset The offset into target to begin storing the int
+     */
+    void intToBytesBE(int i, byte[] target, int offset);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param i The integer to be converted
+     * @param target The target array into which the int represented as a
+     *               4 byte long byte array in little endian order will be copied
+     * @param offset The offset into target to begin storing the int
+     */
+    void intToBytesLE(int i, byte[] target, int offset);
 
     /**
      * Converts up to the first 4 bytes of a byte array to a long.

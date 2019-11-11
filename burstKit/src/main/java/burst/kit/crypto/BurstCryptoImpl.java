@@ -19,6 +19,7 @@ import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
+import org.bouncycastle.jcajce.provider.digest.MD5;
 import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 import org.bouncycastle.jcajce.provider.digest.SHA256;
 import org.bouncycastle.util.encoders.Hex;
@@ -93,6 +94,15 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             return MessageDigest.getInstance("RIPEMD-160");
         } catch (NoSuchAlgorithmException e) {
             return new RIPEMD160.Digest(); // Fallback to Bouncy Castle's implementation
+        }
+    }
+
+    @Override
+    public MessageDigest getMD5() {
+        try {
+            return MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            return new MD5.Digest(); // Fallback to Bouncy Castle's implementation
         }
     }
 
@@ -317,43 +327,35 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] longToBytesBE(long l) {
-        byte[] result = new byte[8];
+    public void longToBytesBE(long l, byte[] target, int offset) {
         for (int i = 7; i >= 0; i--) {
-            result[i] = (byte)(l & 0xFF);
+            target[offset + i] = (byte)(l & 0xFF);
             l >>= 8;
         }
-        return result;
     }
 
     @Override
-    public byte[] longToBytesLE(long l) {
-        byte[] result = new byte[8];
+    public void longToBytesLE(long l, byte[] target, int offset) {
         for (int index = 0; index < 8; index++) {
-            result[index] = (byte)(l & 0xFF);
+            target[offset + index] = (byte)(l & 0xFF);
             l >>= 8;
         }
-        return result;
     }
 
     @Override
-    public byte[] intToBytesBE(int i) {
-        byte[] result = new byte[4];
+    public void intToBytesBE(int i, byte[] target, int offset) {
         for (int index = 3; index >= 0; index--) {
-            result[index] = (byte)(i & 0xFF);
+            target[offset + index] = (byte)(i & 0xFF);
             i >>= 8;
         }
-        return result;
     }
 
     @Override
-    public byte[] intToBytesLE(int i) {
-        byte[] result = new byte[4];
+    public void intToBytesLE(int i, byte[] target, int offset) {
         for (int index = 0; index < 4; index++) {
-            result[index] = (byte)(i & 0xFF);
+            target[offset + index] = (byte)(i & 0xFF);
             i >>= 8;
         }
-        return result;
     }
 
     @Override

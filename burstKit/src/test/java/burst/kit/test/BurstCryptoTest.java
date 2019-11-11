@@ -22,7 +22,7 @@ public class BurstCryptoTest { // TODO more unit tests
     private final BurstCrypto burstCrypto = BurstCrypto.getInstance();
 
     @Test
-    public void TestEncryptTextMessage() {
+    public void testEncryptTextMessage() {
         String message = "Test message";
 
         byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
@@ -40,7 +40,7 @@ public class BurstCryptoTest { // TODO more unit tests
     }
 
     @Test
-    public void TestSignAndVerify() {
+    public void testSignAndVerify() {
         byte[] myMessage = "A Message".getBytes(StandardCharsets.UTF_8);
         byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
         byte[] myPublic = BurstCrypto.getInstance().getPublicKey(myPrivateKey);

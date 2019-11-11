@@ -179,6 +179,34 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     }
 
     @Override
+    public byte[] longToBytesBE(long l) {
+        byte[] result = new byte[8];
+        longToBytesBE(l, result, 0);
+        return result;
+    }
+
+    @Override
+    public byte[] longToBytesLE(long l) {
+        byte[] result = new byte[8];
+        longToBytesLE(l, result, 0);
+        return result;
+    }
+
+    @Override
+    public byte[] intToBytesBE(int i) {
+        byte[] result = new byte[4];
+        intToBytesBE(i, result, 0);
+        return result;
+    }
+
+    @Override
+    public byte[] intToBytesLE(int i) {
+        byte[] result = new byte[4];
+        intToBytesLE(i, result, 0);
+        return result;
+    }
+
+    @Override
     public byte[] calculateGenerationSignature(byte[] lastGenSig, BurstAddress lastGenerator) {
         return calculateGenerationSignature(lastGenSig, lastGenerator.getSignedLongId());
     }

@@ -3,7 +3,6 @@ package burst.kit.crypto.hash;
 import burst.kit.crypto.hash.shabal.Shabal256;
 import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 
-import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
 import java.util.Arrays;
