@@ -296,7 +296,17 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public int bytesToInt(byte[] bytes) {
+    public int bytesToIntBE(byte[] bytes) {
+        int result = 0;
+        for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
+            result <<= 8;
+            result |= (bytes[i] & 0xFF);
+        }
+        return result;
+    }
+
+    @Override
+    public int bytesToIntLE(byte[] bytes) {
         int result = 0;
         for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
             result <<= 8;
@@ -327,9 +337,19 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] intToBytes(int i) {
-        byte[] result = new byte[8];
+    public byte[] intToBytesBE(int i) {
+        byte[] result = new byte[4];
         for (int index = 3; index >= 0; index--) {
+            result[index] = (byte)(i & 0xFF);
+            i >>= 8;
+        }
+        return result;
+    }
+
+    @Override
+    public byte[] intToBytesLE(int i) {
+        byte[] result = new byte[4];
+        for (int index = 0; index < 4; index++) {
             result[index] = (byte)(i & 0xFF);
             i >>= 8;
         }

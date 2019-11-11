@@ -471,13 +471,6 @@ public interface BurstCrypto {
     long bytesToLongLE(byte[] bytes);
 
     /**
-     * Converts up to the first 4 bytes of a byte array to a long.
-     * @param bytes The byte array
-     * @return The int representation of the first 4 bytes
-     */
-    int bytesToInt(byte[] bytes);
-
-    /**
      * Converts up to the first 8 bytes of a byte array to a long.
      * @param l The long to be converted
      * @return The long represented as an 8 long byte array in big endian order.
@@ -493,10 +486,31 @@ public interface BurstCrypto {
 
     /**
      * Converts up to the first 4 bytes of a byte array to a long.
-     * @param i The integer to be converted
-     * @return The int represented as a 4 long byte array.
+     * @param bytes The byte array, in big endian order
+     * @return The int representation of the first 4 bytes
      */
-    byte[] intToBytes(int i);
+    int bytesToIntBE(byte[] bytes);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param bytes The byte array, in little endian order
+     * @return The int representation of the first 4 bytes
+     */
+    int bytesToIntLE(byte[] bytes);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param i The integer to be converted
+     * @return The int represented as a 4 long byte array in big endian order
+     */
+    byte[] intToBytesBE(int i);
+
+    /**
+     * Converts up to the first 4 bytes of a byte array to a long.
+     * @param i The integer to be converted
+     * @return The int represented as a 4 long byte array in little endian order
+     */
+    byte[] intToBytesLE(int i);
 
     /**
      * Hex-encode a byte array

@@ -124,4 +124,38 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals("0123456789abcd00", burstCrypto.toHexString(burstCrypto.longToBytesLE(0x00cdab8967452301L)));
         assertEquals("0123456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(-0x1032547698badcffL)));
     }
+
+    @Test
+    public void testBytesToIntBE() {
+        assertEquals(0x00000000, burstCrypto.bytesToIntBE(new byte[0]));
+        assertEquals(0x89000000, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89000000")));
+        assertEquals(0x89ab0000, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89ab0000")));
+        assertEquals(0x89abcd00, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89abcd00")));
+        assertEquals(0x89abcdef, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89abcdef")));
+    }
+
+    @Test
+    public void testBytesToIntLE() {
+        assertEquals(0x00000000, burstCrypto.bytesToIntLE(new byte[0]));
+        assertEquals(0x00000001, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01000000")));
+        assertEquals(0x00002301, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01230000")));
+        assertEquals(0x00452301, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01234500")));
+        assertEquals(0x67452301, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01234567")));
+    }
+
+    @Test
+    public void testIntToBytesBE() {
+        assertEquals("00000001", burstCrypto.toHexString(burstCrypto.intToBytesBE(0x00000001)));
+        assertEquals("00002301", burstCrypto.toHexString(burstCrypto.intToBytesBE(0x00002301)));
+        assertEquals("00452301", burstCrypto.toHexString(burstCrypto.intToBytesBE(0x00452301)));
+        assertEquals("67452301", burstCrypto.toHexString(burstCrypto.intToBytesBE(0x67452301)));
+    }
+
+    @Test
+    public void testIntToBytesLE() {
+        assertEquals("01000000", burstCrypto.toHexString(burstCrypto.intToBytesLE(0x00000001)));
+        assertEquals("01230000", burstCrypto.toHexString(burstCrypto.intToBytesLE(0x00002301)));
+        assertEquals("01234500", burstCrypto.toHexString(burstCrypto.intToBytesLE(0x00452301)));
+        assertEquals("01234567", burstCrypto.toHexString(burstCrypto.intToBytesLE(0x67452301)));
+    }
 }
