@@ -114,7 +114,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public BurstID hashToId(byte[] hash) throws IllegalArgumentException {
+    public BurstID hashToId(byte[] hash) {
         if (hash == null || hash.length < 8) {
             throw new IllegalArgumentException("Invalid hash: " + Arrays.toString(hash));
         }
@@ -146,7 +146,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] aesEncrypt(byte[] plaintext, byte[] signingKey, byte[] nonce) throws IllegalArgumentException {
+    public byte[] aesEncrypt(byte[] plaintext, byte[] signingKey, byte[] nonce) {
         if (signingKey.length != 32) {
             throw new IllegalArgumentException("Key length must be 32 bytes");
         }
@@ -173,13 +173,13 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] aesDecrypt(byte[] encrypted, byte[] signingKey, byte[] nonce) throws IllegalArgumentException {
+    public byte[] aesDecrypt(byte[] encrypted, byte[] signingKey, byte[] nonce) {
         if (signingKey.length != 32) {
             throw new IllegalArgumentException("Key length must be 32 bytes");
         }
         try {
             if (encrypted.length < 16 || encrypted.length % 16 != 0) {
-                throw new InvalidCipherTextException("invalid ciphertext"); // TODO
+                throw new InvalidCipherTextException("invalid ciphertext");
             }
             byte[] iv = Arrays.copyOfRange(encrypted, 0, 16);
             byte[] ciphertext = Arrays.copyOfRange(encrypted, 16, encrypted.length);
@@ -215,7 +215,8 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (message.length == 0) {
             return new BurstEncryptedMessage(new byte[0], new byte[0], isText);
         }
-        try (ByteArrayOutputStream bos = new ByteArrayOutputStream(); GZIPOutputStream gzip = new GZIPOutputStream(bos)) {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+            GZIPOutputStream gzip = new GZIPOutputStream(bos);
             gzip.write(message);
             gzip.flush();
             gzip.close();
@@ -254,7 +255,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public BurstID rsDecode(String rs) throws IllegalArgumentException {
+    public BurstID rsDecode(String rs) {
         rs = rs.toUpperCase();
         long rsValue;
         try {
@@ -277,12 +278,12 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public long bytesToLongBE(byte[] bytes) {
-        for(int i=0; i<bytes.length/2; i++) { // TODO find a better solution to this
-            byte temp = bytes[i];
-            bytes[i] = bytes[bytes.length -i -1];
-            bytes[bytes.length -i -1] = temp;
+        long result = 0;
+        for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
+            result <<= 8;
+            result |= (bytes[i] & 0xFF);
         }
-        return bytesToLongLE(bytes);
+        return result;
     }
 
     @Override
@@ -327,13 +328,12 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] longToBytesLE(long l) {
-        byte[] array = longToBytesBE(l); // TODO find a better solution to this
-        for(int i=0; i<array.length/2; i++) {
-            byte temp = array[i];
-            array[i] = array[array.length -i -1];
-            array[array.length -i -1] = temp;
+        byte[] result = new byte[8];
+        for (int index = 0; index < 8; index++) {
+            result[index] = (byte)(l & 0xFF);
+            l >>= 8;
         }
-        return array;
+        return result;
     }
 
     @Override

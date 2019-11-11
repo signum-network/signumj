@@ -26,6 +26,8 @@ public interface BurstCrypto {
      */
     MessageDigest getRipeMD160();
 
+    // TODO getMd5()
+
     /**
      * Derive the private key of the passphrase
      * @param passphrase The passphrase
