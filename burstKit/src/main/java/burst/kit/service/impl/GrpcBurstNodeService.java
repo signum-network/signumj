@@ -208,7 +208,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Trade[]> getAssetTrades(BurstID assetId) {
+    public Single<Trade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
         // TODO Auto-generated method stub
         return null;
     }

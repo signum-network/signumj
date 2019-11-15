@@ -123,12 +123,16 @@ public interface BurstNodeService {
     Single<AssetAccount[]> getAssetAccounts(BurstID assetId);
 
     /**
-     * Get the accounts holding the given asset
+     * Get the trades for a given asset
+     * 
      * @param assetId The asset id
+     * @param account The account of interest (optional)
+     * @param firstIndex The first index (optional for pagination)
+     * @param lastIndex The last index (optional for pagination)
      * 
      * @return A list trades, wrapped in a single
      */
-    Single<Trade[]> getAssetTrades(BurstID assetId);
+    Single<Trade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex);
 
     /**
      * Get the ask orders for a given asset
