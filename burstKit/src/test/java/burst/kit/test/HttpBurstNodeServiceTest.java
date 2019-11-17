@@ -9,6 +9,6 @@ import org.junit.runners.JUnit4;
 public class HttpBurstNodeServiceTest extends BurstNodeServiceTest {
     @Override
     protected BurstNodeService getBurstNodeService() {
-        return new HttpBurstNodeService("https://wallet.burst-alliance.org:8125", "burstkit4j-TEST");
+        return new HttpBurstNodeService(TestVariables.HTTP_API_ENDPOINT, "burstkit4j-TEST");
     }
 }
