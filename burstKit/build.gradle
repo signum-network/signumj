@@ -25,7 +25,7 @@ dependencies {
     implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
 
     // Bouncy Castle
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.62'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
 
     // Testing
     testCompileOnly 'junit:junit:4.12'
