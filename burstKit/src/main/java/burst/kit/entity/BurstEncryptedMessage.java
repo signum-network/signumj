@@ -20,6 +20,10 @@ public final class BurstEncryptedMessage {
         this.isText = isText;
     }
 
+    public int getSize() {
+        return data.length + nonce.length;
+    }
+
     /**
      * Decrypt the encrypted message
      * @param myPassphrase Your passphrase (Assuming you sent / received the encrypted message)
