@@ -35,7 +35,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -48,6 +47,9 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private final Curve25519 curve25519;
     private final ReedSolomon reedSolomon;
     private final PlotCalculator plotCalculator;
+    /**
+     * The Burst Epoch, as a unix time
+     */
     private final long epochBeginning;
 
     private BurstCryptoImpl() {
@@ -277,13 +279,13 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public Date fromEpochTime(int epochTime) {
-        return new Date(epochBeginning + epochTime * 1000L);
+    public long fromBurstTime(int burstTime) {
+        return (epochBeginning + burstTime) * 1000L;
     }
 
     @Override
-    public int toEpochTime(Date date) {
-        return Math.toIntExact((date.getTime() - epochBeginning) / 1000);
+    public int toBurstTime(long unixTime) {
+        return Math.toIntExact((unixTime - epochBeginning) / 1000);
     }
 
     @Override

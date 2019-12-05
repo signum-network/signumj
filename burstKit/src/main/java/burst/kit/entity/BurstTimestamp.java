@@ -15,14 +15,14 @@ public final class BurstTimestamp {
      */
     private BurstTimestamp(int timestamp) {
         this.timestamp = timestamp;
-        this.date = BurstCrypto.getInstance().fromEpochTime(timestamp);
+        this.date = BurstCrypto.getInstance().fromBurstTimeToDate(timestamp);
     }
 
     /**
      * @param date The Java Date object to be represented
      */
     private BurstTimestamp(Date date) {
-        this.timestamp = BurstCrypto.getInstance().toEpochTime(date);
+        this.timestamp = BurstCrypto.getInstance().toBurstTime(date);
         this.date = date;
     }
 
@@ -38,6 +38,10 @@ public final class BurstTimestamp {
      */
     public static BurstTimestamp fromDate(Date date) {
         return new BurstTimestamp(date);
+    }
+
+    public static BurstTimestamp now() {
+        return new BurstTimestamp(BurstCrypto.getInstance().currentBurstTime());
     }
 
     /**

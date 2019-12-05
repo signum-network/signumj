@@ -6,6 +6,7 @@ import burst.kit.entity.BurstEncryptedMessage;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 
 @SuppressWarnings("WeakerAccess")
 abstract class AbstractBurstCrypto implements BurstCrypto {
@@ -176,6 +177,21 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     @Override
     public byte[] decryptMessage(BurstEncryptedMessage message, String myPassphrase, byte[] theirPublicKey) {
         return decryptMessage(message, getPrivateKey(myPassphrase), theirPublicKey);
+    }
+
+    @Override
+    public Date fromBurstTimeToDate(int burstTime) {
+        return new Date(fromBurstTime(burstTime));
+    }
+
+    @Override
+    public int toBurstTime(Date date) {
+        return toBurstTime(date.getTime());
+    }
+
+    @Override
+    public int currentBurstTime() {
+        return toBurstTime(System.currentTimeMillis());
     }
 
     @Override

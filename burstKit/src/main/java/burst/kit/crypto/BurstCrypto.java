@@ -453,13 +453,39 @@ public interface BurstCrypto {
     BurstID rsDecode(String rs) throws IllegalArgumentException;
 
     /**
-     * Translate an epoch time to a Java Date object
-     * @param epochTime The number of seconds since the Burst epoch
-     * @return The timestamp
+     * Translate a number of seconds since the Burst Epoch to a Java Date object
+     * @param burstTime The number of seconds since the Burst Epoch
+     * @return This time represented as a Java Date object
      */
-    Date fromEpochTime(int epochTime);
+    Date fromBurstTimeToDate(int burstTime);
 
-    int toEpochTime(Date date);
+    /**
+     * Translate a number of seconds since the Burst Epoch to a Unix time (number of milliseconds since Unix Epoch)
+     * @param burstTime The number of seconds since the Burst Epoch
+     * @return This time represented as a Unix time (number of milliseconds since Unix Epoch)
+     */
+    long fromBurstTime(int burstTime);
+
+    /**
+     * Converts a Date to the number of seconds since the Burst Epoch
+     * @param date The target time
+     * @return The number of seconds from the Burst Epoch to this time.
+     */
+    int toBurstTime(Date date);
+
+    /**
+     * Converts a number of milliseconds since the Unix epoch
+     * to the number of seconds since the Burst Epoch
+     * @param unixTime The target time, as a unix epoch - for example from System.currentTimeMillis()
+     * @return The number of seconds from the Burst Epoch to this time.
+     */
+    int toBurstTime(long unixTime);
+
+    /**
+     * Gets the current Burst Time - the number of seconds since the Burst Epoch.
+     * @return The number of seconds since the Burst Epoch
+     */
+    int currentBurstTime();
 
     /**
      * Converts up to the first 8 bytes of a byte array to a long.
