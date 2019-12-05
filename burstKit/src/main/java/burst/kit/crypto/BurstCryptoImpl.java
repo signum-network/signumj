@@ -280,7 +280,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public long fromBurstTime(int burstTime) {
-        return (epochBeginning + burstTime) * 1000L;
+        return epochBeginning + (burstTime * 1000L);
     }
 
     @Override

@@ -18,6 +18,7 @@ public class BurstTimestampTest {
         assertEquals(123456789, burstTimestamp.getTimestamp());
         assertEquals(1531179189000L, burstTimestamp.getAsDate().toInstant().toEpochMilli());
     }
+
     @Test
     public void testBurstTimestampFromDate() {
         BurstTimestamp burstTimestamp = BurstTimestamp.fromDate(Date.from(Instant.ofEpochMilli(1531179189000L)));
