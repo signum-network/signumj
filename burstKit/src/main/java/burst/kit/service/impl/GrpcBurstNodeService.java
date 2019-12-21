@@ -184,6 +184,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
+        return null; // TODO: implement
+    }
+
+    @Override
     public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
         return assign(() -> brsGrpc.getAccounts(
                 BrsApi.GetAccountsRequest.newBuilder()
@@ -194,6 +199,30 @@ public class GrpcBurstNodeService implements BurstNodeService {
                         .stream()
                         .map(BurstAddress::fromId)
                         .toArray(BurstAddress[]::new));
+    }
+
+    @Override
+    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
+        // TODO: implement
+        return null;
+    }
+
+    @Override
+    public Single<Trade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Single<Order[]> getAskOrders(BurstID assetId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Single<Order[]> getBidOrders(BurstID assetId) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
@@ -287,6 +316,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(brsGrpc::completeBasicTransaction)
                 .map(brsGrpc::getTransactionBytes)
                 .map(bytes -> bytes.getTransactionBytes().toByteArray());
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override
@@ -423,4 +458,46 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(brsGrpc::getTransactionBytes)
                 .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
+
+        @Override
+        public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity,
+                        BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description,
+                        BurstValue quantity, int decimals, BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId,
+                        BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId,
+                        BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee,
+                        int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee,
+                        int deadline) {
+                // TODO Auto-generated method stub
+                return null;
+        }
 }

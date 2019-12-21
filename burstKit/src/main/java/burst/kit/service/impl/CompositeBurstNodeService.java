@@ -177,8 +177,33 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
+        return performFastest(service -> service.getUnconfirmedTransactions(accountId));
+    }
+
+    @Override
     public Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId) {
         return performFastest(service -> service.getAccountsWithRewardRecipient(accountId));
+    }
+
+    @Override
+    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
+        return performFastest(service -> service.getAssetAccounts(assetId));
+    }
+
+    @Override
+    public Single<Trade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
+        return performFastest(service -> service.getAssetTrades(assetId, account, firstIndex, lastIndex));
+    }
+
+    @Override
+    public Single<Order[]> getAskOrders(BurstID assetId) {
+        return performFastest(service -> service.getAskOrders(assetId));
+    }
+
+    @Override
+    public Single<Order[]> getBidOrders(BurstID assetId) {
+        return performFastest(service -> service.getBidOrders(assetId));
     }
 
     @Override
@@ -214,6 +239,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         return performFastest(service -> service.generateTransactionWithMessage(recipient, senderPublicKey, amount, fee, deadline, message));
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return performFastest(service -> service.generateTransactionWithMessage(recipient, recipientPublicKey, senderPublicKey, amount, fee, deadline, message));
     }
 
     @Override
@@ -269,5 +299,36 @@ public class CompositeBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
         return performFastest(service -> service.generateCreateATTransaction(senderPublicKey, fee, deadline, name, description, creationBytes));
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateTransferAssetTransaction(senderPublicKey, recipient, assetId, quantity, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description,
+            BurstValue quantity, int decimals, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateIssueAssetTransaction(senderPublicKey, name, description, quantity, decimals, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generatePlaceAskOrderTransaction(senderPublicKey, assetId, quantity, price, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generatePlaceBidOrderTransaction(senderPublicKey, assetId, quantity, price, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderId, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateCancelAskOrderTransaction(senderPublicKey, orderId, fee, deadline));
+    }
+    
+    @Override
+    public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateCancelBidOrderTransaction(senderPublicKey, orderId, fee, deadline));
     }
 }

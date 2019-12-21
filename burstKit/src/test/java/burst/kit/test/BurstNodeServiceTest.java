@@ -9,6 +9,7 @@ import burst.kit.entity.response.attachment.ATCreationAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstNodeService;
+
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -84,6 +85,21 @@ public abstract class BurstNodeServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetAssetAccounts() {
+        AssetAccount[] assetAccountsResponse = RxTestUtils.testSingle(burstNodeService.getAssetAccounts(TestVariables.EXAMPLE_ASSET_ID));
+    }
+
+    @Test
+    public void testBurstServiceGetAskOrders() {
+        Order[] ordersResponse = RxTestUtils.testSingle(burstNodeService.getAskOrders(TestVariables.EXAMPLE_ASSET_ID));
+    }
+
+    @Test
+    public void testBurstServiceGetBidOrders() {
+        Order[] ordersResponse = RxTestUtils.testSingle(burstNodeService.getBidOrders(TestVariables.EXAMPLE_ASSET_ID));
+    }
+
+    @Test
     public void testBurstServiceGetAccountWithRewardRecipient() {
         BurstAddress[] accountsWithRewardRecipientResponse = RxTestUtils.testSingle(burstNodeService.getAccountsWithRewardRecipient(TestVariables.EXAMPLE_POOL_ACCOUNT_ID));
     }
@@ -96,6 +112,11 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetAtIDs() {
         BurstAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
+    }
+
+    @Test
+    public void testBurstServiceGetUnconfirmedTransactions() {
+        Transaction[] unconfReponse = RxTestUtils.testSingle(burstNodeService.getUnconfirmedTransactions(null));
     }
 
     @Test
