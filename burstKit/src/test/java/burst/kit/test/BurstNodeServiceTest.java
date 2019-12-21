@@ -86,7 +86,7 @@ public abstract class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAssetAccounts() {
-        AssetAccount[] assetAccountsResponse = RxTestUtils.testSingle(burstNodeService.getAssetAccounts(TestVariables.EXAMPLE_ASSET_ID));
+        AssetBalance[] assetBalancesResponse = RxTestUtils.testSingle(burstNodeService.getAssetBalances(TestVariables.EXAMPLE_ASSET_ID));
     }
 
     @Test

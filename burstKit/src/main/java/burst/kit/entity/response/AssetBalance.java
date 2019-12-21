@@ -5,7 +5,7 @@ import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.AssetAccountResponse;
 
-public class AssetAccount {
+public class AssetBalance {
     private final BurstAddress accountAddress;
     private final BurstID assetId;
     /**
@@ -19,14 +19,14 @@ public class AssetAccount {
      */
     private final BurstValue unconfirmedQuantity;
 
-    public AssetAccount(BurstAddress accountAddress, BurstID assetId, BurstValue quantity, BurstValue unconfirmedQuantity) {
+    public AssetBalance(BurstAddress accountAddress, BurstID assetId, BurstValue quantity, BurstValue unconfirmedQuantity) {
         this.accountAddress = accountAddress;
         this.assetId = assetId;
         this.quantity = quantity;
         this.unconfirmedQuantity = unconfirmedQuantity;
     }
 
-    public AssetAccount(AssetAccountResponse accountResponse) {
+    public AssetBalance(AssetAccountResponse accountResponse) {
         this.accountAddress = BurstAddress.fromEither(accountResponse.getAccount());
         this.assetId = BurstID.fromLong(accountResponse.getAsset());
         this.quantity= BurstValue.fromPlanck(accountResponse.getQuantityQNT());

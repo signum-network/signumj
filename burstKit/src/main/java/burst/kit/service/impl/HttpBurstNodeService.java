@@ -151,10 +151,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
+    public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
         return assign(blockchainService.getAssetAccounts(BurstKitUtils.getEndpoint(), assetId.getID()))
-                .map(response -> Arrays.stream(response.getAccountsAsset()).map(AssetAccount::new)
-                        .toArray(AssetAccount[]::new));
+                .map(response -> Arrays.stream(response.getAccountsAsset()).map(AssetBalance::new)
+                        .toArray(AssetBalance[]::new));
     }
 
     @Override

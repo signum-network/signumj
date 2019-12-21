@@ -118,9 +118,9 @@ public interface BurstNodeService {
     /**
      * Get the accounts holding the given asset
      * @param assetId The asset id
-     * @return A list of the addresses, wrapped in a single
+     * @return The asset balances of accounts holding the asset, wrapped in a single
      */
-    Single<AssetAccount[]> getAssetAccounts(BurstID assetId);
+    Single<AssetBalance[]> getAssetBalances(BurstID assetId);
 
     /**
      * Get the trades for a given asset
