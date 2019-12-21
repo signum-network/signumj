@@ -57,6 +57,8 @@ public final class BrsApi {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -64,6 +66,10 @@ public final class BrsApi {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static AssetTradeType forNumber(int value) {
       switch (value) {
         case 0: return AssetTradeType_UNSET;
@@ -172,6 +178,8 @@ public final class BrsApi {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -179,6 +187,10 @@ public final class BrsApi {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static PeerState forNumber(int value) {
       switch (value) {
         case 0: return PeerState_UNSET;
@@ -280,6 +292,8 @@ public final class BrsApi {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -287,6 +301,10 @@ public final class BrsApi {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static OrderType forNumber(int value) {
       switch (value) {
         case 0: return OrderType_UNSET;
@@ -403,6 +421,8 @@ public final class BrsApi {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -410,6 +430,10 @@ public final class BrsApi {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static EscrowDecisionType forNumber(int value) {
       switch (value) {
         case 0: return EscrowDecisionType_UNSET;
@@ -475,20 +499,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 accountId = 1;</code>
+     * @return The accountId.
      */
     long getAccountId();
 
     /**
      * <code>uint32 timestamp = 2;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -498,6 +526,7 @@ public final class BrsApi {
 
     /**
      * <code>uint32 confirmations = 4;</code>
+     * @return The confirmations.
      */
     int getConfirmations();
 
@@ -507,16 +536,19 @@ public final class BrsApi {
      * </pre>
      *
      * <code>bool filterByType = 5;</code>
+     * @return The filterByType.
      */
     boolean getFilterByType();
 
     /**
      * <code>uint32 type = 6;</code>
+     * @return The type.
      */
     int getType();
 
     /**
      * <code>uint32 subtype = 7;</code>
+     * @return The subtype.
      */
     int getSubtype();
   }
@@ -536,6 +568,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAccountTransactionsRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -548,7 +587,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -638,6 +676,7 @@ public final class BrsApi {
     private long accountId_;
     /**
      * <code>uint64 accountId = 1;</code>
+     * @return The accountId.
      */
     public long getAccountId() {
       return accountId_;
@@ -647,6 +686,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 2;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -656,12 +696,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -677,6 +719,7 @@ public final class BrsApi {
     private int confirmations_;
     /**
      * <code>uint32 confirmations = 4;</code>
+     * @return The confirmations.
      */
     public int getConfirmations() {
       return confirmations_;
@@ -690,6 +733,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>bool filterByType = 5;</code>
+     * @return The filterByType.
      */
     public boolean getFilterByType() {
       return filterByType_;
@@ -699,6 +743,7 @@ public final class BrsApi {
     private int type_;
     /**
      * <code>uint32 type = 6;</code>
+     * @return The type.
      */
     public int getType() {
       return type_;
@@ -708,6 +753,7 @@ public final class BrsApi {
     private int subtype_;
     /**
      * <code>uint32 subtype = 7;</code>
+     * @return The subtype.
      */
     public int getSubtype() {
       return subtype_;
@@ -1135,12 +1181,15 @@ public final class BrsApi {
       private long accountId_ ;
       /**
        * <code>uint64 accountId = 1;</code>
+       * @return The accountId.
        */
       public long getAccountId() {
         return accountId_;
       }
       /**
        * <code>uint64 accountId = 1;</code>
+       * @param value The accountId to set.
+       * @return This builder for chaining.
        */
       public Builder setAccountId(long value) {
         
@@ -1150,6 +1199,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 accountId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccountId() {
         
@@ -1161,12 +1211,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -1176,6 +1229,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -1189,12 +1243,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -1304,12 +1360,15 @@ public final class BrsApi {
       private int confirmations_ ;
       /**
        * <code>uint32 confirmations = 4;</code>
+       * @return The confirmations.
        */
       public int getConfirmations() {
         return confirmations_;
       }
       /**
        * <code>uint32 confirmations = 4;</code>
+       * @param value The confirmations to set.
+       * @return This builder for chaining.
        */
       public Builder setConfirmations(int value) {
         
@@ -1319,6 +1378,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 confirmations = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearConfirmations() {
         
@@ -1334,6 +1394,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool filterByType = 5;</code>
+       * @return The filterByType.
        */
       public boolean getFilterByType() {
         return filterByType_;
@@ -1344,6 +1405,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool filterByType = 5;</code>
+       * @param value The filterByType to set.
+       * @return This builder for chaining.
        */
       public Builder setFilterByType(boolean value) {
         
@@ -1357,6 +1420,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool filterByType = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFilterByType() {
         
@@ -1368,12 +1432,15 @@ public final class BrsApi {
       private int type_ ;
       /**
        * <code>uint32 type = 6;</code>
+       * @return The type.
        */
       public int getType() {
         return type_;
       }
       /**
        * <code>uint32 type = 6;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(int value) {
         
@@ -1383,6 +1450,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 type = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -1394,12 +1462,15 @@ public final class BrsApi {
       private int subtype_ ;
       /**
        * <code>uint32 subtype = 7;</code>
+       * @return The subtype.
        */
       public int getSubtype() {
         return subtype_;
       }
       /**
        * <code>uint32 subtype = 7;</code>
+       * @param value The subtype to set.
+       * @return This builder for chaining.
        */
       public Builder setSubtype(int value) {
         
@@ -1409,6 +1480,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 subtype = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSubtype() {
         
@@ -1475,20 +1547,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 accountId = 1;</code>
+     * @return The accountId.
      */
     long getAccountId();
 
     /**
      * <code>uint32 timestamp = 2;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -1502,6 +1578,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>bool includeTransactions = 4;</code>
+     * @return The includeTransactions.
      */
     boolean getIncludeTransactions();
   }
@@ -1521,6 +1598,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAccountBlocksRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1533,7 +1617,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1608,6 +1691,7 @@ public final class BrsApi {
     private long accountId_;
     /**
      * <code>uint64 accountId = 1;</code>
+     * @return The accountId.
      */
     public long getAccountId() {
       return accountId_;
@@ -1617,6 +1701,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 2;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -1626,12 +1711,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -1651,6 +1738,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>bool includeTransactions = 4;</code>
+     * @return The includeTransactions.
      */
     public boolean getIncludeTransactions() {
       return includeTransactions_;
@@ -2027,12 +2115,15 @@ public final class BrsApi {
       private long accountId_ ;
       /**
        * <code>uint64 accountId = 1;</code>
+       * @return The accountId.
        */
       public long getAccountId() {
         return accountId_;
       }
       /**
        * <code>uint64 accountId = 1;</code>
+       * @param value The accountId to set.
+       * @return This builder for chaining.
        */
       public Builder setAccountId(long value) {
         
@@ -2042,6 +2133,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 accountId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccountId() {
         
@@ -2053,12 +2145,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -2068,6 +2163,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -2081,12 +2177,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -2200,6 +2298,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool includeTransactions = 4;</code>
+       * @return The includeTransactions.
        */
       public boolean getIncludeTransactions() {
         return includeTransactions_;
@@ -2210,6 +2309,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool includeTransactions = 4;</code>
+       * @param value The includeTransactions to set.
+       * @return This builder for chaining.
        */
       public Builder setIncludeTransactions(boolean value) {
         
@@ -2223,6 +2324,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool includeTransactions = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIncludeTransactions() {
         
@@ -2289,6 +2391,7 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
   }
@@ -2308,6 +2411,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetByIdRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2320,7 +2430,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2372,6 +2481,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -2683,12 +2793,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -2698,6 +2811,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -2764,15 +2878,18 @@ public final class BrsApi {
 
     /**
      * <code>uint64 seller = 1;</code>
+     * @return The seller.
      */
     long getSeller();
 
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -2796,6 +2913,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetDgsPendingPurchasesRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2808,7 +2932,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2873,6 +2996,7 @@ public final class BrsApi {
     private long seller_;
     /**
      * <code>uint64 seller = 1;</code>
+     * @return The seller.
      */
     public long getSeller() {
       return seller_;
@@ -2882,12 +3006,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -3235,12 +3361,15 @@ public final class BrsApi {
       private long seller_ ;
       /**
        * <code>uint64 seller = 1;</code>
+       * @return The seller.
        */
       public long getSeller() {
         return seller_;
       }
       /**
        * <code>uint64 seller = 1;</code>
+       * @param value The seller to set.
+       * @return This builder for chaining.
        */
       public Builder setSeller(long value) {
         
@@ -3250,6 +3379,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 seller = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSeller() {
         
@@ -3263,12 +3393,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 2;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 2;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -3433,25 +3565,30 @@ public final class BrsApi {
 
     /**
      * <code>uint64 seller = 1;</code>
+     * @return The seller.
      */
     long getSeller();
 
     /**
      * <code>uint64 buyer = 2;</code>
+     * @return The buyer.
      */
     long getBuyer();
 
     /**
      * <code>bool completed = 3;</code>
+     * @return The completed.
      */
     boolean getCompleted();
 
     /**
      * <code>.IndexRange indexRange = 4;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 4;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -3475,6 +3612,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetDgsPurchasesRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3487,7 +3631,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3562,6 +3705,7 @@ public final class BrsApi {
     private long seller_;
     /**
      * <code>uint64 seller = 1;</code>
+     * @return The seller.
      */
     public long getSeller() {
       return seller_;
@@ -3571,6 +3715,7 @@ public final class BrsApi {
     private long buyer_;
     /**
      * <code>uint64 buyer = 2;</code>
+     * @return The buyer.
      */
     public long getBuyer() {
       return buyer_;
@@ -3580,6 +3725,7 @@ public final class BrsApi {
     private boolean completed_;
     /**
      * <code>bool completed = 3;</code>
+     * @return The completed.
      */
     public boolean getCompleted() {
       return completed_;
@@ -3589,12 +3735,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 4;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 4;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -3978,12 +4126,15 @@ public final class BrsApi {
       private long seller_ ;
       /**
        * <code>uint64 seller = 1;</code>
+       * @return The seller.
        */
       public long getSeller() {
         return seller_;
       }
       /**
        * <code>uint64 seller = 1;</code>
+       * @param value The seller to set.
+       * @return This builder for chaining.
        */
       public Builder setSeller(long value) {
         
@@ -3993,6 +4144,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 seller = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSeller() {
         
@@ -4004,12 +4156,15 @@ public final class BrsApi {
       private long buyer_ ;
       /**
        * <code>uint64 buyer = 2;</code>
+       * @return The buyer.
        */
       public long getBuyer() {
         return buyer_;
       }
       /**
        * <code>uint64 buyer = 2;</code>
+       * @param value The buyer to set.
+       * @return This builder for chaining.
        */
       public Builder setBuyer(long value) {
         
@@ -4019,6 +4174,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 buyer = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBuyer() {
         
@@ -4030,12 +4186,15 @@ public final class BrsApi {
       private boolean completed_ ;
       /**
        * <code>bool completed = 3;</code>
+       * @return The completed.
        */
       public boolean getCompleted() {
         return completed_;
       }
       /**
        * <code>bool completed = 3;</code>
+       * @param value The completed to set.
+       * @return This builder for chaining.
        */
       public Builder setCompleted(boolean value) {
         
@@ -4045,6 +4204,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool completed = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCompleted() {
         
@@ -4058,12 +4218,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 4;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 4;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -4228,11 +4390,13 @@ public final class BrsApi {
 
     /**
      * <code>bytes data = 1;</code>
+     * @return The data.
      */
     com.google.protobuf.ByteString getData();
 
     /**
      * <code>bytes nonce = 2;</code>
+     * @return The nonce.
      */
     com.google.protobuf.ByteString getNonce();
   }
@@ -4254,6 +4418,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EncryptedData();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4266,7 +4437,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4323,6 +4493,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString data_;
     /**
      * <code>bytes data = 1;</code>
+     * @return The data.
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
@@ -4332,6 +4503,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString nonce_;
     /**
      * <code>bytes nonce = 2;</code>
+     * @return The nonce.
      */
     public com.google.protobuf.ByteString getNonce() {
       return nonce_;
@@ -4659,12 +4831,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes data = 1;</code>
+       * @return The data.
        */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
        * <code>bytes data = 1;</code>
+       * @param value The data to set.
+       * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -4677,6 +4852,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes data = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearData() {
         
@@ -4688,12 +4864,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString nonce_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes nonce = 2;</code>
+       * @return The nonce.
        */
       public com.google.protobuf.ByteString getNonce() {
         return nonce_;
       }
       /**
        * <code>bytes nonce = 2;</code>
+       * @param value The nonce to set.
+       * @return This builder for chaining.
        */
       public Builder setNonce(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -4706,6 +4885,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes nonce = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNonce() {
         
@@ -4808,6 +4988,13 @@ public final class BrsApi {
     }
     private DgsPurchases() {
       dgsPurchases_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DgsPurchases();
     }
 
     @java.lang.Override
@@ -5553,70 +5740,84 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 good = 2;</code>
+     * @return The good.
      */
     long getGood();
 
     /**
      * <code>uint64 seller = 3;</code>
+     * @return The seller.
      */
     long getSeller();
 
     /**
      * <code>uint64 buyer = 4;</code>
+     * @return The buyer.
      */
     long getBuyer();
 
     /**
      * <code>uint64 price = 5;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>uint64 quantity = 6;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint32 timestamp = 7;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>uint32 deliveryDeadlineTimestamp = 8;</code>
+     * @return The deliveryDeadlineTimestamp.
      */
     int getDeliveryDeadlineTimestamp();
 
     /**
      * <code>string goodName = 9;</code>
+     * @return The goodName.
      */
     java.lang.String getGoodName();
     /**
      * <code>string goodName = 9;</code>
+     * @return The bytes for goodName.
      */
     com.google.protobuf.ByteString
         getGoodNameBytes();
 
     /**
      * <code>string goodDescription = 10;</code>
+     * @return The goodDescription.
      */
     java.lang.String getGoodDescription();
     /**
      * <code>string goodDescription = 10;</code>
+     * @return The bytes for goodDescription.
      */
     com.google.protobuf.ByteString
         getGoodDescriptionBytes();
 
     /**
      * <code>.EncryptedData note = 11;</code>
+     * @return Whether the note field is set.
      */
     boolean hasNote();
     /**
      * <code>.EncryptedData note = 11;</code>
+     * @return The note.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getNote();
     /**
@@ -5626,15 +5827,18 @@ public final class BrsApi {
 
     /**
      * <code>bool isPending = 12;</code>
+     * @return The isPending.
      */
     boolean getIsPending();
 
     /**
      * <code>.EncryptedData deliveredData = 13;</code>
+     * @return Whether the deliveredData field is set.
      */
     boolean hasDeliveredData();
     /**
      * <code>.EncryptedData deliveredData = 13;</code>
+     * @return The deliveredData.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getDeliveredData();
     /**
@@ -5644,6 +5848,7 @@ public final class BrsApi {
 
     /**
      * <code>bool deliveredDataIsText = 14;</code>
+     * @return The deliveredDataIsText.
      */
     boolean getDeliveredDataIsText();
 
@@ -5673,29 +5878,37 @@ public final class BrsApi {
 
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @return A list containing the publicFeedback.
      */
     java.util.List<java.lang.String>
         getPublicFeedbackList();
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @return The count of publicFeedback.
      */
     int getPublicFeedbackCount();
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @param index The index of the element to return.
+     * @return The publicFeedback at the given index.
      */
     java.lang.String getPublicFeedback(int index);
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the publicFeedback at the given index.
      */
     com.google.protobuf.ByteString
         getPublicFeedbackBytes(int index);
 
     /**
      * <code>.EncryptedData refundNote = 17;</code>
+     * @return Whether the refundNote field is set.
      */
     boolean hasRefundNote();
     /**
      * <code>.EncryptedData refundNote = 17;</code>
+     * @return The refundNote.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getRefundNote();
     /**
@@ -5705,11 +5918,13 @@ public final class BrsApi {
 
     /**
      * <code>uint64 discount = 18;</code>
+     * @return The discount.
      */
     long getDiscount();
 
     /**
      * <code>uint64 refund = 19;</code>
+     * @return The refund.
      */
     long getRefund();
   }
@@ -5730,6 +5945,13 @@ public final class BrsApi {
       goodDescription_ = "";
       feedback_ = java.util.Collections.emptyList();
       publicFeedback_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DgsPurchase();
     }
 
     @java.lang.Override
@@ -5845,9 +6067,9 @@ public final class BrsApi {
               break;
             }
             case 122: {
-              if (!((mutable_bitField0_ & 0x00004000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 feedback_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.EncryptedData>();
-                mutable_bitField0_ |= 0x00004000;
+                mutable_bitField0_ |= 0x00000001;
               }
               feedback_.add(
                   input.readMessage(burst.kit.service.impl.grpc.BrsApi.EncryptedData.parser(), extensionRegistry));
@@ -5855,9 +6077,9 @@ public final class BrsApi {
             }
             case 130: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 publicFeedback_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00000002;
               }
               publicFeedback_.add(s);
               break;
@@ -5900,10 +6122,10 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00004000) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           feedback_ = java.util.Collections.unmodifiableList(feedback_);
         }
-        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           publicFeedback_ = publicFeedback_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -5923,11 +6145,11 @@ public final class BrsApi {
               burst.kit.service.impl.grpc.BrsApi.DgsPurchase.class, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -5937,6 +6159,7 @@ public final class BrsApi {
     private long good_;
     /**
      * <code>uint64 good = 2;</code>
+     * @return The good.
      */
     public long getGood() {
       return good_;
@@ -5946,6 +6169,7 @@ public final class BrsApi {
     private long seller_;
     /**
      * <code>uint64 seller = 3;</code>
+     * @return The seller.
      */
     public long getSeller() {
       return seller_;
@@ -5955,6 +6179,7 @@ public final class BrsApi {
     private long buyer_;
     /**
      * <code>uint64 buyer = 4;</code>
+     * @return The buyer.
      */
     public long getBuyer() {
       return buyer_;
@@ -5964,6 +6189,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 5;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -5973,6 +6199,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 6;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -5982,6 +6209,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 7;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -5991,6 +6219,7 @@ public final class BrsApi {
     private int deliveryDeadlineTimestamp_;
     /**
      * <code>uint32 deliveryDeadlineTimestamp = 8;</code>
+     * @return The deliveryDeadlineTimestamp.
      */
     public int getDeliveryDeadlineTimestamp() {
       return deliveryDeadlineTimestamp_;
@@ -6000,6 +6229,7 @@ public final class BrsApi {
     private volatile java.lang.Object goodName_;
     /**
      * <code>string goodName = 9;</code>
+     * @return The goodName.
      */
     public java.lang.String getGoodName() {
       java.lang.Object ref = goodName_;
@@ -6015,6 +6245,7 @@ public final class BrsApi {
     }
     /**
      * <code>string goodName = 9;</code>
+     * @return The bytes for goodName.
      */
     public com.google.protobuf.ByteString
         getGoodNameBytes() {
@@ -6034,6 +6265,7 @@ public final class BrsApi {
     private volatile java.lang.Object goodDescription_;
     /**
      * <code>string goodDescription = 10;</code>
+     * @return The goodDescription.
      */
     public java.lang.String getGoodDescription() {
       java.lang.Object ref = goodDescription_;
@@ -6049,6 +6281,7 @@ public final class BrsApi {
     }
     /**
      * <code>string goodDescription = 10;</code>
+     * @return The bytes for goodDescription.
      */
     public com.google.protobuf.ByteString
         getGoodDescriptionBytes() {
@@ -6068,12 +6301,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData note_;
     /**
      * <code>.EncryptedData note = 11;</code>
+     * @return Whether the note field is set.
      */
     public boolean hasNote() {
       return note_ != null;
     }
     /**
      * <code>.EncryptedData note = 11;</code>
+     * @return The note.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getNote() {
       return note_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : note_;
@@ -6089,6 +6324,7 @@ public final class BrsApi {
     private boolean isPending_;
     /**
      * <code>bool isPending = 12;</code>
+     * @return The isPending.
      */
     public boolean getIsPending() {
       return isPending_;
@@ -6098,12 +6334,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData deliveredData_;
     /**
      * <code>.EncryptedData deliveredData = 13;</code>
+     * @return Whether the deliveredData field is set.
      */
     public boolean hasDeliveredData() {
       return deliveredData_ != null;
     }
     /**
      * <code>.EncryptedData deliveredData = 13;</code>
+     * @return The deliveredData.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getDeliveredData() {
       return deliveredData_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : deliveredData_;
@@ -6119,6 +6357,7 @@ public final class BrsApi {
     private boolean deliveredDataIsText_;
     /**
      * <code>bool deliveredDataIsText = 14;</code>
+     * @return The deliveredDataIsText.
      */
     public boolean getDeliveredDataIsText() {
       return deliveredDataIsText_;
@@ -6163,6 +6402,7 @@ public final class BrsApi {
     private com.google.protobuf.LazyStringList publicFeedback_;
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @return A list containing the publicFeedback.
      */
     public com.google.protobuf.ProtocolStringList
         getPublicFeedbackList() {
@@ -6170,18 +6410,23 @@ public final class BrsApi {
     }
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @return The count of publicFeedback.
      */
     public int getPublicFeedbackCount() {
       return publicFeedback_.size();
     }
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @param index The index of the element to return.
+     * @return The publicFeedback at the given index.
      */
     public java.lang.String getPublicFeedback(int index) {
       return publicFeedback_.get(index);
     }
     /**
      * <code>repeated string publicFeedback = 16;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the publicFeedback at the given index.
      */
     public com.google.protobuf.ByteString
         getPublicFeedbackBytes(int index) {
@@ -6192,12 +6437,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData refundNote_;
     /**
      * <code>.EncryptedData refundNote = 17;</code>
+     * @return Whether the refundNote field is set.
      */
     public boolean hasRefundNote() {
       return refundNote_ != null;
     }
     /**
      * <code>.EncryptedData refundNote = 17;</code>
+     * @return The refundNote.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getRefundNote() {
       return refundNote_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : refundNote_;
@@ -6213,6 +6460,7 @@ public final class BrsApi {
     private long discount_;
     /**
      * <code>uint64 discount = 18;</code>
+     * @return The discount.
      */
     public long getDiscount() {
       return discount_;
@@ -6222,6 +6470,7 @@ public final class BrsApi {
     private long refund_;
     /**
      * <code>uint64 refund = 19;</code>
+     * @return The refund.
      */
     public long getRefund() {
       return refund_;
@@ -6688,12 +6937,12 @@ public final class BrsApi {
 
         if (feedbackBuilder_ == null) {
           feedback_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00004000);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           feedbackBuilder_.clear();
         }
         publicFeedback_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (refundNoteBuilder_ == null) {
           refundNote_ = null;
         } else {
@@ -6731,7 +6980,6 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.DgsPurchase buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.DgsPurchase result = new burst.kit.service.impl.grpc.BrsApi.DgsPurchase(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.id_ = id_;
         result.good_ = good_;
         result.seller_ = seller_;
@@ -6755,17 +7003,17 @@ public final class BrsApi {
         }
         result.deliveredDataIsText_ = deliveredDataIsText_;
         if (feedbackBuilder_ == null) {
-          if (((bitField0_ & 0x00004000) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             feedback_ = java.util.Collections.unmodifiableList(feedback_);
-            bitField0_ = (bitField0_ & ~0x00004000);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.feedback_ = feedback_;
         } else {
           result.feedback_ = feedbackBuilder_.build();
         }
-        if (((bitField0_ & 0x00008000) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           publicFeedback_ = publicFeedback_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.publicFeedback_ = publicFeedback_;
         if (refundNoteBuilder_ == null) {
@@ -6775,7 +7023,6 @@ public final class BrsApi {
         }
         result.discount_ = discount_;
         result.refund_ = refund_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -6872,7 +7119,7 @@ public final class BrsApi {
           if (!other.feedback_.isEmpty()) {
             if (feedback_.isEmpty()) {
               feedback_ = other.feedback_;
-              bitField0_ = (bitField0_ & ~0x00004000);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureFeedbackIsMutable();
               feedback_.addAll(other.feedback_);
@@ -6885,7 +7132,7 @@ public final class BrsApi {
               feedbackBuilder_.dispose();
               feedbackBuilder_ = null;
               feedback_ = other.feedback_;
-              bitField0_ = (bitField0_ & ~0x00004000);
+              bitField0_ = (bitField0_ & ~0x00000001);
               feedbackBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFeedbackFieldBuilder() : null;
@@ -6897,7 +7144,7 @@ public final class BrsApi {
         if (!other.publicFeedback_.isEmpty()) {
           if (publicFeedback_.isEmpty()) {
             publicFeedback_ = other.publicFeedback_;
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensurePublicFeedbackIsMutable();
             publicFeedback_.addAll(other.publicFeedback_);
@@ -6946,12 +7193,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -6961,6 +7211,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -6972,12 +7223,15 @@ public final class BrsApi {
       private long good_ ;
       /**
        * <code>uint64 good = 2;</code>
+       * @return The good.
        */
       public long getGood() {
         return good_;
       }
       /**
        * <code>uint64 good = 2;</code>
+       * @param value The good to set.
+       * @return This builder for chaining.
        */
       public Builder setGood(long value) {
         
@@ -6987,6 +7241,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 good = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGood() {
         
@@ -6998,12 +7253,15 @@ public final class BrsApi {
       private long seller_ ;
       /**
        * <code>uint64 seller = 3;</code>
+       * @return The seller.
        */
       public long getSeller() {
         return seller_;
       }
       /**
        * <code>uint64 seller = 3;</code>
+       * @param value The seller to set.
+       * @return This builder for chaining.
        */
       public Builder setSeller(long value) {
         
@@ -7013,6 +7271,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 seller = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSeller() {
         
@@ -7024,12 +7283,15 @@ public final class BrsApi {
       private long buyer_ ;
       /**
        * <code>uint64 buyer = 4;</code>
+       * @return The buyer.
        */
       public long getBuyer() {
         return buyer_;
       }
       /**
        * <code>uint64 buyer = 4;</code>
+       * @param value The buyer to set.
+       * @return This builder for chaining.
        */
       public Builder setBuyer(long value) {
         
@@ -7039,6 +7301,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 buyer = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBuyer() {
         
@@ -7050,12 +7313,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 5;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 5;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -7065,6 +7331,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -7076,12 +7343,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 6;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 6;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -7091,6 +7361,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -7102,12 +7373,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 7;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 7;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -7117,6 +7391,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -7128,12 +7403,15 @@ public final class BrsApi {
       private int deliveryDeadlineTimestamp_ ;
       /**
        * <code>uint32 deliveryDeadlineTimestamp = 8;</code>
+       * @return The deliveryDeadlineTimestamp.
        */
       public int getDeliveryDeadlineTimestamp() {
         return deliveryDeadlineTimestamp_;
       }
       /**
        * <code>uint32 deliveryDeadlineTimestamp = 8;</code>
+       * @param value The deliveryDeadlineTimestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setDeliveryDeadlineTimestamp(int value) {
         
@@ -7143,6 +7421,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 deliveryDeadlineTimestamp = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeliveryDeadlineTimestamp() {
         
@@ -7154,6 +7433,7 @@ public final class BrsApi {
       private java.lang.Object goodName_ = "";
       /**
        * <code>string goodName = 9;</code>
+       * @return The goodName.
        */
       public java.lang.String getGoodName() {
         java.lang.Object ref = goodName_;
@@ -7169,6 +7449,7 @@ public final class BrsApi {
       }
       /**
        * <code>string goodName = 9;</code>
+       * @return The bytes for goodName.
        */
       public com.google.protobuf.ByteString
           getGoodNameBytes() {
@@ -7185,6 +7466,8 @@ public final class BrsApi {
       }
       /**
        * <code>string goodName = 9;</code>
+       * @param value The goodName to set.
+       * @return This builder for chaining.
        */
       public Builder setGoodName(
           java.lang.String value) {
@@ -7198,6 +7481,7 @@ public final class BrsApi {
       }
       /**
        * <code>string goodName = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGoodName() {
         
@@ -7207,6 +7491,8 @@ public final class BrsApi {
       }
       /**
        * <code>string goodName = 9;</code>
+       * @param value The bytes for goodName to set.
+       * @return This builder for chaining.
        */
       public Builder setGoodNameBytes(
           com.google.protobuf.ByteString value) {
@@ -7223,6 +7509,7 @@ public final class BrsApi {
       private java.lang.Object goodDescription_ = "";
       /**
        * <code>string goodDescription = 10;</code>
+       * @return The goodDescription.
        */
       public java.lang.String getGoodDescription() {
         java.lang.Object ref = goodDescription_;
@@ -7238,6 +7525,7 @@ public final class BrsApi {
       }
       /**
        * <code>string goodDescription = 10;</code>
+       * @return The bytes for goodDescription.
        */
       public com.google.protobuf.ByteString
           getGoodDescriptionBytes() {
@@ -7254,6 +7542,8 @@ public final class BrsApi {
       }
       /**
        * <code>string goodDescription = 10;</code>
+       * @param value The goodDescription to set.
+       * @return This builder for chaining.
        */
       public Builder setGoodDescription(
           java.lang.String value) {
@@ -7267,6 +7557,7 @@ public final class BrsApi {
       }
       /**
        * <code>string goodDescription = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGoodDescription() {
         
@@ -7276,6 +7567,8 @@ public final class BrsApi {
       }
       /**
        * <code>string goodDescription = 10;</code>
+       * @param value The bytes for goodDescription to set.
+       * @return This builder for chaining.
        */
       public Builder setGoodDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -7294,12 +7587,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> noteBuilder_;
       /**
        * <code>.EncryptedData note = 11;</code>
+       * @return Whether the note field is set.
        */
       public boolean hasNote() {
         return noteBuilder_ != null || note_ != null;
       }
       /**
        * <code>.EncryptedData note = 11;</code>
+       * @return The note.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getNote() {
         if (noteBuilder_ == null) {
@@ -7409,12 +7704,15 @@ public final class BrsApi {
       private boolean isPending_ ;
       /**
        * <code>bool isPending = 12;</code>
+       * @return The isPending.
        */
       public boolean getIsPending() {
         return isPending_;
       }
       /**
        * <code>bool isPending = 12;</code>
+       * @param value The isPending to set.
+       * @return This builder for chaining.
        */
       public Builder setIsPending(boolean value) {
         
@@ -7424,6 +7722,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool isPending = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsPending() {
         
@@ -7437,12 +7736,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> deliveredDataBuilder_;
       /**
        * <code>.EncryptedData deliveredData = 13;</code>
+       * @return Whether the deliveredData field is set.
        */
       public boolean hasDeliveredData() {
         return deliveredDataBuilder_ != null || deliveredData_ != null;
       }
       /**
        * <code>.EncryptedData deliveredData = 13;</code>
+       * @return The deliveredData.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getDeliveredData() {
         if (deliveredDataBuilder_ == null) {
@@ -7552,12 +7853,15 @@ public final class BrsApi {
       private boolean deliveredDataIsText_ ;
       /**
        * <code>bool deliveredDataIsText = 14;</code>
+       * @return The deliveredDataIsText.
        */
       public boolean getDeliveredDataIsText() {
         return deliveredDataIsText_;
       }
       /**
        * <code>bool deliveredDataIsText = 14;</code>
+       * @param value The deliveredDataIsText to set.
+       * @return This builder for chaining.
        */
       public Builder setDeliveredDataIsText(boolean value) {
         
@@ -7567,6 +7871,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool deliveredDataIsText = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeliveredDataIsText() {
         
@@ -7578,9 +7883,9 @@ public final class BrsApi {
       private java.util.List<burst.kit.service.impl.grpc.BrsApi.EncryptedData> feedback_ =
         java.util.Collections.emptyList();
       private void ensureFeedbackIsMutable() {
-        if (!((bitField0_ & 0x00004000) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           feedback_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.EncryptedData>(feedback_);
-          bitField0_ |= 0x00004000;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -7730,7 +8035,7 @@ public final class BrsApi {
       public Builder clearFeedback() {
         if (feedbackBuilder_ == null) {
           feedback_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00004000);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           feedbackBuilder_.clear();
@@ -7807,7 +8112,7 @@ public final class BrsApi {
           feedbackBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder>(
                   feedback_,
-                  ((bitField0_ & 0x00004000) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           feedback_ = null;
@@ -7817,13 +8122,14 @@ public final class BrsApi {
 
       private com.google.protobuf.LazyStringList publicFeedback_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensurePublicFeedbackIsMutable() {
-        if (!((bitField0_ & 0x00008000) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           publicFeedback_ = new com.google.protobuf.LazyStringArrayList(publicFeedback_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @return A list containing the publicFeedback.
        */
       public com.google.protobuf.ProtocolStringList
           getPublicFeedbackList() {
@@ -7831,18 +8137,23 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @return The count of publicFeedback.
        */
       public int getPublicFeedbackCount() {
         return publicFeedback_.size();
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @param index The index of the element to return.
+       * @return The publicFeedback at the given index.
        */
       public java.lang.String getPublicFeedback(int index) {
         return publicFeedback_.get(index);
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the publicFeedback at the given index.
        */
       public com.google.protobuf.ByteString
           getPublicFeedbackBytes(int index) {
@@ -7850,6 +8161,9 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @param index The index to set the value at.
+       * @param value The publicFeedback to set.
+       * @return This builder for chaining.
        */
       public Builder setPublicFeedback(
           int index, java.lang.String value) {
@@ -7863,6 +8177,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @param value The publicFeedback to add.
+       * @return This builder for chaining.
        */
       public Builder addPublicFeedback(
           java.lang.String value) {
@@ -7876,6 +8192,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @param values The publicFeedback to add.
+       * @return This builder for chaining.
        */
       public Builder addAllPublicFeedback(
           java.lang.Iterable<java.lang.String> values) {
@@ -7887,15 +8205,18 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPublicFeedback() {
         publicFeedback_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>repeated string publicFeedback = 16;</code>
+       * @param value The bytes of the publicFeedback to add.
+       * @return This builder for chaining.
        */
       public Builder addPublicFeedbackBytes(
           com.google.protobuf.ByteString value) {
@@ -7914,12 +8235,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> refundNoteBuilder_;
       /**
        * <code>.EncryptedData refundNote = 17;</code>
+       * @return Whether the refundNote field is set.
        */
       public boolean hasRefundNote() {
         return refundNoteBuilder_ != null || refundNote_ != null;
       }
       /**
        * <code>.EncryptedData refundNote = 17;</code>
+       * @return The refundNote.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getRefundNote() {
         if (refundNoteBuilder_ == null) {
@@ -8029,12 +8352,15 @@ public final class BrsApi {
       private long discount_ ;
       /**
        * <code>uint64 discount = 18;</code>
+       * @return The discount.
        */
       public long getDiscount() {
         return discount_;
       }
       /**
        * <code>uint64 discount = 18;</code>
+       * @param value The discount to set.
+       * @return This builder for chaining.
        */
       public Builder setDiscount(long value) {
         
@@ -8044,6 +8370,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 discount = 18;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDiscount() {
         
@@ -8055,12 +8382,15 @@ public final class BrsApi {
       private long refund_ ;
       /**
        * <code>uint64 refund = 19;</code>
+       * @return The refund.
        */
       public long getRefund() {
         return refund_;
       }
       /**
        * <code>uint64 refund = 19;</code>
+       * @param value The refund to set.
+       * @return This builder for chaining.
        */
       public Builder setRefund(long value) {
         
@@ -8070,6 +8400,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 refund = 19;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRefund() {
         
@@ -8136,20 +8467,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 seller = 1;</code>
+     * @return The seller.
      */
     long getSeller();
 
     /**
      * <code>bool inStockOnly = 2;</code>
+     * @return The inStockOnly.
      */
     boolean getInStockOnly();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -8173,6 +8508,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetDgsGoodsRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8185,7 +8527,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -8255,6 +8596,7 @@ public final class BrsApi {
     private long seller_;
     /**
      * <code>uint64 seller = 1;</code>
+     * @return The seller.
      */
     public long getSeller() {
       return seller_;
@@ -8264,6 +8606,7 @@ public final class BrsApi {
     private boolean inStockOnly_;
     /**
      * <code>bool inStockOnly = 2;</code>
+     * @return The inStockOnly.
      */
     public boolean getInStockOnly() {
       return inStockOnly_;
@@ -8273,12 +8616,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -8644,12 +8989,15 @@ public final class BrsApi {
       private long seller_ ;
       /**
        * <code>uint64 seller = 1;</code>
+       * @return The seller.
        */
       public long getSeller() {
         return seller_;
       }
       /**
        * <code>uint64 seller = 1;</code>
+       * @param value The seller to set.
+       * @return This builder for chaining.
        */
       public Builder setSeller(long value) {
         
@@ -8659,6 +9007,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 seller = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSeller() {
         
@@ -8670,12 +9019,15 @@ public final class BrsApi {
       private boolean inStockOnly_ ;
       /**
        * <code>bool inStockOnly = 2;</code>
+       * @return The inStockOnly.
        */
       public boolean getInStockOnly() {
         return inStockOnly_;
       }
       /**
        * <code>bool inStockOnly = 2;</code>
+       * @param value The inStockOnly to set.
+       * @return This builder for chaining.
        */
       public Builder setInStockOnly(boolean value) {
         
@@ -8685,6 +9037,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool inStockOnly = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearInStockOnly() {
         
@@ -8698,12 +9051,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -8904,6 +9259,13 @@ public final class BrsApi {
     }
     private DgsGoods() {
       goods_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DgsGoods();
     }
 
     @java.lang.Override
@@ -9649,60 +10011,72 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 seller = 2;</code>
+     * @return The seller.
      */
     long getSeller();
 
     /**
      * <code>uint64 price = 3;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>uint64 quantity = 4;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>bool isDelisted = 5;</code>
+     * @return The isDelisted.
      */
     boolean getIsDelisted();
 
     /**
      * <code>uint32 timestamp = 6;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>string name = 7;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 7;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 8;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 8;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>string tags = 9;</code>
+     * @return The tags.
      */
     java.lang.String getTags();
     /**
      * <code>string tags = 9;</code>
+     * @return The bytes for tags.
      */
     com.google.protobuf.ByteString
         getTagsBytes();
@@ -9726,6 +10100,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DgsGood();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9738,7 +10119,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9833,6 +10213,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -9842,6 +10223,7 @@ public final class BrsApi {
     private long seller_;
     /**
      * <code>uint64 seller = 2;</code>
+     * @return The seller.
      */
     public long getSeller() {
       return seller_;
@@ -9851,6 +10233,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 3;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -9860,6 +10243,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 4;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -9869,6 +10253,7 @@ public final class BrsApi {
     private boolean isDelisted_;
     /**
      * <code>bool isDelisted = 5;</code>
+     * @return The isDelisted.
      */
     public boolean getIsDelisted() {
       return isDelisted_;
@@ -9878,6 +10263,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 6;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -9887,6 +10273,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 7;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -9902,6 +10289,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 7;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -9921,6 +10309,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 8;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -9936,6 +10325,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 8;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -9955,6 +10345,7 @@ public final class BrsApi {
     private volatile java.lang.Object tags_;
     /**
      * <code>string tags = 9;</code>
+     * @return The tags.
      */
     public java.lang.String getTags() {
       java.lang.Object ref = tags_;
@@ -9970,6 +10361,7 @@ public final class BrsApi {
     }
     /**
      * <code>string tags = 9;</code>
+     * @return The bytes for tags.
      */
     public com.google.protobuf.ByteString
         getTagsBytes() {
@@ -10431,12 +10823,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -10446,6 +10841,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -10457,12 +10853,15 @@ public final class BrsApi {
       private long seller_ ;
       /**
        * <code>uint64 seller = 2;</code>
+       * @return The seller.
        */
       public long getSeller() {
         return seller_;
       }
       /**
        * <code>uint64 seller = 2;</code>
+       * @param value The seller to set.
+       * @return This builder for chaining.
        */
       public Builder setSeller(long value) {
         
@@ -10472,6 +10871,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 seller = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSeller() {
         
@@ -10483,12 +10883,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 3;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 3;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -10498,6 +10901,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -10509,12 +10913,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 4;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 4;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -10524,6 +10931,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -10535,12 +10943,15 @@ public final class BrsApi {
       private boolean isDelisted_ ;
       /**
        * <code>bool isDelisted = 5;</code>
+       * @return The isDelisted.
        */
       public boolean getIsDelisted() {
         return isDelisted_;
       }
       /**
        * <code>bool isDelisted = 5;</code>
+       * @param value The isDelisted to set.
+       * @return This builder for chaining.
        */
       public Builder setIsDelisted(boolean value) {
         
@@ -10550,6 +10961,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool isDelisted = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsDelisted() {
         
@@ -10561,12 +10973,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 6;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 6;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -10576,6 +10991,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -10587,6 +11003,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 7;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -10602,6 +11019,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 7;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -10618,6 +11036,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 7;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -10631,6 +11051,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -10640,6 +11061,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 7;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -10656,6 +11079,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 8;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -10671,6 +11095,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 8;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -10687,6 +11112,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 8;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -10700,6 +11127,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -10709,6 +11137,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 8;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -10725,6 +11155,7 @@ public final class BrsApi {
       private java.lang.Object tags_ = "";
       /**
        * <code>string tags = 9;</code>
+       * @return The tags.
        */
       public java.lang.String getTags() {
         java.lang.Object ref = tags_;
@@ -10740,6 +11171,7 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 9;</code>
+       * @return The bytes for tags.
        */
       public com.google.protobuf.ByteString
           getTagsBytes() {
@@ -10756,6 +11188,8 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 9;</code>
+       * @param value The tags to set.
+       * @return This builder for chaining.
        */
       public Builder setTags(
           java.lang.String value) {
@@ -10769,6 +11203,7 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTags() {
         
@@ -10778,6 +11213,8 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 9;</code>
+       * @param value The bytes for tags to set.
+       * @return This builder for chaining.
        */
       public Builder setTagsBytes(
           com.google.protobuf.ByteString value) {
@@ -10849,20 +11286,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 account = 2;</code>
+     * @return The account.
      */
     long getAccount();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -10886,6 +11327,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAssetTransfersRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -10898,7 +11346,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -10968,6 +11415,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -10977,6 +11425,7 @@ public final class BrsApi {
     private long account_;
     /**
      * <code>uint64 account = 2;</code>
+     * @return The account.
      */
     public long getAccount() {
       return account_;
@@ -10986,12 +11435,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -11357,12 +11808,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 1;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -11372,6 +11826,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -11383,12 +11838,15 @@ public final class BrsApi {
       private long account_ ;
       /**
        * <code>uint64 account = 2;</code>
+       * @return The account.
        */
       public long getAccount() {
         return account_;
       }
       /**
        * <code>uint64 account = 2;</code>
+       * @param value The account to set.
+       * @return This builder for chaining.
        */
       public Builder setAccount(long value) {
         
@@ -11398,6 +11856,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 account = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccount() {
         
@@ -11411,12 +11870,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -11617,6 +12078,13 @@ public final class BrsApi {
     }
     private AssetTrades() {
       trades_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetTrades();
     }
 
     @java.lang.Override
@@ -12401,6 +12869,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetTransfers();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -13143,55 +13618,66 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 sender = 3;</code>
+     * @return The sender.
      */
     long getSender();
 
     /**
      * <code>uint64 recipient = 4;</code>
+     * @return The recipient.
      */
     long getRecipient();
 
     /**
      * <code>uint64 quantity = 5;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint32 height = 6;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>uint32 timestamp = 7;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>string assetName = 8;</code>
+     * @return The assetName.
      */
     java.lang.String getAssetName();
     /**
      * <code>string assetName = 8;</code>
+     * @return The bytes for assetName.
      */
     com.google.protobuf.ByteString
         getAssetNameBytes();
 
     /**
      * <code>string assetDescription = 9;</code>
+     * @return The assetDescription.
      */
     java.lang.String getAssetDescription();
     /**
      * <code>string assetDescription = 9;</code>
+     * @return The bytes for assetDescription.
      */
     com.google.protobuf.ByteString
         getAssetDescriptionBytes();
@@ -13214,6 +13700,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetTransfer();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -13226,7 +13719,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -13320,6 +13812,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -13329,6 +13822,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -13338,6 +13832,7 @@ public final class BrsApi {
     private long sender_;
     /**
      * <code>uint64 sender = 3;</code>
+     * @return The sender.
      */
     public long getSender() {
       return sender_;
@@ -13347,6 +13842,7 @@ public final class BrsApi {
     private long recipient_;
     /**
      * <code>uint64 recipient = 4;</code>
+     * @return The recipient.
      */
     public long getRecipient() {
       return recipient_;
@@ -13356,6 +13852,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 5;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -13365,6 +13862,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 6;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -13374,6 +13872,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 7;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -13383,6 +13882,7 @@ public final class BrsApi {
     private volatile java.lang.Object assetName_;
     /**
      * <code>string assetName = 8;</code>
+     * @return The assetName.
      */
     public java.lang.String getAssetName() {
       java.lang.Object ref = assetName_;
@@ -13398,6 +13898,7 @@ public final class BrsApi {
     }
     /**
      * <code>string assetName = 8;</code>
+     * @return The bytes for assetName.
      */
     public com.google.protobuf.ByteString
         getAssetNameBytes() {
@@ -13417,6 +13918,7 @@ public final class BrsApi {
     private volatile java.lang.Object assetDescription_;
     /**
      * <code>string assetDescription = 9;</code>
+     * @return The assetDescription.
      */
     public java.lang.String getAssetDescription() {
       java.lang.Object ref = assetDescription_;
@@ -13432,6 +13934,7 @@ public final class BrsApi {
     }
     /**
      * <code>string assetDescription = 9;</code>
+     * @return The bytes for assetDescription.
      */
     public com.google.protobuf.ByteString
         getAssetDescriptionBytes() {
@@ -13893,12 +14396,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -13908,6 +14414,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -13919,12 +14426,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 2;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -13934,6 +14444,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -13945,12 +14456,15 @@ public final class BrsApi {
       private long sender_ ;
       /**
        * <code>uint64 sender = 3;</code>
+       * @return The sender.
        */
       public long getSender() {
         return sender_;
       }
       /**
        * <code>uint64 sender = 3;</code>
+       * @param value The sender to set.
+       * @return This builder for chaining.
        */
       public Builder setSender(long value) {
         
@@ -13960,6 +14474,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 sender = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSender() {
         
@@ -13971,12 +14486,15 @@ public final class BrsApi {
       private long recipient_ ;
       /**
        * <code>uint64 recipient = 4;</code>
+       * @return The recipient.
        */
       public long getRecipient() {
         return recipient_;
       }
       /**
        * <code>uint64 recipient = 4;</code>
+       * @param value The recipient to set.
+       * @return This builder for chaining.
        */
       public Builder setRecipient(long value) {
         
@@ -13986,6 +14504,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 recipient = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecipient() {
         
@@ -13997,12 +14516,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 5;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 5;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -14012,6 +14534,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -14023,12 +14546,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 6;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 6;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -14038,6 +14564,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -14049,12 +14576,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 7;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 7;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -14064,6 +14594,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -14075,6 +14606,7 @@ public final class BrsApi {
       private java.lang.Object assetName_ = "";
       /**
        * <code>string assetName = 8;</code>
+       * @return The assetName.
        */
       public java.lang.String getAssetName() {
         java.lang.Object ref = assetName_;
@@ -14090,6 +14622,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 8;</code>
+       * @return The bytes for assetName.
        */
       public com.google.protobuf.ByteString
           getAssetNameBytes() {
@@ -14106,6 +14639,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 8;</code>
+       * @param value The assetName to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetName(
           java.lang.String value) {
@@ -14119,6 +14654,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAssetName() {
         
@@ -14128,6 +14664,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 8;</code>
+       * @param value The bytes for assetName to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetNameBytes(
           com.google.protobuf.ByteString value) {
@@ -14144,6 +14682,7 @@ public final class BrsApi {
       private java.lang.Object assetDescription_ = "";
       /**
        * <code>string assetDescription = 9;</code>
+       * @return The assetDescription.
        */
       public java.lang.String getAssetDescription() {
         java.lang.Object ref = assetDescription_;
@@ -14159,6 +14698,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 9;</code>
+       * @return The bytes for assetDescription.
        */
       public com.google.protobuf.ByteString
           getAssetDescriptionBytes() {
@@ -14175,6 +14715,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 9;</code>
+       * @param value The assetDescription to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetDescription(
           java.lang.String value) {
@@ -14188,6 +14730,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAssetDescription() {
         
@@ -14197,6 +14740,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 9;</code>
+       * @param value The bytes for assetDescription to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -14268,89 +14813,107 @@ public final class BrsApi {
 
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>.AssetTradeType tradeType = 2;</code>
+     * @return The enum numeric value on the wire for tradeType.
      */
     int getTradeTypeValue();
     /**
      * <code>.AssetTradeType tradeType = 2;</code>
+     * @return The tradeType.
      */
     burst.kit.service.impl.grpc.BrsApi.AssetTradeType getTradeType();
 
     /**
      * <code>uint64 seller = 3;</code>
+     * @return The seller.
      */
     long getSeller();
 
     /**
      * <code>uint64 buyer = 4;</code>
+     * @return The buyer.
      */
     long getBuyer();
 
     /**
      * <code>uint64 price = 5;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>uint64 quantity = 6;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint64 askOrder = 7;</code>
+     * @return The askOrder.
      */
     long getAskOrder();
 
     /**
      * <code>uint64 bidOrder = 8;</code>
+     * @return The bidOrder.
      */
     long getBidOrder();
 
     /**
      * <code>uint32 askOrderHeight = 9;</code>
+     * @return The askOrderHeight.
      */
     int getAskOrderHeight();
 
     /**
      * <code>uint32 bidOrderHeight = 10;</code>
+     * @return The bidOrderHeight.
      */
     int getBidOrderHeight();
 
     /**
      * <code>uint64 block = 11;</code>
+     * @return The block.
      */
     long getBlock();
 
     /**
      * <code>uint32 height = 12;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>uint32 timestamp = 13;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>string assetName = 14;</code>
+     * @return The assetName.
      */
     java.lang.String getAssetName();
     /**
      * <code>string assetName = 14;</code>
+     * @return The bytes for assetName.
      */
     com.google.protobuf.ByteString
         getAssetNameBytes();
 
     /**
      * <code>string assetDescription = 15;</code>
+     * @return The assetDescription.
      */
     java.lang.String getAssetDescription();
     /**
      * <code>string assetDescription = 15;</code>
+     * @return The bytes for assetDescription.
      */
     com.google.protobuf.ByteString
         getAssetDescriptionBytes();
@@ -14374,6 +14937,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetTrade();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -14386,7 +14956,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -14511,6 +15080,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -14520,12 +15090,14 @@ public final class BrsApi {
     private int tradeType_;
     /**
      * <code>.AssetTradeType tradeType = 2;</code>
+     * @return The enum numeric value on the wire for tradeType.
      */
     public int getTradeTypeValue() {
       return tradeType_;
     }
     /**
      * <code>.AssetTradeType tradeType = 2;</code>
+     * @return The tradeType.
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetTradeType getTradeType() {
       @SuppressWarnings("deprecation")
@@ -14537,6 +15109,7 @@ public final class BrsApi {
     private long seller_;
     /**
      * <code>uint64 seller = 3;</code>
+     * @return The seller.
      */
     public long getSeller() {
       return seller_;
@@ -14546,6 +15119,7 @@ public final class BrsApi {
     private long buyer_;
     /**
      * <code>uint64 buyer = 4;</code>
+     * @return The buyer.
      */
     public long getBuyer() {
       return buyer_;
@@ -14555,6 +15129,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 5;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -14564,6 +15139,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 6;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -14573,6 +15149,7 @@ public final class BrsApi {
     private long askOrder_;
     /**
      * <code>uint64 askOrder = 7;</code>
+     * @return The askOrder.
      */
     public long getAskOrder() {
       return askOrder_;
@@ -14582,6 +15159,7 @@ public final class BrsApi {
     private long bidOrder_;
     /**
      * <code>uint64 bidOrder = 8;</code>
+     * @return The bidOrder.
      */
     public long getBidOrder() {
       return bidOrder_;
@@ -14591,6 +15169,7 @@ public final class BrsApi {
     private int askOrderHeight_;
     /**
      * <code>uint32 askOrderHeight = 9;</code>
+     * @return The askOrderHeight.
      */
     public int getAskOrderHeight() {
       return askOrderHeight_;
@@ -14600,6 +15179,7 @@ public final class BrsApi {
     private int bidOrderHeight_;
     /**
      * <code>uint32 bidOrderHeight = 10;</code>
+     * @return The bidOrderHeight.
      */
     public int getBidOrderHeight() {
       return bidOrderHeight_;
@@ -14609,6 +15189,7 @@ public final class BrsApi {
     private long block_;
     /**
      * <code>uint64 block = 11;</code>
+     * @return The block.
      */
     public long getBlock() {
       return block_;
@@ -14618,6 +15199,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 12;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -14627,6 +15209,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 13;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -14636,6 +15219,7 @@ public final class BrsApi {
     private volatile java.lang.Object assetName_;
     /**
      * <code>string assetName = 14;</code>
+     * @return The assetName.
      */
     public java.lang.String getAssetName() {
       java.lang.Object ref = assetName_;
@@ -14651,6 +15235,7 @@ public final class BrsApi {
     }
     /**
      * <code>string assetName = 14;</code>
+     * @return The bytes for assetName.
      */
     public com.google.protobuf.ByteString
         getAssetNameBytes() {
@@ -14670,6 +15255,7 @@ public final class BrsApi {
     private volatile java.lang.Object assetDescription_;
     /**
      * <code>string assetDescription = 15;</code>
+     * @return The assetDescription.
      */
     public java.lang.String getAssetDescription() {
       java.lang.Object ref = assetDescription_;
@@ -14685,6 +15271,7 @@ public final class BrsApi {
     }
     /**
      * <code>string assetDescription = 15;</code>
+     * @return The bytes for assetDescription.
      */
     public com.google.protobuf.ByteString
         getAssetDescriptionBytes() {
@@ -15250,12 +15837,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 1;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -15265,6 +15855,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -15276,12 +15867,15 @@ public final class BrsApi {
       private int tradeType_ = 0;
       /**
        * <code>.AssetTradeType tradeType = 2;</code>
+       * @return The enum numeric value on the wire for tradeType.
        */
       public int getTradeTypeValue() {
         return tradeType_;
       }
       /**
        * <code>.AssetTradeType tradeType = 2;</code>
+       * @param value The enum numeric value on the wire for tradeType to set.
+       * @return This builder for chaining.
        */
       public Builder setTradeTypeValue(int value) {
         tradeType_ = value;
@@ -15290,6 +15884,7 @@ public final class BrsApi {
       }
       /**
        * <code>.AssetTradeType tradeType = 2;</code>
+       * @return The tradeType.
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTradeType getTradeType() {
         @SuppressWarnings("deprecation")
@@ -15298,6 +15893,8 @@ public final class BrsApi {
       }
       /**
        * <code>.AssetTradeType tradeType = 2;</code>
+       * @param value The tradeType to set.
+       * @return This builder for chaining.
        */
       public Builder setTradeType(burst.kit.service.impl.grpc.BrsApi.AssetTradeType value) {
         if (value == null) {
@@ -15310,6 +15907,7 @@ public final class BrsApi {
       }
       /**
        * <code>.AssetTradeType tradeType = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTradeType() {
         
@@ -15321,12 +15919,15 @@ public final class BrsApi {
       private long seller_ ;
       /**
        * <code>uint64 seller = 3;</code>
+       * @return The seller.
        */
       public long getSeller() {
         return seller_;
       }
       /**
        * <code>uint64 seller = 3;</code>
+       * @param value The seller to set.
+       * @return This builder for chaining.
        */
       public Builder setSeller(long value) {
         
@@ -15336,6 +15937,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 seller = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSeller() {
         
@@ -15347,12 +15949,15 @@ public final class BrsApi {
       private long buyer_ ;
       /**
        * <code>uint64 buyer = 4;</code>
+       * @return The buyer.
        */
       public long getBuyer() {
         return buyer_;
       }
       /**
        * <code>uint64 buyer = 4;</code>
+       * @param value The buyer to set.
+       * @return This builder for chaining.
        */
       public Builder setBuyer(long value) {
         
@@ -15362,6 +15967,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 buyer = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBuyer() {
         
@@ -15373,12 +15979,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 5;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 5;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -15388,6 +15997,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -15399,12 +16009,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 6;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 6;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -15414,6 +16027,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -15425,12 +16039,15 @@ public final class BrsApi {
       private long askOrder_ ;
       /**
        * <code>uint64 askOrder = 7;</code>
+       * @return The askOrder.
        */
       public long getAskOrder() {
         return askOrder_;
       }
       /**
        * <code>uint64 askOrder = 7;</code>
+       * @param value The askOrder to set.
+       * @return This builder for chaining.
        */
       public Builder setAskOrder(long value) {
         
@@ -15440,6 +16057,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 askOrder = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAskOrder() {
         
@@ -15451,12 +16069,15 @@ public final class BrsApi {
       private long bidOrder_ ;
       /**
        * <code>uint64 bidOrder = 8;</code>
+       * @return The bidOrder.
        */
       public long getBidOrder() {
         return bidOrder_;
       }
       /**
        * <code>uint64 bidOrder = 8;</code>
+       * @param value The bidOrder to set.
+       * @return This builder for chaining.
        */
       public Builder setBidOrder(long value) {
         
@@ -15466,6 +16087,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 bidOrder = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBidOrder() {
         
@@ -15477,12 +16099,15 @@ public final class BrsApi {
       private int askOrderHeight_ ;
       /**
        * <code>uint32 askOrderHeight = 9;</code>
+       * @return The askOrderHeight.
        */
       public int getAskOrderHeight() {
         return askOrderHeight_;
       }
       /**
        * <code>uint32 askOrderHeight = 9;</code>
+       * @param value The askOrderHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setAskOrderHeight(int value) {
         
@@ -15492,6 +16117,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 askOrderHeight = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAskOrderHeight() {
         
@@ -15503,12 +16129,15 @@ public final class BrsApi {
       private int bidOrderHeight_ ;
       /**
        * <code>uint32 bidOrderHeight = 10;</code>
+       * @return The bidOrderHeight.
        */
       public int getBidOrderHeight() {
         return bidOrderHeight_;
       }
       /**
        * <code>uint32 bidOrderHeight = 10;</code>
+       * @param value The bidOrderHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setBidOrderHeight(int value) {
         
@@ -15518,6 +16147,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 bidOrderHeight = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBidOrderHeight() {
         
@@ -15529,12 +16159,15 @@ public final class BrsApi {
       private long block_ ;
       /**
        * <code>uint64 block = 11;</code>
+       * @return The block.
        */
       public long getBlock() {
         return block_;
       }
       /**
        * <code>uint64 block = 11;</code>
+       * @param value The block to set.
+       * @return This builder for chaining.
        */
       public Builder setBlock(long value) {
         
@@ -15544,6 +16177,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 block = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlock() {
         
@@ -15555,12 +16189,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 12;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 12;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -15570,6 +16207,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -15581,12 +16219,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 13;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 13;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -15596,6 +16237,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -15607,6 +16249,7 @@ public final class BrsApi {
       private java.lang.Object assetName_ = "";
       /**
        * <code>string assetName = 14;</code>
+       * @return The assetName.
        */
       public java.lang.String getAssetName() {
         java.lang.Object ref = assetName_;
@@ -15622,6 +16265,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 14;</code>
+       * @return The bytes for assetName.
        */
       public com.google.protobuf.ByteString
           getAssetNameBytes() {
@@ -15638,6 +16282,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 14;</code>
+       * @param value The assetName to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetName(
           java.lang.String value) {
@@ -15651,6 +16297,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAssetName() {
         
@@ -15660,6 +16307,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetName = 14;</code>
+       * @param value The bytes for assetName to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetNameBytes(
           com.google.protobuf.ByteString value) {
@@ -15676,6 +16325,7 @@ public final class BrsApi {
       private java.lang.Object assetDescription_ = "";
       /**
        * <code>string assetDescription = 15;</code>
+       * @return The assetDescription.
        */
       public java.lang.String getAssetDescription() {
         java.lang.Object ref = assetDescription_;
@@ -15691,6 +16341,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 15;</code>
+       * @return The bytes for assetDescription.
        */
       public com.google.protobuf.ByteString
           getAssetDescriptionBytes() {
@@ -15707,6 +16358,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 15;</code>
+       * @param value The assetDescription to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetDescription(
           java.lang.String value) {
@@ -15720,6 +16373,7 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 15;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAssetDescription() {
         
@@ -15729,6 +16383,8 @@ public final class BrsApi {
       }
       /**
        * <code>string assetDescription = 15;</code>
+       * @param value The bytes for assetDescription to set.
+       * @return This builder for chaining.
        */
       public Builder setAssetDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -15804,24 +16460,29 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The orderType.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -15846,6 +16507,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetOrdersRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -15858,7 +16526,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -15933,6 +16600,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -15942,12 +16610,14 @@ public final class BrsApi {
     private int orderType_;
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The orderType.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
       @SuppressWarnings("deprecation")
@@ -15959,12 +16629,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -16332,6 +17004,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint64 asset = 1;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
@@ -16342,6 +17015,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint64 asset = 1;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -16355,6 +17030,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -16366,12 +17042,15 @@ public final class BrsApi {
       private int orderType_ = 0;
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @param value The enum numeric value on the wire for orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderTypeValue(int value) {
         orderType_ = value;
@@ -16380,6 +17059,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @return The orderType.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
         @SuppressWarnings("deprecation")
@@ -16388,6 +17068,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @param value The orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -16400,6 +17082,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOrderType() {
         
@@ -16413,12 +17096,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -16583,15 +17268,18 @@ public final class BrsApi {
 
     /**
      * <code>uint64 orderId = 1;</code>
+     * @return The orderId.
      */
     long getOrderId();
 
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The orderType.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
   }
@@ -16612,6 +17300,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetOrderRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -16624,7 +17319,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -16682,6 +17376,7 @@ public final class BrsApi {
     private long orderId_;
     /**
      * <code>uint64 orderId = 1;</code>
+     * @return The orderId.
      */
     public long getOrderId() {
       return orderId_;
@@ -16691,12 +17386,14 @@ public final class BrsApi {
     private int orderType_;
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
      * <code>.OrderType orderType = 2;</code>
+     * @return The orderType.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
       @SuppressWarnings("deprecation")
@@ -17026,12 +17723,15 @@ public final class BrsApi {
       private long orderId_ ;
       /**
        * <code>uint64 orderId = 1;</code>
+       * @return The orderId.
        */
       public long getOrderId() {
         return orderId_;
       }
       /**
        * <code>uint64 orderId = 1;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderId(long value) {
         
@@ -17041,6 +17741,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 orderId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOrderId() {
         
@@ -17052,12 +17753,15 @@ public final class BrsApi {
       private int orderType_ = 0;
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @param value The enum numeric value on the wire for orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderTypeValue(int value) {
         orderType_ = value;
@@ -17066,6 +17770,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @return The orderType.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
         @SuppressWarnings("deprecation")
@@ -17074,6 +17779,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @param value The orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -17086,6 +17793,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOrderType() {
         
@@ -17152,19 +17860,23 @@ public final class BrsApi {
 
     /**
      * <code>.OrderType orderType = 1;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
      * <code>.OrderType orderType = 1;</code>
+     * @return The orderType.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
 
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -17189,6 +17901,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetOpenOrdersRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -17201,7 +17920,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -17267,12 +17985,14 @@ public final class BrsApi {
     private int orderType_;
     /**
      * <code>.OrderType orderType = 1;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
      * <code>.OrderType orderType = 1;</code>
+     * @return The orderType.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
       @SuppressWarnings("deprecation")
@@ -17284,12 +18004,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 2;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -17635,12 +18357,15 @@ public final class BrsApi {
       private int orderType_ = 0;
       /**
        * <code>.OrderType orderType = 1;</code>
+       * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
        * <code>.OrderType orderType = 1;</code>
+       * @param value The enum numeric value on the wire for orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderTypeValue(int value) {
         orderType_ = value;
@@ -17649,6 +18374,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 1;</code>
+       * @return The orderType.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
         @SuppressWarnings("deprecation")
@@ -17657,6 +18383,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 1;</code>
+       * @param value The orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -17669,6 +18397,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOrderType() {
         
@@ -17682,12 +18411,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 2;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 2;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -17852,20 +18583,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint32 height = 2;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -17889,6 +18624,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAssetBalancesRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -17901,7 +18643,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -17971,6 +18712,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -17980,6 +18722,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 2;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -17989,12 +18732,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -18359,12 +19104,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 1;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -18374,6 +19122,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -18385,12 +19134,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 2;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 2;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -18400,6 +19152,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -18413,12 +19166,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -18583,14 +19338,18 @@ public final class BrsApi {
 
     /**
      * <code>repeated uint64 asset = 1;</code>
+     * @return A list containing the asset.
      */
     java.util.List<java.lang.Long> getAssetList();
     /**
      * <code>repeated uint64 asset = 1;</code>
+     * @return The count of asset.
      */
     int getAssetCount();
     /**
      * <code>repeated uint64 asset = 1;</code>
+     * @param index The index of the element to return.
+     * @return The asset at the given index.
      */
     long getAsset(int index);
   }
@@ -18608,6 +19367,13 @@ public final class BrsApi {
     }
     private GetAssetsRequest() {
       asset_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAssetsRequest();
     }
 
     @java.lang.Override
@@ -18694,6 +19460,7 @@ public final class BrsApi {
     private com.google.protobuf.Internal.LongList asset_;
     /**
      * <code>repeated uint64 asset = 1;</code>
+     * @return A list containing the asset.
      */
     public java.util.List<java.lang.Long>
         getAssetList() {
@@ -18701,12 +19468,15 @@ public final class BrsApi {
     }
     /**
      * <code>repeated uint64 asset = 1;</code>
+     * @return The count of asset.
      */
     public int getAssetCount() {
       return asset_.size();
     }
     /**
      * <code>repeated uint64 asset = 1;</code>
+     * @param index The index of the element to return.
+     * @return The asset at the given index.
      */
     public long getAsset(int index) {
       return asset_.getLong(index);
@@ -19054,6 +19824,7 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @return A list containing the asset.
        */
       public java.util.List<java.lang.Long>
           getAssetList() {
@@ -19062,18 +19833,24 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @return The count of asset.
        */
       public int getAssetCount() {
         return asset_.size();
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @param index The index of the element to return.
+       * @return The asset at the given index.
        */
       public long getAsset(int index) {
         return asset_.getLong(index);
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(
           int index, long value) {
@@ -19084,6 +19861,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @param value The asset to add.
+       * @return This builder for chaining.
        */
       public Builder addAsset(long value) {
         ensureAssetIsMutable();
@@ -19093,6 +19872,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @param values The asset to add.
+       * @return This builder for chaining.
        */
       public Builder addAllAsset(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -19104,6 +19885,7 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         asset_ = emptyLongList();
@@ -19206,6 +19988,13 @@ public final class BrsApi {
     }
     private Assets() {
       assets_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Assets();
     }
 
     @java.lang.Override
@@ -19951,56 +20740,67 @@ public final class BrsApi {
 
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 account = 2;</code>
+     * @return The account.
      */
     long getAccount();
 
     /**
      * <code>string name = 3;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 3;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 4;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>uint64 quantity = 5;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint32 decimals = 6;</code>
+     * @return The decimals.
      */
     int getDecimals();
 
     /**
      * <code>uint32 numberOfTrades = 7;</code>
+     * @return The numberOfTrades.
      */
     int getNumberOfTrades();
 
     /**
      * <code>uint32 numberOfTransfers = 8;</code>
+     * @return The numberOfTransfers.
      */
     int getNumberOfTransfers();
 
     /**
      * <code>uint32 numberOfAccounts = 9;</code>
+     * @return The numberOfAccounts.
      */
     int getNumberOfAccounts();
   }
@@ -20022,6 +20822,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Asset();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -20034,7 +20841,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -20128,6 +20934,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -20137,6 +20944,7 @@ public final class BrsApi {
     private long account_;
     /**
      * <code>uint64 account = 2;</code>
+     * @return The account.
      */
     public long getAccount() {
       return account_;
@@ -20146,6 +20954,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 3;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -20161,6 +20970,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 3;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -20180,6 +20990,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 4;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -20195,6 +21006,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -20214,6 +21026,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 5;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -20223,6 +21036,7 @@ public final class BrsApi {
     private int decimals_;
     /**
      * <code>uint32 decimals = 6;</code>
+     * @return The decimals.
      */
     public int getDecimals() {
       return decimals_;
@@ -20232,6 +21046,7 @@ public final class BrsApi {
     private int numberOfTrades_;
     /**
      * <code>uint32 numberOfTrades = 7;</code>
+     * @return The numberOfTrades.
      */
     public int getNumberOfTrades() {
       return numberOfTrades_;
@@ -20241,6 +21056,7 @@ public final class BrsApi {
     private int numberOfTransfers_;
     /**
      * <code>uint32 numberOfTransfers = 8;</code>
+     * @return The numberOfTransfers.
      */
     public int getNumberOfTransfers() {
       return numberOfTransfers_;
@@ -20250,6 +21066,7 @@ public final class BrsApi {
     private int numberOfAccounts_;
     /**
      * <code>uint32 numberOfAccounts = 9;</code>
+     * @return The numberOfAccounts.
      */
     public int getNumberOfAccounts() {
       return numberOfAccounts_;
@@ -20699,12 +21516,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 1;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -20714,6 +21534,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -20725,12 +21546,15 @@ public final class BrsApi {
       private long account_ ;
       /**
        * <code>uint64 account = 2;</code>
+       * @return The account.
        */
       public long getAccount() {
         return account_;
       }
       /**
        * <code>uint64 account = 2;</code>
+       * @param value The account to set.
+       * @return This builder for chaining.
        */
       public Builder setAccount(long value) {
         
@@ -20740,6 +21564,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 account = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccount() {
         
@@ -20751,6 +21576,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 3;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -20766,6 +21592,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -20782,6 +21609,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -20795,6 +21624,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -20804,6 +21634,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -20820,6 +21652,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 4;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -20835,6 +21668,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 4;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -20851,6 +21685,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 4;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -20864,6 +21700,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -20873,6 +21710,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 4;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -20889,12 +21728,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 5;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 5;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -20904,6 +21746,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -20915,12 +21758,15 @@ public final class BrsApi {
       private int decimals_ ;
       /**
        * <code>uint32 decimals = 6;</code>
+       * @return The decimals.
        */
       public int getDecimals() {
         return decimals_;
       }
       /**
        * <code>uint32 decimals = 6;</code>
+       * @param value The decimals to set.
+       * @return This builder for chaining.
        */
       public Builder setDecimals(int value) {
         
@@ -20930,6 +21776,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 decimals = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDecimals() {
         
@@ -20941,12 +21788,15 @@ public final class BrsApi {
       private int numberOfTrades_ ;
       /**
        * <code>uint32 numberOfTrades = 7;</code>
+       * @return The numberOfTrades.
        */
       public int getNumberOfTrades() {
         return numberOfTrades_;
       }
       /**
        * <code>uint32 numberOfTrades = 7;</code>
+       * @param value The numberOfTrades to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfTrades(int value) {
         
@@ -20956,6 +21806,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfTrades = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfTrades() {
         
@@ -20967,12 +21818,15 @@ public final class BrsApi {
       private int numberOfTransfers_ ;
       /**
        * <code>uint32 numberOfTransfers = 8;</code>
+       * @return The numberOfTransfers.
        */
       public int getNumberOfTransfers() {
         return numberOfTransfers_;
       }
       /**
        * <code>uint32 numberOfTransfers = 8;</code>
+       * @param value The numberOfTransfers to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfTransfers(int value) {
         
@@ -20982,6 +21836,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfTransfers = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfTransfers() {
         
@@ -20993,12 +21848,15 @@ public final class BrsApi {
       private int numberOfAccounts_ ;
       /**
        * <code>uint32 numberOfAccounts = 9;</code>
+       * @return The numberOfAccounts.
        */
       public int getNumberOfAccounts() {
         return numberOfAccounts_;
       }
       /**
        * <code>uint32 numberOfAccounts = 9;</code>
+       * @param value The numberOfAccounts to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfAccounts(int value) {
         
@@ -21008,6 +21866,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfAccounts = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfAccounts() {
         
@@ -21110,6 +21969,13 @@ public final class BrsApi {
     }
     private Transactions() {
       transactions_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Transactions();
     }
 
     @java.lang.Override
@@ -21894,6 +22760,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Subscriptions();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -22636,31 +23509,37 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 sender = 2;</code>
+     * @return The sender.
      */
     long getSender();
 
     /**
      * <code>uint64 recipient = 3;</code>
+     * @return The recipient.
      */
     long getRecipient();
 
     /**
      * <code>uint64 amount = 4;</code>
+     * @return The amount.
      */
     long getAmount();
 
     /**
      * <code>uint32 frequency = 5;</code>
+     * @return The frequency.
      */
     int getFrequency();
 
     /**
      * <code>uint32 timeNext = 6;</code>
+     * @return The timeNext.
      */
     int getTimeNext();
   }
@@ -22680,6 +23559,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Subscription();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -22692,7 +23578,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -22769,6 +23654,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -22778,6 +23664,7 @@ public final class BrsApi {
     private long sender_;
     /**
      * <code>uint64 sender = 2;</code>
+     * @return The sender.
      */
     public long getSender() {
       return sender_;
@@ -22787,6 +23674,7 @@ public final class BrsApi {
     private long recipient_;
     /**
      * <code>uint64 recipient = 3;</code>
+     * @return The recipient.
      */
     public long getRecipient() {
       return recipient_;
@@ -22796,6 +23684,7 @@ public final class BrsApi {
     private long amount_;
     /**
      * <code>uint64 amount = 4;</code>
+     * @return The amount.
      */
     public long getAmount() {
       return amount_;
@@ -22805,6 +23694,7 @@ public final class BrsApi {
     private int frequency_;
     /**
      * <code>uint32 frequency = 5;</code>
+     * @return The frequency.
      */
     public int getFrequency() {
       return frequency_;
@@ -22814,6 +23704,7 @@ public final class BrsApi {
     private int timeNext_;
     /**
      * <code>uint32 timeNext = 6;</code>
+     * @return The timeNext.
      */
     public int getTimeNext() {
       return timeNext_;
@@ -23213,12 +24104,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -23228,6 +24122,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -23239,12 +24134,15 @@ public final class BrsApi {
       private long sender_ ;
       /**
        * <code>uint64 sender = 2;</code>
+       * @return The sender.
        */
       public long getSender() {
         return sender_;
       }
       /**
        * <code>uint64 sender = 2;</code>
+       * @param value The sender to set.
+       * @return This builder for chaining.
        */
       public Builder setSender(long value) {
         
@@ -23254,6 +24152,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 sender = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSender() {
         
@@ -23265,12 +24164,15 @@ public final class BrsApi {
       private long recipient_ ;
       /**
        * <code>uint64 recipient = 3;</code>
+       * @return The recipient.
        */
       public long getRecipient() {
         return recipient_;
       }
       /**
        * <code>uint64 recipient = 3;</code>
+       * @param value The recipient to set.
+       * @return This builder for chaining.
        */
       public Builder setRecipient(long value) {
         
@@ -23280,6 +24182,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 recipient = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecipient() {
         
@@ -23291,12 +24194,15 @@ public final class BrsApi {
       private long amount_ ;
       /**
        * <code>uint64 amount = 4;</code>
+       * @return The amount.
        */
       public long getAmount() {
         return amount_;
       }
       /**
        * <code>uint64 amount = 4;</code>
+       * @param value The amount to set.
+       * @return This builder for chaining.
        */
       public Builder setAmount(long value) {
         
@@ -23306,6 +24212,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 amount = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAmount() {
         
@@ -23317,12 +24224,15 @@ public final class BrsApi {
       private int frequency_ ;
       /**
        * <code>uint32 frequency = 5;</code>
+       * @return The frequency.
        */
       public int getFrequency() {
         return frequency_;
       }
       /**
        * <code>uint32 frequency = 5;</code>
+       * @param value The frequency to set.
+       * @return This builder for chaining.
        */
       public Builder setFrequency(int value) {
         
@@ -23332,6 +24242,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 frequency = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFrequency() {
         
@@ -23343,12 +24254,15 @@ public final class BrsApi {
       private int timeNext_ ;
       /**
        * <code>uint32 timeNext = 6;</code>
+       * @return The timeNext.
        */
       public int getTimeNext() {
         return timeNext_;
       }
       /**
        * <code>uint32 timeNext = 6;</code>
+       * @param value The timeNext to set.
+       * @return This builder for chaining.
        */
       public Builder setTimeNext(int value) {
         
@@ -23358,6 +24272,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timeNext = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimeNext() {
         
@@ -23424,66 +24339,79 @@ public final class BrsApi {
 
     /**
      * <code>uint32 numberOfBlocks = 1;</code>
+     * @return The numberOfBlocks.
      */
     int getNumberOfBlocks();
 
     /**
      * <code>uint32 numberOfTransactions = 2;</code>
+     * @return The numberOfTransactions.
      */
     int getNumberOfTransactions();
 
     /**
      * <code>uint32 numberOfAccounts = 3;</code>
+     * @return The numberOfAccounts.
      */
     int getNumberOfAccounts();
 
     /**
      * <code>uint32 numberOfAssets = 4;</code>
+     * @return The numberOfAssets.
      */
     int getNumberOfAssets();
 
     /**
      * <code>uint32 numberOfOrders = 5;</code>
+     * @return The numberOfOrders.
      */
     int getNumberOfOrders();
 
     /**
      * <code>uint32 numberOfAskOrders = 6;</code>
+     * @return The numberOfAskOrders.
      */
     int getNumberOfAskOrders();
 
     /**
      * <code>uint32 numberOfBidOrders = 7;</code>
+     * @return The numberOfBidOrders.
      */
     int getNumberOfBidOrders();
 
     /**
      * <code>uint32 numberOfTrades = 8;</code>
+     * @return The numberOfTrades.
      */
     int getNumberOfTrades();
 
     /**
      * <code>uint32 numberOfTransfers = 9;</code>
+     * @return The numberOfTransfers.
      */
     int getNumberOfTransfers();
 
     /**
      * <code>uint64 numberOfAliases = 10;</code>
+     * @return The numberOfAliases.
      */
     long getNumberOfAliases();
 
     /**
      * <code>uint32 numberOfPeers = 11;</code>
+     * @return The numberOfPeers.
      */
     int getNumberOfPeers();
 
     /**
      * <code>uint32 numberOfGenerators = 12;</code>
+     * @return The numberOfGenerators.
      */
     int getNumberOfGenerators();
 
     /**
      * <code>uint64 totalEffectiveBalance = 13;</code>
+     * @return The totalEffectiveBalance.
      */
     long getTotalEffectiveBalance();
   }
@@ -23503,6 +24431,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Counts();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -23515,7 +24450,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -23627,6 +24561,7 @@ public final class BrsApi {
     private int numberOfBlocks_;
     /**
      * <code>uint32 numberOfBlocks = 1;</code>
+     * @return The numberOfBlocks.
      */
     public int getNumberOfBlocks() {
       return numberOfBlocks_;
@@ -23636,6 +24571,7 @@ public final class BrsApi {
     private int numberOfTransactions_;
     /**
      * <code>uint32 numberOfTransactions = 2;</code>
+     * @return The numberOfTransactions.
      */
     public int getNumberOfTransactions() {
       return numberOfTransactions_;
@@ -23645,6 +24581,7 @@ public final class BrsApi {
     private int numberOfAccounts_;
     /**
      * <code>uint32 numberOfAccounts = 3;</code>
+     * @return The numberOfAccounts.
      */
     public int getNumberOfAccounts() {
       return numberOfAccounts_;
@@ -23654,6 +24591,7 @@ public final class BrsApi {
     private int numberOfAssets_;
     /**
      * <code>uint32 numberOfAssets = 4;</code>
+     * @return The numberOfAssets.
      */
     public int getNumberOfAssets() {
       return numberOfAssets_;
@@ -23663,6 +24601,7 @@ public final class BrsApi {
     private int numberOfOrders_;
     /**
      * <code>uint32 numberOfOrders = 5;</code>
+     * @return The numberOfOrders.
      */
     public int getNumberOfOrders() {
       return numberOfOrders_;
@@ -23672,6 +24611,7 @@ public final class BrsApi {
     private int numberOfAskOrders_;
     /**
      * <code>uint32 numberOfAskOrders = 6;</code>
+     * @return The numberOfAskOrders.
      */
     public int getNumberOfAskOrders() {
       return numberOfAskOrders_;
@@ -23681,6 +24621,7 @@ public final class BrsApi {
     private int numberOfBidOrders_;
     /**
      * <code>uint32 numberOfBidOrders = 7;</code>
+     * @return The numberOfBidOrders.
      */
     public int getNumberOfBidOrders() {
       return numberOfBidOrders_;
@@ -23690,6 +24631,7 @@ public final class BrsApi {
     private int numberOfTrades_;
     /**
      * <code>uint32 numberOfTrades = 8;</code>
+     * @return The numberOfTrades.
      */
     public int getNumberOfTrades() {
       return numberOfTrades_;
@@ -23699,6 +24641,7 @@ public final class BrsApi {
     private int numberOfTransfers_;
     /**
      * <code>uint32 numberOfTransfers = 9;</code>
+     * @return The numberOfTransfers.
      */
     public int getNumberOfTransfers() {
       return numberOfTransfers_;
@@ -23708,6 +24651,7 @@ public final class BrsApi {
     private long numberOfAliases_;
     /**
      * <code>uint64 numberOfAliases = 10;</code>
+     * @return The numberOfAliases.
      */
     public long getNumberOfAliases() {
       return numberOfAliases_;
@@ -23717,6 +24661,7 @@ public final class BrsApi {
     private int numberOfPeers_;
     /**
      * <code>uint32 numberOfPeers = 11;</code>
+     * @return The numberOfPeers.
      */
     public int getNumberOfPeers() {
       return numberOfPeers_;
@@ -23726,6 +24671,7 @@ public final class BrsApi {
     private int numberOfGenerators_;
     /**
      * <code>uint32 numberOfGenerators = 12;</code>
+     * @return The numberOfGenerators.
      */
     public int getNumberOfGenerators() {
       return numberOfGenerators_;
@@ -23735,6 +24681,7 @@ public final class BrsApi {
     private long totalEffectiveBalance_;
     /**
      * <code>uint64 totalEffectiveBalance = 13;</code>
+     * @return The totalEffectiveBalance.
      */
     public long getTotalEffectiveBalance() {
       return totalEffectiveBalance_;
@@ -24251,12 +25198,15 @@ public final class BrsApi {
       private int numberOfBlocks_ ;
       /**
        * <code>uint32 numberOfBlocks = 1;</code>
+       * @return The numberOfBlocks.
        */
       public int getNumberOfBlocks() {
         return numberOfBlocks_;
       }
       /**
        * <code>uint32 numberOfBlocks = 1;</code>
+       * @param value The numberOfBlocks to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfBlocks(int value) {
         
@@ -24266,6 +25216,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfBlocks = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfBlocks() {
         
@@ -24277,12 +25228,15 @@ public final class BrsApi {
       private int numberOfTransactions_ ;
       /**
        * <code>uint32 numberOfTransactions = 2;</code>
+       * @return The numberOfTransactions.
        */
       public int getNumberOfTransactions() {
         return numberOfTransactions_;
       }
       /**
        * <code>uint32 numberOfTransactions = 2;</code>
+       * @param value The numberOfTransactions to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfTransactions(int value) {
         
@@ -24292,6 +25246,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfTransactions = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfTransactions() {
         
@@ -24303,12 +25258,15 @@ public final class BrsApi {
       private int numberOfAccounts_ ;
       /**
        * <code>uint32 numberOfAccounts = 3;</code>
+       * @return The numberOfAccounts.
        */
       public int getNumberOfAccounts() {
         return numberOfAccounts_;
       }
       /**
        * <code>uint32 numberOfAccounts = 3;</code>
+       * @param value The numberOfAccounts to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfAccounts(int value) {
         
@@ -24318,6 +25276,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfAccounts = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfAccounts() {
         
@@ -24329,12 +25288,15 @@ public final class BrsApi {
       private int numberOfAssets_ ;
       /**
        * <code>uint32 numberOfAssets = 4;</code>
+       * @return The numberOfAssets.
        */
       public int getNumberOfAssets() {
         return numberOfAssets_;
       }
       /**
        * <code>uint32 numberOfAssets = 4;</code>
+       * @param value The numberOfAssets to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfAssets(int value) {
         
@@ -24344,6 +25306,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfAssets = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfAssets() {
         
@@ -24355,12 +25318,15 @@ public final class BrsApi {
       private int numberOfOrders_ ;
       /**
        * <code>uint32 numberOfOrders = 5;</code>
+       * @return The numberOfOrders.
        */
       public int getNumberOfOrders() {
         return numberOfOrders_;
       }
       /**
        * <code>uint32 numberOfOrders = 5;</code>
+       * @param value The numberOfOrders to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfOrders(int value) {
         
@@ -24370,6 +25336,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfOrders = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfOrders() {
         
@@ -24381,12 +25348,15 @@ public final class BrsApi {
       private int numberOfAskOrders_ ;
       /**
        * <code>uint32 numberOfAskOrders = 6;</code>
+       * @return The numberOfAskOrders.
        */
       public int getNumberOfAskOrders() {
         return numberOfAskOrders_;
       }
       /**
        * <code>uint32 numberOfAskOrders = 6;</code>
+       * @param value The numberOfAskOrders to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfAskOrders(int value) {
         
@@ -24396,6 +25366,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfAskOrders = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfAskOrders() {
         
@@ -24407,12 +25378,15 @@ public final class BrsApi {
       private int numberOfBidOrders_ ;
       /**
        * <code>uint32 numberOfBidOrders = 7;</code>
+       * @return The numberOfBidOrders.
        */
       public int getNumberOfBidOrders() {
         return numberOfBidOrders_;
       }
       /**
        * <code>uint32 numberOfBidOrders = 7;</code>
+       * @param value The numberOfBidOrders to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfBidOrders(int value) {
         
@@ -24422,6 +25396,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfBidOrders = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfBidOrders() {
         
@@ -24433,12 +25408,15 @@ public final class BrsApi {
       private int numberOfTrades_ ;
       /**
        * <code>uint32 numberOfTrades = 8;</code>
+       * @return The numberOfTrades.
        */
       public int getNumberOfTrades() {
         return numberOfTrades_;
       }
       /**
        * <code>uint32 numberOfTrades = 8;</code>
+       * @param value The numberOfTrades to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfTrades(int value) {
         
@@ -24448,6 +25426,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfTrades = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfTrades() {
         
@@ -24459,12 +25438,15 @@ public final class BrsApi {
       private int numberOfTransfers_ ;
       /**
        * <code>uint32 numberOfTransfers = 9;</code>
+       * @return The numberOfTransfers.
        */
       public int getNumberOfTransfers() {
         return numberOfTransfers_;
       }
       /**
        * <code>uint32 numberOfTransfers = 9;</code>
+       * @param value The numberOfTransfers to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfTransfers(int value) {
         
@@ -24474,6 +25456,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfTransfers = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfTransfers() {
         
@@ -24485,12 +25468,15 @@ public final class BrsApi {
       private long numberOfAliases_ ;
       /**
        * <code>uint64 numberOfAliases = 10;</code>
+       * @return The numberOfAliases.
        */
       public long getNumberOfAliases() {
         return numberOfAliases_;
       }
       /**
        * <code>uint64 numberOfAliases = 10;</code>
+       * @param value The numberOfAliases to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfAliases(long value) {
         
@@ -24500,6 +25486,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 numberOfAliases = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfAliases() {
         
@@ -24511,12 +25498,15 @@ public final class BrsApi {
       private int numberOfPeers_ ;
       /**
        * <code>uint32 numberOfPeers = 11;</code>
+       * @return The numberOfPeers.
        */
       public int getNumberOfPeers() {
         return numberOfPeers_;
       }
       /**
        * <code>uint32 numberOfPeers = 11;</code>
+       * @param value The numberOfPeers to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfPeers(int value) {
         
@@ -24526,6 +25516,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfPeers = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfPeers() {
         
@@ -24537,12 +25528,15 @@ public final class BrsApi {
       private int numberOfGenerators_ ;
       /**
        * <code>uint32 numberOfGenerators = 12;</code>
+       * @return The numberOfGenerators.
        */
       public int getNumberOfGenerators() {
         return numberOfGenerators_;
       }
       /**
        * <code>uint32 numberOfGenerators = 12;</code>
+       * @param value The numberOfGenerators to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfGenerators(int value) {
         
@@ -24552,6 +25546,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfGenerators = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfGenerators() {
         
@@ -24563,12 +25558,15 @@ public final class BrsApi {
       private long totalEffectiveBalance_ ;
       /**
        * <code>uint64 totalEffectiveBalance = 13;</code>
+       * @return The totalEffectiveBalance.
        */
       public long getTotalEffectiveBalance() {
         return totalEffectiveBalance_;
       }
       /**
        * <code>uint64 totalEffectiveBalance = 13;</code>
+       * @param value The totalEffectiveBalance to set.
+       * @return This builder for chaining.
        */
       public Builder setTotalEffectiveBalance(long value) {
         
@@ -24578,6 +25576,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 totalEffectiveBalance = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTotalEffectiveBalance() {
         
@@ -24644,21 +25643,25 @@ public final class BrsApi {
 
     /**
      * <code>uint64 genesisBlock = 1;</code>
+     * @return The genesisBlock.
      */
     long getGenesisBlock();
 
     /**
      * <code>uint64 genesisAccount = 2;</code>
+     * @return The genesisAccount.
      */
     long getGenesisAccount();
 
     /**
      * <code>uint32 maxBlockPayloadLength = 3;</code>
+     * @return The maxBlockPayloadLength.
      */
     int getMaxBlockPayloadLength();
 
     /**
      * <code>uint32 maxArbitraryMessageLength = 4;</code>
+     * @return The maxArbitraryMessageLength.
      */
     int getMaxArbitraryMessageLength();
 
@@ -24700,6 +25703,13 @@ public final class BrsApi {
     }
     private Constants() {
       transactionTypes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Constants();
     }
 
     @java.lang.Override
@@ -24747,9 +25757,9 @@ public final class BrsApi {
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 transactionTypes_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000001;
               }
               transactionTypes_.add(
                   input.readMessage(burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.parser(), extensionRegistry));
@@ -24770,7 +25780,7 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           transactionTypes_ = java.util.Collections.unmodifiableList(transactionTypes_);
         }
         this.unknownFields = unknownFields.build();
@@ -24796,15 +25806,18 @@ public final class BrsApi {
 
       /**
        * <code>uint32 type = 1;</code>
+       * @return The type.
        */
       int getType();
 
       /**
        * <code>string description = 2;</code>
+       * @return The description.
        */
       java.lang.String getDescription();
       /**
        * <code>string description = 2;</code>
+       * @return The bytes for description.
        */
       com.google.protobuf.ByteString
           getDescriptionBytes();
@@ -24851,6 +25864,13 @@ public final class BrsApi {
       }
 
       @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new TransactionType();
+      }
+
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -24886,9 +25906,9 @@ public final class BrsApi {
                 break;
               }
               case 26: {
-                if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                   subtypes_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype>();
-                  mutable_bitField0_ |= 0x00000004;
+                  mutable_bitField0_ |= 0x00000001;
                 }
                 subtypes_.add(
                     input.readMessage(burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.parser(), extensionRegistry));
@@ -24909,7 +25929,7 @@ public final class BrsApi {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
         } finally {
-          if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          if (((mutable_bitField0_ & 0x00000001) != 0)) {
             subtypes_ = java.util.Collections.unmodifiableList(subtypes_);
           }
           this.unknownFields = unknownFields.build();
@@ -24935,15 +25955,18 @@ public final class BrsApi {
 
         /**
          * <code>uint32 subtype = 1;</code>
+         * @return The subtype.
          */
         int getSubtype();
 
         /**
          * <code>string description = 2;</code>
+         * @return The description.
          */
         java.lang.String getDescription();
         /**
          * <code>string description = 2;</code>
+         * @return The bytes for description.
          */
         com.google.protobuf.ByteString
             getDescriptionBytes();
@@ -24965,6 +25988,13 @@ public final class BrsApi {
         }
 
         @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+          return new TransactionSubtype();
+        }
+
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
           return this.unknownFields;
@@ -24977,7 +26007,6 @@ public final class BrsApi {
           if (extensionRegistry == null) {
             throw new java.lang.NullPointerException();
           }
-          int mutable_bitField0_ = 0;
           com.google.protobuf.UnknownFieldSet.Builder unknownFields =
               com.google.protobuf.UnknownFieldSet.newBuilder();
           try {
@@ -25035,6 +26064,7 @@ public final class BrsApi {
         private int subtype_;
         /**
          * <code>uint32 subtype = 1;</code>
+         * @return The subtype.
          */
         public int getSubtype() {
           return subtype_;
@@ -25044,6 +26074,7 @@ public final class BrsApi {
         private volatile java.lang.Object description_;
         /**
          * <code>string description = 2;</code>
+         * @return The description.
          */
         public java.lang.String getDescription() {
           java.lang.Object ref = description_;
@@ -25059,6 +26090,7 @@ public final class BrsApi {
         }
         /**
          * <code>string description = 2;</code>
+         * @return The bytes for description.
          */
         public com.google.protobuf.ByteString
             getDescriptionBytes() {
@@ -25396,12 +26428,15 @@ public final class BrsApi {
           private int subtype_ ;
           /**
            * <code>uint32 subtype = 1;</code>
+           * @return The subtype.
            */
           public int getSubtype() {
             return subtype_;
           }
           /**
            * <code>uint32 subtype = 1;</code>
+           * @param value The subtype to set.
+           * @return This builder for chaining.
            */
           public Builder setSubtype(int value) {
             
@@ -25411,6 +26446,7 @@ public final class BrsApi {
           }
           /**
            * <code>uint32 subtype = 1;</code>
+           * @return This builder for chaining.
            */
           public Builder clearSubtype() {
             
@@ -25422,6 +26458,7 @@ public final class BrsApi {
           private java.lang.Object description_ = "";
           /**
            * <code>string description = 2;</code>
+           * @return The description.
            */
           public java.lang.String getDescription() {
             java.lang.Object ref = description_;
@@ -25437,6 +26474,7 @@ public final class BrsApi {
           }
           /**
            * <code>string description = 2;</code>
+           * @return The bytes for description.
            */
           public com.google.protobuf.ByteString
               getDescriptionBytes() {
@@ -25453,6 +26491,8 @@ public final class BrsApi {
           }
           /**
            * <code>string description = 2;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
            */
           public Builder setDescription(
               java.lang.String value) {
@@ -25466,6 +26506,7 @@ public final class BrsApi {
           }
           /**
            * <code>string description = 2;</code>
+           * @return This builder for chaining.
            */
           public Builder clearDescription() {
             
@@ -25475,6 +26516,8 @@ public final class BrsApi {
           }
           /**
            * <code>string description = 2;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
            */
           public Builder setDescriptionBytes(
               com.google.protobuf.ByteString value) {
@@ -25540,11 +26583,11 @@ public final class BrsApi {
 
       }
 
-      private int bitField0_;
       public static final int TYPE_FIELD_NUMBER = 1;
       private int type_;
       /**
        * <code>uint32 type = 1;</code>
+       * @return The type.
        */
       public int getType() {
         return type_;
@@ -25554,6 +26597,7 @@ public final class BrsApi {
       private volatile java.lang.Object description_;
       /**
        * <code>string description = 2;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -25569,6 +26613,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 2;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -25842,7 +26887,7 @@ public final class BrsApi {
 
           if (subtypesBuilder_ == null) {
             subtypes_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             subtypesBuilder_.clear();
           }
@@ -25873,19 +26918,17 @@ public final class BrsApi {
         public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType buildPartial() {
           burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType result = new burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType(this);
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
           result.type_ = type_;
           result.description_ = description_;
           if (subtypesBuilder_ == null) {
-            if (((bitField0_ & 0x00000004) != 0)) {
+            if (((bitField0_ & 0x00000001) != 0)) {
               subtypes_ = java.util.Collections.unmodifiableList(subtypes_);
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             }
             result.subtypes_ = subtypes_;
           } else {
             result.subtypes_ = subtypesBuilder_.build();
           }
-          result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
         }
@@ -25945,7 +26988,7 @@ public final class BrsApi {
             if (!other.subtypes_.isEmpty()) {
               if (subtypes_.isEmpty()) {
                 subtypes_ = other.subtypes_;
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = (bitField0_ & ~0x00000001);
               } else {
                 ensureSubtypesIsMutable();
                 subtypes_.addAll(other.subtypes_);
@@ -25958,7 +27001,7 @@ public final class BrsApi {
                 subtypesBuilder_.dispose();
                 subtypesBuilder_ = null;
                 subtypes_ = other.subtypes_;
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = (bitField0_ & ~0x00000001);
                 subtypesBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getSubtypesFieldBuilder() : null;
@@ -26000,12 +27043,15 @@ public final class BrsApi {
         private int type_ ;
         /**
          * <code>uint32 type = 1;</code>
+         * @return The type.
          */
         public int getType() {
           return type_;
         }
         /**
          * <code>uint32 type = 1;</code>
+         * @param value The type to set.
+         * @return This builder for chaining.
          */
         public Builder setType(int value) {
           
@@ -26015,6 +27061,7 @@ public final class BrsApi {
         }
         /**
          * <code>uint32 type = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearType() {
           
@@ -26026,6 +27073,7 @@ public final class BrsApi {
         private java.lang.Object description_ = "";
         /**
          * <code>string description = 2;</code>
+         * @return The description.
          */
         public java.lang.String getDescription() {
           java.lang.Object ref = description_;
@@ -26041,6 +27089,7 @@ public final class BrsApi {
         }
         /**
          * <code>string description = 2;</code>
+         * @return The bytes for description.
          */
         public com.google.protobuf.ByteString
             getDescriptionBytes() {
@@ -26057,6 +27106,8 @@ public final class BrsApi {
         }
         /**
          * <code>string description = 2;</code>
+         * @param value The description to set.
+         * @return This builder for chaining.
          */
         public Builder setDescription(
             java.lang.String value) {
@@ -26070,6 +27121,7 @@ public final class BrsApi {
         }
         /**
          * <code>string description = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearDescription() {
           
@@ -26079,6 +27131,8 @@ public final class BrsApi {
         }
         /**
          * <code>string description = 2;</code>
+         * @param value The bytes for description to set.
+         * @return This builder for chaining.
          */
         public Builder setDescriptionBytes(
             com.google.protobuf.ByteString value) {
@@ -26095,9 +27149,9 @@ public final class BrsApi {
         private java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype> subtypes_ =
           java.util.Collections.emptyList();
         private void ensureSubtypesIsMutable() {
-          if (!((bitField0_ & 0x00000004) != 0)) {
+          if (!((bitField0_ & 0x00000001) != 0)) {
             subtypes_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype>(subtypes_);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
            }
         }
 
@@ -26247,7 +27301,7 @@ public final class BrsApi {
         public Builder clearSubtypes() {
           if (subtypesBuilder_ == null) {
             subtypes_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
           } else {
             subtypesBuilder_.clear();
@@ -26324,7 +27378,7 @@ public final class BrsApi {
             subtypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder>(
                     subtypes_,
-                    ((bitField0_ & 0x00000004) != 0),
+                    ((bitField0_ & 0x00000001) != 0),
                     getParentForChildren(),
                     isClean());
             subtypes_ = null;
@@ -26384,11 +27438,11 @@ public final class BrsApi {
 
     }
 
-    private int bitField0_;
     public static final int GENESISBLOCK_FIELD_NUMBER = 1;
     private long genesisBlock_;
     /**
      * <code>uint64 genesisBlock = 1;</code>
+     * @return The genesisBlock.
      */
     public long getGenesisBlock() {
       return genesisBlock_;
@@ -26398,6 +27452,7 @@ public final class BrsApi {
     private long genesisAccount_;
     /**
      * <code>uint64 genesisAccount = 2;</code>
+     * @return The genesisAccount.
      */
     public long getGenesisAccount() {
       return genesisAccount_;
@@ -26407,6 +27462,7 @@ public final class BrsApi {
     private int maxBlockPayloadLength_;
     /**
      * <code>uint32 maxBlockPayloadLength = 3;</code>
+     * @return The maxBlockPayloadLength.
      */
     public int getMaxBlockPayloadLength() {
       return maxBlockPayloadLength_;
@@ -26416,6 +27472,7 @@ public final class BrsApi {
     private int maxArbitraryMessageLength_;
     /**
      * <code>uint32 maxArbitraryMessageLength = 4;</code>
+     * @return The maxArbitraryMessageLength.
      */
     public int getMaxArbitraryMessageLength() {
       return maxArbitraryMessageLength_;
@@ -26708,7 +27765,7 @@ public final class BrsApi {
 
         if (transactionTypesBuilder_ == null) {
           transactionTypes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           transactionTypesBuilder_.clear();
         }
@@ -26739,21 +27796,19 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.Constants buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.Constants result = new burst.kit.service.impl.grpc.BrsApi.Constants(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.genesisBlock_ = genesisBlock_;
         result.genesisAccount_ = genesisAccount_;
         result.maxBlockPayloadLength_ = maxBlockPayloadLength_;
         result.maxArbitraryMessageLength_ = maxArbitraryMessageLength_;
         if (transactionTypesBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             transactionTypes_ = java.util.Collections.unmodifiableList(transactionTypes_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.transactionTypes_ = transactionTypes_;
         } else {
           result.transactionTypes_ = transactionTypesBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -26818,7 +27873,7 @@ public final class BrsApi {
           if (!other.transactionTypes_.isEmpty()) {
             if (transactionTypes_.isEmpty()) {
               transactionTypes_ = other.transactionTypes_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureTransactionTypesIsMutable();
               transactionTypes_.addAll(other.transactionTypes_);
@@ -26831,7 +27886,7 @@ public final class BrsApi {
               transactionTypesBuilder_.dispose();
               transactionTypesBuilder_ = null;
               transactionTypes_ = other.transactionTypes_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000001);
               transactionTypesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTransactionTypesFieldBuilder() : null;
@@ -26873,12 +27928,15 @@ public final class BrsApi {
       private long genesisBlock_ ;
       /**
        * <code>uint64 genesisBlock = 1;</code>
+       * @return The genesisBlock.
        */
       public long getGenesisBlock() {
         return genesisBlock_;
       }
       /**
        * <code>uint64 genesisBlock = 1;</code>
+       * @param value The genesisBlock to set.
+       * @return This builder for chaining.
        */
       public Builder setGenesisBlock(long value) {
         
@@ -26888,6 +27946,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 genesisBlock = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGenesisBlock() {
         
@@ -26899,12 +27958,15 @@ public final class BrsApi {
       private long genesisAccount_ ;
       /**
        * <code>uint64 genesisAccount = 2;</code>
+       * @return The genesisAccount.
        */
       public long getGenesisAccount() {
         return genesisAccount_;
       }
       /**
        * <code>uint64 genesisAccount = 2;</code>
+       * @param value The genesisAccount to set.
+       * @return This builder for chaining.
        */
       public Builder setGenesisAccount(long value) {
         
@@ -26914,6 +27976,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 genesisAccount = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGenesisAccount() {
         
@@ -26925,12 +27988,15 @@ public final class BrsApi {
       private int maxBlockPayloadLength_ ;
       /**
        * <code>uint32 maxBlockPayloadLength = 3;</code>
+       * @return The maxBlockPayloadLength.
        */
       public int getMaxBlockPayloadLength() {
         return maxBlockPayloadLength_;
       }
       /**
        * <code>uint32 maxBlockPayloadLength = 3;</code>
+       * @param value The maxBlockPayloadLength to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxBlockPayloadLength(int value) {
         
@@ -26940,6 +28006,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 maxBlockPayloadLength = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxBlockPayloadLength() {
         
@@ -26951,12 +28018,15 @@ public final class BrsApi {
       private int maxArbitraryMessageLength_ ;
       /**
        * <code>uint32 maxArbitraryMessageLength = 4;</code>
+       * @return The maxArbitraryMessageLength.
        */
       public int getMaxArbitraryMessageLength() {
         return maxArbitraryMessageLength_;
       }
       /**
        * <code>uint32 maxArbitraryMessageLength = 4;</code>
+       * @param value The maxArbitraryMessageLength to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxArbitraryMessageLength(int value) {
         
@@ -26966,6 +28036,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 maxArbitraryMessageLength = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxArbitraryMessageLength() {
         
@@ -26977,9 +28048,9 @@ public final class BrsApi {
       private java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType> transactionTypes_ =
         java.util.Collections.emptyList();
       private void ensureTransactionTypesIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           transactionTypes_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType>(transactionTypes_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -27129,7 +28200,7 @@ public final class BrsApi {
       public Builder clearTransactionTypes() {
         if (transactionTypesBuilder_ == null) {
           transactionTypes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           transactionTypesBuilder_.clear();
@@ -27206,7 +28277,7 @@ public final class BrsApi {
           transactionTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder>(
                   transactionTypes_,
-                  ((bitField0_ & 0x00000010) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           transactionTypes_ = null;
@@ -27308,6 +28379,13 @@ public final class BrsApi {
     }
     private EscrowTransactions() {
       escrowTransactions_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EscrowTransactions();
     }
 
     @java.lang.Override
@@ -28053,40 +29131,48 @@ public final class BrsApi {
 
     /**
      * <code>uint64 escrowId = 1;</code>
+     * @return The escrowId.
      */
     long getEscrowId();
 
     /**
      * <code>uint64 sender = 2;</code>
+     * @return The sender.
      */
     long getSender();
 
     /**
      * <code>uint64 recipient = 3;</code>
+     * @return The recipient.
      */
     long getRecipient();
 
     /**
      * <code>uint64 amount = 4;</code>
+     * @return The amount.
      */
     long getAmount();
 
     /**
      * <code>uint32 requiredSigners = 5;</code>
+     * @return The requiredSigners.
      */
     int getRequiredSigners();
 
     /**
      * <code>uint32 deadline = 6;</code>
+     * @return The deadline.
      */
     int getDeadline();
 
     /**
      * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * @return The enum numeric value on the wire for deadlineAction.
      */
     int getDeadlineActionValue();
     /**
      * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * @return The deadlineAction.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction();
   }
@@ -28107,6 +29193,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EscrowTransaction();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -28119,7 +29212,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -28202,6 +29294,7 @@ public final class BrsApi {
     private long escrowId_;
     /**
      * <code>uint64 escrowId = 1;</code>
+     * @return The escrowId.
      */
     public long getEscrowId() {
       return escrowId_;
@@ -28211,6 +29304,7 @@ public final class BrsApi {
     private long sender_;
     /**
      * <code>uint64 sender = 2;</code>
+     * @return The sender.
      */
     public long getSender() {
       return sender_;
@@ -28220,6 +29314,7 @@ public final class BrsApi {
     private long recipient_;
     /**
      * <code>uint64 recipient = 3;</code>
+     * @return The recipient.
      */
     public long getRecipient() {
       return recipient_;
@@ -28229,6 +29324,7 @@ public final class BrsApi {
     private long amount_;
     /**
      * <code>uint64 amount = 4;</code>
+     * @return The amount.
      */
     public long getAmount() {
       return amount_;
@@ -28238,6 +29334,7 @@ public final class BrsApi {
     private int requiredSigners_;
     /**
      * <code>uint32 requiredSigners = 5;</code>
+     * @return The requiredSigners.
      */
     public int getRequiredSigners() {
       return requiredSigners_;
@@ -28247,6 +29344,7 @@ public final class BrsApi {
     private int deadline_;
     /**
      * <code>uint32 deadline = 6;</code>
+     * @return The deadline.
      */
     public int getDeadline() {
       return deadline_;
@@ -28256,12 +29354,14 @@ public final class BrsApi {
     private int deadlineAction_;
     /**
      * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * @return The enum numeric value on the wire for deadlineAction.
      */
     public int getDeadlineActionValue() {
       return deadlineAction_;
     }
     /**
      * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * @return The deadlineAction.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
       @SuppressWarnings("deprecation")
@@ -28679,12 +29779,15 @@ public final class BrsApi {
       private long escrowId_ ;
       /**
        * <code>uint64 escrowId = 1;</code>
+       * @return The escrowId.
        */
       public long getEscrowId() {
         return escrowId_;
       }
       /**
        * <code>uint64 escrowId = 1;</code>
+       * @param value The escrowId to set.
+       * @return This builder for chaining.
        */
       public Builder setEscrowId(long value) {
         
@@ -28694,6 +29797,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 escrowId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearEscrowId() {
         
@@ -28705,12 +29809,15 @@ public final class BrsApi {
       private long sender_ ;
       /**
        * <code>uint64 sender = 2;</code>
+       * @return The sender.
        */
       public long getSender() {
         return sender_;
       }
       /**
        * <code>uint64 sender = 2;</code>
+       * @param value The sender to set.
+       * @return This builder for chaining.
        */
       public Builder setSender(long value) {
         
@@ -28720,6 +29827,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 sender = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSender() {
         
@@ -28731,12 +29839,15 @@ public final class BrsApi {
       private long recipient_ ;
       /**
        * <code>uint64 recipient = 3;</code>
+       * @return The recipient.
        */
       public long getRecipient() {
         return recipient_;
       }
       /**
        * <code>uint64 recipient = 3;</code>
+       * @param value The recipient to set.
+       * @return This builder for chaining.
        */
       public Builder setRecipient(long value) {
         
@@ -28746,6 +29857,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 recipient = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecipient() {
         
@@ -28757,12 +29869,15 @@ public final class BrsApi {
       private long amount_ ;
       /**
        * <code>uint64 amount = 4;</code>
+       * @return The amount.
        */
       public long getAmount() {
         return amount_;
       }
       /**
        * <code>uint64 amount = 4;</code>
+       * @param value The amount to set.
+       * @return This builder for chaining.
        */
       public Builder setAmount(long value) {
         
@@ -28772,6 +29887,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 amount = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAmount() {
         
@@ -28783,12 +29899,15 @@ public final class BrsApi {
       private int requiredSigners_ ;
       /**
        * <code>uint32 requiredSigners = 5;</code>
+       * @return The requiredSigners.
        */
       public int getRequiredSigners() {
         return requiredSigners_;
       }
       /**
        * <code>uint32 requiredSigners = 5;</code>
+       * @param value The requiredSigners to set.
+       * @return This builder for chaining.
        */
       public Builder setRequiredSigners(int value) {
         
@@ -28798,6 +29917,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 requiredSigners = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRequiredSigners() {
         
@@ -28809,12 +29929,15 @@ public final class BrsApi {
       private int deadline_ ;
       /**
        * <code>uint32 deadline = 6;</code>
+       * @return The deadline.
        */
       public int getDeadline() {
         return deadline_;
       }
       /**
        * <code>uint32 deadline = 6;</code>
+       * @param value The deadline to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadline(int value) {
         
@@ -28824,6 +29947,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 deadline = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeadline() {
         
@@ -28835,12 +29959,15 @@ public final class BrsApi {
       private int deadlineAction_ = 0;
       /**
        * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * @return The enum numeric value on the wire for deadlineAction.
        */
       public int getDeadlineActionValue() {
         return deadlineAction_;
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * @param value The enum numeric value on the wire for deadlineAction to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadlineActionValue(int value) {
         deadlineAction_ = value;
@@ -28849,6 +29976,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * @return The deadlineAction.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
         @SuppressWarnings("deprecation")
@@ -28857,6 +29985,8 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * @param value The deadlineAction to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadlineAction(burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType value) {
         if (value == null) {
@@ -28869,6 +29999,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeadlineAction() {
         
@@ -28971,6 +30102,13 @@ public final class BrsApi {
     }
     private Orders() {
       orders_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Orders();
     }
 
     @java.lang.Override
@@ -29716,40 +30854,48 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 account = 3;</code>
+     * @return The account.
      */
     long getAccount();
 
     /**
      * <code>uint64 quantity = 4;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint64 price = 5;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>uint32 height = 6;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>.OrderType type = 7;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.OrderType type = 7;</code>
+     * @return The type.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getType();
   }
@@ -29770,6 +30916,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Order();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -29782,7 +30935,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -29865,6 +31017,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -29874,6 +31027,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -29883,6 +31037,7 @@ public final class BrsApi {
     private long account_;
     /**
      * <code>uint64 account = 3;</code>
+     * @return The account.
      */
     public long getAccount() {
       return account_;
@@ -29892,6 +31047,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 4;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -29901,6 +31057,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 5;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -29910,6 +31067,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 6;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -29919,12 +31077,14 @@ public final class BrsApi {
     private int type_;
     /**
      * <code>.OrderType type = 7;</code>
+     * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.OrderType type = 7;</code>
+     * @return The type.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
       @SuppressWarnings("deprecation")
@@ -30343,12 +31503,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -30358,6 +31521,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -30369,12 +31533,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 2;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -30384,6 +31551,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -30395,12 +31563,15 @@ public final class BrsApi {
       private long account_ ;
       /**
        * <code>uint64 account = 3;</code>
+       * @return The account.
        */
       public long getAccount() {
         return account_;
       }
       /**
        * <code>uint64 account = 3;</code>
+       * @param value The account to set.
+       * @return This builder for chaining.
        */
       public Builder setAccount(long value) {
         
@@ -30410,6 +31581,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 account = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccount() {
         
@@ -30421,12 +31593,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 4;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 4;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -30436,6 +31611,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -30447,12 +31623,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 5;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 5;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -30462,6 +31641,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -30473,12 +31653,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 6;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 6;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -30488,6 +31671,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -30499,12 +31683,15 @@ public final class BrsApi {
       private int type_ = 0;
       /**
        * <code>.OrderType type = 7;</code>
+       * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.OrderType type = 7;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
         type_ = value;
@@ -30513,6 +31700,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 7;</code>
+       * @return The type.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
         @SuppressWarnings("deprecation")
@@ -30521,6 +31709,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 7;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -30533,6 +31723,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -30599,20 +31790,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 account = 1;</code>
+     * @return The account.
      */
     long getAccount();
 
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -30622,10 +31817,12 @@ public final class BrsApi {
 
     /**
      * <code>.OrderType orderType = 4;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
      * <code>.OrderType orderType = 4;</code>
+     * @return The orderType.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
   }
@@ -30646,6 +31843,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAccountOrdersRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -30658,7 +31862,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -30734,6 +31937,7 @@ public final class BrsApi {
     private long account_;
     /**
      * <code>uint64 account = 1;</code>
+     * @return The account.
      */
     public long getAccount() {
       return account_;
@@ -30743,6 +31947,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -30752,12 +31957,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -30773,12 +31980,14 @@ public final class BrsApi {
     private int orderType_;
     /**
      * <code>.OrderType orderType = 4;</code>
+     * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
      * <code>.OrderType orderType = 4;</code>
+     * @return The orderType.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
       @SuppressWarnings("deprecation")
@@ -31156,12 +32365,15 @@ public final class BrsApi {
       private long account_ ;
       /**
        * <code>uint64 account = 1;</code>
+       * @return The account.
        */
       public long getAccount() {
         return account_;
       }
       /**
        * <code>uint64 account = 1;</code>
+       * @param value The account to set.
+       * @return This builder for chaining.
        */
       public Builder setAccount(long value) {
         
@@ -31171,6 +32383,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 account = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccount() {
         
@@ -31182,12 +32395,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 2;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -31197,6 +32413,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -31210,12 +32427,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -31325,12 +32544,15 @@ public final class BrsApi {
       private int orderType_ = 0;
       /**
        * <code>.OrderType orderType = 4;</code>
+       * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
        * <code>.OrderType orderType = 4;</code>
+       * @param value The enum numeric value on the wire for orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderTypeValue(int value) {
         orderType_ = value;
@@ -31339,6 +32561,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 4;</code>
+       * @return The orderType.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
         @SuppressWarnings("deprecation")
@@ -31347,6 +32570,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 4;</code>
+       * @param value The orderType to set.
+       * @return This builder for chaining.
        */
       public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -31359,6 +32584,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType orderType = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOrderType() {
         
@@ -31425,11 +32651,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 firstIndex = 1;</code>
+     * @return The firstIndex.
      */
     int getFirstIndex();
 
     /**
      * <code>uint32 lastIndex = 2;</code>
+     * @return The lastIndex.
      */
     int getLastIndex();
   }
@@ -31449,6 +32677,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new IndexRange();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -31461,7 +32696,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -31518,6 +32752,7 @@ public final class BrsApi {
     private int firstIndex_;
     /**
      * <code>uint32 firstIndex = 1;</code>
+     * @return The firstIndex.
      */
     public int getFirstIndex() {
       return firstIndex_;
@@ -31527,6 +32762,7 @@ public final class BrsApi {
     private int lastIndex_;
     /**
      * <code>uint32 lastIndex = 2;</code>
+     * @return The lastIndex.
      */
     public int getLastIndex() {
       return lastIndex_;
@@ -31854,12 +33090,15 @@ public final class BrsApi {
       private int firstIndex_ ;
       /**
        * <code>uint32 firstIndex = 1;</code>
+       * @return The firstIndex.
        */
       public int getFirstIndex() {
         return firstIndex_;
       }
       /**
        * <code>uint32 firstIndex = 1;</code>
+       * @param value The firstIndex to set.
+       * @return This builder for chaining.
        */
       public Builder setFirstIndex(int value) {
         
@@ -31869,6 +33108,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 firstIndex = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFirstIndex() {
         
@@ -31880,12 +33120,15 @@ public final class BrsApi {
       private int lastIndex_ ;
       /**
        * <code>uint32 lastIndex = 2;</code>
+       * @return The lastIndex.
        */
       public int getLastIndex() {
         return lastIndex_;
       }
       /**
        * <code>uint32 lastIndex = 2;</code>
+       * @param value The lastIndex to set.
+       * @return This builder for chaining.
        */
       public Builder setLastIndex(int value) {
         
@@ -31895,6 +33138,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 lastIndex = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastIndex() {
         
@@ -31961,10 +33205,12 @@ public final class BrsApi {
 
     /**
      * <code>.IndexRange indexRange = 1;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 1;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -31974,6 +33220,7 @@ public final class BrsApi {
 
     /**
      * <code>bool includeTransactions = 2;</code>
+     * @return The includeTransactions.
      */
     boolean getIncludeTransactions();
   }
@@ -31993,6 +33240,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetBlocksRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -32005,7 +33259,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -32070,12 +33323,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 1;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 1;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -32091,6 +33346,7 @@ public final class BrsApi {
     private boolean includeTransactions_;
     /**
      * <code>bool includeTransactions = 2;</code>
+     * @return The includeTransactions.
      */
     public boolean getIncludeTransactions() {
       return includeTransactions_;
@@ -32434,12 +33690,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 1;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 1;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -32549,12 +33807,15 @@ public final class BrsApi {
       private boolean includeTransactions_ ;
       /**
        * <code>bool includeTransactions = 2;</code>
+       * @return The includeTransactions.
        */
       public boolean getIncludeTransactions() {
         return includeTransactions_;
       }
       /**
        * <code>bool includeTransactions = 2;</code>
+       * @param value The includeTransactions to set.
+       * @return This builder for chaining.
        */
       public Builder setIncludeTransactions(boolean value) {
         
@@ -32564,6 +33825,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool includeTransactions = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIncludeTransactions() {
         
@@ -32666,6 +33928,13 @@ public final class BrsApi {
     }
     private Blocks() {
       blocks_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Blocks();
     }
 
     @java.lang.Override
@@ -33411,20 +34680,24 @@ public final class BrsApi {
 
     /**
      * <code>uint64 owner = 1;</code>
+     * @return The owner.
      */
     long getOwner();
 
     /**
      * <code>uint32 timestamp = 2;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
@@ -33448,6 +34721,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAliasesRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -33460,7 +34740,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -33530,6 +34809,7 @@ public final class BrsApi {
     private long owner_;
     /**
      * <code>uint64 owner = 1;</code>
+     * @return The owner.
      */
     public long getOwner() {
       return owner_;
@@ -33539,6 +34819,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 2;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -33548,12 +34829,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
      * <code>.IndexRange indexRange = 3;</code>
+     * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
@@ -33918,12 +35201,15 @@ public final class BrsApi {
       private long owner_ ;
       /**
        * <code>uint64 owner = 1;</code>
+       * @return The owner.
        */
       public long getOwner() {
         return owner_;
       }
       /**
        * <code>uint64 owner = 1;</code>
+       * @param value The owner to set.
+       * @return This builder for chaining.
        */
       public Builder setOwner(long value) {
         
@@ -33933,6 +35219,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 owner = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOwner() {
         
@@ -33944,12 +35231,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -33959,6 +35249,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -33972,12 +35263,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
        * <code>.IndexRange indexRange = 3;</code>
+       * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -34178,6 +35471,13 @@ public final class BrsApi {
     }
     private UnconfirmedTransactions() {
       unconfirmedTransactions_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UnconfirmedTransactions();
     }
 
     @java.lang.Override
@@ -34962,6 +36262,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Aliases();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -35704,14 +37011,18 @@ public final class BrsApi {
 
     /**
      * <code>repeated uint64 ids = 1;</code>
+     * @return A list containing the ids.
      */
     java.util.List<java.lang.Long> getIdsList();
     /**
      * <code>repeated uint64 ids = 1;</code>
+     * @return The count of ids.
      */
     int getIdsCount();
     /**
      * <code>repeated uint64 ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The ids at the given index.
      */
     long getIds(int index);
   }
@@ -35729,6 +37040,13 @@ public final class BrsApi {
     }
     private ATIds() {
       ids_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ATIds();
     }
 
     @java.lang.Override
@@ -35815,6 +37133,7 @@ public final class BrsApi {
     private com.google.protobuf.Internal.LongList ids_;
     /**
      * <code>repeated uint64 ids = 1;</code>
+     * @return A list containing the ids.
      */
     public java.util.List<java.lang.Long>
         getIdsList() {
@@ -35822,12 +37141,15 @@ public final class BrsApi {
     }
     /**
      * <code>repeated uint64 ids = 1;</code>
+     * @return The count of ids.
      */
     public int getIdsCount() {
       return ids_.size();
     }
     /**
      * <code>repeated uint64 ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The ids at the given index.
      */
     public long getIds(int index) {
       return ids_.getLong(index);
@@ -36175,6 +37497,7 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @return A list containing the ids.
        */
       public java.util.List<java.lang.Long>
           getIdsList() {
@@ -36183,18 +37506,24 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @return The count of ids.
        */
       public int getIdsCount() {
         return ids_.size();
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @param index The index of the element to return.
+       * @return The ids at the given index.
        */
       public long getIds(int index) {
         return ids_.getLong(index);
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The ids to set.
+       * @return This builder for chaining.
        */
       public Builder setIds(
           int index, long value) {
@@ -36205,6 +37534,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @param value The ids to add.
+       * @return This builder for chaining.
        */
       public Builder addIds(long value) {
         ensureIdsIsMutable();
@@ -36214,6 +37545,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @param values The ids to add.
+       * @return This builder for chaining.
        */
       public Builder addAllIds(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -36225,6 +37558,7 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 ids = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIds() {
         ids_ = emptyLongList();
@@ -36291,96 +37625,115 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 creator = 2;</code>
+     * @return The creator.
      */
     long getCreator();
 
     /**
      * <code>uint32 version = 3;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 4;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 4;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 5;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 5;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>bytes machineCode = 6;</code>
+     * @return The machineCode.
      */
     com.google.protobuf.ByteString getMachineCode();
 
     /**
      * <code>bytes machineData = 7;</code>
+     * @return The machineData.
      */
     com.google.protobuf.ByteString getMachineData();
 
     /**
      * <code>uint64 balance = 8;</code>
+     * @return The balance.
      */
     long getBalance();
 
     /**
      * <code>uint64 previousBalance = 9;</code>
+     * @return The previousBalance.
      */
     long getPreviousBalance();
 
     /**
      * <code>uint32 nextBlock = 10;</code>
+     * @return The nextBlock.
      */
     int getNextBlock();
 
     /**
      * <code>bool frozen = 11;</code>
+     * @return The frozen.
      */
     boolean getFrozen();
 
     /**
      * <code>bool running = 12;</code>
+     * @return The running.
      */
     boolean getRunning();
 
     /**
      * <code>bool stopped = 13;</code>
+     * @return The stopped.
      */
     boolean getStopped();
 
     /**
      * <code>bool finished = 14;</code>
+     * @return The finished.
      */
     boolean getFinished();
 
     /**
      * <code>bool dead = 15;</code>
+     * @return The dead.
      */
     boolean getDead();
 
     /**
      * <code>uint64 minActivation = 16;</code>
+     * @return The minActivation.
      */
     long getMinActivation();
 
     /**
      * <code>uint32 creationBlock = 17;</code>
+     * @return The creationBlock.
      */
     int getCreationBlock();
   }
@@ -36404,6 +37757,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AT();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -36416,7 +37776,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -36550,6 +37909,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -36559,6 +37919,7 @@ public final class BrsApi {
     private long creator_;
     /**
      * <code>uint64 creator = 2;</code>
+     * @return The creator.
      */
     public long getCreator() {
       return creator_;
@@ -36568,6 +37929,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 3;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -36577,6 +37939,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 4;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -36592,6 +37955,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 4;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -36611,6 +37975,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 5;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -36626,6 +37991,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 5;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -36645,6 +38011,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString machineCode_;
     /**
      * <code>bytes machineCode = 6;</code>
+     * @return The machineCode.
      */
     public com.google.protobuf.ByteString getMachineCode() {
       return machineCode_;
@@ -36654,6 +38021,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString machineData_;
     /**
      * <code>bytes machineData = 7;</code>
+     * @return The machineData.
      */
     public com.google.protobuf.ByteString getMachineData() {
       return machineData_;
@@ -36663,6 +38031,7 @@ public final class BrsApi {
     private long balance_;
     /**
      * <code>uint64 balance = 8;</code>
+     * @return The balance.
      */
     public long getBalance() {
       return balance_;
@@ -36672,6 +38041,7 @@ public final class BrsApi {
     private long previousBalance_;
     /**
      * <code>uint64 previousBalance = 9;</code>
+     * @return The previousBalance.
      */
     public long getPreviousBalance() {
       return previousBalance_;
@@ -36681,6 +38051,7 @@ public final class BrsApi {
     private int nextBlock_;
     /**
      * <code>uint32 nextBlock = 10;</code>
+     * @return The nextBlock.
      */
     public int getNextBlock() {
       return nextBlock_;
@@ -36690,6 +38061,7 @@ public final class BrsApi {
     private boolean frozen_;
     /**
      * <code>bool frozen = 11;</code>
+     * @return The frozen.
      */
     public boolean getFrozen() {
       return frozen_;
@@ -36699,6 +38071,7 @@ public final class BrsApi {
     private boolean running_;
     /**
      * <code>bool running = 12;</code>
+     * @return The running.
      */
     public boolean getRunning() {
       return running_;
@@ -36708,6 +38081,7 @@ public final class BrsApi {
     private boolean stopped_;
     /**
      * <code>bool stopped = 13;</code>
+     * @return The stopped.
      */
     public boolean getStopped() {
       return stopped_;
@@ -36717,6 +38091,7 @@ public final class BrsApi {
     private boolean finished_;
     /**
      * <code>bool finished = 14;</code>
+     * @return The finished.
      */
     public boolean getFinished() {
       return finished_;
@@ -36726,6 +38101,7 @@ public final class BrsApi {
     private boolean dead_;
     /**
      * <code>bool dead = 15;</code>
+     * @return The dead.
      */
     public boolean getDead() {
       return dead_;
@@ -36735,6 +38111,7 @@ public final class BrsApi {
     private long minActivation_;
     /**
      * <code>uint64 minActivation = 16;</code>
+     * @return The minActivation.
      */
     public long getMinActivation() {
       return minActivation_;
@@ -36744,6 +38121,7 @@ public final class BrsApi {
     private int creationBlock_;
     /**
      * <code>uint32 creationBlock = 17;</code>
+     * @return The creationBlock.
      */
     public int getCreationBlock() {
       return creationBlock_;
@@ -37336,12 +38714,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -37351,6 +38732,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -37362,12 +38744,15 @@ public final class BrsApi {
       private long creator_ ;
       /**
        * <code>uint64 creator = 2;</code>
+       * @return The creator.
        */
       public long getCreator() {
         return creator_;
       }
       /**
        * <code>uint64 creator = 2;</code>
+       * @param value The creator to set.
+       * @return This builder for chaining.
        */
       public Builder setCreator(long value) {
         
@@ -37377,6 +38762,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 creator = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCreator() {
         
@@ -37388,12 +38774,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 3;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 3;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -37403,6 +38792,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -37414,6 +38804,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 4;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -37429,6 +38820,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 4;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -37445,6 +38837,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 4;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -37458,6 +38852,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -37467,6 +38862,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 4;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -37483,6 +38880,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 5;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -37498,6 +38896,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 5;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -37514,6 +38913,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 5;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -37527,6 +38928,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -37536,6 +38938,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 5;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -37552,12 +38956,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString machineCode_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes machineCode = 6;</code>
+       * @return The machineCode.
        */
       public com.google.protobuf.ByteString getMachineCode() {
         return machineCode_;
       }
       /**
        * <code>bytes machineCode = 6;</code>
+       * @param value The machineCode to set.
+       * @return This builder for chaining.
        */
       public Builder setMachineCode(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -37570,6 +38977,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes machineCode = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMachineCode() {
         
@@ -37581,12 +38989,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString machineData_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes machineData = 7;</code>
+       * @return The machineData.
        */
       public com.google.protobuf.ByteString getMachineData() {
         return machineData_;
       }
       /**
        * <code>bytes machineData = 7;</code>
+       * @param value The machineData to set.
+       * @return This builder for chaining.
        */
       public Builder setMachineData(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -37599,6 +39010,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes machineData = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMachineData() {
         
@@ -37610,12 +39022,15 @@ public final class BrsApi {
       private long balance_ ;
       /**
        * <code>uint64 balance = 8;</code>
+       * @return The balance.
        */
       public long getBalance() {
         return balance_;
       }
       /**
        * <code>uint64 balance = 8;</code>
+       * @param value The balance to set.
+       * @return This builder for chaining.
        */
       public Builder setBalance(long value) {
         
@@ -37625,6 +39040,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 balance = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBalance() {
         
@@ -37636,12 +39052,15 @@ public final class BrsApi {
       private long previousBalance_ ;
       /**
        * <code>uint64 previousBalance = 9;</code>
+       * @return The previousBalance.
        */
       public long getPreviousBalance() {
         return previousBalance_;
       }
       /**
        * <code>uint64 previousBalance = 9;</code>
+       * @param value The previousBalance to set.
+       * @return This builder for chaining.
        */
       public Builder setPreviousBalance(long value) {
         
@@ -37651,6 +39070,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 previousBalance = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPreviousBalance() {
         
@@ -37662,12 +39082,15 @@ public final class BrsApi {
       private int nextBlock_ ;
       /**
        * <code>uint32 nextBlock = 10;</code>
+       * @return The nextBlock.
        */
       public int getNextBlock() {
         return nextBlock_;
       }
       /**
        * <code>uint32 nextBlock = 10;</code>
+       * @param value The nextBlock to set.
+       * @return This builder for chaining.
        */
       public Builder setNextBlock(int value) {
         
@@ -37677,6 +39100,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 nextBlock = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNextBlock() {
         
@@ -37688,12 +39112,15 @@ public final class BrsApi {
       private boolean frozen_ ;
       /**
        * <code>bool frozen = 11;</code>
+       * @return The frozen.
        */
       public boolean getFrozen() {
         return frozen_;
       }
       /**
        * <code>bool frozen = 11;</code>
+       * @param value The frozen to set.
+       * @return This builder for chaining.
        */
       public Builder setFrozen(boolean value) {
         
@@ -37703,6 +39130,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool frozen = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFrozen() {
         
@@ -37714,12 +39142,15 @@ public final class BrsApi {
       private boolean running_ ;
       /**
        * <code>bool running = 12;</code>
+       * @return The running.
        */
       public boolean getRunning() {
         return running_;
       }
       /**
        * <code>bool running = 12;</code>
+       * @param value The running to set.
+       * @return This builder for chaining.
        */
       public Builder setRunning(boolean value) {
         
@@ -37729,6 +39160,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool running = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRunning() {
         
@@ -37740,12 +39172,15 @@ public final class BrsApi {
       private boolean stopped_ ;
       /**
        * <code>bool stopped = 13;</code>
+       * @return The stopped.
        */
       public boolean getStopped() {
         return stopped_;
       }
       /**
        * <code>bool stopped = 13;</code>
+       * @param value The stopped to set.
+       * @return This builder for chaining.
        */
       public Builder setStopped(boolean value) {
         
@@ -37755,6 +39190,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool stopped = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearStopped() {
         
@@ -37766,12 +39202,15 @@ public final class BrsApi {
       private boolean finished_ ;
       /**
        * <code>bool finished = 14;</code>
+       * @return The finished.
        */
       public boolean getFinished() {
         return finished_;
       }
       /**
        * <code>bool finished = 14;</code>
+       * @param value The finished to set.
+       * @return This builder for chaining.
        */
       public Builder setFinished(boolean value) {
         
@@ -37781,6 +39220,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool finished = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFinished() {
         
@@ -37792,12 +39232,15 @@ public final class BrsApi {
       private boolean dead_ ;
       /**
        * <code>bool dead = 15;</code>
+       * @return The dead.
        */
       public boolean getDead() {
         return dead_;
       }
       /**
        * <code>bool dead = 15;</code>
+       * @param value The dead to set.
+       * @return This builder for chaining.
        */
       public Builder setDead(boolean value) {
         
@@ -37807,6 +39250,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool dead = 15;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDead() {
         
@@ -37818,12 +39262,15 @@ public final class BrsApi {
       private long minActivation_ ;
       /**
        * <code>uint64 minActivation = 16;</code>
+       * @return The minActivation.
        */
       public long getMinActivation() {
         return minActivation_;
       }
       /**
        * <code>uint64 minActivation = 16;</code>
+       * @param value The minActivation to set.
+       * @return This builder for chaining.
        */
       public Builder setMinActivation(long value) {
         
@@ -37833,6 +39280,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 minActivation = 16;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMinActivation() {
         
@@ -37844,12 +39292,15 @@ public final class BrsApi {
       private int creationBlock_ ;
       /**
        * <code>uint32 creationBlock = 17;</code>
+       * @return The creationBlock.
        */
       public int getCreationBlock() {
         return creationBlock_;
       }
       /**
        * <code>uint32 creationBlock = 17;</code>
+       * @param value The creationBlock to set.
+       * @return This builder for chaining.
        */
       public Builder setCreationBlock(int value) {
         
@@ -37859,6 +39310,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 creationBlock = 17;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCreationBlock() {
         
@@ -37961,6 +39413,13 @@ public final class BrsApi {
     }
     private AccountATs() {
       ats_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AccountATs();
     }
 
     @java.lang.Override
@@ -38706,16 +40165,19 @@ public final class BrsApi {
 
     /**
      * <code>bytes senderPublicKey = 1;</code>
+     * @return The senderPublicKey.
      */
     com.google.protobuf.ByteString getSenderPublicKey();
 
     /**
      * <code>uint64 senderId = 2;</code>
+     * @return The senderId.
      */
     long getSenderId();
 
     /**
      * <code>uint64 recipient = 3;</code>
+     * @return The recipient.
      */
     long getRecipient();
 
@@ -38725,6 +40187,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 version = 4;</code>
+     * @return The version.
      */
     int getVersion();
 
@@ -38734,6 +40197,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 type = 5;</code>
+     * @return The type.
      */
     int getType();
 
@@ -38743,16 +40207,19 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 subtype = 6;</code>
+     * @return The subtype.
      */
     int getSubtype();
 
     /**
      * <code>uint64 amount = 7;</code>
+     * @return The amount.
      */
     long getAmount();
 
     /**
      * <code>uint64 fee = 8;</code>
+     * @return The fee.
      */
     long getFee();
 
@@ -38762,11 +40229,13 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 timestamp = 9;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>uint32 deadline = 10;</code>
+     * @return The deadline.
      */
     int getDeadline();
 
@@ -38796,10 +40265,12 @@ public final class BrsApi {
 
     /**
      * <code>.google.protobuf.Any attachment = 12;</code>
+     * @return Whether the attachment field is set.
      */
     boolean hasAttachment();
     /**
      * <code>.google.protobuf.Any attachment = 12;</code>
+     * @return The attachment.
      */
     com.google.protobuf.Any getAttachment();
     /**
@@ -38809,21 +40280,25 @@ public final class BrsApi {
 
     /**
      * <code>bytes referencedTransactionFullHash = 13;</code>
+     * @return The referencedTransactionFullHash.
      */
     com.google.protobuf.ByteString getReferencedTransactionFullHash();
 
     /**
      * <code>uint64 ecBlockId = 14;</code>
+     * @return The ecBlockId.
      */
     long getEcBlockId();
 
     /**
      * <code>uint32 ecBlockHeight = 15;</code>
+     * @return The ecBlockHeight.
      */
     int getEcBlockHeight();
 
     /**
      * <code>bytes signature = 16;</code>
+     * @return The signature.
      */
     com.google.protobuf.ByteString getSignature();
   }
@@ -38848,6 +40323,13 @@ public final class BrsApi {
       appendages_ = java.util.Collections.emptyList();
       referencedTransactionFullHash_ = com.google.protobuf.ByteString.EMPTY;
       signature_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BasicTransaction();
     }
 
     @java.lang.Override
@@ -38925,9 +40407,9 @@ public final class BrsApi {
               break;
             }
             case 90: {
-              if (!((mutable_bitField0_ & 0x00000400) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 appendages_ = new java.util.ArrayList<com.google.protobuf.Any>();
-                mutable_bitField0_ |= 0x00000400;
+                mutable_bitField0_ |= 0x00000001;
               }
               appendages_.add(
                   input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
@@ -38981,7 +40463,7 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000400) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           appendages_ = java.util.Collections.unmodifiableList(appendages_);
         }
         this.unknownFields = unknownFields.build();
@@ -39001,11 +40483,11 @@ public final class BrsApi {
               burst.kit.service.impl.grpc.BrsApi.BasicTransaction.class, burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder.class);
     }
 
-    private int bitField0_;
     public static final int SENDERPUBLICKEY_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString senderPublicKey_;
     /**
      * <code>bytes senderPublicKey = 1;</code>
+     * @return The senderPublicKey.
      */
     public com.google.protobuf.ByteString getSenderPublicKey() {
       return senderPublicKey_;
@@ -39015,6 +40497,7 @@ public final class BrsApi {
     private long senderId_;
     /**
      * <code>uint64 senderId = 2;</code>
+     * @return The senderId.
      */
     public long getSenderId() {
       return senderId_;
@@ -39024,6 +40507,7 @@ public final class BrsApi {
     private long recipient_;
     /**
      * <code>uint64 recipient = 3;</code>
+     * @return The recipient.
      */
     public long getRecipient() {
       return recipient_;
@@ -39037,6 +40521,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 version = 4;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -39050,6 +40535,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 type = 5;</code>
+     * @return The type.
      */
     public int getType() {
       return type_;
@@ -39063,6 +40549,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 subtype = 6;</code>
+     * @return The subtype.
      */
     public int getSubtype() {
       return subtype_;
@@ -39072,6 +40559,7 @@ public final class BrsApi {
     private long amount_;
     /**
      * <code>uint64 amount = 7;</code>
+     * @return The amount.
      */
     public long getAmount() {
       return amount_;
@@ -39081,6 +40569,7 @@ public final class BrsApi {
     private long fee_;
     /**
      * <code>uint64 fee = 8;</code>
+     * @return The fee.
      */
     public long getFee() {
       return fee_;
@@ -39094,6 +40583,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 timestamp = 9;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -39103,6 +40593,7 @@ public final class BrsApi {
     private int deadline_;
     /**
      * <code>uint32 deadline = 10;</code>
+     * @return The deadline.
      */
     public int getDeadline() {
       return deadline_;
@@ -39147,12 +40638,14 @@ public final class BrsApi {
     private com.google.protobuf.Any attachment_;
     /**
      * <code>.google.protobuf.Any attachment = 12;</code>
+     * @return Whether the attachment field is set.
      */
     public boolean hasAttachment() {
       return attachment_ != null;
     }
     /**
      * <code>.google.protobuf.Any attachment = 12;</code>
+     * @return The attachment.
      */
     public com.google.protobuf.Any getAttachment() {
       return attachment_ == null ? com.google.protobuf.Any.getDefaultInstance() : attachment_;
@@ -39168,6 +40661,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString referencedTransactionFullHash_;
     /**
      * <code>bytes referencedTransactionFullHash = 13;</code>
+     * @return The referencedTransactionFullHash.
      */
     public com.google.protobuf.ByteString getReferencedTransactionFullHash() {
       return referencedTransactionFullHash_;
@@ -39177,6 +40671,7 @@ public final class BrsApi {
     private long ecBlockId_;
     /**
      * <code>uint64 ecBlockId = 14;</code>
+     * @return The ecBlockId.
      */
     public long getEcBlockId() {
       return ecBlockId_;
@@ -39186,6 +40681,7 @@ public final class BrsApi {
     private int ecBlockHeight_;
     /**
      * <code>uint32 ecBlockHeight = 15;</code>
+     * @return The ecBlockHeight.
      */
     public int getEcBlockHeight() {
       return ecBlockHeight_;
@@ -39195,6 +40691,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString signature_;
     /**
      * <code>bytes signature = 16;</code>
+     * @return The signature.
      */
     public com.google.protobuf.ByteString getSignature() {
       return signature_;
@@ -39597,7 +41094,7 @@ public final class BrsApi {
 
         if (appendagesBuilder_ == null) {
           appendages_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           appendagesBuilder_.clear();
         }
@@ -39642,7 +41139,6 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.BasicTransaction buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.BasicTransaction result = new burst.kit.service.impl.grpc.BrsApi.BasicTransaction(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.senderPublicKey_ = senderPublicKey_;
         result.senderId_ = senderId_;
         result.recipient_ = recipient_;
@@ -39654,9 +41150,9 @@ public final class BrsApi {
         result.timestamp_ = timestamp_;
         result.deadline_ = deadline_;
         if (appendagesBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             appendages_ = java.util.Collections.unmodifiableList(appendages_);
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.appendages_ = appendages_;
         } else {
@@ -39671,7 +41167,6 @@ public final class BrsApi {
         result.ecBlockId_ = ecBlockId_;
         result.ecBlockHeight_ = ecBlockHeight_;
         result.signature_ = signature_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -39754,7 +41249,7 @@ public final class BrsApi {
           if (!other.appendages_.isEmpty()) {
             if (appendages_.isEmpty()) {
               appendages_ = other.appendages_;
-              bitField0_ = (bitField0_ & ~0x00000400);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureAppendagesIsMutable();
               appendages_.addAll(other.appendages_);
@@ -39767,7 +41262,7 @@ public final class BrsApi {
               appendagesBuilder_.dispose();
               appendagesBuilder_ = null;
               appendages_ = other.appendages_;
-              bitField0_ = (bitField0_ & ~0x00000400);
+              bitField0_ = (bitField0_ & ~0x00000001);
               appendagesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAppendagesFieldBuilder() : null;
@@ -39824,12 +41319,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString senderPublicKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes senderPublicKey = 1;</code>
+       * @return The senderPublicKey.
        */
       public com.google.protobuf.ByteString getSenderPublicKey() {
         return senderPublicKey_;
       }
       /**
        * <code>bytes senderPublicKey = 1;</code>
+       * @param value The senderPublicKey to set.
+       * @return This builder for chaining.
        */
       public Builder setSenderPublicKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -39842,6 +41340,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes senderPublicKey = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSenderPublicKey() {
         
@@ -39853,12 +41352,15 @@ public final class BrsApi {
       private long senderId_ ;
       /**
        * <code>uint64 senderId = 2;</code>
+       * @return The senderId.
        */
       public long getSenderId() {
         return senderId_;
       }
       /**
        * <code>uint64 senderId = 2;</code>
+       * @param value The senderId to set.
+       * @return This builder for chaining.
        */
       public Builder setSenderId(long value) {
         
@@ -39868,6 +41370,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 senderId = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSenderId() {
         
@@ -39879,12 +41382,15 @@ public final class BrsApi {
       private long recipient_ ;
       /**
        * <code>uint64 recipient = 3;</code>
+       * @return The recipient.
        */
       public long getRecipient() {
         return recipient_;
       }
       /**
        * <code>uint64 recipient = 3;</code>
+       * @param value The recipient to set.
+       * @return This builder for chaining.
        */
       public Builder setRecipient(long value) {
         
@@ -39894,6 +41400,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 recipient = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecipient() {
         
@@ -39909,6 +41416,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 version = 4;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
@@ -39919,6 +41427,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 version = 4;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -39932,6 +41442,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 version = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -39947,6 +41458,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 type = 5;</code>
+       * @return The type.
        */
       public int getType() {
         return type_;
@@ -39957,6 +41469,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 type = 5;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(int value) {
         
@@ -39970,6 +41484,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 type = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -39985,6 +41500,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 subtype = 6;</code>
+       * @return The subtype.
        */
       public int getSubtype() {
         return subtype_;
@@ -39995,6 +41511,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 subtype = 6;</code>
+       * @param value The subtype to set.
+       * @return This builder for chaining.
        */
       public Builder setSubtype(int value) {
         
@@ -40008,6 +41526,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 subtype = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSubtype() {
         
@@ -40019,12 +41538,15 @@ public final class BrsApi {
       private long amount_ ;
       /**
        * <code>uint64 amount = 7;</code>
+       * @return The amount.
        */
       public long getAmount() {
         return amount_;
       }
       /**
        * <code>uint64 amount = 7;</code>
+       * @param value The amount to set.
+       * @return This builder for chaining.
        */
       public Builder setAmount(long value) {
         
@@ -40034,6 +41556,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 amount = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAmount() {
         
@@ -40045,12 +41568,15 @@ public final class BrsApi {
       private long fee_ ;
       /**
        * <code>uint64 fee = 8;</code>
+       * @return The fee.
        */
       public long getFee() {
         return fee_;
       }
       /**
        * <code>uint64 fee = 8;</code>
+       * @param value The fee to set.
+       * @return This builder for chaining.
        */
       public Builder setFee(long value) {
         
@@ -40060,6 +41586,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 fee = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFee() {
         
@@ -40075,6 +41602,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 timestamp = 9;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
@@ -40085,6 +41613,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 timestamp = 9;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -40098,6 +41628,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 timestamp = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -40109,12 +41640,15 @@ public final class BrsApi {
       private int deadline_ ;
       /**
        * <code>uint32 deadline = 10;</code>
+       * @return The deadline.
        */
       public int getDeadline() {
         return deadline_;
       }
       /**
        * <code>uint32 deadline = 10;</code>
+       * @param value The deadline to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadline(int value) {
         
@@ -40124,6 +41658,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 deadline = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeadline() {
         
@@ -40135,9 +41670,9 @@ public final class BrsApi {
       private java.util.List<com.google.protobuf.Any> appendages_ =
         java.util.Collections.emptyList();
       private void ensureAppendagesIsMutable() {
-        if (!((bitField0_ & 0x00000400) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           appendages_ = new java.util.ArrayList<com.google.protobuf.Any>(appendages_);
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -40287,7 +41822,7 @@ public final class BrsApi {
       public Builder clearAppendages() {
         if (appendagesBuilder_ == null) {
           appendages_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           appendagesBuilder_.clear();
@@ -40364,7 +41899,7 @@ public final class BrsApi {
           appendagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                   appendages_,
-                  ((bitField0_ & 0x00000400) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           appendages_ = null;
@@ -40377,12 +41912,14 @@ public final class BrsApi {
           com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> attachmentBuilder_;
       /**
        * <code>.google.protobuf.Any attachment = 12;</code>
+       * @return Whether the attachment field is set.
        */
       public boolean hasAttachment() {
         return attachmentBuilder_ != null || attachment_ != null;
       }
       /**
        * <code>.google.protobuf.Any attachment = 12;</code>
+       * @return The attachment.
        */
       public com.google.protobuf.Any getAttachment() {
         if (attachmentBuilder_ == null) {
@@ -40492,12 +42029,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString referencedTransactionFullHash_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes referencedTransactionFullHash = 13;</code>
+       * @return The referencedTransactionFullHash.
        */
       public com.google.protobuf.ByteString getReferencedTransactionFullHash() {
         return referencedTransactionFullHash_;
       }
       /**
        * <code>bytes referencedTransactionFullHash = 13;</code>
+       * @param value The referencedTransactionFullHash to set.
+       * @return This builder for chaining.
        */
       public Builder setReferencedTransactionFullHash(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -40510,6 +42050,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes referencedTransactionFullHash = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearReferencedTransactionFullHash() {
         
@@ -40521,12 +42062,15 @@ public final class BrsApi {
       private long ecBlockId_ ;
       /**
        * <code>uint64 ecBlockId = 14;</code>
+       * @return The ecBlockId.
        */
       public long getEcBlockId() {
         return ecBlockId_;
       }
       /**
        * <code>uint64 ecBlockId = 14;</code>
+       * @param value The ecBlockId to set.
+       * @return This builder for chaining.
        */
       public Builder setEcBlockId(long value) {
         
@@ -40536,6 +42080,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 ecBlockId = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearEcBlockId() {
         
@@ -40547,12 +42092,15 @@ public final class BrsApi {
       private int ecBlockHeight_ ;
       /**
        * <code>uint32 ecBlockHeight = 15;</code>
+       * @return The ecBlockHeight.
        */
       public int getEcBlockHeight() {
         return ecBlockHeight_;
       }
       /**
        * <code>uint32 ecBlockHeight = 15;</code>
+       * @param value The ecBlockHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setEcBlockHeight(int value) {
         
@@ -40562,6 +42110,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 ecBlockHeight = 15;</code>
+       * @return This builder for chaining.
        */
       public Builder clearEcBlockHeight() {
         
@@ -40573,12 +42122,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes signature = 16;</code>
+       * @return The signature.
        */
       public com.google.protobuf.ByteString getSignature() {
         return signature_;
       }
       /**
        * <code>bytes signature = 16;</code>
+       * @param value The signature to set.
+       * @return This builder for chaining.
        */
       public Builder setSignature(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -40591,6 +42143,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes signature = 16;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSignature() {
         
@@ -40657,10 +42210,12 @@ public final class BrsApi {
 
     /**
      * <code>string peerAddress = 1;</code>
+     * @return The peerAddress.
      */
     java.lang.String getPeerAddress();
     /**
      * <code>string peerAddress = 1;</code>
+     * @return The bytes for peerAddress.
      */
     com.google.protobuf.ByteString
         getPeerAddressBytes();
@@ -40682,6 +42237,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetPeerRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -40694,7 +42256,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -40747,6 +42308,7 @@ public final class BrsApi {
     private volatile java.lang.Object peerAddress_;
     /**
      * <code>string peerAddress = 1;</code>
+     * @return The peerAddress.
      */
     public java.lang.String getPeerAddress() {
       java.lang.Object ref = peerAddress_;
@@ -40762,6 +42324,7 @@ public final class BrsApi {
     }
     /**
      * <code>string peerAddress = 1;</code>
+     * @return The bytes for peerAddress.
      */
     public com.google.protobuf.ByteString
         getPeerAddressBytes() {
@@ -41082,6 +42645,7 @@ public final class BrsApi {
       private java.lang.Object peerAddress_ = "";
       /**
        * <code>string peerAddress = 1;</code>
+       * @return The peerAddress.
        */
       public java.lang.String getPeerAddress() {
         java.lang.Object ref = peerAddress_;
@@ -41097,6 +42661,7 @@ public final class BrsApi {
       }
       /**
        * <code>string peerAddress = 1;</code>
+       * @return The bytes for peerAddress.
        */
       public com.google.protobuf.ByteString
           getPeerAddressBytes() {
@@ -41113,6 +42678,8 @@ public final class BrsApi {
       }
       /**
        * <code>string peerAddress = 1;</code>
+       * @param value The peerAddress to set.
+       * @return This builder for chaining.
        */
       public Builder setPeerAddress(
           java.lang.String value) {
@@ -41126,6 +42693,7 @@ public final class BrsApi {
       }
       /**
        * <code>string peerAddress = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPeerAddress() {
         
@@ -41135,6 +42703,8 @@ public final class BrsApi {
       }
       /**
        * <code>string peerAddress = 1;</code>
+       * @param value The bytes for peerAddress to set.
+       * @return This builder for chaining.
        */
       public Builder setPeerAddressBytes(
           com.google.protobuf.ByteString value) {
@@ -41206,15 +42776,18 @@ public final class BrsApi {
 
     /**
      * <code>bool active = 1;</code>
+     * @return The active.
      */
     boolean getActive();
 
     /**
      * <code>.PeerState state = 2;</code>
+     * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
      * <code>.PeerState state = 2;</code>
+     * @return The state.
      */
     burst.kit.service.impl.grpc.BrsApi.PeerState getState();
   }
@@ -41235,6 +42808,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetPeersRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -41247,7 +42827,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -41305,6 +42884,7 @@ public final class BrsApi {
     private boolean active_;
     /**
      * <code>bool active = 1;</code>
+     * @return The active.
      */
     public boolean getActive() {
       return active_;
@@ -41314,12 +42894,14 @@ public final class BrsApi {
     private int state_;
     /**
      * <code>.PeerState state = 2;</code>
+     * @return The enum numeric value on the wire for state.
      */
     public int getStateValue() {
       return state_;
     }
     /**
      * <code>.PeerState state = 2;</code>
+     * @return The state.
      */
     public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
       @SuppressWarnings("deprecation")
@@ -41649,12 +43231,15 @@ public final class BrsApi {
       private boolean active_ ;
       /**
        * <code>bool active = 1;</code>
+       * @return The active.
        */
       public boolean getActive() {
         return active_;
       }
       /**
        * <code>bool active = 1;</code>
+       * @param value The active to set.
+       * @return This builder for chaining.
        */
       public Builder setActive(boolean value) {
         
@@ -41664,6 +43249,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool active = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearActive() {
         
@@ -41675,12 +43261,15 @@ public final class BrsApi {
       private int state_ = 0;
       /**
        * <code>.PeerState state = 2;</code>
+       * @return The enum numeric value on the wire for state.
        */
       public int getStateValue() {
         return state_;
       }
       /**
        * <code>.PeerState state = 2;</code>
+       * @param value The enum numeric value on the wire for state to set.
+       * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
         state_ = value;
@@ -41689,6 +43278,7 @@ public final class BrsApi {
       }
       /**
        * <code>.PeerState state = 2;</code>
+       * @return The state.
        */
       public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
         @SuppressWarnings("deprecation")
@@ -41697,6 +43287,8 @@ public final class BrsApi {
       }
       /**
        * <code>.PeerState state = 2;</code>
+       * @param value The state to set.
+       * @return This builder for chaining.
        */
       public Builder setState(burst.kit.service.impl.grpc.BrsApi.PeerState value) {
         if (value == null) {
@@ -41709,6 +43301,7 @@ public final class BrsApi {
       }
       /**
        * <code>.PeerState state = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearState() {
         
@@ -41775,75 +43368,90 @@ public final class BrsApi {
 
     /**
      * <code>.PeerState state = 1;</code>
+     * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
      * <code>.PeerState state = 1;</code>
+     * @return The state.
      */
     burst.kit.service.impl.grpc.BrsApi.PeerState getState();
 
     /**
      * <code>string announcedAddress = 2;</code>
+     * @return The announcedAddress.
      */
     java.lang.String getAnnouncedAddress();
     /**
      * <code>string announcedAddress = 2;</code>
+     * @return The bytes for announcedAddress.
      */
     com.google.protobuf.ByteString
         getAnnouncedAddressBytes();
 
     /**
      * <code>bool shareAddress = 3;</code>
+     * @return The shareAddress.
      */
     boolean getShareAddress();
 
     /**
      * <code>uint64 downloadedVolume = 4;</code>
+     * @return The downloadedVolume.
      */
     long getDownloadedVolume();
 
     /**
      * <code>uint64 uploadedVolume = 5;</code>
+     * @return The uploadedVolume.
      */
     long getUploadedVolume();
 
     /**
      * <code>string application = 6;</code>
+     * @return The application.
      */
     java.lang.String getApplication();
     /**
      * <code>string application = 6;</code>
+     * @return The bytes for application.
      */
     com.google.protobuf.ByteString
         getApplicationBytes();
 
     /**
      * <code>string version = 7;</code>
+     * @return The version.
      */
     java.lang.String getVersion();
     /**
      * <code>string version = 7;</code>
+     * @return The bytes for version.
      */
     com.google.protobuf.ByteString
         getVersionBytes();
 
     /**
      * <code>string platform = 8;</code>
+     * @return The platform.
      */
     java.lang.String getPlatform();
     /**
      * <code>string platform = 8;</code>
+     * @return The bytes for platform.
      */
     com.google.protobuf.ByteString
         getPlatformBytes();
 
     /**
      * <code>bool blacklisted = 9;</code>
+     * @return The blacklisted.
      */
     boolean getBlacklisted();
 
     /**
      * <code>uint32 lastUpdated = 10;</code>
+     * @return The lastUpdated.
      */
     int getLastUpdated();
   }
@@ -41868,6 +43476,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Peer();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -41880,7 +43495,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -41982,12 +43596,14 @@ public final class BrsApi {
     private int state_;
     /**
      * <code>.PeerState state = 1;</code>
+     * @return The enum numeric value on the wire for state.
      */
     public int getStateValue() {
       return state_;
     }
     /**
      * <code>.PeerState state = 1;</code>
+     * @return The state.
      */
     public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
       @SuppressWarnings("deprecation")
@@ -41999,6 +43615,7 @@ public final class BrsApi {
     private volatile java.lang.Object announcedAddress_;
     /**
      * <code>string announcedAddress = 2;</code>
+     * @return The announcedAddress.
      */
     public java.lang.String getAnnouncedAddress() {
       java.lang.Object ref = announcedAddress_;
@@ -42014,6 +43631,7 @@ public final class BrsApi {
     }
     /**
      * <code>string announcedAddress = 2;</code>
+     * @return The bytes for announcedAddress.
      */
     public com.google.protobuf.ByteString
         getAnnouncedAddressBytes() {
@@ -42033,6 +43651,7 @@ public final class BrsApi {
     private boolean shareAddress_;
     /**
      * <code>bool shareAddress = 3;</code>
+     * @return The shareAddress.
      */
     public boolean getShareAddress() {
       return shareAddress_;
@@ -42042,6 +43661,7 @@ public final class BrsApi {
     private long downloadedVolume_;
     /**
      * <code>uint64 downloadedVolume = 4;</code>
+     * @return The downloadedVolume.
      */
     public long getDownloadedVolume() {
       return downloadedVolume_;
@@ -42051,6 +43671,7 @@ public final class BrsApi {
     private long uploadedVolume_;
     /**
      * <code>uint64 uploadedVolume = 5;</code>
+     * @return The uploadedVolume.
      */
     public long getUploadedVolume() {
       return uploadedVolume_;
@@ -42060,6 +43681,7 @@ public final class BrsApi {
     private volatile java.lang.Object application_;
     /**
      * <code>string application = 6;</code>
+     * @return The application.
      */
     public java.lang.String getApplication() {
       java.lang.Object ref = application_;
@@ -42075,6 +43697,7 @@ public final class BrsApi {
     }
     /**
      * <code>string application = 6;</code>
+     * @return The bytes for application.
      */
     public com.google.protobuf.ByteString
         getApplicationBytes() {
@@ -42094,6 +43717,7 @@ public final class BrsApi {
     private volatile java.lang.Object version_;
     /**
      * <code>string version = 7;</code>
+     * @return The version.
      */
     public java.lang.String getVersion() {
       java.lang.Object ref = version_;
@@ -42109,6 +43733,7 @@ public final class BrsApi {
     }
     /**
      * <code>string version = 7;</code>
+     * @return The bytes for version.
      */
     public com.google.protobuf.ByteString
         getVersionBytes() {
@@ -42128,6 +43753,7 @@ public final class BrsApi {
     private volatile java.lang.Object platform_;
     /**
      * <code>string platform = 8;</code>
+     * @return The platform.
      */
     public java.lang.String getPlatform() {
       java.lang.Object ref = platform_;
@@ -42143,6 +43769,7 @@ public final class BrsApi {
     }
     /**
      * <code>string platform = 8;</code>
+     * @return The bytes for platform.
      */
     public com.google.protobuf.ByteString
         getPlatformBytes() {
@@ -42162,6 +43789,7 @@ public final class BrsApi {
     private boolean blacklisted_;
     /**
      * <code>bool blacklisted = 9;</code>
+     * @return The blacklisted.
      */
     public boolean getBlacklisted() {
       return blacklisted_;
@@ -42171,6 +43799,7 @@ public final class BrsApi {
     private int lastUpdated_;
     /**
      * <code>uint32 lastUpdated = 10;</code>
+     * @return The lastUpdated.
      */
     public int getLastUpdated() {
       return lastUpdated_;
@@ -42637,12 +44266,15 @@ public final class BrsApi {
       private int state_ = 0;
       /**
        * <code>.PeerState state = 1;</code>
+       * @return The enum numeric value on the wire for state.
        */
       public int getStateValue() {
         return state_;
       }
       /**
        * <code>.PeerState state = 1;</code>
+       * @param value The enum numeric value on the wire for state to set.
+       * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
         state_ = value;
@@ -42651,6 +44283,7 @@ public final class BrsApi {
       }
       /**
        * <code>.PeerState state = 1;</code>
+       * @return The state.
        */
       public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
         @SuppressWarnings("deprecation")
@@ -42659,6 +44292,8 @@ public final class BrsApi {
       }
       /**
        * <code>.PeerState state = 1;</code>
+       * @param value The state to set.
+       * @return This builder for chaining.
        */
       public Builder setState(burst.kit.service.impl.grpc.BrsApi.PeerState value) {
         if (value == null) {
@@ -42671,6 +44306,7 @@ public final class BrsApi {
       }
       /**
        * <code>.PeerState state = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearState() {
         
@@ -42682,6 +44318,7 @@ public final class BrsApi {
       private java.lang.Object announcedAddress_ = "";
       /**
        * <code>string announcedAddress = 2;</code>
+       * @return The announcedAddress.
        */
       public java.lang.String getAnnouncedAddress() {
         java.lang.Object ref = announcedAddress_;
@@ -42697,6 +44334,7 @@ public final class BrsApi {
       }
       /**
        * <code>string announcedAddress = 2;</code>
+       * @return The bytes for announcedAddress.
        */
       public com.google.protobuf.ByteString
           getAnnouncedAddressBytes() {
@@ -42713,6 +44351,8 @@ public final class BrsApi {
       }
       /**
        * <code>string announcedAddress = 2;</code>
+       * @param value The announcedAddress to set.
+       * @return This builder for chaining.
        */
       public Builder setAnnouncedAddress(
           java.lang.String value) {
@@ -42726,6 +44366,7 @@ public final class BrsApi {
       }
       /**
        * <code>string announcedAddress = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAnnouncedAddress() {
         
@@ -42735,6 +44376,8 @@ public final class BrsApi {
       }
       /**
        * <code>string announcedAddress = 2;</code>
+       * @param value The bytes for announcedAddress to set.
+       * @return This builder for chaining.
        */
       public Builder setAnnouncedAddressBytes(
           com.google.protobuf.ByteString value) {
@@ -42751,12 +44394,15 @@ public final class BrsApi {
       private boolean shareAddress_ ;
       /**
        * <code>bool shareAddress = 3;</code>
+       * @return The shareAddress.
        */
       public boolean getShareAddress() {
         return shareAddress_;
       }
       /**
        * <code>bool shareAddress = 3;</code>
+       * @param value The shareAddress to set.
+       * @return This builder for chaining.
        */
       public Builder setShareAddress(boolean value) {
         
@@ -42766,6 +44412,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool shareAddress = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearShareAddress() {
         
@@ -42777,12 +44424,15 @@ public final class BrsApi {
       private long downloadedVolume_ ;
       /**
        * <code>uint64 downloadedVolume = 4;</code>
+       * @return The downloadedVolume.
        */
       public long getDownloadedVolume() {
         return downloadedVolume_;
       }
       /**
        * <code>uint64 downloadedVolume = 4;</code>
+       * @param value The downloadedVolume to set.
+       * @return This builder for chaining.
        */
       public Builder setDownloadedVolume(long value) {
         
@@ -42792,6 +44442,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 downloadedVolume = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDownloadedVolume() {
         
@@ -42803,12 +44454,15 @@ public final class BrsApi {
       private long uploadedVolume_ ;
       /**
        * <code>uint64 uploadedVolume = 5;</code>
+       * @return The uploadedVolume.
        */
       public long getUploadedVolume() {
         return uploadedVolume_;
       }
       /**
        * <code>uint64 uploadedVolume = 5;</code>
+       * @param value The uploadedVolume to set.
+       * @return This builder for chaining.
        */
       public Builder setUploadedVolume(long value) {
         
@@ -42818,6 +44472,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 uploadedVolume = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUploadedVolume() {
         
@@ -42829,6 +44484,7 @@ public final class BrsApi {
       private java.lang.Object application_ = "";
       /**
        * <code>string application = 6;</code>
+       * @return The application.
        */
       public java.lang.String getApplication() {
         java.lang.Object ref = application_;
@@ -42844,6 +44500,7 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 6;</code>
+       * @return The bytes for application.
        */
       public com.google.protobuf.ByteString
           getApplicationBytes() {
@@ -42860,6 +44517,8 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 6;</code>
+       * @param value The application to set.
+       * @return This builder for chaining.
        */
       public Builder setApplication(
           java.lang.String value) {
@@ -42873,6 +44532,7 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearApplication() {
         
@@ -42882,6 +44542,8 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 6;</code>
+       * @param value The bytes for application to set.
+       * @return This builder for chaining.
        */
       public Builder setApplicationBytes(
           com.google.protobuf.ByteString value) {
@@ -42898,6 +44560,7 @@ public final class BrsApi {
       private java.lang.Object version_ = "";
       /**
        * <code>string version = 7;</code>
+       * @return The version.
        */
       public java.lang.String getVersion() {
         java.lang.Object ref = version_;
@@ -42913,6 +44576,7 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 7;</code>
+       * @return The bytes for version.
        */
       public com.google.protobuf.ByteString
           getVersionBytes() {
@@ -42929,6 +44593,8 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 7;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(
           java.lang.String value) {
@@ -42942,6 +44608,7 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -42951,6 +44618,8 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 7;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -42967,6 +44636,7 @@ public final class BrsApi {
       private java.lang.Object platform_ = "";
       /**
        * <code>string platform = 8;</code>
+       * @return The platform.
        */
       public java.lang.String getPlatform() {
         java.lang.Object ref = platform_;
@@ -42982,6 +44652,7 @@ public final class BrsApi {
       }
       /**
        * <code>string platform = 8;</code>
+       * @return The bytes for platform.
        */
       public com.google.protobuf.ByteString
           getPlatformBytes() {
@@ -42998,6 +44669,8 @@ public final class BrsApi {
       }
       /**
        * <code>string platform = 8;</code>
+       * @param value The platform to set.
+       * @return This builder for chaining.
        */
       public Builder setPlatform(
           java.lang.String value) {
@@ -43011,6 +44684,7 @@ public final class BrsApi {
       }
       /**
        * <code>string platform = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPlatform() {
         
@@ -43020,6 +44694,8 @@ public final class BrsApi {
       }
       /**
        * <code>string platform = 8;</code>
+       * @param value The bytes for platform to set.
+       * @return This builder for chaining.
        */
       public Builder setPlatformBytes(
           com.google.protobuf.ByteString value) {
@@ -43036,12 +44712,15 @@ public final class BrsApi {
       private boolean blacklisted_ ;
       /**
        * <code>bool blacklisted = 9;</code>
+       * @return The blacklisted.
        */
       public boolean getBlacklisted() {
         return blacklisted_;
       }
       /**
        * <code>bool blacklisted = 9;</code>
+       * @param value The blacklisted to set.
+       * @return This builder for chaining.
        */
       public Builder setBlacklisted(boolean value) {
         
@@ -43051,6 +44730,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool blacklisted = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlacklisted() {
         
@@ -43062,12 +44742,15 @@ public final class BrsApi {
       private int lastUpdated_ ;
       /**
        * <code>uint32 lastUpdated = 10;</code>
+       * @return The lastUpdated.
        */
       public int getLastUpdated() {
         return lastUpdated_;
       }
       /**
        * <code>uint32 lastUpdated = 10;</code>
+       * @param value The lastUpdated to set.
+       * @return This builder for chaining.
        */
       public Builder setLastUpdated(int value) {
         
@@ -43077,6 +44760,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 lastUpdated = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastUpdated() {
         
@@ -43143,19 +44827,25 @@ public final class BrsApi {
 
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @return A list containing the peerAddresses.
      */
     java.util.List<java.lang.String>
         getPeerAddressesList();
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @return The count of peerAddresses.
      */
     int getPeerAddressesCount();
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @param index The index of the element to return.
+     * @return The peerAddresses at the given index.
      */
     java.lang.String getPeerAddresses(int index);
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the peerAddresses at the given index.
      */
     com.google.protobuf.ByteString
         getPeerAddressesBytes(int index);
@@ -43174,6 +44864,13 @@ public final class BrsApi {
     }
     private Peers() {
       peerAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Peers();
     }
 
     @java.lang.Override
@@ -43248,6 +44945,7 @@ public final class BrsApi {
     private com.google.protobuf.LazyStringList peerAddresses_;
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @return A list containing the peerAddresses.
      */
     public com.google.protobuf.ProtocolStringList
         getPeerAddressesList() {
@@ -43255,18 +44953,23 @@ public final class BrsApi {
     }
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @return The count of peerAddresses.
      */
     public int getPeerAddressesCount() {
       return peerAddresses_.size();
     }
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @param index The index of the element to return.
+     * @return The peerAddresses at the given index.
      */
     public java.lang.String getPeerAddresses(int index) {
       return peerAddresses_.get(index);
     }
     /**
      * <code>repeated string peerAddresses = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the peerAddresses at the given index.
      */
     public com.google.protobuf.ByteString
         getPeerAddressesBytes(int index) {
@@ -43603,6 +45306,7 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @return A list containing the peerAddresses.
        */
       public com.google.protobuf.ProtocolStringList
           getPeerAddressesList() {
@@ -43610,18 +45314,23 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @return The count of peerAddresses.
        */
       public int getPeerAddressesCount() {
         return peerAddresses_.size();
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @param index The index of the element to return.
+       * @return The peerAddresses at the given index.
        */
       public java.lang.String getPeerAddresses(int index) {
         return peerAddresses_.get(index);
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the peerAddresses at the given index.
        */
       public com.google.protobuf.ByteString
           getPeerAddressesBytes(int index) {
@@ -43629,6 +45338,9 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The peerAddresses to set.
+       * @return This builder for chaining.
        */
       public Builder setPeerAddresses(
           int index, java.lang.String value) {
@@ -43642,6 +45354,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @param value The peerAddresses to add.
+       * @return This builder for chaining.
        */
       public Builder addPeerAddresses(
           java.lang.String value) {
@@ -43655,6 +45369,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @param values The peerAddresses to add.
+       * @return This builder for chaining.
        */
       public Builder addAllPeerAddresses(
           java.lang.Iterable<java.lang.String> values) {
@@ -43666,6 +45382,7 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPeerAddresses() {
         peerAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -43675,6 +45392,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated string peerAddresses = 1;</code>
+       * @param value The bytes of the peerAddresses to add.
+       * @return This builder for chaining.
        */
       public Builder addPeerAddressesBytes(
           com.google.protobuf.ByteString value) {
@@ -43746,15 +45465,18 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -43776,6 +45498,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAliasRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -43788,7 +45517,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -43846,6 +45574,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -43855,6 +45584,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -43870,6 +45600,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -44208,12 +45939,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -44223,6 +45957,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -44234,6 +45969,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -44249,6 +45985,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -44265,6 +46002,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -44278,6 +46017,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -44287,6 +46027,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -44358,51 +46100,61 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint64 owner = 2;</code>
+     * @return The owner.
      */
     long getOwner();
 
     /**
      * <code>string name = 3;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 3;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string uri = 4;</code>
+     * @return The uri.
      */
     java.lang.String getUri();
     /**
      * <code>string uri = 4;</code>
+     * @return The bytes for uri.
      */
     com.google.protobuf.ByteString
         getUriBytes();
 
     /**
      * <code>uint32 timestamp = 5;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>bool offered = 6;</code>
+     * @return The offered.
      */
     boolean getOffered();
 
     /**
      * <code>uint64 price = 7;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>uint64 buyer = 8;</code>
+     * @return The buyer.
      */
     long getBuyer();
   }
@@ -44424,6 +46176,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Alias();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -44436,7 +46195,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -44525,6 +46283,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -44534,6 +46293,7 @@ public final class BrsApi {
     private long owner_;
     /**
      * <code>uint64 owner = 2;</code>
+     * @return The owner.
      */
     public long getOwner() {
       return owner_;
@@ -44543,6 +46303,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 3;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -44558,6 +46319,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 3;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -44577,6 +46339,7 @@ public final class BrsApi {
     private volatile java.lang.Object uri_;
     /**
      * <code>string uri = 4;</code>
+     * @return The uri.
      */
     public java.lang.String getUri() {
       java.lang.Object ref = uri_;
@@ -44592,6 +46355,7 @@ public final class BrsApi {
     }
     /**
      * <code>string uri = 4;</code>
+     * @return The bytes for uri.
      */
     public com.google.protobuf.ByteString
         getUriBytes() {
@@ -44611,6 +46375,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 5;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -44620,6 +46385,7 @@ public final class BrsApi {
     private boolean offered_;
     /**
      * <code>bool offered = 6;</code>
+     * @return The offered.
      */
     public boolean getOffered() {
       return offered_;
@@ -44629,6 +46395,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 7;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -44638,6 +46405,7 @@ public final class BrsApi {
     private long buyer_;
     /**
      * <code>uint64 buyer = 8;</code>
+     * @return The buyer.
      */
     public long getBuyer() {
       return buyer_;
@@ -45072,12 +46840,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -45087,6 +46858,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -45098,12 +46870,15 @@ public final class BrsApi {
       private long owner_ ;
       /**
        * <code>uint64 owner = 2;</code>
+       * @return The owner.
        */
       public long getOwner() {
         return owner_;
       }
       /**
        * <code>uint64 owner = 2;</code>
+       * @param value The owner to set.
+       * @return This builder for chaining.
        */
       public Builder setOwner(long value) {
         
@@ -45113,6 +46888,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 owner = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOwner() {
         
@@ -45124,6 +46900,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 3;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -45139,6 +46916,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -45155,6 +46933,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -45168,6 +46948,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -45177,6 +46958,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 3;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -45193,6 +46976,7 @@ public final class BrsApi {
       private java.lang.Object uri_ = "";
       /**
        * <code>string uri = 4;</code>
+       * @return The uri.
        */
       public java.lang.String getUri() {
         java.lang.Object ref = uri_;
@@ -45208,6 +46992,7 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 4;</code>
+       * @return The bytes for uri.
        */
       public com.google.protobuf.ByteString
           getUriBytes() {
@@ -45224,6 +47009,8 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 4;</code>
+       * @param value The uri to set.
+       * @return This builder for chaining.
        */
       public Builder setUri(
           java.lang.String value) {
@@ -45237,6 +47024,7 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUri() {
         
@@ -45246,6 +47034,8 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 4;</code>
+       * @param value The bytes for uri to set.
+       * @return This builder for chaining.
        */
       public Builder setUriBytes(
           com.google.protobuf.ByteString value) {
@@ -45262,12 +47052,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 5;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 5;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -45277,6 +47070,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -45288,12 +47082,15 @@ public final class BrsApi {
       private boolean offered_ ;
       /**
        * <code>bool offered = 6;</code>
+       * @return The offered.
        */
       public boolean getOffered() {
         return offered_;
       }
       /**
        * <code>bool offered = 6;</code>
+       * @param value The offered to set.
+       * @return This builder for chaining.
        */
       public Builder setOffered(boolean value) {
         
@@ -45303,6 +47100,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool offered = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOffered() {
         
@@ -45314,12 +47112,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 7;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 7;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -45329,6 +47130,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -45340,12 +47142,15 @@ public final class BrsApi {
       private long buyer_ ;
       /**
        * <code>uint64 buyer = 8;</code>
+       * @return The buyer.
        */
       public long getBuyer() {
         return buyer_;
       }
       /**
        * <code>uint64 buyer = 8;</code>
+       * @param value The buyer to set.
+       * @return This builder for chaining.
        */
       public Builder setBuyer(long value) {
         
@@ -45355,6 +47160,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 buyer = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBuyer() {
         
@@ -45425,6 +47231,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 time = 1;</code>
+     * @return The time.
      */
     int getTime();
   }
@@ -45444,6 +47251,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Time();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -45456,7 +47270,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -45512,6 +47325,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 time = 1;</code>
+     * @return The time.
      */
     public int getTime() {
       return time_;
@@ -45826,6 +47640,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 time = 1;</code>
+       * @return The time.
        */
       public int getTime() {
         return time_;
@@ -45836,6 +47651,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 time = 1;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
        */
       public Builder setTime(int value) {
         
@@ -45849,6 +47666,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 time = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTime() {
         
@@ -45915,30 +47733,36 @@ public final class BrsApi {
 
     /**
      * <code>string application = 1;</code>
+     * @return The application.
      */
     java.lang.String getApplication();
     /**
      * <code>string application = 1;</code>
+     * @return The bytes for application.
      */
     com.google.protobuf.ByteString
         getApplicationBytes();
 
     /**
      * <code>string version = 2;</code>
+     * @return The version.
      */
     java.lang.String getVersion();
     /**
      * <code>string version = 2;</code>
+     * @return The bytes for version.
      */
     com.google.protobuf.ByteString
         getVersionBytes();
 
     /**
      * <code>.Time time = 3;</code>
+     * @return Whether the time field is set.
      */
     boolean hasTime();
     /**
      * <code>.Time time = 3;</code>
+     * @return The time.
      */
     burst.kit.service.impl.grpc.BrsApi.Time getTime();
     /**
@@ -45948,83 +47772,87 @@ public final class BrsApi {
 
     /**
      * <code>uint64 lastBlock = 4;</code>
+     * @return The lastBlock.
      */
     long getLastBlock();
 
     /**
      * <code>uint32 lastHeight = 5;</code>
+     * @return The lastHeight.
      */
     int getLastHeight();
 
     /**
      * <code>string cumulativeDifficulty = 6;</code>
+     * @return The cumulativeDifficulty.
      */
     java.lang.String getCumulativeDifficulty();
     /**
      * <code>string cumulativeDifficulty = 6;</code>
+     * @return The bytes for cumulativeDifficulty.
      */
     com.google.protobuf.ByteString
         getCumulativeDifficultyBytes();
 
     /**
      * <code>uint32 numberOfPeers = 7;</code>
+     * @return The numberOfPeers.
      */
     int getNumberOfPeers();
 
     /**
      * <code>uint32 numberOfActivePeers = 8;</code>
+     * @return The numberOfActivePeers.
      */
     int getNumberOfActivePeers();
 
     /**
      * <code>uint32 numberOfForgers = 9;</code>
+     * @return The numberOfForgers.
      */
     int getNumberOfForgers();
 
     /**
      * <code>string lastBlockchainFeeder = 10;</code>
+     * @return The lastBlockchainFeeder.
      */
     java.lang.String getLastBlockchainFeeder();
     /**
      * <code>string lastBlockchainFeeder = 10;</code>
+     * @return The bytes for lastBlockchainFeeder.
      */
     com.google.protobuf.ByteString
         getLastBlockchainFeederBytes();
 
     /**
      * <code>uint32 lastBlockchainFeederHeight = 11;</code>
+     * @return The lastBlockchainFeederHeight.
      */
     int getLastBlockchainFeederHeight();
 
     /**
-     * <code>bool isScanning = 12;</code>
-     */
-    boolean getIsScanning();
-
-    /**
-     * <code>uint32 availableProcessors = 13;</code>
+     * <code>uint32 availableProcessors = 12;</code>
+     * @return The availableProcessors.
      */
     int getAvailableProcessors();
 
     /**
-     * <code>uint64 maxMemory = 14;</code>
+     * <code>uint64 maxMemory = 13;</code>
+     * @return The maxMemory.
      */
     long getMaxMemory();
 
     /**
-     * <code>uint64 totalMemory = 15;</code>
+     * <code>uint64 totalMemory = 14;</code>
+     * @return The totalMemory.
      */
     long getTotalMemory();
 
     /**
-     * <code>uint64 freeMemory = 16;</code>
+     * <code>uint64 freeMemory = 15;</code>
+     * @return The freeMemory.
      */
     long getFreeMemory();
-
-    /**
-     * <code>bool indirectIncomingServiceEnabled = 17;</code>
-     */
-    boolean getIndirectIncomingServiceEnabled();
   }
   /**
    * Protobuf type {@code State}
@@ -46046,6 +47874,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new State();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -46058,7 +47893,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -46138,32 +47972,22 @@ public final class BrsApi {
             }
             case 96: {
 
-              isScanning_ = input.readBool();
+              availableProcessors_ = input.readUInt32();
               break;
             }
             case 104: {
 
-              availableProcessors_ = input.readUInt32();
+              maxMemory_ = input.readUInt64();
               break;
             }
             case 112: {
 
-              maxMemory_ = input.readUInt64();
+              totalMemory_ = input.readUInt64();
               break;
             }
             case 120: {
 
-              totalMemory_ = input.readUInt64();
-              break;
-            }
-            case 128: {
-
               freeMemory_ = input.readUInt64();
-              break;
-            }
-            case 136: {
-
-              indirectIncomingServiceEnabled_ = input.readBool();
               break;
             }
             default: {
@@ -46202,6 +48026,7 @@ public final class BrsApi {
     private volatile java.lang.Object application_;
     /**
      * <code>string application = 1;</code>
+     * @return The application.
      */
     public java.lang.String getApplication() {
       java.lang.Object ref = application_;
@@ -46217,6 +48042,7 @@ public final class BrsApi {
     }
     /**
      * <code>string application = 1;</code>
+     * @return The bytes for application.
      */
     public com.google.protobuf.ByteString
         getApplicationBytes() {
@@ -46236,6 +48062,7 @@ public final class BrsApi {
     private volatile java.lang.Object version_;
     /**
      * <code>string version = 2;</code>
+     * @return The version.
      */
     public java.lang.String getVersion() {
       java.lang.Object ref = version_;
@@ -46251,6 +48078,7 @@ public final class BrsApi {
     }
     /**
      * <code>string version = 2;</code>
+     * @return The bytes for version.
      */
     public com.google.protobuf.ByteString
         getVersionBytes() {
@@ -46270,12 +48098,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.Time time_;
     /**
      * <code>.Time time = 3;</code>
+     * @return Whether the time field is set.
      */
     public boolean hasTime() {
       return time_ != null;
     }
     /**
      * <code>.Time time = 3;</code>
+     * @return The time.
      */
     public burst.kit.service.impl.grpc.BrsApi.Time getTime() {
       return time_ == null ? burst.kit.service.impl.grpc.BrsApi.Time.getDefaultInstance() : time_;
@@ -46291,6 +48121,7 @@ public final class BrsApi {
     private long lastBlock_;
     /**
      * <code>uint64 lastBlock = 4;</code>
+     * @return The lastBlock.
      */
     public long getLastBlock() {
       return lastBlock_;
@@ -46300,6 +48131,7 @@ public final class BrsApi {
     private int lastHeight_;
     /**
      * <code>uint32 lastHeight = 5;</code>
+     * @return The lastHeight.
      */
     public int getLastHeight() {
       return lastHeight_;
@@ -46309,6 +48141,7 @@ public final class BrsApi {
     private volatile java.lang.Object cumulativeDifficulty_;
     /**
      * <code>string cumulativeDifficulty = 6;</code>
+     * @return The cumulativeDifficulty.
      */
     public java.lang.String getCumulativeDifficulty() {
       java.lang.Object ref = cumulativeDifficulty_;
@@ -46324,6 +48157,7 @@ public final class BrsApi {
     }
     /**
      * <code>string cumulativeDifficulty = 6;</code>
+     * @return The bytes for cumulativeDifficulty.
      */
     public com.google.protobuf.ByteString
         getCumulativeDifficultyBytes() {
@@ -46343,6 +48177,7 @@ public final class BrsApi {
     private int numberOfPeers_;
     /**
      * <code>uint32 numberOfPeers = 7;</code>
+     * @return The numberOfPeers.
      */
     public int getNumberOfPeers() {
       return numberOfPeers_;
@@ -46352,6 +48187,7 @@ public final class BrsApi {
     private int numberOfActivePeers_;
     /**
      * <code>uint32 numberOfActivePeers = 8;</code>
+     * @return The numberOfActivePeers.
      */
     public int getNumberOfActivePeers() {
       return numberOfActivePeers_;
@@ -46361,6 +48197,7 @@ public final class BrsApi {
     private int numberOfForgers_;
     /**
      * <code>uint32 numberOfForgers = 9;</code>
+     * @return The numberOfForgers.
      */
     public int getNumberOfForgers() {
       return numberOfForgers_;
@@ -46370,6 +48207,7 @@ public final class BrsApi {
     private volatile java.lang.Object lastBlockchainFeeder_;
     /**
      * <code>string lastBlockchainFeeder = 10;</code>
+     * @return The lastBlockchainFeeder.
      */
     public java.lang.String getLastBlockchainFeeder() {
       java.lang.Object ref = lastBlockchainFeeder_;
@@ -46385,6 +48223,7 @@ public final class BrsApi {
     }
     /**
      * <code>string lastBlockchainFeeder = 10;</code>
+     * @return The bytes for lastBlockchainFeeder.
      */
     public com.google.protobuf.ByteString
         getLastBlockchainFeederBytes() {
@@ -46404,63 +48243,50 @@ public final class BrsApi {
     private int lastBlockchainFeederHeight_;
     /**
      * <code>uint32 lastBlockchainFeederHeight = 11;</code>
+     * @return The lastBlockchainFeederHeight.
      */
     public int getLastBlockchainFeederHeight() {
       return lastBlockchainFeederHeight_;
     }
 
-    public static final int ISSCANNING_FIELD_NUMBER = 12;
-    private boolean isScanning_;
-    /**
-     * <code>bool isScanning = 12;</code>
-     */
-    public boolean getIsScanning() {
-      return isScanning_;
-    }
-
-    public static final int AVAILABLEPROCESSORS_FIELD_NUMBER = 13;
+    public static final int AVAILABLEPROCESSORS_FIELD_NUMBER = 12;
     private int availableProcessors_;
     /**
-     * <code>uint32 availableProcessors = 13;</code>
+     * <code>uint32 availableProcessors = 12;</code>
+     * @return The availableProcessors.
      */
     public int getAvailableProcessors() {
       return availableProcessors_;
     }
 
-    public static final int MAXMEMORY_FIELD_NUMBER = 14;
+    public static final int MAXMEMORY_FIELD_NUMBER = 13;
     private long maxMemory_;
     /**
-     * <code>uint64 maxMemory = 14;</code>
+     * <code>uint64 maxMemory = 13;</code>
+     * @return The maxMemory.
      */
     public long getMaxMemory() {
       return maxMemory_;
     }
 
-    public static final int TOTALMEMORY_FIELD_NUMBER = 15;
+    public static final int TOTALMEMORY_FIELD_NUMBER = 14;
     private long totalMemory_;
     /**
-     * <code>uint64 totalMemory = 15;</code>
+     * <code>uint64 totalMemory = 14;</code>
+     * @return The totalMemory.
      */
     public long getTotalMemory() {
       return totalMemory_;
     }
 
-    public static final int FREEMEMORY_FIELD_NUMBER = 16;
+    public static final int FREEMEMORY_FIELD_NUMBER = 15;
     private long freeMemory_;
     /**
-     * <code>uint64 freeMemory = 16;</code>
+     * <code>uint64 freeMemory = 15;</code>
+     * @return The freeMemory.
      */
     public long getFreeMemory() {
       return freeMemory_;
-    }
-
-    public static final int INDIRECTINCOMINGSERVICEENABLED_FIELD_NUMBER = 17;
-    private boolean indirectIncomingServiceEnabled_;
-    /**
-     * <code>bool indirectIncomingServiceEnabled = 17;</code>
-     */
-    public boolean getIndirectIncomingServiceEnabled() {
-      return indirectIncomingServiceEnabled_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -46510,23 +48336,17 @@ public final class BrsApi {
       if (lastBlockchainFeederHeight_ != 0) {
         output.writeUInt32(11, lastBlockchainFeederHeight_);
       }
-      if (isScanning_ != false) {
-        output.writeBool(12, isScanning_);
-      }
       if (availableProcessors_ != 0) {
-        output.writeUInt32(13, availableProcessors_);
+        output.writeUInt32(12, availableProcessors_);
       }
       if (maxMemory_ != 0L) {
-        output.writeUInt64(14, maxMemory_);
+        output.writeUInt64(13, maxMemory_);
       }
       if (totalMemory_ != 0L) {
-        output.writeUInt64(15, totalMemory_);
+        output.writeUInt64(14, totalMemory_);
       }
       if (freeMemory_ != 0L) {
-        output.writeUInt64(16, freeMemory_);
-      }
-      if (indirectIncomingServiceEnabled_ != false) {
-        output.writeBool(17, indirectIncomingServiceEnabled_);
+        output.writeUInt64(15, freeMemory_);
       }
       unknownFields.writeTo(output);
     }
@@ -46577,29 +48397,21 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, lastBlockchainFeederHeight_);
       }
-      if (isScanning_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(12, isScanning_);
-      }
       if (availableProcessors_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(13, availableProcessors_);
+          .computeUInt32Size(12, availableProcessors_);
       }
       if (maxMemory_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(14, maxMemory_);
+          .computeUInt64Size(13, maxMemory_);
       }
       if (totalMemory_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(15, totalMemory_);
+          .computeUInt64Size(14, totalMemory_);
       }
       if (freeMemory_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(16, freeMemory_);
-      }
-      if (indirectIncomingServiceEnabled_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(17, indirectIncomingServiceEnabled_);
+          .computeUInt64Size(15, freeMemory_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -46641,8 +48453,6 @@ public final class BrsApi {
           .equals(other.getLastBlockchainFeeder())) return false;
       if (getLastBlockchainFeederHeight()
           != other.getLastBlockchainFeederHeight()) return false;
-      if (getIsScanning()
-          != other.getIsScanning()) return false;
       if (getAvailableProcessors()
           != other.getAvailableProcessors()) return false;
       if (getMaxMemory()
@@ -46651,8 +48461,6 @@ public final class BrsApi {
           != other.getTotalMemory()) return false;
       if (getFreeMemory()
           != other.getFreeMemory()) return false;
-      if (getIndirectIncomingServiceEnabled()
-          != other.getIndirectIncomingServiceEnabled()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -46689,9 +48497,6 @@ public final class BrsApi {
       hash = (53 * hash) + getLastBlockchainFeeder().hashCode();
       hash = (37 * hash) + LASTBLOCKCHAINFEEDERHEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + getLastBlockchainFeederHeight();
-      hash = (37 * hash) + ISSCANNING_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsScanning());
       hash = (37 * hash) + AVAILABLEPROCESSORS_FIELD_NUMBER;
       hash = (53 * hash) + getAvailableProcessors();
       hash = (37 * hash) + MAXMEMORY_FIELD_NUMBER;
@@ -46703,9 +48508,6 @@ public final class BrsApi {
       hash = (37 * hash) + FREEMEMORY_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getFreeMemory());
-      hash = (37 * hash) + INDIRECTINCOMINGSERVICEENABLED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIndirectIncomingServiceEnabled());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -46865,8 +48667,6 @@ public final class BrsApi {
 
         lastBlockchainFeederHeight_ = 0;
 
-        isScanning_ = false;
-
         availableProcessors_ = 0;
 
         maxMemory_ = 0L;
@@ -46874,8 +48674,6 @@ public final class BrsApi {
         totalMemory_ = 0L;
 
         freeMemory_ = 0L;
-
-        indirectIncomingServiceEnabled_ = false;
 
         return this;
       }
@@ -46918,12 +48716,10 @@ public final class BrsApi {
         result.numberOfForgers_ = numberOfForgers_;
         result.lastBlockchainFeeder_ = lastBlockchainFeeder_;
         result.lastBlockchainFeederHeight_ = lastBlockchainFeederHeight_;
-        result.isScanning_ = isScanning_;
         result.availableProcessors_ = availableProcessors_;
         result.maxMemory_ = maxMemory_;
         result.totalMemory_ = totalMemory_;
         result.freeMemory_ = freeMemory_;
-        result.indirectIncomingServiceEnabled_ = indirectIncomingServiceEnabled_;
         onBuilt();
         return result;
       }
@@ -47009,9 +48805,6 @@ public final class BrsApi {
         if (other.getLastBlockchainFeederHeight() != 0) {
           setLastBlockchainFeederHeight(other.getLastBlockchainFeederHeight());
         }
-        if (other.getIsScanning() != false) {
-          setIsScanning(other.getIsScanning());
-        }
         if (other.getAvailableProcessors() != 0) {
           setAvailableProcessors(other.getAvailableProcessors());
         }
@@ -47023,9 +48816,6 @@ public final class BrsApi {
         }
         if (other.getFreeMemory() != 0L) {
           setFreeMemory(other.getFreeMemory());
-        }
-        if (other.getIndirectIncomingServiceEnabled() != false) {
-          setIndirectIncomingServiceEnabled(other.getIndirectIncomingServiceEnabled());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -47059,6 +48849,7 @@ public final class BrsApi {
       private java.lang.Object application_ = "";
       /**
        * <code>string application = 1;</code>
+       * @return The application.
        */
       public java.lang.String getApplication() {
         java.lang.Object ref = application_;
@@ -47074,6 +48865,7 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 1;</code>
+       * @return The bytes for application.
        */
       public com.google.protobuf.ByteString
           getApplicationBytes() {
@@ -47090,6 +48882,8 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 1;</code>
+       * @param value The application to set.
+       * @return This builder for chaining.
        */
       public Builder setApplication(
           java.lang.String value) {
@@ -47103,6 +48897,7 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearApplication() {
         
@@ -47112,6 +48907,8 @@ public final class BrsApi {
       }
       /**
        * <code>string application = 1;</code>
+       * @param value The bytes for application to set.
+       * @return This builder for chaining.
        */
       public Builder setApplicationBytes(
           com.google.protobuf.ByteString value) {
@@ -47128,6 +48925,7 @@ public final class BrsApi {
       private java.lang.Object version_ = "";
       /**
        * <code>string version = 2;</code>
+       * @return The version.
        */
       public java.lang.String getVersion() {
         java.lang.Object ref = version_;
@@ -47143,6 +48941,7 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 2;</code>
+       * @return The bytes for version.
        */
       public com.google.protobuf.ByteString
           getVersionBytes() {
@@ -47159,6 +48958,8 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 2;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(
           java.lang.String value) {
@@ -47172,6 +48973,7 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -47181,6 +48983,8 @@ public final class BrsApi {
       }
       /**
        * <code>string version = 2;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -47199,12 +49003,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Time, burst.kit.service.impl.grpc.BrsApi.Time.Builder, burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder> timeBuilder_;
       /**
        * <code>.Time time = 3;</code>
+       * @return Whether the time field is set.
        */
       public boolean hasTime() {
         return timeBuilder_ != null || time_ != null;
       }
       /**
        * <code>.Time time = 3;</code>
+       * @return The time.
        */
       public burst.kit.service.impl.grpc.BrsApi.Time getTime() {
         if (timeBuilder_ == null) {
@@ -47314,12 +49120,15 @@ public final class BrsApi {
       private long lastBlock_ ;
       /**
        * <code>uint64 lastBlock = 4;</code>
+       * @return The lastBlock.
        */
       public long getLastBlock() {
         return lastBlock_;
       }
       /**
        * <code>uint64 lastBlock = 4;</code>
+       * @param value The lastBlock to set.
+       * @return This builder for chaining.
        */
       public Builder setLastBlock(long value) {
         
@@ -47329,6 +49138,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 lastBlock = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastBlock() {
         
@@ -47340,12 +49150,15 @@ public final class BrsApi {
       private int lastHeight_ ;
       /**
        * <code>uint32 lastHeight = 5;</code>
+       * @return The lastHeight.
        */
       public int getLastHeight() {
         return lastHeight_;
       }
       /**
        * <code>uint32 lastHeight = 5;</code>
+       * @param value The lastHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setLastHeight(int value) {
         
@@ -47355,6 +49168,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 lastHeight = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastHeight() {
         
@@ -47366,6 +49180,7 @@ public final class BrsApi {
       private java.lang.Object cumulativeDifficulty_ = "";
       /**
        * <code>string cumulativeDifficulty = 6;</code>
+       * @return The cumulativeDifficulty.
        */
       public java.lang.String getCumulativeDifficulty() {
         java.lang.Object ref = cumulativeDifficulty_;
@@ -47381,6 +49196,7 @@ public final class BrsApi {
       }
       /**
        * <code>string cumulativeDifficulty = 6;</code>
+       * @return The bytes for cumulativeDifficulty.
        */
       public com.google.protobuf.ByteString
           getCumulativeDifficultyBytes() {
@@ -47397,6 +49213,8 @@ public final class BrsApi {
       }
       /**
        * <code>string cumulativeDifficulty = 6;</code>
+       * @param value The cumulativeDifficulty to set.
+       * @return This builder for chaining.
        */
       public Builder setCumulativeDifficulty(
           java.lang.String value) {
@@ -47410,6 +49228,7 @@ public final class BrsApi {
       }
       /**
        * <code>string cumulativeDifficulty = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCumulativeDifficulty() {
         
@@ -47419,6 +49238,8 @@ public final class BrsApi {
       }
       /**
        * <code>string cumulativeDifficulty = 6;</code>
+       * @param value The bytes for cumulativeDifficulty to set.
+       * @return This builder for chaining.
        */
       public Builder setCumulativeDifficultyBytes(
           com.google.protobuf.ByteString value) {
@@ -47435,12 +49256,15 @@ public final class BrsApi {
       private int numberOfPeers_ ;
       /**
        * <code>uint32 numberOfPeers = 7;</code>
+       * @return The numberOfPeers.
        */
       public int getNumberOfPeers() {
         return numberOfPeers_;
       }
       /**
        * <code>uint32 numberOfPeers = 7;</code>
+       * @param value The numberOfPeers to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfPeers(int value) {
         
@@ -47450,6 +49274,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfPeers = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfPeers() {
         
@@ -47461,12 +49286,15 @@ public final class BrsApi {
       private int numberOfActivePeers_ ;
       /**
        * <code>uint32 numberOfActivePeers = 8;</code>
+       * @return The numberOfActivePeers.
        */
       public int getNumberOfActivePeers() {
         return numberOfActivePeers_;
       }
       /**
        * <code>uint32 numberOfActivePeers = 8;</code>
+       * @param value The numberOfActivePeers to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfActivePeers(int value) {
         
@@ -47476,6 +49304,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfActivePeers = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfActivePeers() {
         
@@ -47487,12 +49316,15 @@ public final class BrsApi {
       private int numberOfForgers_ ;
       /**
        * <code>uint32 numberOfForgers = 9;</code>
+       * @return The numberOfForgers.
        */
       public int getNumberOfForgers() {
         return numberOfForgers_;
       }
       /**
        * <code>uint32 numberOfForgers = 9;</code>
+       * @param value The numberOfForgers to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfForgers(int value) {
         
@@ -47502,6 +49334,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfForgers = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfForgers() {
         
@@ -47513,6 +49346,7 @@ public final class BrsApi {
       private java.lang.Object lastBlockchainFeeder_ = "";
       /**
        * <code>string lastBlockchainFeeder = 10;</code>
+       * @return The lastBlockchainFeeder.
        */
       public java.lang.String getLastBlockchainFeeder() {
         java.lang.Object ref = lastBlockchainFeeder_;
@@ -47528,6 +49362,7 @@ public final class BrsApi {
       }
       /**
        * <code>string lastBlockchainFeeder = 10;</code>
+       * @return The bytes for lastBlockchainFeeder.
        */
       public com.google.protobuf.ByteString
           getLastBlockchainFeederBytes() {
@@ -47544,6 +49379,8 @@ public final class BrsApi {
       }
       /**
        * <code>string lastBlockchainFeeder = 10;</code>
+       * @param value The lastBlockchainFeeder to set.
+       * @return This builder for chaining.
        */
       public Builder setLastBlockchainFeeder(
           java.lang.String value) {
@@ -47557,6 +49394,7 @@ public final class BrsApi {
       }
       /**
        * <code>string lastBlockchainFeeder = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastBlockchainFeeder() {
         
@@ -47566,6 +49404,8 @@ public final class BrsApi {
       }
       /**
        * <code>string lastBlockchainFeeder = 10;</code>
+       * @param value The bytes for lastBlockchainFeeder to set.
+       * @return This builder for chaining.
        */
       public Builder setLastBlockchainFeederBytes(
           com.google.protobuf.ByteString value) {
@@ -47582,12 +49422,15 @@ public final class BrsApi {
       private int lastBlockchainFeederHeight_ ;
       /**
        * <code>uint32 lastBlockchainFeederHeight = 11;</code>
+       * @return The lastBlockchainFeederHeight.
        */
       public int getLastBlockchainFeederHeight() {
         return lastBlockchainFeederHeight_;
       }
       /**
        * <code>uint32 lastBlockchainFeederHeight = 11;</code>
+       * @param value The lastBlockchainFeederHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setLastBlockchainFeederHeight(int value) {
         
@@ -47597,6 +49440,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 lastBlockchainFeederHeight = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLastBlockchainFeederHeight() {
         
@@ -47605,41 +49449,18 @@ public final class BrsApi {
         return this;
       }
 
-      private boolean isScanning_ ;
-      /**
-       * <code>bool isScanning = 12;</code>
-       */
-      public boolean getIsScanning() {
-        return isScanning_;
-      }
-      /**
-       * <code>bool isScanning = 12;</code>
-       */
-      public Builder setIsScanning(boolean value) {
-        
-        isScanning_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool isScanning = 12;</code>
-       */
-      public Builder clearIsScanning() {
-        
-        isScanning_ = false;
-        onChanged();
-        return this;
-      }
-
       private int availableProcessors_ ;
       /**
-       * <code>uint32 availableProcessors = 13;</code>
+       * <code>uint32 availableProcessors = 12;</code>
+       * @return The availableProcessors.
        */
       public int getAvailableProcessors() {
         return availableProcessors_;
       }
       /**
-       * <code>uint32 availableProcessors = 13;</code>
+       * <code>uint32 availableProcessors = 12;</code>
+       * @param value The availableProcessors to set.
+       * @return This builder for chaining.
        */
       public Builder setAvailableProcessors(int value) {
         
@@ -47648,7 +49469,8 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>uint32 availableProcessors = 13;</code>
+       * <code>uint32 availableProcessors = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAvailableProcessors() {
         
@@ -47659,13 +49481,16 @@ public final class BrsApi {
 
       private long maxMemory_ ;
       /**
-       * <code>uint64 maxMemory = 14;</code>
+       * <code>uint64 maxMemory = 13;</code>
+       * @return The maxMemory.
        */
       public long getMaxMemory() {
         return maxMemory_;
       }
       /**
-       * <code>uint64 maxMemory = 14;</code>
+       * <code>uint64 maxMemory = 13;</code>
+       * @param value The maxMemory to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxMemory(long value) {
         
@@ -47674,7 +49499,8 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>uint64 maxMemory = 14;</code>
+       * <code>uint64 maxMemory = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxMemory() {
         
@@ -47685,13 +49511,16 @@ public final class BrsApi {
 
       private long totalMemory_ ;
       /**
-       * <code>uint64 totalMemory = 15;</code>
+       * <code>uint64 totalMemory = 14;</code>
+       * @return The totalMemory.
        */
       public long getTotalMemory() {
         return totalMemory_;
       }
       /**
-       * <code>uint64 totalMemory = 15;</code>
+       * <code>uint64 totalMemory = 14;</code>
+       * @param value The totalMemory to set.
+       * @return This builder for chaining.
        */
       public Builder setTotalMemory(long value) {
         
@@ -47700,7 +49529,8 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>uint64 totalMemory = 15;</code>
+       * <code>uint64 totalMemory = 14;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTotalMemory() {
         
@@ -47711,13 +49541,16 @@ public final class BrsApi {
 
       private long freeMemory_ ;
       /**
-       * <code>uint64 freeMemory = 16;</code>
+       * <code>uint64 freeMemory = 15;</code>
+       * @return The freeMemory.
        */
       public long getFreeMemory() {
         return freeMemory_;
       }
       /**
-       * <code>uint64 freeMemory = 16;</code>
+       * <code>uint64 freeMemory = 15;</code>
+       * @param value The freeMemory to set.
+       * @return This builder for chaining.
        */
       public Builder setFreeMemory(long value) {
         
@@ -47726,37 +49559,12 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>uint64 freeMemory = 16;</code>
+       * <code>uint64 freeMemory = 15;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFreeMemory() {
         
         freeMemory_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private boolean indirectIncomingServiceEnabled_ ;
-      /**
-       * <code>bool indirectIncomingServiceEnabled = 17;</code>
-       */
-      public boolean getIndirectIncomingServiceEnabled() {
-        return indirectIncomingServiceEnabled_;
-      }
-      /**
-       * <code>bool indirectIncomingServiceEnabled = 17;</code>
-       */
-      public Builder setIndirectIncomingServiceEnabled(boolean value) {
-        
-        indirectIncomingServiceEnabled_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool indirectIncomingServiceEnabled = 17;</code>
-       */
-      public Builder clearIndirectIncomingServiceEnabled() {
-        
-        indirectIncomingServiceEnabled_ = false;
         onChanged();
         return this;
       }
@@ -47819,16 +49627,19 @@ public final class BrsApi {
 
     /**
      * <code>uint64 cheap = 1;</code>
+     * @return The cheap.
      */
     long getCheap();
 
     /**
      * <code>uint64 standard = 2;</code>
+     * @return The standard.
      */
     long getStandard();
 
     /**
      * <code>uint64 priority = 3;</code>
+     * @return The priority.
      */
     long getPriority();
   }
@@ -47848,6 +49659,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FeeSuggestion();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -47860,7 +49678,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -47922,6 +49739,7 @@ public final class BrsApi {
     private long cheap_;
     /**
      * <code>uint64 cheap = 1;</code>
+     * @return The cheap.
      */
     public long getCheap() {
       return cheap_;
@@ -47931,6 +49749,7 @@ public final class BrsApi {
     private long standard_;
     /**
      * <code>uint64 standard = 2;</code>
+     * @return The standard.
      */
     public long getStandard() {
       return standard_;
@@ -47940,6 +49759,7 @@ public final class BrsApi {
     private long priority_;
     /**
      * <code>uint64 priority = 3;</code>
+     * @return The priority.
      */
     public long getPriority() {
       return priority_;
@@ -48287,12 +50107,15 @@ public final class BrsApi {
       private long cheap_ ;
       /**
        * <code>uint64 cheap = 1;</code>
+       * @return The cheap.
        */
       public long getCheap() {
         return cheap_;
       }
       /**
        * <code>uint64 cheap = 1;</code>
+       * @param value The cheap to set.
+       * @return This builder for chaining.
        */
       public Builder setCheap(long value) {
         
@@ -48302,6 +50125,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 cheap = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCheap() {
         
@@ -48313,12 +50137,15 @@ public final class BrsApi {
       private long standard_ ;
       /**
        * <code>uint64 standard = 2;</code>
+       * @return The standard.
        */
       public long getStandard() {
         return standard_;
       }
       /**
        * <code>uint64 standard = 2;</code>
+       * @param value The standard to set.
+       * @return This builder for chaining.
        */
       public Builder setStandard(long value) {
         
@@ -48328,6 +50155,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 standard = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearStandard() {
         
@@ -48339,12 +50167,15 @@ public final class BrsApi {
       private long priority_ ;
       /**
        * <code>uint64 priority = 3;</code>
+       * @return The priority.
        */
       public long getPriority() {
         return priority_;
       }
       /**
        * <code>uint64 priority = 3;</code>
+       * @param value The priority to set.
+       * @return This builder for chaining.
        */
       public Builder setPriority(long value) {
         
@@ -48354,6 +50185,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 priority = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPriority() {
         
@@ -48424,6 +50256,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 numberOfPeersSentTo = 1;</code>
+     * @return The numberOfPeersSentTo.
      */
     int getNumberOfPeersSentTo();
   }
@@ -48443,6 +50276,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TransactionBroadcastResult();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -48455,7 +50295,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -48511,6 +50350,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint32 numberOfPeersSentTo = 1;</code>
+     * @return The numberOfPeersSentTo.
      */
     public int getNumberOfPeersSentTo() {
       return numberOfPeersSentTo_;
@@ -48825,6 +50665,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 numberOfPeersSentTo = 1;</code>
+       * @return The numberOfPeersSentTo.
        */
       public int getNumberOfPeersSentTo() {
         return numberOfPeersSentTo_;
@@ -48835,6 +50676,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 numberOfPeersSentTo = 1;</code>
+       * @param value The numberOfPeersSentTo to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfPeersSentTo(int value) {
         
@@ -48848,6 +50691,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint32 numberOfPeersSentTo = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfPeersSentTo() {
         
@@ -48914,21 +50758,25 @@ public final class BrsApi {
 
     /**
      * <code>uint64 blockId = 1;</code>
+     * @return The blockId.
      */
     long getBlockId();
 
     /**
      * <code>uint32 height = 2;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>uint32 timestamp = 3;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>bool includeTransactions = 4;</code>
+     * @return The includeTransactions.
      */
     boolean getIncludeTransactions();
   }
@@ -48948,6 +50796,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetBlockRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -48960,7 +50815,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -49027,6 +50881,7 @@ public final class BrsApi {
     private long blockId_;
     /**
      * <code>uint64 blockId = 1;</code>
+     * @return The blockId.
      */
     public long getBlockId() {
       return blockId_;
@@ -49036,6 +50891,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 2;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -49045,6 +50901,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 3;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -49054,6 +50911,7 @@ public final class BrsApi {
     private boolean includeTransactions_;
     /**
      * <code>bool includeTransactions = 4;</code>
+     * @return The includeTransactions.
      */
     public boolean getIncludeTransactions() {
       return includeTransactions_;
@@ -49417,12 +51275,15 @@ public final class BrsApi {
       private long blockId_ ;
       /**
        * <code>uint64 blockId = 1;</code>
+       * @return The blockId.
        */
       public long getBlockId() {
         return blockId_;
       }
       /**
        * <code>uint64 blockId = 1;</code>
+       * @param value The blockId to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockId(long value) {
         
@@ -49432,6 +51293,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 blockId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockId() {
         
@@ -49443,12 +51305,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 2;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 2;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -49458,6 +51323,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -49469,12 +51335,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 3;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 3;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -49484,6 +51353,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -49495,12 +51365,15 @@ public final class BrsApi {
       private boolean includeTransactions_ ;
       /**
        * <code>bool includeTransactions = 4;</code>
+       * @return The includeTransactions.
        */
       public boolean getIncludeTransactions() {
         return includeTransactions_;
       }
       /**
        * <code>bool includeTransactions = 4;</code>
+       * @param value The includeTransactions to set.
+       * @return This builder for chaining.
        */
       public Builder setIncludeTransactions(boolean value) {
         
@@ -49510,6 +51383,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool includeTransactions = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIncludeTransactions() {
         
@@ -49576,6 +51450,7 @@ public final class BrsApi {
 
     /**
      * <code>uint64 accountId = 1;</code>
+     * @return The accountId.
      */
     long getAccountId();
   }
@@ -49595,6 +51470,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAccountRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -49607,7 +51489,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -49659,6 +51540,7 @@ public final class BrsApi {
     private long accountId_;
     /**
      * <code>uint64 accountId = 1;</code>
+     * @return The accountId.
      */
     public long getAccountId() {
       return accountId_;
@@ -49970,12 +51852,15 @@ public final class BrsApi {
       private long accountId_ ;
       /**
        * <code>uint64 accountId = 1;</code>
+       * @return The accountId.
        */
       public long getAccountId() {
         return accountId_;
       }
       /**
        * <code>uint64 accountId = 1;</code>
+       * @param value The accountId to set.
+       * @return This builder for chaining.
        */
       public Builder setAccountId(long value) {
         
@@ -49985,6 +51870,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 accountId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccountId() {
         
@@ -50055,6 +51941,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint64 rewardRecipient = 1;</code>
+     * @return The rewardRecipient.
      */
     long getRewardRecipient();
 
@@ -50064,6 +51951,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
@@ -50072,6 +51960,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -50082,6 +51971,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>bool includeAccounts = 3;</code>
+     * @return The includeAccounts.
      */
     boolean getIncludeAccounts();
   }
@@ -50102,6 +51992,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAccountsRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -50114,7 +52011,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -50181,6 +52077,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>uint64 rewardRecipient = 1;</code>
+     * @return The rewardRecipient.
      */
     public long getRewardRecipient() {
       return rewardRecipient_;
@@ -50194,6 +52091,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -50213,6 +52111,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -50236,6 +52135,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>bool includeAccounts = 3;</code>
+     * @return The includeAccounts.
      */
     public boolean getIncludeAccounts() {
       return includeAccounts_;
@@ -50586,6 +52486,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint64 rewardRecipient = 1;</code>
+       * @return The rewardRecipient.
        */
       public long getRewardRecipient() {
         return rewardRecipient_;
@@ -50596,6 +52497,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint64 rewardRecipient = 1;</code>
+       * @param value The rewardRecipient to set.
+       * @return This builder for chaining.
        */
       public Builder setRewardRecipient(long value) {
         
@@ -50609,6 +52512,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>uint64 rewardRecipient = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRewardRecipient() {
         
@@ -50624,6 +52528,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -50643,6 +52548,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -50663,6 +52569,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -50680,6 +52588,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -50693,6 +52602,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -50713,6 +52624,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool includeAccounts = 3;</code>
+       * @return The includeAccounts.
        */
       public boolean getIncludeAccounts() {
         return includeAccounts_;
@@ -50723,6 +52635,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool includeAccounts = 3;</code>
+       * @param value The includeAccounts to set.
+       * @return This builder for chaining.
        */
       public Builder setIncludeAccounts(boolean value) {
         
@@ -50736,6 +52650,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>bool includeAccounts = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIncludeAccounts() {
         
@@ -50802,11 +52717,13 @@ public final class BrsApi {
 
     /**
      * <code>uint64 transactionId = 1;</code>
+     * @return The transactionId.
      */
     long getTransactionId();
 
     /**
      * <code>bytes fullHash = 2;</code>
+     * @return The fullHash.
      */
     com.google.protobuf.ByteString getFullHash();
   }
@@ -50827,6 +52744,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetTransactionRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -50839,7 +52763,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -50896,6 +52819,7 @@ public final class BrsApi {
     private long transactionId_;
     /**
      * <code>uint64 transactionId = 1;</code>
+     * @return The transactionId.
      */
     public long getTransactionId() {
       return transactionId_;
@@ -50905,6 +52829,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString fullHash_;
     /**
      * <code>bytes fullHash = 2;</code>
+     * @return The fullHash.
      */
     public com.google.protobuf.ByteString getFullHash() {
       return fullHash_;
@@ -51233,12 +53158,15 @@ public final class BrsApi {
       private long transactionId_ ;
       /**
        * <code>uint64 transactionId = 1;</code>
+       * @return The transactionId.
        */
       public long getTransactionId() {
         return transactionId_;
       }
       /**
        * <code>uint64 transactionId = 1;</code>
+       * @param value The transactionId to set.
+       * @return This builder for chaining.
        */
       public Builder setTransactionId(long value) {
         
@@ -51248,6 +53176,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 transactionId = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransactionId() {
         
@@ -51259,12 +53188,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString fullHash_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes fullHash = 2;</code>
+       * @return The fullHash.
        */
       public com.google.protobuf.ByteString getFullHash() {
         return fullHash_;
       }
       /**
        * <code>bytes fullHash = 2;</code>
+       * @param value The fullHash to set.
+       * @return This builder for chaining.
        */
       public Builder setFullHash(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -51277,6 +53209,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes fullHash = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFullHash() {
         
@@ -51343,26 +53276,31 @@ public final class BrsApi {
 
     /**
      * <code>string secretPhrase = 1;</code>
+     * @return The secretPhrase.
      */
     java.lang.String getSecretPhrase();
     /**
      * <code>string secretPhrase = 1;</code>
+     * @return The bytes for secretPhrase.
      */
     com.google.protobuf.ByteString
         getSecretPhraseBytes();
 
     /**
      * <code>uint64 nonce = 2;</code>
+     * @return The nonce.
      */
     long getNonce();
 
     /**
      * <code>uint64 account = 3;</code>
+     * @return The account.
      */
     long getAccount();
 
     /**
      * <code>uint32 blockHeight = 4;</code>
+     * @return The blockHeight.
      */
     int getBlockHeight();
   }
@@ -51383,6 +53321,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubmitNonceRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -51395,7 +53340,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -51463,6 +53407,7 @@ public final class BrsApi {
     private volatile java.lang.Object secretPhrase_;
     /**
      * <code>string secretPhrase = 1;</code>
+     * @return The secretPhrase.
      */
     public java.lang.String getSecretPhrase() {
       java.lang.Object ref = secretPhrase_;
@@ -51478,6 +53423,7 @@ public final class BrsApi {
     }
     /**
      * <code>string secretPhrase = 1;</code>
+     * @return The bytes for secretPhrase.
      */
     public com.google.protobuf.ByteString
         getSecretPhraseBytes() {
@@ -51497,6 +53443,7 @@ public final class BrsApi {
     private long nonce_;
     /**
      * <code>uint64 nonce = 2;</code>
+     * @return The nonce.
      */
     public long getNonce() {
       return nonce_;
@@ -51506,6 +53453,7 @@ public final class BrsApi {
     private long account_;
     /**
      * <code>uint64 account = 3;</code>
+     * @return The account.
      */
     public long getAccount() {
       return account_;
@@ -51515,6 +53463,7 @@ public final class BrsApi {
     private int blockHeight_;
     /**
      * <code>uint32 blockHeight = 4;</code>
+     * @return The blockHeight.
      */
     public int getBlockHeight() {
       return blockHeight_;
@@ -51878,6 +53827,7 @@ public final class BrsApi {
       private java.lang.Object secretPhrase_ = "";
       /**
        * <code>string secretPhrase = 1;</code>
+       * @return The secretPhrase.
        */
       public java.lang.String getSecretPhrase() {
         java.lang.Object ref = secretPhrase_;
@@ -51893,6 +53843,7 @@ public final class BrsApi {
       }
       /**
        * <code>string secretPhrase = 1;</code>
+       * @return The bytes for secretPhrase.
        */
       public com.google.protobuf.ByteString
           getSecretPhraseBytes() {
@@ -51909,6 +53860,8 @@ public final class BrsApi {
       }
       /**
        * <code>string secretPhrase = 1;</code>
+       * @param value The secretPhrase to set.
+       * @return This builder for chaining.
        */
       public Builder setSecretPhrase(
           java.lang.String value) {
@@ -51922,6 +53875,7 @@ public final class BrsApi {
       }
       /**
        * <code>string secretPhrase = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSecretPhrase() {
         
@@ -51931,6 +53885,8 @@ public final class BrsApi {
       }
       /**
        * <code>string secretPhrase = 1;</code>
+       * @param value The bytes for secretPhrase to set.
+       * @return This builder for chaining.
        */
       public Builder setSecretPhraseBytes(
           com.google.protobuf.ByteString value) {
@@ -51947,12 +53903,15 @@ public final class BrsApi {
       private long nonce_ ;
       /**
        * <code>uint64 nonce = 2;</code>
+       * @return The nonce.
        */
       public long getNonce() {
         return nonce_;
       }
       /**
        * <code>uint64 nonce = 2;</code>
+       * @param value The nonce to set.
+       * @return This builder for chaining.
        */
       public Builder setNonce(long value) {
         
@@ -51962,6 +53921,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 nonce = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNonce() {
         
@@ -51973,12 +53933,15 @@ public final class BrsApi {
       private long account_ ;
       /**
        * <code>uint64 account = 3;</code>
+       * @return The account.
        */
       public long getAccount() {
         return account_;
       }
       /**
        * <code>uint64 account = 3;</code>
+       * @param value The account to set.
+       * @return This builder for chaining.
        */
       public Builder setAccount(long value) {
         
@@ -51988,6 +53951,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 account = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccount() {
         
@@ -51999,12 +53963,15 @@ public final class BrsApi {
       private int blockHeight_ ;
       /**
        * <code>uint32 blockHeight = 4;</code>
+       * @return The blockHeight.
        */
       public int getBlockHeight() {
         return blockHeight_;
       }
       /**
        * <code>uint32 blockHeight = 4;</code>
+       * @param value The blockHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockHeight(int value) {
         
@@ -52014,6 +53981,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 blockHeight = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockHeight() {
         
@@ -52080,6 +54048,7 @@ public final class BrsApi {
 
     /**
      * <code>uint64 deadline = 1;</code>
+     * @return The deadline.
      */
     long getDeadline();
   }
@@ -52099,6 +54068,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubmitNonceResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -52111,7 +54087,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -52163,6 +54138,7 @@ public final class BrsApi {
     private long deadline_;
     /**
      * <code>uint64 deadline = 1;</code>
+     * @return The deadline.
      */
     public long getDeadline() {
       return deadline_;
@@ -52474,12 +54450,15 @@ public final class BrsApi {
       private long deadline_ ;
       /**
        * <code>uint64 deadline = 1;</code>
+       * @return The deadline.
        */
       public long getDeadline() {
         return deadline_;
       }
       /**
        * <code>uint64 deadline = 1;</code>
+       * @param value The deadline to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadline(long value) {
         
@@ -52489,6 +54468,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 deadline = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeadline() {
         
@@ -52555,66 +54535,79 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>uint32 height = 2;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>uint32 numberOfTransactions = 3;</code>
+     * @return The numberOfTransactions.
      */
     int getNumberOfTransactions();
 
     /**
      * <code>uint64 totalAmount = 4;</code>
+     * @return The totalAmount.
      */
     long getTotalAmount();
 
     /**
      * <code>uint64 totalFee = 5;</code>
+     * @return The totalFee.
      */
     long getTotalFee();
 
     /**
      * <code>uint64 blockReward = 6;</code>
+     * @return The blockReward.
      */
     long getBlockReward();
 
     /**
      * <code>uint32 payloadLength = 7;</code>
+     * @return The payloadLength.
      */
     int getPayloadLength();
 
     /**
      * <code>int32 version = 8;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 baseTarget = 9;</code>
+     * @return The baseTarget.
      */
     long getBaseTarget();
 
     /**
      * <code>uint32 timestamp = 10;</code>
+     * @return The timestamp.
      */
     int getTimestamp();
 
     /**
      * <code>bytes generationSignature = 11;</code>
+     * @return The generationSignature.
      */
     com.google.protobuf.ByteString getGenerationSignature();
 
     /**
      * <code>bytes blockSignature = 12;</code>
+     * @return The blockSignature.
      */
     com.google.protobuf.ByteString getBlockSignature();
 
     /**
      * <code>bytes payloadHash = 13;</code>
+     * @return The payloadHash.
      */
     com.google.protobuf.ByteString getPayloadHash();
 
@@ -52644,39 +54637,48 @@ public final class BrsApi {
 
     /**
      * <code>repeated uint64 transactionIds = 15;</code>
+     * @return A list containing the transactionIds.
      */
     java.util.List<java.lang.Long> getTransactionIdsList();
     /**
      * <code>repeated uint64 transactionIds = 15;</code>
+     * @return The count of transactionIds.
      */
     int getTransactionIdsCount();
     /**
      * <code>repeated uint64 transactionIds = 15;</code>
+     * @param index The index of the element to return.
+     * @return The transactionIds at the given index.
      */
     long getTransactionIds(int index);
 
     /**
      * <code>bytes generatorPublicKey = 16;</code>
+     * @return The generatorPublicKey.
      */
     com.google.protobuf.ByteString getGeneratorPublicKey();
 
     /**
      * <code>uint64 nonce = 17;</code>
+     * @return The nonce.
      */
     long getNonce();
 
     /**
      * <code>uint32 scoop = 18;</code>
+     * @return The scoop.
      */
     int getScoop();
 
     /**
      * <code>bytes previousBlockHash = 19;</code>
+     * @return The previousBlockHash.
      */
     com.google.protobuf.ByteString getPreviousBlockHash();
 
     /**
      * <code>uint64 nextBlockId = 20;</code>
+     * @return The nextBlockId.
      */
     long getNextBlockId();
   }
@@ -52700,6 +54702,13 @@ public final class BrsApi {
       transactionIds_ = emptyLongList();
       generatorPublicKey_ = com.google.protobuf.ByteString.EMPTY;
       previousBlockHash_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Block();
     }
 
     @java.lang.Override
@@ -52792,18 +54801,18 @@ public final class BrsApi {
               break;
             }
             case 114: {
-              if (!((mutable_bitField0_ & 0x00002000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 transactions_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.Transaction>();
-                mutable_bitField0_ |= 0x00002000;
+                mutable_bitField0_ |= 0x00000001;
               }
               transactions_.add(
                   input.readMessage(burst.kit.service.impl.grpc.BrsApi.Transaction.parser(), extensionRegistry));
               break;
             }
             case 120: {
-              if (!((mutable_bitField0_ & 0x00004000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 transactionIds_ = newLongList();
-                mutable_bitField0_ |= 0x00004000;
+                mutable_bitField0_ |= 0x00000002;
               }
               transactionIds_.addLong(input.readUInt64());
               break;
@@ -52811,9 +54820,9 @@ public final class BrsApi {
             case 122: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00004000) != 0) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
                 transactionIds_ = newLongList();
-                mutable_bitField0_ |= 0x00004000;
+                mutable_bitField0_ |= 0x00000002;
               }
               while (input.getBytesUntilLimit() > 0) {
                 transactionIds_.addLong(input.readUInt64());
@@ -52861,10 +54870,10 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00002000) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           transactions_ = java.util.Collections.unmodifiableList(transactions_);
         }
-        if (((mutable_bitField0_ & 0x00004000) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           transactionIds_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
@@ -52884,11 +54893,11 @@ public final class BrsApi {
               burst.kit.service.impl.grpc.BrsApi.Block.class, burst.kit.service.impl.grpc.BrsApi.Block.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -52898,6 +54907,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 2;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -52907,6 +54917,7 @@ public final class BrsApi {
     private int numberOfTransactions_;
     /**
      * <code>uint32 numberOfTransactions = 3;</code>
+     * @return The numberOfTransactions.
      */
     public int getNumberOfTransactions() {
       return numberOfTransactions_;
@@ -52916,6 +54927,7 @@ public final class BrsApi {
     private long totalAmount_;
     /**
      * <code>uint64 totalAmount = 4;</code>
+     * @return The totalAmount.
      */
     public long getTotalAmount() {
       return totalAmount_;
@@ -52925,6 +54937,7 @@ public final class BrsApi {
     private long totalFee_;
     /**
      * <code>uint64 totalFee = 5;</code>
+     * @return The totalFee.
      */
     public long getTotalFee() {
       return totalFee_;
@@ -52934,6 +54947,7 @@ public final class BrsApi {
     private long blockReward_;
     /**
      * <code>uint64 blockReward = 6;</code>
+     * @return The blockReward.
      */
     public long getBlockReward() {
       return blockReward_;
@@ -52943,6 +54957,7 @@ public final class BrsApi {
     private int payloadLength_;
     /**
      * <code>uint32 payloadLength = 7;</code>
+     * @return The payloadLength.
      */
     public int getPayloadLength() {
       return payloadLength_;
@@ -52952,6 +54967,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>int32 version = 8;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -52961,6 +54977,7 @@ public final class BrsApi {
     private long baseTarget_;
     /**
      * <code>uint64 baseTarget = 9;</code>
+     * @return The baseTarget.
      */
     public long getBaseTarget() {
       return baseTarget_;
@@ -52970,6 +54987,7 @@ public final class BrsApi {
     private int timestamp_;
     /**
      * <code>uint32 timestamp = 10;</code>
+     * @return The timestamp.
      */
     public int getTimestamp() {
       return timestamp_;
@@ -52979,6 +54997,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString generationSignature_;
     /**
      * <code>bytes generationSignature = 11;</code>
+     * @return The generationSignature.
      */
     public com.google.protobuf.ByteString getGenerationSignature() {
       return generationSignature_;
@@ -52988,6 +55007,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString blockSignature_;
     /**
      * <code>bytes blockSignature = 12;</code>
+     * @return The blockSignature.
      */
     public com.google.protobuf.ByteString getBlockSignature() {
       return blockSignature_;
@@ -52997,6 +55017,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString payloadHash_;
     /**
      * <code>bytes payloadHash = 13;</code>
+     * @return The payloadHash.
      */
     public com.google.protobuf.ByteString getPayloadHash() {
       return payloadHash_;
@@ -53041,6 +55062,7 @@ public final class BrsApi {
     private com.google.protobuf.Internal.LongList transactionIds_;
     /**
      * <code>repeated uint64 transactionIds = 15;</code>
+     * @return A list containing the transactionIds.
      */
     public java.util.List<java.lang.Long>
         getTransactionIdsList() {
@@ -53048,12 +55070,15 @@ public final class BrsApi {
     }
     /**
      * <code>repeated uint64 transactionIds = 15;</code>
+     * @return The count of transactionIds.
      */
     public int getTransactionIdsCount() {
       return transactionIds_.size();
     }
     /**
      * <code>repeated uint64 transactionIds = 15;</code>
+     * @param index The index of the element to return.
+     * @return The transactionIds at the given index.
      */
     public long getTransactionIds(int index) {
       return transactionIds_.getLong(index);
@@ -53064,6 +55089,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString generatorPublicKey_;
     /**
      * <code>bytes generatorPublicKey = 16;</code>
+     * @return The generatorPublicKey.
      */
     public com.google.protobuf.ByteString getGeneratorPublicKey() {
       return generatorPublicKey_;
@@ -53073,6 +55099,7 @@ public final class BrsApi {
     private long nonce_;
     /**
      * <code>uint64 nonce = 17;</code>
+     * @return The nonce.
      */
     public long getNonce() {
       return nonce_;
@@ -53082,6 +55109,7 @@ public final class BrsApi {
     private int scoop_;
     /**
      * <code>uint32 scoop = 18;</code>
+     * @return The scoop.
      */
     public int getScoop() {
       return scoop_;
@@ -53091,6 +55119,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString previousBlockHash_;
     /**
      * <code>bytes previousBlockHash = 19;</code>
+     * @return The previousBlockHash.
      */
     public com.google.protobuf.ByteString getPreviousBlockHash() {
       return previousBlockHash_;
@@ -53100,6 +55129,7 @@ public final class BrsApi {
     private long nextBlockId_;
     /**
      * <code>uint64 nextBlockId = 20;</code>
+     * @return The nextBlockId.
      */
     public long getNextBlockId() {
       return nextBlockId_;
@@ -53562,12 +55592,12 @@ public final class BrsApi {
 
         if (transactionsBuilder_ == null) {
           transactions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00002000);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           transactionsBuilder_.clear();
         }
         transactionIds_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00000002);
         generatorPublicKey_ = com.google.protobuf.ByteString.EMPTY;
 
         nonce_ = 0L;
@@ -53605,7 +55635,6 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.Block buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.Block result = new burst.kit.service.impl.grpc.BrsApi.Block(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.id_ = id_;
         result.height_ = height_;
         result.numberOfTransactions_ = numberOfTransactions_;
@@ -53620,17 +55649,17 @@ public final class BrsApi {
         result.blockSignature_ = blockSignature_;
         result.payloadHash_ = payloadHash_;
         if (transactionsBuilder_ == null) {
-          if (((bitField0_ & 0x00002000) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             transactions_ = java.util.Collections.unmodifiableList(transactions_);
-            bitField0_ = (bitField0_ & ~0x00002000);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.transactions_ = transactions_;
         } else {
           result.transactions_ = transactionsBuilder_.build();
         }
-        if (((bitField0_ & 0x00004000) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           transactionIds_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00004000);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.transactionIds_ = transactionIds_;
         result.generatorPublicKey_ = generatorPublicKey_;
@@ -53638,7 +55667,6 @@ public final class BrsApi {
         result.scoop_ = scoop_;
         result.previousBlockHash_ = previousBlockHash_;
         result.nextBlockId_ = nextBlockId_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -53730,7 +55758,7 @@ public final class BrsApi {
           if (!other.transactions_.isEmpty()) {
             if (transactions_.isEmpty()) {
               transactions_ = other.transactions_;
-              bitField0_ = (bitField0_ & ~0x00002000);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureTransactionsIsMutable();
               transactions_.addAll(other.transactions_);
@@ -53743,7 +55771,7 @@ public final class BrsApi {
               transactionsBuilder_.dispose();
               transactionsBuilder_ = null;
               transactions_ = other.transactions_;
-              bitField0_ = (bitField0_ & ~0x00002000);
+              bitField0_ = (bitField0_ & ~0x00000001);
               transactionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTransactionsFieldBuilder() : null;
@@ -53755,7 +55783,7 @@ public final class BrsApi {
         if (!other.transactionIds_.isEmpty()) {
           if (transactionIds_.isEmpty()) {
             transactionIds_ = other.transactionIds_;
-            bitField0_ = (bitField0_ & ~0x00004000);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTransactionIdsIsMutable();
             transactionIds_.addAll(other.transactionIds_);
@@ -53810,12 +55838,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -53825,6 +55856,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -53836,12 +55868,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 2;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 2;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -53851,6 +55886,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -53862,12 +55898,15 @@ public final class BrsApi {
       private int numberOfTransactions_ ;
       /**
        * <code>uint32 numberOfTransactions = 3;</code>
+       * @return The numberOfTransactions.
        */
       public int getNumberOfTransactions() {
         return numberOfTransactions_;
       }
       /**
        * <code>uint32 numberOfTransactions = 3;</code>
+       * @param value The numberOfTransactions to set.
+       * @return This builder for chaining.
        */
       public Builder setNumberOfTransactions(int value) {
         
@@ -53877,6 +55916,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 numberOfTransactions = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNumberOfTransactions() {
         
@@ -53888,12 +55928,15 @@ public final class BrsApi {
       private long totalAmount_ ;
       /**
        * <code>uint64 totalAmount = 4;</code>
+       * @return The totalAmount.
        */
       public long getTotalAmount() {
         return totalAmount_;
       }
       /**
        * <code>uint64 totalAmount = 4;</code>
+       * @param value The totalAmount to set.
+       * @return This builder for chaining.
        */
       public Builder setTotalAmount(long value) {
         
@@ -53903,6 +55946,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 totalAmount = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTotalAmount() {
         
@@ -53914,12 +55958,15 @@ public final class BrsApi {
       private long totalFee_ ;
       /**
        * <code>uint64 totalFee = 5;</code>
+       * @return The totalFee.
        */
       public long getTotalFee() {
         return totalFee_;
       }
       /**
        * <code>uint64 totalFee = 5;</code>
+       * @param value The totalFee to set.
+       * @return This builder for chaining.
        */
       public Builder setTotalFee(long value) {
         
@@ -53929,6 +55976,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 totalFee = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTotalFee() {
         
@@ -53940,12 +55988,15 @@ public final class BrsApi {
       private long blockReward_ ;
       /**
        * <code>uint64 blockReward = 6;</code>
+       * @return The blockReward.
        */
       public long getBlockReward() {
         return blockReward_;
       }
       /**
        * <code>uint64 blockReward = 6;</code>
+       * @param value The blockReward to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockReward(long value) {
         
@@ -53955,6 +56006,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 blockReward = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockReward() {
         
@@ -53966,12 +56018,15 @@ public final class BrsApi {
       private int payloadLength_ ;
       /**
        * <code>uint32 payloadLength = 7;</code>
+       * @return The payloadLength.
        */
       public int getPayloadLength() {
         return payloadLength_;
       }
       /**
        * <code>uint32 payloadLength = 7;</code>
+       * @param value The payloadLength to set.
+       * @return This builder for chaining.
        */
       public Builder setPayloadLength(int value) {
         
@@ -53981,6 +56036,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 payloadLength = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPayloadLength() {
         
@@ -53992,12 +56048,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>int32 version = 8;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>int32 version = 8;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -54007,6 +56066,7 @@ public final class BrsApi {
       }
       /**
        * <code>int32 version = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -54018,12 +56078,15 @@ public final class BrsApi {
       private long baseTarget_ ;
       /**
        * <code>uint64 baseTarget = 9;</code>
+       * @return The baseTarget.
        */
       public long getBaseTarget() {
         return baseTarget_;
       }
       /**
        * <code>uint64 baseTarget = 9;</code>
+       * @param value The baseTarget to set.
+       * @return This builder for chaining.
        */
       public Builder setBaseTarget(long value) {
         
@@ -54033,6 +56096,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 baseTarget = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBaseTarget() {
         
@@ -54044,12 +56108,15 @@ public final class BrsApi {
       private int timestamp_ ;
       /**
        * <code>uint32 timestamp = 10;</code>
+       * @return The timestamp.
        */
       public int getTimestamp() {
         return timestamp_;
       }
       /**
        * <code>uint32 timestamp = 10;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setTimestamp(int value) {
         
@@ -54059,6 +56126,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 timestamp = 10;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
         
@@ -54070,12 +56138,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString generationSignature_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes generationSignature = 11;</code>
+       * @return The generationSignature.
        */
       public com.google.protobuf.ByteString getGenerationSignature() {
         return generationSignature_;
       }
       /**
        * <code>bytes generationSignature = 11;</code>
+       * @param value The generationSignature to set.
+       * @return This builder for chaining.
        */
       public Builder setGenerationSignature(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -54088,6 +56159,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes generationSignature = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGenerationSignature() {
         
@@ -54099,12 +56171,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString blockSignature_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes blockSignature = 12;</code>
+       * @return The blockSignature.
        */
       public com.google.protobuf.ByteString getBlockSignature() {
         return blockSignature_;
       }
       /**
        * <code>bytes blockSignature = 12;</code>
+       * @param value The blockSignature to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockSignature(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -54117,6 +56192,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes blockSignature = 12;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockSignature() {
         
@@ -54128,12 +56204,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString payloadHash_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes payloadHash = 13;</code>
+       * @return The payloadHash.
        */
       public com.google.protobuf.ByteString getPayloadHash() {
         return payloadHash_;
       }
       /**
        * <code>bytes payloadHash = 13;</code>
+       * @param value The payloadHash to set.
+       * @return This builder for chaining.
        */
       public Builder setPayloadHash(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -54146,6 +56225,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes payloadHash = 13;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPayloadHash() {
         
@@ -54157,9 +56237,9 @@ public final class BrsApi {
       private java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> transactions_ =
         java.util.Collections.emptyList();
       private void ensureTransactionsIsMutable() {
-        if (!((bitField0_ & 0x00002000) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           transactions_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.Transaction>(transactions_);
-          bitField0_ |= 0x00002000;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -54309,7 +56389,7 @@ public final class BrsApi {
       public Builder clearTransactions() {
         if (transactionsBuilder_ == null) {
           transactions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00002000);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           transactionsBuilder_.clear();
@@ -54386,7 +56466,7 @@ public final class BrsApi {
           transactionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               burst.kit.service.impl.grpc.BrsApi.Transaction, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder, burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder>(
                   transactions_,
-                  ((bitField0_ & 0x00002000) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           transactions_ = null;
@@ -54396,33 +56476,40 @@ public final class BrsApi {
 
       private com.google.protobuf.Internal.LongList transactionIds_ = emptyLongList();
       private void ensureTransactionIdsIsMutable() {
-        if (!((bitField0_ & 0x00004000) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           transactionIds_ = mutableCopy(transactionIds_);
-          bitField0_ |= 0x00004000;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @return A list containing the transactionIds.
        */
       public java.util.List<java.lang.Long>
           getTransactionIdsList() {
-        return ((bitField0_ & 0x00004000) != 0) ?
+        return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(transactionIds_) : transactionIds_;
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @return The count of transactionIds.
        */
       public int getTransactionIdsCount() {
         return transactionIds_.size();
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @param index The index of the element to return.
+       * @return The transactionIds at the given index.
        */
       public long getTransactionIds(int index) {
         return transactionIds_.getLong(index);
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @param index The index to set the value at.
+       * @param value The transactionIds to set.
+       * @return This builder for chaining.
        */
       public Builder setTransactionIds(
           int index, long value) {
@@ -54433,6 +56520,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @param value The transactionIds to add.
+       * @return This builder for chaining.
        */
       public Builder addTransactionIds(long value) {
         ensureTransactionIdsIsMutable();
@@ -54442,6 +56531,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @param values The transactionIds to add.
+       * @return This builder for chaining.
        */
       public Builder addAllTransactionIds(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -54453,10 +56544,11 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 transactionIds = 15;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransactionIds() {
         transactionIds_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -54464,12 +56556,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString generatorPublicKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes generatorPublicKey = 16;</code>
+       * @return The generatorPublicKey.
        */
       public com.google.protobuf.ByteString getGeneratorPublicKey() {
         return generatorPublicKey_;
       }
       /**
        * <code>bytes generatorPublicKey = 16;</code>
+       * @param value The generatorPublicKey to set.
+       * @return This builder for chaining.
        */
       public Builder setGeneratorPublicKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -54482,6 +56577,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes generatorPublicKey = 16;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGeneratorPublicKey() {
         
@@ -54493,12 +56589,15 @@ public final class BrsApi {
       private long nonce_ ;
       /**
        * <code>uint64 nonce = 17;</code>
+       * @return The nonce.
        */
       public long getNonce() {
         return nonce_;
       }
       /**
        * <code>uint64 nonce = 17;</code>
+       * @param value The nonce to set.
+       * @return This builder for chaining.
        */
       public Builder setNonce(long value) {
         
@@ -54508,6 +56607,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 nonce = 17;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNonce() {
         
@@ -54519,12 +56619,15 @@ public final class BrsApi {
       private int scoop_ ;
       /**
        * <code>uint32 scoop = 18;</code>
+       * @return The scoop.
        */
       public int getScoop() {
         return scoop_;
       }
       /**
        * <code>uint32 scoop = 18;</code>
+       * @param value The scoop to set.
+       * @return This builder for chaining.
        */
       public Builder setScoop(int value) {
         
@@ -54534,6 +56637,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 scoop = 18;</code>
+       * @return This builder for chaining.
        */
       public Builder clearScoop() {
         
@@ -54545,12 +56649,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString previousBlockHash_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes previousBlockHash = 19;</code>
+       * @return The previousBlockHash.
        */
       public com.google.protobuf.ByteString getPreviousBlockHash() {
         return previousBlockHash_;
       }
       /**
        * <code>bytes previousBlockHash = 19;</code>
+       * @param value The previousBlockHash to set.
+       * @return This builder for chaining.
        */
       public Builder setPreviousBlockHash(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -54563,6 +56670,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes previousBlockHash = 19;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPreviousBlockHash() {
         
@@ -54574,12 +56682,15 @@ public final class BrsApi {
       private long nextBlockId_ ;
       /**
        * <code>uint64 nextBlockId = 20;</code>
+       * @return The nextBlockId.
        */
       public long getNextBlockId() {
         return nextBlockId_;
       }
       /**
        * <code>uint64 nextBlockId = 20;</code>
+       * @param value The nextBlockId to set.
+       * @return This builder for chaining.
        */
       public Builder setNextBlockId(long value) {
         
@@ -54589,6 +56700,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 nextBlockId = 20;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNextBlockId() {
         
@@ -54655,10 +56767,12 @@ public final class BrsApi {
 
     /**
      * <code>.BasicTransaction transaction = 1;</code>
+     * @return Whether the transaction field is set.
      */
     boolean hasTransaction();
     /**
      * <code>.BasicTransaction transaction = 1;</code>
+     * @return The transaction.
      */
     burst.kit.service.impl.grpc.BrsApi.BasicTransaction getTransaction();
     /**
@@ -54668,41 +56782,49 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 2;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>bytes transactionBytes = 3;</code>
+     * @return The transactionBytes.
      */
     com.google.protobuf.ByteString getTransactionBytes();
 
     /**
      * <code>uint64 block = 4;</code>
+     * @return The block.
      */
     long getBlock();
 
     /**
      * <code>uint32 blockHeight = 5;</code>
+     * @return The blockHeight.
      */
     int getBlockHeight();
 
     /**
      * <code>uint32 blockTimestamp = 6;</code>
+     * @return The blockTimestamp.
      */
     int getBlockTimestamp();
 
     /**
      * <code>bytes signature = 7;</code>
+     * @return The signature.
      */
     com.google.protobuf.ByteString getSignature();
 
     /**
      * <code>bytes fullHash = 8;</code>
+     * @return The fullHash.
      */
     com.google.protobuf.ByteString getFullHash();
 
     /**
      * <code>sint32 confirmations = 9;</code>
+     * @return The confirmations.
      */
     int getConfirmations();
   }
@@ -54725,6 +56847,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Transaction();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -54737,7 +56866,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -54837,12 +56965,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.BasicTransaction transaction_;
     /**
      * <code>.BasicTransaction transaction = 1;</code>
+     * @return Whether the transaction field is set.
      */
     public boolean hasTransaction() {
       return transaction_ != null;
     }
     /**
      * <code>.BasicTransaction transaction = 1;</code>
+     * @return The transaction.
      */
     public burst.kit.service.impl.grpc.BrsApi.BasicTransaction getTransaction() {
       return transaction_ == null ? burst.kit.service.impl.grpc.BrsApi.BasicTransaction.getDefaultInstance() : transaction_;
@@ -54858,6 +56988,7 @@ public final class BrsApi {
     private long id_;
     /**
      * <code>uint64 id = 2;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -54867,6 +56998,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString transactionBytes_;
     /**
      * <code>bytes transactionBytes = 3;</code>
+     * @return The transactionBytes.
      */
     public com.google.protobuf.ByteString getTransactionBytes() {
       return transactionBytes_;
@@ -54876,6 +57008,7 @@ public final class BrsApi {
     private long block_;
     /**
      * <code>uint64 block = 4;</code>
+     * @return The block.
      */
     public long getBlock() {
       return block_;
@@ -54885,6 +57018,7 @@ public final class BrsApi {
     private int blockHeight_;
     /**
      * <code>uint32 blockHeight = 5;</code>
+     * @return The blockHeight.
      */
     public int getBlockHeight() {
       return blockHeight_;
@@ -54894,6 +57028,7 @@ public final class BrsApi {
     private int blockTimestamp_;
     /**
      * <code>uint32 blockTimestamp = 6;</code>
+     * @return The blockTimestamp.
      */
     public int getBlockTimestamp() {
       return blockTimestamp_;
@@ -54903,6 +57038,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString signature_;
     /**
      * <code>bytes signature = 7;</code>
+     * @return The signature.
      */
     public com.google.protobuf.ByteString getSignature() {
       return signature_;
@@ -54912,6 +57048,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString fullHash_;
     /**
      * <code>bytes fullHash = 8;</code>
+     * @return The fullHash.
      */
     public com.google.protobuf.ByteString getFullHash() {
       return fullHash_;
@@ -54921,6 +57058,7 @@ public final class BrsApi {
     private int confirmations_;
     /**
      * <code>sint32 confirmations = 9;</code>
+     * @return The confirmations.
      */
     public int getConfirmations() {
       return confirmations_;
@@ -55384,12 +57522,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.BasicTransaction, burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder, burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder> transactionBuilder_;
       /**
        * <code>.BasicTransaction transaction = 1;</code>
+       * @return Whether the transaction field is set.
        */
       public boolean hasTransaction() {
         return transactionBuilder_ != null || transaction_ != null;
       }
       /**
        * <code>.BasicTransaction transaction = 1;</code>
+       * @return The transaction.
        */
       public burst.kit.service.impl.grpc.BrsApi.BasicTransaction getTransaction() {
         if (transactionBuilder_ == null) {
@@ -55499,12 +57639,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 2;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 2;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -55514,6 +57657,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -55525,12 +57669,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString transactionBytes_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes transactionBytes = 3;</code>
+       * @return The transactionBytes.
        */
       public com.google.protobuf.ByteString getTransactionBytes() {
         return transactionBytes_;
       }
       /**
        * <code>bytes transactionBytes = 3;</code>
+       * @param value The transactionBytes to set.
+       * @return This builder for chaining.
        */
       public Builder setTransactionBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -55543,6 +57690,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes transactionBytes = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransactionBytes() {
         
@@ -55554,12 +57702,15 @@ public final class BrsApi {
       private long block_ ;
       /**
        * <code>uint64 block = 4;</code>
+       * @return The block.
        */
       public long getBlock() {
         return block_;
       }
       /**
        * <code>uint64 block = 4;</code>
+       * @param value The block to set.
+       * @return This builder for chaining.
        */
       public Builder setBlock(long value) {
         
@@ -55569,6 +57720,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 block = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlock() {
         
@@ -55580,12 +57732,15 @@ public final class BrsApi {
       private int blockHeight_ ;
       /**
        * <code>uint32 blockHeight = 5;</code>
+       * @return The blockHeight.
        */
       public int getBlockHeight() {
         return blockHeight_;
       }
       /**
        * <code>uint32 blockHeight = 5;</code>
+       * @param value The blockHeight to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockHeight(int value) {
         
@@ -55595,6 +57750,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 blockHeight = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockHeight() {
         
@@ -55606,12 +57762,15 @@ public final class BrsApi {
       private int blockTimestamp_ ;
       /**
        * <code>uint32 blockTimestamp = 6;</code>
+       * @return The blockTimestamp.
        */
       public int getBlockTimestamp() {
         return blockTimestamp_;
       }
       /**
        * <code>uint32 blockTimestamp = 6;</code>
+       * @param value The blockTimestamp to set.
+       * @return This builder for chaining.
        */
       public Builder setBlockTimestamp(int value) {
         
@@ -55621,6 +57780,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 blockTimestamp = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBlockTimestamp() {
         
@@ -55632,12 +57792,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes signature = 7;</code>
+       * @return The signature.
        */
       public com.google.protobuf.ByteString getSignature() {
         return signature_;
       }
       /**
        * <code>bytes signature = 7;</code>
+       * @param value The signature to set.
+       * @return This builder for chaining.
        */
       public Builder setSignature(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -55650,6 +57813,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes signature = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSignature() {
         
@@ -55661,12 +57825,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString fullHash_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes fullHash = 8;</code>
+       * @return The fullHash.
        */
       public com.google.protobuf.ByteString getFullHash() {
         return fullHash_;
       }
       /**
        * <code>bytes fullHash = 8;</code>
+       * @param value The fullHash to set.
+       * @return This builder for chaining.
        */
       public Builder setFullHash(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -55679,6 +57846,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes fullHash = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFullHash() {
         
@@ -55690,12 +57858,15 @@ public final class BrsApi {
       private int confirmations_ ;
       /**
        * <code>sint32 confirmations = 9;</code>
+       * @return The confirmations.
        */
       public int getConfirmations() {
         return confirmations_;
       }
       /**
        * <code>sint32 confirmations = 9;</code>
+       * @param value The confirmations to set.
+       * @return This builder for chaining.
        */
       public Builder setConfirmations(int value) {
         
@@ -55705,6 +57876,7 @@ public final class BrsApi {
       }
       /**
        * <code>sint32 confirmations = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearConfirmations() {
         
@@ -55771,16 +57943,19 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>bytes message = 2;</code>
+     * @return The message.
      */
     com.google.protobuf.ByteString getMessage();
 
     /**
      * <code>bool isText = 3;</code>
+     * @return The isText.
      */
     boolean getIsText();
   }
@@ -55801,6 +57976,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MessageAppendix();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -55813,7 +57995,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -55875,6 +58056,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -55884,6 +58066,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString message_;
     /**
      * <code>bytes message = 2;</code>
+     * @return The message.
      */
     public com.google.protobuf.ByteString getMessage() {
       return message_;
@@ -55893,6 +58076,7 @@ public final class BrsApi {
     private boolean isText_;
     /**
      * <code>bool isText = 3;</code>
+     * @return The isText.
      */
     public boolean getIsText() {
       return isText_;
@@ -56238,12 +58422,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -56253,6 +58440,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -56264,12 +58452,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes message = 2;</code>
+       * @return The message.
        */
       public com.google.protobuf.ByteString getMessage() {
         return message_;
       }
       /**
        * <code>bytes message = 2;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
        */
       public Builder setMessage(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -56282,6 +58473,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes message = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMessage() {
         
@@ -56293,12 +58485,15 @@ public final class BrsApi {
       private boolean isText_ ;
       /**
        * <code>bool isText = 3;</code>
+       * @return The isText.
        */
       public boolean getIsText() {
         return isText_;
       }
       /**
        * <code>bool isText = 3;</code>
+       * @param value The isText to set.
+       * @return This builder for chaining.
        */
       public Builder setIsText(boolean value) {
         
@@ -56308,6 +58503,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool isText = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsText() {
         
@@ -56374,15 +58570,18 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>.EncryptedData encryptedData = 2;</code>
+     * @return Whether the encryptedData field is set.
      */
     boolean hasEncryptedData();
     /**
      * <code>.EncryptedData encryptedData = 2;</code>
+     * @return The encryptedData.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getEncryptedData();
     /**
@@ -56392,15 +58591,18 @@ public final class BrsApi {
 
     /**
      * <code>bool isText = 3;</code>
+     * @return The isText.
      */
     boolean getIsText();
 
     /**
      * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * @return The type.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type getType();
   }
@@ -56421,6 +58623,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EncryptedMessageAppendix();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -56433,7 +58642,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -56548,6 +58756,8 @@ public final class BrsApi {
       }
 
       /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
@@ -56555,6 +58765,10 @@ public final class BrsApi {
         return forNumber(value);
       }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
       public static Type forNumber(int value) {
         switch (value) {
           case 0: return Type_UNSET;
@@ -56616,6 +58830,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -56625,12 +58840,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData encryptedData_;
     /**
      * <code>.EncryptedData encryptedData = 2;</code>
+     * @return Whether the encryptedData field is set.
      */
     public boolean hasEncryptedData() {
       return encryptedData_ != null;
     }
     /**
      * <code>.EncryptedData encryptedData = 2;</code>
+     * @return The encryptedData.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getEncryptedData() {
       return encryptedData_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : encryptedData_;
@@ -56646,6 +58863,7 @@ public final class BrsApi {
     private boolean isText_;
     /**
      * <code>bool isText = 3;</code>
+     * @return The isText.
      */
     public boolean getIsText() {
       return isText_;
@@ -56655,12 +58873,14 @@ public final class BrsApi {
     private int type_;
     /**
      * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * @return The type.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type getType() {
       @SuppressWarnings("deprecation")
@@ -57037,12 +59257,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -57052,6 +59275,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -57065,12 +59289,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> encryptedDataBuilder_;
       /**
        * <code>.EncryptedData encryptedData = 2;</code>
+       * @return Whether the encryptedData field is set.
        */
       public boolean hasEncryptedData() {
         return encryptedDataBuilder_ != null || encryptedData_ != null;
       }
       /**
        * <code>.EncryptedData encryptedData = 2;</code>
+       * @return The encryptedData.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getEncryptedData() {
         if (encryptedDataBuilder_ == null) {
@@ -57180,12 +59406,15 @@ public final class BrsApi {
       private boolean isText_ ;
       /**
        * <code>bool isText = 3;</code>
+       * @return The isText.
        */
       public boolean getIsText() {
         return isText_;
       }
       /**
        * <code>bool isText = 3;</code>
+       * @param value The isText to set.
+       * @return This builder for chaining.
        */
       public Builder setIsText(boolean value) {
         
@@ -57195,6 +59424,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool isText = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsText() {
         
@@ -57206,12 +59436,15 @@ public final class BrsApi {
       private int type_ = 0;
       /**
        * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
         type_ = value;
@@ -57220,6 +59453,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * @return The type.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type getType() {
         @SuppressWarnings("deprecation")
@@ -57228,6 +59462,8 @@ public final class BrsApi {
       }
       /**
        * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type value) {
         if (value == null) {
@@ -57240,6 +59476,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -57306,11 +59543,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>bytes recipientPublicKey = 2;</code>
+     * @return The recipientPublicKey.
      */
     com.google.protobuf.ByteString getRecipientPublicKey();
   }
@@ -57331,6 +59570,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PublicKeyAnnouncementAppendix();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -57343,7 +59589,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -57400,6 +59645,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -57409,6 +59655,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString recipientPublicKey_;
     /**
      * <code>bytes recipientPublicKey = 2;</code>
+     * @return The recipientPublicKey.
      */
     public com.google.protobuf.ByteString getRecipientPublicKey() {
       return recipientPublicKey_;
@@ -57736,12 +59983,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -57751,6 +60001,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -57762,12 +60013,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString recipientPublicKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes recipientPublicKey = 2;</code>
+       * @return The recipientPublicKey.
        */
       public com.google.protobuf.ByteString getRecipientPublicKey() {
         return recipientPublicKey_;
       }
       /**
        * <code>bytes recipientPublicKey = 2;</code>
+       * @param value The recipientPublicKey to set.
+       * @return This builder for chaining.
        */
       public Builder setRecipientPublicKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -57780,6 +60034,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes recipientPublicKey = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecipientPublicKey() {
         
@@ -57846,6 +60101,7 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
@@ -57890,6 +60146,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MultiOutAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -57919,9 +60182,9 @@ public final class BrsApi {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 recipients_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               recipients_.add(
                   input.readMessage(burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.parser(), extensionRegistry));
@@ -57942,7 +60205,7 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           recipients_ = java.util.Collections.unmodifiableList(recipients_);
         }
         this.unknownFields = unknownFields.build();
@@ -57968,11 +60231,13 @@ public final class BrsApi {
 
       /**
        * <code>uint64 recipient = 1;</code>
+       * @return The recipient.
        */
       long getRecipient();
 
       /**
        * <code>uint64 amount = 2;</code>
+       * @return The amount.
        */
       long getAmount();
     }
@@ -57992,6 +60257,13 @@ public final class BrsApi {
       }
 
       @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new MultiOutRecipient();
+      }
+
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -58004,7 +60276,6 @@ public final class BrsApi {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
-        int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
@@ -58061,6 +60332,7 @@ public final class BrsApi {
       private long recipient_;
       /**
        * <code>uint64 recipient = 1;</code>
+       * @return The recipient.
        */
       public long getRecipient() {
         return recipient_;
@@ -58070,6 +60342,7 @@ public final class BrsApi {
       private long amount_;
       /**
        * <code>uint64 amount = 2;</code>
+       * @return The amount.
        */
       public long getAmount() {
         return amount_;
@@ -58399,12 +60672,15 @@ public final class BrsApi {
         private long recipient_ ;
         /**
          * <code>uint64 recipient = 1;</code>
+         * @return The recipient.
          */
         public long getRecipient() {
           return recipient_;
         }
         /**
          * <code>uint64 recipient = 1;</code>
+         * @param value The recipient to set.
+         * @return This builder for chaining.
          */
         public Builder setRecipient(long value) {
           
@@ -58414,6 +60690,7 @@ public final class BrsApi {
         }
         /**
          * <code>uint64 recipient = 1;</code>
+         * @return This builder for chaining.
          */
         public Builder clearRecipient() {
           
@@ -58425,12 +60702,15 @@ public final class BrsApi {
         private long amount_ ;
         /**
          * <code>uint64 amount = 2;</code>
+         * @return The amount.
          */
         public long getAmount() {
           return amount_;
         }
         /**
          * <code>uint64 amount = 2;</code>
+         * @param value The amount to set.
+         * @return This builder for chaining.
          */
         public Builder setAmount(long value) {
           
@@ -58440,6 +60720,7 @@ public final class BrsApi {
         }
         /**
          * <code>uint64 amount = 2;</code>
+         * @return This builder for chaining.
          */
         public Builder clearAmount() {
           
@@ -58500,11 +60781,11 @@ public final class BrsApi {
 
     }
 
-    private int bitField0_;
     public static final int VERSION_FIELD_NUMBER = 1;
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -58756,7 +61037,7 @@ public final class BrsApi {
 
         if (recipientsBuilder_ == null) {
           recipients_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           recipientsBuilder_.clear();
         }
@@ -58787,18 +61068,16 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment result = new burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.version_ = version_;
         if (recipientsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             recipients_ = java.util.Collections.unmodifiableList(recipients_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.recipients_ = recipients_;
         } else {
           result.recipients_ = recipientsBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -58854,7 +61133,7 @@ public final class BrsApi {
           if (!other.recipients_.isEmpty()) {
             if (recipients_.isEmpty()) {
               recipients_ = other.recipients_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureRecipientsIsMutable();
               recipients_.addAll(other.recipients_);
@@ -58867,7 +61146,7 @@ public final class BrsApi {
               recipientsBuilder_.dispose();
               recipientsBuilder_ = null;
               recipients_ = other.recipients_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               recipientsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getRecipientsFieldBuilder() : null;
@@ -58909,12 +61188,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -58924,6 +61206,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -58935,9 +61218,9 @@ public final class BrsApi {
       private java.util.List<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient> recipients_ =
         java.util.Collections.emptyList();
       private void ensureRecipientsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           recipients_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient>(recipients_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -59087,7 +61370,7 @@ public final class BrsApi {
       public Builder clearRecipients() {
         if (recipientsBuilder_ == null) {
           recipients_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           recipientsBuilder_.clear();
@@ -59164,7 +61447,7 @@ public final class BrsApi {
           recipientsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder>(
                   recipients_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           recipients_ = null;
@@ -59230,19 +61513,24 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>repeated uint64 recipients = 2;</code>
+     * @return A list containing the recipients.
      */
     java.util.List<java.lang.Long> getRecipientsList();
     /**
      * <code>repeated uint64 recipients = 2;</code>
+     * @return The count of recipients.
      */
     int getRecipientsCount();
     /**
      * <code>repeated uint64 recipients = 2;</code>
+     * @param index The index of the element to return.
+     * @return The recipients at the given index.
      */
     long getRecipients(int index);
   }
@@ -59260,6 +61548,13 @@ public final class BrsApi {
     }
     private MultiOutSameAttachment() {
       recipients_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MultiOutSameAttachment();
     }
 
     @java.lang.Override
@@ -59292,9 +61587,9 @@ public final class BrsApi {
               break;
             }
             case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 recipients_ = newLongList();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               recipients_.addLong(input.readUInt64());
               break;
@@ -59302,9 +61597,9 @@ public final class BrsApi {
             case 18: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
                 recipients_ = newLongList();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               while (input.getBytesUntilLimit() > 0) {
                 recipients_.addLong(input.readUInt64());
@@ -59327,7 +61622,7 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           recipients_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
@@ -59347,11 +61642,11 @@ public final class BrsApi {
               burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment.class, burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment.Builder.class);
     }
 
-    private int bitField0_;
     public static final int VERSION_FIELD_NUMBER = 1;
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -59361,6 +61656,7 @@ public final class BrsApi {
     private com.google.protobuf.Internal.LongList recipients_;
     /**
      * <code>repeated uint64 recipients = 2;</code>
+     * @return A list containing the recipients.
      */
     public java.util.List<java.lang.Long>
         getRecipientsList() {
@@ -59368,12 +61664,15 @@ public final class BrsApi {
     }
     /**
      * <code>repeated uint64 recipients = 2;</code>
+     * @return The count of recipients.
      */
     public int getRecipientsCount() {
       return recipients_.size();
     }
     /**
      * <code>repeated uint64 recipients = 2;</code>
+     * @param index The index of the element to return.
+     * @return The recipients at the given index.
      */
     public long getRecipients(int index) {
       return recipients_.getLong(index);
@@ -59604,7 +61903,7 @@ public final class BrsApi {
         version_ = 0;
 
         recipients_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -59632,14 +61931,12 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment result = new burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.version_ = version_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           recipients_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.recipients_ = recipients_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -59694,7 +61991,7 @@ public final class BrsApi {
         if (!other.recipients_.isEmpty()) {
           if (recipients_.isEmpty()) {
             recipients_ = other.recipients_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureRecipientsIsMutable();
             recipients_.addAll(other.recipients_);
@@ -59734,12 +62031,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -59749,6 +62049,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -59759,33 +62060,40 @@ public final class BrsApi {
 
       private com.google.protobuf.Internal.LongList recipients_ = emptyLongList();
       private void ensureRecipientsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           recipients_ = mutableCopy(recipients_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @return A list containing the recipients.
        */
       public java.util.List<java.lang.Long>
           getRecipientsList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(recipients_) : recipients_;
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @return The count of recipients.
        */
       public int getRecipientsCount() {
         return recipients_.size();
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @param index The index of the element to return.
+       * @return The recipients at the given index.
        */
       public long getRecipients(int index) {
         return recipients_.getLong(index);
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The recipients to set.
+       * @return This builder for chaining.
        */
       public Builder setRecipients(
           int index, long value) {
@@ -59796,6 +62104,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @param value The recipients to add.
+       * @return This builder for chaining.
        */
       public Builder addRecipients(long value) {
         ensureRecipientsIsMutable();
@@ -59805,6 +62115,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @param values The recipients to add.
+       * @return This builder for chaining.
        */
       public Builder addAllRecipients(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -59816,10 +62128,11 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 recipients = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRecipients() {
         recipients_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -59882,25 +62195,30 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string uri = 3;</code>
+     * @return The uri.
      */
     java.lang.String getUri();
     /**
      * <code>string uri = 3;</code>
+     * @return The bytes for uri.
      */
     com.google.protobuf.ByteString
         getUriBytes();
@@ -59923,6 +62241,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AliasAssignmentAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -59935,7 +62260,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -59999,6 +62323,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -60008,6 +62333,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -60023,6 +62349,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -60042,6 +62369,7 @@ public final class BrsApi {
     private volatile java.lang.Object uri_;
     /**
      * <code>string uri = 3;</code>
+     * @return The uri.
      */
     public java.lang.String getUri() {
       java.lang.Object ref = uri_;
@@ -60057,6 +62385,7 @@ public final class BrsApi {
     }
     /**
      * <code>string uri = 3;</code>
+     * @return The bytes for uri.
      */
     public com.google.protobuf.ByteString
         getUriBytes() {
@@ -60411,12 +62740,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -60426,6 +62758,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -60437,6 +62770,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -60452,6 +62786,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -60468,6 +62803,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -60481,6 +62818,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -60490,6 +62828,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -60506,6 +62846,7 @@ public final class BrsApi {
       private java.lang.Object uri_ = "";
       /**
        * <code>string uri = 3;</code>
+       * @return The uri.
        */
       public java.lang.String getUri() {
         java.lang.Object ref = uri_;
@@ -60521,6 +62862,7 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 3;</code>
+       * @return The bytes for uri.
        */
       public com.google.protobuf.ByteString
           getUriBytes() {
@@ -60537,6 +62879,8 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 3;</code>
+       * @param value The uri to set.
+       * @return This builder for chaining.
        */
       public Builder setUri(
           java.lang.String value) {
@@ -60550,6 +62894,7 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUri() {
         
@@ -60559,6 +62904,8 @@ public final class BrsApi {
       }
       /**
        * <code>string uri = 3;</code>
+       * @param value The bytes for uri to set.
+       * @return This builder for chaining.
        */
       public Builder setUriBytes(
           com.google.protobuf.ByteString value) {
@@ -60630,21 +62977,25 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>uint64 price = 3;</code>
+     * @return The price.
      */
     long getPrice();
   }
@@ -60665,6 +63016,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AliasSellAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -60677,7 +63035,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -60740,6 +63097,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -60749,6 +63107,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -60764,6 +63123,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -60783,6 +63143,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 3;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -61128,12 +63489,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -61143,6 +63507,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -61154,6 +63519,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -61169,6 +63535,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -61185,6 +63552,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -61198,6 +63567,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -61207,6 +63577,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -61223,12 +63595,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 3;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 3;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -61238,6 +63613,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -61304,15 +63680,18 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -61334,6 +63713,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AliasBuyAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -61346,7 +63732,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -61404,6 +63789,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -61413,6 +63799,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -61428,6 +63815,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -61765,12 +64153,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -61780,6 +64171,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -61791,6 +64183,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -61806,6 +64199,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -61822,6 +64216,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -61835,6 +64231,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -61844,6 +64241,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -61915,25 +64314,30 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -61956,6 +64360,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AccountInfoAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -61968,7 +64379,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -62032,6 +64442,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -62041,6 +64452,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -62056,6 +64468,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -62075,6 +64488,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -62090,6 +64504,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -62444,12 +64859,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -62459,6 +64877,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -62470,6 +64889,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -62485,6 +64905,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -62501,6 +64922,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -62514,6 +64937,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -62523,6 +64947,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -62539,6 +64965,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 3;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -62554,6 +64981,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -62570,6 +64998,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -62583,6 +65013,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -62592,6 +65023,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -62663,36 +65096,43 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>uint64 quantity = 4;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint32 decimals = 5;</code>
+     * @return The decimals.
      */
     int getDecimals();
   }
@@ -62714,6 +65154,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetIssuanceAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -62726,7 +65173,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -62800,6 +65246,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -62809,6 +65256,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -62824,6 +65272,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -62843,6 +65292,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -62858,6 +65308,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -62877,6 +65328,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 4;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -62886,6 +65338,7 @@ public final class BrsApi {
     private int decimals_;
     /**
      * <code>uint32 decimals = 5;</code>
+     * @return The decimals.
      */
     public int getDecimals() {
       return decimals_;
@@ -63265,12 +65718,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -63280,6 +65736,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -63291,6 +65748,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -63306,6 +65764,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -63322,6 +65781,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -63335,6 +65796,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -63344,6 +65806,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -63360,6 +65824,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 3;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -63375,6 +65840,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -63391,6 +65857,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -63404,6 +65872,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -63413,6 +65882,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -63429,12 +65900,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 4;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 4;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -63444,6 +65918,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -63455,12 +65930,15 @@ public final class BrsApi {
       private int decimals_ ;
       /**
        * <code>uint32 decimals = 5;</code>
+       * @return The decimals.
        */
       public int getDecimals() {
         return decimals_;
       }
       /**
        * <code>uint32 decimals = 5;</code>
+       * @param value The decimals to set.
+       * @return This builder for chaining.
        */
       public Builder setDecimals(int value) {
         
@@ -63470,6 +65948,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 decimals = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDecimals() {
         
@@ -63536,25 +66015,30 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 quantity = 3;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>string comment = 4;</code>
+     * @return The comment.
      */
     java.lang.String getComment();
     /**
      * <code>string comment = 4;</code>
+     * @return The bytes for comment.
      */
     com.google.protobuf.ByteString
         getCommentBytes();
@@ -63576,6 +66060,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetTransferAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -63588,7 +66079,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -63656,6 +66146,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -63665,6 +66156,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -63674,6 +66166,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 3;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -63683,6 +66176,7 @@ public final class BrsApi {
     private volatile java.lang.Object comment_;
     /**
      * <code>string comment = 4;</code>
+     * @return The comment.
      */
     public java.lang.String getComment() {
       java.lang.Object ref = comment_;
@@ -63698,6 +66192,7 @@ public final class BrsApi {
     }
     /**
      * <code>string comment = 4;</code>
+     * @return The bytes for comment.
      */
     public com.google.protobuf.ByteString
         getCommentBytes() {
@@ -64071,12 +66566,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -64086,6 +66584,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -64097,12 +66596,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 2;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -64112,6 +66614,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -64123,12 +66626,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 3;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 3;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -64138,6 +66644,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -64149,6 +66656,7 @@ public final class BrsApi {
       private java.lang.Object comment_ = "";
       /**
        * <code>string comment = 4;</code>
+       * @return The comment.
        */
       public java.lang.String getComment() {
         java.lang.Object ref = comment_;
@@ -64164,6 +66672,7 @@ public final class BrsApi {
       }
       /**
        * <code>string comment = 4;</code>
+       * @return The bytes for comment.
        */
       public com.google.protobuf.ByteString
           getCommentBytes() {
@@ -64180,6 +66689,8 @@ public final class BrsApi {
       }
       /**
        * <code>string comment = 4;</code>
+       * @param value The comment to set.
+       * @return This builder for chaining.
        */
       public Builder setComment(
           java.lang.String value) {
@@ -64193,6 +66704,7 @@ public final class BrsApi {
       }
       /**
        * <code>string comment = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearComment() {
         
@@ -64202,6 +66714,8 @@ public final class BrsApi {
       }
       /**
        * <code>string comment = 4;</code>
+       * @param value The bytes for comment to set.
+       * @return This builder for chaining.
        */
       public Builder setCommentBytes(
           com.google.protobuf.ByteString value) {
@@ -64273,30 +66787,36 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 quantity = 3;</code>
+     * @return The quantity.
      */
     long getQuantity();
 
     /**
      * <code>uint64 price = 4;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>.OrderType type = 5;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.OrderType type = 5;</code>
+     * @return The type.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getType();
   }
@@ -64317,6 +66837,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetOrderPlacementAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -64329,7 +66856,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -64402,6 +66928,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -64411,6 +66938,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 2;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -64420,6 +66948,7 @@ public final class BrsApi {
     private long quantity_;
     /**
      * <code>uint64 quantity = 3;</code>
+     * @return The quantity.
      */
     public long getQuantity() {
       return quantity_;
@@ -64429,6 +66958,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 4;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -64438,12 +66968,14 @@ public final class BrsApi {
     private int type_;
     /**
      * <code>.OrderType type = 5;</code>
+     * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.OrderType type = 5;</code>
+     * @return The type.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
       @SuppressWarnings("deprecation")
@@ -64826,12 +67358,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -64841,6 +67376,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -64852,12 +67388,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 2;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -64867,6 +67406,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -64878,12 +67418,15 @@ public final class BrsApi {
       private long quantity_ ;
       /**
        * <code>uint64 quantity = 3;</code>
+       * @return The quantity.
        */
       public long getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint64 quantity = 3;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(long value) {
         
@@ -64893,6 +67436,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 quantity = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -64904,12 +67448,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 4;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 4;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -64919,6 +67466,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -64930,12 +67478,15 @@ public final class BrsApi {
       private int type_ = 0;
       /**
        * <code>.OrderType type = 5;</code>
+       * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.OrderType type = 5;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
         type_ = value;
@@ -64944,6 +67495,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 5;</code>
+       * @return The type.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
         @SuppressWarnings("deprecation")
@@ -64952,6 +67504,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 5;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -64964,6 +67518,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -65030,20 +67585,24 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 order = 2;</code>
+     * @return The order.
      */
     long getOrder();
 
     /**
      * <code>.OrderType type = 3;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.OrderType type = 3;</code>
+     * @return The type.
      */
     burst.kit.service.impl.grpc.BrsApi.OrderType getType();
   }
@@ -65064,6 +67623,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetOrderCancellationAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -65076,7 +67642,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -65139,6 +67704,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -65148,6 +67714,7 @@ public final class BrsApi {
     private long order_;
     /**
      * <code>uint64 order = 2;</code>
+     * @return The order.
      */
     public long getOrder() {
       return order_;
@@ -65157,12 +67724,14 @@ public final class BrsApi {
     private int type_;
     /**
      * <code>.OrderType type = 3;</code>
+     * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.OrderType type = 3;</code>
+     * @return The type.
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
       @SuppressWarnings("deprecation")
@@ -65509,12 +68078,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -65524,6 +68096,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -65535,12 +68108,15 @@ public final class BrsApi {
       private long order_ ;
       /**
        * <code>uint64 order = 2;</code>
+       * @return The order.
        */
       public long getOrder() {
         return order_;
       }
       /**
        * <code>uint64 order = 2;</code>
+       * @param value The order to set.
+       * @return This builder for chaining.
        */
       public Builder setOrder(long value) {
         
@@ -65550,6 +68126,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 order = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOrder() {
         
@@ -65561,12 +68138,15 @@ public final class BrsApi {
       private int type_ = 0;
       /**
        * <code>.OrderType type = 3;</code>
+       * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.OrderType type = 3;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
         type_ = value;
@@ -65575,6 +68155,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 3;</code>
+       * @return The type.
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
         @SuppressWarnings("deprecation")
@@ -65583,6 +68164,8 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 3;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
         if (value == null) {
@@ -65595,6 +68178,7 @@ public final class BrsApi {
       }
       /**
        * <code>.OrderType type = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -65661,46 +68245,55 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>string tags = 4;</code>
+     * @return The tags.
      */
     java.lang.String getTags();
     /**
      * <code>string tags = 4;</code>
+     * @return The bytes for tags.
      */
     com.google.protobuf.ByteString
         getTagsBytes();
 
     /**
      * <code>uint32 quantity = 5;</code>
+     * @return The quantity.
      */
     int getQuantity();
 
     /**
      * <code>uint64 price = 6;</code>
+     * @return The price.
      */
     long getPrice();
   }
@@ -65723,6 +68316,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsListingAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -65735,7 +68335,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -65815,6 +68414,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -65824,6 +68424,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -65839,6 +68440,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -65858,6 +68460,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -65873,6 +68476,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -65892,6 +68496,7 @@ public final class BrsApi {
     private volatile java.lang.Object tags_;
     /**
      * <code>string tags = 4;</code>
+     * @return The tags.
      */
     public java.lang.String getTags() {
       java.lang.Object ref = tags_;
@@ -65907,6 +68512,7 @@ public final class BrsApi {
     }
     /**
      * <code>string tags = 4;</code>
+     * @return The bytes for tags.
      */
     public com.google.protobuf.ByteString
         getTagsBytes() {
@@ -65926,6 +68532,7 @@ public final class BrsApi {
     private int quantity_;
     /**
      * <code>uint32 quantity = 5;</code>
+     * @return The quantity.
      */
     public int getQuantity() {
       return quantity_;
@@ -65935,6 +68542,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 6;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -66331,12 +68939,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -66346,6 +68957,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -66357,6 +68969,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -66372,6 +68985,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -66388,6 +69002,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -66401,6 +69017,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -66410,6 +69027,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -66426,6 +69045,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 3;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -66441,6 +69061,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -66457,6 +69078,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -66470,6 +69093,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -66479,6 +69103,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -66495,6 +69121,7 @@ public final class BrsApi {
       private java.lang.Object tags_ = "";
       /**
        * <code>string tags = 4;</code>
+       * @return The tags.
        */
       public java.lang.String getTags() {
         java.lang.Object ref = tags_;
@@ -66510,6 +69137,7 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 4;</code>
+       * @return The bytes for tags.
        */
       public com.google.protobuf.ByteString
           getTagsBytes() {
@@ -66526,6 +69154,8 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 4;</code>
+       * @param value The tags to set.
+       * @return This builder for chaining.
        */
       public Builder setTags(
           java.lang.String value) {
@@ -66539,6 +69169,7 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTags() {
         
@@ -66548,6 +69179,8 @@ public final class BrsApi {
       }
       /**
        * <code>string tags = 4;</code>
+       * @param value The bytes for tags to set.
+       * @return This builder for chaining.
        */
       public Builder setTagsBytes(
           com.google.protobuf.ByteString value) {
@@ -66564,12 +69197,15 @@ public final class BrsApi {
       private int quantity_ ;
       /**
        * <code>uint32 quantity = 5;</code>
+       * @return The quantity.
        */
       public int getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint32 quantity = 5;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(int value) {
         
@@ -66579,6 +69215,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 quantity = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -66590,12 +69227,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 6;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 6;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -66605,6 +69245,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -66671,11 +69312,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     long getGoods();
   }
@@ -66695,6 +69338,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsDelistingAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -66707,7 +69357,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -66764,6 +69413,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -66773,6 +69423,7 @@ public final class BrsApi {
     private long goods_;
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     public long getGoods() {
       return goods_;
@@ -67101,12 +69752,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -67116,6 +69770,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -67127,12 +69782,15 @@ public final class BrsApi {
       private long goods_ ;
       /**
        * <code>uint64 goods = 2;</code>
+       * @return The goods.
        */
       public long getGoods() {
         return goods_;
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @param value The goods to set.
+       * @return This builder for chaining.
        */
       public Builder setGoods(long value) {
         
@@ -67142,6 +69800,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGoods() {
         
@@ -67208,16 +69867,19 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     long getGoods();
 
     /**
      * <code>uint64 price = 3;</code>
+     * @return The price.
      */
     long getPrice();
   }
@@ -67237,6 +69899,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsPriceChangeAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -67249,7 +69918,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -67311,6 +69979,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -67320,6 +69989,7 @@ public final class BrsApi {
     private long goods_;
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     public long getGoods() {
       return goods_;
@@ -67329,6 +69999,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 3;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -67675,12 +70346,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -67690,6 +70364,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -67701,12 +70376,15 @@ public final class BrsApi {
       private long goods_ ;
       /**
        * <code>uint64 goods = 2;</code>
+       * @return The goods.
        */
       public long getGoods() {
         return goods_;
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @param value The goods to set.
+       * @return This builder for chaining.
        */
       public Builder setGoods(long value) {
         
@@ -67716,6 +70394,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGoods() {
         
@@ -67727,12 +70406,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 3;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 3;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -67742,6 +70424,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -67808,16 +70491,19 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     long getGoods();
 
     /**
      * <code>sint32 deltaQuantity = 3;</code>
+     * @return The deltaQuantity.
      */
     int getDeltaQuantity();
   }
@@ -67837,6 +70523,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsQuantityChangeAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -67849,7 +70542,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -67911,6 +70603,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -67920,6 +70613,7 @@ public final class BrsApi {
     private long goods_;
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     public long getGoods() {
       return goods_;
@@ -67929,6 +70623,7 @@ public final class BrsApi {
     private int deltaQuantity_;
     /**
      * <code>sint32 deltaQuantity = 3;</code>
+     * @return The deltaQuantity.
      */
     public int getDeltaQuantity() {
       return deltaQuantity_;
@@ -68274,12 +70969,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -68289,6 +70987,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -68300,12 +70999,15 @@ public final class BrsApi {
       private long goods_ ;
       /**
        * <code>uint64 goods = 2;</code>
+       * @return The goods.
        */
       public long getGoods() {
         return goods_;
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @param value The goods to set.
+       * @return This builder for chaining.
        */
       public Builder setGoods(long value) {
         
@@ -68315,6 +71017,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGoods() {
         
@@ -68326,12 +71029,15 @@ public final class BrsApi {
       private int deltaQuantity_ ;
       /**
        * <code>sint32 deltaQuantity = 3;</code>
+       * @return The deltaQuantity.
        */
       public int getDeltaQuantity() {
         return deltaQuantity_;
       }
       /**
        * <code>sint32 deltaQuantity = 3;</code>
+       * @param value The deltaQuantity to set.
+       * @return This builder for chaining.
        */
       public Builder setDeltaQuantity(int value) {
         
@@ -68341,6 +71047,7 @@ public final class BrsApi {
       }
       /**
        * <code>sint32 deltaQuantity = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeltaQuantity() {
         
@@ -68407,26 +71114,31 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     long getGoods();
 
     /**
      * <code>uint32 quantity = 3;</code>
+     * @return The quantity.
      */
     int getQuantity();
 
     /**
      * <code>uint64 price = 4;</code>
+     * @return The price.
      */
     long getPrice();
 
     /**
      * <code>uint32 deliveryDeadlineTimestmap = 5;</code>
+     * @return The deliveryDeadlineTimestmap.
      */
     int getDeliveryDeadlineTimestmap();
   }
@@ -68446,6 +71158,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsPurchaseAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -68458,7 +71177,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -68530,6 +71248,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -68539,6 +71258,7 @@ public final class BrsApi {
     private long goods_;
     /**
      * <code>uint64 goods = 2;</code>
+     * @return The goods.
      */
     public long getGoods() {
       return goods_;
@@ -68548,6 +71268,7 @@ public final class BrsApi {
     private int quantity_;
     /**
      * <code>uint32 quantity = 3;</code>
+     * @return The quantity.
      */
     public int getQuantity() {
       return quantity_;
@@ -68557,6 +71278,7 @@ public final class BrsApi {
     private long price_;
     /**
      * <code>uint64 price = 4;</code>
+     * @return The price.
      */
     public long getPrice() {
       return price_;
@@ -68566,6 +71288,7 @@ public final class BrsApi {
     private int deliveryDeadlineTimestmap_;
     /**
      * <code>uint32 deliveryDeadlineTimestmap = 5;</code>
+     * @return The deliveryDeadlineTimestmap.
      */
     public int getDeliveryDeadlineTimestmap() {
       return deliveryDeadlineTimestmap_;
@@ -68946,12 +71669,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -68961,6 +71687,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -68972,12 +71699,15 @@ public final class BrsApi {
       private long goods_ ;
       /**
        * <code>uint64 goods = 2;</code>
+       * @return The goods.
        */
       public long getGoods() {
         return goods_;
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @param value The goods to set.
+       * @return This builder for chaining.
        */
       public Builder setGoods(long value) {
         
@@ -68987,6 +71717,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 goods = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGoods() {
         
@@ -68998,12 +71729,15 @@ public final class BrsApi {
       private int quantity_ ;
       /**
        * <code>uint32 quantity = 3;</code>
+       * @return The quantity.
        */
       public int getQuantity() {
         return quantity_;
       }
       /**
        * <code>uint32 quantity = 3;</code>
+       * @param value The quantity to set.
+       * @return This builder for chaining.
        */
       public Builder setQuantity(int value) {
         
@@ -69013,6 +71747,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 quantity = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQuantity() {
         
@@ -69024,12 +71759,15 @@ public final class BrsApi {
       private long price_ ;
       /**
        * <code>uint64 price = 4;</code>
+       * @return The price.
        */
       public long getPrice() {
         return price_;
       }
       /**
        * <code>uint64 price = 4;</code>
+       * @param value The price to set.
+       * @return This builder for chaining.
        */
       public Builder setPrice(long value) {
         
@@ -69039,6 +71777,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 price = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPrice() {
         
@@ -69050,12 +71789,15 @@ public final class BrsApi {
       private int deliveryDeadlineTimestmap_ ;
       /**
        * <code>uint32 deliveryDeadlineTimestmap = 5;</code>
+       * @return The deliveryDeadlineTimestmap.
        */
       public int getDeliveryDeadlineTimestmap() {
         return deliveryDeadlineTimestmap_;
       }
       /**
        * <code>uint32 deliveryDeadlineTimestmap = 5;</code>
+       * @param value The deliveryDeadlineTimestmap to set.
+       * @return This builder for chaining.
        */
       public Builder setDeliveryDeadlineTimestmap(int value) {
         
@@ -69065,6 +71807,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 deliveryDeadlineTimestmap = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeliveryDeadlineTimestmap() {
         
@@ -69131,25 +71874,30 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 purchase = 2;</code>
+     * @return The purchase.
      */
     long getPurchase();
 
     /**
      * <code>uint64 discount = 3;</code>
+     * @return The discount.
      */
     long getDiscount();
 
     /**
      * <code>.EncryptedData goods = 4;</code>
+     * @return Whether the goods field is set.
      */
     boolean hasGoods();
     /**
      * <code>.EncryptedData goods = 4;</code>
+     * @return The goods.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getGoods();
     /**
@@ -69159,6 +71907,7 @@ public final class BrsApi {
 
     /**
      * <code>bool isText = 5;</code>
+     * @return The isText.
      */
     boolean getIsText();
   }
@@ -69178,6 +71927,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsDeliveryAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -69190,7 +71946,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -69270,6 +72025,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -69279,6 +72035,7 @@ public final class BrsApi {
     private long purchase_;
     /**
      * <code>uint64 purchase = 2;</code>
+     * @return The purchase.
      */
     public long getPurchase() {
       return purchase_;
@@ -69288,6 +72045,7 @@ public final class BrsApi {
     private long discount_;
     /**
      * <code>uint64 discount = 3;</code>
+     * @return The discount.
      */
     public long getDiscount() {
       return discount_;
@@ -69297,12 +72055,14 @@ public final class BrsApi {
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData goods_;
     /**
      * <code>.EncryptedData goods = 4;</code>
+     * @return Whether the goods field is set.
      */
     public boolean hasGoods() {
       return goods_ != null;
     }
     /**
      * <code>.EncryptedData goods = 4;</code>
+     * @return The goods.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getGoods() {
       return goods_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : goods_;
@@ -69318,6 +72078,7 @@ public final class BrsApi {
     private boolean isText_;
     /**
      * <code>bool isText = 5;</code>
+     * @return The isText.
      */
     public boolean getIsText() {
       return isText_;
@@ -69712,12 +72473,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -69727,6 +72491,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -69738,12 +72503,15 @@ public final class BrsApi {
       private long purchase_ ;
       /**
        * <code>uint64 purchase = 2;</code>
+       * @return The purchase.
        */
       public long getPurchase() {
         return purchase_;
       }
       /**
        * <code>uint64 purchase = 2;</code>
+       * @param value The purchase to set.
+       * @return This builder for chaining.
        */
       public Builder setPurchase(long value) {
         
@@ -69753,6 +72521,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 purchase = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPurchase() {
         
@@ -69764,12 +72533,15 @@ public final class BrsApi {
       private long discount_ ;
       /**
        * <code>uint64 discount = 3;</code>
+       * @return The discount.
        */
       public long getDiscount() {
         return discount_;
       }
       /**
        * <code>uint64 discount = 3;</code>
+       * @param value The discount to set.
+       * @return This builder for chaining.
        */
       public Builder setDiscount(long value) {
         
@@ -69779,6 +72551,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 discount = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDiscount() {
         
@@ -69792,12 +72565,14 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> goodsBuilder_;
       /**
        * <code>.EncryptedData goods = 4;</code>
+       * @return Whether the goods field is set.
        */
       public boolean hasGoods() {
         return goodsBuilder_ != null || goods_ != null;
       }
       /**
        * <code>.EncryptedData goods = 4;</code>
+       * @return The goods.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getGoods() {
         if (goodsBuilder_ == null) {
@@ -69907,12 +72682,15 @@ public final class BrsApi {
       private boolean isText_ ;
       /**
        * <code>bool isText = 5;</code>
+       * @return The isText.
        */
       public boolean getIsText() {
         return isText_;
       }
       /**
        * <code>bool isText = 5;</code>
+       * @param value The isText to set.
+       * @return This builder for chaining.
        */
       public Builder setIsText(boolean value) {
         
@@ -69922,6 +72700,7 @@ public final class BrsApi {
       }
       /**
        * <code>bool isText = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsText() {
         
@@ -69988,11 +72767,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 purchase = 2;</code>
+     * @return The purchase.
      */
     long getPurchase();
   }
@@ -70012,6 +72793,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsFeedbackAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -70024,7 +72812,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -70081,6 +72868,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -70090,6 +72878,7 @@ public final class BrsApi {
     private long purchase_;
     /**
      * <code>uint64 purchase = 2;</code>
+     * @return The purchase.
      */
     public long getPurchase() {
       return purchase_;
@@ -70418,12 +73207,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -70433,6 +73225,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -70444,12 +73237,15 @@ public final class BrsApi {
       private long purchase_ ;
       /**
        * <code>uint64 purchase = 2;</code>
+       * @return The purchase.
        */
       public long getPurchase() {
         return purchase_;
       }
       /**
        * <code>uint64 purchase = 2;</code>
+       * @param value The purchase to set.
+       * @return This builder for chaining.
        */
       public Builder setPurchase(long value) {
         
@@ -70459,6 +73255,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 purchase = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPurchase() {
         
@@ -70525,16 +73322,19 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 purchase = 2;</code>
+     * @return The purchase.
      */
     long getPurchase();
 
     /**
      * <code>uint64 refund = 3;</code>
+     * @return The refund.
      */
     long getRefund();
   }
@@ -70554,6 +73354,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DigitalGoodsRefundAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -70566,7 +73373,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -70628,6 +73434,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -70637,6 +73444,7 @@ public final class BrsApi {
     private long purchase_;
     /**
      * <code>uint64 purchase = 2;</code>
+     * @return The purchase.
      */
     public long getPurchase() {
       return purchase_;
@@ -70646,6 +73454,7 @@ public final class BrsApi {
     private long refund_;
     /**
      * <code>uint64 refund = 3;</code>
+     * @return The refund.
      */
     public long getRefund() {
       return refund_;
@@ -70992,12 +73801,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -71007,6 +73819,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -71018,12 +73831,15 @@ public final class BrsApi {
       private long purchase_ ;
       /**
        * <code>uint64 purchase = 2;</code>
+       * @return The purchase.
        */
       public long getPurchase() {
         return purchase_;
       }
       /**
        * <code>uint64 purchase = 2;</code>
+       * @param value The purchase to set.
+       * @return This builder for chaining.
        */
       public Builder setPurchase(long value) {
         
@@ -71033,6 +73849,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 purchase = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPurchase() {
         
@@ -71044,12 +73861,15 @@ public final class BrsApi {
       private long refund_ ;
       /**
        * <code>uint64 refund = 3;</code>
+       * @return The refund.
        */
       public long getRefund() {
         return refund_;
       }
       /**
        * <code>uint64 refund = 3;</code>
+       * @param value The refund to set.
+       * @return This builder for chaining.
        */
       public Builder setRefund(long value) {
         
@@ -71059,6 +73879,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 refund = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRefund() {
         
@@ -71119,548 +73940,13 @@ public final class BrsApi {
 
   }
 
-  public interface EffectiveBalanceLeasingAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EffectiveBalanceLeasingAttachment)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint32 version = 1;</code>
-     */
-    int getVersion();
-
-    /**
-     * <code>uint32 period = 2;</code>
-     */
-    int getPeriod();
-  }
-  /**
-   * Protobuf type {@code EffectiveBalanceLeasingAttachment}
-   */
-  public  static final class EffectiveBalanceLeasingAttachment extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EffectiveBalanceLeasingAttachment)
-      EffectiveBalanceLeasingAttachmentOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use EffectiveBalanceLeasingAttachment.newBuilder() to construct.
-    private EffectiveBalanceLeasingAttachment(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private EffectiveBalanceLeasingAttachment() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private EffectiveBalanceLeasingAttachment(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              version_ = input.readUInt32();
-              break;
-            }
-            case 16: {
-
-              period_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.class, burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.Builder.class);
-    }
-
-    public static final int VERSION_FIELD_NUMBER = 1;
-    private int version_;
-    /**
-     * <code>uint32 version = 1;</code>
-     */
-    public int getVersion() {
-      return version_;
-    }
-
-    public static final int PERIOD_FIELD_NUMBER = 2;
-    private int period_;
-    /**
-     * <code>uint32 period = 2;</code>
-     */
-    public int getPeriod() {
-      return period_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (version_ != 0) {
-        output.writeUInt32(1, version_);
-      }
-      if (period_ != 0) {
-        output.writeUInt32(2, period_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (version_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, version_);
-      }
-      if (period_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, period_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment)) {
-        return super.equals(obj);
-      }
-      burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment other = (burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment) obj;
-
-      if (getVersion()
-          != other.getVersion()) return false;
-      if (getPeriod()
-          != other.getPeriod()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getVersion();
-      hash = (37 * hash) + PERIOD_FIELD_NUMBER;
-      hash = (53 * hash) + getPeriod();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code EffectiveBalanceLeasingAttachment}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EffectiveBalanceLeasingAttachment)
-        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachmentOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.class, burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.Builder.class);
-      }
-
-      // Construct using burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        version_ = 0;
-
-        period_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
-      }
-
-      @java.lang.Override
-      public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment getDefaultInstanceForType() {
-        return burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment build() {
-        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment buildPartial() {
-        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment result = new burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment(this);
-        result.version_ = version_;
-        result.period_ = period_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment) {
-          return mergeFrom((burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment other) {
-        if (other == burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.getDefaultInstance()) return this;
-        if (other.getVersion() != 0) {
-          setVersion(other.getVersion());
-        }
-        if (other.getPeriod() != 0) {
-          setPeriod(other.getPeriod());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int version_ ;
-      /**
-       * <code>uint32 version = 1;</code>
-       */
-      public int getVersion() {
-        return version_;
-      }
-      /**
-       * <code>uint32 version = 1;</code>
-       */
-      public Builder setVersion(int value) {
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 version = 1;</code>
-       */
-      public Builder clearVersion() {
-        
-        version_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int period_ ;
-      /**
-       * <code>uint32 period = 2;</code>
-       */
-      public int getPeriod() {
-        return period_;
-      }
-      /**
-       * <code>uint32 period = 2;</code>
-       */
-      public Builder setPeriod(int value) {
-        
-        period_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 period = 2;</code>
-       */
-      public Builder clearPeriod() {
-        
-        period_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:EffectiveBalanceLeasingAttachment)
-    }
-
-    // @@protoc_insertion_point(class_scope:EffectiveBalanceLeasingAttachment)
-    private static final burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment();
-    }
-
-    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<EffectiveBalanceLeasingAttachment>
-        PARSER = new com.google.protobuf.AbstractParser<EffectiveBalanceLeasingAttachment>() {
-      @java.lang.Override
-      public EffectiveBalanceLeasingAttachment parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EffectiveBalanceLeasingAttachment(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<EffectiveBalanceLeasingAttachment> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<EffectiveBalanceLeasingAttachment> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface RewardRecipientAssignmentAttachmentOrBuilder extends
       // @@protoc_insertion_point(interface_extends:RewardRecipientAssignmentAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
   }
@@ -71680,6 +73966,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RewardRecipientAssignmentAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -71692,7 +73985,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -71744,6 +74036,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -72054,12 +74347,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -72069,6 +74365,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -72135,43 +74432,53 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 amount = 2;</code>
+     * @return The amount.
      */
     long getAmount();
 
     /**
      * <code>uint32 requiredSigners = 3;</code>
+     * @return The requiredSigners.
      */
     int getRequiredSigners();
 
     /**
      * <code>repeated uint64 signers = 4;</code>
+     * @return A list containing the signers.
      */
     java.util.List<java.lang.Long> getSignersList();
     /**
      * <code>repeated uint64 signers = 4;</code>
+     * @return The count of signers.
      */
     int getSignersCount();
     /**
      * <code>repeated uint64 signers = 4;</code>
+     * @param index The index of the element to return.
+     * @return The signers at the given index.
      */
     long getSigners(int index);
 
     /**
      * <code>uint32 deadline = 5;</code>
+     * @return The deadline.
      */
     int getDeadline();
 
     /**
      * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * @return The enum numeric value on the wire for deadlineAction.
      */
     int getDeadlineActionValue();
     /**
      * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * @return The deadlineAction.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction();
   }
@@ -72190,6 +74497,13 @@ public final class BrsApi {
     private EscrowCreationAttachment() {
       signers_ = emptyLongList();
       deadlineAction_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EscrowCreationAttachment();
     }
 
     @java.lang.Override
@@ -72232,9 +74546,9 @@ public final class BrsApi {
               break;
             }
             case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 signers_ = newLongList();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000001;
               }
               signers_.addLong(input.readUInt64());
               break;
@@ -72242,9 +74556,9 @@ public final class BrsApi {
             case 34: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
                 signers_ = newLongList();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000001;
               }
               while (input.getBytesUntilLimit() > 0) {
                 signers_.addLong(input.readUInt64());
@@ -72278,7 +74592,7 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           signers_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
@@ -72298,11 +74612,11 @@ public final class BrsApi {
               burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment.Builder.class);
     }
 
-    private int bitField0_;
     public static final int VERSION_FIELD_NUMBER = 1;
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -72312,6 +74626,7 @@ public final class BrsApi {
     private long amount_;
     /**
      * <code>uint64 amount = 2;</code>
+     * @return The amount.
      */
     public long getAmount() {
       return amount_;
@@ -72321,6 +74636,7 @@ public final class BrsApi {
     private int requiredSigners_;
     /**
      * <code>uint32 requiredSigners = 3;</code>
+     * @return The requiredSigners.
      */
     public int getRequiredSigners() {
       return requiredSigners_;
@@ -72330,6 +74646,7 @@ public final class BrsApi {
     private com.google.protobuf.Internal.LongList signers_;
     /**
      * <code>repeated uint64 signers = 4;</code>
+     * @return A list containing the signers.
      */
     public java.util.List<java.lang.Long>
         getSignersList() {
@@ -72337,12 +74654,15 @@ public final class BrsApi {
     }
     /**
      * <code>repeated uint64 signers = 4;</code>
+     * @return The count of signers.
      */
     public int getSignersCount() {
       return signers_.size();
     }
     /**
      * <code>repeated uint64 signers = 4;</code>
+     * @param index The index of the element to return.
+     * @return The signers at the given index.
      */
     public long getSigners(int index) {
       return signers_.getLong(index);
@@ -72353,6 +74673,7 @@ public final class BrsApi {
     private int deadline_;
     /**
      * <code>uint32 deadline = 5;</code>
+     * @return The deadline.
      */
     public int getDeadline() {
       return deadline_;
@@ -72362,12 +74683,14 @@ public final class BrsApi {
     private int deadlineAction_;
     /**
      * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * @return The enum numeric value on the wire for deadlineAction.
      */
     public int getDeadlineActionValue() {
       return deadlineAction_;
     }
     /**
      * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * @return The deadlineAction.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
       @SuppressWarnings("deprecation")
@@ -72647,7 +74970,7 @@ public final class BrsApi {
         requiredSigners_ = 0;
 
         signers_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         deadline_ = 0;
 
         deadlineAction_ = 0;
@@ -72679,18 +75002,16 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment result = new burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.version_ = version_;
         result.amount_ = amount_;
         result.requiredSigners_ = requiredSigners_;
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           signers_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.signers_ = signers_;
         result.deadline_ = deadline_;
         result.deadlineAction_ = deadlineAction_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -72751,7 +75072,7 @@ public final class BrsApi {
         if (!other.signers_.isEmpty()) {
           if (signers_.isEmpty()) {
             signers_ = other.signers_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureSignersIsMutable();
             signers_.addAll(other.signers_);
@@ -72797,12 +75118,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -72812,6 +75136,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -72823,12 +75148,15 @@ public final class BrsApi {
       private long amount_ ;
       /**
        * <code>uint64 amount = 2;</code>
+       * @return The amount.
        */
       public long getAmount() {
         return amount_;
       }
       /**
        * <code>uint64 amount = 2;</code>
+       * @param value The amount to set.
+       * @return This builder for chaining.
        */
       public Builder setAmount(long value) {
         
@@ -72838,6 +75166,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 amount = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAmount() {
         
@@ -72849,12 +75178,15 @@ public final class BrsApi {
       private int requiredSigners_ ;
       /**
        * <code>uint32 requiredSigners = 3;</code>
+       * @return The requiredSigners.
        */
       public int getRequiredSigners() {
         return requiredSigners_;
       }
       /**
        * <code>uint32 requiredSigners = 3;</code>
+       * @param value The requiredSigners to set.
+       * @return This builder for chaining.
        */
       public Builder setRequiredSigners(int value) {
         
@@ -72864,6 +75196,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 requiredSigners = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRequiredSigners() {
         
@@ -72874,33 +75207,40 @@ public final class BrsApi {
 
       private com.google.protobuf.Internal.LongList signers_ = emptyLongList();
       private void ensureSignersIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           signers_ = mutableCopy(signers_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @return A list containing the signers.
        */
       public java.util.List<java.lang.Long>
           getSignersList() {
-        return ((bitField0_ & 0x00000008) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(signers_) : signers_;
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @return The count of signers.
        */
       public int getSignersCount() {
         return signers_.size();
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @param index The index of the element to return.
+       * @return The signers at the given index.
        */
       public long getSigners(int index) {
         return signers_.getLong(index);
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The signers to set.
+       * @return This builder for chaining.
        */
       public Builder setSigners(
           int index, long value) {
@@ -72911,6 +75251,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @param value The signers to add.
+       * @return This builder for chaining.
        */
       public Builder addSigners(long value) {
         ensureSignersIsMutable();
@@ -72920,6 +75262,8 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @param values The signers to add.
+       * @return This builder for chaining.
        */
       public Builder addAllSigners(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -72931,10 +75275,11 @@ public final class BrsApi {
       }
       /**
        * <code>repeated uint64 signers = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSigners() {
         signers_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -72942,12 +75287,15 @@ public final class BrsApi {
       private int deadline_ ;
       /**
        * <code>uint32 deadline = 5;</code>
+       * @return The deadline.
        */
       public int getDeadline() {
         return deadline_;
       }
       /**
        * <code>uint32 deadline = 5;</code>
+       * @param value The deadline to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadline(int value) {
         
@@ -72957,6 +75305,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 deadline = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeadline() {
         
@@ -72968,12 +75317,15 @@ public final class BrsApi {
       private int deadlineAction_ = 0;
       /**
        * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * @return The enum numeric value on the wire for deadlineAction.
        */
       public int getDeadlineActionValue() {
         return deadlineAction_;
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * @param value The enum numeric value on the wire for deadlineAction to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadlineActionValue(int value) {
         deadlineAction_ = value;
@@ -72982,6 +75334,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * @return The deadlineAction.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
         @SuppressWarnings("deprecation")
@@ -72990,6 +75343,8 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * @param value The deadlineAction to set.
+       * @return This builder for chaining.
        */
       public Builder setDeadlineAction(burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType value) {
         if (value == null) {
@@ -73002,6 +75357,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDeadlineAction() {
         
@@ -73068,20 +75424,24 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 escrow = 2;</code>
+     * @return The escrow.
      */
     long getEscrow();
 
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The enum numeric value on the wire for decision.
      */
     int getDecisionValue();
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The decision.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision();
   }
@@ -73102,6 +75462,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EscrowSignAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -73114,7 +75481,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -73177,6 +75543,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -73186,6 +75553,7 @@ public final class BrsApi {
     private long escrow_;
     /**
      * <code>uint64 escrow = 2;</code>
+     * @return The escrow.
      */
     public long getEscrow() {
       return escrow_;
@@ -73195,12 +75563,14 @@ public final class BrsApi {
     private int decision_;
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The enum numeric value on the wire for decision.
      */
     public int getDecisionValue() {
       return decision_;
     }
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The decision.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
       @SuppressWarnings("deprecation")
@@ -73547,12 +75917,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -73562,6 +75935,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -73573,12 +75947,15 @@ public final class BrsApi {
       private long escrow_ ;
       /**
        * <code>uint64 escrow = 2;</code>
+       * @return The escrow.
        */
       public long getEscrow() {
         return escrow_;
       }
       /**
        * <code>uint64 escrow = 2;</code>
+       * @param value The escrow to set.
+       * @return This builder for chaining.
        */
       public Builder setEscrow(long value) {
         
@@ -73588,6 +75965,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 escrow = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearEscrow() {
         
@@ -73599,12 +75977,15 @@ public final class BrsApi {
       private int decision_ = 0;
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @return The enum numeric value on the wire for decision.
        */
       public int getDecisionValue() {
         return decision_;
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @param value The enum numeric value on the wire for decision to set.
+       * @return This builder for chaining.
        */
       public Builder setDecisionValue(int value) {
         decision_ = value;
@@ -73613,6 +75994,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @return The decision.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
         @SuppressWarnings("deprecation")
@@ -73621,6 +76003,8 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @param value The decision to set.
+       * @return This builder for chaining.
        */
       public Builder setDecision(burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType value) {
         if (value == null) {
@@ -73633,6 +76017,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDecision() {
         
@@ -73699,20 +76084,24 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 escrow = 2;</code>
+     * @return The escrow.
      */
     long getEscrow();
 
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The enum numeric value on the wire for decision.
      */
     int getDecisionValue();
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The decision.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision();
   }
@@ -73733,6 +76122,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EscrowResultAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -73745,7 +76141,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -73808,6 +76203,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -73817,6 +76213,7 @@ public final class BrsApi {
     private long escrow_;
     /**
      * <code>uint64 escrow = 2;</code>
+     * @return The escrow.
      */
     public long getEscrow() {
       return escrow_;
@@ -73826,12 +76223,14 @@ public final class BrsApi {
     private int decision_;
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The enum numeric value on the wire for decision.
      */
     public int getDecisionValue() {
       return decision_;
     }
     /**
      * <code>.EscrowDecisionType decision = 3;</code>
+     * @return The decision.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
       @SuppressWarnings("deprecation")
@@ -74178,12 +76577,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -74193,6 +76595,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -74204,12 +76607,15 @@ public final class BrsApi {
       private long escrow_ ;
       /**
        * <code>uint64 escrow = 2;</code>
+       * @return The escrow.
        */
       public long getEscrow() {
         return escrow_;
       }
       /**
        * <code>uint64 escrow = 2;</code>
+       * @param value The escrow to set.
+       * @return This builder for chaining.
        */
       public Builder setEscrow(long value) {
         
@@ -74219,6 +76625,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 escrow = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearEscrow() {
         
@@ -74230,12 +76637,15 @@ public final class BrsApi {
       private int decision_ = 0;
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @return The enum numeric value on the wire for decision.
        */
       public int getDecisionValue() {
         return decision_;
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @param value The enum numeric value on the wire for decision to set.
+       * @return This builder for chaining.
        */
       public Builder setDecisionValue(int value) {
         decision_ = value;
@@ -74244,6 +76654,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @return The decision.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
         @SuppressWarnings("deprecation")
@@ -74252,6 +76663,8 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @param value The decision to set.
+       * @return This builder for chaining.
        */
       public Builder setDecision(burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType value) {
         if (value == null) {
@@ -74264,6 +76677,7 @@ public final class BrsApi {
       }
       /**
        * <code>.EscrowDecisionType decision = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDecision() {
         
@@ -74330,11 +76744,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint32 frequency = 2;</code>
+     * @return The frequency.
      */
     int getFrequency();
   }
@@ -74354,6 +76770,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubscriptionSubscribeAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -74366,7 +76789,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -74423,6 +76845,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -74432,6 +76855,7 @@ public final class BrsApi {
     private int frequency_;
     /**
      * <code>uint32 frequency = 2;</code>
+     * @return The frequency.
      */
     public int getFrequency() {
       return frequency_;
@@ -74759,12 +77183,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -74774,6 +77201,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -74785,12 +77213,15 @@ public final class BrsApi {
       private int frequency_ ;
       /**
        * <code>uint32 frequency = 2;</code>
+       * @return The frequency.
        */
       public int getFrequency() {
         return frequency_;
       }
       /**
        * <code>uint32 frequency = 2;</code>
+       * @param value The frequency to set.
+       * @return This builder for chaining.
        */
       public Builder setFrequency(int value) {
         
@@ -74800,6 +77231,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 frequency = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFrequency() {
         
@@ -74866,11 +77298,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 subscription = 2;</code>
+     * @return The subscription.
      */
     long getSubscription();
   }
@@ -74890,6 +77324,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubscriptionCancelAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -74902,7 +77343,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -74959,6 +77399,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -74968,6 +77409,7 @@ public final class BrsApi {
     private long subscription_;
     /**
      * <code>uint64 subscription = 2;</code>
+     * @return The subscription.
      */
     public long getSubscription() {
       return subscription_;
@@ -75296,12 +77738,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -75311,6 +77756,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -75322,12 +77768,15 @@ public final class BrsApi {
       private long subscription_ ;
       /**
        * <code>uint64 subscription = 2;</code>
+       * @return The subscription.
        */
       public long getSubscription() {
         return subscription_;
       }
       /**
        * <code>uint64 subscription = 2;</code>
+       * @param value The subscription to set.
+       * @return This builder for chaining.
        */
       public Builder setSubscription(long value) {
         
@@ -75337,6 +77786,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 subscription = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSubscription() {
         
@@ -75403,11 +77853,13 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>uint64 subscription = 2;</code>
+     * @return The subscription.
      */
     long getSubscription();
   }
@@ -75427,6 +77879,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubscriptionPaymentAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -75439,7 +77898,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -75496,6 +77954,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -75505,6 +77964,7 @@ public final class BrsApi {
     private long subscription_;
     /**
      * <code>uint64 subscription = 2;</code>
+     * @return The subscription.
      */
     public long getSubscription() {
       return subscription_;
@@ -75833,12 +78293,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -75848,6 +78311,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -75859,12 +78323,15 @@ public final class BrsApi {
       private long subscription_ ;
       /**
        * <code>uint64 subscription = 2;</code>
+       * @return The subscription.
        */
       public long getSubscription() {
         return subscription_;
       }
       /**
        * <code>uint64 subscription = 2;</code>
+       * @param value The subscription to set.
+       * @return This builder for chaining.
        */
       public Builder setSubscription(long value) {
         
@@ -75874,6 +78341,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 subscription = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSubscription() {
         
@@ -75940,31 +78408,37 @@ public final class BrsApi {
 
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>bytes creationBytes = 4;</code>
+     * @return The creationBytes.
      */
     com.google.protobuf.ByteString getCreationBytes();
   }
@@ -75987,6 +78461,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ATCreationAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -75999,7 +78480,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -76068,6 +78548,7 @@ public final class BrsApi {
     private int version_;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
     public int getVersion() {
       return version_;
@@ -76077,6 +78558,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -76092,6 +78574,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -76111,6 +78594,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 3;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -76126,6 +78610,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 3;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -76145,6 +78630,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString creationBytes_;
     /**
      * <code>bytes creationBytes = 4;</code>
+     * @return The creationBytes.
      */
     public com.google.protobuf.ByteString getCreationBytes() {
       return creationBytes_;
@@ -76506,12 +78992,15 @@ public final class BrsApi {
       private int version_ ;
       /**
        * <code>uint32 version = 1;</code>
+       * @return The version.
        */
       public int getVersion() {
         return version_;
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -76521,6 +79010,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -76532,6 +79022,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -76547,6 +79038,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -76563,6 +79055,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -76576,6 +79070,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -76585,6 +79080,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -76601,6 +79098,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 3;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -76616,6 +79114,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -76632,6 +79131,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -76645,6 +79146,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -76654,6 +79156,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 3;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -76670,12 +79174,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString creationBytes_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes creationBytes = 4;</code>
+       * @return The creationBytes.
        */
       public com.google.protobuf.ByteString getCreationBytes() {
         return creationBytes_;
       }
       /**
        * <code>bytes creationBytes = 4;</code>
+       * @param value The creationBytes to set.
+       * @return This builder for chaining.
        */
       public Builder setCreationBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -76688,6 +79195,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes creationBytes = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCreationBytes() {
         
@@ -76758,6 +79266,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>repeated uint64 ids = 1;</code>
+     * @return A list containing the ids.
      */
     java.util.List<java.lang.Long> getIdsList();
     /**
@@ -76766,6 +79275,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>repeated uint64 ids = 1;</code>
+     * @return The count of ids.
      */
     int getIdsCount();
     /**
@@ -76774,6 +79284,8 @@ public final class BrsApi {
      * </pre>
      *
      * <code>repeated uint64 ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The ids at the given index.
      */
     long getIds(int index);
 
@@ -76836,6 +79348,13 @@ public final class BrsApi {
     private Accounts() {
       ids_ = emptyLongList();
       accounts_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Accounts();
     }
 
     @java.lang.Override
@@ -76938,6 +79457,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>repeated uint64 ids = 1;</code>
+     * @return A list containing the ids.
      */
     public java.util.List<java.lang.Long>
         getIdsList() {
@@ -76949,6 +79469,7 @@ public final class BrsApi {
      * </pre>
      *
      * <code>repeated uint64 ids = 1;</code>
+     * @return The count of ids.
      */
     public int getIdsCount() {
       return ids_.size();
@@ -76959,6 +79480,8 @@ public final class BrsApi {
      * </pre>
      *
      * <code>repeated uint64 ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The ids at the given index.
      */
     public long getIds(int index) {
       return ids_.getLong(index);
@@ -77420,6 +79943,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @return A list containing the ids.
        */
       public java.util.List<java.lang.Long>
           getIdsList() {
@@ -77432,6 +79956,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @return The count of ids.
        */
       public int getIdsCount() {
         return ids_.size();
@@ -77442,6 +79967,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @param index The index of the element to return.
+       * @return The ids at the given index.
        */
       public long getIds(int index) {
         return ids_.getLong(index);
@@ -77452,6 +79979,9 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The ids to set.
+       * @return This builder for chaining.
        */
       public Builder setIds(
           int index, long value) {
@@ -77466,6 +79996,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @param value The ids to add.
+       * @return This builder for chaining.
        */
       public Builder addIds(long value) {
         ensureIdsIsMutable();
@@ -77479,6 +80011,8 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @param values The ids to add.
+       * @return This builder for chaining.
        */
       public Builder addAllIds(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -77494,6 +80028,7 @@ public final class BrsApi {
        * </pre>
        *
        * <code>repeated uint64 ids = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIds() {
         ids_ = emptyLongList();
@@ -77872,51 +80407,61 @@ public final class BrsApi {
 
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     long getId();
 
     /**
      * <code>bytes publicKey = 2;</code>
+     * @return The publicKey.
      */
     com.google.protobuf.ByteString getPublicKey();
 
     /**
      * <code>uint64 balance = 3;</code>
+     * @return The balance.
      */
     long getBalance();
 
     /**
      * <code>uint64 unconfirmedBalance = 4;</code>
+     * @return The unconfirmedBalance.
      */
     long getUnconfirmedBalance();
 
     /**
      * <code>uint64 forgedBalance = 5;</code>
+     * @return The forgedBalance.
      */
     long getForgedBalance();
 
     /**
      * <code>string name = 6;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 6;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>string description = 7;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
      * <code>string description = 7;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
      * <code>uint64 rewardRecipient = 8;</code>
+     * @return The rewardRecipient.
      */
     long getRewardRecipient();
 
@@ -77961,6 +80506,13 @@ public final class BrsApi {
       name_ = "";
       description_ = "";
       assetBalances_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Account();
     }
 
     @java.lang.Override
@@ -78030,9 +80582,9 @@ public final class BrsApi {
               break;
             }
             case 74: {
-              if (!((mutable_bitField0_ & 0x00000100) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 assetBalances_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.AssetBalance>();
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000001;
               }
               assetBalances_.add(
                   input.readMessage(burst.kit.service.impl.grpc.BrsApi.AssetBalance.parser(), extensionRegistry));
@@ -78053,7 +80605,7 @@ public final class BrsApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000100) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           assetBalances_ = java.util.Collections.unmodifiableList(assetBalances_);
         }
         this.unknownFields = unknownFields.build();
@@ -78073,11 +80625,11 @@ public final class BrsApi {
               burst.kit.service.impl.grpc.BrsApi.Account.class, burst.kit.service.impl.grpc.BrsApi.Account.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
     /**
      * <code>uint64 id = 1;</code>
+     * @return The id.
      */
     public long getId() {
       return id_;
@@ -78087,6 +80639,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString publicKey_;
     /**
      * <code>bytes publicKey = 2;</code>
+     * @return The publicKey.
      */
     public com.google.protobuf.ByteString getPublicKey() {
       return publicKey_;
@@ -78096,6 +80649,7 @@ public final class BrsApi {
     private long balance_;
     /**
      * <code>uint64 balance = 3;</code>
+     * @return The balance.
      */
     public long getBalance() {
       return balance_;
@@ -78105,6 +80659,7 @@ public final class BrsApi {
     private long unconfirmedBalance_;
     /**
      * <code>uint64 unconfirmedBalance = 4;</code>
+     * @return The unconfirmedBalance.
      */
     public long getUnconfirmedBalance() {
       return unconfirmedBalance_;
@@ -78114,6 +80669,7 @@ public final class BrsApi {
     private long forgedBalance_;
     /**
      * <code>uint64 forgedBalance = 5;</code>
+     * @return The forgedBalance.
      */
     public long getForgedBalance() {
       return forgedBalance_;
@@ -78123,6 +80679,7 @@ public final class BrsApi {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 6;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -78138,6 +80695,7 @@ public final class BrsApi {
     }
     /**
      * <code>string name = 6;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -78157,6 +80715,7 @@ public final class BrsApi {
     private volatile java.lang.Object description_;
     /**
      * <code>string description = 7;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -78172,6 +80731,7 @@ public final class BrsApi {
     }
     /**
      * <code>string description = 7;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -78191,6 +80751,7 @@ public final class BrsApi {
     private long rewardRecipient_;
     /**
      * <code>uint64 rewardRecipient = 8;</code>
+     * @return The rewardRecipient.
      */
     public long getRewardRecipient() {
       return rewardRecipient_;
@@ -78536,7 +81097,7 @@ public final class BrsApi {
 
         if (assetBalancesBuilder_ == null) {
           assetBalances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           assetBalancesBuilder_.clear();
         }
@@ -78567,7 +81128,6 @@ public final class BrsApi {
       public burst.kit.service.impl.grpc.BrsApi.Account buildPartial() {
         burst.kit.service.impl.grpc.BrsApi.Account result = new burst.kit.service.impl.grpc.BrsApi.Account(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.id_ = id_;
         result.publicKey_ = publicKey_;
         result.balance_ = balance_;
@@ -78577,15 +81137,14 @@ public final class BrsApi {
         result.description_ = description_;
         result.rewardRecipient_ = rewardRecipient_;
         if (assetBalancesBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             assetBalances_ = java.util.Collections.unmodifiableList(assetBalances_);
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.assetBalances_ = assetBalances_;
         } else {
           result.assetBalances_ = assetBalancesBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -78664,7 +81223,7 @@ public final class BrsApi {
           if (!other.assetBalances_.isEmpty()) {
             if (assetBalances_.isEmpty()) {
               assetBalances_ = other.assetBalances_;
-              bitField0_ = (bitField0_ & ~0x00000100);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureAssetBalancesIsMutable();
               assetBalances_.addAll(other.assetBalances_);
@@ -78677,7 +81236,7 @@ public final class BrsApi {
               assetBalancesBuilder_.dispose();
               assetBalancesBuilder_ = null;
               assetBalances_ = other.assetBalances_;
-              bitField0_ = (bitField0_ & ~0x00000100);
+              bitField0_ = (bitField0_ & ~0x00000001);
               assetBalancesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAssetBalancesFieldBuilder() : null;
@@ -78719,12 +81278,15 @@ public final class BrsApi {
       private long id_ ;
       /**
        * <code>uint64 id = 1;</code>
+       * @return The id.
        */
       public long getId() {
         return id_;
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(long value) {
         
@@ -78734,6 +81296,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -78745,12 +81308,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString publicKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes publicKey = 2;</code>
+       * @return The publicKey.
        */
       public com.google.protobuf.ByteString getPublicKey() {
         return publicKey_;
       }
       /**
        * <code>bytes publicKey = 2;</code>
+       * @param value The publicKey to set.
+       * @return This builder for chaining.
        */
       public Builder setPublicKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -78763,6 +81329,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes publicKey = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPublicKey() {
         
@@ -78774,12 +81341,15 @@ public final class BrsApi {
       private long balance_ ;
       /**
        * <code>uint64 balance = 3;</code>
+       * @return The balance.
        */
       public long getBalance() {
         return balance_;
       }
       /**
        * <code>uint64 balance = 3;</code>
+       * @param value The balance to set.
+       * @return This builder for chaining.
        */
       public Builder setBalance(long value) {
         
@@ -78789,6 +81359,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 balance = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBalance() {
         
@@ -78800,12 +81371,15 @@ public final class BrsApi {
       private long unconfirmedBalance_ ;
       /**
        * <code>uint64 unconfirmedBalance = 4;</code>
+       * @return The unconfirmedBalance.
        */
       public long getUnconfirmedBalance() {
         return unconfirmedBalance_;
       }
       /**
        * <code>uint64 unconfirmedBalance = 4;</code>
+       * @param value The unconfirmedBalance to set.
+       * @return This builder for chaining.
        */
       public Builder setUnconfirmedBalance(long value) {
         
@@ -78815,6 +81389,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 unconfirmedBalance = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUnconfirmedBalance() {
         
@@ -78826,12 +81401,15 @@ public final class BrsApi {
       private long forgedBalance_ ;
       /**
        * <code>uint64 forgedBalance = 5;</code>
+       * @return The forgedBalance.
        */
       public long getForgedBalance() {
         return forgedBalance_;
       }
       /**
        * <code>uint64 forgedBalance = 5;</code>
+       * @param value The forgedBalance to set.
+       * @return This builder for chaining.
        */
       public Builder setForgedBalance(long value) {
         
@@ -78841,6 +81419,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 forgedBalance = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearForgedBalance() {
         
@@ -78852,6 +81431,7 @@ public final class BrsApi {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 6;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -78867,6 +81447,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 6;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -78883,6 +81464,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 6;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -78896,6 +81479,7 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -78905,6 +81489,8 @@ public final class BrsApi {
       }
       /**
        * <code>string name = 6;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -78921,6 +81507,7 @@ public final class BrsApi {
       private java.lang.Object description_ = "";
       /**
        * <code>string description = 7;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -78936,6 +81523,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 7;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -78952,6 +81540,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 7;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -78965,6 +81555,7 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -78974,6 +81565,8 @@ public final class BrsApi {
       }
       /**
        * <code>string description = 7;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -78990,12 +81583,15 @@ public final class BrsApi {
       private long rewardRecipient_ ;
       /**
        * <code>uint64 rewardRecipient = 8;</code>
+       * @return The rewardRecipient.
        */
       public long getRewardRecipient() {
         return rewardRecipient_;
       }
       /**
        * <code>uint64 rewardRecipient = 8;</code>
+       * @param value The rewardRecipient to set.
+       * @return This builder for chaining.
        */
       public Builder setRewardRecipient(long value) {
         
@@ -79005,6 +81601,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 rewardRecipient = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRewardRecipient() {
         
@@ -79016,9 +81613,9 @@ public final class BrsApi {
       private java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> assetBalances_ =
         java.util.Collections.emptyList();
       private void ensureAssetBalancesIsMutable() {
-        if (!((bitField0_ & 0x00000100) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           assetBalances_ = new java.util.ArrayList<burst.kit.service.impl.grpc.BrsApi.AssetBalance>(assetBalances_);
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -79168,7 +81765,7 @@ public final class BrsApi {
       public Builder clearAssetBalances() {
         if (assetBalancesBuilder_ == null) {
           assetBalances_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           assetBalancesBuilder_.clear();
@@ -79245,7 +81842,7 @@ public final class BrsApi {
           assetBalancesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               burst.kit.service.impl.grpc.BrsApi.AssetBalance, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder, burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder>(
                   assetBalances_,
-                  ((bitField0_ & 0x00000100) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           assetBalances_ = null;
@@ -79347,6 +81944,13 @@ public final class BrsApi {
     }
     private AssetBalances() {
       assetBalances_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetBalances();
     }
 
     @java.lang.Override
@@ -80092,21 +82696,25 @@ public final class BrsApi {
 
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     long getAsset();
 
     /**
      * <code>uint64 account = 2;</code>
+     * @return The account.
      */
     long getAccount();
 
     /**
      * <code>uint64 balance = 3;</code>
+     * @return The balance.
      */
     long getBalance();
 
     /**
      * <code>uint64 unconfirmedBalance = 4;</code>
+     * @return The unconfirmedBalance.
      */
     long getUnconfirmedBalance();
   }
@@ -80126,6 +82734,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AssetBalance();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -80138,7 +82753,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -80205,6 +82819,7 @@ public final class BrsApi {
     private long asset_;
     /**
      * <code>uint64 asset = 1;</code>
+     * @return The asset.
      */
     public long getAsset() {
       return asset_;
@@ -80214,6 +82829,7 @@ public final class BrsApi {
     private long account_;
     /**
      * <code>uint64 account = 2;</code>
+     * @return The account.
      */
     public long getAccount() {
       return account_;
@@ -80223,6 +82839,7 @@ public final class BrsApi {
     private long balance_;
     /**
      * <code>uint64 balance = 3;</code>
+     * @return The balance.
      */
     public long getBalance() {
       return balance_;
@@ -80232,6 +82849,7 @@ public final class BrsApi {
     private long unconfirmedBalance_;
     /**
      * <code>uint64 unconfirmedBalance = 4;</code>
+     * @return The unconfirmedBalance.
      */
     public long getUnconfirmedBalance() {
       return unconfirmedBalance_;
@@ -80597,12 +83215,15 @@ public final class BrsApi {
       private long asset_ ;
       /**
        * <code>uint64 asset = 1;</code>
+       * @return The asset.
        */
       public long getAsset() {
         return asset_;
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @param value The asset to set.
+       * @return This builder for chaining.
        */
       public Builder setAsset(long value) {
         
@@ -80612,6 +83233,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 asset = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAsset() {
         
@@ -80623,12 +83245,15 @@ public final class BrsApi {
       private long account_ ;
       /**
        * <code>uint64 account = 2;</code>
+       * @return The account.
        */
       public long getAccount() {
         return account_;
       }
       /**
        * <code>uint64 account = 2;</code>
+       * @param value The account to set.
+       * @return This builder for chaining.
        */
       public Builder setAccount(long value) {
         
@@ -80638,6 +83263,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 account = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAccount() {
         
@@ -80649,12 +83275,15 @@ public final class BrsApi {
       private long balance_ ;
       /**
        * <code>uint64 balance = 3;</code>
+       * @return The balance.
        */
       public long getBalance() {
         return balance_;
       }
       /**
        * <code>uint64 balance = 3;</code>
+       * @param value The balance to set.
+       * @return This builder for chaining.
        */
       public Builder setBalance(long value) {
         
@@ -80664,6 +83293,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 balance = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBalance() {
         
@@ -80675,12 +83305,15 @@ public final class BrsApi {
       private long unconfirmedBalance_ ;
       /**
        * <code>uint64 unconfirmedBalance = 4;</code>
+       * @return The unconfirmedBalance.
        */
       public long getUnconfirmedBalance() {
         return unconfirmedBalance_;
       }
       /**
        * <code>uint64 unconfirmedBalance = 4;</code>
+       * @param value The unconfirmedBalance to set.
+       * @return This builder for chaining.
        */
       public Builder setUnconfirmedBalance(long value) {
         
@@ -80690,6 +83323,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 unconfirmedBalance = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUnconfirmedBalance() {
         
@@ -80756,16 +83390,19 @@ public final class BrsApi {
 
     /**
      * <code>uint32 height = 1;</code>
+     * @return The height.
      */
     int getHeight();
 
     /**
      * <code>bytes generationSignature = 2;</code>
+     * @return The generationSignature.
      */
     com.google.protobuf.ByteString getGenerationSignature();
 
     /**
      * <code>uint64 baseTarget = 3;</code>
+     * @return The baseTarget.
      */
     long getBaseTarget();
   }
@@ -80786,6 +83423,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MiningInfo();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -80798,7 +83442,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -80860,6 +83503,7 @@ public final class BrsApi {
     private int height_;
     /**
      * <code>uint32 height = 1;</code>
+     * @return The height.
      */
     public int getHeight() {
       return height_;
@@ -80869,6 +83513,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString generationSignature_;
     /**
      * <code>bytes generationSignature = 2;</code>
+     * @return The generationSignature.
      */
     public com.google.protobuf.ByteString getGenerationSignature() {
       return generationSignature_;
@@ -80878,6 +83523,7 @@ public final class BrsApi {
     private long baseTarget_;
     /**
      * <code>uint64 baseTarget = 3;</code>
+     * @return The baseTarget.
      */
     public long getBaseTarget() {
       return baseTarget_;
@@ -81223,12 +83869,15 @@ public final class BrsApi {
       private int height_ ;
       /**
        * <code>uint32 height = 1;</code>
+       * @return The height.
        */
       public int getHeight() {
         return height_;
       }
       /**
        * <code>uint32 height = 1;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
        */
       public Builder setHeight(int value) {
         
@@ -81238,6 +83887,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint32 height = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHeight() {
         
@@ -81249,12 +83899,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString generationSignature_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes generationSignature = 2;</code>
+       * @return The generationSignature.
        */
       public com.google.protobuf.ByteString getGenerationSignature() {
         return generationSignature_;
       }
       /**
        * <code>bytes generationSignature = 2;</code>
+       * @param value The generationSignature to set.
+       * @return This builder for chaining.
        */
       public Builder setGenerationSignature(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -81267,6 +83920,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes generationSignature = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearGenerationSignature() {
         
@@ -81278,12 +83932,15 @@ public final class BrsApi {
       private long baseTarget_ ;
       /**
        * <code>uint64 baseTarget = 3;</code>
+       * @return The baseTarget.
        */
       public long getBaseTarget() {
         return baseTarget_;
       }
       /**
        * <code>uint64 baseTarget = 3;</code>
+       * @param value The baseTarget to set.
+       * @return This builder for chaining.
        */
       public Builder setBaseTarget(long value) {
         
@@ -81293,6 +83950,7 @@ public final class BrsApi {
       }
       /**
        * <code>uint64 baseTarget = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBaseTarget() {
         
@@ -81359,6 +84017,7 @@ public final class BrsApi {
 
     /**
      * <code>bytes transactionBytes = 1;</code>
+     * @return The transactionBytes.
      */
     com.google.protobuf.ByteString getTransactionBytes();
   }
@@ -81379,6 +84038,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TransactionBytes();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -81391,7 +84057,6 @@ public final class BrsApi {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -81443,6 +84108,7 @@ public final class BrsApi {
     private com.google.protobuf.ByteString transactionBytes_;
     /**
      * <code>bytes transactionBytes = 1;</code>
+     * @return The transactionBytes.
      */
     public com.google.protobuf.ByteString getTransactionBytes() {
       return transactionBytes_;
@@ -81753,12 +84419,15 @@ public final class BrsApi {
       private com.google.protobuf.ByteString transactionBytes_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes transactionBytes = 1;</code>
+       * @return The transactionBytes.
        */
       public com.google.protobuf.ByteString getTransactionBytes() {
         return transactionBytes_;
       }
       /**
        * <code>bytes transactionBytes = 1;</code>
+       * @param value The transactionBytes to set.
+       * @return This builder for chaining.
        */
       public Builder setTransactionBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -81771,6 +84440,7 @@ public final class BrsApi {
       }
       /**
        * <code>bytes transactionBytes = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransactionBytes() {
         
@@ -81852,6 +84522,13 @@ public final class BrsApi {
       super(builder);
     }
     private OrdinaryPaymentAttachment() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new OrdinaryPaymentAttachment();
     }
 
     @java.lang.Override
@@ -82274,6 +84951,13 @@ public final class BrsApi {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ArbitraryMessageAttachment();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -82675,7 +85359,7 @@ public final class BrsApi {
   }
   /**
    * <pre>
-   * Empty.
+   * TODO version
    * </pre>
    *
    * Protobuf type {@code ATPaymentAttachment}
@@ -82690,6 +85374,13 @@ public final class BrsApi {
       super(builder);
     }
     private ATPaymentAttachment() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ATPaymentAttachment();
     }
 
     @java.lang.Override
@@ -82893,7 +85584,7 @@ public final class BrsApi {
     }
     /**
      * <pre>
-     * Empty.
+     * TODO version
      * </pre>
      *
      * Protobuf type {@code ATPaymentAttachment}
@@ -83083,6 +85774,560 @@ public final class BrsApi {
 
     @java.lang.Override
     public burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface EffectiveBalanceLeasingAttachmentOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:EffectiveBalanceLeasingAttachment)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 version = 1;</code>
+     * @return The version.
+     */
+    int getVersion();
+
+    /**
+     * <code>uint32 period = 2;</code>
+     * @return The period.
+     */
+    int getPeriod();
+  }
+  /**
+   * Protobuf type {@code EffectiveBalanceLeasingAttachment}
+   */
+  public  static final class EffectiveBalanceLeasingAttachment extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:EffectiveBalanceLeasingAttachment)
+      EffectiveBalanceLeasingAttachmentOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EffectiveBalanceLeasingAttachment.newBuilder() to construct.
+    private EffectiveBalanceLeasingAttachment(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EffectiveBalanceLeasingAttachment() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EffectiveBalanceLeasingAttachment();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EffectiveBalanceLeasingAttachment(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              version_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              period_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.class, burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.Builder.class);
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private int version_;
+    /**
+     * <code>uint32 version = 1;</code>
+     * @return The version.
+     */
+    public int getVersion() {
+      return version_;
+    }
+
+    public static final int PERIOD_FIELD_NUMBER = 2;
+    private int period_;
+    /**
+     * <code>uint32 period = 2;</code>
+     * @return The period.
+     */
+    public int getPeriod() {
+      return period_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (version_ != 0) {
+        output.writeUInt32(1, version_);
+      }
+      if (period_ != 0) {
+        output.writeUInt32(2, period_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (version_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, version_);
+      }
+      if (period_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, period_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment)) {
+        return super.equals(obj);
+      }
+      burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment other = (burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment) obj;
+
+      if (getVersion()
+          != other.getVersion()) return false;
+      if (getPeriod()
+          != other.getPeriod()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion();
+      hash = (37 * hash) + PERIOD_FIELD_NUMBER;
+      hash = (53 * hash) + getPeriod();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code EffectiveBalanceLeasingAttachment}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:EffectiveBalanceLeasingAttachment)
+        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachmentOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.class, burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.Builder.class);
+      }
+
+      // Construct using burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        version_ = 0;
+
+        period_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+      }
+
+      @java.lang.Override
+      public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment getDefaultInstanceForType() {
+        return burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment build() {
+        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment buildPartial() {
+        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment result = new burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment(this);
+        result.version_ = version_;
+        result.period_ = period_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment) {
+          return mergeFrom((burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment other) {
+        if (other == burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.getDefaultInstance()) return this;
+        if (other.getVersion() != 0) {
+          setVersion(other.getVersion());
+        }
+        if (other.getPeriod() != 0) {
+          setPeriod(other.getPeriod());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int version_ ;
+      /**
+       * <code>uint32 version = 1;</code>
+       * @return The version.
+       */
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(int value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int period_ ;
+      /**
+       * <code>uint32 period = 2;</code>
+       * @return The period.
+       */
+      public int getPeriod() {
+        return period_;
+      }
+      /**
+       * <code>uint32 period = 2;</code>
+       * @param value The period to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPeriod(int value) {
+        
+        period_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 period = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPeriod() {
+        
+        period_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:EffectiveBalanceLeasingAttachment)
+    }
+
+    // @@protoc_insertion_point(class_scope:EffectiveBalanceLeasingAttachment)
+    private static final burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment();
+    }
+
+    public static burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EffectiveBalanceLeasingAttachment>
+        PARSER = new com.google.protobuf.AbstractParser<EffectiveBalanceLeasingAttachment>() {
+      @java.lang.Override
+      public EffectiveBalanceLeasingAttachment parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EffectiveBalanceLeasingAttachment(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<EffectiveBalanceLeasingAttachment> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EffectiveBalanceLeasingAttachment> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -83514,11 +86759,6 @@ public final class BrsApi {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_DigitalGoodsRefundAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EffectiveBalanceLeasingAttachment_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RewardRecipientAssignmentAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -83603,6 +86843,11 @@ public final class BrsApi {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ATPaymentAttachment_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -83758,223 +87003,213 @@ public final class BrsApi {
       "\"\177\n\005Alias\022\n\n\002id\030\001 \001(\004\022\r\n\005owner\030\002 \001(\004\022\014\n\004" +
       "name\030\003 \001(\t\022\013\n\003uri\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001" +
       "(\r\022\017\n\007offered\030\006 \001(\010\022\r\n\005price\030\007 \001(\004\022\r\n\005bu" +
-      "yer\030\010 \001(\004\"\024\n\004Time\022\014\n\004time\030\001 \001(\r\"\253\003\n\005Stat" +
+      "yer\030\010 \001(\004\"\024\n\004Time\022\014\n\004time\030\001 \001(\r\"\357\002\n\005Stat" +
       "e\022\023\n\013application\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022" +
       "\023\n\004time\030\003 \001(\0132\005.Time\022\021\n\tlastBlock\030\004 \001(\004\022" +
       "\022\n\nlastHeight\030\005 \001(\r\022\034\n\024cumulativeDifficu" +
       "lty\030\006 \001(\t\022\025\n\rnumberOfPeers\030\007 \001(\r\022\033\n\023numb" +
       "erOfActivePeers\030\010 \001(\r\022\027\n\017numberOfForgers" +
       "\030\t \001(\r\022\034\n\024lastBlockchainFeeder\030\n \001(\t\022\"\n\032" +
-      "lastBlockchainFeederHeight\030\013 \001(\r\022\022\n\nisSc" +
-      "anning\030\014 \001(\010\022\033\n\023availableProcessors\030\r \001(" +
-      "\r\022\021\n\tmaxMemory\030\016 \001(\004\022\023\n\013totalMemory\030\017 \001(" +
-      "\004\022\022\n\nfreeMemory\030\020 \001(\004\022&\n\036indirectIncomin" +
-      "gServiceEnabled\030\021 \001(\010\"B\n\rFeeSuggestion\022\r" +
-      "\n\005cheap\030\001 \001(\004\022\020\n\010standard\030\002 \001(\004\022\020\n\010prior" +
-      "ity\030\003 \001(\004\"9\n\032TransactionBroadcastResult\022" +
-      "\033\n\023numberOfPeersSentTo\030\001 \001(\r\"b\n\017GetBlock" +
-      "Request\022\017\n\007blockId\030\001 \001(\004\022\016\n\006height\030\002 \001(\r" +
-      "\022\021\n\ttimestamp\030\003 \001(\r\022\033\n\023includeTransactio" +
-      "ns\030\004 \001(\010\"&\n\021GetAccountRequest\022\021\n\taccount" +
-      "Id\030\001 \001(\004\"T\n\022GetAccountsRequest\022\027\n\017reward" +
-      "Recipient\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\027\n\017include" +
-      "Accounts\030\003 \001(\010\"@\n\025GetTransactionRequest\022" +
-      "\025\n\rtransactionId\030\001 \001(\004\022\020\n\010fullHash\030\002 \001(\014" +
-      "\"_\n\022SubmitNonceRequest\022\024\n\014secretPhrase\030\001" +
-      " \001(\t\022\r\n\005nonce\030\002 \001(\004\022\017\n\007account\030\003 \001(\004\022\023\n\013" +
-      "blockHeight\030\004 \001(\r\"\'\n\023SubmitNonceResponse" +
-      "\022\020\n\010deadline\030\001 \001(\004\"\274\003\n\005Block\022\n\n\002id\030\001 \001(\004" +
-      "\022\016\n\006height\030\002 \001(\r\022\034\n\024numberOfTransactions" +
-      "\030\003 \001(\r\022\023\n\013totalAmount\030\004 \001(\004\022\020\n\010totalFee\030" +
-      "\005 \001(\004\022\023\n\013blockReward\030\006 \001(\004\022\025\n\rpayloadLen" +
-      "gth\030\007 \001(\r\022\017\n\007version\030\010 \001(\005\022\022\n\nbaseTarget" +
-      "\030\t \001(\004\022\021\n\ttimestamp\030\n \001(\r\022\033\n\023generationS" +
-      "ignature\030\013 \001(\014\022\026\n\016blockSignature\030\014 \001(\014\022\023" +
-      "\n\013payloadHash\030\r \001(\014\022\"\n\014transactions\030\016 \003(" +
-      "\0132\014.Transaction\022\026\n\016transactionIds\030\017 \003(\004\022" +
-      "\032\n\022generatorPublicKey\030\020 \001(\014\022\r\n\005nonce\030\021 \001" +
-      "(\004\022\r\n\005scoop\030\022 \001(\r\022\031\n\021previousBlockHash\030\023" +
-      " \001(\014\022\023\n\013nextBlockId\030\024 \001(\004\"\323\001\n\013Transactio" +
-      "n\022&\n\013transaction\030\001 \001(\0132\021.BasicTransactio" +
-      "n\022\n\n\002id\030\002 \001(\004\022\030\n\020transactionBytes\030\003 \001(\014\022" +
-      "\r\n\005block\030\004 \001(\004\022\023\n\013blockHeight\030\005 \001(\r\022\026\n\016b" +
-      "lockTimestamp\030\006 \001(\r\022\021\n\tsignature\030\007 \001(\014\022\020" +
-      "\n\010fullHash\030\010 \001(\014\022\025\n\rconfirmations\030\t \001(\021\"" +
-      "C\n\017MessageAppendix\022\017\n\007version\030\001 \001(\r\022\017\n\007m" +
-      "essage\030\002 \001(\014\022\016\n\006isText\030\003 \001(\010\"\307\001\n\030Encrypt" +
-      "edMessageAppendix\022\017\n\007version\030\001 \001(\r\022%\n\ren" +
-      "cryptedData\030\002 \001(\0132\016.EncryptedData\022\016\n\006isT" +
-      "ext\030\003 \001(\010\022,\n\004type\030\004 \001(\0162\036.EncryptedMessa" +
-      "geAppendix.Type\"5\n\004Type\022\016\n\nType_UNSET\020\000\022" +
-      "\020\n\014TO_RECIPIENT\020\001\022\013\n\007TO_SELF\020\002\"L\n\035Public" +
-      "KeyAnnouncementAppendix\022\017\n\007version\030\001 \001(\r" +
-      "\022\032\n\022recipientPublicKey\030\002 \001(\014\"\230\001\n\022MultiOu" +
-      "tAttachment\022\017\n\007version\030\001 \001(\r\0229\n\nrecipien" +
-      "ts\030\002 \003(\0132%.MultiOutAttachment.MultiOutRe" +
-      "cipient\0326\n\021MultiOutRecipient\022\021\n\trecipien" +
-      "t\030\001 \001(\004\022\016\n\006amount\030\002 \001(\004\"=\n\026MultiOutSameA" +
-      "ttachment\022\017\n\007version\030\001 \001(\r\022\022\n\nrecipients" +
-      "\030\002 \003(\004\"G\n\031AliasAssignmentAttachment\022\017\n\007v" +
-      "ersion\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\013\n\003uri\030\003 \001(\t\"" +
-      "C\n\023AliasSellAttachment\022\017\n\007version\030\001 \001(\r\022" +
-      "\014\n\004name\030\002 \001(\t\022\r\n\005price\030\003 \001(\004\"3\n\022AliasBuy" +
-      "Attachment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(" +
-      "\t\"K\n\025AccountInfoAttachment\022\017\n\007version\030\001 " +
-      "\001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\"q" +
-      "\n\027AssetIssuanceAttachment\022\017\n\007version\030\001 \001" +
-      "(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\020\n" +
-      "\010quantity\030\004 \001(\004\022\020\n\010decimals\030\005 \001(\r\"\\\n\027Ass" +
-      "etTransferAttachment\022\017\n\007version\030\001 \001(\r\022\r\n" +
-      "\005asset\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\022\017\n\007commen" +
-      "t\030\004 \001(\t\"z\n\035AssetOrderPlacementAttachment" +
+      "lastBlockchainFeederHeight\030\013 \001(\r\022\033\n\023avai" +
+      "lableProcessors\030\014 \001(\r\022\021\n\tmaxMemory\030\r \001(\004" +
+      "\022\023\n\013totalMemory\030\016 \001(\004\022\022\n\nfreeMemory\030\017 \001(" +
+      "\004\"B\n\rFeeSuggestion\022\r\n\005cheap\030\001 \001(\004\022\020\n\010sta" +
+      "ndard\030\002 \001(\004\022\020\n\010priority\030\003 \001(\004\"9\n\032Transac" +
+      "tionBroadcastResult\022\033\n\023numberOfPeersSent" +
+      "To\030\001 \001(\r\"b\n\017GetBlockRequest\022\017\n\007blockId\030\001" +
+      " \001(\004\022\016\n\006height\030\002 \001(\r\022\021\n\ttimestamp\030\003 \001(\r\022" +
+      "\033\n\023includeTransactions\030\004 \001(\010\"&\n\021GetAccou" +
+      "ntRequest\022\021\n\taccountId\030\001 \001(\004\"T\n\022GetAccou" +
+      "ntsRequest\022\027\n\017rewardRecipient\030\001 \001(\004\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\027\n\017includeAccounts\030\003 \001(\010\"@\n\025Ge" +
+      "tTransactionRequest\022\025\n\rtransactionId\030\001 \001" +
+      "(\004\022\020\n\010fullHash\030\002 \001(\014\"_\n\022SubmitNonceReque" +
+      "st\022\024\n\014secretPhrase\030\001 \001(\t\022\r\n\005nonce\030\002 \001(\004\022" +
+      "\017\n\007account\030\003 \001(\004\022\023\n\013blockHeight\030\004 \001(\r\"\'\n" +
+      "\023SubmitNonceResponse\022\020\n\010deadline\030\001 \001(\004\"\274" +
+      "\003\n\005Block\022\n\n\002id\030\001 \001(\004\022\016\n\006height\030\002 \001(\r\022\034\n\024" +
+      "numberOfTransactions\030\003 \001(\r\022\023\n\013totalAmoun" +
+      "t\030\004 \001(\004\022\020\n\010totalFee\030\005 \001(\004\022\023\n\013blockReward" +
+      "\030\006 \001(\004\022\025\n\rpayloadLength\030\007 \001(\r\022\017\n\007version" +
+      "\030\010 \001(\005\022\022\n\nbaseTarget\030\t \001(\004\022\021\n\ttimestamp\030" +
+      "\n \001(\r\022\033\n\023generationSignature\030\013 \001(\014\022\026\n\016bl" +
+      "ockSignature\030\014 \001(\014\022\023\n\013payloadHash\030\r \001(\014\022" +
+      "\"\n\014transactions\030\016 \003(\0132\014.Transaction\022\026\n\016t" +
+      "ransactionIds\030\017 \003(\004\022\032\n\022generatorPublicKe" +
+      "y\030\020 \001(\014\022\r\n\005nonce\030\021 \001(\004\022\r\n\005scoop\030\022 \001(\r\022\031\n" +
+      "\021previousBlockHash\030\023 \001(\014\022\023\n\013nextBlockId\030" +
+      "\024 \001(\004\"\323\001\n\013Transaction\022&\n\013transaction\030\001 \001" +
+      "(\0132\021.BasicTransaction\022\n\n\002id\030\002 \001(\004\022\030\n\020tra" +
+      "nsactionBytes\030\003 \001(\014\022\r\n\005block\030\004 \001(\004\022\023\n\013bl" +
+      "ockHeight\030\005 \001(\r\022\026\n\016blockTimestamp\030\006 \001(\r\022" +
+      "\021\n\tsignature\030\007 \001(\014\022\020\n\010fullHash\030\010 \001(\014\022\025\n\r" +
+      "confirmations\030\t \001(\021\"C\n\017MessageAppendix\022\017" +
+      "\n\007version\030\001 \001(\r\022\017\n\007message\030\002 \001(\014\022\016\n\006isTe" +
+      "xt\030\003 \001(\010\"\307\001\n\030EncryptedMessageAppendix\022\017\n" +
+      "\007version\030\001 \001(\r\022%\n\rencryptedData\030\002 \001(\0132\016." +
+      "EncryptedData\022\016\n\006isText\030\003 \001(\010\022,\n\004type\030\004 " +
+      "\001(\0162\036.EncryptedMessageAppendix.Type\"5\n\004T" +
+      "ype\022\016\n\nType_UNSET\020\000\022\020\n\014TO_RECIPIENT\020\001\022\013\n" +
+      "\007TO_SELF\020\002\"L\n\035PublicKeyAnnouncementAppen" +
+      "dix\022\017\n\007version\030\001 \001(\r\022\032\n\022recipientPublicK" +
+      "ey\030\002 \001(\014\"\230\001\n\022MultiOutAttachment\022\017\n\007versi" +
+      "on\030\001 \001(\r\0229\n\nrecipients\030\002 \003(\0132%.MultiOutA" +
+      "ttachment.MultiOutRecipient\0326\n\021MultiOutR" +
+      "ecipient\022\021\n\trecipient\030\001 \001(\004\022\016\n\006amount\030\002 " +
+      "\001(\004\"=\n\026MultiOutSameAttachment\022\017\n\007version" +
+      "\030\001 \001(\r\022\022\n\nrecipients\030\002 \003(\004\"G\n\031AliasAssig" +
+      "nmentAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004name" +
+      "\030\002 \001(\t\022\013\n\003uri\030\003 \001(\t\"C\n\023AliasSellAttachme" +
+      "nt\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\r\n\005pri" +
+      "ce\030\003 \001(\004\"3\n\022AliasBuyAttachment\022\017\n\007versio" +
+      "n\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"K\n\025AccountInfoAtta" +
+      "chment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n" +
+      "\013description\030\003 \001(\t\"q\n\027AssetIssuanceAttac" +
+      "hment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013" +
+      "description\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\004\022\020\n\010d" +
+      "ecimals\030\005 \001(\r\"\\\n\027AssetTransferAttachment" +
       "\022\017\n\007version\030\001 \001(\r\022\r\n\005asset\030\002 \001(\004\022\020\n\010quan" +
-      "tity\030\003 \001(\004\022\r\n\005price\030\004 \001(\004\022\030\n\004type\030\005 \001(\0162" +
-      "\n.OrderType\"\\\n AssetOrderCancellationAtt" +
-      "achment\022\017\n\007version\030\001 \001(\r\022\r\n\005order\030\002 \001(\004\022" +
-      "\030\n\004type\030\003 \001(\0162\n.OrderType\"\202\001\n\035DigitalGoo" +
-      "dsListingAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004" +
-      "name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004tags\030" +
-      "\004 \001(\t\022\020\n\010quantity\030\005 \001(\r\022\r\n\005price\030\006 \001(\004\"A" +
-      "\n\037DigitalGoodsDelistingAttachment\022\017\n\007ver" +
-      "sion\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\"R\n!DigitalGood" +
-      "sPriceChangeAttachment\022\017\n\007version\030\001 \001(\r\022" +
-      "\r\n\005goods\030\002 \001(\004\022\r\n\005price\030\003 \001(\004\"]\n$Digital" +
-      "GoodsQuantityChangeAttachment\022\017\n\007version" +
-      "\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\025\n\rdeltaQuantity\030\003" +
-      " \001(\021\"\204\001\n\036DigitalGoodsPurchaseAttachment\022" +
-      "\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\020\n\010quant" +
-      "ity\030\003 \001(\r\022\r\n\005price\030\004 \001(\004\022!\n\031deliveryDead" +
-      "lineTimestmap\030\005 \001(\r\"\204\001\n\036DigitalGoodsDeli" +
-      "veryAttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010purch" +
-      "ase\030\002 \001(\004\022\020\n\010discount\030\003 \001(\004\022\035\n\005goods\030\004 \001" +
-      "(\0132\016.EncryptedData\022\016\n\006isText\030\005 \001(\010\"C\n\036Di" +
-      "gitalGoodsFeedbackAttachment\022\017\n\007version\030" +
-      "\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\"Q\n\034DigitalGoodsR" +
-      "efundAttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010purc" +
-      "hase\030\002 \001(\004\022\016\n\006refund\030\003 \001(\004\"D\n!EffectiveB" +
-      "alanceLeasingAttachment\022\017\n\007version\030\001 \001(\r" +
-      "\022\016\n\006period\030\002 \001(\r\"6\n#RewardRecipientAssig" +
-      "nmentAttachment\022\017\n\007version\030\001 \001(\r\"\244\001\n\030Esc" +
-      "rowCreationAttachment\022\017\n\007version\030\001 \001(\r\022\016" +
-      "\n\006amount\030\002 \001(\004\022\027\n\017requiredSigners\030\003 \001(\r\022" +
-      "\017\n\007signers\030\004 \003(\004\022\020\n\010deadline\030\005 \001(\r\022+\n\016de" +
-      "adlineAction\030\006 \001(\0162\023.EscrowDecisionType\"" +
-      "^\n\024EscrowSignAttachment\022\017\n\007version\030\001 \001(\r" +
-      "\022\016\n\006escrow\030\002 \001(\004\022%\n\010decision\030\003 \001(\0162\023.Esc" +
-      "rowDecisionType\"`\n\026EscrowResultAttachmen" +
-      "t\022\017\n\007version\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022%\n\010de" +
-      "cision\030\003 \001(\0162\023.EscrowDecisionType\"E\n\037Sub" +
-      "scriptionSubscribeAttachment\022\017\n\007version\030" +
-      "\001 \001(\r\022\021\n\tfrequency\030\002 \001(\r\"E\n\034Subscription" +
-      "CancelAttachment\022\017\n\007version\030\001 \001(\r\022\024\n\014sub" +
-      "scription\030\002 \001(\004\"F\n\035SubscriptionPaymentAt" +
-      "tachment\022\017\n\007version\030\001 \001(\r\022\024\n\014subscriptio" +
-      "n\030\002 \001(\004\"a\n\024ATCreationAttachment\022\017\n\007versi" +
-      "on\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 " +
-      "\001(\t\022\025\n\rcreationBytes\030\004 \001(\014\"3\n\010Accounts\022\013" +
-      "\n\003ids\030\001 \003(\004\022\032\n\010accounts\030\002 \003(\0132\010.Account\"" +
-      "\316\001\n\007Account\022\n\n\002id\030\001 \001(\004\022\021\n\tpublicKey\030\002 \001" +
-      "(\014\022\017\n\007balance\030\003 \001(\004\022\032\n\022unconfirmedBalanc" +
-      "e\030\004 \001(\004\022\025\n\rforgedBalance\030\005 \001(\004\022\014\n\004name\030\006" +
-      " \001(\t\022\023\n\013description\030\007 \001(\t\022\027\n\017rewardRecip" +
-      "ient\030\010 \001(\004\022$\n\rassetBalances\030\t \003(\0132\r.Asse" +
-      "tBalance\"5\n\rAssetBalances\022$\n\rassetBalanc" +
-      "es\030\001 \003(\0132\r.AssetBalance\"[\n\014AssetBalance\022" +
-      "\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002 \001(\004\022\017\n\007balan" +
-      "ce\030\003 \001(\004\022\032\n\022unconfirmedBalance\030\004 \001(\004\"M\n\n" +
-      "MiningInfo\022\016\n\006height\030\001 \001(\r\022\033\n\023generation" +
-      "Signature\030\002 \001(\014\022\022\n\nbaseTarget\030\003 \001(\004\",\n\020T" +
-      "ransactionBytes\022\030\n\020transactionBytes\030\001 \001(" +
-      "\014\"\033\n\031OrdinaryPaymentAttachment\"\034\n\032Arbitr" +
-      "aryMessageAttachment\"\025\n\023ATPaymentAttachm" +
-      "ent*=\n\016AssetTradeType\022\030\n\024AssetTradeType_" +
-      "UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004SELL\020\002*T\n\tPeerState\022" +
-      "\023\n\017PeerState_UNSET\020\000\022\021\n\rNON_CONNECTED\020\001\022" +
-      "\r\n\tCONNECTED\020\002\022\020\n\014DISCONNECTED\020\003*2\n\tOrde" +
-      "rType\022\023\n\017OrderType_UNSET\020\000\022\007\n\003ASK\020\001\022\007\n\003B" +
-      "ID\020\002*e\n\022EscrowDecisionType\022\034\n\030EscrowDeci" +
-      "sionType_UNSET\020\000\022\r\n\tUNDECIDED\020\001\022\013\n\007RELEA" +
-      "SE\020\002\022\n\n\006REFUND\020\003\022\t\n\005SPLIT\020\0042\363\023\n\rBrsApiSe" +
-      "rvice\022H\n\024BroadcastTransaction\022\021.BasicTra" +
-      "nsaction\032\033.TransactionBroadcastResult\"\000\022" +
-      "M\n\031BroadcastTransactionBytes\022\021.Transacti" +
-      "onBytes\032\033.TransactionBroadcastResult\"\000\022B" +
-      "\n\030CompleteBasicTransaction\022\021.BasicTransa" +
-      "ction\032\021.BasicTransaction\"\000\022,\n\nGetAccount" +
-      "\022\022.GetAccountRequest\032\010.Account\"\000\0222\n\rGetA" +
-      "ccountATs\022\022.GetAccountRequest\032\013.AccountA" +
-      "Ts\"\000\0227\n\020GetAccountBlocks\022\030.GetAccountBlo" +
-      "cksRequest\032\007.Blocks\"\000\022>\n\027GetAccountCurre" +
-      "ntOrders\022\030.GetAccountOrdersRequest\032\007.Ord" +
-      "ers\"\000\022I\n\034GetAccountEscrowTransactions\022\022." +
-      "GetAccountRequest\032\023.EscrowTransactions\"\000" +
-      "\022/\n\013GetAccounts\022\023.GetAccountsRequest\032\t.A" +
-      "ccounts\"\000\022?\n\027GetAccountSubscriptions\022\022.G" +
-      "etAccountRequest\032\016.Subscriptions\"\000\022I\n\026Ge" +
-      "tAccountTransactions\022\036.GetAccountTransac" +
-      "tionsRequest\032\r.Transactions\"\000\022&\n\010GetAlia" +
-      "s\022\020.GetAliasRequest\032\006.Alias\"\000\022,\n\nGetAlia" +
-      "ses\022\022.GetAliasesRequest\032\010.Aliases\"\000\022%\n\010G" +
-      "etAsset\022\017.GetByIdRequest\032\006.Asset\"\000\022>\n\020Ge" +
-      "tAssetBalances\022\030.GetAssetBalancesRequest" +
-      "\032\016.AssetBalances\"\000\022)\n\tGetAssets\022\021.GetAss" +
-      "etsRequest\032\007.Assets\"\000\0222\n\021GetAssetsByIssu" +
-      "er\022\022.GetAccountRequest\032\007.Assets\"\000\022;\n\016Get" +
-      "AssetTrades\022\031.GetAssetTransfersRequest\032\014" +
-      ".AssetTrades\"\000\022A\n\021GetAssetTransfers\022\031.Ge" +
-      "tAssetTransfersRequest\032\017.AssetTransfers\"" +
-      "\000\022\037\n\005GetAT\022\017.GetByIdRequest\032\003.AT\"\000\022,\n\010Ge" +
-      "tATIds\022\026.google.protobuf.Empty\032\006.ATIds\"\000" +
-      "\022&\n\010GetBlock\022\020.GetBlockRequest\032\006.Block\"\000" +
-      "\022)\n\tGetBlocks\022\021.GetBlocksRequest\032\007.Block" +
-      "s\"\000\0224\n\014GetConstants\022\026.google.protobuf.Em" +
-      "pty\032\n.Constants\"\000\022.\n\tGetCounts\022\026.google." +
-      "protobuf.Empty\032\007.Counts\"\000\0221\n\016GetCurrentT" +
-      "ime\022\026.google.protobuf.Empty\032\005.Time\"\000\022)\n\n" +
-      "GetDgsGood\022\017.GetByIdRequest\032\010.DgsGood\"\000\022" +
-      "/\n\013GetDgsGoods\022\023.GetDgsGoodsRequest\032\t.Dg" +
-      "sGoods\"\000\022I\n\026GetDgsPendingPurchases\022\036.Get" +
-      "DgsPendingPurchasesRequest\032\r.DgsPurchase" +
-      "s\"\000\0221\n\016GetDgsPurchase\022\017.GetByIdRequest\032\014" +
-      ".DgsPurchase\"\000\022;\n\017GetDgsPurchases\022\027.GetD" +
-      "gsPurchasesRequest\032\r.DgsPurchases\"\000\022=\n\024G" +
-      "etEscrowTransaction\022\017.GetByIdRequest\032\022.E" +
-      "scrowTransaction\"\000\0228\n\rGetMiningInfo\022\026.go" +
-      "ogle.protobuf.Empty\032\013.MiningInfo\"\0000\001\022&\n\010" +
-      "GetOrder\022\020.GetOrderRequest\032\006.Order\"\000\022)\n\t" +
-      "GetOrders\022\021.GetOrdersRequest\032\007.Orders\"\000\022" +
-      "#\n\007GetPeer\022\017.GetPeerRequest\032\005.Peer\"\000\022&\n\010" +
-      "GetPeers\022\020.GetPeersRequest\032\006.Peers\"\000\022,\n\010" +
-      "GetState\022\026.google.protobuf.Empty\032\006.State" +
-      "\"\000\0223\n\017GetSubscription\022\017.GetByIdRequest\032\r" +
-      ".Subscription\"\000\022A\n\031GetSubscriptionsToAcc" +
-      "ount\022\022.GetAccountRequest\032\016.Subscriptions" +
-      "\"\000\0228\n\016GetTransaction\022\026.GetTransactionReq" +
-      "uest\032\014.Transaction\"\000\022=\n\023GetTransactionBy" +
-      "tes\022\021.BasicTransaction\032\021.TransactionByte" +
-      "s\"\000\022L\n\032GetUnconfirmedTransactions\022\022.GetA" +
-      "ccountRequest\032\030.UnconfirmedTransactions\"" +
-      "\000\022:\n\020ParseTransaction\022\021.TransactionBytes" +
-      "\032\021.BasicTransaction\"\000\022:\n\013SubmitNonce\022\023.S" +
-      "ubmitNonceRequest\032\024.SubmitNonceResponse\"" +
-      "\000\0226\n\nSuggestFee\022\026.google.protobuf.Empty\032" +
-      "\016.FeeSuggestion\"\000B\035\n\033burst.kit.service.i" +
-      "mpl.grpcb\006proto3"
+      "tity\030\003 \001(\004\022\017\n\007comment\030\004 \001(\t\"z\n\035AssetOrde" +
+      "rPlacementAttachment\022\017\n\007version\030\001 \001(\r\022\r\n" +
+      "\005asset\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\022\r\n\005price\030" +
+      "\004 \001(\004\022\030\n\004type\030\005 \001(\0162\n.OrderType\"\\\n Asset" +
+      "OrderCancellationAttachment\022\017\n\007version\030\001" +
+      " \001(\r\022\r\n\005order\030\002 \001(\004\022\030\n\004type\030\003 \001(\0162\n.Orde" +
+      "rType\"\202\001\n\035DigitalGoodsListingAttachment\022" +
+      "\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013descri" +
+      "ption\030\003 \001(\t\022\014\n\004tags\030\004 \001(\t\022\020\n\010quantity\030\005 " +
+      "\001(\r\022\r\n\005price\030\006 \001(\004\"A\n\037DigitalGoodsDelist" +
+      "ingAttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030" +
+      "\002 \001(\004\"R\n!DigitalGoodsPriceChangeAttachme" +
+      "nt\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\r\n\005pr" +
+      "ice\030\003 \001(\004\"]\n$DigitalGoodsQuantityChangeA" +
+      "ttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(" +
+      "\004\022\025\n\rdeltaQuantity\030\003 \001(\021\"\204\001\n\036DigitalGood" +
+      "sPurchaseAttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005" +
+      "goods\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\r\022\r\n\005price\030\004" +
+      " \001(\004\022!\n\031deliveryDeadlineTimestmap\030\005 \001(\r\"" +
+      "\204\001\n\036DigitalGoodsDeliveryAttachment\022\017\n\007ve" +
+      "rsion\030\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\022\020\n\010discoun" +
+      "t\030\003 \001(\004\022\035\n\005goods\030\004 \001(\0132\016.EncryptedData\022\016" +
+      "\n\006isText\030\005 \001(\010\"C\n\036DigitalGoodsFeedbackAt" +
+      "tachment\022\017\n\007version\030\001 \001(\r\022\020\n\010purchase\030\002 " +
+      "\001(\004\"Q\n\034DigitalGoodsRefundAttachment\022\017\n\007v" +
+      "ersion\030\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\022\016\n\006refund" +
+      "\030\003 \001(\004\"6\n#RewardRecipientAssignmentAttac" +
+      "hment\022\017\n\007version\030\001 \001(\r\"\244\001\n\030EscrowCreatio" +
+      "nAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006amount\030\002" +
+      " \001(\004\022\027\n\017requiredSigners\030\003 \001(\r\022\017\n\007signers" +
+      "\030\004 \003(\004\022\020\n\010deadline\030\005 \001(\r\022+\n\016deadlineActi" +
+      "on\030\006 \001(\0162\023.EscrowDecisionType\"^\n\024EscrowS" +
+      "ignAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006escrow" +
+      "\030\002 \001(\004\022%\n\010decision\030\003 \001(\0162\023.EscrowDecisio" +
+      "nType\"`\n\026EscrowResultAttachment\022\017\n\007versi" +
+      "on\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022%\n\010decision\030\003 \001" +
+      "(\0162\023.EscrowDecisionType\"E\n\037SubscriptionS" +
+      "ubscribeAttachment\022\017\n\007version\030\001 \001(\r\022\021\n\tf" +
+      "requency\030\002 \001(\r\"E\n\034SubscriptionCancelAtta" +
+      "chment\022\017\n\007version\030\001 \001(\r\022\024\n\014subscription\030" +
+      "\002 \001(\004\"F\n\035SubscriptionPaymentAttachment\022\017" +
+      "\n\007version\030\001 \001(\r\022\024\n\014subscription\030\002 \001(\004\"a\n" +
+      "\024ATCreationAttachment\022\017\n\007version\030\001 \001(\r\022\014" +
+      "\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\025\n\rcre" +
+      "ationBytes\030\004 \001(\014\"3\n\010Accounts\022\013\n\003ids\030\001 \003(" +
+      "\004\022\032\n\010accounts\030\002 \003(\0132\010.Account\"\316\001\n\007Accoun" +
+      "t\022\n\n\002id\030\001 \001(\004\022\021\n\tpublicKey\030\002 \001(\014\022\017\n\007bala" +
+      "nce\030\003 \001(\004\022\032\n\022unconfirmedBalance\030\004 \001(\004\022\025\n" +
+      "\rforgedBalance\030\005 \001(\004\022\014\n\004name\030\006 \001(\t\022\023\n\013de" +
+      "scription\030\007 \001(\t\022\027\n\017rewardRecipient\030\010 \001(\004" +
+      "\022$\n\rassetBalances\030\t \003(\0132\r.AssetBalance\"5" +
+      "\n\rAssetBalances\022$\n\rassetBalances\030\001 \003(\0132\r" +
+      ".AssetBalance\"[\n\014AssetBalance\022\r\n\005asset\030\001" +
+      " \001(\004\022\017\n\007account\030\002 \001(\004\022\017\n\007balance\030\003 \001(\004\022\032" +
+      "\n\022unconfirmedBalance\030\004 \001(\004\"M\n\nMiningInfo" +
+      "\022\016\n\006height\030\001 \001(\r\022\033\n\023generationSignature\030" +
+      "\002 \001(\014\022\022\n\nbaseTarget\030\003 \001(\004\",\n\020Transaction" +
+      "Bytes\022\030\n\020transactionBytes\030\001 \001(\014\"\033\n\031Ordin" +
+      "aryPaymentAttachment\"\034\n\032ArbitraryMessage" +
+      "Attachment\"\025\n\023ATPaymentAttachment\"D\n!Eff" +
+      "ectiveBalanceLeasingAttachment\022\017\n\007versio" +
+      "n\030\001 \001(\r\022\016\n\006period\030\002 \001(\r*=\n\016AssetTradeTyp" +
+      "e\022\030\n\024AssetTradeType_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004" +
+      "SELL\020\002*T\n\tPeerState\022\023\n\017PeerState_UNSET\020\000" +
+      "\022\021\n\rNON_CONNECTED\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DI" +
+      "SCONNECTED\020\003*2\n\tOrderType\022\023\n\017OrderType_U" +
+      "NSET\020\000\022\007\n\003ASK\020\001\022\007\n\003BID\020\002*e\n\022EscrowDecisi" +
+      "onType\022\034\n\030EscrowDecisionType_UNSET\020\000\022\r\n\t" +
+      "UNDECIDED\020\001\022\013\n\007RELEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005" +
+      "SPLIT\020\0042\363\023\n\rBrsApiService\022H\n\024BroadcastTr" +
+      "ansaction\022\021.BasicTransaction\032\033.Transacti" +
+      "onBroadcastResult\"\000\022M\n\031BroadcastTransact" +
+      "ionBytes\022\021.TransactionBytes\032\033.Transactio" +
+      "nBroadcastResult\"\000\022B\n\030CompleteBasicTrans" +
+      "action\022\021.BasicTransaction\032\021.BasicTransac" +
+      "tion\"\000\022,\n\nGetAccount\022\022.GetAccountRequest" +
+      "\032\010.Account\"\000\0222\n\rGetAccountATs\022\022.GetAccou" +
+      "ntRequest\032\013.AccountATs\"\000\0227\n\020GetAccountBl" +
+      "ocks\022\030.GetAccountBlocksRequest\032\007.Blocks\"" +
+      "\000\022>\n\027GetAccountCurrentOrders\022\030.GetAccoun" +
+      "tOrdersRequest\032\007.Orders\"\000\022I\n\034GetAccountE" +
+      "scrowTransactions\022\022.GetAccountRequest\032\023." +
+      "EscrowTransactions\"\000\022/\n\013GetAccounts\022\023.Ge" +
+      "tAccountsRequest\032\t.Accounts\"\000\022?\n\027GetAcco" +
+      "untSubscriptions\022\022.GetAccountRequest\032\016.S" +
+      "ubscriptions\"\000\022I\n\026GetAccountTransactions" +
+      "\022\036.GetAccountTransactionsRequest\032\r.Trans" +
+      "actions\"\000\022&\n\010GetAlias\022\020.GetAliasRequest\032" +
+      "\006.Alias\"\000\022,\n\nGetAliases\022\022.GetAliasesRequ" +
+      "est\032\010.Aliases\"\000\022%\n\010GetAsset\022\017.GetByIdReq" +
+      "uest\032\006.Asset\"\000\022>\n\020GetAssetBalances\022\030.Get" +
+      "AssetBalancesRequest\032\016.AssetBalances\"\000\022)" +
+      "\n\tGetAssets\022\021.GetAssetsRequest\032\007.Assets\"" +
+      "\000\0222\n\021GetAssetsByIssuer\022\022.GetAccountReque" +
+      "st\032\007.Assets\"\000\022;\n\016GetAssetTrades\022\031.GetAss" +
+      "etTransfersRequest\032\014.AssetTrades\"\000\022A\n\021Ge" +
+      "tAssetTransfers\022\031.GetAssetTransfersReque" +
+      "st\032\017.AssetTransfers\"\000\022\037\n\005GetAT\022\017.GetById" +
+      "Request\032\003.AT\"\000\022,\n\010GetATIds\022\026.google.prot" +
+      "obuf.Empty\032\006.ATIds\"\000\022&\n\010GetBlock\022\020.GetBl" +
+      "ockRequest\032\006.Block\"\000\022)\n\tGetBlocks\022\021.GetB" +
+      "locksRequest\032\007.Blocks\"\000\0224\n\014GetConstants\022" +
+      "\026.google.protobuf.Empty\032\n.Constants\"\000\022.\n" +
+      "\tGetCounts\022\026.google.protobuf.Empty\032\007.Cou" +
+      "nts\"\000\0221\n\016GetCurrentTime\022\026.google.protobu" +
+      "f.Empty\032\005.Time\"\000\022)\n\nGetDgsGood\022\017.GetById" +
+      "Request\032\010.DgsGood\"\000\022/\n\013GetDgsGoods\022\023.Get" +
+      "DgsGoodsRequest\032\t.DgsGoods\"\000\022I\n\026GetDgsPe" +
+      "ndingPurchases\022\036.GetDgsPendingPurchasesR" +
+      "equest\032\r.DgsPurchases\"\000\0221\n\016GetDgsPurchas" +
+      "e\022\017.GetByIdRequest\032\014.DgsPurchase\"\000\022;\n\017Ge" +
+      "tDgsPurchases\022\027.GetDgsPurchasesRequest\032\r" +
+      ".DgsPurchases\"\000\022=\n\024GetEscrowTransaction\022" +
+      "\017.GetByIdRequest\032\022.EscrowTransaction\"\000\0228" +
+      "\n\rGetMiningInfo\022\026.google.protobuf.Empty\032" +
+      "\013.MiningInfo\"\0000\001\022&\n\010GetOrder\022\020.GetOrderR" +
+      "equest\032\006.Order\"\000\022)\n\tGetOrders\022\021.GetOrder" +
+      "sRequest\032\007.Orders\"\000\022#\n\007GetPeer\022\017.GetPeer" +
+      "Request\032\005.Peer\"\000\022&\n\010GetPeers\022\020.GetPeersR" +
+      "equest\032\006.Peers\"\000\022,\n\010GetState\022\026.google.pr" +
+      "otobuf.Empty\032\006.State\"\000\0223\n\017GetSubscriptio" +
+      "n\022\017.GetByIdRequest\032\r.Subscription\"\000\022A\n\031G" +
+      "etSubscriptionsToAccount\022\022.GetAccountReq" +
+      "uest\032\016.Subscriptions\"\000\0228\n\016GetTransaction" +
+      "\022\026.GetTransactionRequest\032\014.Transaction\"\000" +
+      "\022=\n\023GetTransactionBytes\022\021.BasicTransacti" +
+      "on\032\021.TransactionBytes\"\000\022L\n\032GetUnconfirme" +
+      "dTransactions\022\022.GetAccountRequest\032\030.Unco" +
+      "nfirmedTransactions\"\000\022:\n\020ParseTransactio" +
+      "n\022\021.TransactionBytes\032\021.BasicTransaction\"" +
+      "\000\022:\n\013SubmitNonce\022\023.SubmitNonceRequest\032\024." +
+      "SubmitNonceResponse\"\000\0226\n\nSuggestFee\022\026.go" +
+      "ogle.protobuf.Empty\032\016.FeeSuggestion\"\000B\035\n" +
+      "\033burst.kit.service.impl.grpcb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
-        }, assigner);
+        });
     internal_static_GetAccountTransactionsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_GetAccountTransactionsRequest_fieldAccessorTable = new
@@ -84292,7 +87527,7 @@ public final class BrsApi {
     internal_static_State_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_State_descriptor,
-        new java.lang.String[] { "Application", "Version", "Time", "LastBlock", "LastHeight", "CumulativeDifficulty", "NumberOfPeers", "NumberOfActivePeers", "NumberOfForgers", "LastBlockchainFeeder", "LastBlockchainFeederHeight", "IsScanning", "AvailableProcessors", "MaxMemory", "TotalMemory", "FreeMemory", "IndirectIncomingServiceEnabled", });
+        new java.lang.String[] { "Application", "Version", "Time", "LastBlock", "LastHeight", "CumulativeDifficulty", "NumberOfPeers", "NumberOfActivePeers", "NumberOfForgers", "LastBlockchainFeeder", "LastBlockchainFeederHeight", "AvailableProcessors", "MaxMemory", "TotalMemory", "FreeMemory", });
     internal_static_FeeSuggestion_descriptor =
       getDescriptor().getMessageTypes().get(51);
     internal_static_FeeSuggestion_fieldAccessorTable = new
@@ -84485,114 +87720,114 @@ public final class BrsApi {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DigitalGoodsRefundAttachment_descriptor,
         new java.lang.String[] { "Version", "Purchase", "Refund", });
-    internal_static_EffectiveBalanceLeasingAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(82);
-    internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EffectiveBalanceLeasingAttachment_descriptor,
-        new java.lang.String[] { "Version", "Period", });
     internal_static_RewardRecipientAssignmentAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(83);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_RewardRecipientAssignmentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RewardRecipientAssignmentAttachment_descriptor,
         new java.lang.String[] { "Version", });
     internal_static_EscrowCreationAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(84);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_EscrowCreationAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EscrowCreationAttachment_descriptor,
         new java.lang.String[] { "Version", "Amount", "RequiredSigners", "Signers", "Deadline", "DeadlineAction", });
     internal_static_EscrowSignAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(85);
+      getDescriptor().getMessageTypes().get(84);
     internal_static_EscrowSignAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EscrowSignAttachment_descriptor,
         new java.lang.String[] { "Version", "Escrow", "Decision", });
     internal_static_EscrowResultAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(86);
+      getDescriptor().getMessageTypes().get(85);
     internal_static_EscrowResultAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EscrowResultAttachment_descriptor,
         new java.lang.String[] { "Version", "Escrow", "Decision", });
     internal_static_SubscriptionSubscribeAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(87);
+      getDescriptor().getMessageTypes().get(86);
     internal_static_SubscriptionSubscribeAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SubscriptionSubscribeAttachment_descriptor,
         new java.lang.String[] { "Version", "Frequency", });
     internal_static_SubscriptionCancelAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(88);
+      getDescriptor().getMessageTypes().get(87);
     internal_static_SubscriptionCancelAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SubscriptionCancelAttachment_descriptor,
         new java.lang.String[] { "Version", "Subscription", });
     internal_static_SubscriptionPaymentAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(89);
+      getDescriptor().getMessageTypes().get(88);
     internal_static_SubscriptionPaymentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SubscriptionPaymentAttachment_descriptor,
         new java.lang.String[] { "Version", "Subscription", });
     internal_static_ATCreationAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(90);
+      getDescriptor().getMessageTypes().get(89);
     internal_static_ATCreationAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ATCreationAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Description", "CreationBytes", });
     internal_static_Accounts_descriptor =
-      getDescriptor().getMessageTypes().get(91);
+      getDescriptor().getMessageTypes().get(90);
     internal_static_Accounts_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Accounts_descriptor,
         new java.lang.String[] { "Ids", "Accounts", });
     internal_static_Account_descriptor =
-      getDescriptor().getMessageTypes().get(92);
+      getDescriptor().getMessageTypes().get(91);
     internal_static_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Account_descriptor,
         new java.lang.String[] { "Id", "PublicKey", "Balance", "UnconfirmedBalance", "ForgedBalance", "Name", "Description", "RewardRecipient", "AssetBalances", });
     internal_static_AssetBalances_descriptor =
-      getDescriptor().getMessageTypes().get(93);
+      getDescriptor().getMessageTypes().get(92);
     internal_static_AssetBalances_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AssetBalances_descriptor,
         new java.lang.String[] { "AssetBalances", });
     internal_static_AssetBalance_descriptor =
-      getDescriptor().getMessageTypes().get(94);
+      getDescriptor().getMessageTypes().get(93);
     internal_static_AssetBalance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AssetBalance_descriptor,
         new java.lang.String[] { "Asset", "Account", "Balance", "UnconfirmedBalance", });
     internal_static_MiningInfo_descriptor =
-      getDescriptor().getMessageTypes().get(95);
+      getDescriptor().getMessageTypes().get(94);
     internal_static_MiningInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MiningInfo_descriptor,
         new java.lang.String[] { "Height", "GenerationSignature", "BaseTarget", });
     internal_static_TransactionBytes_descriptor =
-      getDescriptor().getMessageTypes().get(96);
+      getDescriptor().getMessageTypes().get(95);
     internal_static_TransactionBytes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TransactionBytes_descriptor,
         new java.lang.String[] { "TransactionBytes", });
     internal_static_OrdinaryPaymentAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(97);
+      getDescriptor().getMessageTypes().get(96);
     internal_static_OrdinaryPaymentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_OrdinaryPaymentAttachment_descriptor,
         new java.lang.String[] { });
     internal_static_ArbitraryMessageAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(98);
+      getDescriptor().getMessageTypes().get(97);
     internal_static_ArbitraryMessageAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ArbitraryMessageAttachment_descriptor,
         new java.lang.String[] { });
     internal_static_ATPaymentAttachment_descriptor =
-      getDescriptor().getMessageTypes().get(99);
+      getDescriptor().getMessageTypes().get(98);
     internal_static_ATPaymentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ATPaymentAttachment_descriptor,
         new java.lang.String[] { });
+    internal_static_EffectiveBalanceLeasingAttachment_descriptor =
+      getDescriptor().getMessageTypes().get(99);
+    internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_EffectiveBalanceLeasingAttachment_descriptor,
+        new java.lang.String[] { "Version", "Period", });
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.AnyProto.getDescriptor();
   }

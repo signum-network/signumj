@@ -1,11 +1,11 @@
 buildscript {
     dependencies {
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.11'
     }
 }
 
 apply plugin: 'com.google.protobuf'
-def grpcVersion = '1.25.0'
+def grpcVersion = '1.26.0'
 
 dependencies {
     // Gson
@@ -34,7 +34,7 @@ dependencies {
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.11.1"
+        artifact = "com.google.protobuf:protoc:3.11.2"
     }
     plugins {
         grpc {

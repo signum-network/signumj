@@ -22,7 +22,6 @@ service BrsApiService {
     rpc GetAccounts(GetAccountsRequest) returns (Accounts) {}
     rpc GetAccountSubscriptions(GetAccountRequest) returns (Subscriptions) {}
     rpc GetAccountTransactions(GetAccountTransactionsRequest) returns (Transactions) {}
-    rpc GetUnconfirmedTransactions(GetUnconfirmedTransactionsRequest) returns (Transactions) {}
     rpc GetAlias(GetAliasRequest) returns (Alias) {}
     rpc GetAliases(GetAliasesRequest) returns (Aliases) {}
     rpc GetAsset(GetByIdRequest) returns (Asset) {}
@@ -78,16 +77,6 @@ service BrsApiService {
 }
 
 message GetAccountTransactionsRequest {
-    uint64 accountId = 1;
-    uint32 timestamp = 2;
-    IndexRange indexRange = 3;
-    uint32 confirmations = 4;
-    bool filterByType = 5; // This is needed because protobuf cannot distinguish between 0 and unset values.
-    uint32 type = 6;
-    uint32 subtype = 7;
-}
-
-message GetUnconfirmedTransactionsRequest {
     uint64 accountId = 1;
     uint32 timestamp = 2;
     IndexRange indexRange = 3;
@@ -495,12 +484,10 @@ message State {
     uint32 numberOfForgers = 9;
     string lastBlockchainFeeder = 10;
     uint32 lastBlockchainFeederHeight = 11;
-    bool isScanning = 12;
-    uint32 availableProcessors = 13;
-    uint64 maxMemory = 14;
-    uint64 totalMemory = 15;
-    uint64 freeMemory = 16;
-    bool indirectIncomingServiceEnabled = 17;
+    uint32 availableProcessors = 12;
+    uint64 maxMemory = 13;
+    uint64 totalMemory = 14;
+    uint64 freeMemory = 15;
 }
 
 message FeeSuggestion {
@@ -735,11 +722,6 @@ message DigitalGoodsRefundAttachment {
     uint64 refund = 3;
 }
 
-message EffectiveBalanceLeasingAttachment {
-    uint32 version = 1;
-    uint32 period = 2;
-}
-
 message RewardRecipientAssignmentAttachment {
     uint32 version = 1;
 }
@@ -843,6 +825,11 @@ message ArbitraryMessageAttachment {
     // Empty.
 }
 
-message ATPaymentAttachment {
+message ATPaymentAttachment { // TODO version
     // Empty.
+}
+
+message EffectiveBalanceLeasingAttachment {
+    uint32 version = 1;
+    uint32 period = 2;
 }
