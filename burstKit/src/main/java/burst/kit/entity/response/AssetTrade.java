@@ -16,7 +16,7 @@ public class AssetTrade {
      * Quantity of the asset. Not actually in Burst; The BurstValue class is used as a utility.
      * Actually measured in terms of now many of the specific asset there are.
      */
-    private final BurstValue quantity;
+    private final BurstValue quantity; // TODO update this to be an AssetValue or similar class that takes into account the actual number of decimals of this asset
     /**
      * Price per asset.
      */
