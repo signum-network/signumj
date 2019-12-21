@@ -39,8 +39,8 @@ public class Account {
     public Account(BrsApi.Account account) {
         this.id = BurstAddress.fromId(account.getId());
         this.balance = BurstValue.fromPlanck(account.getBalance());
-        this.forgedBalance = BurstValue.fromBurst(account.getForgedBalance());
-        this.unconfirmedBalance = BurstValue.fromBurst(account.getUnconfirmedBalance());
+        this.forgedBalance = BurstValue.fromPlanck(account.getForgedBalance());
+        this.unconfirmedBalance = BurstValue.fromPlanck(account.getUnconfirmedBalance());
         this.publicKey = account.getPublicKey().toByteArray();
         this.description = account.getDescription();
         this.name = account.getName();
