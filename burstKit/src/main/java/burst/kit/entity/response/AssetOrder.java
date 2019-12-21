@@ -5,10 +5,11 @@ import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.OrderResponse;
 import burst.kit.service.BurstApiException;
+import burst.kit.service.impl.grpc.BrsApi;
 
 import java.util.Locale;
 
-public class Order {
+public class AssetOrder {
     private final BurstID id;
     private final BurstID assetId;
     private final BurstAddress accountAddress;
@@ -24,7 +25,7 @@ public class Order {
     private final int height;
     private final OrderType type;
 
-    public Order(BurstID id, BurstID assetId, BurstAddress accountAddress, BurstValue quantity, BurstValue price, int height, OrderType type) {
+    public AssetOrder(BurstID id, BurstID assetId, BurstAddress accountAddress, BurstValue quantity, BurstValue price, int height, OrderType type) {
         this.id = id;
         this.assetId = assetId;
         this.accountAddress = accountAddress;
@@ -34,14 +35,24 @@ public class Order {
         this.type = type;
     }
 
-    public Order(OrderResponse orderResponse) {
-        id = BurstID.fromLong(orderResponse.getOrder());
-        assetId = BurstID.fromLong(orderResponse.getAsset());
-        accountAddress = BurstAddress.fromId(orderResponse.getAccount());
-        quantity = BurstValue.fromPlanck(orderResponse.getQuantityQNT());
-        price = BurstValue.fromBurst(orderResponse.getPriceNQT());
-        height = orderResponse.getHeight();
-        type = OrderType.parse(orderResponse.getType());
+    public AssetOrder(OrderResponse orderResponse) {
+        this.id = BurstID.fromLong(orderResponse.getOrder());
+        this.assetId = BurstID.fromLong(orderResponse.getAsset());
+        this.accountAddress = BurstAddress.fromId(orderResponse.getAccount());
+        this.quantity = BurstValue.fromPlanck(orderResponse.getQuantityQNT());
+        this.price = BurstValue.fromPlanck(orderResponse.getPriceNQT());
+        this.height = orderResponse.getHeight();
+        this.type = OrderType.parse(orderResponse.getType());
+    }
+
+    public AssetOrder(BrsApi.Order order) {
+        this.id = BurstID.fromLong(order.getId());
+        this.assetId = BurstID.fromLong(order.getAsset());
+        this.accountAddress = BurstAddress.fromId(order.getAccount());
+        this.quantity = BurstValue.fromPlanck(order.getQuantity());
+        this.price = BurstValue.fromPlanck(order.getPrice());
+        this.height = order.getHeight();
+        this.type = OrderType.parse(order.getType());
     }
 
     public BurstID getId() {
@@ -76,10 +87,19 @@ public class Order {
         ASK,
         BID,
         ;
+
         public static OrderType parse(String orderType) {
             switch (orderType.toLowerCase(Locale.ENGLISH).trim()) {
                 case "ask": return ASK;
                 case "bid": return BID;
+                default: throw new BurstApiException("Could not parse Order Type " + orderType);
+            }
+        }
+
+        public static OrderType parse(BrsApi.OrderType orderType) {
+            switch (orderType) {
+                case ASK: return ASK;
+                case BID: return BID;
                 default: throw new BurstApiException("Could not parse Order Type " + orderType);
             }
         }

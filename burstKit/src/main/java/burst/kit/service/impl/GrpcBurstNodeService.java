@@ -185,7 +185,14 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Transaction[]> getUnconfirmedTransactions(BurstAddress accountId) {
-        return null; // TODO: implement
+        return assign(() -> brsGrpc.getUnconfirmedTransactions(
+                BrsApi.GetAccountRequest.newBuilder()
+                        .setAccountId(accountId == null ? 0 : accountId.getBurstID().getSignedLongId())
+                        .build()))
+                .map(transactions -> transactions.getUnconfirmedTransactionsList()
+                        .stream()
+                        .map(Transaction::new)
+                        .toArray(Transaction[]::new));
     }
 
     @Override
@@ -202,27 +209,55 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AssetAccount[]> getAssetAccounts(BurstID assetId) {
-        // TODO: implement
-        return null;
+    public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
+        return assign(() -> brsGrpc.getAssetBalances(
+                BrsApi.GetAssetBalancesRequest.newBuilder()
+                        .setAsset(assetId.getSignedLongId())
+                        .build()))
+                .map(assetBalances -> assetBalances.getAssetBalancesList()
+                        .stream()
+                        .map(AssetBalance::new)
+                        .toArray(AssetBalance[]::new));
     }
 
     @Override
-    public Single<Trade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
-        // TODO Auto-generated method stub
-        return null;
+    public Single<AssetTrade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
+        return assign(() -> brsGrpc.getAssetTrades(
+                BrsApi.GetAssetTransfersRequest.newBuilder()
+                        .setAsset(assetId.getSignedLongId())
+                        .setAccount(account.getSignedLongId())
+                        .setIndexRange((firstIndex == null || lastIndex == null) ? BrsApi.IndexRange.getDefaultInstance() : BrsApi.IndexRange.newBuilder().setFirstIndex(firstIndex).setLastIndex(lastIndex).build())
+                        .build()))
+                .map(assetTrades -> assetTrades.getTradesList()
+                        .stream()
+                        .map(AssetTrade::new)
+                        .toArray(AssetTrade[]::new));
     }
 
     @Override
-    public Single<Order[]> getAskOrders(BurstID assetId) {
-        // TODO Auto-generated method stub
-        return null;
+    public Single<AssetOrder[]> getAskOrders(BurstID assetId) {
+        return assign(() -> brsGrpc.getOrders(
+                BrsApi.GetOrdersRequest.newBuilder()
+                        .setAsset(assetId.getSignedLongId())
+                        .setOrderType(BrsApi.OrderType.ASK)
+                        .build()))
+                .map(orders -> orders.getOrdersList()
+                        .stream()
+                        .map(AssetOrder::new)
+                        .toArray(AssetOrder[]::new));
     }
 
     @Override
-    public Single<Order[]> getBidOrders(BurstID assetId) {
-        // TODO Auto-generated method stub
-        return null;
+    public Single<AssetOrder[]> getBidOrders(BurstID assetId) {
+        return assign(() -> brsGrpc.getOrders(
+                BrsApi.GetOrdersRequest.newBuilder()
+                        .setAsset(assetId.getSignedLongId())
+                        .setOrderType(BrsApi.OrderType.BID)
+                        .build()))
+                .map(orders -> orders.getOrdersList()
+                        .stream()
+                        .map(AssetOrder::new)
+                        .toArray(AssetOrder[]::new));
     }
 
     @Override
@@ -320,8 +355,19 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
-        // TODO Auto-generated method stub
-        return null;
+        return ordinaryTransactionOrArbitraryMessage(amount)
+                .map(attachment -> basicTransaction(recipientAddress, senderPublicKey, amount, fee, deadline, attachment)
+                        .addAppendages(Any.pack(BrsApi.MessageAppendix.newBuilder()
+                                .setMessage(ByteString.copyFrom(message.getBytes(StandardCharsets.UTF_8)))
+                                .setIsText(true)
+                                .build()))
+                        .addAppendages(Any.pack(BrsApi.PublicKeyAnnouncementAppendix.newBuilder()
+                                .setRecipientPublicKey(ByteString.copyFrom(recipientPublicKey))
+                                .build()))
+                        .build())
+                .map(brsGrpc::completeBasicTransaction)
+                .map(brsGrpc::getTransactionBytes)
+                .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
     @Override
@@ -459,45 +505,33 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(bytes -> bytes.getTransactionBytes().toByteArray());
     }
 
-        @Override
-        public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity,
-                        BurstValue fee, int deadline) {
-                // TODO Auto-generated method stub
-                return null;
-        }
+    @Override
+    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
 
-        @Override
-        public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description,
-                        BurstValue quantity, int decimals, BurstValue fee, int deadline) {
-                // TODO Auto-generated method stub
-                return null;
-        }
+    @Override
+    public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, BurstValue quantity, int decimals, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
 
-        @Override
-        public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId,
-                        BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
-                // TODO Auto-generated method stub
-                return null;
-        }
+    @Override
+    public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
 
-        @Override
-        public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId,
-                        BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
-                // TODO Auto-generated method stub
-                return null;
-        }
+    @Override
+    public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
 
-        @Override
-        public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee,
-                        int deadline) {
-                // TODO Auto-generated method stub
-                return null;
-        }
+    @Override
+    public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
 
-        @Override
-        public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee,
-                        int deadline) {
-                // TODO Auto-generated method stub
-                return null;
-        }
+    @Override
+    public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
 }

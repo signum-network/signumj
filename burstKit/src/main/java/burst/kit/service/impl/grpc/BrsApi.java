@@ -14917,6 +14917,12 @@ public final class BrsApi {
      */
     com.google.protobuf.ByteString
         getAssetDescriptionBytes();
+
+    /**
+     * <code>uint32 assetDecimals = 16;</code>
+     * @return The assetDecimals.
+     */
+    int getAssetDecimals();
   }
   /**
    * Protobuf type {@code AssetTrade}
@@ -15042,6 +15048,11 @@ public final class BrsApi {
               java.lang.String s = input.readStringRequireUtf8();
 
               assetDescription_ = s;
+              break;
+            }
+            case 128: {
+
+              assetDecimals_ = input.readUInt32();
               break;
             }
             default: {
@@ -15287,6 +15298,16 @@ public final class BrsApi {
       }
     }
 
+    public static final int ASSETDECIMALS_FIELD_NUMBER = 16;
+    private int assetDecimals_;
+    /**
+     * <code>uint32 assetDecimals = 16;</code>
+     * @return The assetDecimals.
+     */
+    public int getAssetDecimals() {
+      return assetDecimals_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -15345,6 +15366,9 @@ public final class BrsApi {
       }
       if (!getAssetDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 15, assetDescription_);
+      }
+      if (assetDecimals_ != 0) {
+        output.writeUInt32(16, assetDecimals_);
       }
       unknownFields.writeTo(output);
     }
@@ -15413,6 +15437,10 @@ public final class BrsApi {
       if (!getAssetDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, assetDescription_);
       }
+      if (assetDecimals_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(16, assetDecimals_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -15457,6 +15485,8 @@ public final class BrsApi {
           .equals(other.getAssetName())) return false;
       if (!getAssetDescription()
           .equals(other.getAssetDescription())) return false;
+      if (getAssetDecimals()
+          != other.getAssetDecimals()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -15506,6 +15536,8 @@ public final class BrsApi {
       hash = (53 * hash) + getAssetName().hashCode();
       hash = (37 * hash) + ASSETDESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getAssetDescription().hashCode();
+      hash = (37 * hash) + ASSETDECIMALS_FIELD_NUMBER;
+      hash = (53 * hash) + getAssetDecimals();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15669,6 +15701,8 @@ public final class BrsApi {
 
         assetDescription_ = "";
 
+        assetDecimals_ = 0;
+
         return this;
       }
 
@@ -15710,6 +15744,7 @@ public final class BrsApi {
         result.timestamp_ = timestamp_;
         result.assetName_ = assetName_;
         result.assetDescription_ = assetDescription_;
+        result.assetDecimals_ = assetDecimals_;
         onBuilt();
         return result;
       }
@@ -15804,6 +15839,9 @@ public final class BrsApi {
         if (!other.getAssetDescription().isEmpty()) {
           assetDescription_ = other.assetDescription_;
           onChanged();
+        }
+        if (other.getAssetDecimals() != 0) {
+          setAssetDecimals(other.getAssetDecimals());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -16394,6 +16432,36 @@ public final class BrsApi {
   checkByteStringIsUtf8(value);
         
         assetDescription_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int assetDecimals_ ;
+      /**
+       * <code>uint32 assetDecimals = 16;</code>
+       * @return The assetDecimals.
+       */
+      public int getAssetDecimals() {
+        return assetDecimals_;
+      }
+      /**
+       * <code>uint32 assetDecimals = 16;</code>
+       * @param value The assetDecimals to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAssetDecimals(int value) {
+        
+        assetDecimals_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 assetDecimals = 16;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAssetDecimals() {
+        
+        assetDecimals_ = 0;
         onChanged();
         return this;
       }
@@ -86902,307 +86970,308 @@ public final class BrsApi {
       "ender\030\003 \001(\004\022\021\n\trecipient\030\004 \001(\004\022\020\n\010quanti" +
       "ty\030\005 \001(\004\022\016\n\006height\030\006 \001(\r\022\021\n\ttimestamp\030\007 " +
       "\001(\r\022\021\n\tassetName\030\010 \001(\t\022\030\n\020assetDescripti" +
-      "on\030\t \001(\t\"\262\002\n\nAssetTrade\022\r\n\005asset\030\001 \001(\004\022\"" +
+      "on\030\t \001(\t\"\311\002\n\nAssetTrade\022\r\n\005asset\030\001 \001(\004\022\"" +
       "\n\ttradeType\030\002 \001(\0162\017.AssetTradeType\022\016\n\006se" +
       "ller\030\003 \001(\004\022\r\n\005buyer\030\004 \001(\004\022\r\n\005price\030\005 \001(\004" +
       "\022\020\n\010quantity\030\006 \001(\004\022\020\n\010askOrder\030\007 \001(\004\022\020\n\010" +
       "bidOrder\030\010 \001(\004\022\026\n\016askOrderHeight\030\t \001(\r\022\026" +
       "\n\016bidOrderHeight\030\n \001(\r\022\r\n\005block\030\013 \001(\004\022\016\n" +
       "\006height\030\014 \001(\r\022\021\n\ttimestamp\030\r \001(\r\022\021\n\tasse" +
-      "tName\030\016 \001(\t\022\030\n\020assetDescription\030\017 \001(\t\"a\n" +
-      "\020GetOrdersRequest\022\r\n\005asset\030\001 \001(\004\022\035\n\torde" +
-      "rType\030\002 \001(\0162\n.OrderType\022\037\n\nindexRange\030\003 " +
-      "\001(\0132\013.IndexRange\"A\n\017GetOrderRequest\022\017\n\007o" +
-      "rderId\030\001 \001(\004\022\035\n\torderType\030\002 \001(\0162\n.OrderT" +
-      "ype\"V\n\024GetOpenOrdersRequest\022\035\n\torderType" +
-      "\030\001 \001(\0162\n.OrderType\022\037\n\nindexRange\030\002 \001(\0132\013" +
-      ".IndexRange\"Y\n\027GetAssetBalancesRequest\022\r" +
-      "\n\005asset\030\001 \001(\004\022\016\n\006height\030\002 \001(\r\022\037\n\nindexRa" +
-      "nge\030\003 \001(\0132\013.IndexRange\"!\n\020GetAssetsReque" +
-      "st\022\r\n\005asset\030\001 \003(\004\" \n\006Assets\022\026\n\006assets\030\001 " +
-      "\003(\0132\006.Asset\"\273\001\n\005Asset\022\r\n\005asset\030\001 \001(\004\022\017\n\007" +
-      "account\030\002 \001(\004\022\014\n\004name\030\003 \001(\t\022\023\n\013descripti" +
-      "on\030\004 \001(\t\022\020\n\010quantity\030\005 \001(\004\022\020\n\010decimals\030\006" +
-      " \001(\r\022\026\n\016numberOfTrades\030\007 \001(\r\022\031\n\021numberOf" +
-      "Transfers\030\010 \001(\r\022\030\n\020numberOfAccounts\030\t \001(" +
-      "\r\"2\n\014Transactions\022\"\n\014transactions\030\001 \003(\0132" +
-      "\014.Transaction\"5\n\rSubscriptions\022$\n\rsubscr" +
-      "iptions\030\001 \003(\0132\r.Subscription\"r\n\014Subscrip" +
-      "tion\022\n\n\002id\030\001 \001(\004\022\016\n\006sender\030\002 \001(\004\022\021\n\treci" +
-      "pient\030\003 \001(\004\022\016\n\006amount\030\004 \001(\004\022\021\n\tfrequency" +
-      "\030\005 \001(\r\022\020\n\010timeNext\030\006 \001(\r\"\334\002\n\006Counts\022\026\n\016n" +
-      "umberOfBlocks\030\001 \001(\r\022\034\n\024numberOfTransacti" +
-      "ons\030\002 \001(\r\022\030\n\020numberOfAccounts\030\003 \001(\r\022\026\n\016n" +
-      "umberOfAssets\030\004 \001(\r\022\026\n\016numberOfOrders\030\005 " +
-      "\001(\r\022\031\n\021numberOfAskOrders\030\006 \001(\r\022\031\n\021number" +
-      "OfBidOrders\030\007 \001(\r\022\026\n\016numberOfTrades\030\010 \001(" +
-      "\r\022\031\n\021numberOfTransfers\030\t \001(\r\022\027\n\017numberOf" +
-      "Aliases\030\n \001(\004\022\025\n\rnumberOfPeers\030\013 \001(\r\022\032\n\022" +
-      "numberOfGenerators\030\014 \001(\r\022\035\n\025totalEffecti" +
-      "veBalance\030\r \001(\004\"\345\002\n\tConstants\022\024\n\014genesis" +
-      "Block\030\001 \001(\004\022\026\n\016genesisAccount\030\002 \001(\004\022\035\n\025m" +
-      "axBlockPayloadLength\030\003 \001(\r\022!\n\031maxArbitra" +
-      "ryMessageLength\030\004 \001(\r\0224\n\020transactionType" +
-      "s\030\005 \003(\0132\032.Constants.TransactionType\032\261\001\n\017" +
-      "TransactionType\022\014\n\004type\030\001 \001(\r\022\023\n\013descrip" +
-      "tion\030\002 \001(\t\022?\n\010subtypes\030\003 \003(\0132-.Constants" +
-      ".TransactionType.TransactionSubtype\032:\n\022T" +
-      "ransactionSubtype\022\017\n\007subtype\030\001 \001(\r\022\023\n\013de" +
-      "scription\030\002 \001(\t\"D\n\022EscrowTransactions\022.\n" +
-      "\022escrowTransactions\030\001 \003(\0132\022.EscrowTransa" +
-      "ction\"\260\001\n\021EscrowTransaction\022\020\n\010escrowId\030" +
-      "\001 \001(\004\022\016\n\006sender\030\002 \001(\004\022\021\n\trecipient\030\003 \001(\004" +
-      "\022\016\n\006amount\030\004 \001(\004\022\027\n\017requiredSigners\030\005 \001(" +
-      "\r\022\020\n\010deadline\030\006 \001(\r\022+\n\016deadlineAction\030\007 " +
-      "\001(\0162\023.EscrowDecisionType\" \n\006Orders\022\026\n\006or" +
-      "ders\030\001 \003(\0132\006.Order\"~\n\005Order\022\n\n\002id\030\001 \001(\004\022" +
-      "\r\n\005asset\030\002 \001(\004\022\017\n\007account\030\003 \001(\004\022\020\n\010quant" +
-      "ity\030\004 \001(\004\022\r\n\005price\030\005 \001(\004\022\016\n\006height\030\006 \001(\r" +
-      "\022\030\n\004type\030\007 \001(\0162\n.OrderType\"y\n\027GetAccount" +
-      "OrdersRequest\022\017\n\007account\030\001 \001(\004\022\r\n\005asset\030" +
-      "\002 \001(\004\022\037\n\nindexRange\030\003 \001(\0132\013.IndexRange\022\035" +
-      "\n\torderType\030\004 \001(\0162\n.OrderType\"3\n\nIndexRa" +
-      "nge\022\022\n\nfirstIndex\030\001 \001(\r\022\021\n\tlastIndex\030\002 \001" +
-      "(\r\"P\n\020GetBlocksRequest\022\037\n\nindexRange\030\001 \001" +
-      "(\0132\013.IndexRange\022\033\n\023includeTransactions\030\002" +
-      " \001(\010\" \n\006Blocks\022\026\n\006blocks\030\001 \003(\0132\006.Block\"V" +
-      "\n\021GetAliasesRequest\022\r\n\005owner\030\001 \001(\004\022\021\n\tti" +
-      "mestamp\030\002 \001(\r\022\037\n\nindexRange\030\003 \001(\0132\013.Inde" +
-      "xRange\"H\n\027UnconfirmedTransactions\022-\n\027unc" +
-      "onfirmedTransactions\030\001 \003(\0132\014.Transaction" +
-      "\"\"\n\007Aliases\022\027\n\007aliases\030\001 \003(\0132\006.Alias\"\024\n\005" +
-      "ATIds\022\013\n\003ids\030\001 \003(\004\"\274\002\n\002AT\022\n\n\002id\030\001 \001(\004\022\017\n" +
-      "\007creator\030\002 \001(\004\022\017\n\007version\030\003 \001(\r\022\014\n\004name\030" +
-      "\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\023\n\013machineCod" +
-      "e\030\006 \001(\014\022\023\n\013machineData\030\007 \001(\014\022\017\n\007balance\030" +
-      "\010 \001(\004\022\027\n\017previousBalance\030\t \001(\004\022\021\n\tnextBl" +
-      "ock\030\n \001(\r\022\016\n\006frozen\030\013 \001(\010\022\017\n\007running\030\014 \001" +
-      "(\010\022\017\n\007stopped\030\r \001(\010\022\020\n\010finished\030\016 \001(\010\022\014\n" +
-      "\004dead\030\017 \001(\010\022\025\n\rminActivation\030\020 \001(\004\022\025\n\rcr" +
-      "eationBlock\030\021 \001(\r\"\036\n\nAccountATs\022\020\n\003ats\030\001" +
-      " \003(\0132\003.AT\"\372\002\n\020BasicTransaction\022\027\n\017sender" +
-      "PublicKey\030\001 \001(\014\022\020\n\010senderId\030\002 \001(\004\022\021\n\trec" +
-      "ipient\030\003 \001(\004\022\017\n\007version\030\004 \001(\r\022\014\n\004type\030\005 " +
-      "\001(\r\022\017\n\007subtype\030\006 \001(\r\022\016\n\006amount\030\007 \001(\004\022\013\n\003" +
-      "fee\030\010 \001(\004\022\021\n\ttimestamp\030\t \001(\r\022\020\n\010deadline" +
-      "\030\n \001(\r\022(\n\nappendages\030\013 \003(\0132\024.google.prot" +
-      "obuf.Any\022(\n\nattachment\030\014 \001(\0132\024.google.pr" +
-      "otobuf.Any\022%\n\035referencedTransactionFullH" +
-      "ash\030\r \001(\014\022\021\n\tecBlockId\030\016 \001(\004\022\025\n\recBlockH" +
-      "eight\030\017 \001(\r\022\021\n\tsignature\030\020 \001(\014\"%\n\016GetPee" +
-      "rRequest\022\023\n\013peerAddress\030\001 \001(\t\"<\n\017GetPeer" +
-      "sRequest\022\016\n\006active\030\001 \001(\010\022\031\n\005state\030\002 \001(\0162" +
-      "\n.PeerState\"\345\001\n\004Peer\022\031\n\005state\030\001 \001(\0162\n.Pe" +
-      "erState\022\030\n\020announcedAddress\030\002 \001(\t\022\024\n\014sha" +
-      "reAddress\030\003 \001(\010\022\030\n\020downloadedVolume\030\004 \001(" +
-      "\004\022\026\n\016uploadedVolume\030\005 \001(\004\022\023\n\013application" +
-      "\030\006 \001(\t\022\017\n\007version\030\007 \001(\t\022\020\n\010platform\030\010 \001(" +
-      "\t\022\023\n\013blacklisted\030\t \001(\010\022\023\n\013lastUpdated\030\n " +
-      "\001(\r\"\036\n\005Peers\022\025\n\rpeerAddresses\030\001 \003(\t\"+\n\017G" +
-      "etAliasRequest\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t" +
-      "\"\177\n\005Alias\022\n\n\002id\030\001 \001(\004\022\r\n\005owner\030\002 \001(\004\022\014\n\004" +
-      "name\030\003 \001(\t\022\013\n\003uri\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001" +
-      "(\r\022\017\n\007offered\030\006 \001(\010\022\r\n\005price\030\007 \001(\004\022\r\n\005bu" +
-      "yer\030\010 \001(\004\"\024\n\004Time\022\014\n\004time\030\001 \001(\r\"\357\002\n\005Stat" +
-      "e\022\023\n\013application\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022" +
-      "\023\n\004time\030\003 \001(\0132\005.Time\022\021\n\tlastBlock\030\004 \001(\004\022" +
-      "\022\n\nlastHeight\030\005 \001(\r\022\034\n\024cumulativeDifficu" +
-      "lty\030\006 \001(\t\022\025\n\rnumberOfPeers\030\007 \001(\r\022\033\n\023numb" +
-      "erOfActivePeers\030\010 \001(\r\022\027\n\017numberOfForgers" +
-      "\030\t \001(\r\022\034\n\024lastBlockchainFeeder\030\n \001(\t\022\"\n\032" +
-      "lastBlockchainFeederHeight\030\013 \001(\r\022\033\n\023avai" +
-      "lableProcessors\030\014 \001(\r\022\021\n\tmaxMemory\030\r \001(\004" +
-      "\022\023\n\013totalMemory\030\016 \001(\004\022\022\n\nfreeMemory\030\017 \001(" +
-      "\004\"B\n\rFeeSuggestion\022\r\n\005cheap\030\001 \001(\004\022\020\n\010sta" +
-      "ndard\030\002 \001(\004\022\020\n\010priority\030\003 \001(\004\"9\n\032Transac" +
-      "tionBroadcastResult\022\033\n\023numberOfPeersSent" +
-      "To\030\001 \001(\r\"b\n\017GetBlockRequest\022\017\n\007blockId\030\001" +
-      " \001(\004\022\016\n\006height\030\002 \001(\r\022\021\n\ttimestamp\030\003 \001(\r\022" +
-      "\033\n\023includeTransactions\030\004 \001(\010\"&\n\021GetAccou" +
-      "ntRequest\022\021\n\taccountId\030\001 \001(\004\"T\n\022GetAccou" +
-      "ntsRequest\022\027\n\017rewardRecipient\030\001 \001(\004\022\014\n\004n" +
-      "ame\030\002 \001(\t\022\027\n\017includeAccounts\030\003 \001(\010\"@\n\025Ge" +
-      "tTransactionRequest\022\025\n\rtransactionId\030\001 \001" +
-      "(\004\022\020\n\010fullHash\030\002 \001(\014\"_\n\022SubmitNonceReque" +
-      "st\022\024\n\014secretPhrase\030\001 \001(\t\022\r\n\005nonce\030\002 \001(\004\022" +
-      "\017\n\007account\030\003 \001(\004\022\023\n\013blockHeight\030\004 \001(\r\"\'\n" +
-      "\023SubmitNonceResponse\022\020\n\010deadline\030\001 \001(\004\"\274" +
-      "\003\n\005Block\022\n\n\002id\030\001 \001(\004\022\016\n\006height\030\002 \001(\r\022\034\n\024" +
-      "numberOfTransactions\030\003 \001(\r\022\023\n\013totalAmoun" +
-      "t\030\004 \001(\004\022\020\n\010totalFee\030\005 \001(\004\022\023\n\013blockReward" +
-      "\030\006 \001(\004\022\025\n\rpayloadLength\030\007 \001(\r\022\017\n\007version" +
-      "\030\010 \001(\005\022\022\n\nbaseTarget\030\t \001(\004\022\021\n\ttimestamp\030" +
-      "\n \001(\r\022\033\n\023generationSignature\030\013 \001(\014\022\026\n\016bl" +
-      "ockSignature\030\014 \001(\014\022\023\n\013payloadHash\030\r \001(\014\022" +
-      "\"\n\014transactions\030\016 \003(\0132\014.Transaction\022\026\n\016t" +
-      "ransactionIds\030\017 \003(\004\022\032\n\022generatorPublicKe" +
-      "y\030\020 \001(\014\022\r\n\005nonce\030\021 \001(\004\022\r\n\005scoop\030\022 \001(\r\022\031\n" +
-      "\021previousBlockHash\030\023 \001(\014\022\023\n\013nextBlockId\030" +
-      "\024 \001(\004\"\323\001\n\013Transaction\022&\n\013transaction\030\001 \001" +
-      "(\0132\021.BasicTransaction\022\n\n\002id\030\002 \001(\004\022\030\n\020tra" +
-      "nsactionBytes\030\003 \001(\014\022\r\n\005block\030\004 \001(\004\022\023\n\013bl" +
-      "ockHeight\030\005 \001(\r\022\026\n\016blockTimestamp\030\006 \001(\r\022" +
-      "\021\n\tsignature\030\007 \001(\014\022\020\n\010fullHash\030\010 \001(\014\022\025\n\r" +
-      "confirmations\030\t \001(\021\"C\n\017MessageAppendix\022\017" +
-      "\n\007version\030\001 \001(\r\022\017\n\007message\030\002 \001(\014\022\016\n\006isTe" +
-      "xt\030\003 \001(\010\"\307\001\n\030EncryptedMessageAppendix\022\017\n" +
-      "\007version\030\001 \001(\r\022%\n\rencryptedData\030\002 \001(\0132\016." +
-      "EncryptedData\022\016\n\006isText\030\003 \001(\010\022,\n\004type\030\004 " +
-      "\001(\0162\036.EncryptedMessageAppendix.Type\"5\n\004T" +
-      "ype\022\016\n\nType_UNSET\020\000\022\020\n\014TO_RECIPIENT\020\001\022\013\n" +
-      "\007TO_SELF\020\002\"L\n\035PublicKeyAnnouncementAppen" +
-      "dix\022\017\n\007version\030\001 \001(\r\022\032\n\022recipientPublicK" +
-      "ey\030\002 \001(\014\"\230\001\n\022MultiOutAttachment\022\017\n\007versi" +
-      "on\030\001 \001(\r\0229\n\nrecipients\030\002 \003(\0132%.MultiOutA" +
-      "ttachment.MultiOutRecipient\0326\n\021MultiOutR" +
-      "ecipient\022\021\n\trecipient\030\001 \001(\004\022\016\n\006amount\030\002 " +
-      "\001(\004\"=\n\026MultiOutSameAttachment\022\017\n\007version" +
-      "\030\001 \001(\r\022\022\n\nrecipients\030\002 \003(\004\"G\n\031AliasAssig" +
-      "nmentAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004name" +
-      "\030\002 \001(\t\022\013\n\003uri\030\003 \001(\t\"C\n\023AliasSellAttachme" +
-      "nt\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\r\n\005pri" +
-      "ce\030\003 \001(\004\"3\n\022AliasBuyAttachment\022\017\n\007versio" +
-      "n\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"K\n\025AccountInfoAtta" +
-      "chment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n" +
-      "\013description\030\003 \001(\t\"q\n\027AssetIssuanceAttac" +
-      "hment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013" +
-      "description\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\004\022\020\n\010d" +
-      "ecimals\030\005 \001(\r\"\\\n\027AssetTransferAttachment" +
-      "\022\017\n\007version\030\001 \001(\r\022\r\n\005asset\030\002 \001(\004\022\020\n\010quan" +
-      "tity\030\003 \001(\004\022\017\n\007comment\030\004 \001(\t\"z\n\035AssetOrde" +
-      "rPlacementAttachment\022\017\n\007version\030\001 \001(\r\022\r\n" +
-      "\005asset\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\022\r\n\005price\030" +
-      "\004 \001(\004\022\030\n\004type\030\005 \001(\0162\n.OrderType\"\\\n Asset" +
-      "OrderCancellationAttachment\022\017\n\007version\030\001" +
-      " \001(\r\022\r\n\005order\030\002 \001(\004\022\030\n\004type\030\003 \001(\0162\n.Orde" +
-      "rType\"\202\001\n\035DigitalGoodsListingAttachment\022" +
-      "\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013descri" +
-      "ption\030\003 \001(\t\022\014\n\004tags\030\004 \001(\t\022\020\n\010quantity\030\005 " +
-      "\001(\r\022\r\n\005price\030\006 \001(\004\"A\n\037DigitalGoodsDelist" +
-      "ingAttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030" +
-      "\002 \001(\004\"R\n!DigitalGoodsPriceChangeAttachme" +
-      "nt\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\r\n\005pr" +
-      "ice\030\003 \001(\004\"]\n$DigitalGoodsQuantityChangeA" +
-      "ttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(" +
-      "\004\022\025\n\rdeltaQuantity\030\003 \001(\021\"\204\001\n\036DigitalGood" +
-      "sPurchaseAttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005" +
-      "goods\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\r\022\r\n\005price\030\004" +
-      " \001(\004\022!\n\031deliveryDeadlineTimestmap\030\005 \001(\r\"" +
-      "\204\001\n\036DigitalGoodsDeliveryAttachment\022\017\n\007ve" +
-      "rsion\030\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\022\020\n\010discoun" +
-      "t\030\003 \001(\004\022\035\n\005goods\030\004 \001(\0132\016.EncryptedData\022\016" +
-      "\n\006isText\030\005 \001(\010\"C\n\036DigitalGoodsFeedbackAt" +
-      "tachment\022\017\n\007version\030\001 \001(\r\022\020\n\010purchase\030\002 " +
-      "\001(\004\"Q\n\034DigitalGoodsRefundAttachment\022\017\n\007v" +
-      "ersion\030\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\022\016\n\006refund" +
-      "\030\003 \001(\004\"6\n#RewardRecipientAssignmentAttac" +
-      "hment\022\017\n\007version\030\001 \001(\r\"\244\001\n\030EscrowCreatio" +
-      "nAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006amount\030\002" +
-      " \001(\004\022\027\n\017requiredSigners\030\003 \001(\r\022\017\n\007signers" +
-      "\030\004 \003(\004\022\020\n\010deadline\030\005 \001(\r\022+\n\016deadlineActi" +
-      "on\030\006 \001(\0162\023.EscrowDecisionType\"^\n\024EscrowS" +
-      "ignAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006escrow" +
-      "\030\002 \001(\004\022%\n\010decision\030\003 \001(\0162\023.EscrowDecisio" +
-      "nType\"`\n\026EscrowResultAttachment\022\017\n\007versi" +
-      "on\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022%\n\010decision\030\003 \001" +
-      "(\0162\023.EscrowDecisionType\"E\n\037SubscriptionS" +
-      "ubscribeAttachment\022\017\n\007version\030\001 \001(\r\022\021\n\tf" +
-      "requency\030\002 \001(\r\"E\n\034SubscriptionCancelAtta" +
-      "chment\022\017\n\007version\030\001 \001(\r\022\024\n\014subscription\030" +
-      "\002 \001(\004\"F\n\035SubscriptionPaymentAttachment\022\017" +
-      "\n\007version\030\001 \001(\r\022\024\n\014subscription\030\002 \001(\004\"a\n" +
-      "\024ATCreationAttachment\022\017\n\007version\030\001 \001(\r\022\014" +
-      "\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\025\n\rcre" +
-      "ationBytes\030\004 \001(\014\"3\n\010Accounts\022\013\n\003ids\030\001 \003(" +
-      "\004\022\032\n\010accounts\030\002 \003(\0132\010.Account\"\316\001\n\007Accoun" +
-      "t\022\n\n\002id\030\001 \001(\004\022\021\n\tpublicKey\030\002 \001(\014\022\017\n\007bala" +
-      "nce\030\003 \001(\004\022\032\n\022unconfirmedBalance\030\004 \001(\004\022\025\n" +
-      "\rforgedBalance\030\005 \001(\004\022\014\n\004name\030\006 \001(\t\022\023\n\013de" +
-      "scription\030\007 \001(\t\022\027\n\017rewardRecipient\030\010 \001(\004" +
-      "\022$\n\rassetBalances\030\t \003(\0132\r.AssetBalance\"5" +
-      "\n\rAssetBalances\022$\n\rassetBalances\030\001 \003(\0132\r" +
-      ".AssetBalance\"[\n\014AssetBalance\022\r\n\005asset\030\001" +
-      " \001(\004\022\017\n\007account\030\002 \001(\004\022\017\n\007balance\030\003 \001(\004\022\032" +
-      "\n\022unconfirmedBalance\030\004 \001(\004\"M\n\nMiningInfo" +
-      "\022\016\n\006height\030\001 \001(\r\022\033\n\023generationSignature\030" +
-      "\002 \001(\014\022\022\n\nbaseTarget\030\003 \001(\004\",\n\020Transaction" +
-      "Bytes\022\030\n\020transactionBytes\030\001 \001(\014\"\033\n\031Ordin" +
-      "aryPaymentAttachment\"\034\n\032ArbitraryMessage" +
-      "Attachment\"\025\n\023ATPaymentAttachment\"D\n!Eff" +
-      "ectiveBalanceLeasingAttachment\022\017\n\007versio" +
-      "n\030\001 \001(\r\022\016\n\006period\030\002 \001(\r*=\n\016AssetTradeTyp" +
-      "e\022\030\n\024AssetTradeType_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004" +
-      "SELL\020\002*T\n\tPeerState\022\023\n\017PeerState_UNSET\020\000" +
-      "\022\021\n\rNON_CONNECTED\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DI" +
-      "SCONNECTED\020\003*2\n\tOrderType\022\023\n\017OrderType_U" +
-      "NSET\020\000\022\007\n\003ASK\020\001\022\007\n\003BID\020\002*e\n\022EscrowDecisi" +
-      "onType\022\034\n\030EscrowDecisionType_UNSET\020\000\022\r\n\t" +
-      "UNDECIDED\020\001\022\013\n\007RELEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005" +
-      "SPLIT\020\0042\363\023\n\rBrsApiService\022H\n\024BroadcastTr" +
-      "ansaction\022\021.BasicTransaction\032\033.Transacti" +
-      "onBroadcastResult\"\000\022M\n\031BroadcastTransact" +
-      "ionBytes\022\021.TransactionBytes\032\033.Transactio" +
-      "nBroadcastResult\"\000\022B\n\030CompleteBasicTrans" +
-      "action\022\021.BasicTransaction\032\021.BasicTransac" +
-      "tion\"\000\022,\n\nGetAccount\022\022.GetAccountRequest" +
-      "\032\010.Account\"\000\0222\n\rGetAccountATs\022\022.GetAccou" +
-      "ntRequest\032\013.AccountATs\"\000\0227\n\020GetAccountBl" +
-      "ocks\022\030.GetAccountBlocksRequest\032\007.Blocks\"" +
-      "\000\022>\n\027GetAccountCurrentOrders\022\030.GetAccoun" +
-      "tOrdersRequest\032\007.Orders\"\000\022I\n\034GetAccountE" +
-      "scrowTransactions\022\022.GetAccountRequest\032\023." +
-      "EscrowTransactions\"\000\022/\n\013GetAccounts\022\023.Ge" +
-      "tAccountsRequest\032\t.Accounts\"\000\022?\n\027GetAcco" +
-      "untSubscriptions\022\022.GetAccountRequest\032\016.S" +
-      "ubscriptions\"\000\022I\n\026GetAccountTransactions" +
-      "\022\036.GetAccountTransactionsRequest\032\r.Trans" +
-      "actions\"\000\022&\n\010GetAlias\022\020.GetAliasRequest\032" +
-      "\006.Alias\"\000\022,\n\nGetAliases\022\022.GetAliasesRequ" +
-      "est\032\010.Aliases\"\000\022%\n\010GetAsset\022\017.GetByIdReq" +
-      "uest\032\006.Asset\"\000\022>\n\020GetAssetBalances\022\030.Get" +
-      "AssetBalancesRequest\032\016.AssetBalances\"\000\022)" +
-      "\n\tGetAssets\022\021.GetAssetsRequest\032\007.Assets\"" +
-      "\000\0222\n\021GetAssetsByIssuer\022\022.GetAccountReque" +
-      "st\032\007.Assets\"\000\022;\n\016GetAssetTrades\022\031.GetAss" +
-      "etTransfersRequest\032\014.AssetTrades\"\000\022A\n\021Ge" +
-      "tAssetTransfers\022\031.GetAssetTransfersReque" +
-      "st\032\017.AssetTransfers\"\000\022\037\n\005GetAT\022\017.GetById" +
-      "Request\032\003.AT\"\000\022,\n\010GetATIds\022\026.google.prot" +
-      "obuf.Empty\032\006.ATIds\"\000\022&\n\010GetBlock\022\020.GetBl" +
-      "ockRequest\032\006.Block\"\000\022)\n\tGetBlocks\022\021.GetB" +
-      "locksRequest\032\007.Blocks\"\000\0224\n\014GetConstants\022" +
-      "\026.google.protobuf.Empty\032\n.Constants\"\000\022.\n" +
-      "\tGetCounts\022\026.google.protobuf.Empty\032\007.Cou" +
-      "nts\"\000\0221\n\016GetCurrentTime\022\026.google.protobu" +
-      "f.Empty\032\005.Time\"\000\022)\n\nGetDgsGood\022\017.GetById" +
-      "Request\032\010.DgsGood\"\000\022/\n\013GetDgsGoods\022\023.Get" +
-      "DgsGoodsRequest\032\t.DgsGoods\"\000\022I\n\026GetDgsPe" +
-      "ndingPurchases\022\036.GetDgsPendingPurchasesR" +
-      "equest\032\r.DgsPurchases\"\000\0221\n\016GetDgsPurchas" +
-      "e\022\017.GetByIdRequest\032\014.DgsPurchase\"\000\022;\n\017Ge" +
-      "tDgsPurchases\022\027.GetDgsPurchasesRequest\032\r" +
-      ".DgsPurchases\"\000\022=\n\024GetEscrowTransaction\022" +
-      "\017.GetByIdRequest\032\022.EscrowTransaction\"\000\0228" +
-      "\n\rGetMiningInfo\022\026.google.protobuf.Empty\032" +
-      "\013.MiningInfo\"\0000\001\022&\n\010GetOrder\022\020.GetOrderR" +
-      "equest\032\006.Order\"\000\022)\n\tGetOrders\022\021.GetOrder" +
-      "sRequest\032\007.Orders\"\000\022#\n\007GetPeer\022\017.GetPeer" +
-      "Request\032\005.Peer\"\000\022&\n\010GetPeers\022\020.GetPeersR" +
-      "equest\032\006.Peers\"\000\022,\n\010GetState\022\026.google.pr" +
-      "otobuf.Empty\032\006.State\"\000\0223\n\017GetSubscriptio" +
-      "n\022\017.GetByIdRequest\032\r.Subscription\"\000\022A\n\031G" +
-      "etSubscriptionsToAccount\022\022.GetAccountReq" +
-      "uest\032\016.Subscriptions\"\000\0228\n\016GetTransaction" +
-      "\022\026.GetTransactionRequest\032\014.Transaction\"\000" +
-      "\022=\n\023GetTransactionBytes\022\021.BasicTransacti" +
-      "on\032\021.TransactionBytes\"\000\022L\n\032GetUnconfirme" +
-      "dTransactions\022\022.GetAccountRequest\032\030.Unco" +
-      "nfirmedTransactions\"\000\022:\n\020ParseTransactio" +
-      "n\022\021.TransactionBytes\032\021.BasicTransaction\"" +
-      "\000\022:\n\013SubmitNonce\022\023.SubmitNonceRequest\032\024." +
-      "SubmitNonceResponse\"\000\0226\n\nSuggestFee\022\026.go" +
-      "ogle.protobuf.Empty\032\016.FeeSuggestion\"\000B\035\n" +
-      "\033burst.kit.service.impl.grpcb\006proto3"
+      "tName\030\016 \001(\t\022\030\n\020assetDescription\030\017 \001(\t\022\025\n" +
+      "\rassetDecimals\030\020 \001(\r\"a\n\020GetOrdersRequest" +
+      "\022\r\n\005asset\030\001 \001(\004\022\035\n\torderType\030\002 \001(\0162\n.Ord" +
+      "erType\022\037\n\nindexRange\030\003 \001(\0132\013.IndexRange\"" +
+      "A\n\017GetOrderRequest\022\017\n\007orderId\030\001 \001(\004\022\035\n\to" +
+      "rderType\030\002 \001(\0162\n.OrderType\"V\n\024GetOpenOrd" +
+      "ersRequest\022\035\n\torderType\030\001 \001(\0162\n.OrderTyp" +
+      "e\022\037\n\nindexRange\030\002 \001(\0132\013.IndexRange\"Y\n\027Ge" +
+      "tAssetBalancesRequest\022\r\n\005asset\030\001 \001(\004\022\016\n\006" +
+      "height\030\002 \001(\r\022\037\n\nindexRange\030\003 \001(\0132\013.Index" +
+      "Range\"!\n\020GetAssetsRequest\022\r\n\005asset\030\001 \003(\004" +
+      "\" \n\006Assets\022\026\n\006assets\030\001 \003(\0132\006.Asset\"\273\001\n\005A" +
+      "sset\022\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002 \001(\004\022\014\n\004" +
+      "name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\020\n\010quant" +
+      "ity\030\005 \001(\004\022\020\n\010decimals\030\006 \001(\r\022\026\n\016numberOfT" +
+      "rades\030\007 \001(\r\022\031\n\021numberOfTransfers\030\010 \001(\r\022\030" +
+      "\n\020numberOfAccounts\030\t \001(\r\"2\n\014Transactions" +
+      "\022\"\n\014transactions\030\001 \003(\0132\014.Transaction\"5\n\r" +
+      "Subscriptions\022$\n\rsubscriptions\030\001 \003(\0132\r.S" +
+      "ubscription\"r\n\014Subscription\022\n\n\002id\030\001 \001(\004\022" +
+      "\016\n\006sender\030\002 \001(\004\022\021\n\trecipient\030\003 \001(\004\022\016\n\006am" +
+      "ount\030\004 \001(\004\022\021\n\tfrequency\030\005 \001(\r\022\020\n\010timeNex" +
+      "t\030\006 \001(\r\"\334\002\n\006Counts\022\026\n\016numberOfBlocks\030\001 \001" +
+      "(\r\022\034\n\024numberOfTransactions\030\002 \001(\r\022\030\n\020numb" +
+      "erOfAccounts\030\003 \001(\r\022\026\n\016numberOfAssets\030\004 \001" +
+      "(\r\022\026\n\016numberOfOrders\030\005 \001(\r\022\031\n\021numberOfAs" +
+      "kOrders\030\006 \001(\r\022\031\n\021numberOfBidOrders\030\007 \001(\r" +
+      "\022\026\n\016numberOfTrades\030\010 \001(\r\022\031\n\021numberOfTran" +
+      "sfers\030\t \001(\r\022\027\n\017numberOfAliases\030\n \001(\004\022\025\n\r" +
+      "numberOfPeers\030\013 \001(\r\022\032\n\022numberOfGenerator" +
+      "s\030\014 \001(\r\022\035\n\025totalEffectiveBalance\030\r \001(\004\"\345" +
+      "\002\n\tConstants\022\024\n\014genesisBlock\030\001 \001(\004\022\026\n\016ge" +
+      "nesisAccount\030\002 \001(\004\022\035\n\025maxBlockPayloadLen" +
+      "gth\030\003 \001(\r\022!\n\031maxArbitraryMessageLength\030\004" +
+      " \001(\r\0224\n\020transactionTypes\030\005 \003(\0132\032.Constan" +
+      "ts.TransactionType\032\261\001\n\017TransactionType\022\014" +
+      "\n\004type\030\001 \001(\r\022\023\n\013description\030\002 \001(\t\022?\n\010sub" +
+      "types\030\003 \003(\0132-.Constants.TransactionType." +
+      "TransactionSubtype\032:\n\022TransactionSubtype" +
+      "\022\017\n\007subtype\030\001 \001(\r\022\023\n\013description\030\002 \001(\t\"D" +
+      "\n\022EscrowTransactions\022.\n\022escrowTransactio" +
+      "ns\030\001 \003(\0132\022.EscrowTransaction\"\260\001\n\021EscrowT" +
+      "ransaction\022\020\n\010escrowId\030\001 \001(\004\022\016\n\006sender\030\002" +
+      " \001(\004\022\021\n\trecipient\030\003 \001(\004\022\016\n\006amount\030\004 \001(\004\022" +
+      "\027\n\017requiredSigners\030\005 \001(\r\022\020\n\010deadline\030\006 \001" +
+      "(\r\022+\n\016deadlineAction\030\007 \001(\0162\023.EscrowDecis" +
+      "ionType\" \n\006Orders\022\026\n\006orders\030\001 \003(\0132\006.Orde" +
+      "r\"~\n\005Order\022\n\n\002id\030\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\017\n" +
+      "\007account\030\003 \001(\004\022\020\n\010quantity\030\004 \001(\004\022\r\n\005pric" +
+      "e\030\005 \001(\004\022\016\n\006height\030\006 \001(\r\022\030\n\004type\030\007 \001(\0162\n." +
+      "OrderType\"y\n\027GetAccountOrdersRequest\022\017\n\007" +
+      "account\030\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\037\n\nindexRan" +
+      "ge\030\003 \001(\0132\013.IndexRange\022\035\n\torderType\030\004 \001(\016" +
+      "2\n.OrderType\"3\n\nIndexRange\022\022\n\nfirstIndex" +
+      "\030\001 \001(\r\022\021\n\tlastIndex\030\002 \001(\r\"P\n\020GetBlocksRe" +
+      "quest\022\037\n\nindexRange\030\001 \001(\0132\013.IndexRange\022\033" +
+      "\n\023includeTransactions\030\002 \001(\010\" \n\006Blocks\022\026\n" +
+      "\006blocks\030\001 \003(\0132\006.Block\"V\n\021GetAliasesReque" +
+      "st\022\r\n\005owner\030\001 \001(\004\022\021\n\ttimestamp\030\002 \001(\r\022\037\n\n" +
+      "indexRange\030\003 \001(\0132\013.IndexRange\"H\n\027Unconfi" +
+      "rmedTransactions\022-\n\027unconfirmedTransacti" +
+      "ons\030\001 \003(\0132\014.Transaction\"\"\n\007Aliases\022\027\n\007al" +
+      "iases\030\001 \003(\0132\006.Alias\"\024\n\005ATIds\022\013\n\003ids\030\001 \003(" +
+      "\004\"\274\002\n\002AT\022\n\n\002id\030\001 \001(\004\022\017\n\007creator\030\002 \001(\004\022\017\n" +
+      "\007version\030\003 \001(\r\022\014\n\004name\030\004 \001(\t\022\023\n\013descript" +
+      "ion\030\005 \001(\t\022\023\n\013machineCode\030\006 \001(\014\022\023\n\013machin" +
+      "eData\030\007 \001(\014\022\017\n\007balance\030\010 \001(\004\022\027\n\017previous" +
+      "Balance\030\t \001(\004\022\021\n\tnextBlock\030\n \001(\r\022\016\n\006froz" +
+      "en\030\013 \001(\010\022\017\n\007running\030\014 \001(\010\022\017\n\007stopped\030\r \001" +
+      "(\010\022\020\n\010finished\030\016 \001(\010\022\014\n\004dead\030\017 \001(\010\022\025\n\rmi" +
+      "nActivation\030\020 \001(\004\022\025\n\rcreationBlock\030\021 \001(\r" +
+      "\"\036\n\nAccountATs\022\020\n\003ats\030\001 \003(\0132\003.AT\"\372\002\n\020Bas" +
+      "icTransaction\022\027\n\017senderPublicKey\030\001 \001(\014\022\020" +
+      "\n\010senderId\030\002 \001(\004\022\021\n\trecipient\030\003 \001(\004\022\017\n\007v" +
+      "ersion\030\004 \001(\r\022\014\n\004type\030\005 \001(\r\022\017\n\007subtype\030\006 " +
+      "\001(\r\022\016\n\006amount\030\007 \001(\004\022\013\n\003fee\030\010 \001(\004\022\021\n\ttime" +
+      "stamp\030\t \001(\r\022\020\n\010deadline\030\n \001(\r\022(\n\nappenda" +
+      "ges\030\013 \003(\0132\024.google.protobuf.Any\022(\n\nattac" +
+      "hment\030\014 \001(\0132\024.google.protobuf.Any\022%\n\035ref" +
+      "erencedTransactionFullHash\030\r \001(\014\022\021\n\tecBl" +
+      "ockId\030\016 \001(\004\022\025\n\recBlockHeight\030\017 \001(\r\022\021\n\tsi" +
+      "gnature\030\020 \001(\014\"%\n\016GetPeerRequest\022\023\n\013peerA" +
+      "ddress\030\001 \001(\t\"<\n\017GetPeersRequest\022\016\n\006activ" +
+      "e\030\001 \001(\010\022\031\n\005state\030\002 \001(\0162\n.PeerState\"\345\001\n\004P" +
+      "eer\022\031\n\005state\030\001 \001(\0162\n.PeerState\022\030\n\020announ" +
+      "cedAddress\030\002 \001(\t\022\024\n\014shareAddress\030\003 \001(\010\022\030" +
+      "\n\020downloadedVolume\030\004 \001(\004\022\026\n\016uploadedVolu" +
+      "me\030\005 \001(\004\022\023\n\013application\030\006 \001(\t\022\017\n\007version" +
+      "\030\007 \001(\t\022\020\n\010platform\030\010 \001(\t\022\023\n\013blacklisted\030" +
+      "\t \001(\010\022\023\n\013lastUpdated\030\n \001(\r\"\036\n\005Peers\022\025\n\rp" +
+      "eerAddresses\030\001 \003(\t\"+\n\017GetAliasRequest\022\n\n" +
+      "\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"\177\n\005Alias\022\n\n\002id\030\001" +
+      " \001(\004\022\r\n\005owner\030\002 \001(\004\022\014\n\004name\030\003 \001(\t\022\013\n\003uri" +
+      "\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001(\r\022\017\n\007offered\030\006 \001" +
+      "(\010\022\r\n\005price\030\007 \001(\004\022\r\n\005buyer\030\010 \001(\004\"\024\n\004Time" +
+      "\022\014\n\004time\030\001 \001(\r\"\357\002\n\005State\022\023\n\013application\030" +
+      "\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\004time\030\003 \001(\0132\005.T" +
+      "ime\022\021\n\tlastBlock\030\004 \001(\004\022\022\n\nlastHeight\030\005 \001" +
+      "(\r\022\034\n\024cumulativeDifficulty\030\006 \001(\t\022\025\n\rnumb" +
+      "erOfPeers\030\007 \001(\r\022\033\n\023numberOfActivePeers\030\010" +
+      " \001(\r\022\027\n\017numberOfForgers\030\t \001(\r\022\034\n\024lastBlo" +
+      "ckchainFeeder\030\n \001(\t\022\"\n\032lastBlockchainFee" +
+      "derHeight\030\013 \001(\r\022\033\n\023availableProcessors\030\014" +
+      " \001(\r\022\021\n\tmaxMemory\030\r \001(\004\022\023\n\013totalMemory\030\016" +
+      " \001(\004\022\022\n\nfreeMemory\030\017 \001(\004\"B\n\rFeeSuggestio" +
+      "n\022\r\n\005cheap\030\001 \001(\004\022\020\n\010standard\030\002 \001(\004\022\020\n\010pr" +
+      "iority\030\003 \001(\004\"9\n\032TransactionBroadcastResu" +
+      "lt\022\033\n\023numberOfPeersSentTo\030\001 \001(\r\"b\n\017GetBl" +
+      "ockRequest\022\017\n\007blockId\030\001 \001(\004\022\016\n\006height\030\002 " +
+      "\001(\r\022\021\n\ttimestamp\030\003 \001(\r\022\033\n\023includeTransac" +
+      "tions\030\004 \001(\010\"&\n\021GetAccountRequest\022\021\n\tacco" +
+      "untId\030\001 \001(\004\"T\n\022GetAccountsRequest\022\027\n\017rew" +
+      "ardRecipient\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\027\n\017incl" +
+      "udeAccounts\030\003 \001(\010\"@\n\025GetTransactionReque" +
+      "st\022\025\n\rtransactionId\030\001 \001(\004\022\020\n\010fullHash\030\002 " +
+      "\001(\014\"_\n\022SubmitNonceRequest\022\024\n\014secretPhras" +
+      "e\030\001 \001(\t\022\r\n\005nonce\030\002 \001(\004\022\017\n\007account\030\003 \001(\004\022" +
+      "\023\n\013blockHeight\030\004 \001(\r\"\'\n\023SubmitNonceRespo" +
+      "nse\022\020\n\010deadline\030\001 \001(\004\"\274\003\n\005Block\022\n\n\002id\030\001 " +
+      "\001(\004\022\016\n\006height\030\002 \001(\r\022\034\n\024numberOfTransacti" +
+      "ons\030\003 \001(\r\022\023\n\013totalAmount\030\004 \001(\004\022\020\n\010totalF" +
+      "ee\030\005 \001(\004\022\023\n\013blockReward\030\006 \001(\004\022\025\n\rpayload" +
+      "Length\030\007 \001(\r\022\017\n\007version\030\010 \001(\005\022\022\n\nbaseTar" +
+      "get\030\t \001(\004\022\021\n\ttimestamp\030\n \001(\r\022\033\n\023generati" +
+      "onSignature\030\013 \001(\014\022\026\n\016blockSignature\030\014 \001(" +
+      "\014\022\023\n\013payloadHash\030\r \001(\014\022\"\n\014transactions\030\016" +
+      " \003(\0132\014.Transaction\022\026\n\016transactionIds\030\017 \003" +
+      "(\004\022\032\n\022generatorPublicKey\030\020 \001(\014\022\r\n\005nonce\030" +
+      "\021 \001(\004\022\r\n\005scoop\030\022 \001(\r\022\031\n\021previousBlockHas" +
+      "h\030\023 \001(\014\022\023\n\013nextBlockId\030\024 \001(\004\"\323\001\n\013Transac" +
+      "tion\022&\n\013transaction\030\001 \001(\0132\021.BasicTransac" +
+      "tion\022\n\n\002id\030\002 \001(\004\022\030\n\020transactionBytes\030\003 \001" +
+      "(\014\022\r\n\005block\030\004 \001(\004\022\023\n\013blockHeight\030\005 \001(\r\022\026" +
+      "\n\016blockTimestamp\030\006 \001(\r\022\021\n\tsignature\030\007 \001(" +
+      "\014\022\020\n\010fullHash\030\010 \001(\014\022\025\n\rconfirmations\030\t \001" +
+      "(\021\"C\n\017MessageAppendix\022\017\n\007version\030\001 \001(\r\022\017" +
+      "\n\007message\030\002 \001(\014\022\016\n\006isText\030\003 \001(\010\"\307\001\n\030Encr" +
+      "yptedMessageAppendix\022\017\n\007version\030\001 \001(\r\022%\n" +
+      "\rencryptedData\030\002 \001(\0132\016.EncryptedData\022\016\n\006" +
+      "isText\030\003 \001(\010\022,\n\004type\030\004 \001(\0162\036.EncryptedMe" +
+      "ssageAppendix.Type\"5\n\004Type\022\016\n\nType_UNSET" +
+      "\020\000\022\020\n\014TO_RECIPIENT\020\001\022\013\n\007TO_SELF\020\002\"L\n\035Pub" +
+      "licKeyAnnouncementAppendix\022\017\n\007version\030\001 " +
+      "\001(\r\022\032\n\022recipientPublicKey\030\002 \001(\014\"\230\001\n\022Mult" +
+      "iOutAttachment\022\017\n\007version\030\001 \001(\r\0229\n\nrecip" +
+      "ients\030\002 \003(\0132%.MultiOutAttachment.MultiOu" +
+      "tRecipient\0326\n\021MultiOutRecipient\022\021\n\trecip" +
+      "ient\030\001 \001(\004\022\016\n\006amount\030\002 \001(\004\"=\n\026MultiOutSa" +
+      "meAttachment\022\017\n\007version\030\001 \001(\r\022\022\n\nrecipie" +
+      "nts\030\002 \003(\004\"G\n\031AliasAssignmentAttachment\022\017" +
+      "\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\013\n\003uri\030\003 \001" +
+      "(\t\"C\n\023AliasSellAttachment\022\017\n\007version\030\001 \001" +
+      "(\r\022\014\n\004name\030\002 \001(\t\022\r\n\005price\030\003 \001(\004\"3\n\022Alias" +
+      "BuyAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002" +
+      " \001(\t\"K\n\025AccountInfoAttachment\022\017\n\007version" +
+      "\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(" +
+      "\t\"q\n\027AssetIssuanceAttachment\022\017\n\007version\030" +
+      "\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t" +
+      "\022\020\n\010quantity\030\004 \001(\004\022\020\n\010decimals\030\005 \001(\r\"\\\n\027" +
+      "AssetTransferAttachment\022\017\n\007version\030\001 \001(\r" +
+      "\022\r\n\005asset\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\022\017\n\007com" +
+      "ment\030\004 \001(\t\"z\n\035AssetOrderPlacementAttachm" +
+      "ent\022\017\n\007version\030\001 \001(\r\022\r\n\005asset\030\002 \001(\004\022\020\n\010q" +
+      "uantity\030\003 \001(\004\022\r\n\005price\030\004 \001(\004\022\030\n\004type\030\005 \001" +
+      "(\0162\n.OrderType\"\\\n AssetOrderCancellation" +
+      "Attachment\022\017\n\007version\030\001 \001(\r\022\r\n\005order\030\002 \001" +
+      "(\004\022\030\n\004type\030\003 \001(\0162\n.OrderType\"\202\001\n\035Digital" +
+      "GoodsListingAttachment\022\017\n\007version\030\001 \001(\r\022" +
+      "\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004ta" +
+      "gs\030\004 \001(\t\022\020\n\010quantity\030\005 \001(\r\022\r\n\005price\030\006 \001(" +
+      "\004\"A\n\037DigitalGoodsDelistingAttachment\022\017\n\007" +
+      "version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\"R\n!DigitalG" +
+      "oodsPriceChangeAttachment\022\017\n\007version\030\001 \001" +
+      "(\r\022\r\n\005goods\030\002 \001(\004\022\r\n\005price\030\003 \001(\004\"]\n$Digi" +
+      "talGoodsQuantityChangeAttachment\022\017\n\007vers" +
+      "ion\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\025\n\rdeltaQuantit" +
+      "y\030\003 \001(\021\"\204\001\n\036DigitalGoodsPurchaseAttachme" +
+      "nt\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\020\n\010qu" +
+      "antity\030\003 \001(\r\022\r\n\005price\030\004 \001(\004\022!\n\031deliveryD" +
+      "eadlineTimestmap\030\005 \001(\r\"\204\001\n\036DigitalGoodsD" +
+      "eliveryAttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010pu" +
+      "rchase\030\002 \001(\004\022\020\n\010discount\030\003 \001(\004\022\035\n\005goods\030" +
+      "\004 \001(\0132\016.EncryptedData\022\016\n\006isText\030\005 \001(\010\"C\n" +
+      "\036DigitalGoodsFeedbackAttachment\022\017\n\007versi" +
+      "on\030\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\"Q\n\034DigitalGoo" +
+      "dsRefundAttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010p" +
+      "urchase\030\002 \001(\004\022\016\n\006refund\030\003 \001(\004\"6\n#RewardR" +
+      "ecipientAssignmentAttachment\022\017\n\007version\030" +
+      "\001 \001(\r\"\244\001\n\030EscrowCreationAttachment\022\017\n\007ve" +
+      "rsion\030\001 \001(\r\022\016\n\006amount\030\002 \001(\004\022\027\n\017requiredS" +
+      "igners\030\003 \001(\r\022\017\n\007signers\030\004 \003(\004\022\020\n\010deadlin" +
+      "e\030\005 \001(\r\022+\n\016deadlineAction\030\006 \001(\0162\023.Escrow" +
+      "DecisionType\"^\n\024EscrowSignAttachment\022\017\n\007" +
+      "version\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022%\n\010decisio" +
+      "n\030\003 \001(\0162\023.EscrowDecisionType\"`\n\026EscrowRe" +
+      "sultAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006escro" +
+      "w\030\002 \001(\004\022%\n\010decision\030\003 \001(\0162\023.EscrowDecisi" +
+      "onType\"E\n\037SubscriptionSubscribeAttachmen" +
+      "t\022\017\n\007version\030\001 \001(\r\022\021\n\tfrequency\030\002 \001(\r\"E\n" +
+      "\034SubscriptionCancelAttachment\022\017\n\007version" +
+      "\030\001 \001(\r\022\024\n\014subscription\030\002 \001(\004\"F\n\035Subscrip" +
+      "tionPaymentAttachment\022\017\n\007version\030\001 \001(\r\022\024" +
+      "\n\014subscription\030\002 \001(\004\"a\n\024ATCreationAttach" +
+      "ment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013d" +
+      "escription\030\003 \001(\t\022\025\n\rcreationBytes\030\004 \001(\014\"" +
+      "3\n\010Accounts\022\013\n\003ids\030\001 \003(\004\022\032\n\010accounts\030\002 \003" +
+      "(\0132\010.Account\"\316\001\n\007Account\022\n\n\002id\030\001 \001(\004\022\021\n\t" +
+      "publicKey\030\002 \001(\014\022\017\n\007balance\030\003 \001(\004\022\032\n\022unco" +
+      "nfirmedBalance\030\004 \001(\004\022\025\n\rforgedBalance\030\005 " +
+      "\001(\004\022\014\n\004name\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\022\027" +
+      "\n\017rewardRecipient\030\010 \001(\004\022$\n\rassetBalances" +
+      "\030\t \003(\0132\r.AssetBalance\"5\n\rAssetBalances\022$" +
+      "\n\rassetBalances\030\001 \003(\0132\r.AssetBalance\"[\n\014" +
+      "AssetBalance\022\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002" +
+      " \001(\004\022\017\n\007balance\030\003 \001(\004\022\032\n\022unconfirmedBala" +
+      "nce\030\004 \001(\004\"M\n\nMiningInfo\022\016\n\006height\030\001 \001(\r\022" +
+      "\033\n\023generationSignature\030\002 \001(\014\022\022\n\nbaseTarg" +
+      "et\030\003 \001(\004\",\n\020TransactionBytes\022\030\n\020transact" +
+      "ionBytes\030\001 \001(\014\"\033\n\031OrdinaryPaymentAttachm" +
+      "ent\"\034\n\032ArbitraryMessageAttachment\"\025\n\023ATP" +
+      "aymentAttachment\"D\n!EffectiveBalanceLeas" +
+      "ingAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006period" +
+      "\030\002 \001(\r*=\n\016AssetTradeType\022\030\n\024AssetTradeTy" +
+      "pe_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004SELL\020\002*T\n\tPeerSta" +
+      "te\022\023\n\017PeerState_UNSET\020\000\022\021\n\rNON_CONNECTED" +
+      "\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DISCONNECTED\020\003*2\n\tO" +
+      "rderType\022\023\n\017OrderType_UNSET\020\000\022\007\n\003ASK\020\001\022\007" +
+      "\n\003BID\020\002*e\n\022EscrowDecisionType\022\034\n\030EscrowD" +
+      "ecisionType_UNSET\020\000\022\r\n\tUNDECIDED\020\001\022\013\n\007RE" +
+      "LEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005SPLIT\020\0042\363\023\n\rBrsAp" +
+      "iService\022H\n\024BroadcastTransaction\022\021.Basic" +
+      "Transaction\032\033.TransactionBroadcastResult" +
+      "\"\000\022M\n\031BroadcastTransactionBytes\022\021.Transa" +
+      "ctionBytes\032\033.TransactionBroadcastResult\"" +
+      "\000\022B\n\030CompleteBasicTransaction\022\021.BasicTra" +
+      "nsaction\032\021.BasicTransaction\"\000\022,\n\nGetAcco" +
+      "unt\022\022.GetAccountRequest\032\010.Account\"\000\0222\n\rG" +
+      "etAccountATs\022\022.GetAccountRequest\032\013.Accou" +
+      "ntATs\"\000\0227\n\020GetAccountBlocks\022\030.GetAccount" +
+      "BlocksRequest\032\007.Blocks\"\000\022>\n\027GetAccountCu" +
+      "rrentOrders\022\030.GetAccountOrdersRequest\032\007." +
+      "Orders\"\000\022I\n\034GetAccountEscrowTransactions" +
+      "\022\022.GetAccountRequest\032\023.EscrowTransaction" +
+      "s\"\000\022/\n\013GetAccounts\022\023.GetAccountsRequest\032" +
+      "\t.Accounts\"\000\022?\n\027GetAccountSubscriptions\022" +
+      "\022.GetAccountRequest\032\016.Subscriptions\"\000\022I\n" +
+      "\026GetAccountTransactions\022\036.GetAccountTran" +
+      "sactionsRequest\032\r.Transactions\"\000\022&\n\010GetA" +
+      "lias\022\020.GetAliasRequest\032\006.Alias\"\000\022,\n\nGetA" +
+      "liases\022\022.GetAliasesRequest\032\010.Aliases\"\000\022%" +
+      "\n\010GetAsset\022\017.GetByIdRequest\032\006.Asset\"\000\022>\n" +
+      "\020GetAssetBalances\022\030.GetAssetBalancesRequ" +
+      "est\032\016.AssetBalances\"\000\022)\n\tGetAssets\022\021.Get" +
+      "AssetsRequest\032\007.Assets\"\000\0222\n\021GetAssetsByI" +
+      "ssuer\022\022.GetAccountRequest\032\007.Assets\"\000\022;\n\016" +
+      "GetAssetTrades\022\031.GetAssetTransfersReques" +
+      "t\032\014.AssetTrades\"\000\022A\n\021GetAssetTransfers\022\031" +
+      ".GetAssetTransfersRequest\032\017.AssetTransfe" +
+      "rs\"\000\022\037\n\005GetAT\022\017.GetByIdRequest\032\003.AT\"\000\022,\n" +
+      "\010GetATIds\022\026.google.protobuf.Empty\032\006.ATId" +
+      "s\"\000\022&\n\010GetBlock\022\020.GetBlockRequest\032\006.Bloc" +
+      "k\"\000\022)\n\tGetBlocks\022\021.GetBlocksRequest\032\007.Bl" +
+      "ocks\"\000\0224\n\014GetConstants\022\026.google.protobuf" +
+      ".Empty\032\n.Constants\"\000\022.\n\tGetCounts\022\026.goog" +
+      "le.protobuf.Empty\032\007.Counts\"\000\0221\n\016GetCurre" +
+      "ntTime\022\026.google.protobuf.Empty\032\005.Time\"\000\022" +
+      ")\n\nGetDgsGood\022\017.GetByIdRequest\032\010.DgsGood" +
+      "\"\000\022/\n\013GetDgsGoods\022\023.GetDgsGoodsRequest\032\t" +
+      ".DgsGoods\"\000\022I\n\026GetDgsPendingPurchases\022\036." +
+      "GetDgsPendingPurchasesRequest\032\r.DgsPurch" +
+      "ases\"\000\0221\n\016GetDgsPurchase\022\017.GetByIdReques" +
+      "t\032\014.DgsPurchase\"\000\022;\n\017GetDgsPurchases\022\027.G" +
+      "etDgsPurchasesRequest\032\r.DgsPurchases\"\000\022=" +
+      "\n\024GetEscrowTransaction\022\017.GetByIdRequest\032" +
+      "\022.EscrowTransaction\"\000\0228\n\rGetMiningInfo\022\026" +
+      ".google.protobuf.Empty\032\013.MiningInfo\"\0000\001\022" +
+      "&\n\010GetOrder\022\020.GetOrderRequest\032\006.Order\"\000\022" +
+      ")\n\tGetOrders\022\021.GetOrdersRequest\032\007.Orders" +
+      "\"\000\022#\n\007GetPeer\022\017.GetPeerRequest\032\005.Peer\"\000\022" +
+      "&\n\010GetPeers\022\020.GetPeersRequest\032\006.Peers\"\000\022" +
+      ",\n\010GetState\022\026.google.protobuf.Empty\032\006.St" +
+      "ate\"\000\0223\n\017GetSubscription\022\017.GetByIdReques" +
+      "t\032\r.Subscription\"\000\022A\n\031GetSubscriptionsTo" +
+      "Account\022\022.GetAccountRequest\032\016.Subscripti" +
+      "ons\"\000\0228\n\016GetTransaction\022\026.GetTransaction" +
+      "Request\032\014.Transaction\"\000\022=\n\023GetTransactio" +
+      "nBytes\022\021.BasicTransaction\032\021.TransactionB" +
+      "ytes\"\000\022L\n\032GetUnconfirmedTransactions\022\022.G" +
+      "etAccountRequest\032\030.UnconfirmedTransactio" +
+      "ns\"\000\022:\n\020ParseTransaction\022\021.TransactionBy" +
+      "tes\032\021.BasicTransaction\"\000\022:\n\013SubmitNonce\022" +
+      "\023.SubmitNonceRequest\032\024.SubmitNonceRespon" +
+      "se\"\000\0226\n\nSuggestFee\022\026.google.protobuf.Emp" +
+      "ty\032\016.FeeSuggestion\"\000B\035\n\033burst.kit.servic" +
+      "e.impl.grpcb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -87305,7 +87374,7 @@ public final class BrsApi {
     internal_static_AssetTrade_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AssetTrade_descriptor,
-        new java.lang.String[] { "Asset", "TradeType", "Seller", "Buyer", "Price", "Quantity", "AskOrder", "BidOrder", "AskOrderHeight", "BidOrderHeight", "Block", "Height", "Timestamp", "AssetName", "AssetDescription", });
+        new java.lang.String[] { "Asset", "TradeType", "Seller", "Buyer", "Price", "Quantity", "AskOrder", "BidOrder", "AskOrderHeight", "BidOrderHeight", "Block", "Height", "Timestamp", "AssetName", "AssetDescription", "AssetDecimals", });
     internal_static_GetOrdersRequest_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_GetOrdersRequest_fieldAccessorTable = new

@@ -4,6 +4,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.AssetAccountResponse;
+import burst.kit.service.impl.grpc.BrsApi;
 
 public class AssetBalance {
     private final BurstAddress accountAddress;
@@ -12,25 +13,32 @@ public class AssetBalance {
      * Quantity of the asset owned by the account. Not actually in Burst; The BurstValue class is used as a utility.
      * Actually measured in terms of now many of the specific asset there are.
      */
-    private final BurstValue quantity;
+    private final BurstValue balance;
     /**
      * Unconfirmed quantity of the asset owned by the account. Not actually in Burst; The BurstValue class is used as a utility.
      * Actually measured in terms of now many of the specific asset there are.
      */
-    private final BurstValue unconfirmedQuantity;
+    private final BurstValue unconfirmedBalance;
 
-    public AssetBalance(BurstAddress accountAddress, BurstID assetId, BurstValue quantity, BurstValue unconfirmedQuantity) {
+    public AssetBalance(BurstAddress accountAddress, BurstID assetId, BurstValue balance, BurstValue unconfirmedBalance) {
         this.accountAddress = accountAddress;
         this.assetId = assetId;
-        this.quantity = quantity;
-        this.unconfirmedQuantity = unconfirmedQuantity;
+        this.balance = balance;
+        this.unconfirmedBalance = unconfirmedBalance;
     }
 
     public AssetBalance(AssetAccountResponse accountResponse) {
         this.accountAddress = BurstAddress.fromEither(accountResponse.getAccount());
         this.assetId = BurstID.fromLong(accountResponse.getAsset());
-        this.quantity= BurstValue.fromPlanck(accountResponse.getQuantityQNT());
-        this.unconfirmedQuantity = BurstValue.fromPlanck(accountResponse.getUnconfirmedQuantityQNT());
+        this.balance = BurstValue.fromPlanck(accountResponse.getQuantityQNT());
+        this.unconfirmedBalance = BurstValue.fromPlanck(accountResponse.getUnconfirmedQuantityQNT());
+    }
+
+    public AssetBalance(BrsApi.AssetBalance assetBalance) {
+        this.accountAddress = BurstAddress.fromId(assetBalance.getAccount());
+        this.assetId = BurstID.fromLong(assetBalance.getAsset());
+        this.balance = BurstValue.fromPlanck(assetBalance.getBalance());
+        this.unconfirmedBalance = BurstValue.fromPlanck(assetBalance.getUnconfirmedBalance());
     }
 
     public BurstAddress getAccountAddress() {
@@ -41,11 +49,11 @@ public class AssetBalance {
         return assetId;
     }
 
-    public BurstValue getQuantity() {
-        return quantity;
+    public BurstValue getBalance() {
+        return balance;
     }
 
-    public BurstValue getUnconfirmedQuantity() {
-        return unconfirmedQuantity;
+    public BurstValue getUnconfirmedBalance() {
+        return unconfirmedBalance;
     }
 }

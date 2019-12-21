@@ -158,21 +158,21 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Trade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
+    public Single<AssetTrade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
         return assign(blockchainService.getAssetTrades(BurstKitUtils.getEndpoint(), assetId.getID(), account!=null ? account.getID() : null, firstIndex, lastIndex))
-                .map(response -> Arrays.stream(response.getTrades()).map(Trade::new).toArray(Trade[]::new));
+                .map(response -> Arrays.stream(response.getTrades()).map(AssetTrade::new).toArray(AssetTrade[]::new));
     }
 
     @Override
-    public Single<Order[]> getAskOrders(BurstID assetId) {
+    public Single<AssetOrder[]> getAskOrders(BurstID assetId) {
         return assign(blockchainService.getAskOrders(BurstKitUtils.getEndpoint(), assetId.getID()))
-                .map(response -> Arrays.stream(response.getOrders()).map(Order::new).toArray(Order[]::new));
+                .map(response -> Arrays.stream(response.getOrders()).map(AssetOrder::new).toArray(AssetOrder[]::new));
     }
 
     @Override
-    public Single<Order[]> getBidOrders(BurstID assetId) {
+    public Single<AssetOrder[]> getBidOrders(BurstID assetId) {
         return assign(blockchainService.getBidOrders(BurstKitUtils.getEndpoint(), assetId.getID()))
-                .map(response -> Arrays.stream(response.getOrders()).map(Order::new).toArray(Order[]::new));
+                .map(response -> Arrays.stream(response.getOrders()).map(AssetOrder::new).toArray(AssetOrder[]::new));
     }
 
     @Override

@@ -211,6 +211,7 @@ message AssetTrade {
     uint32 timestamp = 13;
     string assetName = 14;
     string assetDescription = 15;
+    uint32 assetDecimals = 16;
 }
 
 message GetOrdersRequest {
