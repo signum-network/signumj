@@ -208,9 +208,9 @@ public interface BurstNodeService {
     Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
 
     /**
-     * Generate a transaction with a plaintext message
-     * @param recipient The recipient
-     * @param recipientPublicKey The public key of the recipient
+     * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain.
+     * @param recipientAddress The recipient's address
+     * @param recipientPublicKey The public key of the recipient, to be set in the chain
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to send
      * @param fee The transaction fee
@@ -218,7 +218,7 @@ public interface BurstNodeService {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
+    Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
 
     /**
      * Generate a transaction with a plaintext message

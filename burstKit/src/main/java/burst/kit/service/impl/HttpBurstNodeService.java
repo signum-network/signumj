@@ -34,8 +34,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
         String userAgent = providedUserAgent == null ? "burstkit4j/" + burst.kit.Constants.VERSION : providedUserAgent;
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(
-                        chain -> chain.proceed(chain.request().newBuilder().header("User-Agent", userAgent).build()))
+                .addInterceptor(chain -> chain.proceed(chain.request().newBuilder().header("User-Agent", userAgent).build()))
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(nodeAddress)
@@ -68,8 +67,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Block> getBlock(int height) {
-        return assign(
-                blockchainService.getBlock(BurstKitUtils.getEndpoint(), null, String.valueOf(height), null, false))
+        return assign(blockchainService.getBlock(BurstKitUtils.getEndpoint(), null, String.valueOf(height), null, false))
                         .map(Block::new);
     }
 
@@ -111,8 +109,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId) {
-        return assign(
-                blockchainService.getAccountBlockIDs(BurstKitUtils.getEndpoint(), accountId.getID(), null, null, null))
+        return assign(blockchainService.getAccountBlockIDs(BurstKitUtils.getEndpoint(), accountId.getID(), null, null, null))
                         .map(response -> Arrays.stream(response.getBlockIds()).map(BurstID::fromLong)
                                 .toArray(BurstID[]::new));
     }
@@ -208,8 +205,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount,
-            BurstValue fee, int deadline) {
+    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
         return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
@@ -217,8 +213,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey,
-            BurstValue amount, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, message, true, null, null, null, null, null, null, null, null))
@@ -226,17 +221,15 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] recipientPublicKey, byte[] senderPublicKey,
-            BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), Hex.toHexString(recipientPublicKey),
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+        return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey,
-            BurstValue amount, BurstValue fee, int deadline, byte[] message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
         return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
@@ -244,8 +237,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey,
-            BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
@@ -254,8 +246,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey,
-            BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return assign(blockchainService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, message.isText(),
@@ -264,48 +255,42 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description,
-                BurstValue quantity, int decimals, BurstValue fee, int deadline) {
+    public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, BurstValue quantity, int decimals, BurstValue fee, int deadline) {
         return assign(blockchainService.issueAsset(BurstKitUtils.getEndpoint(), name, description, quantity.toPlanck().toString(),
                 decimals, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity,
-            BurstValue fee, int deadline) {
+    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline) {
         return assign(blockchainService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price,
-            BurstValue fee, int deadline) {
+    public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
         return assign(blockchainService.placeAskOrder(BurstKitUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price,
-            BurstValue fee, int deadline) {
+    public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
         return assign(blockchainService.placeBidOrder(BurstKitUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderId,
-            BurstValue fee, int deadline) {
+    public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, BurstID orderId, BurstValue fee, int deadline) {
         return assign(blockchainService.cancelAskOrder(BurstKitUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId,
-            BurstValue fee, int deadline) {
+    public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId, BurstValue fee, int deadline) {
         return assign(blockchainService.cancelBidOrder(BurstKitUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -320,8 +305,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     public Observable<MiningInfo> getMiningInfo() {
         AtomicReference<MiningInfoResponse> miningInfo = new AtomicReference<>();
         return assign(Observable.interval(0, 1, TimeUnit.SECONDS)
-                .flatMapSingle(
-                        l -> blockchainService.getMiningInfo(BurstKitUtils.getEndpoint()).map(this::checkBrsResponse))
+                .flatMapSingle(l -> blockchainService.getMiningInfo(BurstKitUtils.getEndpoint()).map(this::checkBrsResponse))
                 .filter(newMiningInfo -> {
                     synchronized (miningInfo) {
                         if (miningInfo.get() == null
@@ -339,8 +323,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
-        return assign(
-                blockchainService.broadcastTransaction(BurstKitUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
+        return assign(blockchainService.broadcastTransaction(BurstKitUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
                         .map(TransactionBroadcast::new);
     }
 
@@ -362,8 +345,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline,
-            Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException {
+    public Single<byte[]> generateMultiOutTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, Map<BurstAddress, BurstValue> recipients) throws IllegalArgumentException {
         return Single.fromCallable(() -> {
             StringBuilder recipientsString = new StringBuilder();
             if (recipients.size() > 64 || recipients.size() < 2) {
@@ -382,8 +364,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
-            int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
+    public Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, Set<BurstAddress> recipients) throws IllegalArgumentException {
         return Single.fromCallable(() -> {
             StringBuilder recipientsString = new StringBuilder();
             if (recipients.size() > 128 || recipients.size() < 2) {
@@ -401,8 +382,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name,
-            String description, byte[] creationBytes) {
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
         return assign(blockchainService.createATProgram(BurstKitUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
                 null, 0, 0, 0, null)).map(response -> {

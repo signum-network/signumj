@@ -319,7 +319,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         // TODO Auto-generated method stub
         return null;
     }
