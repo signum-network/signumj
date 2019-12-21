@@ -2,7 +2,6 @@ package burst.kit.entity.response.http;
 
 @SuppressWarnings("unused")
 public final class TradeResponse extends BRSResponse {
-
     private final int timestamp;
     private final String quantityQNT;
     private final String priceNQT;
@@ -104,5 +103,4 @@ public final class TradeResponse extends BRSResponse {
     public int getDecimals() {
         return decimals;
     }
-
 }

@@ -2,7 +2,6 @@ package burst.kit.entity.response.http;
 
 @SuppressWarnings("unused")
 public final class OrderResponse extends BRSResponse {
-
     private final String order;
     private final String asset;
     private final String account;
@@ -12,8 +11,7 @@ public final class OrderResponse extends BRSResponse {
     private final int height;
     private final String type;
 
-    public OrderResponse(String order, String asset, String account, String accountRS, String quantityQNT,
-            String priceNQT, int height, String type) {
+    public OrderResponse(String order, String asset, String account, String accountRS, String quantityQNT, String priceNQT, int height, String type) {
         this.order = order;
         this.asset = asset;
         this.account = account;
@@ -55,5 +53,4 @@ public final class OrderResponse extends BRSResponse {
     public String getType() {
         return type;
     }
-
 }
