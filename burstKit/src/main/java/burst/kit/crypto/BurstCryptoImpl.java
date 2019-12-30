@@ -43,7 +43,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     static final BurstCryptoImpl INSTANCE = new BurstCryptoImpl();
 
-    private final ThreadLocal<SecureRandom> secureRandom = ThreadLocal.withInitial(SecureRandom::new);
+    private final SecureRandom secureRandom = new SecureRandom();
     private final Curve25519 curve25519;
     private final ReedSolomon reedSolomon;
     private final PlotCalculator plotCalculator;
@@ -86,7 +86,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         try {
             return MessageDigest.getInstance("Shabal-256");
         } catch (NoSuchAlgorithmException e) {
-            return new Shabal256();
+            return new Shabal256(); // Fallback to our own implementation
         }
     }
 
@@ -168,7 +168,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             }
             byte[] key = getSha256().digest(signingKey);
             byte[] iv = new byte[16];
-            secureRandom.get().nextBytes(iv);
+            secureRandom.nextBytes(iv);
             PaddedBufferedBlockCipher aes = new PaddedBufferedBlockCipher(new CBCBlockCipher(new AESEngine()));
             CipherParameters ivAndKey = new ParametersWithIV(new KeyParameter(key), iv);
             aes.init(true, ivAndKey);
@@ -234,7 +234,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             gzip.close();
             byte[] compressedPlaintext = bos.toByteArray();
             byte[] nonce = new byte[32];
-            secureRandom.get().nextBytes(nonce);
+            secureRandom.nextBytes(nonce);
             byte[] data = aesSharedEncrypt(compressedPlaintext, myPrivateKey, theirPublicKey, nonce);
             return new BurstEncryptedMessage(data, nonce, isText);
         } catch (IOException e) {
@@ -395,10 +395,18 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
     }
 
+    private int pageSize(short nPages) {
+        if (nPages <= 1) {
+            return 1;
+        } else {
+            return nPages < 128 ? 2 : 4;
+        }
+    }
+
     private void putLength(int nPages, int length, ByteBuffer buffer) {
-        if (nPages * 256 <= 256) {
+        if (nPages <= 1) {
             buffer.put((byte) length);
-        } else if (nPages * 256 <= 32767) {
+        } else if (nPages < 128) {
             buffer.putShort((short) length);
         } else {
             buffer.putInt(length);
@@ -406,8 +414,8 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, int dPages, int csPages, int usPages, BurstValue minActivationAmount) {
-        int cPages = (code.length / 256) + ((code.length % 256) != 0 ? 1 : 0);
+    public byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, short dPages, short csPages, short usPages, BurstValue minActivationAmount) {
+        short cPages = (short) (code.length / 256 + ((code.length % 256) != 0 ? 1 : 0));
 
         if (dPages < 0 || csPages < 0 || usPages < 0) {
             throw new IllegalArgumentException();
@@ -418,19 +426,19 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         int creationLength = 4; // version + reserved
         creationLength += 8; // pages
         creationLength += 8; // minActivationAmount
-        creationLength += cPages * 256 <= 256 ? 1 : (cPages * 256 <= 32767 ? 2 : 4); // code size
+        creationLength += pageSize(cPages); // code size
         creationLength += code.length;
-        creationLength += dPages * 256 <= 256 ? 1 : (dPages * 256 <= 32767 ? 2 : 4); // data size
+        creationLength += pageSize(dPages); // data size
         creationLength += data.length;
 
         ByteBuffer creation = ByteBuffer.allocate(creationLength);
         creation.order(ByteOrder.LITTLE_ENDIAN);
         creation.putShort(atVersion);
         creation.putShort((short) 0);
-        creation.putShort((short) cPages);
-        creation.putShort((short) dPages);
-        creation.putShort((short) csPages);
-        creation.putShort((short) usPages);
+        creation.putShort(cPages);
+        creation.putShort(dPages);
+        creation.putShort(csPages);
+        creation.putShort(usPages);
         creation.putLong(minActivationAmountPlanck);
         putLength(cPages, code.length, creation);
         creation.put(code);

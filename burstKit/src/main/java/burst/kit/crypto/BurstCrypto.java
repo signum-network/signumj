@@ -694,7 +694,7 @@ public interface BurstCrypto {
      * @param minActivationAmount
      * @return
      */
-    byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, int dPages, int csPages, int usPages, BurstValue minActivationAmount);
+    byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, short dPages, short csPages, short usPages, BurstValue minActivationAmount);
 
     /**
      * Get a singleton instance of this class
