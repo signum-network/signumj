@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
@@ -76,6 +77,15 @@ public class BurstCryptoTest { // TODO more unit tests
     }
 
     @Test
+    public void testCryptoMd5() {
+        MessageDigest md5 = BurstCrypto.getInstance().getMD5();
+        assertEquals("d41d8cd98f00b204e9800998ecf8427e", Hex.toHexString(md5.digest(stringToBytes(""))));
+        assertEquals("fa6a5a3224d7da66d9e0bdec25f62cf0", Hex.toHexString(md5.digest(stringToBytes("Testing"))));
+        assertEquals("5251a8a65a96abd2bf344f84c64b7d71", Hex.toHexString(md5.digest(stringToBytes("Burstcoin!"))));
+        assertEquals("48fe9ca8e71d7334f4566909aef4350d", Hex.toHexString(md5.digest(stringToBytes("Burst Apps Team"))));
+    }
+
+    @Test
     public void testBytesToLongBE() {
         assertEquals(0x0000000000000000L, burstCrypto.bytesToLongBE(new byte[0]));
         assertEquals(0x0100000000000000L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0100000000000000")));
@@ -85,7 +95,17 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals(0x0123456789000000L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123456789000000")));
         assertEquals(0x0123456789ab0000L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123456789ab0000")));
         assertEquals(0x0123456789abcd00L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123456789abcd00")));
-        assertEquals(0x0123456789abcdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123456789abcdef")));
+
+        assertEquals(0x00000000000000efL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("00000000000000ef")));
+        assertEquals(0x000000000000cdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("000000000000cdef")));
+        assertEquals(0x0000000000abcdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0000000000abcdef")));
+        assertEquals(0x0000000089abcdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0000000089abcdef")));
+        assertEquals(0x0000006789abcdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0000006789abcdef")));
+        assertEquals(0x0000456789abcdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0000456789abcdef")));
+        assertEquals(0x0023456789abcdefL, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0023456789abcdef")));
+
+        assertEquals(Long.parseUnsignedLong("0123456789abcdef", 16), burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123456789abcdef")));
+        assertEquals(Long.parseUnsignedLong("efcdab8967452301", 16), burstCrypto.bytesToLongBE(burstCrypto.parseHexString("efcdab8967452301")));
     }
 
     @Test
@@ -98,7 +118,17 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals(0x0000008967452301L, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123456789000000")));
         assertEquals(0x0000ab8967452301L, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123456789ab0000")));
         assertEquals(0x00cdab8967452301L, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123456789abcd00")));
-        assertEquals(-0x1032547698badcffL, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123456789abcdef")));
+
+        assertEquals(Long.parseUnsignedLong("ef00000000000000", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("00000000000000ef")));
+        assertEquals(Long.parseUnsignedLong("efcd000000000000", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("000000000000cdef")));
+        assertEquals(Long.parseUnsignedLong("efcdab0000000000", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0000000000abcdef")));
+        assertEquals(Long.parseUnsignedLong("efcdab8900000000", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0000000089abcdef")));
+        assertEquals(Long.parseUnsignedLong("efcdab8967000000", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0000006789abcdef")));
+        assertEquals(Long.parseUnsignedLong("efcdab8967450000", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0000456789abcdef")));
+        assertEquals(Long.parseUnsignedLong("efcdab8967452300", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0023456789abcdef")));
+
+        assertEquals(Long.parseUnsignedLong("efcdab8967452301", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123456789abcdef")));
+        assertEquals(Long.parseUnsignedLong("0123456789abcdef", 16), burstCrypto.bytesToLongLE(burstCrypto.parseHexString("efcdab8967452301")));
     }
 
     @Test
@@ -110,7 +140,17 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals("0000008967452301", burstCrypto.toHexString(burstCrypto.longToBytesBE(0x0000008967452301L)));
         assertEquals("0000ab8967452301", burstCrypto.toHexString(burstCrypto.longToBytesBE(0x0000ab8967452301L)));
         assertEquals("00cdab8967452301", burstCrypto.toHexString(burstCrypto.longToBytesBE(0x00cdab8967452301L)));
-        assertEquals("efcdab8967452301", burstCrypto.toHexString(burstCrypto.longToBytesBE(-0x1032547698badcffL)));
+
+        assertEquals("ef00000000000000", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("ef00000000000000", 16))));
+        assertEquals("efcd000000000000", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcd000000000000", 16))));
+        assertEquals("efcdab0000000000", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcdab0000000000", 16))));
+        assertEquals("efcdab8900000000", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcdab8900000000", 16))));
+        assertEquals("efcdab8967000000", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcdab8967000000", 16))));
+        assertEquals("efcdab8967450000", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcdab8967450000", 16))));
+        assertEquals("efcdab8967452300", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcdab8967452300", 16))));
+
+        assertEquals("0123456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("0123456789abcdef", 16))));
+        assertEquals("efcdab8967452301", burstCrypto.toHexString(burstCrypto.longToBytesBE(Long.parseUnsignedLong("efcdab8967452301", 16))));
     }
 
     @Test
@@ -122,7 +162,17 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals("0123456789000000", burstCrypto.toHexString(burstCrypto.longToBytesLE(0x0000008967452301L)));
         assertEquals("0123456789ab0000", burstCrypto.toHexString(burstCrypto.longToBytesLE(0x0000ab8967452301L)));
         assertEquals("0123456789abcd00", burstCrypto.toHexString(burstCrypto.longToBytesLE(0x00cdab8967452301L)));
-        assertEquals("0123456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(-0x1032547698badcffL)));
+
+        assertEquals("00000000000000ef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("ef00000000000000", 16))));
+        assertEquals("000000000000cdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcd000000000000", 16))));
+        assertEquals("0000000000abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab0000000000", 16))));
+        assertEquals("0000000089abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab8900000000", 16))));
+        assertEquals("0000006789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab8967000000", 16))));
+        assertEquals("0000456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab8967450000", 16))));
+        assertEquals("0023456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab8967452300", 16))));
+
+        assertEquals("efcdab8967452301", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("0123456789abcdef", 16))));
+        assertEquals("0123456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab8967452301", 16))));
     }
 
     @Test

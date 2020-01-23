@@ -290,73 +290,107 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public long bytesToLongBE(byte[] bytes) {
-        long result = 0;
-        for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[i] & 0xFF);
+        if (bytes.length >= 8) {
+            return ((long) (bytes[7]     & 0xFF))
+                    | (((long) (bytes[6] & 0xFF)) << 8)
+                    | (((long) (bytes[5] & 0xFF)) << 16)
+                    | (((long) (bytes[4] & 0xFF)) << 24)
+                    | (((long) (bytes[3] & 0xFF)) << 32)
+                    | (((long) (bytes[2] & 0xFF)) << 40)
+                    | (((long) (bytes[1] & 0xFF)) << 48)
+                    | (((long) (bytes[0] & 0xFF)) << 56);
+        } else {
+            long result = 0;
+            for (int i = 0, length = Math.min(8, bytes.length) - 1; i <= length; i++) {
+                result <<= 8;
+                result |= (bytes[i] & 0xFF);
+            }
+            return result;
         }
-        return result;
     }
 
     @Override
     public long bytesToLongLE(byte[] bytes) {
-        long result = 0;
-        for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[length-i] & 0xFF);
+        if (bytes.length >= 8) {
+            return ((long) (bytes[0]     & 0xFF))
+                    | (((long) (bytes[1] & 0xFF)) << 8)
+                    | (((long) (bytes[2] & 0xFF)) << 16)
+                    | (((long) (bytes[3] & 0xFF)) << 24)
+                    | (((long) (bytes[4] & 0xFF)) << 32)
+                    | (((long) (bytes[5] & 0xFF)) << 40)
+                    | (((long) (bytes[6] & 0xFF)) << 48)
+                    | (((long) (bytes[7] & 0xFF)) << 56);
+        } else {
+            long result = 0;
+            for (int i = 0, length = Math.min(8, bytes.length) - 1; i <= length; i++) {
+                result <<= 8;
+                result |= (bytes[length - i] & 0xFF);
+            }
+            return result;
         }
-        return result;
     }
 
     @Override
     public int bytesToIntBE(byte[] bytes) {
-        int result = 0;
-        for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[i] & 0xFF);
+        if (bytes.length >= 8) {
+            return (bytes[3]     & 0xFF)
+                    | ((bytes[2] & 0xFF) << 8)
+                    | ((bytes[1] & 0xFF) << 16)
+                    | ((bytes[0] & 0xFF) << 24);
+        } else {
+            int result = 0;
+            for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
+                result <<= 8;
+                result |= (bytes[i] & 0xFF);
+            }
+            return result;
         }
-        return result;
     }
 
     @Override
     public int bytesToIntLE(byte[] bytes) {
-        int result = 0;
-        for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[length-i] & 0xFF);
+        if (bytes.length >= 8) {
+            return (bytes[0]     & 0xFF)
+                    | ((bytes[1] & 0xFF) << 8)
+                    | ((bytes[2] & 0xFF) << 16)
+                    | ((bytes[3] & 0xFF) << 24);
+        } else {
+            int result = 0;
+            for (int i = 0, length = Math.min(4, bytes.length) - 1; i <= length; i++) {
+                result <<= 8;
+                result |= (bytes[length - i] & 0xFF);
+            }
+            return result;
         }
-        return result;
     }
 
     @Override
     public void longToBytesBE(long l, byte[] target, int offset) {
-        for (int i = 7; i >= 0; i--) {
-            target[offset + i] = (byte)(l & 0xFF);
-            l >>= 8;
+        offset += 7;
+        for (int i = 0; i <= 7; i++) {
+            target[offset - i] = (byte)((l>>(8*i)) & 0xFF);
         }
     }
 
     @Override
     public void longToBytesLE(long l, byte[] target, int offset) {
-        for (int index = 0; index < 8; index++) {
-            target[offset + index] = (byte)(l & 0xFF);
-            l >>= 8;
+        for (int i = 0; i < 8; i++) {
+            target[offset + i] = (byte)((l>>(8*i)) & 0xFF);
         }
     }
 
     @Override
     public void intToBytesBE(int i, byte[] target, int offset) {
-        for (int index = 3; index >= 0; index--) {
-            target[offset + index] = (byte)(i & 0xFF);
-            i >>= 8;
+        offset += 3;
+        for (int index = 0; index < 4; index++) {
+            target[offset - index] = (byte)((i>>(8*index)) & 0xFF);
         }
     }
 
     @Override
     public void intToBytesLE(int i, byte[] target, int offset) {
         for (int index = 0; index < 4; index++) {
-            target[offset + index] = (byte)(i & 0xFF);
-            i >>= 8;
+            target[offset + index] = (byte)((i>>(8*index)) & 0xFF);
         }
     }
 
