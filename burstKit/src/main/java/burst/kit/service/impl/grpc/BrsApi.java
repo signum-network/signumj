@@ -15,7 +15,7 @@ public final class BrsApi {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
-   * Protobuf enum {@code AssetTradeType}
+   * Protobuf enum {@code brs.api.AssetTradeType}
    */
   public enum AssetTradeType
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -124,11 +124,11 @@ public final class BrsApi {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:AssetTradeType)
+    // @@protoc_insertion_point(enum_scope:brs.api.AssetTradeType)
   }
 
   /**
-   * Protobuf enum {@code PeerState}
+   * Protobuf enum {@code brs.api.PeerState}
    */
   public enum PeerState
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -246,13 +246,13 @@ public final class BrsApi {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:PeerState)
+    // @@protoc_insertion_point(enum_scope:brs.api.PeerState)
   }
 
   /**
-   * Protobuf enum {@code OrderType}
+   * Protobuf enum {@code brs.api.AssetOrderType}
    */
-  public enum OrderType
+  public enum AssetOrderType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <code>OrderType_UNSET = 0;</code>
@@ -297,7 +297,7 @@ public final class BrsApi {
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
-    public static OrderType valueOf(int value) {
+    public static AssetOrderType valueOf(int value) {
       return forNumber(value);
     }
 
@@ -305,7 +305,7 @@ public final class BrsApi {
      * @param value The numeric wire value of the corresponding enum entry.
      * @return The enum associated with the given numeric wire value.
      */
-    public static OrderType forNumber(int value) {
+    public static AssetOrderType forNumber(int value) {
       switch (value) {
         case 0: return OrderType_UNSET;
         case 1: return ASK;
@@ -314,15 +314,15 @@ public final class BrsApi {
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<OrderType>
+    public static com.google.protobuf.Internal.EnumLiteMap<AssetOrderType>
         internalGetValueMap() {
       return internalValueMap;
     }
     private static final com.google.protobuf.Internal.EnumLiteMap<
-        OrderType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<OrderType>() {
-            public OrderType findValueByNumber(int number) {
-              return OrderType.forNumber(number);
+        AssetOrderType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<AssetOrderType>() {
+            public AssetOrderType findValueByNumber(int number) {
+              return AssetOrderType.forNumber(number);
             }
           };
 
@@ -339,9 +339,9 @@ public final class BrsApi {
       return burst.kit.service.impl.grpc.BrsApi.getDescriptor().getEnumTypes().get(2);
     }
 
-    private static final OrderType[] VALUES = values();
+    private static final AssetOrderType[] VALUES = values();
 
-    public static OrderType valueOf(
+    public static AssetOrderType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
@@ -355,15 +355,15 @@ public final class BrsApi {
 
     private final int value;
 
-    private OrderType(int value) {
+    private AssetOrderType(int value) {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:OrderType)
+    // @@protoc_insertion_point(enum_scope:brs.api.AssetOrderType)
   }
 
   /**
-   * Protobuf enum {@code EscrowDecisionType}
+   * Protobuf enum {@code brs.api.EscrowDecisionType}
    */
   public enum EscrowDecisionType
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -490,11 +490,11 @@ public final class BrsApi {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:EscrowDecisionType)
+    // @@protoc_insertion_point(enum_scope:brs.api.EscrowDecisionType)
   }
 
   public interface GetAccountTransactionsRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAccountTransactionsRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAccountTransactionsRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -510,17 +510,17 @@ public final class BrsApi {
     int getTimestamp();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
 
@@ -553,11 +553,11 @@ public final class BrsApi {
     int getSubtype();
   }
   /**
-   * Protobuf type {@code GetAccountTransactionsRequest}
+   * Protobuf type {@code brs.api.GetAccountTransactionsRequest}
    */
   public  static final class GetAccountTransactionsRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAccountTransactionsRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAccountTransactionsRequest)
       GetAccountTransactionsRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAccountTransactionsRequest.newBuilder() to construct.
@@ -661,13 +661,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountTransactionsRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountTransactionsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountTransactionsRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountTransactionsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequest.Builder.class);
     }
@@ -695,21 +695,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -988,21 +988,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAccountTransactionsRequest}
+     * Protobuf type {@code brs.api.GetAccountTransactionsRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAccountTransactionsRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAccountTransactionsRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountTransactionsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountTransactionsRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountTransactionsRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountTransactionsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequest.Builder.class);
       }
@@ -1049,7 +1049,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountTransactionsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountTransactionsRequest_descriptor;
       }
 
       @java.lang.Override
@@ -1242,14 +1242,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -1260,7 +1260,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -1276,7 +1276,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -1290,7 +1290,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -1308,7 +1308,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -1322,7 +1322,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -1330,7 +1330,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -1341,7 +1341,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -1501,10 +1501,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAccountTransactionsRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAccountTransactionsRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAccountTransactionsRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAccountTransactionsRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAccountTransactionsRequest();
@@ -1542,7 +1542,7 @@ public final class BrsApi {
   }
 
   public interface GetAccountBlocksRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAccountBlocksRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAccountBlocksRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1558,17 +1558,17 @@ public final class BrsApi {
     int getTimestamp();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
 
@@ -1583,11 +1583,11 @@ public final class BrsApi {
     boolean getIncludeTransactions();
   }
   /**
-   * Protobuf type {@code GetAccountBlocksRequest}
+   * Protobuf type {@code brs.api.GetAccountBlocksRequest}
    */
   public  static final class GetAccountBlocksRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAccountBlocksRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAccountBlocksRequest)
       GetAccountBlocksRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAccountBlocksRequest.newBuilder() to construct.
@@ -1676,13 +1676,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountBlocksRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountBlocksRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountBlocksRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountBlocksRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequest.Builder.class);
     }
@@ -1710,21 +1710,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -1940,21 +1940,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAccountBlocksRequest}
+     * Protobuf type {@code brs.api.GetAccountBlocksRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAccountBlocksRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAccountBlocksRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountBlocksRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountBlocksRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountBlocksRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountBlocksRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequest.Builder.class);
       }
@@ -1995,7 +1995,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountBlocksRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountBlocksRequest_descriptor;
       }
 
       @java.lang.Override
@@ -2176,14 +2176,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -2194,7 +2194,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -2210,7 +2210,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -2224,7 +2224,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -2242,7 +2242,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -2256,7 +2256,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -2264,7 +2264,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -2275,7 +2275,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -2345,10 +2345,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAccountBlocksRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAccountBlocksRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAccountBlocksRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAccountBlocksRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAccountBlocksRequest();
@@ -2386,7 +2386,7 @@ public final class BrsApi {
   }
 
   public interface GetByIdRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetByIdRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetByIdRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2396,11 +2396,11 @@ public final class BrsApi {
     long getId();
   }
   /**
-   * Protobuf type {@code GetByIdRequest}
+   * Protobuf type {@code brs.api.GetByIdRequest}
    */
   public  static final class GetByIdRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetByIdRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetByIdRequest)
       GetByIdRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetByIdRequest.newBuilder() to construct.
@@ -2466,13 +2466,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetByIdRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetByIdRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetByIdRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetByIdRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetByIdRequest.class, burst.kit.service.impl.grpc.BrsApi.GetByIdRequest.Builder.class);
     }
@@ -2644,21 +2644,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetByIdRequest}
+     * Protobuf type {@code brs.api.GetByIdRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetByIdRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetByIdRequest)
         burst.kit.service.impl.grpc.BrsApi.GetByIdRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetByIdRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetByIdRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetByIdRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetByIdRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetByIdRequest.class, burst.kit.service.impl.grpc.BrsApi.GetByIdRequest.Builder.class);
       }
@@ -2689,7 +2689,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetByIdRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetByIdRequest_descriptor;
       }
 
       @java.lang.Override
@@ -2832,10 +2832,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetByIdRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetByIdRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetByIdRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetByIdRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetByIdRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetByIdRequest();
@@ -2873,7 +2873,7 @@ public final class BrsApi {
   }
 
   public interface GetDgsPendingPurchasesRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetDgsPendingPurchasesRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetDgsPendingPurchasesRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2883,26 +2883,26 @@ public final class BrsApi {
     long getSeller();
 
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetDgsPendingPurchasesRequest}
+   * Protobuf type {@code brs.api.GetDgsPendingPurchasesRequest}
    */
   public  static final class GetDgsPendingPurchasesRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetDgsPendingPurchasesRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetDgsPendingPurchasesRequest)
       GetDgsPendingPurchasesRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetDgsPendingPurchasesRequest.newBuilder() to construct.
@@ -2981,13 +2981,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPendingPurchasesRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPendingPurchasesRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPendingPurchasesRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPendingPurchasesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequest.Builder.class);
     }
@@ -3005,21 +3005,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 2;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -3198,21 +3198,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetDgsPendingPurchasesRequest}
+     * Protobuf type {@code brs.api.GetDgsPendingPurchasesRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetDgsPendingPurchasesRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetDgsPendingPurchasesRequest)
         burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPendingPurchasesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPendingPurchasesRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPendingPurchasesRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPendingPurchasesRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequest.Builder.class);
       }
@@ -3249,7 +3249,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPendingPurchasesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPendingPurchasesRequest_descriptor;
       }
 
       @java.lang.Override
@@ -3392,14 +3392,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -3410,7 +3410,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -3426,7 +3426,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -3440,7 +3440,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -3458,7 +3458,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -3472,7 +3472,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -3480,7 +3480,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -3491,7 +3491,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -3519,10 +3519,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetDgsPendingPurchasesRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetDgsPendingPurchasesRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetDgsPendingPurchasesRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetDgsPendingPurchasesRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetDgsPendingPurchasesRequest();
@@ -3560,7 +3560,7 @@ public final class BrsApi {
   }
 
   public interface GetDgsPurchasesRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetDgsPurchasesRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetDgsPurchasesRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3582,26 +3582,26 @@ public final class BrsApi {
     boolean getCompleted();
 
     /**
-     * <code>.IndexRange indexRange = 4;</code>
+     * <code>.brs.api.IndexRange indexRange = 4;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 4;</code>
+     * <code>.brs.api.IndexRange indexRange = 4;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 4;</code>
+     * <code>.brs.api.IndexRange indexRange = 4;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetDgsPurchasesRequest}
+   * Protobuf type {@code brs.api.GetDgsPurchasesRequest}
    */
   public  static final class GetDgsPurchasesRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetDgsPurchasesRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetDgsPurchasesRequest)
       GetDgsPurchasesRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetDgsPurchasesRequest.newBuilder() to construct.
@@ -3690,13 +3690,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPurchasesRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPurchasesRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPurchasesRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPurchasesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequest.Builder.class);
     }
@@ -3734,21 +3734,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 4;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 4;</code>
+     * <code>.brs.api.IndexRange indexRange = 4;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 4;</code>
+     * <code>.brs.api.IndexRange indexRange = 4;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 4;</code>
+     * <code>.brs.api.IndexRange indexRange = 4;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -3951,21 +3951,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetDgsPurchasesRequest}
+     * Protobuf type {@code brs.api.GetDgsPurchasesRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetDgsPurchasesRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetDgsPurchasesRequest)
         burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPurchasesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPurchasesRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPurchasesRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPurchasesRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequest.Builder.class);
       }
@@ -4006,7 +4006,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsPurchasesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsPurchasesRequest_descriptor;
       }
 
       @java.lang.Override
@@ -4217,14 +4217,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -4235,7 +4235,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -4251,7 +4251,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -4265,7 +4265,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -4283,7 +4283,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -4297,7 +4297,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -4305,7 +4305,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -4316,7 +4316,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 4;</code>
+       * <code>.brs.api.IndexRange indexRange = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -4344,10 +4344,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetDgsPurchasesRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetDgsPurchasesRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetDgsPurchasesRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetDgsPurchasesRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetDgsPurchasesRequest();
@@ -4385,7 +4385,7 @@ public final class BrsApi {
   }
 
   public interface EncryptedDataOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EncryptedData)
+      // @@protoc_insertion_point(interface_extends:brs.api.EncryptedData)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -4401,11 +4401,11 @@ public final class BrsApi {
     com.google.protobuf.ByteString getNonce();
   }
   /**
-   * Protobuf type {@code EncryptedData}
+   * Protobuf type {@code brs.api.EncryptedData}
    */
   public  static final class EncryptedData extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EncryptedData)
+      // @@protoc_insertion_point(message_implements:brs.api.EncryptedData)
       EncryptedDataOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EncryptedData.newBuilder() to construct.
@@ -4478,13 +4478,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedData_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedData_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedData_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EncryptedData.class, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder.class);
     }
@@ -4676,21 +4676,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EncryptedData}
+     * Protobuf type {@code brs.api.EncryptedData}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EncryptedData)
+        // @@protoc_insertion_point(builder_implements:brs.api.EncryptedData)
         burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedData_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedData_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedData_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EncryptedData.class, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder.class);
       }
@@ -4723,7 +4723,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedData_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedData_descriptor;
       }
 
       @java.lang.Override
@@ -4906,10 +4906,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EncryptedData)
+      // @@protoc_insertion_point(builder_scope:brs.api.EncryptedData)
     }
 
-    // @@protoc_insertion_point(class_scope:EncryptedData)
+    // @@protoc_insertion_point(class_scope:brs.api.EncryptedData)
     private static final burst.kit.service.impl.grpc.BrsApi.EncryptedData DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EncryptedData();
@@ -4947,39 +4947,39 @@ public final class BrsApi {
   }
 
   public interface DgsPurchasesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DgsPurchases)
+      // @@protoc_insertion_point(interface_extends:brs.api.DgsPurchases)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsPurchase> 
         getDgsPurchasesList();
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.DgsPurchase getDgsPurchases(int index);
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     int getDgsPurchasesCount();
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder> 
         getDgsPurchasesOrBuilderList();
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder getDgsPurchasesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code DgsPurchases}
+   * Protobuf type {@code brs.api.DgsPurchases}
    */
   public  static final class DgsPurchases extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DgsPurchases)
+      // @@protoc_insertion_point(message_implements:brs.api.DgsPurchases)
       DgsPurchasesOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DgsPurchases.newBuilder() to construct.
@@ -5054,13 +5054,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchases_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchases_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchases_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchases_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DgsPurchases.class, burst.kit.service.impl.grpc.BrsApi.DgsPurchases.Builder.class);
     }
@@ -5068,32 +5068,32 @@ public final class BrsApi {
     public static final int DGSPURCHASES_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsPurchase> dgsPurchases_;
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsPurchase> getDgsPurchasesList() {
       return dgsPurchases_;
     }
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder> 
         getDgsPurchasesOrBuilderList() {
       return dgsPurchases_;
     }
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     public int getDgsPurchasesCount() {
       return dgsPurchases_.size();
     }
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.DgsPurchase getDgsPurchases(int index) {
       return dgsPurchases_.get(index);
     }
     /**
-     * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+     * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder getDgsPurchasesOrBuilder(
         int index) {
@@ -5258,21 +5258,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DgsPurchases}
+     * Protobuf type {@code brs.api.DgsPurchases}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DgsPurchases)
+        // @@protoc_insertion_point(builder_implements:brs.api.DgsPurchases)
         burst.kit.service.impl.grpc.BrsApi.DgsPurchasesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchases_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchases_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchases_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchases_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DgsPurchases.class, burst.kit.service.impl.grpc.BrsApi.DgsPurchases.Builder.class);
       }
@@ -5308,7 +5308,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchases_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchases_descriptor;
       }
 
       @java.lang.Override
@@ -5455,7 +5455,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.DgsPurchase, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder, burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder> dgsPurchasesBuilder_;
 
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsPurchase> getDgsPurchasesList() {
         if (dgsPurchasesBuilder_ == null) {
@@ -5465,7 +5465,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public int getDgsPurchasesCount() {
         if (dgsPurchasesBuilder_ == null) {
@@ -5475,7 +5475,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsPurchase getDgsPurchases(int index) {
         if (dgsPurchasesBuilder_ == null) {
@@ -5485,7 +5485,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder setDgsPurchases(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsPurchase value) {
@@ -5502,7 +5502,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder setDgsPurchases(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder builderForValue) {
@@ -5516,7 +5516,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder addDgsPurchases(burst.kit.service.impl.grpc.BrsApi.DgsPurchase value) {
         if (dgsPurchasesBuilder_ == null) {
@@ -5532,7 +5532,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder addDgsPurchases(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsPurchase value) {
@@ -5549,7 +5549,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder addDgsPurchases(
           burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder builderForValue) {
@@ -5563,7 +5563,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder addDgsPurchases(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder builderForValue) {
@@ -5577,7 +5577,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder addAllDgsPurchases(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.DgsPurchase> values) {
@@ -5592,7 +5592,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder clearDgsPurchases() {
         if (dgsPurchasesBuilder_ == null) {
@@ -5605,7 +5605,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public Builder removeDgsPurchases(int index) {
         if (dgsPurchasesBuilder_ == null) {
@@ -5618,14 +5618,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder getDgsPurchasesBuilder(
           int index) {
         return getDgsPurchasesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder getDgsPurchasesOrBuilder(
           int index) {
@@ -5635,7 +5635,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder> 
            getDgsPurchasesOrBuilderList() {
@@ -5646,14 +5646,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder addDgsPurchasesBuilder() {
         return getDgsPurchasesFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.DgsPurchase.getDefaultInstance());
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder addDgsPurchasesBuilder(
           int index) {
@@ -5661,7 +5661,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.getDefaultInstance());
       }
       /**
-       * <code>repeated .DgsPurchase dgsPurchases = 1;</code>
+       * <code>repeated .brs.api.DgsPurchase dgsPurchases = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder> 
            getDgsPurchasesBuilderList() {
@@ -5694,10 +5694,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DgsPurchases)
+      // @@protoc_insertion_point(builder_scope:brs.api.DgsPurchases)
     }
 
-    // @@protoc_insertion_point(class_scope:DgsPurchases)
+    // @@protoc_insertion_point(class_scope:brs.api.DgsPurchases)
     private static final burst.kit.service.impl.grpc.BrsApi.DgsPurchases DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DgsPurchases();
@@ -5735,7 +5735,7 @@ public final class BrsApi {
   }
 
   public interface DgsPurchaseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DgsPurchase)
+      // @@protoc_insertion_point(interface_extends:brs.api.DgsPurchase)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -5811,17 +5811,17 @@ public final class BrsApi {
         getGoodDescriptionBytes();
 
     /**
-     * <code>.EncryptedData note = 11;</code>
+     * <code>.brs.api.EncryptedData note = 11;</code>
      * @return Whether the note field is set.
      */
     boolean hasNote();
     /**
-     * <code>.EncryptedData note = 11;</code>
+     * <code>.brs.api.EncryptedData note = 11;</code>
      * @return The note.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getNote();
     /**
-     * <code>.EncryptedData note = 11;</code>
+     * <code>.brs.api.EncryptedData note = 11;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getNoteOrBuilder();
 
@@ -5832,17 +5832,17 @@ public final class BrsApi {
     boolean getIsPending();
 
     /**
-     * <code>.EncryptedData deliveredData = 13;</code>
+     * <code>.brs.api.EncryptedData deliveredData = 13;</code>
      * @return Whether the deliveredData field is set.
      */
     boolean hasDeliveredData();
     /**
-     * <code>.EncryptedData deliveredData = 13;</code>
+     * <code>.brs.api.EncryptedData deliveredData = 13;</code>
      * @return The deliveredData.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getDeliveredData();
     /**
-     * <code>.EncryptedData deliveredData = 13;</code>
+     * <code>.brs.api.EncryptedData deliveredData = 13;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getDeliveredDataOrBuilder();
 
@@ -5853,25 +5853,25 @@ public final class BrsApi {
     boolean getDeliveredDataIsText();
 
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.EncryptedData> 
         getFeedbackList();
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getFeedback(int index);
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     int getFeedbackCount();
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
         getFeedbackOrBuilderList();
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getFeedbackOrBuilder(
         int index);
@@ -5902,17 +5902,17 @@ public final class BrsApi {
         getPublicFeedbackBytes(int index);
 
     /**
-     * <code>.EncryptedData refundNote = 17;</code>
+     * <code>.brs.api.EncryptedData refundNote = 17;</code>
      * @return Whether the refundNote field is set.
      */
     boolean hasRefundNote();
     /**
-     * <code>.EncryptedData refundNote = 17;</code>
+     * <code>.brs.api.EncryptedData refundNote = 17;</code>
      * @return The refundNote.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getRefundNote();
     /**
-     * <code>.EncryptedData refundNote = 17;</code>
+     * <code>.brs.api.EncryptedData refundNote = 17;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getRefundNoteOrBuilder();
 
@@ -5929,11 +5929,11 @@ public final class BrsApi {
     long getRefund();
   }
   /**
-   * Protobuf type {@code DgsPurchase}
+   * Protobuf type {@code brs.api.DgsPurchase}
    */
   public  static final class DgsPurchase extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DgsPurchase)
+      // @@protoc_insertion_point(message_implements:brs.api.DgsPurchase)
       DgsPurchaseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DgsPurchase.newBuilder() to construct.
@@ -6134,13 +6134,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchase_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchase_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchase_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchase_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DgsPurchase.class, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder.class);
     }
@@ -6300,21 +6300,21 @@ public final class BrsApi {
     public static final int NOTE_FIELD_NUMBER = 11;
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData note_;
     /**
-     * <code>.EncryptedData note = 11;</code>
+     * <code>.brs.api.EncryptedData note = 11;</code>
      * @return Whether the note field is set.
      */
     public boolean hasNote() {
       return note_ != null;
     }
     /**
-     * <code>.EncryptedData note = 11;</code>
+     * <code>.brs.api.EncryptedData note = 11;</code>
      * @return The note.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getNote() {
       return note_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : note_;
     }
     /**
-     * <code>.EncryptedData note = 11;</code>
+     * <code>.brs.api.EncryptedData note = 11;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getNoteOrBuilder() {
       return getNote();
@@ -6333,21 +6333,21 @@ public final class BrsApi {
     public static final int DELIVEREDDATA_FIELD_NUMBER = 13;
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData deliveredData_;
     /**
-     * <code>.EncryptedData deliveredData = 13;</code>
+     * <code>.brs.api.EncryptedData deliveredData = 13;</code>
      * @return Whether the deliveredData field is set.
      */
     public boolean hasDeliveredData() {
       return deliveredData_ != null;
     }
     /**
-     * <code>.EncryptedData deliveredData = 13;</code>
+     * <code>.brs.api.EncryptedData deliveredData = 13;</code>
      * @return The deliveredData.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getDeliveredData() {
       return deliveredData_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : deliveredData_;
     }
     /**
-     * <code>.EncryptedData deliveredData = 13;</code>
+     * <code>.brs.api.EncryptedData deliveredData = 13;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getDeliveredDataOrBuilder() {
       return getDeliveredData();
@@ -6366,32 +6366,32 @@ public final class BrsApi {
     public static final int FEEDBACK_FIELD_NUMBER = 15;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.EncryptedData> feedback_;
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.EncryptedData> getFeedbackList() {
       return feedback_;
     }
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
         getFeedbackOrBuilderList() {
       return feedback_;
     }
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     public int getFeedbackCount() {
       return feedback_.size();
     }
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getFeedback(int index) {
       return feedback_.get(index);
     }
     /**
-     * <code>repeated .EncryptedData feedback = 15;</code>
+     * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getFeedbackOrBuilder(
         int index) {
@@ -6436,21 +6436,21 @@ public final class BrsApi {
     public static final int REFUNDNOTE_FIELD_NUMBER = 17;
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData refundNote_;
     /**
-     * <code>.EncryptedData refundNote = 17;</code>
+     * <code>.brs.api.EncryptedData refundNote = 17;</code>
      * @return Whether the refundNote field is set.
      */
     public boolean hasRefundNote() {
       return refundNote_ != null;
     }
     /**
-     * <code>.EncryptedData refundNote = 17;</code>
+     * <code>.brs.api.EncryptedData refundNote = 17;</code>
      * @return The refundNote.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getRefundNote() {
       return refundNote_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : refundNote_;
     }
     /**
-     * <code>.EncryptedData refundNote = 17;</code>
+     * <code>.brs.api.EncryptedData refundNote = 17;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getRefundNoteOrBuilder() {
       return getRefundNote();
@@ -6861,21 +6861,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DgsPurchase}
+     * Protobuf type {@code brs.api.DgsPurchase}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DgsPurchase)
+        // @@protoc_insertion_point(builder_implements:brs.api.DgsPurchase)
         burst.kit.service.impl.grpc.BrsApi.DgsPurchaseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchase_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchase_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchase_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchase_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DgsPurchase.class, burst.kit.service.impl.grpc.BrsApi.DgsPurchase.Builder.class);
       }
@@ -6959,7 +6959,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsPurchase_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsPurchase_descriptor;
       }
 
       @java.lang.Override
@@ -7586,14 +7586,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> noteBuilder_;
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        * @return Whether the note field is set.
        */
       public boolean hasNote() {
         return noteBuilder_ != null || note_ != null;
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        * @return The note.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getNote() {
@@ -7604,7 +7604,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       public Builder setNote(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (noteBuilder_ == null) {
@@ -7620,7 +7620,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       public Builder setNote(
           burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -7634,7 +7634,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       public Builder mergeNote(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (noteBuilder_ == null) {
@@ -7652,7 +7652,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       public Builder clearNote() {
         if (noteBuilder_ == null) {
@@ -7666,7 +7666,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder getNoteBuilder() {
         
@@ -7674,7 +7674,7 @@ public final class BrsApi {
         return getNoteFieldBuilder().getBuilder();
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getNoteOrBuilder() {
         if (noteBuilder_ != null) {
@@ -7685,7 +7685,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData note = 11;</code>
+       * <code>.brs.api.EncryptedData note = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
@@ -7735,14 +7735,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> deliveredDataBuilder_;
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        * @return Whether the deliveredData field is set.
        */
       public boolean hasDeliveredData() {
         return deliveredDataBuilder_ != null || deliveredData_ != null;
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        * @return The deliveredData.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getDeliveredData() {
@@ -7753,7 +7753,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       public Builder setDeliveredData(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (deliveredDataBuilder_ == null) {
@@ -7769,7 +7769,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       public Builder setDeliveredData(
           burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -7783,7 +7783,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       public Builder mergeDeliveredData(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (deliveredDataBuilder_ == null) {
@@ -7801,7 +7801,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       public Builder clearDeliveredData() {
         if (deliveredDataBuilder_ == null) {
@@ -7815,7 +7815,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder getDeliveredDataBuilder() {
         
@@ -7823,7 +7823,7 @@ public final class BrsApi {
         return getDeliveredDataFieldBuilder().getBuilder();
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getDeliveredDataOrBuilder() {
         if (deliveredDataBuilder_ != null) {
@@ -7834,7 +7834,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData deliveredData = 13;</code>
+       * <code>.brs.api.EncryptedData deliveredData = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
@@ -7893,7 +7893,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> feedbackBuilder_;
 
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.EncryptedData> getFeedbackList() {
         if (feedbackBuilder_ == null) {
@@ -7903,7 +7903,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public int getFeedbackCount() {
         if (feedbackBuilder_ == null) {
@@ -7913,7 +7913,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getFeedback(int index) {
         if (feedbackBuilder_ == null) {
@@ -7923,7 +7923,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder setFeedback(
           int index, burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
@@ -7940,7 +7940,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder setFeedback(
           int index, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -7954,7 +7954,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder addFeedback(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (feedbackBuilder_ == null) {
@@ -7970,7 +7970,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder addFeedback(
           int index, burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
@@ -7987,7 +7987,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder addFeedback(
           burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -8001,7 +8001,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder addFeedback(
           int index, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -8015,7 +8015,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder addAllFeedback(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.EncryptedData> values) {
@@ -8030,7 +8030,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder clearFeedback() {
         if (feedbackBuilder_ == null) {
@@ -8043,7 +8043,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public Builder removeFeedback(int index) {
         if (feedbackBuilder_ == null) {
@@ -8056,14 +8056,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder getFeedbackBuilder(
           int index) {
         return getFeedbackFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getFeedbackOrBuilder(
           int index) {
@@ -8073,7 +8073,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
            getFeedbackOrBuilderList() {
@@ -8084,14 +8084,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder addFeedbackBuilder() {
         return getFeedbackFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance());
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder addFeedbackBuilder(
           int index) {
@@ -8099,7 +8099,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance());
       }
       /**
-       * <code>repeated .EncryptedData feedback = 15;</code>
+       * <code>repeated .brs.api.EncryptedData feedback = 15;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder> 
            getFeedbackBuilderList() {
@@ -8234,14 +8234,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> refundNoteBuilder_;
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        * @return Whether the refundNote field is set.
        */
       public boolean hasRefundNote() {
         return refundNoteBuilder_ != null || refundNote_ != null;
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        * @return The refundNote.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getRefundNote() {
@@ -8252,7 +8252,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       public Builder setRefundNote(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (refundNoteBuilder_ == null) {
@@ -8268,7 +8268,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       public Builder setRefundNote(
           burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -8282,7 +8282,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       public Builder mergeRefundNote(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (refundNoteBuilder_ == null) {
@@ -8300,7 +8300,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       public Builder clearRefundNote() {
         if (refundNoteBuilder_ == null) {
@@ -8314,7 +8314,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder getRefundNoteBuilder() {
         
@@ -8322,7 +8322,7 @@ public final class BrsApi {
         return getRefundNoteFieldBuilder().getBuilder();
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getRefundNoteOrBuilder() {
         if (refundNoteBuilder_ != null) {
@@ -8333,7 +8333,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData refundNote = 17;</code>
+       * <code>.brs.api.EncryptedData refundNote = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
@@ -8421,10 +8421,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DgsPurchase)
+      // @@protoc_insertion_point(builder_scope:brs.api.DgsPurchase)
     }
 
-    // @@protoc_insertion_point(class_scope:DgsPurchase)
+    // @@protoc_insertion_point(class_scope:brs.api.DgsPurchase)
     private static final burst.kit.service.impl.grpc.BrsApi.DgsPurchase DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DgsPurchase();
@@ -8462,7 +8462,7 @@ public final class BrsApi {
   }
 
   public interface GetDgsGoodsRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetDgsGoodsRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetDgsGoodsRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -8478,26 +8478,26 @@ public final class BrsApi {
     boolean getInStockOnly();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetDgsGoodsRequest}
+   * Protobuf type {@code brs.api.GetDgsGoodsRequest}
    */
   public  static final class GetDgsGoodsRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetDgsGoodsRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetDgsGoodsRequest)
       GetDgsGoodsRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetDgsGoodsRequest.newBuilder() to construct.
@@ -8581,13 +8581,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsGoodsRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsGoodsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsGoodsRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsGoodsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequest.Builder.class);
     }
@@ -8615,21 +8615,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -8820,21 +8820,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetDgsGoodsRequest}
+     * Protobuf type {@code brs.api.GetDgsGoodsRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetDgsGoodsRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetDgsGoodsRequest)
         burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsGoodsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsGoodsRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsGoodsRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsGoodsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequest.Builder.class);
       }
@@ -8873,7 +8873,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetDgsGoodsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetDgsGoodsRequest_descriptor;
       }
 
       @java.lang.Override
@@ -9050,14 +9050,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -9068,7 +9068,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -9084,7 +9084,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -9098,7 +9098,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -9116,7 +9116,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -9130,7 +9130,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -9138,7 +9138,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -9149,7 +9149,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -9177,10 +9177,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetDgsGoodsRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetDgsGoodsRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetDgsGoodsRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetDgsGoodsRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetDgsGoodsRequest();
@@ -9218,39 +9218,39 @@ public final class BrsApi {
   }
 
   public interface DgsGoodsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DgsGoods)
+      // @@protoc_insertion_point(interface_extends:brs.api.DgsGoods)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsGood> 
         getGoodsList();
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.DgsGood getGoods(int index);
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     int getGoodsCount();
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder> 
         getGoodsOrBuilderList();
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder getGoodsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code DgsGoods}
+   * Protobuf type {@code brs.api.DgsGoods}
    */
   public  static final class DgsGoods extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DgsGoods)
+      // @@protoc_insertion_point(message_implements:brs.api.DgsGoods)
       DgsGoodsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DgsGoods.newBuilder() to construct.
@@ -9325,13 +9325,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGoods_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGoods_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGoods_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGoods_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DgsGoods.class, burst.kit.service.impl.grpc.BrsApi.DgsGoods.Builder.class);
     }
@@ -9339,32 +9339,32 @@ public final class BrsApi {
     public static final int GOODS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsGood> goods_;
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsGood> getGoodsList() {
       return goods_;
     }
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder> 
         getGoodsOrBuilderList() {
       return goods_;
     }
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     public int getGoodsCount() {
       return goods_.size();
     }
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.DgsGood getGoods(int index) {
       return goods_.get(index);
     }
     /**
-     * <code>repeated .DgsGood goods = 1;</code>
+     * <code>repeated .brs.api.DgsGood goods = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder getGoodsOrBuilder(
         int index) {
@@ -9529,21 +9529,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DgsGoods}
+     * Protobuf type {@code brs.api.DgsGoods}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DgsGoods)
+        // @@protoc_insertion_point(builder_implements:brs.api.DgsGoods)
         burst.kit.service.impl.grpc.BrsApi.DgsGoodsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGoods_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGoods_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGoods_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGoods_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DgsGoods.class, burst.kit.service.impl.grpc.BrsApi.DgsGoods.Builder.class);
       }
@@ -9579,7 +9579,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGoods_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGoods_descriptor;
       }
 
       @java.lang.Override
@@ -9726,7 +9726,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.DgsGood, burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder, burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder> goodsBuilder_;
 
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsGood> getGoodsList() {
         if (goodsBuilder_ == null) {
@@ -9736,7 +9736,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public int getGoodsCount() {
         if (goodsBuilder_ == null) {
@@ -9746,7 +9746,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsGood getGoods(int index) {
         if (goodsBuilder_ == null) {
@@ -9756,7 +9756,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder setGoods(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsGood value) {
@@ -9773,7 +9773,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder setGoods(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder builderForValue) {
@@ -9787,7 +9787,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder addGoods(burst.kit.service.impl.grpc.BrsApi.DgsGood value) {
         if (goodsBuilder_ == null) {
@@ -9803,7 +9803,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder addGoods(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsGood value) {
@@ -9820,7 +9820,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder addGoods(
           burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder builderForValue) {
@@ -9834,7 +9834,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder addGoods(
           int index, burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder builderForValue) {
@@ -9848,7 +9848,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder addAllGoods(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.DgsGood> values) {
@@ -9863,7 +9863,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder clearGoods() {
         if (goodsBuilder_ == null) {
@@ -9876,7 +9876,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public Builder removeGoods(int index) {
         if (goodsBuilder_ == null) {
@@ -9889,14 +9889,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder getGoodsBuilder(
           int index) {
         return getGoodsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder getGoodsOrBuilder(
           int index) {
@@ -9906,7 +9906,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder> 
            getGoodsOrBuilderList() {
@@ -9917,14 +9917,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder addGoodsBuilder() {
         return getGoodsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.DgsGood.getDefaultInstance());
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder addGoodsBuilder(
           int index) {
@@ -9932,7 +9932,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.DgsGood.getDefaultInstance());
       }
       /**
-       * <code>repeated .DgsGood goods = 1;</code>
+       * <code>repeated .brs.api.DgsGood goods = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder> 
            getGoodsBuilderList() {
@@ -9965,10 +9965,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DgsGoods)
+      // @@protoc_insertion_point(builder_scope:brs.api.DgsGoods)
     }
 
-    // @@protoc_insertion_point(class_scope:DgsGoods)
+    // @@protoc_insertion_point(class_scope:brs.api.DgsGoods)
     private static final burst.kit.service.impl.grpc.BrsApi.DgsGoods DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DgsGoods();
@@ -10006,7 +10006,7 @@ public final class BrsApi {
   }
 
   public interface DgsGoodOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DgsGood)
+      // @@protoc_insertion_point(interface_extends:brs.api.DgsGood)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -10082,11 +10082,11 @@ public final class BrsApi {
         getTagsBytes();
   }
   /**
-   * Protobuf type {@code DgsGood}
+   * Protobuf type {@code brs.api.DgsGood}
    */
   public  static final class DgsGood extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DgsGood)
+      // @@protoc_insertion_point(message_implements:brs.api.DgsGood)
       DgsGoodOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DgsGood.newBuilder() to construct.
@@ -10198,13 +10198,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGood_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGood_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGood_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGood_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DgsGood.class, burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder.class);
     }
@@ -10623,21 +10623,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DgsGood}
+     * Protobuf type {@code brs.api.DgsGood}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DgsGood)
+        // @@protoc_insertion_point(builder_implements:brs.api.DgsGood)
         burst.kit.service.impl.grpc.BrsApi.DgsGoodOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGood_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGood_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGood_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGood_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DgsGood.class, burst.kit.service.impl.grpc.BrsApi.DgsGood.Builder.class);
       }
@@ -10684,7 +10684,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DgsGood_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DgsGood_descriptor;
       }
 
       @java.lang.Override
@@ -11240,10 +11240,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DgsGood)
+      // @@protoc_insertion_point(builder_scope:brs.api.DgsGood)
     }
 
-    // @@protoc_insertion_point(class_scope:DgsGood)
+    // @@protoc_insertion_point(class_scope:brs.api.DgsGood)
     private static final burst.kit.service.impl.grpc.BrsApi.DgsGood DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DgsGood();
@@ -11281,7 +11281,7 @@ public final class BrsApi {
   }
 
   public interface GetAssetTransfersRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAssetTransfersRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAssetTransfersRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11297,26 +11297,26 @@ public final class BrsApi {
     long getAccount();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetAssetTransfersRequest}
+   * Protobuf type {@code brs.api.GetAssetTransfersRequest}
    */
   public  static final class GetAssetTransfersRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAssetTransfersRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAssetTransfersRequest)
       GetAssetTransfersRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAssetTransfersRequest.newBuilder() to construct.
@@ -11400,13 +11400,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetTransfersRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetTransfersRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetTransfersRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetTransfersRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequest.Builder.class);
     }
@@ -11434,21 +11434,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -11639,21 +11639,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAssetTransfersRequest}
+     * Protobuf type {@code brs.api.GetAssetTransfersRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAssetTransfersRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAssetTransfersRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetTransfersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetTransfersRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetTransfersRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetTransfersRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequest.Builder.class);
       }
@@ -11692,7 +11692,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetTransfersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetTransfersRequest_descriptor;
       }
 
       @java.lang.Override
@@ -11869,14 +11869,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -11887,7 +11887,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -11903,7 +11903,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -11917,7 +11917,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -11935,7 +11935,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -11949,7 +11949,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -11957,7 +11957,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -11968,7 +11968,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -11996,10 +11996,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAssetTransfersRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAssetTransfersRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAssetTransfersRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAssetTransfersRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAssetTransfersRequest();
@@ -12037,39 +12037,39 @@ public final class BrsApi {
   }
 
   public interface AssetTradesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetTrades)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetTrades)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTrade> 
         getTradesList();
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetTrade getTrades(int index);
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     int getTradesCount();
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder> 
         getTradesOrBuilderList();
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder getTradesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code AssetTrades}
+   * Protobuf type {@code brs.api.AssetTrades}
    */
   public  static final class AssetTrades extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetTrades)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetTrades)
       AssetTradesOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetTrades.newBuilder() to construct.
@@ -12144,13 +12144,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrades_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrades_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrades_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrades_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetTrades.class, burst.kit.service.impl.grpc.BrsApi.AssetTrades.Builder.class);
     }
@@ -12158,32 +12158,32 @@ public final class BrsApi {
     public static final int TRADES_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTrade> trades_;
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTrade> getTradesList() {
       return trades_;
     }
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder> 
         getTradesOrBuilderList() {
       return trades_;
     }
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     public int getTradesCount() {
       return trades_.size();
     }
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetTrade getTrades(int index) {
       return trades_.get(index);
     }
     /**
-     * <code>repeated .AssetTrade trades = 1;</code>
+     * <code>repeated .brs.api.AssetTrade trades = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder getTradesOrBuilder(
         int index) {
@@ -12348,21 +12348,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetTrades}
+     * Protobuf type {@code brs.api.AssetTrades}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetTrades)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetTrades)
         burst.kit.service.impl.grpc.BrsApi.AssetTradesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrades_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrades_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrades_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrades_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetTrades.class, burst.kit.service.impl.grpc.BrsApi.AssetTrades.Builder.class);
       }
@@ -12398,7 +12398,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrades_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrades_descriptor;
       }
 
       @java.lang.Override
@@ -12545,7 +12545,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.AssetTrade, burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder, burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder> tradesBuilder_;
 
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTrade> getTradesList() {
         if (tradesBuilder_ == null) {
@@ -12555,7 +12555,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public int getTradesCount() {
         if (tradesBuilder_ == null) {
@@ -12565,7 +12565,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTrade getTrades(int index) {
         if (tradesBuilder_ == null) {
@@ -12575,7 +12575,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder setTrades(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTrade value) {
@@ -12592,7 +12592,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder setTrades(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder builderForValue) {
@@ -12606,7 +12606,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder addTrades(burst.kit.service.impl.grpc.BrsApi.AssetTrade value) {
         if (tradesBuilder_ == null) {
@@ -12622,7 +12622,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder addTrades(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTrade value) {
@@ -12639,7 +12639,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder addTrades(
           burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder builderForValue) {
@@ -12653,7 +12653,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder addTrades(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder builderForValue) {
@@ -12667,7 +12667,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder addAllTrades(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.AssetTrade> values) {
@@ -12682,7 +12682,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder clearTrades() {
         if (tradesBuilder_ == null) {
@@ -12695,7 +12695,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public Builder removeTrades(int index) {
         if (tradesBuilder_ == null) {
@@ -12708,14 +12708,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder getTradesBuilder(
           int index) {
         return getTradesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder getTradesOrBuilder(
           int index) {
@@ -12725,7 +12725,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder> 
            getTradesOrBuilderList() {
@@ -12736,14 +12736,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder addTradesBuilder() {
         return getTradesFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.AssetTrade.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder addTradesBuilder(
           int index) {
@@ -12751,7 +12751,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.AssetTrade.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetTrade trades = 1;</code>
+       * <code>repeated .brs.api.AssetTrade trades = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder> 
            getTradesBuilderList() {
@@ -12784,10 +12784,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetTrades)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetTrades)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetTrades)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetTrades)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetTrades DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetTrades();
@@ -12825,39 +12825,39 @@ public final class BrsApi {
   }
 
   public interface AssetTransfersOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetTransfers)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetTransfers)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTransfer> 
         getAssetTransfersList();
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetTransfer getAssetTransfers(int index);
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     int getAssetTransfersCount();
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder> 
         getAssetTransfersOrBuilderList();
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder getAssetTransfersOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code AssetTransfers}
+   * Protobuf type {@code brs.api.AssetTransfers}
    */
   public  static final class AssetTransfers extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetTransfers)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetTransfers)
       AssetTransfersOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetTransfers.newBuilder() to construct.
@@ -12932,13 +12932,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfers_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfers_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfers_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfers_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetTransfers.class, burst.kit.service.impl.grpc.BrsApi.AssetTransfers.Builder.class);
     }
@@ -12946,32 +12946,32 @@ public final class BrsApi {
     public static final int ASSETTRANSFERS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTransfer> assetTransfers_;
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTransfer> getAssetTransfersList() {
       return assetTransfers_;
     }
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder> 
         getAssetTransfersOrBuilderList() {
       return assetTransfers_;
     }
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     public int getAssetTransfersCount() {
       return assetTransfers_.size();
     }
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetTransfer getAssetTransfers(int index) {
       return assetTransfers_.get(index);
     }
     /**
-     * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+     * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder getAssetTransfersOrBuilder(
         int index) {
@@ -13136,21 +13136,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetTransfers}
+     * Protobuf type {@code brs.api.AssetTransfers}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetTransfers)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetTransfers)
         burst.kit.service.impl.grpc.BrsApi.AssetTransfersOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfers_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfers_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfers_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfers_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetTransfers.class, burst.kit.service.impl.grpc.BrsApi.AssetTransfers.Builder.class);
       }
@@ -13186,7 +13186,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfers_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfers_descriptor;
       }
 
       @java.lang.Override
@@ -13333,7 +13333,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.AssetTransfer, burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder, burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder> assetTransfersBuilder_;
 
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTransfer> getAssetTransfersList() {
         if (assetTransfersBuilder_ == null) {
@@ -13343,7 +13343,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public int getAssetTransfersCount() {
         if (assetTransfersBuilder_ == null) {
@@ -13353,7 +13353,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTransfer getAssetTransfers(int index) {
         if (assetTransfersBuilder_ == null) {
@@ -13363,7 +13363,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder setAssetTransfers(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTransfer value) {
@@ -13380,7 +13380,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder setAssetTransfers(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder builderForValue) {
@@ -13394,7 +13394,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder addAssetTransfers(burst.kit.service.impl.grpc.BrsApi.AssetTransfer value) {
         if (assetTransfersBuilder_ == null) {
@@ -13410,7 +13410,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder addAssetTransfers(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTransfer value) {
@@ -13427,7 +13427,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder addAssetTransfers(
           burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder builderForValue) {
@@ -13441,7 +13441,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder addAssetTransfers(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder builderForValue) {
@@ -13455,7 +13455,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder addAllAssetTransfers(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.AssetTransfer> values) {
@@ -13470,7 +13470,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder clearAssetTransfers() {
         if (assetTransfersBuilder_ == null) {
@@ -13483,7 +13483,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public Builder removeAssetTransfers(int index) {
         if (assetTransfersBuilder_ == null) {
@@ -13496,14 +13496,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder getAssetTransfersBuilder(
           int index) {
         return getAssetTransfersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder getAssetTransfersOrBuilder(
           int index) {
@@ -13513,7 +13513,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder> 
            getAssetTransfersOrBuilderList() {
@@ -13524,14 +13524,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder addAssetTransfersBuilder() {
         return getAssetTransfersFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.AssetTransfer.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder addAssetTransfersBuilder(
           int index) {
@@ -13539,7 +13539,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.AssetTransfer.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetTransfer assetTransfers = 1;</code>
+       * <code>repeated .brs.api.AssetTransfer assetTransfers = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder> 
            getAssetTransfersBuilderList() {
@@ -13572,10 +13572,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetTransfers)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetTransfers)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetTransfers)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetTransfers)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetTransfers DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetTransfers();
@@ -13613,7 +13613,7 @@ public final class BrsApi {
   }
 
   public interface AssetTransferOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetTransfer)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetTransfer)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -13683,11 +13683,11 @@ public final class BrsApi {
         getAssetDescriptionBytes();
   }
   /**
-   * Protobuf type {@code AssetTransfer}
+   * Protobuf type {@code brs.api.AssetTransfer}
    */
   public  static final class AssetTransfer extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetTransfer)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetTransfer)
       AssetTransferOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetTransfer.newBuilder() to construct.
@@ -13797,13 +13797,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfer_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfer_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfer_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetTransfer.class, burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder.class);
     }
@@ -14197,21 +14197,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetTransfer}
+     * Protobuf type {@code brs.api.AssetTransfer}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetTransfer)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetTransfer)
         burst.kit.service.impl.grpc.BrsApi.AssetTransferOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfer_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfer_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfer_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetTransfer.class, burst.kit.service.impl.grpc.BrsApi.AssetTransfer.Builder.class);
       }
@@ -14258,7 +14258,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransfer_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransfer_descriptor;
       }
 
       @java.lang.Override
@@ -14767,10 +14767,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetTransfer)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetTransfer)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetTransfer)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetTransfer)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetTransfer DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetTransfer();
@@ -14808,7 +14808,7 @@ public final class BrsApi {
   }
 
   public interface AssetTradeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetTrade)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetTrade)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -14818,12 +14818,12 @@ public final class BrsApi {
     long getAsset();
 
     /**
-     * <code>.AssetTradeType tradeType = 2;</code>
+     * <code>.brs.api.AssetTradeType tradeType = 2;</code>
      * @return The enum numeric value on the wire for tradeType.
      */
     int getTradeTypeValue();
     /**
-     * <code>.AssetTradeType tradeType = 2;</code>
+     * <code>.brs.api.AssetTradeType tradeType = 2;</code>
      * @return The tradeType.
      */
     burst.kit.service.impl.grpc.BrsApi.AssetTradeType getTradeType();
@@ -14925,11 +14925,11 @@ public final class BrsApi {
     int getAssetDecimals();
   }
   /**
-   * Protobuf type {@code AssetTrade}
+   * Protobuf type {@code brs.api.AssetTrade}
    */
   public  static final class AssetTrade extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetTrade)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetTrade)
       AssetTradeOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetTrade.newBuilder() to construct.
@@ -15076,13 +15076,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrade_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrade_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrade_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrade_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetTrade.class, burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder.class);
     }
@@ -15100,14 +15100,14 @@ public final class BrsApi {
     public static final int TRADETYPE_FIELD_NUMBER = 2;
     private int tradeType_;
     /**
-     * <code>.AssetTradeType tradeType = 2;</code>
+     * <code>.brs.api.AssetTradeType tradeType = 2;</code>
      * @return The enum numeric value on the wire for tradeType.
      */
     public int getTradeTypeValue() {
       return tradeType_;
     }
     /**
-     * <code>.AssetTradeType tradeType = 2;</code>
+     * <code>.brs.api.AssetTradeType tradeType = 2;</code>
      * @return The tradeType.
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetTradeType getTradeType() {
@@ -15634,21 +15634,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetTrade}
+     * Protobuf type {@code brs.api.AssetTrade}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetTrade)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetTrade)
         burst.kit.service.impl.grpc.BrsApi.AssetTradeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrade_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrade_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrade_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrade_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetTrade.class, burst.kit.service.impl.grpc.BrsApi.AssetTrade.Builder.class);
       }
@@ -15709,7 +15709,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTrade_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTrade_descriptor;
       }
 
       @java.lang.Override
@@ -15904,14 +15904,14 @@ public final class BrsApi {
 
       private int tradeType_ = 0;
       /**
-       * <code>.AssetTradeType tradeType = 2;</code>
+       * <code>.brs.api.AssetTradeType tradeType = 2;</code>
        * @return The enum numeric value on the wire for tradeType.
        */
       public int getTradeTypeValue() {
         return tradeType_;
       }
       /**
-       * <code>.AssetTradeType tradeType = 2;</code>
+       * <code>.brs.api.AssetTradeType tradeType = 2;</code>
        * @param value The enum numeric value on the wire for tradeType to set.
        * @return This builder for chaining.
        */
@@ -15921,7 +15921,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.AssetTradeType tradeType = 2;</code>
+       * <code>.brs.api.AssetTradeType tradeType = 2;</code>
        * @return The tradeType.
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetTradeType getTradeType() {
@@ -15930,7 +15930,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetTradeType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.AssetTradeType tradeType = 2;</code>
+       * <code>.brs.api.AssetTradeType tradeType = 2;</code>
        * @param value The tradeType to set.
        * @return This builder for chaining.
        */
@@ -15944,7 +15944,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.AssetTradeType tradeType = 2;</code>
+       * <code>.brs.api.AssetTradeType tradeType = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTradeType() {
@@ -16478,10 +16478,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetTrade)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetTrade)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetTrade)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetTrade)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetTrade DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetTrade();
@@ -16519,7 +16519,7 @@ public final class BrsApi {
   }
 
   public interface GetOrdersRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetOrdersRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetOrdersRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -16533,37 +16533,37 @@ public final class BrsApi {
     long getAsset();
 
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The orderType.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetOrdersRequest}
+   * Protobuf type {@code brs.api.GetOrdersRequest}
    */
   public  static final class GetOrdersRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetOrdersRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetOrdersRequest)
       GetOrdersRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetOrdersRequest.newBuilder() to construct.
@@ -16649,13 +16649,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrdersRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrdersRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrdersRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrdersRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetOrdersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetOrdersRequest.Builder.class);
     }
@@ -16677,40 +16677,40 @@ public final class BrsApi {
     public static final int ORDERTYPE_FIELD_NUMBER = 2;
     private int orderType_;
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The orderType.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -16733,7 +16733,7 @@ public final class BrsApi {
       if (asset_ != 0L) {
         output.writeUInt64(1, asset_);
       }
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(2, orderType_);
       }
       if (indexRange_ != null) {
@@ -16752,7 +16752,7 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, asset_);
       }
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, orderType_);
       }
@@ -16899,21 +16899,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetOrdersRequest}
+     * Protobuf type {@code brs.api.GetOrdersRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetOrdersRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetOrdersRequest)
         burst.kit.service.impl.grpc.BrsApi.GetOrdersRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrdersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrdersRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrdersRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrdersRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetOrdersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetOrdersRequest.Builder.class);
       }
@@ -16952,7 +16952,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrdersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrdersRequest_descriptor;
       }
 
       @java.lang.Override
@@ -17109,14 +17109,14 @@ public final class BrsApi {
 
       private int orderType_ = 0;
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @param value The enum numeric value on the wire for orderType to set.
        * @return This builder for chaining.
        */
@@ -17126,20 +17126,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @return The orderType.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @param value The orderType to set.
        * @return This builder for chaining.
        */
-      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -17149,7 +17149,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearOrderType() {
@@ -17163,14 +17163,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -17181,7 +17181,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -17197,7 +17197,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -17211,7 +17211,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -17229,7 +17229,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -17243,7 +17243,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -17251,7 +17251,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -17262,7 +17262,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -17290,10 +17290,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetOrdersRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetOrdersRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetOrdersRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetOrdersRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetOrdersRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetOrdersRequest();
@@ -17331,7 +17331,7 @@ public final class BrsApi {
   }
 
   public interface GetOrderRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetOrderRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetOrderRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -17341,22 +17341,22 @@ public final class BrsApi {
     long getOrderId();
 
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The orderType.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType();
   }
   /**
-   * Protobuf type {@code GetOrderRequest}
+   * Protobuf type {@code brs.api.GetOrderRequest}
    */
   public  static final class GetOrderRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetOrderRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetOrderRequest)
       GetOrderRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetOrderRequest.newBuilder() to construct.
@@ -17429,13 +17429,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrderRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrderRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrderRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrderRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetOrderRequest.class, burst.kit.service.impl.grpc.BrsApi.GetOrderRequest.Builder.class);
     }
@@ -17453,20 +17453,20 @@ public final class BrsApi {
     public static final int ORDERTYPE_FIELD_NUMBER = 2;
     private int orderType_;
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
-     * <code>.OrderType orderType = 2;</code>
+     * <code>.brs.api.AssetOrderType orderType = 2;</code>
      * @return The orderType.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -17486,7 +17486,7 @@ public final class BrsApi {
       if (orderId_ != 0L) {
         output.writeUInt64(1, orderId_);
       }
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(2, orderType_);
       }
       unknownFields.writeTo(output);
@@ -17502,7 +17502,7 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, orderId_);
       }
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, orderType_);
       }
@@ -17636,21 +17636,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetOrderRequest}
+     * Protobuf type {@code brs.api.GetOrderRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetOrderRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetOrderRequest)
         burst.kit.service.impl.grpc.BrsApi.GetOrderRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrderRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrderRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrderRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrderRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetOrderRequest.class, burst.kit.service.impl.grpc.BrsApi.GetOrderRequest.Builder.class);
       }
@@ -17683,7 +17683,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOrderRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOrderRequest_descriptor;
       }
 
       @java.lang.Override
@@ -17820,14 +17820,14 @@ public final class BrsApi {
 
       private int orderType_ = 0;
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @param value The enum numeric value on the wire for orderType to set.
        * @return This builder for chaining.
        */
@@ -17837,20 +17837,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @return The orderType.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @param value The orderType to set.
        * @return This builder for chaining.
        */
-      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -17860,7 +17860,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 2;</code>
+       * <code>.brs.api.AssetOrderType orderType = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearOrderType() {
@@ -17882,10 +17882,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetOrderRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetOrderRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetOrderRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetOrderRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetOrderRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetOrderRequest();
@@ -17923,41 +17923,41 @@ public final class BrsApi {
   }
 
   public interface GetOpenOrdersRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetOpenOrdersRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetOpenOrdersRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.OrderType orderType = 1;</code>
+     * <code>.brs.api.AssetOrderType orderType = 1;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
-     * <code>.OrderType orderType = 1;</code>
+     * <code>.brs.api.AssetOrderType orderType = 1;</code>
      * @return The orderType.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType();
 
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetOpenOrdersRequest}
+   * Protobuf type {@code brs.api.GetOpenOrdersRequest}
    */
   public  static final class GetOpenOrdersRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetOpenOrdersRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetOpenOrdersRequest)
       GetOpenOrdersRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetOpenOrdersRequest.newBuilder() to construct.
@@ -18038,13 +18038,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOpenOrdersRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOpenOrdersRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOpenOrdersRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOpenOrdersRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequest.Builder.class);
     }
@@ -18052,40 +18052,40 @@ public final class BrsApi {
     public static final int ORDERTYPE_FIELD_NUMBER = 1;
     private int orderType_;
     /**
-     * <code>.OrderType orderType = 1;</code>
+     * <code>.brs.api.AssetOrderType orderType = 1;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
-     * <code>.OrderType orderType = 1;</code>
+     * <code>.brs.api.AssetOrderType orderType = 1;</code>
      * @return The orderType.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     public static final int INDEXRANGE_FIELD_NUMBER = 2;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 2;</code>
+     * <code>.brs.api.IndexRange indexRange = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -18105,7 +18105,7 @@ public final class BrsApi {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(1, orderType_);
       }
       if (indexRange_ != null) {
@@ -18120,7 +18120,7 @@ public final class BrsApi {
       if (size != -1) return size;
 
       size = 0;
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, orderType_);
       }
@@ -18262,21 +18262,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetOpenOrdersRequest}
+     * Protobuf type {@code brs.api.GetOpenOrdersRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetOpenOrdersRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetOpenOrdersRequest)
         burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOpenOrdersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOpenOrdersRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOpenOrdersRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOpenOrdersRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequest.Builder.class);
       }
@@ -18313,7 +18313,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetOpenOrdersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetOpenOrdersRequest_descriptor;
       }
 
       @java.lang.Override
@@ -18424,14 +18424,14 @@ public final class BrsApi {
 
       private int orderType_ = 0;
       /**
-       * <code>.OrderType orderType = 1;</code>
+       * <code>.brs.api.AssetOrderType orderType = 1;</code>
        * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
-       * <code>.OrderType orderType = 1;</code>
+       * <code>.brs.api.AssetOrderType orderType = 1;</code>
        * @param value The enum numeric value on the wire for orderType to set.
        * @return This builder for chaining.
        */
@@ -18441,20 +18441,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 1;</code>
+       * <code>.brs.api.AssetOrderType orderType = 1;</code>
        * @return The orderType.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType orderType = 1;</code>
+       * <code>.brs.api.AssetOrderType orderType = 1;</code>
        * @param value The orderType to set.
        * @return This builder for chaining.
        */
-      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -18464,7 +18464,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 1;</code>
+       * <code>.brs.api.AssetOrderType orderType = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearOrderType() {
@@ -18478,14 +18478,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -18496,7 +18496,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -18512,7 +18512,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -18526,7 +18526,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -18544,7 +18544,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -18558,7 +18558,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -18566,7 +18566,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -18577,7 +18577,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 2;</code>
+       * <code>.brs.api.IndexRange indexRange = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -18605,10 +18605,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetOpenOrdersRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetOpenOrdersRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetOpenOrdersRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetOpenOrdersRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetOpenOrdersRequest();
@@ -18646,7 +18646,7 @@ public final class BrsApi {
   }
 
   public interface GetAssetBalancesRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAssetBalancesRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAssetBalancesRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -18662,26 +18662,26 @@ public final class BrsApi {
     int getHeight();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetAssetBalancesRequest}
+   * Protobuf type {@code brs.api.GetAssetBalancesRequest}
    */
   public  static final class GetAssetBalancesRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAssetBalancesRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAssetBalancesRequest)
       GetAssetBalancesRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAssetBalancesRequest.newBuilder() to construct.
@@ -18765,13 +18765,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetBalancesRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetBalancesRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetBalancesRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetBalancesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequest.Builder.class);
     }
@@ -18799,21 +18799,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -19003,21 +19003,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAssetBalancesRequest}
+     * Protobuf type {@code brs.api.GetAssetBalancesRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAssetBalancesRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAssetBalancesRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetBalancesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetBalancesRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetBalancesRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetBalancesRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequest.Builder.class);
       }
@@ -19056,7 +19056,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetBalancesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetBalancesRequest_descriptor;
       }
 
       @java.lang.Override
@@ -19233,14 +19233,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -19251,7 +19251,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -19267,7 +19267,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -19281,7 +19281,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -19299,7 +19299,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -19313,7 +19313,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -19321,7 +19321,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -19332,7 +19332,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -19360,10 +19360,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAssetBalancesRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAssetBalancesRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAssetBalancesRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAssetBalancesRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAssetBalancesRequest();
@@ -19401,7 +19401,7 @@ public final class BrsApi {
   }
 
   public interface GetAssetsRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAssetsRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAssetsRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -19422,11 +19422,11 @@ public final class BrsApi {
     long getAsset(int index);
   }
   /**
-   * Protobuf type {@code GetAssetsRequest}
+   * Protobuf type {@code brs.api.GetAssetsRequest}
    */
   public  static final class GetAssetsRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAssetsRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAssetsRequest)
       GetAssetsRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAssetsRequest.newBuilder() to construct.
@@ -19513,13 +19513,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetsRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetsRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAssetsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAssetsRequest.Builder.class);
     }
@@ -19724,21 +19724,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAssetsRequest}
+     * Protobuf type {@code brs.api.GetAssetsRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAssetsRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAssetsRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAssetsRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetsRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetsRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAssetsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAssetsRequest.Builder.class);
       }
@@ -19769,7 +19769,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAssetsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAssetsRequest_descriptor;
       }
 
       @java.lang.Override
@@ -19974,10 +19974,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAssetsRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAssetsRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAssetsRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAssetsRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAssetsRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAssetsRequest();
@@ -20015,39 +20015,39 @@ public final class BrsApi {
   }
 
   public interface AssetsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Assets)
+      // @@protoc_insertion_point(interface_extends:brs.api.Assets)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Asset> 
         getAssetsList();
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Asset getAssets(int index);
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     int getAssetsCount();
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder> 
         getAssetsOrBuilderList();
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder getAssetsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Assets}
+   * Protobuf type {@code brs.api.Assets}
    */
   public  static final class Assets extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Assets)
+      // @@protoc_insertion_point(message_implements:brs.api.Assets)
       AssetsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Assets.newBuilder() to construct.
@@ -20122,13 +20122,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Assets_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Assets_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Assets_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Assets_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Assets.class, burst.kit.service.impl.grpc.BrsApi.Assets.Builder.class);
     }
@@ -20136,32 +20136,32 @@ public final class BrsApi {
     public static final int ASSETS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Asset> assets_;
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Asset> getAssetsList() {
       return assets_;
     }
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder> 
         getAssetsOrBuilderList() {
       return assets_;
     }
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     public int getAssetsCount() {
       return assets_.size();
     }
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Asset getAssets(int index) {
       return assets_.get(index);
     }
     /**
-     * <code>repeated .Asset assets = 1;</code>
+     * <code>repeated .brs.api.Asset assets = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder getAssetsOrBuilder(
         int index) {
@@ -20326,21 +20326,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Assets}
+     * Protobuf type {@code brs.api.Assets}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Assets)
+        // @@protoc_insertion_point(builder_implements:brs.api.Assets)
         burst.kit.service.impl.grpc.BrsApi.AssetsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Assets_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Assets_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Assets_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Assets_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Assets.class, burst.kit.service.impl.grpc.BrsApi.Assets.Builder.class);
       }
@@ -20376,7 +20376,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Assets_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Assets_descriptor;
       }
 
       @java.lang.Override
@@ -20523,7 +20523,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Asset, burst.kit.service.impl.grpc.BrsApi.Asset.Builder, burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder> assetsBuilder_;
 
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Asset> getAssetsList() {
         if (assetsBuilder_ == null) {
@@ -20533,7 +20533,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public int getAssetsCount() {
         if (assetsBuilder_ == null) {
@@ -20543,7 +20543,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Asset getAssets(int index) {
         if (assetsBuilder_ == null) {
@@ -20553,7 +20553,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder setAssets(
           int index, burst.kit.service.impl.grpc.BrsApi.Asset value) {
@@ -20570,7 +20570,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder setAssets(
           int index, burst.kit.service.impl.grpc.BrsApi.Asset.Builder builderForValue) {
@@ -20584,7 +20584,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder addAssets(burst.kit.service.impl.grpc.BrsApi.Asset value) {
         if (assetsBuilder_ == null) {
@@ -20600,7 +20600,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder addAssets(
           int index, burst.kit.service.impl.grpc.BrsApi.Asset value) {
@@ -20617,7 +20617,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder addAssets(
           burst.kit.service.impl.grpc.BrsApi.Asset.Builder builderForValue) {
@@ -20631,7 +20631,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder addAssets(
           int index, burst.kit.service.impl.grpc.BrsApi.Asset.Builder builderForValue) {
@@ -20645,7 +20645,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder addAllAssets(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Asset> values) {
@@ -20660,7 +20660,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder clearAssets() {
         if (assetsBuilder_ == null) {
@@ -20673,7 +20673,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public Builder removeAssets(int index) {
         if (assetsBuilder_ == null) {
@@ -20686,14 +20686,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Asset.Builder getAssetsBuilder(
           int index) {
         return getAssetsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder getAssetsOrBuilder(
           int index) {
@@ -20703,7 +20703,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder> 
            getAssetsOrBuilderList() {
@@ -20714,14 +20714,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Asset.Builder addAssetsBuilder() {
         return getAssetsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Asset.getDefaultInstance());
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Asset.Builder addAssetsBuilder(
           int index) {
@@ -20729,7 +20729,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Asset.getDefaultInstance());
       }
       /**
-       * <code>repeated .Asset assets = 1;</code>
+       * <code>repeated .brs.api.Asset assets = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Asset.Builder> 
            getAssetsBuilderList() {
@@ -20762,10 +20762,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Assets)
+      // @@protoc_insertion_point(builder_scope:brs.api.Assets)
     }
 
-    // @@protoc_insertion_point(class_scope:Assets)
+    // @@protoc_insertion_point(class_scope:brs.api.Assets)
     private static final burst.kit.service.impl.grpc.BrsApi.Assets DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Assets();
@@ -20803,7 +20803,7 @@ public final class BrsApi {
   }
 
   public interface AssetOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Asset)
+      // @@protoc_insertion_point(interface_extends:brs.api.Asset)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -20873,11 +20873,11 @@ public final class BrsApi {
     int getNumberOfAccounts();
   }
   /**
-   * Protobuf type {@code Asset}
+   * Protobuf type {@code brs.api.Asset}
    */
   public  static final class Asset extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Asset)
+      // @@protoc_insertion_point(message_implements:brs.api.Asset)
       AssetOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Asset.newBuilder() to construct.
@@ -20987,13 +20987,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Asset_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Asset_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Asset_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Asset_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Asset.class, burst.kit.service.impl.grpc.BrsApi.Asset.Builder.class);
     }
@@ -21385,21 +21385,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Asset}
+     * Protobuf type {@code brs.api.Asset}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Asset)
+        // @@protoc_insertion_point(builder_implements:brs.api.Asset)
         burst.kit.service.impl.grpc.BrsApi.AssetOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Asset_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Asset_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Asset_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Asset_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Asset.class, burst.kit.service.impl.grpc.BrsApi.Asset.Builder.class);
       }
@@ -21446,7 +21446,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Asset_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Asset_descriptor;
       }
 
       @java.lang.Override
@@ -21955,10 +21955,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Asset)
+      // @@protoc_insertion_point(builder_scope:brs.api.Asset)
     }
 
-    // @@protoc_insertion_point(class_scope:Asset)
+    // @@protoc_insertion_point(class_scope:brs.api.Asset)
     private static final burst.kit.service.impl.grpc.BrsApi.Asset DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Asset();
@@ -21996,39 +21996,39 @@ public final class BrsApi {
   }
 
   public interface TransactionsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Transactions)
+      // @@protoc_insertion_point(interface_extends:brs.api.Transactions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> 
         getTransactionsList();
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Transaction getTransactions(int index);
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     int getTransactionsCount();
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
         getTransactionsOrBuilderList();
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getTransactionsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Transactions}
+   * Protobuf type {@code brs.api.Transactions}
    */
   public  static final class Transactions extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Transactions)
+      // @@protoc_insertion_point(message_implements:brs.api.Transactions)
       TransactionsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Transactions.newBuilder() to construct.
@@ -22103,13 +22103,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Transactions_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transactions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Transactions_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transactions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Transactions.class, burst.kit.service.impl.grpc.BrsApi.Transactions.Builder.class);
     }
@@ -22117,32 +22117,32 @@ public final class BrsApi {
     public static final int TRANSACTIONS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> transactions_;
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> getTransactionsList() {
       return transactions_;
     }
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
         getTransactionsOrBuilderList() {
       return transactions_;
     }
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     public int getTransactionsCount() {
       return transactions_.size();
     }
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Transaction getTransactions(int index) {
       return transactions_.get(index);
     }
     /**
-     * <code>repeated .Transaction transactions = 1;</code>
+     * <code>repeated .brs.api.Transaction transactions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getTransactionsOrBuilder(
         int index) {
@@ -22307,21 +22307,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Transactions}
+     * Protobuf type {@code brs.api.Transactions}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Transactions)
+        // @@protoc_insertion_point(builder_implements:brs.api.Transactions)
         burst.kit.service.impl.grpc.BrsApi.TransactionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Transactions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transactions_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Transactions_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transactions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Transactions.class, burst.kit.service.impl.grpc.BrsApi.Transactions.Builder.class);
       }
@@ -22357,7 +22357,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Transactions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transactions_descriptor;
       }
 
       @java.lang.Override
@@ -22504,7 +22504,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Transaction, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder, burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> transactionsBuilder_;
 
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> getTransactionsList() {
         if (transactionsBuilder_ == null) {
@@ -22514,7 +22514,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public int getTransactionsCount() {
         if (transactionsBuilder_ == null) {
@@ -22524,7 +22524,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction getTransactions(int index) {
         if (transactionsBuilder_ == null) {
@@ -22534,7 +22534,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder setTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction value) {
@@ -22551,7 +22551,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder setTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -22565,7 +22565,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(burst.kit.service.impl.grpc.BrsApi.Transaction value) {
         if (transactionsBuilder_ == null) {
@@ -22581,7 +22581,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction value) {
@@ -22598,7 +22598,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(
           burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -22612,7 +22612,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder addTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -22626,7 +22626,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder addAllTransactions(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Transaction> values) {
@@ -22641,7 +22641,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder clearTransactions() {
         if (transactionsBuilder_ == null) {
@@ -22654,7 +22654,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public Builder removeTransactions(int index) {
         if (transactionsBuilder_ == null) {
@@ -22667,14 +22667,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder getTransactionsBuilder(
           int index) {
         return getTransactionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getTransactionsOrBuilder(
           int index) {
@@ -22684,7 +22684,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
            getTransactionsOrBuilderList() {
@@ -22695,14 +22695,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder addTransactionsBuilder() {
         return getTransactionsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Transaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder addTransactionsBuilder(
           int index) {
@@ -22710,7 +22710,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Transaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .Transaction transactions = 1;</code>
+       * <code>repeated .brs.api.Transaction transactions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction.Builder> 
            getTransactionsBuilderList() {
@@ -22743,10 +22743,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Transactions)
+      // @@protoc_insertion_point(builder_scope:brs.api.Transactions)
     }
 
-    // @@protoc_insertion_point(class_scope:Transactions)
+    // @@protoc_insertion_point(class_scope:brs.api.Transactions)
     private static final burst.kit.service.impl.grpc.BrsApi.Transactions DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Transactions();
@@ -22784,39 +22784,39 @@ public final class BrsApi {
   }
 
   public interface SubscriptionsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Subscriptions)
+      // @@protoc_insertion_point(interface_extends:brs.api.Subscriptions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Subscription> 
         getSubscriptionsList();
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Subscription getSubscriptions(int index);
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     int getSubscriptionsCount();
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder> 
         getSubscriptionsOrBuilderList();
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder getSubscriptionsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Subscriptions}
+   * Protobuf type {@code brs.api.Subscriptions}
    */
   public  static final class Subscriptions extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Subscriptions)
+      // @@protoc_insertion_point(message_implements:brs.api.Subscriptions)
       SubscriptionsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Subscriptions.newBuilder() to construct.
@@ -22891,13 +22891,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscriptions_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscriptions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscriptions_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscriptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Subscriptions.class, burst.kit.service.impl.grpc.BrsApi.Subscriptions.Builder.class);
     }
@@ -22905,32 +22905,32 @@ public final class BrsApi {
     public static final int SUBSCRIPTIONS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Subscription> subscriptions_;
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Subscription> getSubscriptionsList() {
       return subscriptions_;
     }
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder> 
         getSubscriptionsOrBuilderList() {
       return subscriptions_;
     }
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     public int getSubscriptionsCount() {
       return subscriptions_.size();
     }
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Subscription getSubscriptions(int index) {
       return subscriptions_.get(index);
     }
     /**
-     * <code>repeated .Subscription subscriptions = 1;</code>
+     * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder getSubscriptionsOrBuilder(
         int index) {
@@ -23095,21 +23095,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Subscriptions}
+     * Protobuf type {@code brs.api.Subscriptions}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Subscriptions)
+        // @@protoc_insertion_point(builder_implements:brs.api.Subscriptions)
         burst.kit.service.impl.grpc.BrsApi.SubscriptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscriptions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscriptions_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscriptions_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscriptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Subscriptions.class, burst.kit.service.impl.grpc.BrsApi.Subscriptions.Builder.class);
       }
@@ -23145,7 +23145,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscriptions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscriptions_descriptor;
       }
 
       @java.lang.Override
@@ -23292,7 +23292,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Subscription, burst.kit.service.impl.grpc.BrsApi.Subscription.Builder, burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder> subscriptionsBuilder_;
 
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Subscription> getSubscriptionsList() {
         if (subscriptionsBuilder_ == null) {
@@ -23302,7 +23302,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public int getSubscriptionsCount() {
         if (subscriptionsBuilder_ == null) {
@@ -23312,7 +23312,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Subscription getSubscriptions(int index) {
         if (subscriptionsBuilder_ == null) {
@@ -23322,7 +23322,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder setSubscriptions(
           int index, burst.kit.service.impl.grpc.BrsApi.Subscription value) {
@@ -23339,7 +23339,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder setSubscriptions(
           int index, burst.kit.service.impl.grpc.BrsApi.Subscription.Builder builderForValue) {
@@ -23353,7 +23353,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder addSubscriptions(burst.kit.service.impl.grpc.BrsApi.Subscription value) {
         if (subscriptionsBuilder_ == null) {
@@ -23369,7 +23369,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder addSubscriptions(
           int index, burst.kit.service.impl.grpc.BrsApi.Subscription value) {
@@ -23386,7 +23386,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder addSubscriptions(
           burst.kit.service.impl.grpc.BrsApi.Subscription.Builder builderForValue) {
@@ -23400,7 +23400,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder addSubscriptions(
           int index, burst.kit.service.impl.grpc.BrsApi.Subscription.Builder builderForValue) {
@@ -23414,7 +23414,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder addAllSubscriptions(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Subscription> values) {
@@ -23429,7 +23429,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder clearSubscriptions() {
         if (subscriptionsBuilder_ == null) {
@@ -23442,7 +23442,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public Builder removeSubscriptions(int index) {
         if (subscriptionsBuilder_ == null) {
@@ -23455,14 +23455,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Subscription.Builder getSubscriptionsBuilder(
           int index) {
         return getSubscriptionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder getSubscriptionsOrBuilder(
           int index) {
@@ -23472,7 +23472,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder> 
            getSubscriptionsOrBuilderList() {
@@ -23483,14 +23483,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Subscription.Builder addSubscriptionsBuilder() {
         return getSubscriptionsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Subscription.getDefaultInstance());
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Subscription.Builder addSubscriptionsBuilder(
           int index) {
@@ -23498,7 +23498,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Subscription.getDefaultInstance());
       }
       /**
-       * <code>repeated .Subscription subscriptions = 1;</code>
+       * <code>repeated .brs.api.Subscription subscriptions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Subscription.Builder> 
            getSubscriptionsBuilderList() {
@@ -23531,10 +23531,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Subscriptions)
+      // @@protoc_insertion_point(builder_scope:brs.api.Subscriptions)
     }
 
-    // @@protoc_insertion_point(class_scope:Subscriptions)
+    // @@protoc_insertion_point(class_scope:brs.api.Subscriptions)
     private static final burst.kit.service.impl.grpc.BrsApi.Subscriptions DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Subscriptions();
@@ -23572,7 +23572,7 @@ public final class BrsApi {
   }
 
   public interface SubscriptionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Subscription)
+      // @@protoc_insertion_point(interface_extends:brs.api.Subscription)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -23612,11 +23612,11 @@ public final class BrsApi {
     int getTimeNext();
   }
   /**
-   * Protobuf type {@code Subscription}
+   * Protobuf type {@code brs.api.Subscription}
    */
   public  static final class Subscription extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Subscription)
+      // @@protoc_insertion_point(message_implements:brs.api.Subscription)
       SubscriptionOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Subscription.newBuilder() to construct.
@@ -23707,13 +23707,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscription_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscription_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscription_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscription_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Subscription.class, burst.kit.service.impl.grpc.BrsApi.Subscription.Builder.class);
     }
@@ -23993,21 +23993,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Subscription}
+     * Protobuf type {@code brs.api.Subscription}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Subscription)
+        // @@protoc_insertion_point(builder_implements:brs.api.Subscription)
         burst.kit.service.impl.grpc.BrsApi.SubscriptionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscription_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscription_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscription_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscription_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Subscription.class, burst.kit.service.impl.grpc.BrsApi.Subscription.Builder.class);
       }
@@ -24048,7 +24048,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Subscription_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Subscription_descriptor;
       }
 
       @java.lang.Override
@@ -24361,10 +24361,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Subscription)
+      // @@protoc_insertion_point(builder_scope:brs.api.Subscription)
     }
 
-    // @@protoc_insertion_point(class_scope:Subscription)
+    // @@protoc_insertion_point(class_scope:brs.api.Subscription)
     private static final burst.kit.service.impl.grpc.BrsApi.Subscription DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Subscription();
@@ -24402,7 +24402,7 @@ public final class BrsApi {
   }
 
   public interface CountsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Counts)
+      // @@protoc_insertion_point(interface_extends:brs.api.Counts)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -24484,11 +24484,11 @@ public final class BrsApi {
     long getTotalEffectiveBalance();
   }
   /**
-   * Protobuf type {@code Counts}
+   * Protobuf type {@code brs.api.Counts}
    */
   public  static final class Counts extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Counts)
+      // @@protoc_insertion_point(message_implements:brs.api.Counts)
       CountsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Counts.newBuilder() to construct.
@@ -24614,13 +24614,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Counts_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Counts_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Counts_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Counts_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Counts.class, burst.kit.service.impl.grpc.BrsApi.Counts.Builder.class);
     }
@@ -25045,21 +25045,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Counts}
+     * Protobuf type {@code brs.api.Counts}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Counts)
+        // @@protoc_insertion_point(builder_implements:brs.api.Counts)
         burst.kit.service.impl.grpc.BrsApi.CountsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Counts_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Counts_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Counts_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Counts_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Counts.class, burst.kit.service.impl.grpc.BrsApi.Counts.Builder.class);
       }
@@ -25114,7 +25114,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Counts_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Counts_descriptor;
       }
 
       @java.lang.Override
@@ -25665,10 +25665,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Counts)
+      // @@protoc_insertion_point(builder_scope:brs.api.Counts)
     }
 
-    // @@protoc_insertion_point(class_scope:Counts)
+    // @@protoc_insertion_point(class_scope:brs.api.Counts)
     private static final burst.kit.service.impl.grpc.BrsApi.Counts DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Counts();
@@ -25706,7 +25706,7 @@ public final class BrsApi {
   }
 
   public interface ConstantsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Constants)
+      // @@protoc_insertion_point(interface_extends:brs.api.Constants)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -25734,35 +25734,35 @@ public final class BrsApi {
     int getMaxArbitraryMessageLength();
 
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType> 
         getTransactionTypesList();
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType getTransactionTypes(int index);
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     int getTransactionTypesCount();
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder> 
         getTransactionTypesOrBuilderList();
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder getTransactionTypesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Constants}
+   * Protobuf type {@code brs.api.Constants}
    */
   public  static final class Constants extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Constants)
+      // @@protoc_insertion_point(message_implements:brs.api.Constants)
       ConstantsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Constants.newBuilder() to construct.
@@ -25857,19 +25857,19 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Constants.class, burst.kit.service.impl.grpc.BrsApi.Constants.Builder.class);
     }
 
     public interface TransactionTypeOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:Constants.TransactionType)
+        // @@protoc_insertion_point(interface_extends:brs.api.Constants.TransactionType)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -25891,35 +25891,35 @@ public final class BrsApi {
           getDescriptionBytes();
 
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype> 
           getSubtypesList();
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype getSubtypes(int index);
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       int getSubtypesCount();
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder> 
           getSubtypesOrBuilderList();
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder getSubtypesOrBuilder(
           int index);
     }
     /**
-     * Protobuf type {@code Constants.TransactionType}
+     * Protobuf type {@code brs.api.Constants.TransactionType}
      */
     public  static final class TransactionType extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:Constants.TransactionType)
+        // @@protoc_insertion_point(message_implements:brs.api.Constants.TransactionType)
         TransactionTypeOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use TransactionType.newBuilder() to construct.
@@ -26006,19 +26006,19 @@ public final class BrsApi {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.class, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder.class);
       }
 
       public interface TransactionSubtypeOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:Constants.TransactionType.TransactionSubtype)
+          // @@protoc_insertion_point(interface_extends:brs.api.Constants.TransactionType.TransactionSubtype)
           com.google.protobuf.MessageOrBuilder {
 
         /**
@@ -26040,11 +26040,11 @@ public final class BrsApi {
             getDescriptionBytes();
       }
       /**
-       * Protobuf type {@code Constants.TransactionType.TransactionSubtype}
+       * Protobuf type {@code brs.api.Constants.TransactionType.TransactionSubtype}
        */
       public  static final class TransactionSubtype extends
           com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:Constants.TransactionType.TransactionSubtype)
+          // @@protoc_insertion_point(message_implements:brs.api.Constants.TransactionType.TransactionSubtype)
           TransactionSubtypeOrBuilder {
       private static final long serialVersionUID = 0L;
         // Use TransactionSubtype.newBuilder() to construct.
@@ -26117,13 +26117,13 @@ public final class BrsApi {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_TransactionSubtype_descriptor;
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_TransactionSubtype_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_TransactionSubtype_fieldAccessorTable
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_TransactionSubtype_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.class, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder.class);
         }
@@ -26340,21 +26340,21 @@ public final class BrsApi {
           return builder;
         }
         /**
-         * Protobuf type {@code Constants.TransactionType.TransactionSubtype}
+         * Protobuf type {@code brs.api.Constants.TransactionType.TransactionSubtype}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:Constants.TransactionType.TransactionSubtype)
+            // @@protoc_insertion_point(builder_implements:brs.api.Constants.TransactionType.TransactionSubtype)
             burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_TransactionSubtype_descriptor;
+            return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_TransactionSubtype_descriptor;
           }
 
           @java.lang.Override
           protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_TransactionSubtype_fieldAccessorTable
+            return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_TransactionSubtype_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
                     burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.class, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder.class);
           }
@@ -26387,7 +26387,7 @@ public final class BrsApi {
           @java.lang.Override
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_TransactionSubtype_descriptor;
+            return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_TransactionSubtype_descriptor;
           }
 
           @java.lang.Override
@@ -26611,10 +26611,10 @@ public final class BrsApi {
           }
 
 
-          // @@protoc_insertion_point(builder_scope:Constants.TransactionType.TransactionSubtype)
+          // @@protoc_insertion_point(builder_scope:brs.api.Constants.TransactionType.TransactionSubtype)
         }
 
-        // @@protoc_insertion_point(class_scope:Constants.TransactionType.TransactionSubtype)
+        // @@protoc_insertion_point(class_scope:brs.api.Constants.TransactionType.TransactionSubtype)
         private static final burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype DEFAULT_INSTANCE;
         static {
           DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype();
@@ -26700,32 +26700,32 @@ public final class BrsApi {
       public static final int SUBTYPES_FIELD_NUMBER = 3;
       private java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype> subtypes_;
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype> getSubtypesList() {
         return subtypes_;
       }
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder> 
           getSubtypesOrBuilderList() {
         return subtypes_;
       }
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       public int getSubtypesCount() {
         return subtypes_.size();
       }
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype getSubtypes(int index) {
         return subtypes_.get(index);
       }
       /**
-       * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+       * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder getSubtypesOrBuilder(
           int index) {
@@ -26911,21 +26911,21 @@ public final class BrsApi {
         return builder;
       }
       /**
-       * Protobuf type {@code Constants.TransactionType}
+       * Protobuf type {@code brs.api.Constants.TransactionType}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:Constants.TransactionType)
+          // @@protoc_insertion_point(builder_implements:brs.api.Constants.TransactionType)
           burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_descriptor;
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_fieldAccessorTable
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.class, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder.class);
         }
@@ -26965,7 +26965,7 @@ public final class BrsApi {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_TransactionType_descriptor;
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_TransactionType_descriptor;
         }
 
         @java.lang.Override
@@ -27227,7 +27227,7 @@ public final class BrsApi {
             burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder> subtypesBuilder_;
 
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype> getSubtypesList() {
           if (subtypesBuilder_ == null) {
@@ -27237,7 +27237,7 @@ public final class BrsApi {
           }
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public int getSubtypesCount() {
           if (subtypesBuilder_ == null) {
@@ -27247,7 +27247,7 @@ public final class BrsApi {
           }
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype getSubtypes(int index) {
           if (subtypesBuilder_ == null) {
@@ -27257,7 +27257,7 @@ public final class BrsApi {
           }
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder setSubtypes(
             int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype value) {
@@ -27274,7 +27274,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder setSubtypes(
             int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder builderForValue) {
@@ -27288,7 +27288,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder addSubtypes(burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype value) {
           if (subtypesBuilder_ == null) {
@@ -27304,7 +27304,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder addSubtypes(
             int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype value) {
@@ -27321,7 +27321,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder addSubtypes(
             burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder builderForValue) {
@@ -27335,7 +27335,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder addSubtypes(
             int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder builderForValue) {
@@ -27349,7 +27349,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder addAllSubtypes(
             java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype> values) {
@@ -27364,7 +27364,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder clearSubtypes() {
           if (subtypesBuilder_ == null) {
@@ -27377,7 +27377,7 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public Builder removeSubtypes(int index) {
           if (subtypesBuilder_ == null) {
@@ -27390,14 +27390,14 @@ public final class BrsApi {
           return this;
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder getSubtypesBuilder(
             int index) {
           return getSubtypesFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder getSubtypesOrBuilder(
             int index) {
@@ -27407,7 +27407,7 @@ public final class BrsApi {
           }
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtypeOrBuilder> 
              getSubtypesOrBuilderList() {
@@ -27418,14 +27418,14 @@ public final class BrsApi {
           }
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder addSubtypesBuilder() {
           return getSubtypesFieldBuilder().addBuilder(
               burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.getDefaultInstance());
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder addSubtypesBuilder(
             int index) {
@@ -27433,7 +27433,7 @@ public final class BrsApi {
               index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.getDefaultInstance());
         }
         /**
-         * <code>repeated .Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
+         * <code>repeated .brs.api.Constants.TransactionType.TransactionSubtype subtypes = 3;</code>
          */
         public java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.TransactionSubtype.Builder> 
              getSubtypesBuilderList() {
@@ -27466,10 +27466,10 @@ public final class BrsApi {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:Constants.TransactionType)
+        // @@protoc_insertion_point(builder_scope:brs.api.Constants.TransactionType)
       }
 
-      // @@protoc_insertion_point(class_scope:Constants.TransactionType)
+      // @@protoc_insertion_point(class_scope:brs.api.Constants.TransactionType)
       private static final burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType();
@@ -27549,32 +27549,32 @@ public final class BrsApi {
     public static final int TRANSACTIONTYPES_FIELD_NUMBER = 5;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType> transactionTypes_;
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType> getTransactionTypesList() {
       return transactionTypes_;
     }
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder> 
         getTransactionTypesOrBuilderList() {
       return transactionTypes_;
     }
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     public int getTransactionTypesCount() {
       return transactionTypes_.size();
     }
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType getTransactionTypes(int index) {
       return transactionTypes_.get(index);
     }
     /**
-     * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+     * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder getTransactionTypesOrBuilder(
         int index) {
@@ -27785,21 +27785,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Constants}
+     * Protobuf type {@code brs.api.Constants}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Constants)
+        // @@protoc_insertion_point(builder_implements:brs.api.Constants)
         burst.kit.service.impl.grpc.BrsApi.ConstantsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Constants.class, burst.kit.service.impl.grpc.BrsApi.Constants.Builder.class);
       }
@@ -27843,7 +27843,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Constants_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Constants_descriptor;
       }
 
       @java.lang.Override
@@ -28126,7 +28126,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder> transactionTypesBuilder_;
 
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType> getTransactionTypesList() {
         if (transactionTypesBuilder_ == null) {
@@ -28136,7 +28136,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public int getTransactionTypesCount() {
         if (transactionTypesBuilder_ == null) {
@@ -28146,7 +28146,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType getTransactionTypes(int index) {
         if (transactionTypesBuilder_ == null) {
@@ -28156,7 +28156,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder setTransactionTypes(
           int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType value) {
@@ -28173,7 +28173,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder setTransactionTypes(
           int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder builderForValue) {
@@ -28187,7 +28187,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder addTransactionTypes(burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType value) {
         if (transactionTypesBuilder_ == null) {
@@ -28203,7 +28203,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder addTransactionTypes(
           int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType value) {
@@ -28220,7 +28220,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder addTransactionTypes(
           burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder builderForValue) {
@@ -28234,7 +28234,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder addTransactionTypes(
           int index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder builderForValue) {
@@ -28248,7 +28248,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder addAllTransactionTypes(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType> values) {
@@ -28263,7 +28263,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder clearTransactionTypes() {
         if (transactionTypesBuilder_ == null) {
@@ -28276,7 +28276,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public Builder removeTransactionTypes(int index) {
         if (transactionTypesBuilder_ == null) {
@@ -28289,14 +28289,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder getTransactionTypesBuilder(
           int index) {
         return getTransactionTypesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder getTransactionTypesOrBuilder(
           int index) {
@@ -28306,7 +28306,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.Constants.TransactionTypeOrBuilder> 
            getTransactionTypesOrBuilderList() {
@@ -28317,14 +28317,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder addTransactionTypesBuilder() {
         return getTransactionTypesFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.getDefaultInstance());
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder addTransactionTypesBuilder(
           int index) {
@@ -28332,7 +28332,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.getDefaultInstance());
       }
       /**
-       * <code>repeated .Constants.TransactionType transactionTypes = 5;</code>
+       * <code>repeated .brs.api.Constants.TransactionType transactionTypes = 5;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Constants.TransactionType.Builder> 
            getTransactionTypesBuilderList() {
@@ -28365,10 +28365,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Constants)
+      // @@protoc_insertion_point(builder_scope:brs.api.Constants)
     }
 
-    // @@protoc_insertion_point(class_scope:Constants)
+    // @@protoc_insertion_point(class_scope:brs.api.Constants)
     private static final burst.kit.service.impl.grpc.BrsApi.Constants DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Constants();
@@ -28406,39 +28406,39 @@ public final class BrsApi {
   }
 
   public interface EscrowTransactionsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EscrowTransactions)
+      // @@protoc_insertion_point(interface_extends:brs.api.EscrowTransactions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.EscrowTransaction> 
         getEscrowTransactionsList();
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowTransaction getEscrowTransactions(int index);
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     int getEscrowTransactionsCount();
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder> 
         getEscrowTransactionsOrBuilderList();
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder getEscrowTransactionsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code EscrowTransactions}
+   * Protobuf type {@code brs.api.EscrowTransactions}
    */
   public  static final class EscrowTransactions extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EscrowTransactions)
+      // @@protoc_insertion_point(message_implements:brs.api.EscrowTransactions)
       EscrowTransactionsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EscrowTransactions.newBuilder() to construct.
@@ -28513,13 +28513,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransactions_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransactions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransactions_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransactions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EscrowTransactions.class, burst.kit.service.impl.grpc.BrsApi.EscrowTransactions.Builder.class);
     }
@@ -28527,32 +28527,32 @@ public final class BrsApi {
     public static final int ESCROWTRANSACTIONS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.EscrowTransaction> escrowTransactions_;
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.EscrowTransaction> getEscrowTransactionsList() {
       return escrowTransactions_;
     }
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder> 
         getEscrowTransactionsOrBuilderList() {
       return escrowTransactions_;
     }
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     public int getEscrowTransactionsCount() {
       return escrowTransactions_.size();
     }
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowTransaction getEscrowTransactions(int index) {
       return escrowTransactions_.get(index);
     }
     /**
-     * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+     * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder getEscrowTransactionsOrBuilder(
         int index) {
@@ -28717,21 +28717,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EscrowTransactions}
+     * Protobuf type {@code brs.api.EscrowTransactions}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EscrowTransactions)
+        // @@protoc_insertion_point(builder_implements:brs.api.EscrowTransactions)
         burst.kit.service.impl.grpc.BrsApi.EscrowTransactionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransactions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransactions_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransactions_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransactions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EscrowTransactions.class, burst.kit.service.impl.grpc.BrsApi.EscrowTransactions.Builder.class);
       }
@@ -28767,7 +28767,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransactions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransactions_descriptor;
       }
 
       @java.lang.Override
@@ -28914,7 +28914,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.EscrowTransaction, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder, burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder> escrowTransactionsBuilder_;
 
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.EscrowTransaction> getEscrowTransactionsList() {
         if (escrowTransactionsBuilder_ == null) {
@@ -28924,7 +28924,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public int getEscrowTransactionsCount() {
         if (escrowTransactionsBuilder_ == null) {
@@ -28934,7 +28934,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowTransaction getEscrowTransactions(int index) {
         if (escrowTransactionsBuilder_ == null) {
@@ -28944,7 +28944,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder setEscrowTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction value) {
@@ -28961,7 +28961,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder setEscrowTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder builderForValue) {
@@ -28975,7 +28975,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder addEscrowTransactions(burst.kit.service.impl.grpc.BrsApi.EscrowTransaction value) {
         if (escrowTransactionsBuilder_ == null) {
@@ -28991,7 +28991,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder addEscrowTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction value) {
@@ -29008,7 +29008,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder addEscrowTransactions(
           burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder builderForValue) {
@@ -29022,7 +29022,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder addEscrowTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder builderForValue) {
@@ -29036,7 +29036,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder addAllEscrowTransactions(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.EscrowTransaction> values) {
@@ -29051,7 +29051,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder clearEscrowTransactions() {
         if (escrowTransactionsBuilder_ == null) {
@@ -29064,7 +29064,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public Builder removeEscrowTransactions(int index) {
         if (escrowTransactionsBuilder_ == null) {
@@ -29077,14 +29077,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder getEscrowTransactionsBuilder(
           int index) {
         return getEscrowTransactionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder getEscrowTransactionsOrBuilder(
           int index) {
@@ -29094,7 +29094,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder> 
            getEscrowTransactionsOrBuilderList() {
@@ -29105,14 +29105,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder addEscrowTransactionsBuilder() {
         return getEscrowTransactionsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder addEscrowTransactionsBuilder(
           int index) {
@@ -29120,7 +29120,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .EscrowTransaction escrowTransactions = 1;</code>
+       * <code>repeated .brs.api.EscrowTransaction escrowTransactions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder> 
            getEscrowTransactionsBuilderList() {
@@ -29153,10 +29153,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EscrowTransactions)
+      // @@protoc_insertion_point(builder_scope:brs.api.EscrowTransactions)
     }
 
-    // @@protoc_insertion_point(class_scope:EscrowTransactions)
+    // @@protoc_insertion_point(class_scope:brs.api.EscrowTransactions)
     private static final burst.kit.service.impl.grpc.BrsApi.EscrowTransactions DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EscrowTransactions();
@@ -29194,7 +29194,7 @@ public final class BrsApi {
   }
 
   public interface EscrowTransactionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EscrowTransaction)
+      // @@protoc_insertion_point(interface_extends:brs.api.EscrowTransaction)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -29234,22 +29234,22 @@ public final class BrsApi {
     int getDeadline();
 
     /**
-     * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
      * @return The enum numeric value on the wire for deadlineAction.
      */
     int getDeadlineActionValue();
     /**
-     * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
      * @return The deadlineAction.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction();
   }
   /**
-   * Protobuf type {@code EscrowTransaction}
+   * Protobuf type {@code brs.api.EscrowTransaction}
    */
   public  static final class EscrowTransaction extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EscrowTransaction)
+      // @@protoc_insertion_point(message_implements:brs.api.EscrowTransaction)
       EscrowTransactionOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EscrowTransaction.newBuilder() to construct.
@@ -29347,13 +29347,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransaction_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransaction_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransaction_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransaction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.class, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder.class);
     }
@@ -29421,14 +29421,14 @@ public final class BrsApi {
     public static final int DEADLINEACTION_FIELD_NUMBER = 7;
     private int deadlineAction_;
     /**
-     * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
      * @return The enum numeric value on the wire for deadlineAction.
      */
     public int getDeadlineActionValue() {
       return deadlineAction_;
     }
     /**
-     * <code>.EscrowDecisionType deadlineAction = 7;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
      * @return The deadlineAction.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
@@ -29662,21 +29662,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EscrowTransaction}
+     * Protobuf type {@code brs.api.EscrowTransaction}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EscrowTransaction)
+        // @@protoc_insertion_point(builder_implements:brs.api.EscrowTransaction)
         burst.kit.service.impl.grpc.BrsApi.EscrowTransactionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransaction_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransaction_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransaction_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransaction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.class, burst.kit.service.impl.grpc.BrsApi.EscrowTransaction.Builder.class);
       }
@@ -29719,7 +29719,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowTransaction_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowTransaction_descriptor;
       }
 
       @java.lang.Override
@@ -30026,14 +30026,14 @@ public final class BrsApi {
 
       private int deadlineAction_ = 0;
       /**
-       * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
        * @return The enum numeric value on the wire for deadlineAction.
        */
       public int getDeadlineActionValue() {
         return deadlineAction_;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
        * @param value The enum numeric value on the wire for deadlineAction to set.
        * @return This builder for chaining.
        */
@@ -30043,7 +30043,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
        * @return The deadlineAction.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
@@ -30052,7 +30052,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
        * @param value The deadlineAction to set.
        * @return This builder for chaining.
        */
@@ -30066,7 +30066,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 7;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearDeadlineAction() {
@@ -30088,10 +30088,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EscrowTransaction)
+      // @@protoc_insertion_point(builder_scope:brs.api.EscrowTransaction)
     }
 
-    // @@protoc_insertion_point(class_scope:EscrowTransaction)
+    // @@protoc_insertion_point(class_scope:brs.api.EscrowTransaction)
     private static final burst.kit.service.impl.grpc.BrsApi.EscrowTransaction DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EscrowTransaction();
@@ -30129,39 +30129,39 @@ public final class BrsApi {
   }
 
   public interface OrdersOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Orders)
+      // @@protoc_insertion_point(interface_extends:brs.api.Orders)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Order> 
         getOrdersList();
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Order getOrders(int index);
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     int getOrdersCount();
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder> 
         getOrdersOrBuilderList();
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder getOrdersOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Orders}
+   * Protobuf type {@code brs.api.Orders}
    */
   public  static final class Orders extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Orders)
+      // @@protoc_insertion_point(message_implements:brs.api.Orders)
       OrdersOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Orders.newBuilder() to construct.
@@ -30236,13 +30236,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Orders_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Orders_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Orders_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Orders_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Orders.class, burst.kit.service.impl.grpc.BrsApi.Orders.Builder.class);
     }
@@ -30250,32 +30250,32 @@ public final class BrsApi {
     public static final int ORDERS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Order> orders_;
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Order> getOrdersList() {
       return orders_;
     }
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder> 
         getOrdersOrBuilderList() {
       return orders_;
     }
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     public int getOrdersCount() {
       return orders_.size();
     }
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Order getOrders(int index) {
       return orders_.get(index);
     }
     /**
-     * <code>repeated .Order orders = 1;</code>
+     * <code>repeated .brs.api.Order orders = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder getOrdersOrBuilder(
         int index) {
@@ -30440,21 +30440,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Orders}
+     * Protobuf type {@code brs.api.Orders}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Orders)
+        // @@protoc_insertion_point(builder_implements:brs.api.Orders)
         burst.kit.service.impl.grpc.BrsApi.OrdersOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Orders_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Orders_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Orders_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Orders_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Orders.class, burst.kit.service.impl.grpc.BrsApi.Orders.Builder.class);
       }
@@ -30490,7 +30490,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Orders_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Orders_descriptor;
       }
 
       @java.lang.Override
@@ -30637,7 +30637,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Order, burst.kit.service.impl.grpc.BrsApi.Order.Builder, burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder> ordersBuilder_;
 
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Order> getOrdersList() {
         if (ordersBuilder_ == null) {
@@ -30647,7 +30647,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public int getOrdersCount() {
         if (ordersBuilder_ == null) {
@@ -30657,7 +30657,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Order getOrders(int index) {
         if (ordersBuilder_ == null) {
@@ -30667,7 +30667,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder setOrders(
           int index, burst.kit.service.impl.grpc.BrsApi.Order value) {
@@ -30684,7 +30684,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder setOrders(
           int index, burst.kit.service.impl.grpc.BrsApi.Order.Builder builderForValue) {
@@ -30698,7 +30698,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder addOrders(burst.kit.service.impl.grpc.BrsApi.Order value) {
         if (ordersBuilder_ == null) {
@@ -30714,7 +30714,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder addOrders(
           int index, burst.kit.service.impl.grpc.BrsApi.Order value) {
@@ -30731,7 +30731,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder addOrders(
           burst.kit.service.impl.grpc.BrsApi.Order.Builder builderForValue) {
@@ -30745,7 +30745,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder addOrders(
           int index, burst.kit.service.impl.grpc.BrsApi.Order.Builder builderForValue) {
@@ -30759,7 +30759,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder addAllOrders(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Order> values) {
@@ -30774,7 +30774,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder clearOrders() {
         if (ordersBuilder_ == null) {
@@ -30787,7 +30787,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public Builder removeOrders(int index) {
         if (ordersBuilder_ == null) {
@@ -30800,14 +30800,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Order.Builder getOrdersBuilder(
           int index) {
         return getOrdersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder getOrdersOrBuilder(
           int index) {
@@ -30817,7 +30817,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder> 
            getOrdersOrBuilderList() {
@@ -30828,14 +30828,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Order.Builder addOrdersBuilder() {
         return getOrdersFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Order.getDefaultInstance());
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Order.Builder addOrdersBuilder(
           int index) {
@@ -30843,7 +30843,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Order.getDefaultInstance());
       }
       /**
-       * <code>repeated .Order orders = 1;</code>
+       * <code>repeated .brs.api.Order orders = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Order.Builder> 
            getOrdersBuilderList() {
@@ -30876,10 +30876,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Orders)
+      // @@protoc_insertion_point(builder_scope:brs.api.Orders)
     }
 
-    // @@protoc_insertion_point(class_scope:Orders)
+    // @@protoc_insertion_point(class_scope:brs.api.Orders)
     private static final burst.kit.service.impl.grpc.BrsApi.Orders DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Orders();
@@ -30917,7 +30917,7 @@ public final class BrsApi {
   }
 
   public interface OrderOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Order)
+      // @@protoc_insertion_point(interface_extends:brs.api.Order)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -30957,22 +30957,22 @@ public final class BrsApi {
     int getHeight();
 
     /**
-     * <code>.OrderType type = 7;</code>
+     * <code>.brs.api.AssetOrderType type = 7;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.OrderType type = 7;</code>
+     * <code>.brs.api.AssetOrderType type = 7;</code>
      * @return The type.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType();
   }
   /**
-   * Protobuf type {@code Order}
+   * Protobuf type {@code brs.api.Order}
    */
   public  static final class Order extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Order)
+      // @@protoc_insertion_point(message_implements:brs.api.Order)
       OrderOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Order.newBuilder() to construct.
@@ -31070,13 +31070,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Order_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Order_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Order_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Order_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Order.class, burst.kit.service.impl.grpc.BrsApi.Order.Builder.class);
     }
@@ -31144,20 +31144,20 @@ public final class BrsApi {
     public static final int TYPE_FIELD_NUMBER = 7;
     private int type_;
     /**
-     * <code>.OrderType type = 7;</code>
+     * <code>.brs.api.AssetOrderType type = 7;</code>
      * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.OrderType type = 7;</code>
+     * <code>.brs.api.AssetOrderType type = 7;</code>
      * @return The type.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(type_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(type_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31192,7 +31192,7 @@ public final class BrsApi {
       if (height_ != 0) {
         output.writeUInt32(6, height_);
       }
-      if (type_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (type_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(7, type_);
       }
       unknownFields.writeTo(output);
@@ -31228,7 +31228,7 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, height_);
       }
-      if (type_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (type_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, type_);
       }
@@ -31386,21 +31386,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Order}
+     * Protobuf type {@code brs.api.Order}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Order)
+        // @@protoc_insertion_point(builder_implements:brs.api.Order)
         burst.kit.service.impl.grpc.BrsApi.OrderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Order_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Order_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Order_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Order_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Order.class, burst.kit.service.impl.grpc.BrsApi.Order.Builder.class);
       }
@@ -31443,7 +31443,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Order_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Order_descriptor;
       }
 
       @java.lang.Override
@@ -31750,14 +31750,14 @@ public final class BrsApi {
 
       private int type_ = 0;
       /**
-       * <code>.OrderType type = 7;</code>
+       * <code>.brs.api.AssetOrderType type = 7;</code>
        * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.OrderType type = 7;</code>
+       * <code>.brs.api.AssetOrderType type = 7;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -31767,20 +31767,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType type = 7;</code>
+       * <code>.brs.api.AssetOrderType type = 7;</code>
        * @return The type.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(type_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(type_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType type = 7;</code>
+       * <code>.brs.api.AssetOrderType type = 7;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -31790,7 +31790,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType type = 7;</code>
+       * <code>.brs.api.AssetOrderType type = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -31812,10 +31812,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Order)
+      // @@protoc_insertion_point(builder_scope:brs.api.Order)
     }
 
-    // @@protoc_insertion_point(class_scope:Order)
+    // @@protoc_insertion_point(class_scope:brs.api.Order)
     private static final burst.kit.service.impl.grpc.BrsApi.Order DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Order();
@@ -31853,7 +31853,7 @@ public final class BrsApi {
   }
 
   public interface GetAccountOrdersRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAccountOrdersRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAccountOrdersRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -31869,37 +31869,37 @@ public final class BrsApi {
     long getAsset();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
 
     /**
-     * <code>.OrderType orderType = 4;</code>
+     * <code>.brs.api.AssetOrderType orderType = 4;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     int getOrderTypeValue();
     /**
-     * <code>.OrderType orderType = 4;</code>
+     * <code>.brs.api.AssetOrderType orderType = 4;</code>
      * @return The orderType.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType();
   }
   /**
-   * Protobuf type {@code GetAccountOrdersRequest}
+   * Protobuf type {@code brs.api.GetAccountOrdersRequest}
    */
   public  static final class GetAccountOrdersRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAccountOrdersRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAccountOrdersRequest)
       GetAccountOrdersRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAccountOrdersRequest.newBuilder() to construct.
@@ -31990,13 +31990,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountOrdersRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountOrdersRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountOrdersRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountOrdersRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequest.Builder.class);
     }
@@ -32024,21 +32024,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -32047,20 +32047,20 @@ public final class BrsApi {
     public static final int ORDERTYPE_FIELD_NUMBER = 4;
     private int orderType_;
     /**
-     * <code>.OrderType orderType = 4;</code>
+     * <code>.brs.api.AssetOrderType orderType = 4;</code>
      * @return The enum numeric value on the wire for orderType.
      */
     public int getOrderTypeValue() {
       return orderType_;
     }
     /**
-     * <code>.OrderType orderType = 4;</code>
+     * <code>.brs.api.AssetOrderType orderType = 4;</code>
      * @return The orderType.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -32086,7 +32086,7 @@ public final class BrsApi {
       if (indexRange_ != null) {
         output.writeMessage(3, getIndexRange());
       }
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(4, orderType_);
       }
       unknownFields.writeTo(output);
@@ -32110,7 +32110,7 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getIndexRange());
       }
-      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (orderType_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, orderType_);
       }
@@ -32258,21 +32258,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAccountOrdersRequest}
+     * Protobuf type {@code brs.api.GetAccountOrdersRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAccountOrdersRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAccountOrdersRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountOrdersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountOrdersRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountOrdersRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountOrdersRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequest.Builder.class);
       }
@@ -32313,7 +32313,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountOrdersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountOrdersRequest_descriptor;
       }
 
       @java.lang.Override
@@ -32494,14 +32494,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -32512,7 +32512,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -32528,7 +32528,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -32542,7 +32542,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -32560,7 +32560,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -32574,7 +32574,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -32582,7 +32582,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -32593,7 +32593,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -32611,14 +32611,14 @@ public final class BrsApi {
 
       private int orderType_ = 0;
       /**
-       * <code>.OrderType orderType = 4;</code>
+       * <code>.brs.api.AssetOrderType orderType = 4;</code>
        * @return The enum numeric value on the wire for orderType.
        */
       public int getOrderTypeValue() {
         return orderType_;
       }
       /**
-       * <code>.OrderType orderType = 4;</code>
+       * <code>.brs.api.AssetOrderType orderType = 4;</code>
        * @param value The enum numeric value on the wire for orderType to set.
        * @return This builder for chaining.
        */
@@ -32628,20 +32628,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 4;</code>
+       * <code>.brs.api.AssetOrderType orderType = 4;</code>
        * @return The orderType.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getOrderType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getOrderType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(orderType_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(orderType_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType orderType = 4;</code>
+       * <code>.brs.api.AssetOrderType orderType = 4;</code>
        * @param value The orderType to set.
        * @return This builder for chaining.
        */
-      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setOrderType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -32651,7 +32651,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType orderType = 4;</code>
+       * <code>.brs.api.AssetOrderType orderType = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearOrderType() {
@@ -32673,10 +32673,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAccountOrdersRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAccountOrdersRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAccountOrdersRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAccountOrdersRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAccountOrdersRequest();
@@ -32714,7 +32714,7 @@ public final class BrsApi {
   }
 
   public interface IndexRangeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:IndexRange)
+      // @@protoc_insertion_point(interface_extends:brs.api.IndexRange)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -32730,11 +32730,11 @@ public final class BrsApi {
     int getLastIndex();
   }
   /**
-   * Protobuf type {@code IndexRange}
+   * Protobuf type {@code brs.api.IndexRange}
    */
   public  static final class IndexRange extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:IndexRange)
+      // @@protoc_insertion_point(message_implements:brs.api.IndexRange)
       IndexRangeOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use IndexRange.newBuilder() to construct.
@@ -32805,13 +32805,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_IndexRange_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_IndexRange_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_IndexRange_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_IndexRange_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.IndexRange.class, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder.class);
     }
@@ -33003,21 +33003,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code IndexRange}
+     * Protobuf type {@code brs.api.IndexRange}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:IndexRange)
+        // @@protoc_insertion_point(builder_implements:brs.api.IndexRange)
         burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_IndexRange_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_IndexRange_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_IndexRange_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_IndexRange_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.IndexRange.class, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder.class);
       }
@@ -33050,7 +33050,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_IndexRange_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_IndexRange_descriptor;
       }
 
       @java.lang.Override
@@ -33227,10 +33227,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:IndexRange)
+      // @@protoc_insertion_point(builder_scope:brs.api.IndexRange)
     }
 
-    // @@protoc_insertion_point(class_scope:IndexRange)
+    // @@protoc_insertion_point(class_scope:brs.api.IndexRange)
     private static final burst.kit.service.impl.grpc.BrsApi.IndexRange DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.IndexRange();
@@ -33268,21 +33268,21 @@ public final class BrsApi {
   }
 
   public interface GetBlocksRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetBlocksRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetBlocksRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.IndexRange indexRange = 1;</code>
+     * <code>.brs.api.IndexRange indexRange = 1;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 1;</code>
+     * <code>.brs.api.IndexRange indexRange = 1;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 1;</code>
+     * <code>.brs.api.IndexRange indexRange = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
 
@@ -33293,11 +33293,11 @@ public final class BrsApi {
     boolean getIncludeTransactions();
   }
   /**
-   * Protobuf type {@code GetBlocksRequest}
+   * Protobuf type {@code brs.api.GetBlocksRequest}
    */
   public  static final class GetBlocksRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetBlocksRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetBlocksRequest)
       GetBlocksRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetBlocksRequest.newBuilder() to construct.
@@ -33376,13 +33376,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlocksRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlocksRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlocksRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlocksRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetBlocksRequest.class, burst.kit.service.impl.grpc.BrsApi.GetBlocksRequest.Builder.class);
     }
@@ -33390,21 +33390,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 1;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 1;</code>
+     * <code>.brs.api.IndexRange indexRange = 1;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 1;</code>
+     * <code>.brs.api.IndexRange indexRange = 1;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 1;</code>
+     * <code>.brs.api.IndexRange indexRange = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -33593,21 +33593,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetBlocksRequest}
+     * Protobuf type {@code brs.api.GetBlocksRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetBlocksRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetBlocksRequest)
         burst.kit.service.impl.grpc.BrsApi.GetBlocksRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlocksRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlocksRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlocksRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlocksRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetBlocksRequest.class, burst.kit.service.impl.grpc.BrsApi.GetBlocksRequest.Builder.class);
       }
@@ -33644,7 +33644,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlocksRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlocksRequest_descriptor;
       }
 
       @java.lang.Override
@@ -33757,14 +33757,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -33775,7 +33775,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -33791,7 +33791,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -33805,7 +33805,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -33823,7 +33823,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -33837,7 +33837,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -33845,7 +33845,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -33856,7 +33856,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 1;</code>
+       * <code>.brs.api.IndexRange indexRange = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -33914,10 +33914,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetBlocksRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetBlocksRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetBlocksRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetBlocksRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetBlocksRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetBlocksRequest();
@@ -33955,39 +33955,39 @@ public final class BrsApi {
   }
 
   public interface BlocksOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Blocks)
+      // @@protoc_insertion_point(interface_extends:brs.api.Blocks)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Block> 
         getBlocksList();
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Block getBlocks(int index);
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     int getBlocksCount();
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder> 
         getBlocksOrBuilderList();
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder getBlocksOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Blocks}
+   * Protobuf type {@code brs.api.Blocks}
    */
   public  static final class Blocks extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Blocks)
+      // @@protoc_insertion_point(message_implements:brs.api.Blocks)
       BlocksOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Blocks.newBuilder() to construct.
@@ -34062,13 +34062,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Blocks_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Blocks_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Blocks_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Blocks_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Blocks.class, burst.kit.service.impl.grpc.BrsApi.Blocks.Builder.class);
     }
@@ -34076,32 +34076,32 @@ public final class BrsApi {
     public static final int BLOCKS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Block> blocks_;
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Block> getBlocksList() {
       return blocks_;
     }
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder> 
         getBlocksOrBuilderList() {
       return blocks_;
     }
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     public int getBlocksCount() {
       return blocks_.size();
     }
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Block getBlocks(int index) {
       return blocks_.get(index);
     }
     /**
-     * <code>repeated .Block blocks = 1;</code>
+     * <code>repeated .brs.api.Block blocks = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder getBlocksOrBuilder(
         int index) {
@@ -34266,21 +34266,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Blocks}
+     * Protobuf type {@code brs.api.Blocks}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Blocks)
+        // @@protoc_insertion_point(builder_implements:brs.api.Blocks)
         burst.kit.service.impl.grpc.BrsApi.BlocksOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Blocks_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Blocks_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Blocks_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Blocks_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Blocks.class, burst.kit.service.impl.grpc.BrsApi.Blocks.Builder.class);
       }
@@ -34316,7 +34316,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Blocks_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Blocks_descriptor;
       }
 
       @java.lang.Override
@@ -34463,7 +34463,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Block, burst.kit.service.impl.grpc.BrsApi.Block.Builder, burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder> blocksBuilder_;
 
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Block> getBlocksList() {
         if (blocksBuilder_ == null) {
@@ -34473,7 +34473,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public int getBlocksCount() {
         if (blocksBuilder_ == null) {
@@ -34483,7 +34483,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Block getBlocks(int index) {
         if (blocksBuilder_ == null) {
@@ -34493,7 +34493,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder setBlocks(
           int index, burst.kit.service.impl.grpc.BrsApi.Block value) {
@@ -34510,7 +34510,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder setBlocks(
           int index, burst.kit.service.impl.grpc.BrsApi.Block.Builder builderForValue) {
@@ -34524,7 +34524,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder addBlocks(burst.kit.service.impl.grpc.BrsApi.Block value) {
         if (blocksBuilder_ == null) {
@@ -34540,7 +34540,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder addBlocks(
           int index, burst.kit.service.impl.grpc.BrsApi.Block value) {
@@ -34557,7 +34557,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder addBlocks(
           burst.kit.service.impl.grpc.BrsApi.Block.Builder builderForValue) {
@@ -34571,7 +34571,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder addBlocks(
           int index, burst.kit.service.impl.grpc.BrsApi.Block.Builder builderForValue) {
@@ -34585,7 +34585,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder addAllBlocks(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Block> values) {
@@ -34600,7 +34600,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder clearBlocks() {
         if (blocksBuilder_ == null) {
@@ -34613,7 +34613,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public Builder removeBlocks(int index) {
         if (blocksBuilder_ == null) {
@@ -34626,14 +34626,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Block.Builder getBlocksBuilder(
           int index) {
         return getBlocksFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder getBlocksOrBuilder(
           int index) {
@@ -34643,7 +34643,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder> 
            getBlocksOrBuilderList() {
@@ -34654,14 +34654,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Block.Builder addBlocksBuilder() {
         return getBlocksFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Block.getDefaultInstance());
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Block.Builder addBlocksBuilder(
           int index) {
@@ -34669,7 +34669,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Block.getDefaultInstance());
       }
       /**
-       * <code>repeated .Block blocks = 1;</code>
+       * <code>repeated .brs.api.Block blocks = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Block.Builder> 
            getBlocksBuilderList() {
@@ -34702,10 +34702,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Blocks)
+      // @@protoc_insertion_point(builder_scope:brs.api.Blocks)
     }
 
-    // @@protoc_insertion_point(class_scope:Blocks)
+    // @@protoc_insertion_point(class_scope:brs.api.Blocks)
     private static final burst.kit.service.impl.grpc.BrsApi.Blocks DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Blocks();
@@ -34743,7 +34743,7 @@ public final class BrsApi {
   }
 
   public interface GetAliasesRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAliasesRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAliasesRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -34759,26 +34759,26 @@ public final class BrsApi {
     int getTimestamp();
 
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     boolean hasIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange();
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder();
   }
   /**
-   * Protobuf type {@code GetAliasesRequest}
+   * Protobuf type {@code brs.api.GetAliasesRequest}
    */
   public  static final class GetAliasesRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAliasesRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAliasesRequest)
       GetAliasesRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAliasesRequest.newBuilder() to construct.
@@ -34862,13 +34862,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasesRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasesRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasesRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasesRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAliasesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAliasesRequest.Builder.class);
     }
@@ -34896,21 +34896,21 @@ public final class BrsApi {
     public static final int INDEXRANGE_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.IndexRange indexRange_;
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return Whether the indexRange field is set.
      */
     public boolean hasIndexRange() {
       return indexRange_ != null;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      * @return The indexRange.
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
       return indexRange_ == null ? burst.kit.service.impl.grpc.BrsApi.IndexRange.getDefaultInstance() : indexRange_;
     }
     /**
-     * <code>.IndexRange indexRange = 3;</code>
+     * <code>.brs.api.IndexRange indexRange = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
       return getIndexRange();
@@ -35100,21 +35100,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAliasesRequest}
+     * Protobuf type {@code brs.api.GetAliasesRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAliasesRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAliasesRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAliasesRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasesRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasesRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasesRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAliasesRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAliasesRequest.Builder.class);
       }
@@ -35153,7 +35153,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasesRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasesRequest_descriptor;
       }
 
       @java.lang.Override
@@ -35330,14 +35330,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> indexRangeBuilder_;
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return Whether the indexRange field is set.
        */
       public boolean hasIndexRange() {
         return indexRangeBuilder_ != null || indexRange_ != null;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        * @return The indexRange.
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange getIndexRange() {
@@ -35348,7 +35348,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -35364,7 +35364,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder setIndexRange(
           burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder builderForValue) {
@@ -35378,7 +35378,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder mergeIndexRange(burst.kit.service.impl.grpc.BrsApi.IndexRange value) {
         if (indexRangeBuilder_ == null) {
@@ -35396,7 +35396,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public Builder clearIndexRange() {
         if (indexRangeBuilder_ == null) {
@@ -35410,7 +35410,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder getIndexRangeBuilder() {
         
@@ -35418,7 +35418,7 @@ public final class BrsApi {
         return getIndexRangeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder getIndexRangeOrBuilder() {
         if (indexRangeBuilder_ != null) {
@@ -35429,7 +35429,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.IndexRange indexRange = 3;</code>
+       * <code>.brs.api.IndexRange indexRange = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.IndexRange, burst.kit.service.impl.grpc.BrsApi.IndexRange.Builder, burst.kit.service.impl.grpc.BrsApi.IndexRangeOrBuilder> 
@@ -35457,10 +35457,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAliasesRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAliasesRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAliasesRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAliasesRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAliasesRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAliasesRequest();
@@ -35498,39 +35498,39 @@ public final class BrsApi {
   }
 
   public interface UnconfirmedTransactionsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:UnconfirmedTransactions)
+      // @@protoc_insertion_point(interface_extends:brs.api.UnconfirmedTransactions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> 
         getUnconfirmedTransactionsList();
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Transaction getUnconfirmedTransactions(int index);
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     int getUnconfirmedTransactionsCount();
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
         getUnconfirmedTransactionsOrBuilderList();
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getUnconfirmedTransactionsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code UnconfirmedTransactions}
+   * Protobuf type {@code brs.api.UnconfirmedTransactions}
    */
   public  static final class UnconfirmedTransactions extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:UnconfirmedTransactions)
+      // @@protoc_insertion_point(message_implements:brs.api.UnconfirmedTransactions)
       UnconfirmedTransactionsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use UnconfirmedTransactions.newBuilder() to construct.
@@ -35605,13 +35605,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_UnconfirmedTransactions_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_UnconfirmedTransactions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_UnconfirmedTransactions_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_UnconfirmedTransactions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactions.class, burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactions.Builder.class);
     }
@@ -35619,32 +35619,32 @@ public final class BrsApi {
     public static final int UNCONFIRMEDTRANSACTIONS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> unconfirmedTransactions_;
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> getUnconfirmedTransactionsList() {
       return unconfirmedTransactions_;
     }
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
         getUnconfirmedTransactionsOrBuilderList() {
       return unconfirmedTransactions_;
     }
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     public int getUnconfirmedTransactionsCount() {
       return unconfirmedTransactions_.size();
     }
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Transaction getUnconfirmedTransactions(int index) {
       return unconfirmedTransactions_.get(index);
     }
     /**
-     * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+     * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getUnconfirmedTransactionsOrBuilder(
         int index) {
@@ -35809,21 +35809,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code UnconfirmedTransactions}
+     * Protobuf type {@code brs.api.UnconfirmedTransactions}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:UnconfirmedTransactions)
+        // @@protoc_insertion_point(builder_implements:brs.api.UnconfirmedTransactions)
         burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_UnconfirmedTransactions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_UnconfirmedTransactions_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_UnconfirmedTransactions_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_UnconfirmedTransactions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactions.class, burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactions.Builder.class);
       }
@@ -35859,7 +35859,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_UnconfirmedTransactions_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_UnconfirmedTransactions_descriptor;
       }
 
       @java.lang.Override
@@ -36006,7 +36006,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Transaction, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder, burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> unconfirmedTransactionsBuilder_;
 
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> getUnconfirmedTransactionsList() {
         if (unconfirmedTransactionsBuilder_ == null) {
@@ -36016,7 +36016,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public int getUnconfirmedTransactionsCount() {
         if (unconfirmedTransactionsBuilder_ == null) {
@@ -36026,7 +36026,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction getUnconfirmedTransactions(int index) {
         if (unconfirmedTransactionsBuilder_ == null) {
@@ -36036,7 +36036,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder setUnconfirmedTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction value) {
@@ -36053,7 +36053,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder setUnconfirmedTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -36067,7 +36067,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder addUnconfirmedTransactions(burst.kit.service.impl.grpc.BrsApi.Transaction value) {
         if (unconfirmedTransactionsBuilder_ == null) {
@@ -36083,7 +36083,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder addUnconfirmedTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction value) {
@@ -36100,7 +36100,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder addUnconfirmedTransactions(
           burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -36114,7 +36114,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder addUnconfirmedTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -36128,7 +36128,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder addAllUnconfirmedTransactions(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Transaction> values) {
@@ -36143,7 +36143,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder clearUnconfirmedTransactions() {
         if (unconfirmedTransactionsBuilder_ == null) {
@@ -36156,7 +36156,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public Builder removeUnconfirmedTransactions(int index) {
         if (unconfirmedTransactionsBuilder_ == null) {
@@ -36169,14 +36169,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder getUnconfirmedTransactionsBuilder(
           int index) {
         return getUnconfirmedTransactionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getUnconfirmedTransactionsOrBuilder(
           int index) {
@@ -36186,7 +36186,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
            getUnconfirmedTransactionsOrBuilderList() {
@@ -36197,14 +36197,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder addUnconfirmedTransactionsBuilder() {
         return getUnconfirmedTransactionsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Transaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder addUnconfirmedTransactionsBuilder(
           int index) {
@@ -36212,7 +36212,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Transaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .Transaction unconfirmedTransactions = 1;</code>
+       * <code>repeated .brs.api.Transaction unconfirmedTransactions = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction.Builder> 
            getUnconfirmedTransactionsBuilderList() {
@@ -36245,10 +36245,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:UnconfirmedTransactions)
+      // @@protoc_insertion_point(builder_scope:brs.api.UnconfirmedTransactions)
     }
 
-    // @@protoc_insertion_point(class_scope:UnconfirmedTransactions)
+    // @@protoc_insertion_point(class_scope:brs.api.UnconfirmedTransactions)
     private static final burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactions DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.UnconfirmedTransactions();
@@ -36286,39 +36286,39 @@ public final class BrsApi {
   }
 
   public interface AliasesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Aliases)
+      // @@protoc_insertion_point(interface_extends:brs.api.Aliases)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Alias> 
         getAliasesList();
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Alias getAliases(int index);
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     int getAliasesCount();
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder> 
         getAliasesOrBuilderList();
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder getAliasesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Aliases}
+   * Protobuf type {@code brs.api.Aliases}
    */
   public  static final class Aliases extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Aliases)
+      // @@protoc_insertion_point(message_implements:brs.api.Aliases)
       AliasesOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Aliases.newBuilder() to construct.
@@ -36393,13 +36393,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Aliases_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Aliases_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Aliases_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Aliases_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Aliases.class, burst.kit.service.impl.grpc.BrsApi.Aliases.Builder.class);
     }
@@ -36407,32 +36407,32 @@ public final class BrsApi {
     public static final int ALIASES_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Alias> aliases_;
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Alias> getAliasesList() {
       return aliases_;
     }
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder> 
         getAliasesOrBuilderList() {
       return aliases_;
     }
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     public int getAliasesCount() {
       return aliases_.size();
     }
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Alias getAliases(int index) {
       return aliases_.get(index);
     }
     /**
-     * <code>repeated .Alias aliases = 1;</code>
+     * <code>repeated .brs.api.Alias aliases = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder getAliasesOrBuilder(
         int index) {
@@ -36597,21 +36597,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Aliases}
+     * Protobuf type {@code brs.api.Aliases}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Aliases)
+        // @@protoc_insertion_point(builder_implements:brs.api.Aliases)
         burst.kit.service.impl.grpc.BrsApi.AliasesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Aliases_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Aliases_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Aliases_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Aliases_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Aliases.class, burst.kit.service.impl.grpc.BrsApi.Aliases.Builder.class);
       }
@@ -36647,7 +36647,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Aliases_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Aliases_descriptor;
       }
 
       @java.lang.Override
@@ -36794,7 +36794,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Alias, burst.kit.service.impl.grpc.BrsApi.Alias.Builder, burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder> aliasesBuilder_;
 
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Alias> getAliasesList() {
         if (aliasesBuilder_ == null) {
@@ -36804,7 +36804,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public int getAliasesCount() {
         if (aliasesBuilder_ == null) {
@@ -36814,7 +36814,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Alias getAliases(int index) {
         if (aliasesBuilder_ == null) {
@@ -36824,7 +36824,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder setAliases(
           int index, burst.kit.service.impl.grpc.BrsApi.Alias value) {
@@ -36841,7 +36841,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder setAliases(
           int index, burst.kit.service.impl.grpc.BrsApi.Alias.Builder builderForValue) {
@@ -36855,7 +36855,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder addAliases(burst.kit.service.impl.grpc.BrsApi.Alias value) {
         if (aliasesBuilder_ == null) {
@@ -36871,7 +36871,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder addAliases(
           int index, burst.kit.service.impl.grpc.BrsApi.Alias value) {
@@ -36888,7 +36888,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder addAliases(
           burst.kit.service.impl.grpc.BrsApi.Alias.Builder builderForValue) {
@@ -36902,7 +36902,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder addAliases(
           int index, burst.kit.service.impl.grpc.BrsApi.Alias.Builder builderForValue) {
@@ -36916,7 +36916,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder addAllAliases(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Alias> values) {
@@ -36931,7 +36931,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder clearAliases() {
         if (aliasesBuilder_ == null) {
@@ -36944,7 +36944,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public Builder removeAliases(int index) {
         if (aliasesBuilder_ == null) {
@@ -36957,14 +36957,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Alias.Builder getAliasesBuilder(
           int index) {
         return getAliasesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder getAliasesOrBuilder(
           int index) {
@@ -36974,7 +36974,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder> 
            getAliasesOrBuilderList() {
@@ -36985,14 +36985,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Alias.Builder addAliasesBuilder() {
         return getAliasesFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Alias.getDefaultInstance());
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Alias.Builder addAliasesBuilder(
           int index) {
@@ -37000,7 +37000,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Alias.getDefaultInstance());
       }
       /**
-       * <code>repeated .Alias aliases = 1;</code>
+       * <code>repeated .brs.api.Alias aliases = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Alias.Builder> 
            getAliasesBuilderList() {
@@ -37033,10 +37033,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Aliases)
+      // @@protoc_insertion_point(builder_scope:brs.api.Aliases)
     }
 
-    // @@protoc_insertion_point(class_scope:Aliases)
+    // @@protoc_insertion_point(class_scope:brs.api.Aliases)
     private static final burst.kit.service.impl.grpc.BrsApi.Aliases DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Aliases();
@@ -37074,7 +37074,7 @@ public final class BrsApi {
   }
 
   public interface ATIdsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ATIds)
+      // @@protoc_insertion_point(interface_extends:brs.api.ATIds)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -37095,11 +37095,11 @@ public final class BrsApi {
     long getIds(int index);
   }
   /**
-   * Protobuf type {@code ATIds}
+   * Protobuf type {@code brs.api.ATIds}
    */
   public  static final class ATIds extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ATIds)
+      // @@protoc_insertion_point(message_implements:brs.api.ATIds)
       ATIdsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ATIds.newBuilder() to construct.
@@ -37186,13 +37186,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ATIds_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATIds_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ATIds_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATIds_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.ATIds.class, burst.kit.service.impl.grpc.BrsApi.ATIds.Builder.class);
     }
@@ -37397,21 +37397,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code ATIds}
+     * Protobuf type {@code brs.api.ATIds}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ATIds)
+        // @@protoc_insertion_point(builder_implements:brs.api.ATIds)
         burst.kit.service.impl.grpc.BrsApi.ATIdsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATIds_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATIds_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATIds_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATIds_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.ATIds.class, burst.kit.service.impl.grpc.BrsApi.ATIds.Builder.class);
       }
@@ -37442,7 +37442,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATIds_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATIds_descriptor;
       }
 
       @java.lang.Override
@@ -37647,10 +37647,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ATIds)
+      // @@protoc_insertion_point(builder_scope:brs.api.ATIds)
     }
 
-    // @@protoc_insertion_point(class_scope:ATIds)
+    // @@protoc_insertion_point(class_scope:brs.api.ATIds)
     private static final burst.kit.service.impl.grpc.BrsApi.ATIds DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.ATIds();
@@ -37688,7 +37688,7 @@ public final class BrsApi {
   }
 
   public interface ATOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AT)
+      // @@protoc_insertion_point(interface_extends:brs.api.AT)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -37806,11 +37806,11 @@ public final class BrsApi {
     int getCreationBlock();
   }
   /**
-   * Protobuf type {@code AT}
+   * Protobuf type {@code brs.api.AT}
    */
   public  static final class AT extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AT)
+      // @@protoc_insertion_point(message_implements:brs.api.AT)
       ATOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AT.newBuilder() to construct.
@@ -37962,13 +37962,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AT_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AT_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AT_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AT_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AT.class, burst.kit.service.impl.grpc.BrsApi.AT.Builder.class);
     }
@@ -38535,21 +38535,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AT}
+     * Protobuf type {@code brs.api.AT}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AT)
+        // @@protoc_insertion_point(builder_implements:brs.api.AT)
         burst.kit.service.impl.grpc.BrsApi.ATOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AT_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AT_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AT_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AT_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AT.class, burst.kit.service.impl.grpc.BrsApi.AT.Builder.class);
       }
@@ -38612,7 +38612,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AT_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AT_descriptor;
       }
 
       @java.lang.Override
@@ -39399,10 +39399,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AT)
+      // @@protoc_insertion_point(builder_scope:brs.api.AT)
     }
 
-    // @@protoc_insertion_point(class_scope:AT)
+    // @@protoc_insertion_point(class_scope:brs.api.AT)
     private static final burst.kit.service.impl.grpc.BrsApi.AT DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AT();
@@ -39440,39 +39440,39 @@ public final class BrsApi {
   }
 
   public interface AccountATsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AccountATs)
+      // @@protoc_insertion_point(interface_extends:brs.api.AccountATs)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.AT> 
         getAtsList();
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AT getAts(int index);
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     int getAtsCount();
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.ATOrBuilder> 
         getAtsOrBuilderList();
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.ATOrBuilder getAtsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code AccountATs}
+   * Protobuf type {@code brs.api.AccountATs}
    */
   public  static final class AccountATs extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AccountATs)
+      // @@protoc_insertion_point(message_implements:brs.api.AccountATs)
       AccountATsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AccountATs.newBuilder() to construct.
@@ -39547,13 +39547,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountATs_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountATs_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountATs_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountATs_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AccountATs.class, burst.kit.service.impl.grpc.BrsApi.AccountATs.Builder.class);
     }
@@ -39561,32 +39561,32 @@ public final class BrsApi {
     public static final int ATS_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.AT> ats_;
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.AT> getAtsList() {
       return ats_;
     }
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.ATOrBuilder> 
         getAtsOrBuilderList() {
       return ats_;
     }
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     public int getAtsCount() {
       return ats_.size();
     }
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AT getAts(int index) {
       return ats_.get(index);
     }
     /**
-     * <code>repeated .AT ats = 1;</code>
+     * <code>repeated .brs.api.AT ats = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.ATOrBuilder getAtsOrBuilder(
         int index) {
@@ -39751,21 +39751,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AccountATs}
+     * Protobuf type {@code brs.api.AccountATs}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AccountATs)
+        // @@protoc_insertion_point(builder_implements:brs.api.AccountATs)
         burst.kit.service.impl.grpc.BrsApi.AccountATsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountATs_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountATs_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountATs_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountATs_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AccountATs.class, burst.kit.service.impl.grpc.BrsApi.AccountATs.Builder.class);
       }
@@ -39801,7 +39801,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountATs_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountATs_descriptor;
       }
 
       @java.lang.Override
@@ -39948,7 +39948,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.AT, burst.kit.service.impl.grpc.BrsApi.AT.Builder, burst.kit.service.impl.grpc.BrsApi.ATOrBuilder> atsBuilder_;
 
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AT> getAtsList() {
         if (atsBuilder_ == null) {
@@ -39958,7 +39958,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public int getAtsCount() {
         if (atsBuilder_ == null) {
@@ -39968,7 +39968,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AT getAts(int index) {
         if (atsBuilder_ == null) {
@@ -39978,7 +39978,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder setAts(
           int index, burst.kit.service.impl.grpc.BrsApi.AT value) {
@@ -39995,7 +39995,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder setAts(
           int index, burst.kit.service.impl.grpc.BrsApi.AT.Builder builderForValue) {
@@ -40009,7 +40009,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder addAts(burst.kit.service.impl.grpc.BrsApi.AT value) {
         if (atsBuilder_ == null) {
@@ -40025,7 +40025,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder addAts(
           int index, burst.kit.service.impl.grpc.BrsApi.AT value) {
@@ -40042,7 +40042,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder addAts(
           burst.kit.service.impl.grpc.BrsApi.AT.Builder builderForValue) {
@@ -40056,7 +40056,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder addAts(
           int index, burst.kit.service.impl.grpc.BrsApi.AT.Builder builderForValue) {
@@ -40070,7 +40070,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder addAllAts(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.AT> values) {
@@ -40085,7 +40085,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder clearAts() {
         if (atsBuilder_ == null) {
@@ -40098,7 +40098,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public Builder removeAts(int index) {
         if (atsBuilder_ == null) {
@@ -40111,14 +40111,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AT.Builder getAtsBuilder(
           int index) {
         return getAtsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.ATOrBuilder getAtsOrBuilder(
           int index) {
@@ -40128,7 +40128,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.ATOrBuilder> 
            getAtsOrBuilderList() {
@@ -40139,14 +40139,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AT.Builder addAtsBuilder() {
         return getAtsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.AT.getDefaultInstance());
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AT.Builder addAtsBuilder(
           int index) {
@@ -40154,7 +40154,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.AT.getDefaultInstance());
       }
       /**
-       * <code>repeated .AT ats = 1;</code>
+       * <code>repeated .brs.api.AT ats = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AT.Builder> 
            getAtsBuilderList() {
@@ -40187,10 +40187,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AccountATs)
+      // @@protoc_insertion_point(builder_scope:brs.api.AccountATs)
     }
 
-    // @@protoc_insertion_point(class_scope:AccountATs)
+    // @@protoc_insertion_point(class_scope:brs.api.AccountATs)
     private static final burst.kit.service.impl.grpc.BrsApi.AccountATs DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AccountATs();
@@ -40228,7 +40228,7 @@ public final class BrsApi {
   }
 
   public interface BasicTransactionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:BasicTransaction)
+      // @@protoc_insertion_point(interface_extends:brs.api.BasicTransaction)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -40375,11 +40375,11 @@ public final class BrsApi {
    * A basic transaction represents all of the data that you would find in the transaction bytes.
    * </pre>
    *
-   * Protobuf type {@code BasicTransaction}
+   * Protobuf type {@code brs.api.BasicTransaction}
    */
   public  static final class BasicTransaction extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:BasicTransaction)
+      // @@protoc_insertion_point(message_implements:brs.api.BasicTransaction)
       BasicTransactionOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use BasicTransaction.newBuilder() to construct.
@@ -40540,13 +40540,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_BasicTransaction_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_BasicTransaction_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_BasicTransaction_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_BasicTransaction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.BasicTransaction.class, burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder.class);
     }
@@ -41102,21 +41102,21 @@ public final class BrsApi {
      * A basic transaction represents all of the data that you would find in the transaction bytes.
      * </pre>
      *
-     * Protobuf type {@code BasicTransaction}
+     * Protobuf type {@code brs.api.BasicTransaction}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:BasicTransaction)
+        // @@protoc_insertion_point(builder_implements:brs.api.BasicTransaction)
         burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_BasicTransaction_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_BasicTransaction_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_BasicTransaction_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_BasicTransaction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.BasicTransaction.class, burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder.class);
       }
@@ -41186,7 +41186,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_BasicTransaction_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_BasicTransaction_descriptor;
       }
 
       @java.lang.Override
@@ -42232,10 +42232,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:BasicTransaction)
+      // @@protoc_insertion_point(builder_scope:brs.api.BasicTransaction)
     }
 
-    // @@protoc_insertion_point(class_scope:BasicTransaction)
+    // @@protoc_insertion_point(class_scope:brs.api.BasicTransaction)
     private static final burst.kit.service.impl.grpc.BrsApi.BasicTransaction DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.BasicTransaction();
@@ -42273,7 +42273,7 @@ public final class BrsApi {
   }
 
   public interface GetPeerRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetPeerRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetPeerRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -42289,11 +42289,11 @@ public final class BrsApi {
         getPeerAddressBytes();
   }
   /**
-   * Protobuf type {@code GetPeerRequest}
+   * Protobuf type {@code brs.api.GetPeerRequest}
    */
   public  static final class GetPeerRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetPeerRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetPeerRequest)
       GetPeerRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetPeerRequest.newBuilder() to construct.
@@ -42361,13 +42361,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeerRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeerRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeerRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeerRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetPeerRequest.class, burst.kit.service.impl.grpc.BrsApi.GetPeerRequest.Builder.class);
     }
@@ -42563,21 +42563,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetPeerRequest}
+     * Protobuf type {@code brs.api.GetPeerRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetPeerRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetPeerRequest)
         burst.kit.service.impl.grpc.BrsApi.GetPeerRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeerRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeerRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeerRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeerRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetPeerRequest.class, burst.kit.service.impl.grpc.BrsApi.GetPeerRequest.Builder.class);
       }
@@ -42608,7 +42608,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeerRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeerRequest_descriptor;
       }
 
       @java.lang.Override
@@ -42798,10 +42798,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetPeerRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetPeerRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetPeerRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetPeerRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetPeerRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetPeerRequest();
@@ -42839,7 +42839,7 @@ public final class BrsApi {
   }
 
   public interface GetPeersRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetPeersRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetPeersRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -42849,22 +42849,22 @@ public final class BrsApi {
     boolean getActive();
 
     /**
-     * <code>.PeerState state = 2;</code>
+     * <code>.brs.api.PeerState state = 2;</code>
      * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
-     * <code>.PeerState state = 2;</code>
+     * <code>.brs.api.PeerState state = 2;</code>
      * @return The state.
      */
     burst.kit.service.impl.grpc.BrsApi.PeerState getState();
   }
   /**
-   * Protobuf type {@code GetPeersRequest}
+   * Protobuf type {@code brs.api.GetPeersRequest}
    */
   public  static final class GetPeersRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetPeersRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetPeersRequest)
       GetPeersRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetPeersRequest.newBuilder() to construct.
@@ -42937,13 +42937,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeersRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeersRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeersRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeersRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetPeersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetPeersRequest.Builder.class);
     }
@@ -42961,14 +42961,14 @@ public final class BrsApi {
     public static final int STATE_FIELD_NUMBER = 2;
     private int state_;
     /**
-     * <code>.PeerState state = 2;</code>
+     * <code>.brs.api.PeerState state = 2;</code>
      * @return The enum numeric value on the wire for state.
      */
     public int getStateValue() {
       return state_;
     }
     /**
-     * <code>.PeerState state = 2;</code>
+     * <code>.brs.api.PeerState state = 2;</code>
      * @return The state.
      */
     public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
@@ -43144,21 +43144,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetPeersRequest}
+     * Protobuf type {@code brs.api.GetPeersRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetPeersRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetPeersRequest)
         burst.kit.service.impl.grpc.BrsApi.GetPeersRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeersRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeersRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeersRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetPeersRequest.class, burst.kit.service.impl.grpc.BrsApi.GetPeersRequest.Builder.class);
       }
@@ -43191,7 +43191,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetPeersRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetPeersRequest_descriptor;
       }
 
       @java.lang.Override
@@ -43328,14 +43328,14 @@ public final class BrsApi {
 
       private int state_ = 0;
       /**
-       * <code>.PeerState state = 2;</code>
+       * <code>.brs.api.PeerState state = 2;</code>
        * @return The enum numeric value on the wire for state.
        */
       public int getStateValue() {
         return state_;
       }
       /**
-       * <code>.PeerState state = 2;</code>
+       * <code>.brs.api.PeerState state = 2;</code>
        * @param value The enum numeric value on the wire for state to set.
        * @return This builder for chaining.
        */
@@ -43345,7 +43345,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.PeerState state = 2;</code>
+       * <code>.brs.api.PeerState state = 2;</code>
        * @return The state.
        */
       public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
@@ -43354,7 +43354,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.PeerState.UNRECOGNIZED : result;
       }
       /**
-       * <code>.PeerState state = 2;</code>
+       * <code>.brs.api.PeerState state = 2;</code>
        * @param value The state to set.
        * @return This builder for chaining.
        */
@@ -43368,7 +43368,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.PeerState state = 2;</code>
+       * <code>.brs.api.PeerState state = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearState() {
@@ -43390,10 +43390,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetPeersRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetPeersRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetPeersRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetPeersRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetPeersRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetPeersRequest();
@@ -43431,16 +43431,16 @@ public final class BrsApi {
   }
 
   public interface PeerOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Peer)
+      // @@protoc_insertion_point(interface_extends:brs.api.Peer)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.PeerState state = 1;</code>
+     * <code>.brs.api.PeerState state = 1;</code>
      * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
-     * <code>.PeerState state = 1;</code>
+     * <code>.brs.api.PeerState state = 1;</code>
      * @return The state.
      */
     burst.kit.service.impl.grpc.BrsApi.PeerState getState();
@@ -43524,11 +43524,11 @@ public final class BrsApi {
     int getLastUpdated();
   }
   /**
-   * Protobuf type {@code Peer}
+   * Protobuf type {@code brs.api.Peer}
    */
   public  static final class Peer extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Peer)
+      // @@protoc_insertion_point(message_implements:brs.api.Peer)
       PeerOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Peer.newBuilder() to construct.
@@ -43649,13 +43649,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Peer_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peer_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Peer_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Peer.class, burst.kit.service.impl.grpc.BrsApi.Peer.Builder.class);
     }
@@ -43663,14 +43663,14 @@ public final class BrsApi {
     public static final int STATE_FIELD_NUMBER = 1;
     private int state_;
     /**
-     * <code>.PeerState state = 1;</code>
+     * <code>.brs.api.PeerState state = 1;</code>
      * @return The enum numeric value on the wire for state.
      */
     public int getStateValue() {
       return state_;
     }
     /**
-     * <code>.PeerState state = 1;</code>
+     * <code>.brs.api.PeerState state = 1;</code>
      * @return The state.
      */
     public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
@@ -44127,21 +44127,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Peer}
+     * Protobuf type {@code brs.api.Peer}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Peer)
+        // @@protoc_insertion_point(builder_implements:brs.api.Peer)
         burst.kit.service.impl.grpc.BrsApi.PeerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Peer_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peer_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Peer_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Peer.class, burst.kit.service.impl.grpc.BrsApi.Peer.Builder.class);
       }
@@ -44190,7 +44190,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Peer_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peer_descriptor;
       }
 
       @java.lang.Override
@@ -44333,14 +44333,14 @@ public final class BrsApi {
 
       private int state_ = 0;
       /**
-       * <code>.PeerState state = 1;</code>
+       * <code>.brs.api.PeerState state = 1;</code>
        * @return The enum numeric value on the wire for state.
        */
       public int getStateValue() {
         return state_;
       }
       /**
-       * <code>.PeerState state = 1;</code>
+       * <code>.brs.api.PeerState state = 1;</code>
        * @param value The enum numeric value on the wire for state to set.
        * @return This builder for chaining.
        */
@@ -44350,7 +44350,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.PeerState state = 1;</code>
+       * <code>.brs.api.PeerState state = 1;</code>
        * @return The state.
        */
       public burst.kit.service.impl.grpc.BrsApi.PeerState getState() {
@@ -44359,7 +44359,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.PeerState.UNRECOGNIZED : result;
       }
       /**
-       * <code>.PeerState state = 1;</code>
+       * <code>.brs.api.PeerState state = 1;</code>
        * @param value The state to set.
        * @return This builder for chaining.
        */
@@ -44373,7 +44373,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.PeerState state = 1;</code>
+       * <code>.brs.api.PeerState state = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearState() {
@@ -44849,10 +44849,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Peer)
+      // @@protoc_insertion_point(builder_scope:brs.api.Peer)
     }
 
-    // @@protoc_insertion_point(class_scope:Peer)
+    // @@protoc_insertion_point(class_scope:brs.api.Peer)
     private static final burst.kit.service.impl.grpc.BrsApi.Peer DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Peer();
@@ -44890,7 +44890,7 @@ public final class BrsApi {
   }
 
   public interface PeersOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Peers)
+      // @@protoc_insertion_point(interface_extends:brs.api.Peers)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -44919,11 +44919,11 @@ public final class BrsApi {
         getPeerAddressesBytes(int index);
   }
   /**
-   * Protobuf type {@code Peers}
+   * Protobuf type {@code brs.api.Peers}
    */
   public  static final class Peers extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Peers)
+      // @@protoc_insertion_point(message_implements:brs.api.Peers)
       PeersOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Peers.newBuilder() to construct.
@@ -44998,13 +44998,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Peers_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peers_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Peers_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peers_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Peers.class, burst.kit.service.impl.grpc.BrsApi.Peers.Builder.class);
     }
@@ -45206,21 +45206,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Peers}
+     * Protobuf type {@code brs.api.Peers}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Peers)
+        // @@protoc_insertion_point(builder_implements:brs.api.Peers)
         burst.kit.service.impl.grpc.BrsApi.PeersOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Peers_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peers_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Peers_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peers_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Peers.class, burst.kit.service.impl.grpc.BrsApi.Peers.Builder.class);
       }
@@ -45251,7 +45251,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Peers_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Peers_descriptor;
       }
 
       @java.lang.Override
@@ -45487,10 +45487,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Peers)
+      // @@protoc_insertion_point(builder_scope:brs.api.Peers)
     }
 
-    // @@protoc_insertion_point(class_scope:Peers)
+    // @@protoc_insertion_point(class_scope:brs.api.Peers)
     private static final burst.kit.service.impl.grpc.BrsApi.Peers DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Peers();
@@ -45528,7 +45528,7 @@ public final class BrsApi {
   }
 
   public interface GetAliasRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAliasRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAliasRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -45550,11 +45550,11 @@ public final class BrsApi {
         getNameBytes();
   }
   /**
-   * Protobuf type {@code GetAliasRequest}
+   * Protobuf type {@code brs.api.GetAliasRequest}
    */
   public  static final class GetAliasRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAliasRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAliasRequest)
       GetAliasRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAliasRequest.newBuilder() to construct.
@@ -45627,13 +45627,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAliasRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAliasRequest.Builder.class);
     }
@@ -45851,21 +45851,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAliasRequest}
+     * Protobuf type {@code brs.api.GetAliasRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAliasRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAliasRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAliasRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAliasRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAliasRequest.Builder.class);
       }
@@ -45898,7 +45898,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAliasRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAliasRequest_descriptor;
       }
 
       @java.lang.Override
@@ -46122,10 +46122,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAliasRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAliasRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAliasRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAliasRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAliasRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAliasRequest();
@@ -46163,7 +46163,7 @@ public final class BrsApi {
   }
 
   public interface AliasOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Alias)
+      // @@protoc_insertion_point(interface_extends:brs.api.Alias)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -46227,11 +46227,11 @@ public final class BrsApi {
     long getBuyer();
   }
   /**
-   * Protobuf type {@code Alias}
+   * Protobuf type {@code brs.api.Alias}
    */
   public  static final class Alias extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Alias)
+      // @@protoc_insertion_point(message_implements:brs.api.Alias)
       AliasOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Alias.newBuilder() to construct.
@@ -46336,13 +46336,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Alias_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Alias_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Alias_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Alias_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Alias.class, burst.kit.service.impl.grpc.BrsApi.Alias.Builder.class);
     }
@@ -46715,21 +46715,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Alias}
+     * Protobuf type {@code brs.api.Alias}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Alias)
+        // @@protoc_insertion_point(builder_implements:brs.api.Alias)
         burst.kit.service.impl.grpc.BrsApi.AliasOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Alias_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Alias_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Alias_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Alias_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Alias.class, burst.kit.service.impl.grpc.BrsApi.Alias.Builder.class);
       }
@@ -46774,7 +46774,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Alias_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Alias_descriptor;
       }
 
       @java.lang.Override
@@ -47249,10 +47249,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Alias)
+      // @@protoc_insertion_point(builder_scope:brs.api.Alias)
     }
 
-    // @@protoc_insertion_point(class_scope:Alias)
+    // @@protoc_insertion_point(class_scope:brs.api.Alias)
     private static final burst.kit.service.impl.grpc.BrsApi.Alias DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Alias();
@@ -47290,7 +47290,7 @@ public final class BrsApi {
   }
 
   public interface TimeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Time)
+      // @@protoc_insertion_point(interface_extends:brs.api.Time)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -47304,11 +47304,11 @@ public final class BrsApi {
     int getTime();
   }
   /**
-   * Protobuf type {@code Time}
+   * Protobuf type {@code brs.api.Time}
    */
   public  static final class Time extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Time)
+      // @@protoc_insertion_point(message_implements:brs.api.Time)
       TimeOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Time.newBuilder() to construct.
@@ -47374,13 +47374,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Time_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Time_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Time_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Time_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Time.class, burst.kit.service.impl.grpc.BrsApi.Time.Builder.class);
     }
@@ -47555,21 +47555,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Time}
+     * Protobuf type {@code brs.api.Time}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Time)
+        // @@protoc_insertion_point(builder_implements:brs.api.Time)
         burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Time_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Time_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Time_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Time_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Time.class, burst.kit.service.impl.grpc.BrsApi.Time.Builder.class);
       }
@@ -47600,7 +47600,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Time_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Time_descriptor;
       }
 
       @java.lang.Override
@@ -47755,10 +47755,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Time)
+      // @@protoc_insertion_point(builder_scope:brs.api.Time)
     }
 
-    // @@protoc_insertion_point(class_scope:Time)
+    // @@protoc_insertion_point(class_scope:brs.api.Time)
     private static final burst.kit.service.impl.grpc.BrsApi.Time DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Time();
@@ -47796,7 +47796,7 @@ public final class BrsApi {
   }
 
   public interface StateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:State)
+      // @@protoc_insertion_point(interface_extends:brs.api.State)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -47824,17 +47824,17 @@ public final class BrsApi {
         getVersionBytes();
 
     /**
-     * <code>.Time time = 3;</code>
+     * <code>.brs.api.Time time = 3;</code>
      * @return Whether the time field is set.
      */
     boolean hasTime();
     /**
-     * <code>.Time time = 3;</code>
+     * <code>.brs.api.Time time = 3;</code>
      * @return The time.
      */
     burst.kit.service.impl.grpc.BrsApi.Time getTime();
     /**
-     * <code>.Time time = 3;</code>
+     * <code>.brs.api.Time time = 3;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder getTimeOrBuilder();
 
@@ -47923,11 +47923,11 @@ public final class BrsApi {
     long getFreeMemory();
   }
   /**
-   * Protobuf type {@code State}
+   * Protobuf type {@code brs.api.State}
    */
   public  static final class State extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:State)
+      // @@protoc_insertion_point(message_implements:brs.api.State)
       StateOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use State.newBuilder() to construct.
@@ -48079,13 +48079,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_State_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_State_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_State_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_State_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.State.class, burst.kit.service.impl.grpc.BrsApi.State.Builder.class);
     }
@@ -48165,21 +48165,21 @@ public final class BrsApi {
     public static final int TIME_FIELD_NUMBER = 3;
     private burst.kit.service.impl.grpc.BrsApi.Time time_;
     /**
-     * <code>.Time time = 3;</code>
+     * <code>.brs.api.Time time = 3;</code>
      * @return Whether the time field is set.
      */
     public boolean hasTime() {
       return time_ != null;
     }
     /**
-     * <code>.Time time = 3;</code>
+     * <code>.brs.api.Time time = 3;</code>
      * @return The time.
      */
     public burst.kit.service.impl.grpc.BrsApi.Time getTime() {
       return time_ == null ? burst.kit.service.impl.grpc.BrsApi.Time.getDefaultInstance() : time_;
     }
     /**
-     * <code>.Time time = 3;</code>
+     * <code>.brs.api.Time time = 3;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder getTimeOrBuilder() {
       return getTime();
@@ -48672,21 +48672,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code State}
+     * Protobuf type {@code brs.api.State}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:State)
+        // @@protoc_insertion_point(builder_implements:brs.api.State)
         burst.kit.service.impl.grpc.BrsApi.StateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_State_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_State_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_State_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_State_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.State.class, burst.kit.service.impl.grpc.BrsApi.State.Builder.class);
       }
@@ -48749,7 +48749,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_State_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_State_descriptor;
       }
 
       @java.lang.Override
@@ -49070,14 +49070,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.Time, burst.kit.service.impl.grpc.BrsApi.Time.Builder, burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder> timeBuilder_;
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        * @return Whether the time field is set.
        */
       public boolean hasTime() {
         return timeBuilder_ != null || time_ != null;
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        * @return The time.
        */
       public burst.kit.service.impl.grpc.BrsApi.Time getTime() {
@@ -49088,7 +49088,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       public Builder setTime(burst.kit.service.impl.grpc.BrsApi.Time value) {
         if (timeBuilder_ == null) {
@@ -49104,7 +49104,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       public Builder setTime(
           burst.kit.service.impl.grpc.BrsApi.Time.Builder builderForValue) {
@@ -49118,7 +49118,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       public Builder mergeTime(burst.kit.service.impl.grpc.BrsApi.Time value) {
         if (timeBuilder_ == null) {
@@ -49136,7 +49136,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       public Builder clearTime() {
         if (timeBuilder_ == null) {
@@ -49150,7 +49150,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Time.Builder getTimeBuilder() {
         
@@ -49158,7 +49158,7 @@ public final class BrsApi {
         return getTimeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder getTimeOrBuilder() {
         if (timeBuilder_ != null) {
@@ -49169,7 +49169,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.Time time = 3;</code>
+       * <code>.brs.api.Time time = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.Time, burst.kit.service.impl.grpc.BrsApi.Time.Builder, burst.kit.service.impl.grpc.BrsApi.TimeOrBuilder> 
@@ -49649,10 +49649,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:State)
+      // @@protoc_insertion_point(builder_scope:brs.api.State)
     }
 
-    // @@protoc_insertion_point(class_scope:State)
+    // @@protoc_insertion_point(class_scope:brs.api.State)
     private static final burst.kit.service.impl.grpc.BrsApi.State DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.State();
@@ -49690,7 +49690,7 @@ public final class BrsApi {
   }
 
   public interface FeeSuggestionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:FeeSuggestion)
+      // @@protoc_insertion_point(interface_extends:brs.api.FeeSuggestion)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -49712,11 +49712,11 @@ public final class BrsApi {
     long getPriority();
   }
   /**
-   * Protobuf type {@code FeeSuggestion}
+   * Protobuf type {@code brs.api.FeeSuggestion}
    */
   public  static final class FeeSuggestion extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:FeeSuggestion)
+      // @@protoc_insertion_point(message_implements:brs.api.FeeSuggestion)
       FeeSuggestionOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use FeeSuggestion.newBuilder() to construct.
@@ -49792,13 +49792,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_FeeSuggestion_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_FeeSuggestion_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_FeeSuggestion_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_FeeSuggestion_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.FeeSuggestion.class, burst.kit.service.impl.grpc.BrsApi.FeeSuggestion.Builder.class);
     }
@@ -50014,21 +50014,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code FeeSuggestion}
+     * Protobuf type {@code brs.api.FeeSuggestion}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:FeeSuggestion)
+        // @@protoc_insertion_point(builder_implements:brs.api.FeeSuggestion)
         burst.kit.service.impl.grpc.BrsApi.FeeSuggestionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_FeeSuggestion_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_FeeSuggestion_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_FeeSuggestion_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_FeeSuggestion_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.FeeSuggestion.class, burst.kit.service.impl.grpc.BrsApi.FeeSuggestion.Builder.class);
       }
@@ -50063,7 +50063,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_FeeSuggestion_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_FeeSuggestion_descriptor;
       }
 
       @java.lang.Override
@@ -50274,10 +50274,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:FeeSuggestion)
+      // @@protoc_insertion_point(builder_scope:brs.api.FeeSuggestion)
     }
 
-    // @@protoc_insertion_point(class_scope:FeeSuggestion)
+    // @@protoc_insertion_point(class_scope:brs.api.FeeSuggestion)
     private static final burst.kit.service.impl.grpc.BrsApi.FeeSuggestion DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.FeeSuggestion();
@@ -50315,7 +50315,7 @@ public final class BrsApi {
   }
 
   public interface TransactionBroadcastResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:TransactionBroadcastResult)
+      // @@protoc_insertion_point(interface_extends:brs.api.TransactionBroadcastResult)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -50329,11 +50329,11 @@ public final class BrsApi {
     int getNumberOfPeersSentTo();
   }
   /**
-   * Protobuf type {@code TransactionBroadcastResult}
+   * Protobuf type {@code brs.api.TransactionBroadcastResult}
    */
   public  static final class TransactionBroadcastResult extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:TransactionBroadcastResult)
+      // @@protoc_insertion_point(message_implements:brs.api.TransactionBroadcastResult)
       TransactionBroadcastResultOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use TransactionBroadcastResult.newBuilder() to construct.
@@ -50399,13 +50399,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBroadcastResult_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBroadcastResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBroadcastResult_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBroadcastResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResult.class, burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResult.Builder.class);
     }
@@ -50580,21 +50580,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code TransactionBroadcastResult}
+     * Protobuf type {@code brs.api.TransactionBroadcastResult}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:TransactionBroadcastResult)
+        // @@protoc_insertion_point(builder_implements:brs.api.TransactionBroadcastResult)
         burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBroadcastResult_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBroadcastResult_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBroadcastResult_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBroadcastResult_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResult.class, burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResult.Builder.class);
       }
@@ -50625,7 +50625,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBroadcastResult_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBroadcastResult_descriptor;
       }
 
       @java.lang.Override
@@ -50780,10 +50780,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:TransactionBroadcastResult)
+      // @@protoc_insertion_point(builder_scope:brs.api.TransactionBroadcastResult)
     }
 
-    // @@protoc_insertion_point(class_scope:TransactionBroadcastResult)
+    // @@protoc_insertion_point(class_scope:brs.api.TransactionBroadcastResult)
     private static final burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResult DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.TransactionBroadcastResult();
@@ -50821,7 +50821,7 @@ public final class BrsApi {
   }
 
   public interface GetBlockRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetBlockRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetBlockRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -50849,11 +50849,11 @@ public final class BrsApi {
     boolean getIncludeTransactions();
   }
   /**
-   * Protobuf type {@code GetBlockRequest}
+   * Protobuf type {@code brs.api.GetBlockRequest}
    */
   public  static final class GetBlockRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetBlockRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetBlockRequest)
       GetBlockRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetBlockRequest.newBuilder() to construct.
@@ -50934,13 +50934,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlockRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlockRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlockRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlockRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetBlockRequest.class, burst.kit.service.impl.grpc.BrsApi.GetBlockRequest.Builder.class);
     }
@@ -51176,21 +51176,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetBlockRequest}
+     * Protobuf type {@code brs.api.GetBlockRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetBlockRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetBlockRequest)
         burst.kit.service.impl.grpc.BrsApi.GetBlockRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlockRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlockRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlockRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlockRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetBlockRequest.class, burst.kit.service.impl.grpc.BrsApi.GetBlockRequest.Builder.class);
       }
@@ -51227,7 +51227,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetBlockRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetBlockRequest_descriptor;
       }
 
       @java.lang.Override
@@ -51472,10 +51472,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetBlockRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetBlockRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetBlockRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetBlockRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetBlockRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetBlockRequest();
@@ -51513,7 +51513,7 @@ public final class BrsApi {
   }
 
   public interface GetAccountRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAccountRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAccountRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -51523,11 +51523,11 @@ public final class BrsApi {
     long getAccountId();
   }
   /**
-   * Protobuf type {@code GetAccountRequest}
+   * Protobuf type {@code brs.api.GetAccountRequest}
    */
   public  static final class GetAccountRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAccountRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAccountRequest)
       GetAccountRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAccountRequest.newBuilder() to construct.
@@ -51593,13 +51593,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAccountRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountRequest.Builder.class);
     }
@@ -51771,21 +51771,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAccountRequest}
+     * Protobuf type {@code brs.api.GetAccountRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAccountRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAccountRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAccountRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAccountRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountRequest.Builder.class);
       }
@@ -51816,7 +51816,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountRequest_descriptor;
       }
 
       @java.lang.Override
@@ -51959,10 +51959,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAccountRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAccountRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAccountRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAccountRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAccountRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAccountRequest();
@@ -52000,7 +52000,7 @@ public final class BrsApi {
   }
 
   public interface GetAccountsRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetAccountsRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetAccountsRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -52044,11 +52044,11 @@ public final class BrsApi {
     boolean getIncludeAccounts();
   }
   /**
-   * Protobuf type {@code GetAccountsRequest}
+   * Protobuf type {@code brs.api.GetAccountsRequest}
    */
   public  static final class GetAccountsRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetAccountsRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetAccountsRequest)
       GetAccountsRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetAccountsRequest.newBuilder() to construct.
@@ -52126,13 +52126,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountsRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountsRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetAccountsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountsRequest.Builder.class);
     }
@@ -52388,21 +52388,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetAccountsRequest}
+     * Protobuf type {@code brs.api.GetAccountsRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetAccountsRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetAccountsRequest)
         burst.kit.service.impl.grpc.BrsApi.GetAccountsRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountsRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountsRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetAccountsRequest.class, burst.kit.service.impl.grpc.BrsApi.GetAccountsRequest.Builder.class);
       }
@@ -52437,7 +52437,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetAccountsRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetAccountsRequest_descriptor;
       }
 
       @java.lang.Override
@@ -52739,10 +52739,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetAccountsRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetAccountsRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetAccountsRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetAccountsRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetAccountsRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetAccountsRequest();
@@ -52780,7 +52780,7 @@ public final class BrsApi {
   }
 
   public interface GetTransactionRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetTransactionRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.GetTransactionRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -52796,11 +52796,11 @@ public final class BrsApi {
     com.google.protobuf.ByteString getFullHash();
   }
   /**
-   * Protobuf type {@code GetTransactionRequest}
+   * Protobuf type {@code brs.api.GetTransactionRequest}
    */
   public  static final class GetTransactionRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetTransactionRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.GetTransactionRequest)
       GetTransactionRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use GetTransactionRequest.newBuilder() to construct.
@@ -52872,13 +52872,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetTransactionRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetTransactionRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_GetTransactionRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetTransactionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.GetTransactionRequest.class, burst.kit.service.impl.grpc.BrsApi.GetTransactionRequest.Builder.class);
     }
@@ -53071,21 +53071,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code GetTransactionRequest}
+     * Protobuf type {@code brs.api.GetTransactionRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetTransactionRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.GetTransactionRequest)
         burst.kit.service.impl.grpc.BrsApi.GetTransactionRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetTransactionRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetTransactionRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetTransactionRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetTransactionRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.GetTransactionRequest.class, burst.kit.service.impl.grpc.BrsApi.GetTransactionRequest.Builder.class);
       }
@@ -53118,7 +53118,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_GetTransactionRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_GetTransactionRequest_descriptor;
       }
 
       @java.lang.Override
@@ -53298,10 +53298,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:GetTransactionRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.GetTransactionRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:GetTransactionRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.GetTransactionRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.GetTransactionRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.GetTransactionRequest();
@@ -53339,7 +53339,7 @@ public final class BrsApi {
   }
 
   public interface SubmitNonceRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SubmitNonceRequest)
+      // @@protoc_insertion_point(interface_extends:brs.api.SubmitNonceRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -53373,11 +53373,11 @@ public final class BrsApi {
     int getBlockHeight();
   }
   /**
-   * Protobuf type {@code SubmitNonceRequest}
+   * Protobuf type {@code brs.api.SubmitNonceRequest}
    */
   public  static final class SubmitNonceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SubmitNonceRequest)
+      // @@protoc_insertion_point(message_implements:brs.api.SubmitNonceRequest)
       SubmitNonceRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SubmitNonceRequest.newBuilder() to construct.
@@ -53460,13 +53460,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceRequest_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceRequest_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequest.class, burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequest.Builder.class);
     }
@@ -53727,21 +53727,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code SubmitNonceRequest}
+     * Protobuf type {@code brs.api.SubmitNonceRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SubmitNonceRequest)
+        // @@protoc_insertion_point(builder_implements:brs.api.SubmitNonceRequest)
         burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceRequest_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequest.class, burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequest.Builder.class);
       }
@@ -53778,7 +53778,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceRequest_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceRequest_descriptor;
       }
 
       @java.lang.Override
@@ -54070,10 +54070,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SubmitNonceRequest)
+      // @@protoc_insertion_point(builder_scope:brs.api.SubmitNonceRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:SubmitNonceRequest)
+    // @@protoc_insertion_point(class_scope:brs.api.SubmitNonceRequest)
     private static final burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.SubmitNonceRequest();
@@ -54111,7 +54111,7 @@ public final class BrsApi {
   }
 
   public interface SubmitNonceResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SubmitNonceResponse)
+      // @@protoc_insertion_point(interface_extends:brs.api.SubmitNonceResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -54121,11 +54121,11 @@ public final class BrsApi {
     long getDeadline();
   }
   /**
-   * Protobuf type {@code SubmitNonceResponse}
+   * Protobuf type {@code brs.api.SubmitNonceResponse}
    */
   public  static final class SubmitNonceResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SubmitNonceResponse)
+      // @@protoc_insertion_point(message_implements:brs.api.SubmitNonceResponse)
       SubmitNonceResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SubmitNonceResponse.newBuilder() to construct.
@@ -54191,13 +54191,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceResponse_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceResponse_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponse.class, burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponse.Builder.class);
     }
@@ -54369,21 +54369,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code SubmitNonceResponse}
+     * Protobuf type {@code brs.api.SubmitNonceResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SubmitNonceResponse)
+        // @@protoc_insertion_point(builder_implements:brs.api.SubmitNonceResponse)
         burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceResponse_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceResponse_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponse.class, burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponse.Builder.class);
       }
@@ -54414,7 +54414,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubmitNonceResponse_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubmitNonceResponse_descriptor;
       }
 
       @java.lang.Override
@@ -54557,10 +54557,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SubmitNonceResponse)
+      // @@protoc_insertion_point(builder_scope:brs.api.SubmitNonceResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:SubmitNonceResponse)
+    // @@protoc_insertion_point(class_scope:brs.api.SubmitNonceResponse)
     private static final burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.SubmitNonceResponse();
@@ -54598,7 +54598,7 @@ public final class BrsApi {
   }
 
   public interface BlockOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Block)
+      // @@protoc_insertion_point(interface_extends:brs.api.Block)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -54680,25 +54680,25 @@ public final class BrsApi {
     com.google.protobuf.ByteString getPayloadHash();
 
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> 
         getTransactionsList();
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Transaction getTransactions(int index);
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     int getTransactionsCount();
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
         getTransactionsOrBuilderList();
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getTransactionsOrBuilder(
         int index);
@@ -54751,11 +54751,11 @@ public final class BrsApi {
     long getNextBlockId();
   }
   /**
-   * Protobuf type {@code Block}
+   * Protobuf type {@code brs.api.Block}
    */
   public  static final class Block extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Block)
+      // @@protoc_insertion_point(message_implements:brs.api.Block)
       BlockOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Block.newBuilder() to construct.
@@ -54950,13 +54950,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Block_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Block_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Block_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Block_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Block.class, burst.kit.service.impl.grpc.BrsApi.Block.Builder.class);
     }
@@ -55094,32 +55094,32 @@ public final class BrsApi {
     public static final int TRANSACTIONS_FIELD_NUMBER = 14;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> transactions_;
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> getTransactionsList() {
       return transactions_;
     }
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
         getTransactionsOrBuilderList() {
       return transactions_;
     }
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     public int getTransactionsCount() {
       return transactions_.size();
     }
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Transaction getTransactions(int index) {
       return transactions_.get(index);
     }
     /**
-     * <code>repeated .Transaction transactions = 14;</code>
+     * <code>repeated .brs.api.Transaction transactions = 14;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getTransactionsOrBuilder(
         int index) {
@@ -55594,21 +55594,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Block}
+     * Protobuf type {@code brs.api.Block}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Block)
+        // @@protoc_insertion_point(builder_implements:brs.api.Block)
         burst.kit.service.impl.grpc.BrsApi.BlockOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Block_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Block_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Block_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Block_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Block.class, burst.kit.service.impl.grpc.BrsApi.Block.Builder.class);
       }
@@ -55682,7 +55682,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Block_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Block_descriptor;
       }
 
       @java.lang.Override
@@ -56315,7 +56315,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.Transaction, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder, burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> transactionsBuilder_;
 
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction> getTransactionsList() {
         if (transactionsBuilder_ == null) {
@@ -56325,7 +56325,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public int getTransactionsCount() {
         if (transactionsBuilder_ == null) {
@@ -56335,7 +56335,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction getTransactions(int index) {
         if (transactionsBuilder_ == null) {
@@ -56345,7 +56345,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder setTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction value) {
@@ -56362,7 +56362,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder setTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -56376,7 +56376,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder addTransactions(burst.kit.service.impl.grpc.BrsApi.Transaction value) {
         if (transactionsBuilder_ == null) {
@@ -56392,7 +56392,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder addTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction value) {
@@ -56409,7 +56409,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder addTransactions(
           burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -56423,7 +56423,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder addTransactions(
           int index, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder builderForValue) {
@@ -56437,7 +56437,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder addAllTransactions(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Transaction> values) {
@@ -56452,7 +56452,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder clearTransactions() {
         if (transactionsBuilder_ == null) {
@@ -56465,7 +56465,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public Builder removeTransactions(int index) {
         if (transactionsBuilder_ == null) {
@@ -56478,14 +56478,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder getTransactionsBuilder(
           int index) {
         return getTransactionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder getTransactionsOrBuilder(
           int index) {
@@ -56495,7 +56495,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder> 
            getTransactionsOrBuilderList() {
@@ -56506,14 +56506,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder addTransactionsBuilder() {
         return getTransactionsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.Transaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Transaction.Builder addTransactionsBuilder(
           int index) {
@@ -56521,7 +56521,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.Transaction.getDefaultInstance());
       }
       /**
-       * <code>repeated .Transaction transactions = 14;</code>
+       * <code>repeated .brs.api.Transaction transactions = 14;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Transaction.Builder> 
            getTransactionsBuilderList() {
@@ -56789,10 +56789,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Block)
+      // @@protoc_insertion_point(builder_scope:brs.api.Block)
     }
 
-    // @@protoc_insertion_point(class_scope:Block)
+    // @@protoc_insertion_point(class_scope:brs.api.Block)
     private static final burst.kit.service.impl.grpc.BrsApi.Block DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Block();
@@ -56830,21 +56830,21 @@ public final class BrsApi {
   }
 
   public interface TransactionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Transaction)
+      // @@protoc_insertion_point(interface_extends:brs.api.Transaction)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.BasicTransaction transaction = 1;</code>
+     * <code>.brs.api.BasicTransaction transaction = 1;</code>
      * @return Whether the transaction field is set.
      */
     boolean hasTransaction();
     /**
-     * <code>.BasicTransaction transaction = 1;</code>
+     * <code>.brs.api.BasicTransaction transaction = 1;</code>
      * @return The transaction.
      */
     burst.kit.service.impl.grpc.BrsApi.BasicTransaction getTransaction();
     /**
-     * <code>.BasicTransaction transaction = 1;</code>
+     * <code>.brs.api.BasicTransaction transaction = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder getTransactionOrBuilder();
 
@@ -56897,11 +56897,11 @@ public final class BrsApi {
     int getConfirmations();
   }
   /**
-   * Protobuf type {@code Transaction}
+   * Protobuf type {@code brs.api.Transaction}
    */
   public  static final class Transaction extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Transaction)
+      // @@protoc_insertion_point(message_implements:brs.api.Transaction)
       TransactionOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Transaction.newBuilder() to construct.
@@ -57018,13 +57018,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Transaction_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transaction_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Transaction_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transaction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Transaction.class, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder.class);
     }
@@ -57032,21 +57032,21 @@ public final class BrsApi {
     public static final int TRANSACTION_FIELD_NUMBER = 1;
     private burst.kit.service.impl.grpc.BrsApi.BasicTransaction transaction_;
     /**
-     * <code>.BasicTransaction transaction = 1;</code>
+     * <code>.brs.api.BasicTransaction transaction = 1;</code>
      * @return Whether the transaction field is set.
      */
     public boolean hasTransaction() {
       return transaction_ != null;
     }
     /**
-     * <code>.BasicTransaction transaction = 1;</code>
+     * <code>.brs.api.BasicTransaction transaction = 1;</code>
      * @return The transaction.
      */
     public burst.kit.service.impl.grpc.BrsApi.BasicTransaction getTransaction() {
       return transaction_ == null ? burst.kit.service.impl.grpc.BrsApi.BasicTransaction.getDefaultInstance() : transaction_;
     }
     /**
-     * <code>.BasicTransaction transaction = 1;</code>
+     * <code>.brs.api.BasicTransaction transaction = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder getTransactionOrBuilder() {
       return getTransaction();
@@ -57383,21 +57383,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Transaction}
+     * Protobuf type {@code brs.api.Transaction}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Transaction)
+        // @@protoc_insertion_point(builder_implements:brs.api.Transaction)
         burst.kit.service.impl.grpc.BrsApi.TransactionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Transaction_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transaction_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Transaction_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transaction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Transaction.class, burst.kit.service.impl.grpc.BrsApi.Transaction.Builder.class);
       }
@@ -57448,7 +57448,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Transaction_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Transaction_descriptor;
       }
 
       @java.lang.Override
@@ -57589,14 +57589,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.BasicTransaction, burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder, burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder> transactionBuilder_;
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        * @return Whether the transaction field is set.
        */
       public boolean hasTransaction() {
         return transactionBuilder_ != null || transaction_ != null;
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        * @return The transaction.
        */
       public burst.kit.service.impl.grpc.BrsApi.BasicTransaction getTransaction() {
@@ -57607,7 +57607,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       public Builder setTransaction(burst.kit.service.impl.grpc.BrsApi.BasicTransaction value) {
         if (transactionBuilder_ == null) {
@@ -57623,7 +57623,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       public Builder setTransaction(
           burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder builderForValue) {
@@ -57637,7 +57637,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       public Builder mergeTransaction(burst.kit.service.impl.grpc.BrsApi.BasicTransaction value) {
         if (transactionBuilder_ == null) {
@@ -57655,7 +57655,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       public Builder clearTransaction() {
         if (transactionBuilder_ == null) {
@@ -57669,7 +57669,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder getTransactionBuilder() {
         
@@ -57677,7 +57677,7 @@ public final class BrsApi {
         return getTransactionFieldBuilder().getBuilder();
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder getTransactionOrBuilder() {
         if (transactionBuilder_ != null) {
@@ -57688,7 +57688,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.BasicTransaction transaction = 1;</code>
+       * <code>.brs.api.BasicTransaction transaction = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.BasicTransaction, burst.kit.service.impl.grpc.BrsApi.BasicTransaction.Builder, burst.kit.service.impl.grpc.BrsApi.BasicTransactionOrBuilder> 
@@ -57965,10 +57965,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Transaction)
+      // @@protoc_insertion_point(builder_scope:brs.api.Transaction)
     }
 
-    // @@protoc_insertion_point(class_scope:Transaction)
+    // @@protoc_insertion_point(class_scope:brs.api.Transaction)
     private static final burst.kit.service.impl.grpc.BrsApi.Transaction DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Transaction();
@@ -58006,7 +58006,7 @@ public final class BrsApi {
   }
 
   public interface MessageAppendixOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:MessageAppendix)
+      // @@protoc_insertion_point(interface_extends:brs.api.MessageAppendix)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -58028,11 +58028,11 @@ public final class BrsApi {
     boolean getIsText();
   }
   /**
-   * Protobuf type {@code MessageAppendix}
+   * Protobuf type {@code brs.api.MessageAppendix}
    */
   public  static final class MessageAppendix extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:MessageAppendix)
+      // @@protoc_insertion_point(message_implements:brs.api.MessageAppendix)
       MessageAppendixOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MessageAppendix.newBuilder() to construct.
@@ -58109,13 +58109,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MessageAppendix_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MessageAppendix_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MessageAppendix_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MessageAppendix_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.MessageAppendix.class, burst.kit.service.impl.grpc.BrsApi.MessageAppendix.Builder.class);
     }
@@ -58329,21 +58329,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code MessageAppendix}
+     * Protobuf type {@code brs.api.MessageAppendix}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:MessageAppendix)
+        // @@protoc_insertion_point(builder_implements:brs.api.MessageAppendix)
         burst.kit.service.impl.grpc.BrsApi.MessageAppendixOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MessageAppendix_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MessageAppendix_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MessageAppendix_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MessageAppendix_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.MessageAppendix.class, burst.kit.service.impl.grpc.BrsApi.MessageAppendix.Builder.class);
       }
@@ -58378,7 +58378,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MessageAppendix_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MessageAppendix_descriptor;
       }
 
       @java.lang.Override
@@ -58592,10 +58592,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:MessageAppendix)
+      // @@protoc_insertion_point(builder_scope:brs.api.MessageAppendix)
     }
 
-    // @@protoc_insertion_point(class_scope:MessageAppendix)
+    // @@protoc_insertion_point(class_scope:brs.api.MessageAppendix)
     private static final burst.kit.service.impl.grpc.BrsApi.MessageAppendix DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.MessageAppendix();
@@ -58633,7 +58633,7 @@ public final class BrsApi {
   }
 
   public interface EncryptedMessageAppendixOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EncryptedMessageAppendix)
+      // @@protoc_insertion_point(interface_extends:brs.api.EncryptedMessageAppendix)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -58643,17 +58643,17 @@ public final class BrsApi {
     int getVersion();
 
     /**
-     * <code>.EncryptedData encryptedData = 2;</code>
+     * <code>.brs.api.EncryptedData encryptedData = 2;</code>
      * @return Whether the encryptedData field is set.
      */
     boolean hasEncryptedData();
     /**
-     * <code>.EncryptedData encryptedData = 2;</code>
+     * <code>.brs.api.EncryptedData encryptedData = 2;</code>
      * @return The encryptedData.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getEncryptedData();
     /**
-     * <code>.EncryptedData encryptedData = 2;</code>
+     * <code>.brs.api.EncryptedData encryptedData = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getEncryptedDataOrBuilder();
 
@@ -58664,22 +58664,22 @@ public final class BrsApi {
     boolean getIsText();
 
     /**
-     * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
      * @return The type.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type getType();
   }
   /**
-   * Protobuf type {@code EncryptedMessageAppendix}
+   * Protobuf type {@code brs.api.EncryptedMessageAppendix}
    */
   public  static final class EncryptedMessageAppendix extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EncryptedMessageAppendix)
+      // @@protoc_insertion_point(message_implements:brs.api.EncryptedMessageAppendix)
       EncryptedMessageAppendixOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EncryptedMessageAppendix.newBuilder() to construct.
@@ -58770,19 +58770,19 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedMessageAppendix_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedMessageAppendix_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedMessageAppendix_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedMessageAppendix_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.class, burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Builder.class);
     }
 
     /**
-     * Protobuf enum {@code EncryptedMessageAppendix.Type}
+     * Protobuf enum {@code brs.api.EncryptedMessageAppendix.Type}
      */
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -58891,7 +58891,7 @@ public final class BrsApi {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:EncryptedMessageAppendix.Type)
+      // @@protoc_insertion_point(enum_scope:brs.api.EncryptedMessageAppendix.Type)
     }
 
     public static final int VERSION_FIELD_NUMBER = 1;
@@ -58907,21 +58907,21 @@ public final class BrsApi {
     public static final int ENCRYPTEDDATA_FIELD_NUMBER = 2;
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData encryptedData_;
     /**
-     * <code>.EncryptedData encryptedData = 2;</code>
+     * <code>.brs.api.EncryptedData encryptedData = 2;</code>
      * @return Whether the encryptedData field is set.
      */
     public boolean hasEncryptedData() {
       return encryptedData_ != null;
     }
     /**
-     * <code>.EncryptedData encryptedData = 2;</code>
+     * <code>.brs.api.EncryptedData encryptedData = 2;</code>
      * @return The encryptedData.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getEncryptedData() {
       return encryptedData_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : encryptedData_;
     }
     /**
-     * <code>.EncryptedData encryptedData = 2;</code>
+     * <code>.brs.api.EncryptedData encryptedData = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getEncryptedDataOrBuilder() {
       return getEncryptedData();
@@ -58940,14 +58940,14 @@ public final class BrsApi {
     public static final int TYPE_FIELD_NUMBER = 4;
     private int type_;
     /**
-     * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
      * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+     * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
      * @return The type.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type getType() {
@@ -59150,21 +59150,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EncryptedMessageAppendix}
+     * Protobuf type {@code brs.api.EncryptedMessageAppendix}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EncryptedMessageAppendix)
+        // @@protoc_insertion_point(builder_implements:brs.api.EncryptedMessageAppendix)
         burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendixOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedMessageAppendix_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedMessageAppendix_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedMessageAppendix_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedMessageAppendix_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.class, burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Builder.class);
       }
@@ -59205,7 +59205,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EncryptedMessageAppendix_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EncryptedMessageAppendix_descriptor;
       }
 
       @java.lang.Override
@@ -59356,14 +59356,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> encryptedDataBuilder_;
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        * @return Whether the encryptedData field is set.
        */
       public boolean hasEncryptedData() {
         return encryptedDataBuilder_ != null || encryptedData_ != null;
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        * @return The encryptedData.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getEncryptedData() {
@@ -59374,7 +59374,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       public Builder setEncryptedData(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (encryptedDataBuilder_ == null) {
@@ -59390,7 +59390,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       public Builder setEncryptedData(
           burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -59404,7 +59404,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       public Builder mergeEncryptedData(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (encryptedDataBuilder_ == null) {
@@ -59422,7 +59422,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       public Builder clearEncryptedData() {
         if (encryptedDataBuilder_ == null) {
@@ -59436,7 +59436,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder getEncryptedDataBuilder() {
         
@@ -59444,7 +59444,7 @@ public final class BrsApi {
         return getEncryptedDataFieldBuilder().getBuilder();
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getEncryptedDataOrBuilder() {
         if (encryptedDataBuilder_ != null) {
@@ -59455,7 +59455,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData encryptedData = 2;</code>
+       * <code>.brs.api.EncryptedData encryptedData = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
@@ -59503,14 +59503,14 @@ public final class BrsApi {
 
       private int type_ = 0;
       /**
-       * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
        * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -59520,7 +59520,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
        * @return The type.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type getType() {
@@ -59529,7 +59529,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix.Type.UNRECOGNIZED : result;
       }
       /**
-       * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -59543,7 +59543,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedMessageAppendix.Type type = 4;</code>
+       * <code>.brs.api.EncryptedMessageAppendix.Type type = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -59565,10 +59565,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EncryptedMessageAppendix)
+      // @@protoc_insertion_point(builder_scope:brs.api.EncryptedMessageAppendix)
     }
 
-    // @@protoc_insertion_point(class_scope:EncryptedMessageAppendix)
+    // @@protoc_insertion_point(class_scope:brs.api.EncryptedMessageAppendix)
     private static final burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EncryptedMessageAppendix();
@@ -59606,7 +59606,7 @@ public final class BrsApi {
   }
 
   public interface PublicKeyAnnouncementAppendixOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:PublicKeyAnnouncementAppendix)
+      // @@protoc_insertion_point(interface_extends:brs.api.PublicKeyAnnouncementAppendix)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -59622,11 +59622,11 @@ public final class BrsApi {
     com.google.protobuf.ByteString getRecipientPublicKey();
   }
   /**
-   * Protobuf type {@code PublicKeyAnnouncementAppendix}
+   * Protobuf type {@code brs.api.PublicKeyAnnouncementAppendix}
    */
   public  static final class PublicKeyAnnouncementAppendix extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:PublicKeyAnnouncementAppendix)
+      // @@protoc_insertion_point(message_implements:brs.api.PublicKeyAnnouncementAppendix)
       PublicKeyAnnouncementAppendixOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use PublicKeyAnnouncementAppendix.newBuilder() to construct.
@@ -59698,13 +59698,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_PublicKeyAnnouncementAppendix_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_PublicKeyAnnouncementAppendix_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_PublicKeyAnnouncementAppendix_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_PublicKeyAnnouncementAppendix_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendix.class, burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendix.Builder.class);
     }
@@ -59896,21 +59896,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code PublicKeyAnnouncementAppendix}
+     * Protobuf type {@code brs.api.PublicKeyAnnouncementAppendix}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:PublicKeyAnnouncementAppendix)
+        // @@protoc_insertion_point(builder_implements:brs.api.PublicKeyAnnouncementAppendix)
         burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendixOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_PublicKeyAnnouncementAppendix_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_PublicKeyAnnouncementAppendix_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_PublicKeyAnnouncementAppendix_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_PublicKeyAnnouncementAppendix_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendix.class, burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendix.Builder.class);
       }
@@ -59943,7 +59943,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_PublicKeyAnnouncementAppendix_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_PublicKeyAnnouncementAppendix_descriptor;
       }
 
       @java.lang.Override
@@ -60123,10 +60123,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:PublicKeyAnnouncementAppendix)
+      // @@protoc_insertion_point(builder_scope:brs.api.PublicKeyAnnouncementAppendix)
     }
 
-    // @@protoc_insertion_point(class_scope:PublicKeyAnnouncementAppendix)
+    // @@protoc_insertion_point(class_scope:brs.api.PublicKeyAnnouncementAppendix)
     private static final burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendix DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.PublicKeyAnnouncementAppendix();
@@ -60164,7 +60164,7 @@ public final class BrsApi {
   }
 
   public interface MultiOutAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:MultiOutAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.MultiOutAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -60174,35 +60174,35 @@ public final class BrsApi {
     int getVersion();
 
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient> 
         getRecipientsList();
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient getRecipients(int index);
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     int getRecipientsCount();
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder> 
         getRecipientsOrBuilderList();
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder getRecipientsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code MultiOutAttachment}
+   * Protobuf type {@code brs.api.MultiOutAttachment}
    */
   public  static final class MultiOutAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:MultiOutAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.MultiOutAttachment)
       MultiOutAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MultiOutAttachment.newBuilder() to construct.
@@ -60282,19 +60282,19 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.class, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.Builder.class);
     }
 
     public interface MultiOutRecipientOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:MultiOutAttachment.MultiOutRecipient)
+        // @@protoc_insertion_point(interface_extends:brs.api.MultiOutAttachment.MultiOutRecipient)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -60310,11 +60310,11 @@ public final class BrsApi {
       long getAmount();
     }
     /**
-     * Protobuf type {@code MultiOutAttachment.MultiOutRecipient}
+     * Protobuf type {@code brs.api.MultiOutAttachment.MultiOutRecipient}
      */
     public  static final class MultiOutRecipient extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:MultiOutAttachment.MultiOutRecipient)
+        // @@protoc_insertion_point(message_implements:brs.api.MultiOutAttachment.MultiOutRecipient)
         MultiOutRecipientOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use MultiOutRecipient.newBuilder() to construct.
@@ -60385,13 +60385,13 @@ public final class BrsApi {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_MultiOutRecipient_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.class, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder.class);
       }
@@ -60585,21 +60585,21 @@ public final class BrsApi {
         return builder;
       }
       /**
-       * Protobuf type {@code MultiOutAttachment.MultiOutRecipient}
+       * Protobuf type {@code brs.api.MultiOutAttachment.MultiOutRecipient}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:MultiOutAttachment.MultiOutRecipient)
+          // @@protoc_insertion_point(builder_implements:brs.api.MultiOutAttachment.MultiOutRecipient)
           burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_MultiOutRecipient_descriptor;
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.class, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder.class);
         }
@@ -60632,7 +60632,7 @@ public final class BrsApi {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_MultiOutRecipient_descriptor;
+          return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_descriptor;
         }
 
         @java.lang.Override
@@ -60809,10 +60809,10 @@ public final class BrsApi {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:MultiOutAttachment.MultiOutRecipient)
+        // @@protoc_insertion_point(builder_scope:brs.api.MultiOutAttachment.MultiOutRecipient)
       }
 
-      // @@protoc_insertion_point(class_scope:MultiOutAttachment.MultiOutRecipient)
+      // @@protoc_insertion_point(class_scope:brs.api.MultiOutAttachment.MultiOutRecipient)
       private static final burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient DEFAULT_INSTANCE;
       static {
         DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient();
@@ -60862,32 +60862,32 @@ public final class BrsApi {
     public static final int RECIPIENTS_FIELD_NUMBER = 2;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient> recipients_;
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient> getRecipientsList() {
       return recipients_;
     }
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder> 
         getRecipientsOrBuilderList() {
       return recipients_;
     }
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     public int getRecipientsCount() {
       return recipients_.size();
     }
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient getRecipients(int index) {
       return recipients_.get(index);
     }
     /**
-     * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+     * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder getRecipientsOrBuilder(
         int index) {
@@ -61063,21 +61063,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code MultiOutAttachment}
+     * Protobuf type {@code brs.api.MultiOutAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:MultiOutAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.MultiOutAttachment)
         burst.kit.service.impl.grpc.BrsApi.MultiOutAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.class, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.Builder.class);
       }
@@ -61115,7 +61115,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -61296,7 +61296,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder> recipientsBuilder_;
 
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient> getRecipientsList() {
         if (recipientsBuilder_ == null) {
@@ -61306,7 +61306,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public int getRecipientsCount() {
         if (recipientsBuilder_ == null) {
@@ -61316,7 +61316,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient getRecipients(int index) {
         if (recipientsBuilder_ == null) {
@@ -61326,7 +61326,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder setRecipients(
           int index, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient value) {
@@ -61343,7 +61343,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder setRecipients(
           int index, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder builderForValue) {
@@ -61357,7 +61357,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder addRecipients(burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient value) {
         if (recipientsBuilder_ == null) {
@@ -61373,7 +61373,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder addRecipients(
           int index, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient value) {
@@ -61390,7 +61390,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder addRecipients(
           burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder builderForValue) {
@@ -61404,7 +61404,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder addRecipients(
           int index, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder builderForValue) {
@@ -61418,7 +61418,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder addAllRecipients(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient> values) {
@@ -61433,7 +61433,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder clearRecipients() {
         if (recipientsBuilder_ == null) {
@@ -61446,7 +61446,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public Builder removeRecipients(int index) {
         if (recipientsBuilder_ == null) {
@@ -61459,14 +61459,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder getRecipientsBuilder(
           int index) {
         return getRecipientsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder getRecipientsOrBuilder(
           int index) {
@@ -61476,7 +61476,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipientOrBuilder> 
            getRecipientsOrBuilderList() {
@@ -61487,14 +61487,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder addRecipientsBuilder() {
         return getRecipientsFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.getDefaultInstance());
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder addRecipientsBuilder(
           int index) {
@@ -61502,7 +61502,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.getDefaultInstance());
       }
       /**
-       * <code>repeated .MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
+       * <code>repeated .brs.api.MultiOutAttachment.MultiOutRecipient recipients = 2;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment.MultiOutRecipient.Builder> 
            getRecipientsBuilderList() {
@@ -61535,10 +61535,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:MultiOutAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.MultiOutAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:MultiOutAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.MultiOutAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.MultiOutAttachment();
@@ -61576,7 +61576,7 @@ public final class BrsApi {
   }
 
   public interface MultiOutSameAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:MultiOutSameAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.MultiOutSameAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -61603,11 +61603,11 @@ public final class BrsApi {
     long getRecipients(int index);
   }
   /**
-   * Protobuf type {@code MultiOutSameAttachment}
+   * Protobuf type {@code brs.api.MultiOutSameAttachment}
    */
   public  static final class MultiOutSameAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:MultiOutSameAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.MultiOutSameAttachment)
       MultiOutSameAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MultiOutSameAttachment.newBuilder() to construct.
@@ -61699,13 +61699,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutSameAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutSameAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutSameAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutSameAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment.class, burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment.Builder.class);
     }
@@ -61931,21 +61931,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code MultiOutSameAttachment}
+     * Protobuf type {@code brs.api.MultiOutSameAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:MultiOutSameAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.MultiOutSameAttachment)
         burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutSameAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutSameAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutSameAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutSameAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment.class, burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment.Builder.class);
       }
@@ -61978,7 +61978,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MultiOutSameAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MultiOutSameAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -62217,10 +62217,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:MultiOutSameAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.MultiOutSameAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:MultiOutSameAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.MultiOutSameAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.MultiOutSameAttachment();
@@ -62258,7 +62258,7 @@ public final class BrsApi {
   }
 
   public interface AliasAssignmentAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AliasAssignmentAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AliasAssignmentAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -62292,11 +62292,11 @@ public final class BrsApi {
         getUriBytes();
   }
   /**
-   * Protobuf type {@code AliasAssignmentAttachment}
+   * Protobuf type {@code brs.api.AliasAssignmentAttachment}
    */
   public  static final class AliasAssignmentAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AliasAssignmentAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AliasAssignmentAttachment)
       AliasAssignmentAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AliasAssignmentAttachment.newBuilder() to construct.
@@ -62376,13 +62376,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasAssignmentAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasAssignmentAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasAssignmentAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasAssignmentAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachment.class, burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachment.Builder.class);
     }
@@ -62645,21 +62645,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AliasAssignmentAttachment}
+     * Protobuf type {@code brs.api.AliasAssignmentAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AliasAssignmentAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AliasAssignmentAttachment)
         burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasAssignmentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasAssignmentAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasAssignmentAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasAssignmentAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachment.class, burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachment.Builder.class);
       }
@@ -62694,7 +62694,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasAssignmentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasAssignmentAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -62999,10 +62999,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AliasAssignmentAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AliasAssignmentAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AliasAssignmentAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AliasAssignmentAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AliasAssignmentAttachment();
@@ -63040,7 +63040,7 @@ public final class BrsApi {
   }
 
   public interface AliasSellAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AliasSellAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AliasSellAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -63068,11 +63068,11 @@ public final class BrsApi {
     long getPrice();
   }
   /**
-   * Protobuf type {@code AliasSellAttachment}
+   * Protobuf type {@code brs.api.AliasSellAttachment}
    */
   public  static final class AliasSellAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AliasSellAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AliasSellAttachment)
       AliasSellAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AliasSellAttachment.newBuilder() to construct.
@@ -63150,13 +63150,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasSellAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasSellAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasSellAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasSellAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AliasSellAttachment.class, burst.kit.service.impl.grpc.BrsApi.AliasSellAttachment.Builder.class);
     }
@@ -63395,21 +63395,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AliasSellAttachment}
+     * Protobuf type {@code brs.api.AliasSellAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AliasSellAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AliasSellAttachment)
         burst.kit.service.impl.grpc.BrsApi.AliasSellAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasSellAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasSellAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasSellAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasSellAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AliasSellAttachment.class, burst.kit.service.impl.grpc.BrsApi.AliasSellAttachment.Builder.class);
       }
@@ -63444,7 +63444,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasSellAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasSellAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -63702,10 +63702,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AliasSellAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AliasSellAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AliasSellAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AliasSellAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AliasSellAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AliasSellAttachment();
@@ -63743,7 +63743,7 @@ public final class BrsApi {
   }
 
   public interface AliasBuyAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AliasBuyAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AliasBuyAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -63765,11 +63765,11 @@ public final class BrsApi {
         getNameBytes();
   }
   /**
-   * Protobuf type {@code AliasBuyAttachment}
+   * Protobuf type {@code brs.api.AliasBuyAttachment}
    */
   public  static final class AliasBuyAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AliasBuyAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AliasBuyAttachment)
       AliasBuyAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AliasBuyAttachment.newBuilder() to construct.
@@ -63842,13 +63842,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasBuyAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasBuyAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasBuyAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasBuyAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachment.class, burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachment.Builder.class);
     }
@@ -64065,21 +64065,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AliasBuyAttachment}
+     * Protobuf type {@code brs.api.AliasBuyAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AliasBuyAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AliasBuyAttachment)
         burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasBuyAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasBuyAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasBuyAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasBuyAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachment.class, burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachment.Builder.class);
       }
@@ -64112,7 +64112,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AliasBuyAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AliasBuyAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -64336,10 +64336,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AliasBuyAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AliasBuyAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AliasBuyAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AliasBuyAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AliasBuyAttachment();
@@ -64377,7 +64377,7 @@ public final class BrsApi {
   }
 
   public interface AccountInfoAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AccountInfoAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AccountInfoAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -64411,11 +64411,11 @@ public final class BrsApi {
         getDescriptionBytes();
   }
   /**
-   * Protobuf type {@code AccountInfoAttachment}
+   * Protobuf type {@code brs.api.AccountInfoAttachment}
    */
   public  static final class AccountInfoAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AccountInfoAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AccountInfoAttachment)
       AccountInfoAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AccountInfoAttachment.newBuilder() to construct.
@@ -64495,13 +64495,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountInfoAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountInfoAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountInfoAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountInfoAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachment.class, burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachment.Builder.class);
     }
@@ -64764,21 +64764,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AccountInfoAttachment}
+     * Protobuf type {@code brs.api.AccountInfoAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AccountInfoAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AccountInfoAttachment)
         burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountInfoAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountInfoAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountInfoAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountInfoAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachment.class, burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachment.Builder.class);
       }
@@ -64813,7 +64813,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AccountInfoAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AccountInfoAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -65118,10 +65118,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AccountInfoAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AccountInfoAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AccountInfoAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AccountInfoAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AccountInfoAttachment();
@@ -65159,7 +65159,7 @@ public final class BrsApi {
   }
 
   public interface AssetIssuanceAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetIssuanceAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetIssuanceAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -65205,11 +65205,11 @@ public final class BrsApi {
     int getDecimals();
   }
   /**
-   * Protobuf type {@code AssetIssuanceAttachment}
+   * Protobuf type {@code brs.api.AssetIssuanceAttachment}
    */
   public  static final class AssetIssuanceAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetIssuanceAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetIssuanceAttachment)
       AssetIssuanceAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetIssuanceAttachment.newBuilder() to construct.
@@ -65299,13 +65299,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetIssuanceAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetIssuanceAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetIssuanceAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetIssuanceAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachment.Builder.class);
     }
@@ -65611,21 +65611,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetIssuanceAttachment}
+     * Protobuf type {@code brs.api.AssetIssuanceAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetIssuanceAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetIssuanceAttachment)
         burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetIssuanceAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetIssuanceAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetIssuanceAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetIssuanceAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachment.Builder.class);
       }
@@ -65664,7 +65664,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetIssuanceAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetIssuanceAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -66037,10 +66037,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetIssuanceAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetIssuanceAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetIssuanceAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetIssuanceAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetIssuanceAttachment();
@@ -66078,7 +66078,7 @@ public final class BrsApi {
   }
 
   public interface AssetTransferAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetTransferAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetTransferAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -66112,11 +66112,11 @@ public final class BrsApi {
         getCommentBytes();
   }
   /**
-   * Protobuf type {@code AssetTransferAttachment}
+   * Protobuf type {@code brs.api.AssetTransferAttachment}
    */
   public  static final class AssetTransferAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetTransferAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetTransferAttachment)
       AssetTransferAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetTransferAttachment.newBuilder() to construct.
@@ -66199,13 +66199,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransferAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransferAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransferAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransferAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachment.Builder.class);
     }
@@ -66466,21 +66466,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetTransferAttachment}
+     * Protobuf type {@code brs.api.AssetTransferAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetTransferAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetTransferAttachment)
         burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransferAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransferAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransferAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransferAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachment.Builder.class);
       }
@@ -66517,7 +66517,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetTransferAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetTransferAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -66809,10 +66809,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetTransferAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetTransferAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetTransferAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetTransferAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetTransferAttachment();
@@ -66850,7 +66850,7 @@ public final class BrsApi {
   }
 
   public interface AssetOrderPlacementAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetOrderPlacementAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetOrderPlacementAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -66878,22 +66878,22 @@ public final class BrsApi {
     long getPrice();
 
     /**
-     * <code>.OrderType type = 5;</code>
+     * <code>.brs.api.AssetOrderType type = 5;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.OrderType type = 5;</code>
+     * <code>.brs.api.AssetOrderType type = 5;</code>
      * @return The type.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType();
   }
   /**
-   * Protobuf type {@code AssetOrderPlacementAttachment}
+   * Protobuf type {@code brs.api.AssetOrderPlacementAttachment}
    */
   public  static final class AssetOrderPlacementAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetOrderPlacementAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetOrderPlacementAttachment)
       AssetOrderPlacementAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetOrderPlacementAttachment.newBuilder() to construct.
@@ -66981,13 +66981,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderPlacementAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderPlacementAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderPlacementAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderPlacementAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachment.Builder.class);
     }
@@ -67035,20 +67035,20 @@ public final class BrsApi {
     public static final int TYPE_FIELD_NUMBER = 5;
     private int type_;
     /**
-     * <code>.OrderType type = 5;</code>
+     * <code>.brs.api.AssetOrderType type = 5;</code>
      * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.OrderType type = 5;</code>
+     * <code>.brs.api.AssetOrderType type = 5;</code>
      * @return The type.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(type_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(type_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -67077,7 +67077,7 @@ public final class BrsApi {
       if (price_ != 0L) {
         output.writeUInt64(4, price_);
       }
-      if (type_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (type_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(5, type_);
       }
       unknownFields.writeTo(output);
@@ -67105,7 +67105,7 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, price_);
       }
-      if (type_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (type_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, type_);
       }
@@ -67253,21 +67253,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetOrderPlacementAttachment}
+     * Protobuf type {@code brs.api.AssetOrderPlacementAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetOrderPlacementAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetOrderPlacementAttachment)
         burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderPlacementAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderPlacementAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderPlacementAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderPlacementAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachment.Builder.class);
       }
@@ -67306,7 +67306,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderPlacementAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderPlacementAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -67545,14 +67545,14 @@ public final class BrsApi {
 
       private int type_ = 0;
       /**
-       * <code>.OrderType type = 5;</code>
+       * <code>.brs.api.AssetOrderType type = 5;</code>
        * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.OrderType type = 5;</code>
+       * <code>.brs.api.AssetOrderType type = 5;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -67562,20 +67562,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType type = 5;</code>
+       * <code>.brs.api.AssetOrderType type = 5;</code>
        * @return The type.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(type_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(type_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType type = 5;</code>
+       * <code>.brs.api.AssetOrderType type = 5;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -67585,7 +67585,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType type = 5;</code>
+       * <code>.brs.api.AssetOrderType type = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -67607,10 +67607,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetOrderPlacementAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetOrderPlacementAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetOrderPlacementAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetOrderPlacementAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetOrderPlacementAttachment();
@@ -67648,7 +67648,7 @@ public final class BrsApi {
   }
 
   public interface AssetOrderCancellationAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetOrderCancellationAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetOrderCancellationAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -67664,22 +67664,22 @@ public final class BrsApi {
     long getOrder();
 
     /**
-     * <code>.OrderType type = 3;</code>
+     * <code>.brs.api.AssetOrderType type = 3;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.OrderType type = 3;</code>
+     * <code>.brs.api.AssetOrderType type = 3;</code>
      * @return The type.
      */
-    burst.kit.service.impl.grpc.BrsApi.OrderType getType();
+    burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType();
   }
   /**
-   * Protobuf type {@code AssetOrderCancellationAttachment}
+   * Protobuf type {@code brs.api.AssetOrderCancellationAttachment}
    */
   public  static final class AssetOrderCancellationAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetOrderCancellationAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetOrderCancellationAttachment)
       AssetOrderCancellationAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetOrderCancellationAttachment.newBuilder() to construct.
@@ -67757,13 +67757,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderCancellationAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderCancellationAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderCancellationAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderCancellationAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachment.Builder.class);
     }
@@ -67791,20 +67791,20 @@ public final class BrsApi {
     public static final int TYPE_FIELD_NUMBER = 3;
     private int type_;
     /**
-     * <code>.OrderType type = 3;</code>
+     * <code>.brs.api.AssetOrderType type = 3;</code>
      * @return The enum numeric value on the wire for type.
      */
     public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.OrderType type = 3;</code>
+     * <code>.brs.api.AssetOrderType type = 3;</code>
      * @return The type.
      */
-    public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
+    public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType() {
       @SuppressWarnings("deprecation")
-      burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(type_);
-      return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+      burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(type_);
+      return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -67827,7 +67827,7 @@ public final class BrsApi {
       if (order_ != 0L) {
         output.writeUInt64(2, order_);
       }
-      if (type_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (type_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         output.writeEnum(3, type_);
       }
       unknownFields.writeTo(output);
@@ -67847,7 +67847,7 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, order_);
       }
-      if (type_ != burst.kit.service.impl.grpc.BrsApi.OrderType.OrderType_UNSET.getNumber()) {
+      if (type_ != burst.kit.service.impl.grpc.BrsApi.AssetOrderType.OrderType_UNSET.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, type_);
       }
@@ -67985,21 +67985,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetOrderCancellationAttachment}
+     * Protobuf type {@code brs.api.AssetOrderCancellationAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetOrderCancellationAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetOrderCancellationAttachment)
         burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderCancellationAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderCancellationAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderCancellationAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderCancellationAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachment.class, burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachment.Builder.class);
       }
@@ -68034,7 +68034,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetOrderCancellationAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetOrderCancellationAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -68205,14 +68205,14 @@ public final class BrsApi {
 
       private int type_ = 0;
       /**
-       * <code>.OrderType type = 3;</code>
+       * <code>.brs.api.AssetOrderType type = 3;</code>
        * @return The enum numeric value on the wire for type.
        */
       public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.OrderType type = 3;</code>
+       * <code>.brs.api.AssetOrderType type = 3;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -68222,20 +68222,20 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType type = 3;</code>
+       * <code>.brs.api.AssetOrderType type = 3;</code>
        * @return The type.
        */
-      public burst.kit.service.impl.grpc.BrsApi.OrderType getType() {
+      public burst.kit.service.impl.grpc.BrsApi.AssetOrderType getType() {
         @SuppressWarnings("deprecation")
-        burst.kit.service.impl.grpc.BrsApi.OrderType result = burst.kit.service.impl.grpc.BrsApi.OrderType.valueOf(type_);
-        return result == null ? burst.kit.service.impl.grpc.BrsApi.OrderType.UNRECOGNIZED : result;
+        burst.kit.service.impl.grpc.BrsApi.AssetOrderType result = burst.kit.service.impl.grpc.BrsApi.AssetOrderType.valueOf(type_);
+        return result == null ? burst.kit.service.impl.grpc.BrsApi.AssetOrderType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.OrderType type = 3;</code>
+       * <code>.brs.api.AssetOrderType type = 3;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(burst.kit.service.impl.grpc.BrsApi.OrderType value) {
+      public Builder setType(burst.kit.service.impl.grpc.BrsApi.AssetOrderType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -68245,7 +68245,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.OrderType type = 3;</code>
+       * <code>.brs.api.AssetOrderType type = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -68267,10 +68267,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetOrderCancellationAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetOrderCancellationAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetOrderCancellationAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetOrderCancellationAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetOrderCancellationAttachment();
@@ -68308,7 +68308,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsListingAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsListingAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsListingAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -68366,11 +68366,11 @@ public final class BrsApi {
     long getPrice();
   }
   /**
-   * Protobuf type {@code DigitalGoodsListingAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsListingAttachment}
    */
   public  static final class DigitalGoodsListingAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsListingAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsListingAttachment)
       DigitalGoodsListingAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsListingAttachment.newBuilder() to construct.
@@ -68467,13 +68467,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsListingAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsListingAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsListingAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsListingAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachment.Builder.class);
     }
@@ -68825,21 +68825,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsListingAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsListingAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsListingAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsListingAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsListingAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsListingAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsListingAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsListingAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachment.Builder.class);
       }
@@ -68880,7 +68880,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsListingAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsListingAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -69334,10 +69334,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsListingAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsListingAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsListingAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsListingAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsListingAttachment();
@@ -69375,7 +69375,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsDelistingAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsDelistingAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsDelistingAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -69391,11 +69391,11 @@ public final class BrsApi {
     long getGoods();
   }
   /**
-   * Protobuf type {@code DigitalGoodsDelistingAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsDelistingAttachment}
    */
   public  static final class DigitalGoodsDelistingAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsDelistingAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsDelistingAttachment)
       DigitalGoodsDelistingAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsDelistingAttachment.newBuilder() to construct.
@@ -69466,13 +69466,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDelistingAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDelistingAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDelistingAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDelistingAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachment.Builder.class);
     }
@@ -69665,21 +69665,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsDelistingAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsDelistingAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsDelistingAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsDelistingAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDelistingAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDelistingAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDelistingAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDelistingAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachment.Builder.class);
       }
@@ -69712,7 +69712,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDelistingAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDelistingAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -69889,10 +69889,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsDelistingAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsDelistingAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsDelistingAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsDelistingAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDelistingAttachment();
@@ -69930,7 +69930,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsPriceChangeAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsPriceChangeAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsPriceChangeAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -69952,11 +69952,11 @@ public final class BrsApi {
     long getPrice();
   }
   /**
-   * Protobuf type {@code DigitalGoodsPriceChangeAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsPriceChangeAttachment}
    */
   public  static final class DigitalGoodsPriceChangeAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsPriceChangeAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsPriceChangeAttachment)
       DigitalGoodsPriceChangeAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsPriceChangeAttachment.newBuilder() to construct.
@@ -70032,13 +70032,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPriceChangeAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPriceChangeAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPriceChangeAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPriceChangeAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachment.Builder.class);
     }
@@ -70253,21 +70253,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsPriceChangeAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsPriceChangeAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsPriceChangeAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsPriceChangeAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPriceChangeAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPriceChangeAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPriceChangeAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPriceChangeAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachment.Builder.class);
       }
@@ -70302,7 +70302,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPriceChangeAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPriceChangeAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -70513,10 +70513,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsPriceChangeAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsPriceChangeAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsPriceChangeAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsPriceChangeAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPriceChangeAttachment();
@@ -70554,7 +70554,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsQuantityChangeAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsQuantityChangeAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsQuantityChangeAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -70576,11 +70576,11 @@ public final class BrsApi {
     int getDeltaQuantity();
   }
   /**
-   * Protobuf type {@code DigitalGoodsQuantityChangeAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsQuantityChangeAttachment}
    */
   public  static final class DigitalGoodsQuantityChangeAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsQuantityChangeAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsQuantityChangeAttachment)
       DigitalGoodsQuantityChangeAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsQuantityChangeAttachment.newBuilder() to construct.
@@ -70656,13 +70656,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsQuantityChangeAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachment.Builder.class);
     }
@@ -70876,21 +70876,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsQuantityChangeAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsQuantityChangeAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsQuantityChangeAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsQuantityChangeAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsQuantityChangeAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachment.Builder.class);
       }
@@ -70925,7 +70925,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsQuantityChangeAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -71136,10 +71136,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsQuantityChangeAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsQuantityChangeAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsQuantityChangeAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsQuantityChangeAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsQuantityChangeAttachment();
@@ -71177,7 +71177,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsPurchaseAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsPurchaseAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsPurchaseAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -71211,11 +71211,11 @@ public final class BrsApi {
     int getDeliveryDeadlineTimestmap();
   }
   /**
-   * Protobuf type {@code DigitalGoodsPurchaseAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsPurchaseAttachment}
    */
   public  static final class DigitalGoodsPurchaseAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsPurchaseAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsPurchaseAttachment)
       DigitalGoodsPurchaseAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsPurchaseAttachment.newBuilder() to construct.
@@ -71301,13 +71301,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPurchaseAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPurchaseAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPurchaseAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPurchaseAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachment.Builder.class);
     }
@@ -71564,21 +71564,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsPurchaseAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsPurchaseAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsPurchaseAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsPurchaseAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPurchaseAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPurchaseAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPurchaseAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPurchaseAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachment.Builder.class);
       }
@@ -71617,7 +71617,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsPurchaseAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsPurchaseAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -71896,10 +71896,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsPurchaseAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsPurchaseAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsPurchaseAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsPurchaseAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsPurchaseAttachment();
@@ -71937,7 +71937,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsDeliveryAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsDeliveryAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsDeliveryAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -71959,17 +71959,17 @@ public final class BrsApi {
     long getDiscount();
 
     /**
-     * <code>.EncryptedData goods = 4;</code>
+     * <code>.brs.api.EncryptedData goods = 4;</code>
      * @return Whether the goods field is set.
      */
     boolean hasGoods();
     /**
-     * <code>.EncryptedData goods = 4;</code>
+     * <code>.brs.api.EncryptedData goods = 4;</code>
      * @return The goods.
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedData getGoods();
     /**
-     * <code>.EncryptedData goods = 4;</code>
+     * <code>.brs.api.EncryptedData goods = 4;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getGoodsOrBuilder();
 
@@ -71980,11 +71980,11 @@ public final class BrsApi {
     boolean getIsText();
   }
   /**
-   * Protobuf type {@code DigitalGoodsDeliveryAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsDeliveryAttachment}
    */
   public  static final class DigitalGoodsDeliveryAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsDeliveryAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsDeliveryAttachment)
       DigitalGoodsDeliveryAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsDeliveryAttachment.newBuilder() to construct.
@@ -72078,13 +72078,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDeliveryAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDeliveryAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDeliveryAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDeliveryAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachment.Builder.class);
     }
@@ -72122,21 +72122,21 @@ public final class BrsApi {
     public static final int GOODS_FIELD_NUMBER = 4;
     private burst.kit.service.impl.grpc.BrsApi.EncryptedData goods_;
     /**
-     * <code>.EncryptedData goods = 4;</code>
+     * <code>.brs.api.EncryptedData goods = 4;</code>
      * @return Whether the goods field is set.
      */
     public boolean hasGoods() {
       return goods_ != null;
     }
     /**
-     * <code>.EncryptedData goods = 4;</code>
+     * <code>.brs.api.EncryptedData goods = 4;</code>
      * @return The goods.
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedData getGoods() {
       return goods_ == null ? burst.kit.service.impl.grpc.BrsApi.EncryptedData.getDefaultInstance() : goods_;
     }
     /**
-     * <code>.EncryptedData goods = 4;</code>
+     * <code>.brs.api.EncryptedData goods = 4;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getGoodsOrBuilder() {
       return getGoods();
@@ -72360,21 +72360,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsDeliveryAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsDeliveryAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsDeliveryAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsDeliveryAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDeliveryAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDeliveryAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDeliveryAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDeliveryAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachment.Builder.class);
       }
@@ -72417,7 +72417,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsDeliveryAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsDeliveryAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -72632,14 +72632,14 @@ public final class BrsApi {
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> goodsBuilder_;
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        * @return Whether the goods field is set.
        */
       public boolean hasGoods() {
         return goodsBuilder_ != null || goods_ != null;
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        * @return The goods.
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData getGoods() {
@@ -72650,7 +72650,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       public Builder setGoods(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (goodsBuilder_ == null) {
@@ -72666,7 +72666,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       public Builder setGoods(
           burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder builderForValue) {
@@ -72680,7 +72680,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       public Builder mergeGoods(burst.kit.service.impl.grpc.BrsApi.EncryptedData value) {
         if (goodsBuilder_ == null) {
@@ -72698,7 +72698,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       public Builder clearGoods() {
         if (goodsBuilder_ == null) {
@@ -72712,7 +72712,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder getGoodsBuilder() {
         
@@ -72720,7 +72720,7 @@ public final class BrsApi {
         return getGoodsFieldBuilder().getBuilder();
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder getGoodsOrBuilder() {
         if (goodsBuilder_ != null) {
@@ -72731,7 +72731,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>.EncryptedData goods = 4;</code>
+       * <code>.brs.api.EncryptedData goods = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           burst.kit.service.impl.grpc.BrsApi.EncryptedData, burst.kit.service.impl.grpc.BrsApi.EncryptedData.Builder, burst.kit.service.impl.grpc.BrsApi.EncryptedDataOrBuilder> 
@@ -72789,10 +72789,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsDeliveryAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsDeliveryAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsDeliveryAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsDeliveryAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsDeliveryAttachment();
@@ -72830,7 +72830,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsFeedbackAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsFeedbackAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsFeedbackAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -72846,11 +72846,11 @@ public final class BrsApi {
     long getPurchase();
   }
   /**
-   * Protobuf type {@code DigitalGoodsFeedbackAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsFeedbackAttachment}
    */
   public  static final class DigitalGoodsFeedbackAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsFeedbackAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsFeedbackAttachment)
       DigitalGoodsFeedbackAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsFeedbackAttachment.newBuilder() to construct.
@@ -72921,13 +72921,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsFeedbackAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsFeedbackAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsFeedbackAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsFeedbackAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachment.Builder.class);
     }
@@ -73120,21 +73120,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsFeedbackAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsFeedbackAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsFeedbackAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsFeedbackAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsFeedbackAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsFeedbackAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsFeedbackAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsFeedbackAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachment.Builder.class);
       }
@@ -73167,7 +73167,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsFeedbackAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsFeedbackAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -73344,10 +73344,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsFeedbackAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsFeedbackAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsFeedbackAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsFeedbackAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsFeedbackAttachment();
@@ -73385,7 +73385,7 @@ public final class BrsApi {
   }
 
   public interface DigitalGoodsRefundAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DigitalGoodsRefundAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.DigitalGoodsRefundAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -73407,11 +73407,11 @@ public final class BrsApi {
     long getRefund();
   }
   /**
-   * Protobuf type {@code DigitalGoodsRefundAttachment}
+   * Protobuf type {@code brs.api.DigitalGoodsRefundAttachment}
    */
   public  static final class DigitalGoodsRefundAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:DigitalGoodsRefundAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.DigitalGoodsRefundAttachment)
       DigitalGoodsRefundAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use DigitalGoodsRefundAttachment.newBuilder() to construct.
@@ -73487,13 +73487,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsRefundAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsRefundAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsRefundAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsRefundAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachment.Builder.class);
     }
@@ -73708,21 +73708,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code DigitalGoodsRefundAttachment}
+     * Protobuf type {@code brs.api.DigitalGoodsRefundAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DigitalGoodsRefundAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.DigitalGoodsRefundAttachment)
         burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsRefundAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsRefundAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsRefundAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsRefundAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachment.class, burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachment.Builder.class);
       }
@@ -73757,7 +73757,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_DigitalGoodsRefundAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_DigitalGoodsRefundAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -73968,10 +73968,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DigitalGoodsRefundAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.DigitalGoodsRefundAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:DigitalGoodsRefundAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.DigitalGoodsRefundAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.DigitalGoodsRefundAttachment();
@@ -74009,7 +74009,7 @@ public final class BrsApi {
   }
 
   public interface RewardRecipientAssignmentAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RewardRecipientAssignmentAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.RewardRecipientAssignmentAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -74019,11 +74019,11 @@ public final class BrsApi {
     int getVersion();
   }
   /**
-   * Protobuf type {@code RewardRecipientAssignmentAttachment}
+   * Protobuf type {@code brs.api.RewardRecipientAssignmentAttachment}
    */
   public  static final class RewardRecipientAssignmentAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RewardRecipientAssignmentAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.RewardRecipientAssignmentAttachment)
       RewardRecipientAssignmentAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use RewardRecipientAssignmentAttachment.newBuilder() to construct.
@@ -74089,13 +74089,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_RewardRecipientAssignmentAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_RewardRecipientAssignmentAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_RewardRecipientAssignmentAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_RewardRecipientAssignmentAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachment.class, burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachment.Builder.class);
     }
@@ -74266,21 +74266,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code RewardRecipientAssignmentAttachment}
+     * Protobuf type {@code brs.api.RewardRecipientAssignmentAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RewardRecipientAssignmentAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.RewardRecipientAssignmentAttachment)
         burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_RewardRecipientAssignmentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_RewardRecipientAssignmentAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_RewardRecipientAssignmentAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_RewardRecipientAssignmentAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachment.class, burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachment.Builder.class);
       }
@@ -74311,7 +74311,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_RewardRecipientAssignmentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_RewardRecipientAssignmentAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -74454,10 +74454,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RewardRecipientAssignmentAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.RewardRecipientAssignmentAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:RewardRecipientAssignmentAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.RewardRecipientAssignmentAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.RewardRecipientAssignmentAttachment();
@@ -74495,7 +74495,7 @@ public final class BrsApi {
   }
 
   public interface EscrowCreationAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EscrowCreationAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.EscrowCreationAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -74540,22 +74540,22 @@ public final class BrsApi {
     int getDeadline();
 
     /**
-     * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
      * @return The enum numeric value on the wire for deadlineAction.
      */
     int getDeadlineActionValue();
     /**
-     * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
      * @return The deadlineAction.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction();
   }
   /**
-   * Protobuf type {@code EscrowCreationAttachment}
+   * Protobuf type {@code brs.api.EscrowCreationAttachment}
    */
   public  static final class EscrowCreationAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EscrowCreationAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.EscrowCreationAttachment)
       EscrowCreationAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EscrowCreationAttachment.newBuilder() to construct.
@@ -74669,13 +74669,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowCreationAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowCreationAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowCreationAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowCreationAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment.Builder.class);
     }
@@ -74750,14 +74750,14 @@ public final class BrsApi {
     public static final int DEADLINEACTION_FIELD_NUMBER = 6;
     private int deadlineAction_;
     /**
-     * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
      * @return The enum numeric value on the wire for deadlineAction.
      */
     public int getDeadlineActionValue() {
       return deadlineAction_;
     }
     /**
-     * <code>.EscrowDecisionType deadlineAction = 6;</code>
+     * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
      * @return The deadlineAction.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
@@ -74994,21 +74994,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EscrowCreationAttachment}
+     * Protobuf type {@code brs.api.EscrowCreationAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EscrowCreationAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.EscrowCreationAttachment)
         burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowCreationAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowCreationAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowCreationAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowCreationAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment.Builder.class);
       }
@@ -75049,7 +75049,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowCreationAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowCreationAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -75384,14 +75384,14 @@ public final class BrsApi {
 
       private int deadlineAction_ = 0;
       /**
-       * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
        * @return The enum numeric value on the wire for deadlineAction.
        */
       public int getDeadlineActionValue() {
         return deadlineAction_;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
        * @param value The enum numeric value on the wire for deadlineAction to set.
        * @return This builder for chaining.
        */
@@ -75401,7 +75401,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
        * @return The deadlineAction.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDeadlineAction() {
@@ -75410,7 +75410,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
        * @param value The deadlineAction to set.
        * @return This builder for chaining.
        */
@@ -75424,7 +75424,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType deadlineAction = 6;</code>
+       * <code>.brs.api.EscrowDecisionType deadlineAction = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearDeadlineAction() {
@@ -75446,10 +75446,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EscrowCreationAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.EscrowCreationAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:EscrowCreationAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.EscrowCreationAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EscrowCreationAttachment();
@@ -75487,7 +75487,7 @@ public final class BrsApi {
   }
 
   public interface EscrowSignAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EscrowSignAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.EscrowSignAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -75503,22 +75503,22 @@ public final class BrsApi {
     long getEscrow();
 
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The enum numeric value on the wire for decision.
      */
     int getDecisionValue();
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The decision.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision();
   }
   /**
-   * Protobuf type {@code EscrowSignAttachment}
+   * Protobuf type {@code brs.api.EscrowSignAttachment}
    */
   public  static final class EscrowSignAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EscrowSignAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.EscrowSignAttachment)
       EscrowSignAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EscrowSignAttachment.newBuilder() to construct.
@@ -75596,13 +75596,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowSignAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowSignAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowSignAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowSignAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachment.Builder.class);
     }
@@ -75630,14 +75630,14 @@ public final class BrsApi {
     public static final int DECISION_FIELD_NUMBER = 3;
     private int decision_;
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The enum numeric value on the wire for decision.
      */
     public int getDecisionValue() {
       return decision_;
     }
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The decision.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
@@ -75824,21 +75824,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EscrowSignAttachment}
+     * Protobuf type {@code brs.api.EscrowSignAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EscrowSignAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.EscrowSignAttachment)
         burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowSignAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowSignAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowSignAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowSignAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachment.Builder.class);
       }
@@ -75873,7 +75873,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowSignAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowSignAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -76044,14 +76044,14 @@ public final class BrsApi {
 
       private int decision_ = 0;
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @return The enum numeric value on the wire for decision.
        */
       public int getDecisionValue() {
         return decision_;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @param value The enum numeric value on the wire for decision to set.
        * @return This builder for chaining.
        */
@@ -76061,7 +76061,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @return The decision.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
@@ -76070,7 +76070,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @param value The decision to set.
        * @return This builder for chaining.
        */
@@ -76084,7 +76084,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearDecision() {
@@ -76106,10 +76106,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EscrowSignAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.EscrowSignAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:EscrowSignAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.EscrowSignAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EscrowSignAttachment();
@@ -76147,7 +76147,7 @@ public final class BrsApi {
   }
 
   public interface EscrowResultAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EscrowResultAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.EscrowResultAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -76163,22 +76163,22 @@ public final class BrsApi {
     long getEscrow();
 
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The enum numeric value on the wire for decision.
      */
     int getDecisionValue();
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The decision.
      */
     burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision();
   }
   /**
-   * Protobuf type {@code EscrowResultAttachment}
+   * Protobuf type {@code brs.api.EscrowResultAttachment}
    */
   public  static final class EscrowResultAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EscrowResultAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.EscrowResultAttachment)
       EscrowResultAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EscrowResultAttachment.newBuilder() to construct.
@@ -76256,13 +76256,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowResultAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowResultAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowResultAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowResultAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachment.Builder.class);
     }
@@ -76290,14 +76290,14 @@ public final class BrsApi {
     public static final int DECISION_FIELD_NUMBER = 3;
     private int decision_;
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The enum numeric value on the wire for decision.
      */
     public int getDecisionValue() {
       return decision_;
     }
     /**
-     * <code>.EscrowDecisionType decision = 3;</code>
+     * <code>.brs.api.EscrowDecisionType decision = 3;</code>
      * @return The decision.
      */
     public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
@@ -76484,21 +76484,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EscrowResultAttachment}
+     * Protobuf type {@code brs.api.EscrowResultAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EscrowResultAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.EscrowResultAttachment)
         burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowResultAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowResultAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowResultAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowResultAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachment.class, burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachment.Builder.class);
       }
@@ -76533,7 +76533,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EscrowResultAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EscrowResultAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -76704,14 +76704,14 @@ public final class BrsApi {
 
       private int decision_ = 0;
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @return The enum numeric value on the wire for decision.
        */
       public int getDecisionValue() {
         return decision_;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @param value The enum numeric value on the wire for decision to set.
        * @return This builder for chaining.
        */
@@ -76721,7 +76721,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @return The decision.
        */
       public burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType getDecision() {
@@ -76730,7 +76730,7 @@ public final class BrsApi {
         return result == null ? burst.kit.service.impl.grpc.BrsApi.EscrowDecisionType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @param value The decision to set.
        * @return This builder for chaining.
        */
@@ -76744,7 +76744,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>.EscrowDecisionType decision = 3;</code>
+       * <code>.brs.api.EscrowDecisionType decision = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearDecision() {
@@ -76766,10 +76766,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EscrowResultAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.EscrowResultAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:EscrowResultAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.EscrowResultAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EscrowResultAttachment();
@@ -76807,7 +76807,7 @@ public final class BrsApi {
   }
 
   public interface SubscriptionSubscribeAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SubscriptionSubscribeAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.SubscriptionSubscribeAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -76823,11 +76823,11 @@ public final class BrsApi {
     int getFrequency();
   }
   /**
-   * Protobuf type {@code SubscriptionSubscribeAttachment}
+   * Protobuf type {@code brs.api.SubscriptionSubscribeAttachment}
    */
   public  static final class SubscriptionSubscribeAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SubscriptionSubscribeAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.SubscriptionSubscribeAttachment)
       SubscriptionSubscribeAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SubscriptionSubscribeAttachment.newBuilder() to construct.
@@ -76898,13 +76898,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionSubscribeAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionSubscribeAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionSubscribeAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionSubscribeAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachment.class, burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachment.Builder.class);
     }
@@ -77096,21 +77096,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code SubscriptionSubscribeAttachment}
+     * Protobuf type {@code brs.api.SubscriptionSubscribeAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SubscriptionSubscribeAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.SubscriptionSubscribeAttachment)
         burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionSubscribeAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionSubscribeAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionSubscribeAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionSubscribeAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachment.class, burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachment.Builder.class);
       }
@@ -77143,7 +77143,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionSubscribeAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionSubscribeAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -77320,10 +77320,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SubscriptionSubscribeAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.SubscriptionSubscribeAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:SubscriptionSubscribeAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.SubscriptionSubscribeAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.SubscriptionSubscribeAttachment();
@@ -77361,7 +77361,7 @@ public final class BrsApi {
   }
 
   public interface SubscriptionCancelAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SubscriptionCancelAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.SubscriptionCancelAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -77377,11 +77377,11 @@ public final class BrsApi {
     long getSubscription();
   }
   /**
-   * Protobuf type {@code SubscriptionCancelAttachment}
+   * Protobuf type {@code brs.api.SubscriptionCancelAttachment}
    */
   public  static final class SubscriptionCancelAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SubscriptionCancelAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.SubscriptionCancelAttachment)
       SubscriptionCancelAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SubscriptionCancelAttachment.newBuilder() to construct.
@@ -77452,13 +77452,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionCancelAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionCancelAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionCancelAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionCancelAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachment.class, burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachment.Builder.class);
     }
@@ -77651,21 +77651,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code SubscriptionCancelAttachment}
+     * Protobuf type {@code brs.api.SubscriptionCancelAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SubscriptionCancelAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.SubscriptionCancelAttachment)
         burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionCancelAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionCancelAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionCancelAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionCancelAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachment.class, burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachment.Builder.class);
       }
@@ -77698,7 +77698,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionCancelAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionCancelAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -77875,10 +77875,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SubscriptionCancelAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.SubscriptionCancelAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:SubscriptionCancelAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.SubscriptionCancelAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.SubscriptionCancelAttachment();
@@ -77916,7 +77916,7 @@ public final class BrsApi {
   }
 
   public interface SubscriptionPaymentAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SubscriptionPaymentAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.SubscriptionPaymentAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -77932,11 +77932,11 @@ public final class BrsApi {
     long getSubscription();
   }
   /**
-   * Protobuf type {@code SubscriptionPaymentAttachment}
+   * Protobuf type {@code brs.api.SubscriptionPaymentAttachment}
    */
   public  static final class SubscriptionPaymentAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SubscriptionPaymentAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.SubscriptionPaymentAttachment)
       SubscriptionPaymentAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use SubscriptionPaymentAttachment.newBuilder() to construct.
@@ -78007,13 +78007,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionPaymentAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionPaymentAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionPaymentAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionPaymentAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachment.class, burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachment.Builder.class);
     }
@@ -78206,21 +78206,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code SubscriptionPaymentAttachment}
+     * Protobuf type {@code brs.api.SubscriptionPaymentAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SubscriptionPaymentAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.SubscriptionPaymentAttachment)
         burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionPaymentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionPaymentAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionPaymentAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionPaymentAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachment.class, burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachment.Builder.class);
       }
@@ -78253,7 +78253,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_SubscriptionPaymentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_SubscriptionPaymentAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -78430,10 +78430,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SubscriptionPaymentAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.SubscriptionPaymentAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:SubscriptionPaymentAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.SubscriptionPaymentAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.SubscriptionPaymentAttachment();
@@ -78471,7 +78471,7 @@ public final class BrsApi {
   }
 
   public interface ATCreationAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ATCreationAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.ATCreationAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -78511,11 +78511,11 @@ public final class BrsApi {
     com.google.protobuf.ByteString getCreationBytes();
   }
   /**
-   * Protobuf type {@code ATCreationAttachment}
+   * Protobuf type {@code brs.api.ATCreationAttachment}
    */
   public  static final class ATCreationAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ATCreationAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.ATCreationAttachment)
       ATCreationAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ATCreationAttachment.newBuilder() to construct.
@@ -78601,13 +78601,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ATCreationAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATCreationAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ATCreationAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATCreationAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.ATCreationAttachment.class, burst.kit.service.impl.grpc.BrsApi.ATCreationAttachment.Builder.class);
     }
@@ -78891,21 +78891,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code ATCreationAttachment}
+     * Protobuf type {@code brs.api.ATCreationAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ATCreationAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.ATCreationAttachment)
         burst.kit.service.impl.grpc.BrsApi.ATCreationAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATCreationAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATCreationAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATCreationAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATCreationAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.ATCreationAttachment.class, burst.kit.service.impl.grpc.BrsApi.ATCreationAttachment.Builder.class);
       }
@@ -78942,7 +78942,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATCreationAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATCreationAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -79284,10 +79284,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ATCreationAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.ATCreationAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:ATCreationAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.ATCreationAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.ATCreationAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.ATCreationAttachment();
@@ -79325,7 +79325,7 @@ public final class BrsApi {
   }
 
   public interface AccountsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Accounts)
+      // @@protoc_insertion_point(interface_extends:brs.api.Accounts)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -79362,7 +79362,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.Account> 
         getAccountsList();
@@ -79371,7 +79371,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.Account getAccounts(int index);
     /**
@@ -79379,7 +79379,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     int getAccountsCount();
     /**
@@ -79387,7 +79387,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder> 
         getAccountsOrBuilderList();
@@ -79396,17 +79396,17 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder getAccountsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Accounts}
+   * Protobuf type {@code brs.api.Accounts}
    */
   public  static final class Accounts extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Accounts)
+      // @@protoc_insertion_point(message_implements:brs.api.Accounts)
       AccountsOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Accounts.newBuilder() to construct.
@@ -79506,13 +79506,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Accounts_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Accounts_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Accounts_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Accounts_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Accounts.class, burst.kit.service.impl.grpc.BrsApi.Accounts.Builder.class);
     }
@@ -79563,7 +79563,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.Account> getAccountsList() {
       return accounts_;
@@ -79573,7 +79573,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder> 
         getAccountsOrBuilderList() {
@@ -79584,7 +79584,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     public int getAccountsCount() {
       return accounts_.size();
@@ -79594,7 +79594,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.Account getAccounts(int index) {
       return accounts_.get(index);
@@ -79604,7 +79604,7 @@ public final class BrsApi {
      * The full account objects. Only populated if includeAccounts was set to true in the request.
      * </pre>
      *
-     * <code>repeated .Account accounts = 2;</code>
+     * <code>repeated .brs.api.Account accounts = 2;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder getAccountsOrBuilder(
         int index) {
@@ -79797,21 +79797,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Accounts}
+     * Protobuf type {@code brs.api.Accounts}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Accounts)
+        // @@protoc_insertion_point(builder_implements:brs.api.Accounts)
         burst.kit.service.impl.grpc.BrsApi.AccountsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Accounts_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Accounts_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Accounts_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Accounts_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Accounts.class, burst.kit.service.impl.grpc.BrsApi.Accounts.Builder.class);
       }
@@ -79849,7 +79849,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Accounts_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Accounts_descriptor;
       }
 
       @java.lang.Override
@@ -80122,7 +80122,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Account> getAccountsList() {
         if (accountsBuilder_ == null) {
@@ -80136,7 +80136,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public int getAccountsCount() {
         if (accountsBuilder_ == null) {
@@ -80150,7 +80150,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Account getAccounts(int index) {
         if (accountsBuilder_ == null) {
@@ -80164,7 +80164,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder setAccounts(
           int index, burst.kit.service.impl.grpc.BrsApi.Account value) {
@@ -80185,7 +80185,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder setAccounts(
           int index, burst.kit.service.impl.grpc.BrsApi.Account.Builder builderForValue) {
@@ -80203,7 +80203,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder addAccounts(burst.kit.service.impl.grpc.BrsApi.Account value) {
         if (accountsBuilder_ == null) {
@@ -80223,7 +80223,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder addAccounts(
           int index, burst.kit.service.impl.grpc.BrsApi.Account value) {
@@ -80244,7 +80244,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder addAccounts(
           burst.kit.service.impl.grpc.BrsApi.Account.Builder builderForValue) {
@@ -80262,7 +80262,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder addAccounts(
           int index, burst.kit.service.impl.grpc.BrsApi.Account.Builder builderForValue) {
@@ -80280,7 +80280,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder addAllAccounts(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.Account> values) {
@@ -80299,7 +80299,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder clearAccounts() {
         if (accountsBuilder_ == null) {
@@ -80316,7 +80316,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public Builder removeAccounts(int index) {
         if (accountsBuilder_ == null) {
@@ -80333,7 +80333,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Account.Builder getAccountsBuilder(
           int index) {
@@ -80344,7 +80344,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder getAccountsOrBuilder(
           int index) {
@@ -80358,7 +80358,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder> 
            getAccountsOrBuilderList() {
@@ -80373,7 +80373,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Account.Builder addAccountsBuilder() {
         return getAccountsFieldBuilder().addBuilder(
@@ -80384,7 +80384,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.Account.Builder addAccountsBuilder(
           int index) {
@@ -80396,7 +80396,7 @@ public final class BrsApi {
        * The full account objects. Only populated if includeAccounts was set to true in the request.
        * </pre>
        *
-       * <code>repeated .Account accounts = 2;</code>
+       * <code>repeated .brs.api.Account accounts = 2;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.Account.Builder> 
            getAccountsBuilderList() {
@@ -80429,10 +80429,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Accounts)
+      // @@protoc_insertion_point(builder_scope:brs.api.Accounts)
     }
 
-    // @@protoc_insertion_point(class_scope:Accounts)
+    // @@protoc_insertion_point(class_scope:brs.api.Accounts)
     private static final burst.kit.service.impl.grpc.BrsApi.Accounts DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Accounts();
@@ -80470,7 +80470,7 @@ public final class BrsApi {
   }
 
   public interface AccountOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Account)
+      // @@protoc_insertion_point(interface_extends:brs.api.Account)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -80534,35 +80534,35 @@ public final class BrsApi {
     long getRewardRecipient();
 
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> 
         getAssetBalancesList();
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetBalance getAssetBalances(int index);
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     int getAssetBalancesCount();
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> 
         getAssetBalancesOrBuilderList();
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder getAssetBalancesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code Account}
+   * Protobuf type {@code brs.api.Account}
    */
   public  static final class Account extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Account)
+      // @@protoc_insertion_point(message_implements:brs.api.Account)
       AccountOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Account.newBuilder() to construct.
@@ -80682,13 +80682,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Account_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Account_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_Account_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Account_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.Account.class, burst.kit.service.impl.grpc.BrsApi.Account.Builder.class);
     }
@@ -80828,32 +80828,32 @@ public final class BrsApi {
     public static final int ASSETBALANCES_FIELD_NUMBER = 9;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> assetBalances_;
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> getAssetBalancesList() {
       return assetBalances_;
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> 
         getAssetBalancesOrBuilderList() {
       return assetBalances_;
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     public int getAssetBalancesCount() {
       return assetBalances_.size();
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetBalance getAssetBalances(int index) {
       return assetBalances_.get(index);
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 9;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder getAssetBalancesOrBuilder(
         int index) {
@@ -81109,21 +81109,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code Account}
+     * Protobuf type {@code brs.api.Account}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Account)
+        // @@protoc_insertion_point(builder_implements:brs.api.Account)
         burst.kit.service.impl.grpc.BrsApi.AccountOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Account_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Account_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Account_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Account_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.Account.class, burst.kit.service.impl.grpc.BrsApi.Account.Builder.class);
       }
@@ -81175,7 +81175,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_Account_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_Account_descriptor;
       }
 
       @java.lang.Override
@@ -81691,7 +81691,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.AssetBalance, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder, burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> assetBalancesBuilder_;
 
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> getAssetBalancesList() {
         if (assetBalancesBuilder_ == null) {
@@ -81701,7 +81701,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public int getAssetBalancesCount() {
         if (assetBalancesBuilder_ == null) {
@@ -81711,7 +81711,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance getAssetBalances(int index) {
         if (assetBalancesBuilder_ == null) {
@@ -81721,7 +81721,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder setAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance value) {
@@ -81738,7 +81738,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder setAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder builderForValue) {
@@ -81752,7 +81752,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder addAssetBalances(burst.kit.service.impl.grpc.BrsApi.AssetBalance value) {
         if (assetBalancesBuilder_ == null) {
@@ -81768,7 +81768,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder addAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance value) {
@@ -81785,7 +81785,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder addAssetBalances(
           burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder builderForValue) {
@@ -81799,7 +81799,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder addAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder builderForValue) {
@@ -81813,7 +81813,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder addAllAssetBalances(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalance> values) {
@@ -81828,7 +81828,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder clearAssetBalances() {
         if (assetBalancesBuilder_ == null) {
@@ -81841,7 +81841,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public Builder removeAssetBalances(int index) {
         if (assetBalancesBuilder_ == null) {
@@ -81854,14 +81854,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder getAssetBalancesBuilder(
           int index) {
         return getAssetBalancesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder getAssetBalancesOrBuilder(
           int index) {
@@ -81871,7 +81871,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> 
            getAssetBalancesOrBuilderList() {
@@ -81882,14 +81882,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder addAssetBalancesBuilder() {
         return getAssetBalancesFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.AssetBalance.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder addAssetBalancesBuilder(
           int index) {
@@ -81897,7 +81897,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.AssetBalance.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 9;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 9;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder> 
            getAssetBalancesBuilderList() {
@@ -81930,10 +81930,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Account)
+      // @@protoc_insertion_point(builder_scope:brs.api.Account)
     }
 
-    // @@protoc_insertion_point(class_scope:Account)
+    // @@protoc_insertion_point(class_scope:brs.api.Account)
     private static final burst.kit.service.impl.grpc.BrsApi.Account DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.Account();
@@ -81971,39 +81971,39 @@ public final class BrsApi {
   }
 
   public interface AssetBalancesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetBalances)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetBalances)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> 
         getAssetBalancesList();
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetBalance getAssetBalances(int index);
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     int getAssetBalancesCount();
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> 
         getAssetBalancesOrBuilderList();
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder getAssetBalancesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code AssetBalances}
+   * Protobuf type {@code brs.api.AssetBalances}
    */
   public  static final class AssetBalances extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetBalances)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetBalances)
       AssetBalancesOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetBalances.newBuilder() to construct.
@@ -82078,13 +82078,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalances_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalances_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalances_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalances_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetBalances.class, burst.kit.service.impl.grpc.BrsApi.AssetBalances.Builder.class);
     }
@@ -82092,32 +82092,32 @@ public final class BrsApi {
     public static final int ASSETBALANCES_FIELD_NUMBER = 1;
     private java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> assetBalances_;
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> getAssetBalancesList() {
       return assetBalances_;
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> 
         getAssetBalancesOrBuilderList() {
       return assetBalances_;
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     public int getAssetBalancesCount() {
       return assetBalances_.size();
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetBalance getAssetBalances(int index) {
       return assetBalances_.get(index);
     }
     /**
-     * <code>repeated .AssetBalance assetBalances = 1;</code>
+     * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
      */
     public burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder getAssetBalancesOrBuilder(
         int index) {
@@ -82282,21 +82282,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetBalances}
+     * Protobuf type {@code brs.api.AssetBalances}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetBalances)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetBalances)
         burst.kit.service.impl.grpc.BrsApi.AssetBalancesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalances_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalances_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalances_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalances_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetBalances.class, burst.kit.service.impl.grpc.BrsApi.AssetBalances.Builder.class);
       }
@@ -82332,7 +82332,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalances_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalances_descriptor;
       }
 
       @java.lang.Override
@@ -82479,7 +82479,7 @@ public final class BrsApi {
           burst.kit.service.impl.grpc.BrsApi.AssetBalance, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder, burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> assetBalancesBuilder_;
 
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance> getAssetBalancesList() {
         if (assetBalancesBuilder_ == null) {
@@ -82489,7 +82489,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public int getAssetBalancesCount() {
         if (assetBalancesBuilder_ == null) {
@@ -82499,7 +82499,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance getAssetBalances(int index) {
         if (assetBalancesBuilder_ == null) {
@@ -82509,7 +82509,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder setAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance value) {
@@ -82526,7 +82526,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder setAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder builderForValue) {
@@ -82540,7 +82540,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder addAssetBalances(burst.kit.service.impl.grpc.BrsApi.AssetBalance value) {
         if (assetBalancesBuilder_ == null) {
@@ -82556,7 +82556,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder addAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance value) {
@@ -82573,7 +82573,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder addAssetBalances(
           burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder builderForValue) {
@@ -82587,7 +82587,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder addAssetBalances(
           int index, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder builderForValue) {
@@ -82601,7 +82601,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder addAllAssetBalances(
           java.lang.Iterable<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalance> values) {
@@ -82616,7 +82616,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder clearAssetBalances() {
         if (assetBalancesBuilder_ == null) {
@@ -82629,7 +82629,7 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public Builder removeAssetBalances(int index) {
         if (assetBalancesBuilder_ == null) {
@@ -82642,14 +82642,14 @@ public final class BrsApi {
         return this;
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder getAssetBalancesBuilder(
           int index) {
         return getAssetBalancesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder getAssetBalancesOrBuilder(
           int index) {
@@ -82659,7 +82659,7 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public java.util.List<? extends burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder> 
            getAssetBalancesOrBuilderList() {
@@ -82670,14 +82670,14 @@ public final class BrsApi {
         }
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder addAssetBalancesBuilder() {
         return getAssetBalancesFieldBuilder().addBuilder(
             burst.kit.service.impl.grpc.BrsApi.AssetBalance.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder addAssetBalancesBuilder(
           int index) {
@@ -82685,7 +82685,7 @@ public final class BrsApi {
             index, burst.kit.service.impl.grpc.BrsApi.AssetBalance.getDefaultInstance());
       }
       /**
-       * <code>repeated .AssetBalance assetBalances = 1;</code>
+       * <code>repeated .brs.api.AssetBalance assetBalances = 1;</code>
        */
       public java.util.List<burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder> 
            getAssetBalancesBuilderList() {
@@ -82718,10 +82718,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetBalances)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetBalances)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetBalances)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetBalances)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetBalances DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetBalances();
@@ -82759,7 +82759,7 @@ public final class BrsApi {
   }
 
   public interface AssetBalanceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AssetBalance)
+      // @@protoc_insertion_point(interface_extends:brs.api.AssetBalance)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -82787,11 +82787,11 @@ public final class BrsApi {
     long getUnconfirmedBalance();
   }
   /**
-   * Protobuf type {@code AssetBalance}
+   * Protobuf type {@code brs.api.AssetBalance}
    */
   public  static final class AssetBalance extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:AssetBalance)
+      // @@protoc_insertion_point(message_implements:brs.api.AssetBalance)
       AssetBalanceOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use AssetBalance.newBuilder() to construct.
@@ -82872,13 +82872,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalance_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalance_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalance_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalance_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.AssetBalance.class, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder.class);
     }
@@ -83116,21 +83116,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code AssetBalance}
+     * Protobuf type {@code brs.api.AssetBalance}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AssetBalance)
+        // @@protoc_insertion_point(builder_implements:brs.api.AssetBalance)
         burst.kit.service.impl.grpc.BrsApi.AssetBalanceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalance_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalance_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalance_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalance_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.AssetBalance.class, burst.kit.service.impl.grpc.BrsApi.AssetBalance.Builder.class);
       }
@@ -83167,7 +83167,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_AssetBalance_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_AssetBalance_descriptor;
       }
 
       @java.lang.Override
@@ -83412,10 +83412,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AssetBalance)
+      // @@protoc_insertion_point(builder_scope:brs.api.AssetBalance)
     }
 
-    // @@protoc_insertion_point(class_scope:AssetBalance)
+    // @@protoc_insertion_point(class_scope:brs.api.AssetBalance)
     private static final burst.kit.service.impl.grpc.BrsApi.AssetBalance DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.AssetBalance();
@@ -83453,7 +83453,7 @@ public final class BrsApi {
   }
 
   public interface MiningInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:MiningInfo)
+      // @@protoc_insertion_point(interface_extends:brs.api.MiningInfo)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -83475,11 +83475,11 @@ public final class BrsApi {
     long getBaseTarget();
   }
   /**
-   * Protobuf type {@code MiningInfo}
+   * Protobuf type {@code brs.api.MiningInfo}
    */
   public  static final class MiningInfo extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:MiningInfo)
+      // @@protoc_insertion_point(message_implements:brs.api.MiningInfo)
       MiningInfoOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MiningInfo.newBuilder() to construct.
@@ -83556,13 +83556,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MiningInfo_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MiningInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_MiningInfo_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MiningInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.MiningInfo.class, burst.kit.service.impl.grpc.BrsApi.MiningInfo.Builder.class);
     }
@@ -83776,21 +83776,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code MiningInfo}
+     * Protobuf type {@code brs.api.MiningInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:MiningInfo)
+        // @@protoc_insertion_point(builder_implements:brs.api.MiningInfo)
         burst.kit.service.impl.grpc.BrsApi.MiningInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MiningInfo_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MiningInfo_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MiningInfo_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MiningInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.MiningInfo.class, burst.kit.service.impl.grpc.BrsApi.MiningInfo.Builder.class);
       }
@@ -83825,7 +83825,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_MiningInfo_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_MiningInfo_descriptor;
       }
 
       @java.lang.Override
@@ -84039,10 +84039,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:MiningInfo)
+      // @@protoc_insertion_point(builder_scope:brs.api.MiningInfo)
     }
 
-    // @@protoc_insertion_point(class_scope:MiningInfo)
+    // @@protoc_insertion_point(class_scope:brs.api.MiningInfo)
     private static final burst.kit.service.impl.grpc.BrsApi.MiningInfo DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.MiningInfo();
@@ -84080,7 +84080,7 @@ public final class BrsApi {
   }
 
   public interface TransactionBytesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:TransactionBytes)
+      // @@protoc_insertion_point(interface_extends:brs.api.TransactionBytes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -84090,11 +84090,11 @@ public final class BrsApi {
     com.google.protobuf.ByteString getTransactionBytes();
   }
   /**
-   * Protobuf type {@code TransactionBytes}
+   * Protobuf type {@code brs.api.TransactionBytes}
    */
   public  static final class TransactionBytes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:TransactionBytes)
+      // @@protoc_insertion_point(message_implements:brs.api.TransactionBytes)
       TransactionBytesOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use TransactionBytes.newBuilder() to construct.
@@ -84161,13 +84161,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBytes_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBytes_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBytes_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBytes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.TransactionBytes.class, burst.kit.service.impl.grpc.BrsApi.TransactionBytes.Builder.class);
     }
@@ -84338,21 +84338,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code TransactionBytes}
+     * Protobuf type {@code brs.api.TransactionBytes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:TransactionBytes)
+        // @@protoc_insertion_point(builder_implements:brs.api.TransactionBytes)
         burst.kit.service.impl.grpc.BrsApi.TransactionBytesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBytes_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBytes_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBytes_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBytes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.TransactionBytes.class, burst.kit.service.impl.grpc.BrsApi.TransactionBytes.Builder.class);
       }
@@ -84383,7 +84383,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_TransactionBytes_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_TransactionBytes_descriptor;
       }
 
       @java.lang.Override
@@ -84529,10 +84529,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:TransactionBytes)
+      // @@protoc_insertion_point(builder_scope:brs.api.TransactionBytes)
     }
 
-    // @@protoc_insertion_point(class_scope:TransactionBytes)
+    // @@protoc_insertion_point(class_scope:brs.api.TransactionBytes)
     private static final burst.kit.service.impl.grpc.BrsApi.TransactionBytes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.TransactionBytes();
@@ -84570,7 +84570,7 @@ public final class BrsApi {
   }
 
   public interface OrdinaryPaymentAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:OrdinaryPaymentAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.OrdinaryPaymentAttachment)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
@@ -84578,11 +84578,11 @@ public final class BrsApi {
    * Empty.
    * </pre>
    *
-   * Protobuf type {@code OrdinaryPaymentAttachment}
+   * Protobuf type {@code brs.api.OrdinaryPaymentAttachment}
    */
   public  static final class OrdinaryPaymentAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:OrdinaryPaymentAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.OrdinaryPaymentAttachment)
       OrdinaryPaymentAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use OrdinaryPaymentAttachment.newBuilder() to construct.
@@ -84643,13 +84643,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_OrdinaryPaymentAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_OrdinaryPaymentAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_OrdinaryPaymentAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_OrdinaryPaymentAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachment.class, burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachment.Builder.class);
     }
@@ -84803,21 +84803,21 @@ public final class BrsApi {
      * Empty.
      * </pre>
      *
-     * Protobuf type {@code OrdinaryPaymentAttachment}
+     * Protobuf type {@code brs.api.OrdinaryPaymentAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:OrdinaryPaymentAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.OrdinaryPaymentAttachment)
         burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_OrdinaryPaymentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_OrdinaryPaymentAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_OrdinaryPaymentAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_OrdinaryPaymentAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachment.class, burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachment.Builder.class);
       }
@@ -84846,7 +84846,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_OrdinaryPaymentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_OrdinaryPaymentAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -84955,10 +84955,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:OrdinaryPaymentAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.OrdinaryPaymentAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:OrdinaryPaymentAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.OrdinaryPaymentAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.OrdinaryPaymentAttachment();
@@ -84996,7 +84996,7 @@ public final class BrsApi {
   }
 
   public interface ArbitraryMessageAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ArbitraryMessageAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.ArbitraryMessageAttachment)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
@@ -85004,11 +85004,11 @@ public final class BrsApi {
    * Empty.
    * </pre>
    *
-   * Protobuf type {@code ArbitraryMessageAttachment}
+   * Protobuf type {@code brs.api.ArbitraryMessageAttachment}
    */
   public  static final class ArbitraryMessageAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ArbitraryMessageAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.ArbitraryMessageAttachment)
       ArbitraryMessageAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ArbitraryMessageAttachment.newBuilder() to construct.
@@ -85069,13 +85069,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ArbitraryMessageAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ArbitraryMessageAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ArbitraryMessageAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ArbitraryMessageAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachment.class, burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachment.Builder.class);
     }
@@ -85229,21 +85229,21 @@ public final class BrsApi {
      * Empty.
      * </pre>
      *
-     * Protobuf type {@code ArbitraryMessageAttachment}
+     * Protobuf type {@code brs.api.ArbitraryMessageAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ArbitraryMessageAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.ArbitraryMessageAttachment)
         burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ArbitraryMessageAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ArbitraryMessageAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ArbitraryMessageAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ArbitraryMessageAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachment.class, burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachment.Builder.class);
       }
@@ -85272,7 +85272,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ArbitraryMessageAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ArbitraryMessageAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -85381,10 +85381,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ArbitraryMessageAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.ArbitraryMessageAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:ArbitraryMessageAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.ArbitraryMessageAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.ArbitraryMessageAttachment();
@@ -85422,7 +85422,7 @@ public final class BrsApi {
   }
 
   public interface ATPaymentAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ATPaymentAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.ATPaymentAttachment)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
@@ -85430,11 +85430,11 @@ public final class BrsApi {
    * TODO version
    * </pre>
    *
-   * Protobuf type {@code ATPaymentAttachment}
+   * Protobuf type {@code brs.api.ATPaymentAttachment}
    */
   public  static final class ATPaymentAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ATPaymentAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.ATPaymentAttachment)
       ATPaymentAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ATPaymentAttachment.newBuilder() to construct.
@@ -85495,13 +85495,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ATPaymentAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATPaymentAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_ATPaymentAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATPaymentAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment.class, burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment.Builder.class);
     }
@@ -85655,21 +85655,21 @@ public final class BrsApi {
      * TODO version
      * </pre>
      *
-     * Protobuf type {@code ATPaymentAttachment}
+     * Protobuf type {@code brs.api.ATPaymentAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ATPaymentAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.ATPaymentAttachment)
         burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATPaymentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATPaymentAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATPaymentAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATPaymentAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment.class, burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment.Builder.class);
       }
@@ -85698,7 +85698,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_ATPaymentAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_ATPaymentAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -85807,10 +85807,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ATPaymentAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.ATPaymentAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:ATPaymentAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.ATPaymentAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.ATPaymentAttachment();
@@ -85848,7 +85848,7 @@ public final class BrsApi {
   }
 
   public interface EffectiveBalanceLeasingAttachmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:EffectiveBalanceLeasingAttachment)
+      // @@protoc_insertion_point(interface_extends:brs.api.EffectiveBalanceLeasingAttachment)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -85864,11 +85864,11 @@ public final class BrsApi {
     int getPeriod();
   }
   /**
-   * Protobuf type {@code EffectiveBalanceLeasingAttachment}
+   * Protobuf type {@code brs.api.EffectiveBalanceLeasingAttachment}
    */
   public  static final class EffectiveBalanceLeasingAttachment extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:EffectiveBalanceLeasingAttachment)
+      // @@protoc_insertion_point(message_implements:brs.api.EffectiveBalanceLeasingAttachment)
       EffectiveBalanceLeasingAttachmentOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use EffectiveBalanceLeasingAttachment.newBuilder() to construct.
@@ -85939,13 +85939,13 @@ public final class BrsApi {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EffectiveBalanceLeasingAttachment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable
+      return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EffectiveBalanceLeasingAttachment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.class, burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.Builder.class);
     }
@@ -86137,21 +86137,21 @@ public final class BrsApi {
       return builder;
     }
     /**
-     * Protobuf type {@code EffectiveBalanceLeasingAttachment}
+     * Protobuf type {@code brs.api.EffectiveBalanceLeasingAttachment}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:EffectiveBalanceLeasingAttachment)
+        // @@protoc_insertion_point(builder_implements:brs.api.EffectiveBalanceLeasingAttachment)
         burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EffectiveBalanceLeasingAttachment_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EffectiveBalanceLeasingAttachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.class, burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment.Builder.class);
       }
@@ -86184,7 +86184,7 @@ public final class BrsApi {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return burst.kit.service.impl.grpc.BrsApi.internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+        return burst.kit.service.impl.grpc.BrsApi.internal_static_brs_api_EffectiveBalanceLeasingAttachment_descriptor;
       }
 
       @java.lang.Override
@@ -86361,10 +86361,10 @@ public final class BrsApi {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:EffectiveBalanceLeasingAttachment)
+      // @@protoc_insertion_point(builder_scope:brs.api.EffectiveBalanceLeasingAttachment)
     }
 
-    // @@protoc_insertion_point(class_scope:EffectiveBalanceLeasingAttachment)
+    // @@protoc_insertion_point(class_scope:brs.api.EffectiveBalanceLeasingAttachment)
     private static final burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new burst.kit.service.impl.grpc.BrsApi.EffectiveBalanceLeasingAttachment();
@@ -86402,520 +86402,520 @@ public final class BrsApi {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAccountTransactionsRequest_descriptor;
+    internal_static_brs_api_GetAccountTransactionsRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAccountTransactionsRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAccountTransactionsRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAccountBlocksRequest_descriptor;
+    internal_static_brs_api_GetAccountBlocksRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAccountBlocksRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAccountBlocksRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetByIdRequest_descriptor;
+    internal_static_brs_api_GetByIdRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetByIdRequest_fieldAccessorTable;
+      internal_static_brs_api_GetByIdRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetDgsPendingPurchasesRequest_descriptor;
+    internal_static_brs_api_GetDgsPendingPurchasesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetDgsPendingPurchasesRequest_fieldAccessorTable;
+      internal_static_brs_api_GetDgsPendingPurchasesRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetDgsPurchasesRequest_descriptor;
+    internal_static_brs_api_GetDgsPurchasesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetDgsPurchasesRequest_fieldAccessorTable;
+      internal_static_brs_api_GetDgsPurchasesRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EncryptedData_descriptor;
+    internal_static_brs_api_EncryptedData_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EncryptedData_fieldAccessorTable;
+      internal_static_brs_api_EncryptedData_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DgsPurchases_descriptor;
+    internal_static_brs_api_DgsPurchases_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DgsPurchases_fieldAccessorTable;
+      internal_static_brs_api_DgsPurchases_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DgsPurchase_descriptor;
+    internal_static_brs_api_DgsPurchase_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DgsPurchase_fieldAccessorTable;
+      internal_static_brs_api_DgsPurchase_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetDgsGoodsRequest_descriptor;
+    internal_static_brs_api_GetDgsGoodsRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetDgsGoodsRequest_fieldAccessorTable;
+      internal_static_brs_api_GetDgsGoodsRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DgsGoods_descriptor;
+    internal_static_brs_api_DgsGoods_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DgsGoods_fieldAccessorTable;
+      internal_static_brs_api_DgsGoods_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DgsGood_descriptor;
+    internal_static_brs_api_DgsGood_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DgsGood_fieldAccessorTable;
+      internal_static_brs_api_DgsGood_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAssetTransfersRequest_descriptor;
+    internal_static_brs_api_GetAssetTransfersRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAssetTransfersRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAssetTransfersRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetTrades_descriptor;
+    internal_static_brs_api_AssetTrades_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetTrades_fieldAccessorTable;
+      internal_static_brs_api_AssetTrades_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetTransfers_descriptor;
+    internal_static_brs_api_AssetTransfers_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetTransfers_fieldAccessorTable;
+      internal_static_brs_api_AssetTransfers_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetTransfer_descriptor;
+    internal_static_brs_api_AssetTransfer_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetTransfer_fieldAccessorTable;
+      internal_static_brs_api_AssetTransfer_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetTrade_descriptor;
+    internal_static_brs_api_AssetTrade_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetTrade_fieldAccessorTable;
+      internal_static_brs_api_AssetTrade_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetOrdersRequest_descriptor;
+    internal_static_brs_api_GetOrdersRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetOrdersRequest_fieldAccessorTable;
+      internal_static_brs_api_GetOrdersRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetOrderRequest_descriptor;
+    internal_static_brs_api_GetOrderRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetOrderRequest_fieldAccessorTable;
+      internal_static_brs_api_GetOrderRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetOpenOrdersRequest_descriptor;
+    internal_static_brs_api_GetOpenOrdersRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetOpenOrdersRequest_fieldAccessorTable;
+      internal_static_brs_api_GetOpenOrdersRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAssetBalancesRequest_descriptor;
+    internal_static_brs_api_GetAssetBalancesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAssetBalancesRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAssetBalancesRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAssetsRequest_descriptor;
+    internal_static_brs_api_GetAssetsRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAssetsRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAssetsRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Assets_descriptor;
+    internal_static_brs_api_Assets_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Assets_fieldAccessorTable;
+      internal_static_brs_api_Assets_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Asset_descriptor;
+    internal_static_brs_api_Asset_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Asset_fieldAccessorTable;
+      internal_static_brs_api_Asset_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Transactions_descriptor;
+    internal_static_brs_api_Transactions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Transactions_fieldAccessorTable;
+      internal_static_brs_api_Transactions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Subscriptions_descriptor;
+    internal_static_brs_api_Subscriptions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Subscriptions_fieldAccessorTable;
+      internal_static_brs_api_Subscriptions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Subscription_descriptor;
+    internal_static_brs_api_Subscription_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Subscription_fieldAccessorTable;
+      internal_static_brs_api_Subscription_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Counts_descriptor;
+    internal_static_brs_api_Counts_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Counts_fieldAccessorTable;
+      internal_static_brs_api_Counts_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Constants_descriptor;
+    internal_static_brs_api_Constants_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Constants_fieldAccessorTable;
+      internal_static_brs_api_Constants_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Constants_TransactionType_descriptor;
+    internal_static_brs_api_Constants_TransactionType_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Constants_TransactionType_fieldAccessorTable;
+      internal_static_brs_api_Constants_TransactionType_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Constants_TransactionType_TransactionSubtype_descriptor;
+    internal_static_brs_api_Constants_TransactionType_TransactionSubtype_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Constants_TransactionType_TransactionSubtype_fieldAccessorTable;
+      internal_static_brs_api_Constants_TransactionType_TransactionSubtype_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EscrowTransactions_descriptor;
+    internal_static_brs_api_EscrowTransactions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EscrowTransactions_fieldAccessorTable;
+      internal_static_brs_api_EscrowTransactions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EscrowTransaction_descriptor;
+    internal_static_brs_api_EscrowTransaction_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EscrowTransaction_fieldAccessorTable;
+      internal_static_brs_api_EscrowTransaction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Orders_descriptor;
+    internal_static_brs_api_Orders_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Orders_fieldAccessorTable;
+      internal_static_brs_api_Orders_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Order_descriptor;
+    internal_static_brs_api_Order_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Order_fieldAccessorTable;
+      internal_static_brs_api_Order_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAccountOrdersRequest_descriptor;
+    internal_static_brs_api_GetAccountOrdersRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAccountOrdersRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAccountOrdersRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_IndexRange_descriptor;
+    internal_static_brs_api_IndexRange_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_IndexRange_fieldAccessorTable;
+      internal_static_brs_api_IndexRange_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetBlocksRequest_descriptor;
+    internal_static_brs_api_GetBlocksRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetBlocksRequest_fieldAccessorTable;
+      internal_static_brs_api_GetBlocksRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Blocks_descriptor;
+    internal_static_brs_api_Blocks_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Blocks_fieldAccessorTable;
+      internal_static_brs_api_Blocks_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAliasesRequest_descriptor;
+    internal_static_brs_api_GetAliasesRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAliasesRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAliasesRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_UnconfirmedTransactions_descriptor;
+    internal_static_brs_api_UnconfirmedTransactions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_UnconfirmedTransactions_fieldAccessorTable;
+      internal_static_brs_api_UnconfirmedTransactions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Aliases_descriptor;
+    internal_static_brs_api_Aliases_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Aliases_fieldAccessorTable;
+      internal_static_brs_api_Aliases_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ATIds_descriptor;
+    internal_static_brs_api_ATIds_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ATIds_fieldAccessorTable;
+      internal_static_brs_api_ATIds_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AT_descriptor;
+    internal_static_brs_api_AT_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AT_fieldAccessorTable;
+      internal_static_brs_api_AT_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AccountATs_descriptor;
+    internal_static_brs_api_AccountATs_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AccountATs_fieldAccessorTable;
+      internal_static_brs_api_AccountATs_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_BasicTransaction_descriptor;
+    internal_static_brs_api_BasicTransaction_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_BasicTransaction_fieldAccessorTable;
+      internal_static_brs_api_BasicTransaction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetPeerRequest_descriptor;
+    internal_static_brs_api_GetPeerRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetPeerRequest_fieldAccessorTable;
+      internal_static_brs_api_GetPeerRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetPeersRequest_descriptor;
+    internal_static_brs_api_GetPeersRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetPeersRequest_fieldAccessorTable;
+      internal_static_brs_api_GetPeersRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Peer_descriptor;
+    internal_static_brs_api_Peer_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Peer_fieldAccessorTable;
+      internal_static_brs_api_Peer_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Peers_descriptor;
+    internal_static_brs_api_Peers_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Peers_fieldAccessorTable;
+      internal_static_brs_api_Peers_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAliasRequest_descriptor;
+    internal_static_brs_api_GetAliasRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAliasRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAliasRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Alias_descriptor;
+    internal_static_brs_api_Alias_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Alias_fieldAccessorTable;
+      internal_static_brs_api_Alias_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Time_descriptor;
+    internal_static_brs_api_Time_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Time_fieldAccessorTable;
+      internal_static_brs_api_Time_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_State_descriptor;
+    internal_static_brs_api_State_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_State_fieldAccessorTable;
+      internal_static_brs_api_State_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_FeeSuggestion_descriptor;
+    internal_static_brs_api_FeeSuggestion_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_FeeSuggestion_fieldAccessorTable;
+      internal_static_brs_api_FeeSuggestion_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TransactionBroadcastResult_descriptor;
+    internal_static_brs_api_TransactionBroadcastResult_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TransactionBroadcastResult_fieldAccessorTable;
+      internal_static_brs_api_TransactionBroadcastResult_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetBlockRequest_descriptor;
+    internal_static_brs_api_GetBlockRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetBlockRequest_fieldAccessorTable;
+      internal_static_brs_api_GetBlockRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAccountRequest_descriptor;
+    internal_static_brs_api_GetAccountRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAccountRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAccountRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetAccountsRequest_descriptor;
+    internal_static_brs_api_GetAccountsRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetAccountsRequest_fieldAccessorTable;
+      internal_static_brs_api_GetAccountsRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetTransactionRequest_descriptor;
+    internal_static_brs_api_GetTransactionRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetTransactionRequest_fieldAccessorTable;
+      internal_static_brs_api_GetTransactionRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SubmitNonceRequest_descriptor;
+    internal_static_brs_api_SubmitNonceRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SubmitNonceRequest_fieldAccessorTable;
+      internal_static_brs_api_SubmitNonceRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SubmitNonceResponse_descriptor;
+    internal_static_brs_api_SubmitNonceResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SubmitNonceResponse_fieldAccessorTable;
+      internal_static_brs_api_SubmitNonceResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Block_descriptor;
+    internal_static_brs_api_Block_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Block_fieldAccessorTable;
+      internal_static_brs_api_Block_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Transaction_descriptor;
+    internal_static_brs_api_Transaction_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Transaction_fieldAccessorTable;
+      internal_static_brs_api_Transaction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MessageAppendix_descriptor;
+    internal_static_brs_api_MessageAppendix_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MessageAppendix_fieldAccessorTable;
+      internal_static_brs_api_MessageAppendix_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EncryptedMessageAppendix_descriptor;
+    internal_static_brs_api_EncryptedMessageAppendix_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EncryptedMessageAppendix_fieldAccessorTable;
+      internal_static_brs_api_EncryptedMessageAppendix_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PublicKeyAnnouncementAppendix_descriptor;
+    internal_static_brs_api_PublicKeyAnnouncementAppendix_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PublicKeyAnnouncementAppendix_fieldAccessorTable;
+      internal_static_brs_api_PublicKeyAnnouncementAppendix_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MultiOutAttachment_descriptor;
+    internal_static_brs_api_MultiOutAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MultiOutAttachment_fieldAccessorTable;
+      internal_static_brs_api_MultiOutAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MultiOutAttachment_MultiOutRecipient_descriptor;
+    internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable;
+      internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MultiOutSameAttachment_descriptor;
+    internal_static_brs_api_MultiOutSameAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MultiOutSameAttachment_fieldAccessorTable;
+      internal_static_brs_api_MultiOutSameAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AliasAssignmentAttachment_descriptor;
+    internal_static_brs_api_AliasAssignmentAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AliasAssignmentAttachment_fieldAccessorTable;
+      internal_static_brs_api_AliasAssignmentAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AliasSellAttachment_descriptor;
+    internal_static_brs_api_AliasSellAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AliasSellAttachment_fieldAccessorTable;
+      internal_static_brs_api_AliasSellAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AliasBuyAttachment_descriptor;
+    internal_static_brs_api_AliasBuyAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AliasBuyAttachment_fieldAccessorTable;
+      internal_static_brs_api_AliasBuyAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AccountInfoAttachment_descriptor;
+    internal_static_brs_api_AccountInfoAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AccountInfoAttachment_fieldAccessorTable;
+      internal_static_brs_api_AccountInfoAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetIssuanceAttachment_descriptor;
+    internal_static_brs_api_AssetIssuanceAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetIssuanceAttachment_fieldAccessorTable;
+      internal_static_brs_api_AssetIssuanceAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetTransferAttachment_descriptor;
+    internal_static_brs_api_AssetTransferAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetTransferAttachment_fieldAccessorTable;
+      internal_static_brs_api_AssetTransferAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetOrderPlacementAttachment_descriptor;
+    internal_static_brs_api_AssetOrderPlacementAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetOrderPlacementAttachment_fieldAccessorTable;
+      internal_static_brs_api_AssetOrderPlacementAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetOrderCancellationAttachment_descriptor;
+    internal_static_brs_api_AssetOrderCancellationAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetOrderCancellationAttachment_fieldAccessorTable;
+      internal_static_brs_api_AssetOrderCancellationAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsListingAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsListingAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsListingAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsListingAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsDelistingAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsDelistingAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsDelistingAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsDelistingAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsPriceChangeAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsPriceChangeAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsPriceChangeAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsPriceChangeAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsQuantityChangeAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsPurchaseAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsPurchaseAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsPurchaseAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsPurchaseAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsDeliveryAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsDeliveryAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsDeliveryAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsDeliveryAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsFeedbackAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsFeedbackAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsFeedbackAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsFeedbackAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DigitalGoodsRefundAttachment_descriptor;
+    internal_static_brs_api_DigitalGoodsRefundAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DigitalGoodsRefundAttachment_fieldAccessorTable;
+      internal_static_brs_api_DigitalGoodsRefundAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RewardRecipientAssignmentAttachment_descriptor;
+    internal_static_brs_api_RewardRecipientAssignmentAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RewardRecipientAssignmentAttachment_fieldAccessorTable;
+      internal_static_brs_api_RewardRecipientAssignmentAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EscrowCreationAttachment_descriptor;
+    internal_static_brs_api_EscrowCreationAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EscrowCreationAttachment_fieldAccessorTable;
+      internal_static_brs_api_EscrowCreationAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EscrowSignAttachment_descriptor;
+    internal_static_brs_api_EscrowSignAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EscrowSignAttachment_fieldAccessorTable;
+      internal_static_brs_api_EscrowSignAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EscrowResultAttachment_descriptor;
+    internal_static_brs_api_EscrowResultAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EscrowResultAttachment_fieldAccessorTable;
+      internal_static_brs_api_EscrowResultAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SubscriptionSubscribeAttachment_descriptor;
+    internal_static_brs_api_SubscriptionSubscribeAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SubscriptionSubscribeAttachment_fieldAccessorTable;
+      internal_static_brs_api_SubscriptionSubscribeAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SubscriptionCancelAttachment_descriptor;
+    internal_static_brs_api_SubscriptionCancelAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SubscriptionCancelAttachment_fieldAccessorTable;
+      internal_static_brs_api_SubscriptionCancelAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SubscriptionPaymentAttachment_descriptor;
+    internal_static_brs_api_SubscriptionPaymentAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_SubscriptionPaymentAttachment_fieldAccessorTable;
+      internal_static_brs_api_SubscriptionPaymentAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ATCreationAttachment_descriptor;
+    internal_static_brs_api_ATCreationAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ATCreationAttachment_fieldAccessorTable;
+      internal_static_brs_api_ATCreationAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Accounts_descriptor;
+    internal_static_brs_api_Accounts_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Accounts_fieldAccessorTable;
+      internal_static_brs_api_Accounts_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Account_descriptor;
+    internal_static_brs_api_Account_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Account_fieldAccessorTable;
+      internal_static_brs_api_Account_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetBalances_descriptor;
+    internal_static_brs_api_AssetBalances_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetBalances_fieldAccessorTable;
+      internal_static_brs_api_AssetBalances_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AssetBalance_descriptor;
+    internal_static_brs_api_AssetBalance_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AssetBalance_fieldAccessorTable;
+      internal_static_brs_api_AssetBalance_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MiningInfo_descriptor;
+    internal_static_brs_api_MiningInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MiningInfo_fieldAccessorTable;
+      internal_static_brs_api_MiningInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TransactionBytes_descriptor;
+    internal_static_brs_api_TransactionBytes_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TransactionBytes_fieldAccessorTable;
+      internal_static_brs_api_TransactionBytes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_OrdinaryPaymentAttachment_descriptor;
+    internal_static_brs_api_OrdinaryPaymentAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_OrdinaryPaymentAttachment_fieldAccessorTable;
+      internal_static_brs_api_OrdinaryPaymentAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ArbitraryMessageAttachment_descriptor;
+    internal_static_brs_api_ArbitraryMessageAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ArbitraryMessageAttachment_fieldAccessorTable;
+      internal_static_brs_api_ArbitraryMessageAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ATPaymentAttachment_descriptor;
+    internal_static_brs_api_ATPaymentAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ATPaymentAttachment_fieldAccessorTable;
+      internal_static_brs_api_ATPaymentAttachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_EffectiveBalanceLeasingAttachment_descriptor;
+    internal_static_brs_api_EffectiveBalanceLeasingAttachment_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable;
+      internal_static_brs_api_EffectiveBalanceLeasingAttachment_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -86925,353 +86925,380 @@ public final class BrsApi {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014brsApi.proto\032\033google/protobuf/empty.pr" +
-      "oto\032\031google/protobuf/any.proto\"\262\001\n\035GetAc" +
-      "countTransactionsRequest\022\021\n\taccountId\030\001 " +
-      "\001(\004\022\021\n\ttimestamp\030\002 \001(\r\022\037\n\nindexRange\030\003 \001" +
-      "(\0132\013.IndexRange\022\025\n\rconfirmations\030\004 \001(\r\022\024" +
-      "\n\014filterByType\030\005 \001(\010\022\014\n\004type\030\006 \001(\r\022\017\n\007su" +
-      "btype\030\007 \001(\r\"}\n\027GetAccountBlocksRequest\022\021" +
-      "\n\taccountId\030\001 \001(\004\022\021\n\ttimestamp\030\002 \001(\r\022\037\n\n" +
-      "indexRange\030\003 \001(\0132\013.IndexRange\022\033\n\023include" +
-      "Transactions\030\004 \001(\010\"\034\n\016GetByIdRequest\022\n\n\002" +
-      "id\030\001 \001(\004\"P\n\035GetDgsPendingPurchasesReques" +
-      "t\022\016\n\006seller\030\001 \001(\004\022\037\n\nindexRange\030\002 \001(\0132\013." +
-      "IndexRange\"k\n\026GetDgsPurchasesRequest\022\016\n\006" +
-      "seller\030\001 \001(\004\022\r\n\005buyer\030\002 \001(\004\022\021\n\tcompleted" +
-      "\030\003 \001(\010\022\037\n\nindexRange\030\004 \001(\0132\013.IndexRange\"" +
-      ",\n\rEncryptedData\022\014\n\004data\030\001 \001(\014\022\r\n\005nonce\030" +
-      "\002 \001(\014\"2\n\014DgsPurchases\022\"\n\014dgsPurchases\030\001 " +
-      "\003(\0132\014.DgsPurchase\"\275\003\n\013DgsPurchase\022\n\n\002id\030" +
-      "\001 \001(\004\022\014\n\004good\030\002 \001(\004\022\016\n\006seller\030\003 \001(\004\022\r\n\005b" +
-      "uyer\030\004 \001(\004\022\r\n\005price\030\005 \001(\004\022\020\n\010quantity\030\006 " +
-      "\001(\004\022\021\n\ttimestamp\030\007 \001(\r\022!\n\031deliveryDeadli" +
-      "neTimestamp\030\010 \001(\r\022\020\n\010goodName\030\t \001(\t\022\027\n\017g" +
-      "oodDescription\030\n \001(\t\022\034\n\004note\030\013 \001(\0132\016.Enc" +
-      "ryptedData\022\021\n\tisPending\030\014 \001(\010\022%\n\rdeliver" +
-      "edData\030\r \001(\0132\016.EncryptedData\022\033\n\023delivere" +
-      "dDataIsText\030\016 \001(\010\022 \n\010feedback\030\017 \003(\0132\016.En" +
-      "cryptedData\022\026\n\016publicFeedback\030\020 \003(\t\022\"\n\nr" +
-      "efundNote\030\021 \001(\0132\016.EncryptedData\022\020\n\010disco" +
-      "unt\030\022 \001(\004\022\016\n\006refund\030\023 \001(\004\"Z\n\022GetDgsGoods" +
-      "Request\022\016\n\006seller\030\001 \001(\004\022\023\n\013inStockOnly\030\002" +
-      " \001(\010\022\037\n\nindexRange\030\003 \001(\0132\013.IndexRange\"#\n" +
-      "\010DgsGoods\022\027\n\005goods\030\001 \003(\0132\010.DgsGood\"\236\001\n\007D" +
-      "gsGood\022\n\n\002id\030\001 \001(\004\022\016\n\006seller\030\002 \001(\004\022\r\n\005pr" +
-      "ice\030\003 \001(\004\022\020\n\010quantity\030\004 \001(\004\022\022\n\nisDeliste" +
-      "d\030\005 \001(\010\022\021\n\ttimestamp\030\006 \001(\r\022\014\n\004name\030\007 \001(\t" +
-      "\022\023\n\013description\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\"[\n\030G" +
-      "etAssetTransfersRequest\022\r\n\005asset\030\001 \001(\004\022\017" +
-      "\n\007account\030\002 \001(\004\022\037\n\nindexRange\030\003 \001(\0132\013.In" +
-      "dexRange\"*\n\013AssetTrades\022\033\n\006trades\030\001 \003(\0132" +
-      "\013.AssetTrade\"8\n\016AssetTransfers\022&\n\016assetT" +
-      "ransfers\030\001 \003(\0132\016.AssetTransfer\"\257\001\n\rAsset" +
-      "Transfer\022\n\n\002id\030\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\016\n\006s" +
-      "ender\030\003 \001(\004\022\021\n\trecipient\030\004 \001(\004\022\020\n\010quanti" +
-      "ty\030\005 \001(\004\022\016\n\006height\030\006 \001(\r\022\021\n\ttimestamp\030\007 " +
-      "\001(\r\022\021\n\tassetName\030\010 \001(\t\022\030\n\020assetDescripti" +
-      "on\030\t \001(\t\"\311\002\n\nAssetTrade\022\r\n\005asset\030\001 \001(\004\022\"" +
-      "\n\ttradeType\030\002 \001(\0162\017.AssetTradeType\022\016\n\006se" +
-      "ller\030\003 \001(\004\022\r\n\005buyer\030\004 \001(\004\022\r\n\005price\030\005 \001(\004" +
-      "\022\020\n\010quantity\030\006 \001(\004\022\020\n\010askOrder\030\007 \001(\004\022\020\n\010" +
-      "bidOrder\030\010 \001(\004\022\026\n\016askOrderHeight\030\t \001(\r\022\026" +
-      "\n\016bidOrderHeight\030\n \001(\r\022\r\n\005block\030\013 \001(\004\022\016\n" +
-      "\006height\030\014 \001(\r\022\021\n\ttimestamp\030\r \001(\r\022\021\n\tasse" +
-      "tName\030\016 \001(\t\022\030\n\020assetDescription\030\017 \001(\t\022\025\n" +
-      "\rassetDecimals\030\020 \001(\r\"a\n\020GetOrdersRequest" +
-      "\022\r\n\005asset\030\001 \001(\004\022\035\n\torderType\030\002 \001(\0162\n.Ord" +
-      "erType\022\037\n\nindexRange\030\003 \001(\0132\013.IndexRange\"" +
-      "A\n\017GetOrderRequest\022\017\n\007orderId\030\001 \001(\004\022\035\n\to" +
-      "rderType\030\002 \001(\0162\n.OrderType\"V\n\024GetOpenOrd" +
-      "ersRequest\022\035\n\torderType\030\001 \001(\0162\n.OrderTyp" +
-      "e\022\037\n\nindexRange\030\002 \001(\0132\013.IndexRange\"Y\n\027Ge" +
-      "tAssetBalancesRequest\022\r\n\005asset\030\001 \001(\004\022\016\n\006" +
-      "height\030\002 \001(\r\022\037\n\nindexRange\030\003 \001(\0132\013.Index" +
-      "Range\"!\n\020GetAssetsRequest\022\r\n\005asset\030\001 \003(\004" +
-      "\" \n\006Assets\022\026\n\006assets\030\001 \003(\0132\006.Asset\"\273\001\n\005A" +
-      "sset\022\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002 \001(\004\022\014\n\004" +
-      "name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\020\n\010quant" +
-      "ity\030\005 \001(\004\022\020\n\010decimals\030\006 \001(\r\022\026\n\016numberOfT" +
-      "rades\030\007 \001(\r\022\031\n\021numberOfTransfers\030\010 \001(\r\022\030" +
-      "\n\020numberOfAccounts\030\t \001(\r\"2\n\014Transactions" +
-      "\022\"\n\014transactions\030\001 \003(\0132\014.Transaction\"5\n\r" +
-      "Subscriptions\022$\n\rsubscriptions\030\001 \003(\0132\r.S" +
-      "ubscription\"r\n\014Subscription\022\n\n\002id\030\001 \001(\004\022" +
-      "\016\n\006sender\030\002 \001(\004\022\021\n\trecipient\030\003 \001(\004\022\016\n\006am" +
-      "ount\030\004 \001(\004\022\021\n\tfrequency\030\005 \001(\r\022\020\n\010timeNex" +
-      "t\030\006 \001(\r\"\334\002\n\006Counts\022\026\n\016numberOfBlocks\030\001 \001" +
-      "(\r\022\034\n\024numberOfTransactions\030\002 \001(\r\022\030\n\020numb" +
-      "erOfAccounts\030\003 \001(\r\022\026\n\016numberOfAssets\030\004 \001" +
-      "(\r\022\026\n\016numberOfOrders\030\005 \001(\r\022\031\n\021numberOfAs" +
-      "kOrders\030\006 \001(\r\022\031\n\021numberOfBidOrders\030\007 \001(\r" +
-      "\022\026\n\016numberOfTrades\030\010 \001(\r\022\031\n\021numberOfTran" +
-      "sfers\030\t \001(\r\022\027\n\017numberOfAliases\030\n \001(\004\022\025\n\r" +
-      "numberOfPeers\030\013 \001(\r\022\032\n\022numberOfGenerator" +
-      "s\030\014 \001(\r\022\035\n\025totalEffectiveBalance\030\r \001(\004\"\345" +
-      "\002\n\tConstants\022\024\n\014genesisBlock\030\001 \001(\004\022\026\n\016ge" +
-      "nesisAccount\030\002 \001(\004\022\035\n\025maxBlockPayloadLen" +
-      "gth\030\003 \001(\r\022!\n\031maxArbitraryMessageLength\030\004" +
-      " \001(\r\0224\n\020transactionTypes\030\005 \003(\0132\032.Constan" +
-      "ts.TransactionType\032\261\001\n\017TransactionType\022\014" +
-      "\n\004type\030\001 \001(\r\022\023\n\013description\030\002 \001(\t\022?\n\010sub" +
-      "types\030\003 \003(\0132-.Constants.TransactionType." +
-      "TransactionSubtype\032:\n\022TransactionSubtype" +
-      "\022\017\n\007subtype\030\001 \001(\r\022\023\n\013description\030\002 \001(\t\"D" +
-      "\n\022EscrowTransactions\022.\n\022escrowTransactio" +
-      "ns\030\001 \003(\0132\022.EscrowTransaction\"\260\001\n\021EscrowT" +
-      "ransaction\022\020\n\010escrowId\030\001 \001(\004\022\016\n\006sender\030\002" +
-      " \001(\004\022\021\n\trecipient\030\003 \001(\004\022\016\n\006amount\030\004 \001(\004\022" +
-      "\027\n\017requiredSigners\030\005 \001(\r\022\020\n\010deadline\030\006 \001" +
-      "(\r\022+\n\016deadlineAction\030\007 \001(\0162\023.EscrowDecis" +
-      "ionType\" \n\006Orders\022\026\n\006orders\030\001 \003(\0132\006.Orde" +
-      "r\"~\n\005Order\022\n\n\002id\030\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\017\n" +
-      "\007account\030\003 \001(\004\022\020\n\010quantity\030\004 \001(\004\022\r\n\005pric" +
-      "e\030\005 \001(\004\022\016\n\006height\030\006 \001(\r\022\030\n\004type\030\007 \001(\0162\n." +
-      "OrderType\"y\n\027GetAccountOrdersRequest\022\017\n\007" +
-      "account\030\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\037\n\nindexRan" +
-      "ge\030\003 \001(\0132\013.IndexRange\022\035\n\torderType\030\004 \001(\016" +
-      "2\n.OrderType\"3\n\nIndexRange\022\022\n\nfirstIndex" +
-      "\030\001 \001(\r\022\021\n\tlastIndex\030\002 \001(\r\"P\n\020GetBlocksRe" +
-      "quest\022\037\n\nindexRange\030\001 \001(\0132\013.IndexRange\022\033" +
-      "\n\023includeTransactions\030\002 \001(\010\" \n\006Blocks\022\026\n" +
-      "\006blocks\030\001 \003(\0132\006.Block\"V\n\021GetAliasesReque" +
-      "st\022\r\n\005owner\030\001 \001(\004\022\021\n\ttimestamp\030\002 \001(\r\022\037\n\n" +
-      "indexRange\030\003 \001(\0132\013.IndexRange\"H\n\027Unconfi" +
-      "rmedTransactions\022-\n\027unconfirmedTransacti" +
-      "ons\030\001 \003(\0132\014.Transaction\"\"\n\007Aliases\022\027\n\007al" +
-      "iases\030\001 \003(\0132\006.Alias\"\024\n\005ATIds\022\013\n\003ids\030\001 \003(" +
-      "\004\"\274\002\n\002AT\022\n\n\002id\030\001 \001(\004\022\017\n\007creator\030\002 \001(\004\022\017\n" +
-      "\007version\030\003 \001(\r\022\014\n\004name\030\004 \001(\t\022\023\n\013descript" +
-      "ion\030\005 \001(\t\022\023\n\013machineCode\030\006 \001(\014\022\023\n\013machin" +
-      "eData\030\007 \001(\014\022\017\n\007balance\030\010 \001(\004\022\027\n\017previous" +
-      "Balance\030\t \001(\004\022\021\n\tnextBlock\030\n \001(\r\022\016\n\006froz" +
-      "en\030\013 \001(\010\022\017\n\007running\030\014 \001(\010\022\017\n\007stopped\030\r \001" +
-      "(\010\022\020\n\010finished\030\016 \001(\010\022\014\n\004dead\030\017 \001(\010\022\025\n\rmi" +
-      "nActivation\030\020 \001(\004\022\025\n\rcreationBlock\030\021 \001(\r" +
-      "\"\036\n\nAccountATs\022\020\n\003ats\030\001 \003(\0132\003.AT\"\372\002\n\020Bas" +
-      "icTransaction\022\027\n\017senderPublicKey\030\001 \001(\014\022\020" +
-      "\n\010senderId\030\002 \001(\004\022\021\n\trecipient\030\003 \001(\004\022\017\n\007v" +
-      "ersion\030\004 \001(\r\022\014\n\004type\030\005 \001(\r\022\017\n\007subtype\030\006 " +
-      "\001(\r\022\016\n\006amount\030\007 \001(\004\022\013\n\003fee\030\010 \001(\004\022\021\n\ttime" +
-      "stamp\030\t \001(\r\022\020\n\010deadline\030\n \001(\r\022(\n\nappenda" +
-      "ges\030\013 \003(\0132\024.google.protobuf.Any\022(\n\nattac" +
-      "hment\030\014 \001(\0132\024.google.protobuf.Any\022%\n\035ref" +
-      "erencedTransactionFullHash\030\r \001(\014\022\021\n\tecBl" +
-      "ockId\030\016 \001(\004\022\025\n\recBlockHeight\030\017 \001(\r\022\021\n\tsi" +
-      "gnature\030\020 \001(\014\"%\n\016GetPeerRequest\022\023\n\013peerA" +
-      "ddress\030\001 \001(\t\"<\n\017GetPeersRequest\022\016\n\006activ" +
-      "e\030\001 \001(\010\022\031\n\005state\030\002 \001(\0162\n.PeerState\"\345\001\n\004P" +
-      "eer\022\031\n\005state\030\001 \001(\0162\n.PeerState\022\030\n\020announ" +
-      "cedAddress\030\002 \001(\t\022\024\n\014shareAddress\030\003 \001(\010\022\030" +
-      "\n\020downloadedVolume\030\004 \001(\004\022\026\n\016uploadedVolu" +
-      "me\030\005 \001(\004\022\023\n\013application\030\006 \001(\t\022\017\n\007version" +
-      "\030\007 \001(\t\022\020\n\010platform\030\010 \001(\t\022\023\n\013blacklisted\030" +
-      "\t \001(\010\022\023\n\013lastUpdated\030\n \001(\r\"\036\n\005Peers\022\025\n\rp" +
-      "eerAddresses\030\001 \003(\t\"+\n\017GetAliasRequest\022\n\n" +
-      "\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"\177\n\005Alias\022\n\n\002id\030\001" +
-      " \001(\004\022\r\n\005owner\030\002 \001(\004\022\014\n\004name\030\003 \001(\t\022\013\n\003uri" +
-      "\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001(\r\022\017\n\007offered\030\006 \001" +
-      "(\010\022\r\n\005price\030\007 \001(\004\022\r\n\005buyer\030\010 \001(\004\"\024\n\004Time" +
-      "\022\014\n\004time\030\001 \001(\r\"\357\002\n\005State\022\023\n\013application\030" +
-      "\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\023\n\004time\030\003 \001(\0132\005.T" +
-      "ime\022\021\n\tlastBlock\030\004 \001(\004\022\022\n\nlastHeight\030\005 \001" +
-      "(\r\022\034\n\024cumulativeDifficulty\030\006 \001(\t\022\025\n\rnumb" +
-      "erOfPeers\030\007 \001(\r\022\033\n\023numberOfActivePeers\030\010" +
-      " \001(\r\022\027\n\017numberOfForgers\030\t \001(\r\022\034\n\024lastBlo" +
-      "ckchainFeeder\030\n \001(\t\022\"\n\032lastBlockchainFee" +
-      "derHeight\030\013 \001(\r\022\033\n\023availableProcessors\030\014" +
-      " \001(\r\022\021\n\tmaxMemory\030\r \001(\004\022\023\n\013totalMemory\030\016" +
-      " \001(\004\022\022\n\nfreeMemory\030\017 \001(\004\"B\n\rFeeSuggestio" +
-      "n\022\r\n\005cheap\030\001 \001(\004\022\020\n\010standard\030\002 \001(\004\022\020\n\010pr" +
-      "iority\030\003 \001(\004\"9\n\032TransactionBroadcastResu" +
-      "lt\022\033\n\023numberOfPeersSentTo\030\001 \001(\r\"b\n\017GetBl" +
-      "ockRequest\022\017\n\007blockId\030\001 \001(\004\022\016\n\006height\030\002 " +
-      "\001(\r\022\021\n\ttimestamp\030\003 \001(\r\022\033\n\023includeTransac" +
-      "tions\030\004 \001(\010\"&\n\021GetAccountRequest\022\021\n\tacco" +
-      "untId\030\001 \001(\004\"T\n\022GetAccountsRequest\022\027\n\017rew" +
-      "ardRecipient\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\027\n\017incl" +
-      "udeAccounts\030\003 \001(\010\"@\n\025GetTransactionReque" +
-      "st\022\025\n\rtransactionId\030\001 \001(\004\022\020\n\010fullHash\030\002 " +
-      "\001(\014\"_\n\022SubmitNonceRequest\022\024\n\014secretPhras" +
-      "e\030\001 \001(\t\022\r\n\005nonce\030\002 \001(\004\022\017\n\007account\030\003 \001(\004\022" +
-      "\023\n\013blockHeight\030\004 \001(\r\"\'\n\023SubmitNonceRespo" +
-      "nse\022\020\n\010deadline\030\001 \001(\004\"\274\003\n\005Block\022\n\n\002id\030\001 " +
-      "\001(\004\022\016\n\006height\030\002 \001(\r\022\034\n\024numberOfTransacti" +
-      "ons\030\003 \001(\r\022\023\n\013totalAmount\030\004 \001(\004\022\020\n\010totalF" +
-      "ee\030\005 \001(\004\022\023\n\013blockReward\030\006 \001(\004\022\025\n\rpayload" +
-      "Length\030\007 \001(\r\022\017\n\007version\030\010 \001(\005\022\022\n\nbaseTar" +
-      "get\030\t \001(\004\022\021\n\ttimestamp\030\n \001(\r\022\033\n\023generati" +
-      "onSignature\030\013 \001(\014\022\026\n\016blockSignature\030\014 \001(" +
-      "\014\022\023\n\013payloadHash\030\r \001(\014\022\"\n\014transactions\030\016" +
-      " \003(\0132\014.Transaction\022\026\n\016transactionIds\030\017 \003" +
-      "(\004\022\032\n\022generatorPublicKey\030\020 \001(\014\022\r\n\005nonce\030" +
-      "\021 \001(\004\022\r\n\005scoop\030\022 \001(\r\022\031\n\021previousBlockHas" +
-      "h\030\023 \001(\014\022\023\n\013nextBlockId\030\024 \001(\004\"\323\001\n\013Transac" +
-      "tion\022&\n\013transaction\030\001 \001(\0132\021.BasicTransac" +
-      "tion\022\n\n\002id\030\002 \001(\004\022\030\n\020transactionBytes\030\003 \001" +
-      "(\014\022\r\n\005block\030\004 \001(\004\022\023\n\013blockHeight\030\005 \001(\r\022\026" +
-      "\n\016blockTimestamp\030\006 \001(\r\022\021\n\tsignature\030\007 \001(" +
-      "\014\022\020\n\010fullHash\030\010 \001(\014\022\025\n\rconfirmations\030\t \001" +
-      "(\021\"C\n\017MessageAppendix\022\017\n\007version\030\001 \001(\r\022\017" +
-      "\n\007message\030\002 \001(\014\022\016\n\006isText\030\003 \001(\010\"\307\001\n\030Encr" +
-      "yptedMessageAppendix\022\017\n\007version\030\001 \001(\r\022%\n" +
-      "\rencryptedData\030\002 \001(\0132\016.EncryptedData\022\016\n\006" +
-      "isText\030\003 \001(\010\022,\n\004type\030\004 \001(\0162\036.EncryptedMe" +
-      "ssageAppendix.Type\"5\n\004Type\022\016\n\nType_UNSET" +
-      "\020\000\022\020\n\014TO_RECIPIENT\020\001\022\013\n\007TO_SELF\020\002\"L\n\035Pub" +
-      "licKeyAnnouncementAppendix\022\017\n\007version\030\001 " +
-      "\001(\r\022\032\n\022recipientPublicKey\030\002 \001(\014\"\230\001\n\022Mult" +
-      "iOutAttachment\022\017\n\007version\030\001 \001(\r\0229\n\nrecip" +
-      "ients\030\002 \003(\0132%.MultiOutAttachment.MultiOu" +
-      "tRecipient\0326\n\021MultiOutRecipient\022\021\n\trecip" +
-      "ient\030\001 \001(\004\022\016\n\006amount\030\002 \001(\004\"=\n\026MultiOutSa" +
-      "meAttachment\022\017\n\007version\030\001 \001(\r\022\022\n\nrecipie" +
-      "nts\030\002 \003(\004\"G\n\031AliasAssignmentAttachment\022\017" +
-      "\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\013\n\003uri\030\003 \001" +
-      "(\t\"C\n\023AliasSellAttachment\022\017\n\007version\030\001 \001" +
-      "(\r\022\014\n\004name\030\002 \001(\t\022\r\n\005price\030\003 \001(\004\"3\n\022Alias" +
-      "BuyAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002" +
-      " \001(\t\"K\n\025AccountInfoAttachment\022\017\n\007version" +
-      "\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(" +
-      "\t\"q\n\027AssetIssuanceAttachment\022\017\n\007version\030" +
-      "\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t" +
-      "\022\020\n\010quantity\030\004 \001(\004\022\020\n\010decimals\030\005 \001(\r\"\\\n\027" +
-      "AssetTransferAttachment\022\017\n\007version\030\001 \001(\r" +
-      "\022\r\n\005asset\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\022\017\n\007com" +
-      "ment\030\004 \001(\t\"z\n\035AssetOrderPlacementAttachm" +
-      "ent\022\017\n\007version\030\001 \001(\r\022\r\n\005asset\030\002 \001(\004\022\020\n\010q" +
-      "uantity\030\003 \001(\004\022\r\n\005price\030\004 \001(\004\022\030\n\004type\030\005 \001" +
-      "(\0162\n.OrderType\"\\\n AssetOrderCancellation" +
-      "Attachment\022\017\n\007version\030\001 \001(\r\022\r\n\005order\030\002 \001" +
-      "(\004\022\030\n\004type\030\003 \001(\0162\n.OrderType\"\202\001\n\035Digital" +
-      "GoodsListingAttachment\022\017\n\007version\030\001 \001(\r\022" +
-      "\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004ta" +
-      "gs\030\004 \001(\t\022\020\n\010quantity\030\005 \001(\r\022\r\n\005price\030\006 \001(" +
-      "\004\"A\n\037DigitalGoodsDelistingAttachment\022\017\n\007" +
-      "version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\"R\n!DigitalG" +
-      "oodsPriceChangeAttachment\022\017\n\007version\030\001 \001" +
-      "(\r\022\r\n\005goods\030\002 \001(\004\022\r\n\005price\030\003 \001(\004\"]\n$Digi" +
-      "talGoodsQuantityChangeAttachment\022\017\n\007vers" +
-      "ion\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\025\n\rdeltaQuantit" +
-      "y\030\003 \001(\021\"\204\001\n\036DigitalGoodsPurchaseAttachme" +
-      "nt\022\017\n\007version\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\020\n\010qu" +
-      "antity\030\003 \001(\r\022\r\n\005price\030\004 \001(\004\022!\n\031deliveryD" +
-      "eadlineTimestmap\030\005 \001(\r\"\204\001\n\036DigitalGoodsD" +
-      "eliveryAttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010pu" +
-      "rchase\030\002 \001(\004\022\020\n\010discount\030\003 \001(\004\022\035\n\005goods\030" +
-      "\004 \001(\0132\016.EncryptedData\022\016\n\006isText\030\005 \001(\010\"C\n" +
+      "\n\014brsApi.proto\022\007brs.api\032\033google/protobuf" +
+      "/empty.proto\032\031google/protobuf/any.proto\"" +
+      "\272\001\n\035GetAccountTransactionsRequest\022\021\n\tacc" +
+      "ountId\030\001 \001(\004\022\021\n\ttimestamp\030\002 \001(\r\022\'\n\nindex" +
+      "Range\030\003 \001(\0132\023.brs.api.IndexRange\022\025\n\rconf" +
+      "irmations\030\004 \001(\r\022\024\n\014filterByType\030\005 \001(\010\022\014\n" +
+      "\004type\030\006 \001(\r\022\017\n\007subtype\030\007 \001(\r\"\205\001\n\027GetAcco" +
+      "untBlocksRequest\022\021\n\taccountId\030\001 \001(\004\022\021\n\tt" +
+      "imestamp\030\002 \001(\r\022\'\n\nindexRange\030\003 \001(\0132\023.brs" +
+      ".api.IndexRange\022\033\n\023includeTransactions\030\004" +
+      " \001(\010\"\034\n\016GetByIdRequest\022\n\n\002id\030\001 \001(\004\"X\n\035Ge" +
+      "tDgsPendingPurchasesRequest\022\016\n\006seller\030\001 " +
+      "\001(\004\022\'\n\nindexRange\030\002 \001(\0132\023.brs.api.IndexR" +
+      "ange\"s\n\026GetDgsPurchasesRequest\022\016\n\006seller" +
+      "\030\001 \001(\004\022\r\n\005buyer\030\002 \001(\004\022\021\n\tcompleted\030\003 \001(\010" +
+      "\022\'\n\nindexRange\030\004 \001(\0132\023.brs.api.IndexRang" +
+      "e\",\n\rEncryptedData\022\014\n\004data\030\001 \001(\014\022\r\n\005nonc" +
+      "e\030\002 \001(\014\":\n\014DgsPurchases\022*\n\014dgsPurchases\030" +
+      "\001 \003(\0132\024.brs.api.DgsPurchase\"\335\003\n\013DgsPurch" +
+      "ase\022\n\n\002id\030\001 \001(\004\022\014\n\004good\030\002 \001(\004\022\016\n\006seller\030" +
+      "\003 \001(\004\022\r\n\005buyer\030\004 \001(\004\022\r\n\005price\030\005 \001(\004\022\020\n\010q" +
+      "uantity\030\006 \001(\004\022\021\n\ttimestamp\030\007 \001(\r\022!\n\031deli" +
+      "veryDeadlineTimestamp\030\010 \001(\r\022\020\n\010goodName\030" +
+      "\t \001(\t\022\027\n\017goodDescription\030\n \001(\t\022$\n\004note\030\013" +
+      " \001(\0132\026.brs.api.EncryptedData\022\021\n\tisPendin" +
+      "g\030\014 \001(\010\022-\n\rdeliveredData\030\r \001(\0132\026.brs.api" +
+      ".EncryptedData\022\033\n\023deliveredDataIsText\030\016 " +
+      "\001(\010\022(\n\010feedback\030\017 \003(\0132\026.brs.api.Encrypte" +
+      "dData\022\026\n\016publicFeedback\030\020 \003(\t\022*\n\nrefundN" +
+      "ote\030\021 \001(\0132\026.brs.api.EncryptedData\022\020\n\010dis" +
+      "count\030\022 \001(\004\022\016\n\006refund\030\023 \001(\004\"b\n\022GetDgsGoo" +
+      "dsRequest\022\016\n\006seller\030\001 \001(\004\022\023\n\013inStockOnly" +
+      "\030\002 \001(\010\022\'\n\nindexRange\030\003 \001(\0132\023.brs.api.Ind" +
+      "exRange\"+\n\010DgsGoods\022\037\n\005goods\030\001 \003(\0132\020.brs" +
+      ".api.DgsGood\"\236\001\n\007DgsGood\022\n\n\002id\030\001 \001(\004\022\016\n\006" +
+      "seller\030\002 \001(\004\022\r\n\005price\030\003 \001(\004\022\020\n\010quantity\030" +
+      "\004 \001(\004\022\022\n\nisDelisted\030\005 \001(\010\022\021\n\ttimestamp\030\006" +
+      " \001(\r\022\014\n\004name\030\007 \001(\t\022\023\n\013description\030\010 \001(\t\022" +
+      "\014\n\004tags\030\t \001(\t\"c\n\030GetAssetTransfersReques" +
+      "t\022\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002 \001(\004\022\'\n\nind" +
+      "exRange\030\003 \001(\0132\023.brs.api.IndexRange\"2\n\013As" +
+      "setTrades\022#\n\006trades\030\001 \003(\0132\023.brs.api.Asse" +
+      "tTrade\"@\n\016AssetTransfers\022.\n\016assetTransfe" +
+      "rs\030\001 \003(\0132\026.brs.api.AssetTransfer\"\257\001\n\rAss" +
+      "etTransfer\022\n\n\002id\030\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\016\n" +
+      "\006sender\030\003 \001(\004\022\021\n\trecipient\030\004 \001(\004\022\020\n\010quan" +
+      "tity\030\005 \001(\004\022\016\n\006height\030\006 \001(\r\022\021\n\ttimestamp\030" +
+      "\007 \001(\r\022\021\n\tassetName\030\010 \001(\t\022\030\n\020assetDescrip" +
+      "tion\030\t \001(\t\"\321\002\n\nAssetTrade\022\r\n\005asset\030\001 \001(\004" +
+      "\022*\n\ttradeType\030\002 \001(\0162\027.brs.api.AssetTrade" +
+      "Type\022\016\n\006seller\030\003 \001(\004\022\r\n\005buyer\030\004 \001(\004\022\r\n\005p" +
+      "rice\030\005 \001(\004\022\020\n\010quantity\030\006 \001(\004\022\020\n\010askOrder" +
+      "\030\007 \001(\004\022\020\n\010bidOrder\030\010 \001(\004\022\026\n\016askOrderHeig" +
+      "ht\030\t \001(\r\022\026\n\016bidOrderHeight\030\n \001(\r\022\r\n\005bloc" +
+      "k\030\013 \001(\004\022\016\n\006height\030\014 \001(\r\022\021\n\ttimestamp\030\r \001" +
+      "(\r\022\021\n\tassetName\030\016 \001(\t\022\030\n\020assetDescriptio" +
+      "n\030\017 \001(\t\022\025\n\rassetDecimals\030\020 \001(\r\"v\n\020GetOrd" +
+      "ersRequest\022\r\n\005asset\030\001 \001(\004\022*\n\torderType\030\002" +
+      " \001(\0162\027.brs.api.AssetOrderType\022\'\n\nindexRa" +
+      "nge\030\003 \001(\0132\023.brs.api.IndexRange\"N\n\017GetOrd" +
+      "erRequest\022\017\n\007orderId\030\001 \001(\004\022*\n\torderType\030" +
+      "\002 \001(\0162\027.brs.api.AssetOrderType\"k\n\024GetOpe" +
+      "nOrdersRequest\022*\n\torderType\030\001 \001(\0162\027.brs." +
+      "api.AssetOrderType\022\'\n\nindexRange\030\002 \001(\0132\023" +
+      ".brs.api.IndexRange\"a\n\027GetAssetBalancesR" +
+      "equest\022\r\n\005asset\030\001 \001(\004\022\016\n\006height\030\002 \001(\r\022\'\n" +
+      "\nindexRange\030\003 \001(\0132\023.brs.api.IndexRange\"!" +
+      "\n\020GetAssetsRequest\022\r\n\005asset\030\001 \003(\004\"(\n\006Ass" +
+      "ets\022\036\n\006assets\030\001 \003(\0132\016.brs.api.Asset\"\273\001\n\005" +
+      "Asset\022\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002 \001(\004\022\014\n" +
+      "\004name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\020\n\010quan" +
+      "tity\030\005 \001(\004\022\020\n\010decimals\030\006 \001(\r\022\026\n\016numberOf" +
+      "Trades\030\007 \001(\r\022\031\n\021numberOfTransfers\030\010 \001(\r\022" +
+      "\030\n\020numberOfAccounts\030\t \001(\r\":\n\014Transaction" +
+      "s\022*\n\014transactions\030\001 \003(\0132\024.brs.api.Transa" +
+      "ction\"=\n\rSubscriptions\022,\n\rsubscriptions\030" +
+      "\001 \003(\0132\025.brs.api.Subscription\"r\n\014Subscrip" +
+      "tion\022\n\n\002id\030\001 \001(\004\022\016\n\006sender\030\002 \001(\004\022\021\n\treci" +
+      "pient\030\003 \001(\004\022\016\n\006amount\030\004 \001(\004\022\021\n\tfrequency" +
+      "\030\005 \001(\r\022\020\n\010timeNext\030\006 \001(\r\"\334\002\n\006Counts\022\026\n\016n" +
+      "umberOfBlocks\030\001 \001(\r\022\034\n\024numberOfTransacti" +
+      "ons\030\002 \001(\r\022\030\n\020numberOfAccounts\030\003 \001(\r\022\026\n\016n" +
+      "umberOfAssets\030\004 \001(\r\022\026\n\016numberOfOrders\030\005 " +
+      "\001(\r\022\031\n\021numberOfAskOrders\030\006 \001(\r\022\031\n\021number" +
+      "OfBidOrders\030\007 \001(\r\022\026\n\016numberOfTrades\030\010 \001(" +
+      "\r\022\031\n\021numberOfTransfers\030\t \001(\r\022\027\n\017numberOf" +
+      "Aliases\030\n \001(\004\022\025\n\rnumberOfPeers\030\013 \001(\r\022\032\n\022" +
+      "numberOfGenerators\030\014 \001(\r\022\035\n\025totalEffecti" +
+      "veBalance\030\r \001(\004\"\365\002\n\tConstants\022\024\n\014genesis" +
+      "Block\030\001 \001(\004\022\026\n\016genesisAccount\030\002 \001(\004\022\035\n\025m" +
+      "axBlockPayloadLength\030\003 \001(\r\022!\n\031maxArbitra" +
+      "ryMessageLength\030\004 \001(\r\022<\n\020transactionType" +
+      "s\030\005 \003(\0132\".brs.api.Constants.TransactionT" +
+      "ype\032\271\001\n\017TransactionType\022\014\n\004type\030\001 \001(\r\022\023\n" +
+      "\013description\030\002 \001(\t\022G\n\010subtypes\030\003 \003(\01325.b" +
+      "rs.api.Constants.TransactionType.Transac" +
+      "tionSubtype\032:\n\022TransactionSubtype\022\017\n\007sub" +
+      "type\030\001 \001(\r\022\023\n\013description\030\002 \001(\t\"L\n\022Escro" +
+      "wTransactions\0226\n\022escrowTransactions\030\001 \003(" +
+      "\0132\032.brs.api.EscrowTransaction\"\270\001\n\021Escrow" +
+      "Transaction\022\020\n\010escrowId\030\001 \001(\004\022\016\n\006sender\030" +
+      "\002 \001(\004\022\021\n\trecipient\030\003 \001(\004\022\016\n\006amount\030\004 \001(\004" +
+      "\022\027\n\017requiredSigners\030\005 \001(\r\022\020\n\010deadline\030\006 " +
+      "\001(\r\0223\n\016deadlineAction\030\007 \001(\0162\033.brs.api.Es" +
+      "crowDecisionType\"(\n\006Orders\022\036\n\006orders\030\001 \003" +
+      "(\0132\016.brs.api.Order\"\213\001\n\005Order\022\n\n\002id\030\001 \001(\004" +
+      "\022\r\n\005asset\030\002 \001(\004\022\017\n\007account\030\003 \001(\004\022\020\n\010quan" +
+      "tity\030\004 \001(\004\022\r\n\005price\030\005 \001(\004\022\016\n\006height\030\006 \001(" +
+      "\r\022%\n\004type\030\007 \001(\0162\027.brs.api.AssetOrderType" +
+      "\"\216\001\n\027GetAccountOrdersRequest\022\017\n\007account\030" +
+      "\001 \001(\004\022\r\n\005asset\030\002 \001(\004\022\'\n\nindexRange\030\003 \001(\013" +
+      "2\023.brs.api.IndexRange\022*\n\torderType\030\004 \001(\016" +
+      "2\027.brs.api.AssetOrderType\"3\n\nIndexRange\022" +
+      "\022\n\nfirstIndex\030\001 \001(\r\022\021\n\tlastIndex\030\002 \001(\r\"X" +
+      "\n\020GetBlocksRequest\022\'\n\nindexRange\030\001 \001(\0132\023" +
+      ".brs.api.IndexRange\022\033\n\023includeTransactio" +
+      "ns\030\002 \001(\010\"(\n\006Blocks\022\036\n\006blocks\030\001 \003(\0132\016.brs" +
+      ".api.Block\"^\n\021GetAliasesRequest\022\r\n\005owner" +
+      "\030\001 \001(\004\022\021\n\ttimestamp\030\002 \001(\r\022\'\n\nindexRange\030" +
+      "\003 \001(\0132\023.brs.api.IndexRange\"P\n\027Unconfirme" +
+      "dTransactions\0225\n\027unconfirmedTransactions" +
+      "\030\001 \003(\0132\024.brs.api.Transaction\"*\n\007Aliases\022" +
+      "\037\n\007aliases\030\001 \003(\0132\016.brs.api.Alias\"\024\n\005ATId" +
+      "s\022\013\n\003ids\030\001 \003(\004\"\274\002\n\002AT\022\n\n\002id\030\001 \001(\004\022\017\n\007cre" +
+      "ator\030\002 \001(\004\022\017\n\007version\030\003 \001(\r\022\014\n\004name\030\004 \001(" +
+      "\t\022\023\n\013description\030\005 \001(\t\022\023\n\013machineCode\030\006 " +
+      "\001(\014\022\023\n\013machineData\030\007 \001(\014\022\017\n\007balance\030\010 \001(" +
+      "\004\022\027\n\017previousBalance\030\t \001(\004\022\021\n\tnextBlock\030" +
+      "\n \001(\r\022\016\n\006frozen\030\013 \001(\010\022\017\n\007running\030\014 \001(\010\022\017" +
+      "\n\007stopped\030\r \001(\010\022\020\n\010finished\030\016 \001(\010\022\014\n\004dea" +
+      "d\030\017 \001(\010\022\025\n\rminActivation\030\020 \001(\004\022\025\n\rcreati" +
+      "onBlock\030\021 \001(\r\"&\n\nAccountATs\022\030\n\003ats\030\001 \003(\013" +
+      "2\013.brs.api.AT\"\372\002\n\020BasicTransaction\022\027\n\017se" +
+      "nderPublicKey\030\001 \001(\014\022\020\n\010senderId\030\002 \001(\004\022\021\n" +
+      "\trecipient\030\003 \001(\004\022\017\n\007version\030\004 \001(\r\022\014\n\004typ" +
+      "e\030\005 \001(\r\022\017\n\007subtype\030\006 \001(\r\022\016\n\006amount\030\007 \001(\004" +
+      "\022\013\n\003fee\030\010 \001(\004\022\021\n\ttimestamp\030\t \001(\r\022\020\n\010dead" +
+      "line\030\n \001(\r\022(\n\nappendages\030\013 \003(\0132\024.google." +
+      "protobuf.Any\022(\n\nattachment\030\014 \001(\0132\024.googl" +
+      "e.protobuf.Any\022%\n\035referencedTransactionF" +
+      "ullHash\030\r \001(\014\022\021\n\tecBlockId\030\016 \001(\004\022\025\n\recBl" +
+      "ockHeight\030\017 \001(\r\022\021\n\tsignature\030\020 \001(\014\"%\n\016Ge" +
+      "tPeerRequest\022\023\n\013peerAddress\030\001 \001(\t\"D\n\017Get" +
+      "PeersRequest\022\016\n\006active\030\001 \001(\010\022!\n\005state\030\002 " +
+      "\001(\0162\022.brs.api.PeerState\"\355\001\n\004Peer\022!\n\005stat" +
+      "e\030\001 \001(\0162\022.brs.api.PeerState\022\030\n\020announced" +
+      "Address\030\002 \001(\t\022\024\n\014shareAddress\030\003 \001(\010\022\030\n\020d" +
+      "ownloadedVolume\030\004 \001(\004\022\026\n\016uploadedVolume\030" +
+      "\005 \001(\004\022\023\n\013application\030\006 \001(\t\022\017\n\007version\030\007 " +
+      "\001(\t\022\020\n\010platform\030\010 \001(\t\022\023\n\013blacklisted\030\t \001" +
+      "(\010\022\023\n\013lastUpdated\030\n \001(\r\"\036\n\005Peers\022\025\n\rpeer" +
+      "Addresses\030\001 \003(\t\"+\n\017GetAliasRequest\022\n\n\002id" +
+      "\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"\177\n\005Alias\022\n\n\002id\030\001 \001(" +
+      "\004\022\r\n\005owner\030\002 \001(\004\022\014\n\004name\030\003 \001(\t\022\013\n\003uri\030\004 " +
+      "\001(\t\022\021\n\ttimestamp\030\005 \001(\r\022\017\n\007offered\030\006 \001(\010\022" +
+      "\r\n\005price\030\007 \001(\004\022\r\n\005buyer\030\010 \001(\004\"\024\n\004Time\022\014\n" +
+      "\004time\030\001 \001(\r\"\367\002\n\005State\022\023\n\013application\030\001 \001" +
+      "(\t\022\017\n\007version\030\002 \001(\t\022\033\n\004time\030\003 \001(\0132\r.brs." +
+      "api.Time\022\021\n\tlastBlock\030\004 \001(\004\022\022\n\nlastHeigh" +
+      "t\030\005 \001(\r\022\034\n\024cumulativeDifficulty\030\006 \001(\t\022\025\n" +
+      "\rnumberOfPeers\030\007 \001(\r\022\033\n\023numberOfActivePe" +
+      "ers\030\010 \001(\r\022\027\n\017numberOfForgers\030\t \001(\r\022\034\n\024la" +
+      "stBlockchainFeeder\030\n \001(\t\022\"\n\032lastBlockcha" +
+      "inFeederHeight\030\013 \001(\r\022\033\n\023availableProcess" +
+      "ors\030\014 \001(\r\022\021\n\tmaxMemory\030\r \001(\004\022\023\n\013totalMem" +
+      "ory\030\016 \001(\004\022\022\n\nfreeMemory\030\017 \001(\004\"B\n\rFeeSugg" +
+      "estion\022\r\n\005cheap\030\001 \001(\004\022\020\n\010standard\030\002 \001(\004\022" +
+      "\020\n\010priority\030\003 \001(\004\"9\n\032TransactionBroadcas" +
+      "tResult\022\033\n\023numberOfPeersSentTo\030\001 \001(\r\"b\n\017" +
+      "GetBlockRequest\022\017\n\007blockId\030\001 \001(\004\022\016\n\006heig" +
+      "ht\030\002 \001(\r\022\021\n\ttimestamp\030\003 \001(\r\022\033\n\023includeTr" +
+      "ansactions\030\004 \001(\010\"&\n\021GetAccountRequest\022\021\n" +
+      "\taccountId\030\001 \001(\004\"T\n\022GetAccountsRequest\022\027" +
+      "\n\017rewardRecipient\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\027\n" +
+      "\017includeAccounts\030\003 \001(\010\"@\n\025GetTransaction" +
+      "Request\022\025\n\rtransactionId\030\001 \001(\004\022\020\n\010fullHa" +
+      "sh\030\002 \001(\014\"_\n\022SubmitNonceRequest\022\024\n\014secret" +
+      "Phrase\030\001 \001(\t\022\r\n\005nonce\030\002 \001(\004\022\017\n\007account\030\003" +
+      " \001(\004\022\023\n\013blockHeight\030\004 \001(\r\"\'\n\023SubmitNonce" +
+      "Response\022\020\n\010deadline\030\001 \001(\004\"\304\003\n\005Block\022\n\n\002" +
+      "id\030\001 \001(\004\022\016\n\006height\030\002 \001(\r\022\034\n\024numberOfTran" +
+      "sactions\030\003 \001(\r\022\023\n\013totalAmount\030\004 \001(\004\022\020\n\010t" +
+      "otalFee\030\005 \001(\004\022\023\n\013blockReward\030\006 \001(\004\022\025\n\rpa" +
+      "yloadLength\030\007 \001(\r\022\017\n\007version\030\010 \001(\005\022\022\n\nba" +
+      "seTarget\030\t \001(\004\022\021\n\ttimestamp\030\n \001(\r\022\033\n\023gen" +
+      "erationSignature\030\013 \001(\014\022\026\n\016blockSignature" +
+      "\030\014 \001(\014\022\023\n\013payloadHash\030\r \001(\014\022*\n\014transacti" +
+      "ons\030\016 \003(\0132\024.brs.api.Transaction\022\026\n\016trans" +
+      "actionIds\030\017 \003(\004\022\032\n\022generatorPublicKey\030\020 " +
+      "\001(\014\022\r\n\005nonce\030\021 \001(\004\022\r\n\005scoop\030\022 \001(\r\022\031\n\021pre" +
+      "viousBlockHash\030\023 \001(\014\022\023\n\013nextBlockId\030\024 \001(" +
+      "\004\"\333\001\n\013Transaction\022.\n\013transaction\030\001 \001(\0132\031" +
+      ".brs.api.BasicTransaction\022\n\n\002id\030\002 \001(\004\022\030\n" +
+      "\020transactionBytes\030\003 \001(\014\022\r\n\005block\030\004 \001(\004\022\023" +
+      "\n\013blockHeight\030\005 \001(\r\022\026\n\016blockTimestamp\030\006 " +
+      "\001(\r\022\021\n\tsignature\030\007 \001(\014\022\020\n\010fullHash\030\010 \001(\014" +
+      "\022\025\n\rconfirmations\030\t \001(\021\"C\n\017MessageAppend" +
+      "ix\022\017\n\007version\030\001 \001(\r\022\017\n\007message\030\002 \001(\014\022\016\n\006" +
+      "isText\030\003 \001(\010\"\327\001\n\030EncryptedMessageAppendi" +
+      "x\022\017\n\007version\030\001 \001(\r\022-\n\rencryptedData\030\002 \001(" +
+      "\0132\026.brs.api.EncryptedData\022\016\n\006isText\030\003 \001(" +
+      "\010\0224\n\004type\030\004 \001(\0162&.brs.api.EncryptedMessa" +
+      "geAppendix.Type\"5\n\004Type\022\016\n\nType_UNSET\020\000\022" +
+      "\020\n\014TO_RECIPIENT\020\001\022\013\n\007TO_SELF\020\002\"L\n\035Public" +
+      "KeyAnnouncementAppendix\022\017\n\007version\030\001 \001(\r" +
+      "\022\032\n\022recipientPublicKey\030\002 \001(\014\"\240\001\n\022MultiOu" +
+      "tAttachment\022\017\n\007version\030\001 \001(\r\022A\n\nrecipien" +
+      "ts\030\002 \003(\0132-.brs.api.MultiOutAttachment.Mu" +
+      "ltiOutRecipient\0326\n\021MultiOutRecipient\022\021\n\t" +
+      "recipient\030\001 \001(\004\022\016\n\006amount\030\002 \001(\004\"=\n\026Multi" +
+      "OutSameAttachment\022\017\n\007version\030\001 \001(\r\022\022\n\nre" +
+      "cipients\030\002 \003(\004\"G\n\031AliasAssignmentAttachm" +
+      "ent\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\013\n\003ur" +
+      "i\030\003 \001(\t\"C\n\023AliasSellAttachment\022\017\n\007versio" +
+      "n\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\r\n\005price\030\003 \001(\004\"3\n\022" +
+      "AliasBuyAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004n" +
+      "ame\030\002 \001(\t\"K\n\025AccountInfoAttachment\022\017\n\007ve" +
+      "rsion\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description" +
+      "\030\003 \001(\t\"q\n\027AssetIssuanceAttachment\022\017\n\007ver" +
+      "sion\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030" +
+      "\003 \001(\t\022\020\n\010quantity\030\004 \001(\004\022\020\n\010decimals\030\005 \001(" +
+      "\r\"\\\n\027AssetTransferAttachment\022\017\n\007version\030" +
+      "\001 \001(\r\022\r\n\005asset\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\022\017" +
+      "\n\007comment\030\004 \001(\t\"\207\001\n\035AssetOrderPlacementA" +
+      "ttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005asset\030\002 \001(" +
+      "\004\022\020\n\010quantity\030\003 \001(\004\022\r\n\005price\030\004 \001(\004\022%\n\004ty" +
+      "pe\030\005 \001(\0162\027.brs.api.AssetOrderType\"i\n Ass" +
+      "etOrderCancellationAttachment\022\017\n\007version" +
+      "\030\001 \001(\r\022\r\n\005order\030\002 \001(\004\022%\n\004type\030\003 \001(\0162\027.br" +
+      "s.api.AssetOrderType\"\202\001\n\035DigitalGoodsLis" +
+      "tingAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030" +
+      "\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004tags\030\004 \001(\t" +
+      "\022\020\n\010quantity\030\005 \001(\r\022\r\n\005price\030\006 \001(\004\"A\n\037Dig" +
+      "italGoodsDelistingAttachment\022\017\n\007version\030" +
+      "\001 \001(\r\022\r\n\005goods\030\002 \001(\004\"R\n!DigitalGoodsPric" +
+      "eChangeAttachment\022\017\n\007version\030\001 \001(\r\022\r\n\005go" +
+      "ods\030\002 \001(\004\022\r\n\005price\030\003 \001(\004\"]\n$DigitalGoods" +
+      "QuantityChangeAttachment\022\017\n\007version\030\001 \001(" +
+      "\r\022\r\n\005goods\030\002 \001(\004\022\025\n\rdeltaQuantity\030\003 \001(\021\"" +
+      "\204\001\n\036DigitalGoodsPurchaseAttachment\022\017\n\007ve" +
+      "rsion\030\001 \001(\r\022\r\n\005goods\030\002 \001(\004\022\020\n\010quantity\030\003" +
+      " \001(\r\022\r\n\005price\030\004 \001(\004\022!\n\031deliveryDeadlineT" +
+      "imestmap\030\005 \001(\r\"\214\001\n\036DigitalGoodsDeliveryA" +
+      "ttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010purchase\030\002" +
+      " \001(\004\022\020\n\010discount\030\003 \001(\004\022%\n\005goods\030\004 \001(\0132\026." +
+      "brs.api.EncryptedData\022\016\n\006isText\030\005 \001(\010\"C\n" +
       "\036DigitalGoodsFeedbackAttachment\022\017\n\007versi" +
       "on\030\001 \001(\r\022\020\n\010purchase\030\002 \001(\004\"Q\n\034DigitalGoo" +
       "dsRefundAttachment\022\017\n\007version\030\001 \001(\r\022\020\n\010p" +
       "urchase\030\002 \001(\004\022\016\n\006refund\030\003 \001(\004\"6\n#RewardR" +
       "ecipientAssignmentAttachment\022\017\n\007version\030" +
-      "\001 \001(\r\"\244\001\n\030EscrowCreationAttachment\022\017\n\007ve" +
+      "\001 \001(\r\"\254\001\n\030EscrowCreationAttachment\022\017\n\007ve" +
       "rsion\030\001 \001(\r\022\016\n\006amount\030\002 \001(\004\022\027\n\017requiredS" +
       "igners\030\003 \001(\r\022\017\n\007signers\030\004 \003(\004\022\020\n\010deadlin" +
-      "e\030\005 \001(\r\022+\n\016deadlineAction\030\006 \001(\0162\023.Escrow" +
-      "DecisionType\"^\n\024EscrowSignAttachment\022\017\n\007" +
-      "version\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022%\n\010decisio" +
-      "n\030\003 \001(\0162\023.EscrowDecisionType\"`\n\026EscrowRe" +
-      "sultAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006escro" +
-      "w\030\002 \001(\004\022%\n\010decision\030\003 \001(\0162\023.EscrowDecisi" +
-      "onType\"E\n\037SubscriptionSubscribeAttachmen" +
-      "t\022\017\n\007version\030\001 \001(\r\022\021\n\tfrequency\030\002 \001(\r\"E\n" +
-      "\034SubscriptionCancelAttachment\022\017\n\007version" +
-      "\030\001 \001(\r\022\024\n\014subscription\030\002 \001(\004\"F\n\035Subscrip" +
-      "tionPaymentAttachment\022\017\n\007version\030\001 \001(\r\022\024" +
-      "\n\014subscription\030\002 \001(\004\"a\n\024ATCreationAttach" +
-      "ment\022\017\n\007version\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013d" +
-      "escription\030\003 \001(\t\022\025\n\rcreationBytes\030\004 \001(\014\"" +
-      "3\n\010Accounts\022\013\n\003ids\030\001 \003(\004\022\032\n\010accounts\030\002 \003" +
-      "(\0132\010.Account\"\316\001\n\007Account\022\n\n\002id\030\001 \001(\004\022\021\n\t" +
-      "publicKey\030\002 \001(\014\022\017\n\007balance\030\003 \001(\004\022\032\n\022unco" +
-      "nfirmedBalance\030\004 \001(\004\022\025\n\rforgedBalance\030\005 " +
-      "\001(\004\022\014\n\004name\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\022\027" +
-      "\n\017rewardRecipient\030\010 \001(\004\022$\n\rassetBalances" +
-      "\030\t \003(\0132\r.AssetBalance\"5\n\rAssetBalances\022$" +
-      "\n\rassetBalances\030\001 \003(\0132\r.AssetBalance\"[\n\014" +
-      "AssetBalance\022\r\n\005asset\030\001 \001(\004\022\017\n\007account\030\002" +
-      " \001(\004\022\017\n\007balance\030\003 \001(\004\022\032\n\022unconfirmedBala" +
-      "nce\030\004 \001(\004\"M\n\nMiningInfo\022\016\n\006height\030\001 \001(\r\022" +
-      "\033\n\023generationSignature\030\002 \001(\014\022\022\n\nbaseTarg" +
-      "et\030\003 \001(\004\",\n\020TransactionBytes\022\030\n\020transact" +
-      "ionBytes\030\001 \001(\014\"\033\n\031OrdinaryPaymentAttachm" +
-      "ent\"\034\n\032ArbitraryMessageAttachment\"\025\n\023ATP" +
-      "aymentAttachment\"D\n!EffectiveBalanceLeas" +
-      "ingAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006period" +
-      "\030\002 \001(\r*=\n\016AssetTradeType\022\030\n\024AssetTradeTy" +
-      "pe_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004SELL\020\002*T\n\tPeerSta" +
-      "te\022\023\n\017PeerState_UNSET\020\000\022\021\n\rNON_CONNECTED" +
-      "\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DISCONNECTED\020\003*2\n\tO" +
-      "rderType\022\023\n\017OrderType_UNSET\020\000\022\007\n\003ASK\020\001\022\007" +
-      "\n\003BID\020\002*e\n\022EscrowDecisionType\022\034\n\030EscrowD" +
-      "ecisionType_UNSET\020\000\022\r\n\tUNDECIDED\020\001\022\013\n\007RE" +
-      "LEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005SPLIT\020\0042\363\023\n\rBrsAp" +
-      "iService\022H\n\024BroadcastTransaction\022\021.Basic" +
-      "Transaction\032\033.TransactionBroadcastResult" +
-      "\"\000\022M\n\031BroadcastTransactionBytes\022\021.Transa" +
-      "ctionBytes\032\033.TransactionBroadcastResult\"" +
-      "\000\022B\n\030CompleteBasicTransaction\022\021.BasicTra" +
-      "nsaction\032\021.BasicTransaction\"\000\022,\n\nGetAcco" +
-      "unt\022\022.GetAccountRequest\032\010.Account\"\000\0222\n\rG" +
-      "etAccountATs\022\022.GetAccountRequest\032\013.Accou" +
-      "ntATs\"\000\0227\n\020GetAccountBlocks\022\030.GetAccount" +
-      "BlocksRequest\032\007.Blocks\"\000\022>\n\027GetAccountCu" +
-      "rrentOrders\022\030.GetAccountOrdersRequest\032\007." +
-      "Orders\"\000\022I\n\034GetAccountEscrowTransactions" +
-      "\022\022.GetAccountRequest\032\023.EscrowTransaction" +
-      "s\"\000\022/\n\013GetAccounts\022\023.GetAccountsRequest\032" +
-      "\t.Accounts\"\000\022?\n\027GetAccountSubscriptions\022" +
-      "\022.GetAccountRequest\032\016.Subscriptions\"\000\022I\n" +
-      "\026GetAccountTransactions\022\036.GetAccountTran" +
-      "sactionsRequest\032\r.Transactions\"\000\022&\n\010GetA" +
-      "lias\022\020.GetAliasRequest\032\006.Alias\"\000\022,\n\nGetA" +
-      "liases\022\022.GetAliasesRequest\032\010.Aliases\"\000\022%" +
-      "\n\010GetAsset\022\017.GetByIdRequest\032\006.Asset\"\000\022>\n" +
-      "\020GetAssetBalances\022\030.GetAssetBalancesRequ" +
-      "est\032\016.AssetBalances\"\000\022)\n\tGetAssets\022\021.Get" +
-      "AssetsRequest\032\007.Assets\"\000\0222\n\021GetAssetsByI" +
-      "ssuer\022\022.GetAccountRequest\032\007.Assets\"\000\022;\n\016" +
-      "GetAssetTrades\022\031.GetAssetTransfersReques" +
-      "t\032\014.AssetTrades\"\000\022A\n\021GetAssetTransfers\022\031" +
-      ".GetAssetTransfersRequest\032\017.AssetTransfe" +
-      "rs\"\000\022\037\n\005GetAT\022\017.GetByIdRequest\032\003.AT\"\000\022,\n" +
-      "\010GetATIds\022\026.google.protobuf.Empty\032\006.ATId" +
-      "s\"\000\022&\n\010GetBlock\022\020.GetBlockRequest\032\006.Bloc" +
-      "k\"\000\022)\n\tGetBlocks\022\021.GetBlocksRequest\032\007.Bl" +
-      "ocks\"\000\0224\n\014GetConstants\022\026.google.protobuf" +
-      ".Empty\032\n.Constants\"\000\022.\n\tGetCounts\022\026.goog" +
-      "le.protobuf.Empty\032\007.Counts\"\000\0221\n\016GetCurre" +
-      "ntTime\022\026.google.protobuf.Empty\032\005.Time\"\000\022" +
-      ")\n\nGetDgsGood\022\017.GetByIdRequest\032\010.DgsGood" +
-      "\"\000\022/\n\013GetDgsGoods\022\023.GetDgsGoodsRequest\032\t" +
-      ".DgsGoods\"\000\022I\n\026GetDgsPendingPurchases\022\036." +
-      "GetDgsPendingPurchasesRequest\032\r.DgsPurch" +
-      "ases\"\000\0221\n\016GetDgsPurchase\022\017.GetByIdReques" +
-      "t\032\014.DgsPurchase\"\000\022;\n\017GetDgsPurchases\022\027.G" +
-      "etDgsPurchasesRequest\032\r.DgsPurchases\"\000\022=" +
-      "\n\024GetEscrowTransaction\022\017.GetByIdRequest\032" +
-      "\022.EscrowTransaction\"\000\0228\n\rGetMiningInfo\022\026" +
-      ".google.protobuf.Empty\032\013.MiningInfo\"\0000\001\022" +
-      "&\n\010GetOrder\022\020.GetOrderRequest\032\006.Order\"\000\022" +
-      ")\n\tGetOrders\022\021.GetOrdersRequest\032\007.Orders" +
-      "\"\000\022#\n\007GetPeer\022\017.GetPeerRequest\032\005.Peer\"\000\022" +
-      "&\n\010GetPeers\022\020.GetPeersRequest\032\006.Peers\"\000\022" +
-      ",\n\010GetState\022\026.google.protobuf.Empty\032\006.St" +
-      "ate\"\000\0223\n\017GetSubscription\022\017.GetByIdReques" +
-      "t\032\r.Subscription\"\000\022A\n\031GetSubscriptionsTo" +
-      "Account\022\022.GetAccountRequest\032\016.Subscripti" +
-      "ons\"\000\0228\n\016GetTransaction\022\026.GetTransaction" +
-      "Request\032\014.Transaction\"\000\022=\n\023GetTransactio" +
-      "nBytes\022\021.BasicTransaction\032\021.TransactionB" +
-      "ytes\"\000\022L\n\032GetUnconfirmedTransactions\022\022.G" +
-      "etAccountRequest\032\030.UnconfirmedTransactio" +
-      "ns\"\000\022:\n\020ParseTransaction\022\021.TransactionBy" +
-      "tes\032\021.BasicTransaction\"\000\022:\n\013SubmitNonce\022" +
-      "\023.SubmitNonceRequest\032\024.SubmitNonceRespon" +
-      "se\"\000\0226\n\nSuggestFee\022\026.google.protobuf.Emp" +
-      "ty\032\016.FeeSuggestion\"\000B\035\n\033burst.kit.servic" +
-      "e.impl.grpcb\006proto3"
+      "e\030\005 \001(\r\0223\n\016deadlineAction\030\006 \001(\0162\033.brs.ap" +
+      "i.EscrowDecisionType\"f\n\024EscrowSignAttach" +
+      "ment\022\017\n\007version\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022-\n" +
+      "\010decision\030\003 \001(\0162\033.brs.api.EscrowDecision" +
+      "Type\"h\n\026EscrowResultAttachment\022\017\n\007versio" +
+      "n\030\001 \001(\r\022\016\n\006escrow\030\002 \001(\004\022-\n\010decision\030\003 \001(" +
+      "\0162\033.brs.api.EscrowDecisionType\"E\n\037Subscr" +
+      "iptionSubscribeAttachment\022\017\n\007version\030\001 \001" +
+      "(\r\022\021\n\tfrequency\030\002 \001(\r\"E\n\034SubscriptionCan" +
+      "celAttachment\022\017\n\007version\030\001 \001(\r\022\024\n\014subscr" +
+      "iption\030\002 \001(\004\"F\n\035SubscriptionPaymentAttac" +
+      "hment\022\017\n\007version\030\001 \001(\r\022\024\n\014subscription\030\002" +
+      " \001(\004\"a\n\024ATCreationAttachment\022\017\n\007version\030" +
+      "\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t" +
+      "\022\025\n\rcreationBytes\030\004 \001(\014\";\n\010Accounts\022\013\n\003i" +
+      "ds\030\001 \003(\004\022\"\n\010accounts\030\002 \003(\0132\020.brs.api.Acc" +
+      "ount\"\326\001\n\007Account\022\n\n\002id\030\001 \001(\004\022\021\n\tpublicKe" +
+      "y\030\002 \001(\014\022\017\n\007balance\030\003 \001(\004\022\032\n\022unconfirmedB" +
+      "alance\030\004 \001(\004\022\025\n\rforgedBalance\030\005 \001(\004\022\014\n\004n" +
+      "ame\030\006 \001(\t\022\023\n\013description\030\007 \001(\t\022\027\n\017reward" +
+      "Recipient\030\010 \001(\004\022,\n\rassetBalances\030\t \003(\0132\025" +
+      ".brs.api.AssetBalance\"=\n\rAssetBalances\022," +
+      "\n\rassetBalances\030\001 \003(\0132\025.brs.api.AssetBal" +
+      "ance\"[\n\014AssetBalance\022\r\n\005asset\030\001 \001(\004\022\017\n\007a" +
+      "ccount\030\002 \001(\004\022\017\n\007balance\030\003 \001(\004\022\032\n\022unconfi" +
+      "rmedBalance\030\004 \001(\004\"M\n\nMiningInfo\022\016\n\006heigh" +
+      "t\030\001 \001(\r\022\033\n\023generationSignature\030\002 \001(\014\022\022\n\n" +
+      "baseTarget\030\003 \001(\004\",\n\020TransactionBytes\022\030\n\020" +
+      "transactionBytes\030\001 \001(\014\"\033\n\031OrdinaryPaymen" +
+      "tAttachment\"\034\n\032ArbitraryMessageAttachmen" +
+      "t\"\025\n\023ATPaymentAttachment\"D\n!EffectiveBal" +
+      "anceLeasingAttachment\022\017\n\007version\030\001 \001(\r\022\016" +
+      "\n\006period\030\002 \001(\r*=\n\016AssetTradeType\022\030\n\024Asse" +
+      "tTradeType_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004SELL\020\002*T\n" +
+      "\tPeerState\022\023\n\017PeerState_UNSET\020\000\022\021\n\rNON_C" +
+      "ONNECTED\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DISCONNECTE" +
+      "D\020\003*7\n\016AssetOrderType\022\023\n\017OrderType_UNSET" +
+      "\020\000\022\007\n\003ASK\020\001\022\007\n\003BID\020\002*e\n\022EscrowDecisionTy" +
+      "pe\022\034\n\030EscrowDecisionType_UNSET\020\000\022\r\n\tUNDE" +
+      "CIDED\020\001\022\013\n\007RELEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005SPLI" +
+      "T\020\0042\277\030\n\rBrsApiService\022V\n\024BroadcastTransa" +
+      "ction\022\031.brs.api.BasicTransaction\032#.brs.a" +
+      "pi.TransactionBroadcastResult\022[\n\031Broadca" +
+      "stTransactionBytes\022\031.brs.api.Transaction" +
+      "Bytes\032#.brs.api.TransactionBroadcastResu" +
+      "lt\022P\n\030CompleteBasicTransaction\022\031.brs.api" +
+      ".BasicTransaction\032\031.brs.api.BasicTransac" +
+      "tion\022:\n\nGetAccount\022\032.brs.api.GetAccountR" +
+      "equest\032\020.brs.api.Account\022@\n\rGetAccountAT" +
+      "s\022\032.brs.api.GetAccountRequest\032\023.brs.api." +
+      "AccountATs\022E\n\020GetAccountBlocks\022 .brs.api" +
+      ".GetAccountBlocksRequest\032\017.brs.api.Block" +
+      "s\022L\n\027GetAccountCurrentOrders\022 .brs.api.G" +
+      "etAccountOrdersRequest\032\017.brs.api.Orders\022" +
+      "W\n\034GetAccountEscrowTransactions\022\032.brs.ap" +
+      "i.GetAccountRequest\032\033.brs.api.EscrowTran" +
+      "sactions\022=\n\013GetAccounts\022\033.brs.api.GetAcc" +
+      "ountsRequest\032\021.brs.api.Accounts\022M\n\027GetAc" +
+      "countSubscriptions\022\032.brs.api.GetAccountR" +
+      "equest\032\026.brs.api.Subscriptions\022W\n\026GetAcc" +
+      "ountTransactions\022&.brs.api.GetAccountTra" +
+      "nsactionsRequest\032\025.brs.api.Transactions\022" +
+      "4\n\010GetAlias\022\030.brs.api.GetAliasRequest\032\016." +
+      "brs.api.Alias\022:\n\nGetAliases\022\032.brs.api.Ge" +
+      "tAliasesRequest\032\020.brs.api.Aliases\0223\n\010Get" +
+      "Asset\022\027.brs.api.GetByIdRequest\032\016.brs.api" +
+      ".Asset\022L\n\020GetAssetBalances\022 .brs.api.Get" +
+      "AssetBalancesRequest\032\026.brs.api.AssetBala" +
+      "nces\0227\n\tGetAssets\022\031.brs.api.GetAssetsReq" +
+      "uest\032\017.brs.api.Assets\022@\n\021GetAssetsByIssu" +
+      "er\022\032.brs.api.GetAccountRequest\032\017.brs.api" +
+      ".Assets\022I\n\016GetAssetTrades\022!.brs.api.GetA" +
+      "ssetTransfersRequest\032\024.brs.api.AssetTrad" +
+      "es\022O\n\021GetAssetTransfers\022!.brs.api.GetAss" +
+      "etTransfersRequest\032\027.brs.api.AssetTransf" +
+      "ers\022-\n\005GetAT\022\027.brs.api.GetByIdRequest\032\013." +
+      "brs.api.AT\0222\n\010GetATIds\022\026.google.protobuf" +
+      ".Empty\032\016.brs.api.ATIds\0224\n\010GetBlock\022\030.brs" +
+      ".api.GetBlockRequest\032\016.brs.api.Block\0227\n\t" +
+      "GetBlocks\022\031.brs.api.GetBlocksRequest\032\017.b" +
+      "rs.api.Blocks\022:\n\014GetConstants\022\026.google.p" +
+      "rotobuf.Empty\032\022.brs.api.Constants\0224\n\tGet" +
+      "Counts\022\026.google.protobuf.Empty\032\017.brs.api" +
+      ".Counts\0227\n\016GetCurrentTime\022\026.google.proto" +
+      "buf.Empty\032\r.brs.api.Time\0227\n\nGetDgsGood\022\027" +
+      ".brs.api.GetByIdRequest\032\020.brs.api.DgsGoo" +
+      "d\022=\n\013GetDgsGoods\022\033.brs.api.GetDgsGoodsRe" +
+      "quest\032\021.brs.api.DgsGoods\022W\n\026GetDgsPendin" +
+      "gPurchases\022&.brs.api.GetDgsPendingPurcha" +
+      "sesRequest\032\025.brs.api.DgsPurchases\022?\n\016Get" +
+      "DgsPurchase\022\027.brs.api.GetByIdRequest\032\024.b" +
+      "rs.api.DgsPurchase\022I\n\017GetDgsPurchases\022\037." +
+      "brs.api.GetDgsPurchasesRequest\032\025.brs.api" +
+      ".DgsPurchases\022K\n\024GetEscrowTransaction\022\027." +
+      "brs.api.GetByIdRequest\032\032.brs.api.EscrowT" +
+      "ransaction\022>\n\rGetMiningInfo\022\026.google.pro" +
+      "tobuf.Empty\032\023.brs.api.MiningInfo0\001\0224\n\010Ge" +
+      "tOrder\022\030.brs.api.GetOrderRequest\032\016.brs.a" +
+      "pi.Order\0227\n\tGetOrders\022\031.brs.api.GetOrder" +
+      "sRequest\032\017.brs.api.Orders\0221\n\007GetPeer\022\027.b" +
+      "rs.api.GetPeerRequest\032\r.brs.api.Peer\0224\n\010" +
+      "GetPeers\022\030.brs.api.GetPeersRequest\032\016.brs" +
+      ".api.Peers\0222\n\010GetState\022\026.google.protobuf" +
+      ".Empty\032\016.brs.api.State\022A\n\017GetSubscriptio" +
+      "n\022\027.brs.api.GetByIdRequest\032\025.brs.api.Sub" +
+      "scription\022O\n\031GetSubscriptionsToAccount\022\032" +
+      ".brs.api.GetAccountRequest\032\026.brs.api.Sub" +
+      "scriptions\022F\n\016GetTransaction\022\036.brs.api.G" +
+      "etTransactionRequest\032\024.brs.api.Transacti" +
+      "on\022K\n\023GetTransactionBytes\022\031.brs.api.Basi" +
+      "cTransaction\032\031.brs.api.TransactionBytes\022" +
+      "Z\n\032GetUnconfirmedTransactions\022\032.brs.api." +
+      "GetAccountRequest\032 .brs.api.UnconfirmedT" +
+      "ransactions\022H\n\020ParseTransaction\022\031.brs.ap" +
+      "i.TransactionBytes\032\031.brs.api.BasicTransa" +
+      "ction\022H\n\013SubmitNonce\022\033.brs.api.SubmitNon" +
+      "ceRequest\032\034.brs.api.SubmitNonceResponse\022" +
+      "<\n\nSuggestFee\022\026.google.protobuf.Empty\032\026." +
+      "brs.api.FeeSuggestionB\035\n\033burst.kit.servi" +
+      "ce.impl.grpcb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -87279,623 +87306,623 @@ public final class BrsApi {
           com.google.protobuf.EmptyProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
         });
-    internal_static_GetAccountTransactionsRequest_descriptor =
+    internal_static_brs_api_GetAccountTransactionsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_GetAccountTransactionsRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAccountTransactionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAccountTransactionsRequest_descriptor,
+        internal_static_brs_api_GetAccountTransactionsRequest_descriptor,
         new java.lang.String[] { "AccountId", "Timestamp", "IndexRange", "Confirmations", "FilterByType", "Type", "Subtype", });
-    internal_static_GetAccountBlocksRequest_descriptor =
+    internal_static_brs_api_GetAccountBlocksRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_GetAccountBlocksRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAccountBlocksRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAccountBlocksRequest_descriptor,
+        internal_static_brs_api_GetAccountBlocksRequest_descriptor,
         new java.lang.String[] { "AccountId", "Timestamp", "IndexRange", "IncludeTransactions", });
-    internal_static_GetByIdRequest_descriptor =
+    internal_static_brs_api_GetByIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_GetByIdRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetByIdRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetByIdRequest_descriptor,
+        internal_static_brs_api_GetByIdRequest_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_GetDgsPendingPurchasesRequest_descriptor =
+    internal_static_brs_api_GetDgsPendingPurchasesRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_GetDgsPendingPurchasesRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetDgsPendingPurchasesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetDgsPendingPurchasesRequest_descriptor,
+        internal_static_brs_api_GetDgsPendingPurchasesRequest_descriptor,
         new java.lang.String[] { "Seller", "IndexRange", });
-    internal_static_GetDgsPurchasesRequest_descriptor =
+    internal_static_brs_api_GetDgsPurchasesRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_GetDgsPurchasesRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetDgsPurchasesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetDgsPurchasesRequest_descriptor,
+        internal_static_brs_api_GetDgsPurchasesRequest_descriptor,
         new java.lang.String[] { "Seller", "Buyer", "Completed", "IndexRange", });
-    internal_static_EncryptedData_descriptor =
+    internal_static_brs_api_EncryptedData_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_EncryptedData_fieldAccessorTable = new
+    internal_static_brs_api_EncryptedData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EncryptedData_descriptor,
+        internal_static_brs_api_EncryptedData_descriptor,
         new java.lang.String[] { "Data", "Nonce", });
-    internal_static_DgsPurchases_descriptor =
+    internal_static_brs_api_DgsPurchases_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_DgsPurchases_fieldAccessorTable = new
+    internal_static_brs_api_DgsPurchases_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DgsPurchases_descriptor,
+        internal_static_brs_api_DgsPurchases_descriptor,
         new java.lang.String[] { "DgsPurchases", });
-    internal_static_DgsPurchase_descriptor =
+    internal_static_brs_api_DgsPurchase_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_DgsPurchase_fieldAccessorTable = new
+    internal_static_brs_api_DgsPurchase_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DgsPurchase_descriptor,
+        internal_static_brs_api_DgsPurchase_descriptor,
         new java.lang.String[] { "Id", "Good", "Seller", "Buyer", "Price", "Quantity", "Timestamp", "DeliveryDeadlineTimestamp", "GoodName", "GoodDescription", "Note", "IsPending", "DeliveredData", "DeliveredDataIsText", "Feedback", "PublicFeedback", "RefundNote", "Discount", "Refund", });
-    internal_static_GetDgsGoodsRequest_descriptor =
+    internal_static_brs_api_GetDgsGoodsRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_GetDgsGoodsRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetDgsGoodsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetDgsGoodsRequest_descriptor,
+        internal_static_brs_api_GetDgsGoodsRequest_descriptor,
         new java.lang.String[] { "Seller", "InStockOnly", "IndexRange", });
-    internal_static_DgsGoods_descriptor =
+    internal_static_brs_api_DgsGoods_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_DgsGoods_fieldAccessorTable = new
+    internal_static_brs_api_DgsGoods_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DgsGoods_descriptor,
+        internal_static_brs_api_DgsGoods_descriptor,
         new java.lang.String[] { "Goods", });
-    internal_static_DgsGood_descriptor =
+    internal_static_brs_api_DgsGood_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_DgsGood_fieldAccessorTable = new
+    internal_static_brs_api_DgsGood_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DgsGood_descriptor,
+        internal_static_brs_api_DgsGood_descriptor,
         new java.lang.String[] { "Id", "Seller", "Price", "Quantity", "IsDelisted", "Timestamp", "Name", "Description", "Tags", });
-    internal_static_GetAssetTransfersRequest_descriptor =
+    internal_static_brs_api_GetAssetTransfersRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_GetAssetTransfersRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAssetTransfersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAssetTransfersRequest_descriptor,
+        internal_static_brs_api_GetAssetTransfersRequest_descriptor,
         new java.lang.String[] { "Asset", "Account", "IndexRange", });
-    internal_static_AssetTrades_descriptor =
+    internal_static_brs_api_AssetTrades_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_AssetTrades_fieldAccessorTable = new
+    internal_static_brs_api_AssetTrades_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetTrades_descriptor,
+        internal_static_brs_api_AssetTrades_descriptor,
         new java.lang.String[] { "Trades", });
-    internal_static_AssetTransfers_descriptor =
+    internal_static_brs_api_AssetTransfers_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_AssetTransfers_fieldAccessorTable = new
+    internal_static_brs_api_AssetTransfers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetTransfers_descriptor,
+        internal_static_brs_api_AssetTransfers_descriptor,
         new java.lang.String[] { "AssetTransfers", });
-    internal_static_AssetTransfer_descriptor =
+    internal_static_brs_api_AssetTransfer_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_AssetTransfer_fieldAccessorTable = new
+    internal_static_brs_api_AssetTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetTransfer_descriptor,
+        internal_static_brs_api_AssetTransfer_descriptor,
         new java.lang.String[] { "Id", "Asset", "Sender", "Recipient", "Quantity", "Height", "Timestamp", "AssetName", "AssetDescription", });
-    internal_static_AssetTrade_descriptor =
+    internal_static_brs_api_AssetTrade_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_AssetTrade_fieldAccessorTable = new
+    internal_static_brs_api_AssetTrade_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetTrade_descriptor,
+        internal_static_brs_api_AssetTrade_descriptor,
         new java.lang.String[] { "Asset", "TradeType", "Seller", "Buyer", "Price", "Quantity", "AskOrder", "BidOrder", "AskOrderHeight", "BidOrderHeight", "Block", "Height", "Timestamp", "AssetName", "AssetDescription", "AssetDecimals", });
-    internal_static_GetOrdersRequest_descriptor =
+    internal_static_brs_api_GetOrdersRequest_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_GetOrdersRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetOrdersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetOrdersRequest_descriptor,
+        internal_static_brs_api_GetOrdersRequest_descriptor,
         new java.lang.String[] { "Asset", "OrderType", "IndexRange", });
-    internal_static_GetOrderRequest_descriptor =
+    internal_static_brs_api_GetOrderRequest_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_GetOrderRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetOrderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetOrderRequest_descriptor,
+        internal_static_brs_api_GetOrderRequest_descriptor,
         new java.lang.String[] { "OrderId", "OrderType", });
-    internal_static_GetOpenOrdersRequest_descriptor =
+    internal_static_brs_api_GetOpenOrdersRequest_descriptor =
       getDescriptor().getMessageTypes().get(18);
-    internal_static_GetOpenOrdersRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetOpenOrdersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetOpenOrdersRequest_descriptor,
+        internal_static_brs_api_GetOpenOrdersRequest_descriptor,
         new java.lang.String[] { "OrderType", "IndexRange", });
-    internal_static_GetAssetBalancesRequest_descriptor =
+    internal_static_brs_api_GetAssetBalancesRequest_descriptor =
       getDescriptor().getMessageTypes().get(19);
-    internal_static_GetAssetBalancesRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAssetBalancesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAssetBalancesRequest_descriptor,
+        internal_static_brs_api_GetAssetBalancesRequest_descriptor,
         new java.lang.String[] { "Asset", "Height", "IndexRange", });
-    internal_static_GetAssetsRequest_descriptor =
+    internal_static_brs_api_GetAssetsRequest_descriptor =
       getDescriptor().getMessageTypes().get(20);
-    internal_static_GetAssetsRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAssetsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAssetsRequest_descriptor,
+        internal_static_brs_api_GetAssetsRequest_descriptor,
         new java.lang.String[] { "Asset", });
-    internal_static_Assets_descriptor =
+    internal_static_brs_api_Assets_descriptor =
       getDescriptor().getMessageTypes().get(21);
-    internal_static_Assets_fieldAccessorTable = new
+    internal_static_brs_api_Assets_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Assets_descriptor,
+        internal_static_brs_api_Assets_descriptor,
         new java.lang.String[] { "Assets", });
-    internal_static_Asset_descriptor =
+    internal_static_brs_api_Asset_descriptor =
       getDescriptor().getMessageTypes().get(22);
-    internal_static_Asset_fieldAccessorTable = new
+    internal_static_brs_api_Asset_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Asset_descriptor,
+        internal_static_brs_api_Asset_descriptor,
         new java.lang.String[] { "Asset", "Account", "Name", "Description", "Quantity", "Decimals", "NumberOfTrades", "NumberOfTransfers", "NumberOfAccounts", });
-    internal_static_Transactions_descriptor =
+    internal_static_brs_api_Transactions_descriptor =
       getDescriptor().getMessageTypes().get(23);
-    internal_static_Transactions_fieldAccessorTable = new
+    internal_static_brs_api_Transactions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Transactions_descriptor,
+        internal_static_brs_api_Transactions_descriptor,
         new java.lang.String[] { "Transactions", });
-    internal_static_Subscriptions_descriptor =
+    internal_static_brs_api_Subscriptions_descriptor =
       getDescriptor().getMessageTypes().get(24);
-    internal_static_Subscriptions_fieldAccessorTable = new
+    internal_static_brs_api_Subscriptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Subscriptions_descriptor,
+        internal_static_brs_api_Subscriptions_descriptor,
         new java.lang.String[] { "Subscriptions", });
-    internal_static_Subscription_descriptor =
+    internal_static_brs_api_Subscription_descriptor =
       getDescriptor().getMessageTypes().get(25);
-    internal_static_Subscription_fieldAccessorTable = new
+    internal_static_brs_api_Subscription_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Subscription_descriptor,
+        internal_static_brs_api_Subscription_descriptor,
         new java.lang.String[] { "Id", "Sender", "Recipient", "Amount", "Frequency", "TimeNext", });
-    internal_static_Counts_descriptor =
+    internal_static_brs_api_Counts_descriptor =
       getDescriptor().getMessageTypes().get(26);
-    internal_static_Counts_fieldAccessorTable = new
+    internal_static_brs_api_Counts_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Counts_descriptor,
+        internal_static_brs_api_Counts_descriptor,
         new java.lang.String[] { "NumberOfBlocks", "NumberOfTransactions", "NumberOfAccounts", "NumberOfAssets", "NumberOfOrders", "NumberOfAskOrders", "NumberOfBidOrders", "NumberOfTrades", "NumberOfTransfers", "NumberOfAliases", "NumberOfPeers", "NumberOfGenerators", "TotalEffectiveBalance", });
-    internal_static_Constants_descriptor =
+    internal_static_brs_api_Constants_descriptor =
       getDescriptor().getMessageTypes().get(27);
-    internal_static_Constants_fieldAccessorTable = new
+    internal_static_brs_api_Constants_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Constants_descriptor,
+        internal_static_brs_api_Constants_descriptor,
         new java.lang.String[] { "GenesisBlock", "GenesisAccount", "MaxBlockPayloadLength", "MaxArbitraryMessageLength", "TransactionTypes", });
-    internal_static_Constants_TransactionType_descriptor =
-      internal_static_Constants_descriptor.getNestedTypes().get(0);
-    internal_static_Constants_TransactionType_fieldAccessorTable = new
+    internal_static_brs_api_Constants_TransactionType_descriptor =
+      internal_static_brs_api_Constants_descriptor.getNestedTypes().get(0);
+    internal_static_brs_api_Constants_TransactionType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Constants_TransactionType_descriptor,
+        internal_static_brs_api_Constants_TransactionType_descriptor,
         new java.lang.String[] { "Type", "Description", "Subtypes", });
-    internal_static_Constants_TransactionType_TransactionSubtype_descriptor =
-      internal_static_Constants_TransactionType_descriptor.getNestedTypes().get(0);
-    internal_static_Constants_TransactionType_TransactionSubtype_fieldAccessorTable = new
+    internal_static_brs_api_Constants_TransactionType_TransactionSubtype_descriptor =
+      internal_static_brs_api_Constants_TransactionType_descriptor.getNestedTypes().get(0);
+    internal_static_brs_api_Constants_TransactionType_TransactionSubtype_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Constants_TransactionType_TransactionSubtype_descriptor,
+        internal_static_brs_api_Constants_TransactionType_TransactionSubtype_descriptor,
         new java.lang.String[] { "Subtype", "Description", });
-    internal_static_EscrowTransactions_descriptor =
+    internal_static_brs_api_EscrowTransactions_descriptor =
       getDescriptor().getMessageTypes().get(28);
-    internal_static_EscrowTransactions_fieldAccessorTable = new
+    internal_static_brs_api_EscrowTransactions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EscrowTransactions_descriptor,
+        internal_static_brs_api_EscrowTransactions_descriptor,
         new java.lang.String[] { "EscrowTransactions", });
-    internal_static_EscrowTransaction_descriptor =
+    internal_static_brs_api_EscrowTransaction_descriptor =
       getDescriptor().getMessageTypes().get(29);
-    internal_static_EscrowTransaction_fieldAccessorTable = new
+    internal_static_brs_api_EscrowTransaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EscrowTransaction_descriptor,
+        internal_static_brs_api_EscrowTransaction_descriptor,
         new java.lang.String[] { "EscrowId", "Sender", "Recipient", "Amount", "RequiredSigners", "Deadline", "DeadlineAction", });
-    internal_static_Orders_descriptor =
+    internal_static_brs_api_Orders_descriptor =
       getDescriptor().getMessageTypes().get(30);
-    internal_static_Orders_fieldAccessorTable = new
+    internal_static_brs_api_Orders_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Orders_descriptor,
+        internal_static_brs_api_Orders_descriptor,
         new java.lang.String[] { "Orders", });
-    internal_static_Order_descriptor =
+    internal_static_brs_api_Order_descriptor =
       getDescriptor().getMessageTypes().get(31);
-    internal_static_Order_fieldAccessorTable = new
+    internal_static_brs_api_Order_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Order_descriptor,
+        internal_static_brs_api_Order_descriptor,
         new java.lang.String[] { "Id", "Asset", "Account", "Quantity", "Price", "Height", "Type", });
-    internal_static_GetAccountOrdersRequest_descriptor =
+    internal_static_brs_api_GetAccountOrdersRequest_descriptor =
       getDescriptor().getMessageTypes().get(32);
-    internal_static_GetAccountOrdersRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAccountOrdersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAccountOrdersRequest_descriptor,
+        internal_static_brs_api_GetAccountOrdersRequest_descriptor,
         new java.lang.String[] { "Account", "Asset", "IndexRange", "OrderType", });
-    internal_static_IndexRange_descriptor =
+    internal_static_brs_api_IndexRange_descriptor =
       getDescriptor().getMessageTypes().get(33);
-    internal_static_IndexRange_fieldAccessorTable = new
+    internal_static_brs_api_IndexRange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_IndexRange_descriptor,
+        internal_static_brs_api_IndexRange_descriptor,
         new java.lang.String[] { "FirstIndex", "LastIndex", });
-    internal_static_GetBlocksRequest_descriptor =
+    internal_static_brs_api_GetBlocksRequest_descriptor =
       getDescriptor().getMessageTypes().get(34);
-    internal_static_GetBlocksRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetBlocksRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetBlocksRequest_descriptor,
+        internal_static_brs_api_GetBlocksRequest_descriptor,
         new java.lang.String[] { "IndexRange", "IncludeTransactions", });
-    internal_static_Blocks_descriptor =
+    internal_static_brs_api_Blocks_descriptor =
       getDescriptor().getMessageTypes().get(35);
-    internal_static_Blocks_fieldAccessorTable = new
+    internal_static_brs_api_Blocks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Blocks_descriptor,
+        internal_static_brs_api_Blocks_descriptor,
         new java.lang.String[] { "Blocks", });
-    internal_static_GetAliasesRequest_descriptor =
+    internal_static_brs_api_GetAliasesRequest_descriptor =
       getDescriptor().getMessageTypes().get(36);
-    internal_static_GetAliasesRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAliasesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAliasesRequest_descriptor,
+        internal_static_brs_api_GetAliasesRequest_descriptor,
         new java.lang.String[] { "Owner", "Timestamp", "IndexRange", });
-    internal_static_UnconfirmedTransactions_descriptor =
+    internal_static_brs_api_UnconfirmedTransactions_descriptor =
       getDescriptor().getMessageTypes().get(37);
-    internal_static_UnconfirmedTransactions_fieldAccessorTable = new
+    internal_static_brs_api_UnconfirmedTransactions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_UnconfirmedTransactions_descriptor,
+        internal_static_brs_api_UnconfirmedTransactions_descriptor,
         new java.lang.String[] { "UnconfirmedTransactions", });
-    internal_static_Aliases_descriptor =
+    internal_static_brs_api_Aliases_descriptor =
       getDescriptor().getMessageTypes().get(38);
-    internal_static_Aliases_fieldAccessorTable = new
+    internal_static_brs_api_Aliases_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Aliases_descriptor,
+        internal_static_brs_api_Aliases_descriptor,
         new java.lang.String[] { "Aliases", });
-    internal_static_ATIds_descriptor =
+    internal_static_brs_api_ATIds_descriptor =
       getDescriptor().getMessageTypes().get(39);
-    internal_static_ATIds_fieldAccessorTable = new
+    internal_static_brs_api_ATIds_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ATIds_descriptor,
+        internal_static_brs_api_ATIds_descriptor,
         new java.lang.String[] { "Ids", });
-    internal_static_AT_descriptor =
+    internal_static_brs_api_AT_descriptor =
       getDescriptor().getMessageTypes().get(40);
-    internal_static_AT_fieldAccessorTable = new
+    internal_static_brs_api_AT_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AT_descriptor,
+        internal_static_brs_api_AT_descriptor,
         new java.lang.String[] { "Id", "Creator", "Version", "Name", "Description", "MachineCode", "MachineData", "Balance", "PreviousBalance", "NextBlock", "Frozen", "Running", "Stopped", "Finished", "Dead", "MinActivation", "CreationBlock", });
-    internal_static_AccountATs_descriptor =
+    internal_static_brs_api_AccountATs_descriptor =
       getDescriptor().getMessageTypes().get(41);
-    internal_static_AccountATs_fieldAccessorTable = new
+    internal_static_brs_api_AccountATs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AccountATs_descriptor,
+        internal_static_brs_api_AccountATs_descriptor,
         new java.lang.String[] { "Ats", });
-    internal_static_BasicTransaction_descriptor =
+    internal_static_brs_api_BasicTransaction_descriptor =
       getDescriptor().getMessageTypes().get(42);
-    internal_static_BasicTransaction_fieldAccessorTable = new
+    internal_static_brs_api_BasicTransaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_BasicTransaction_descriptor,
+        internal_static_brs_api_BasicTransaction_descriptor,
         new java.lang.String[] { "SenderPublicKey", "SenderId", "Recipient", "Version", "Type", "Subtype", "Amount", "Fee", "Timestamp", "Deadline", "Appendages", "Attachment", "ReferencedTransactionFullHash", "EcBlockId", "EcBlockHeight", "Signature", });
-    internal_static_GetPeerRequest_descriptor =
+    internal_static_brs_api_GetPeerRequest_descriptor =
       getDescriptor().getMessageTypes().get(43);
-    internal_static_GetPeerRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetPeerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetPeerRequest_descriptor,
+        internal_static_brs_api_GetPeerRequest_descriptor,
         new java.lang.String[] { "PeerAddress", });
-    internal_static_GetPeersRequest_descriptor =
+    internal_static_brs_api_GetPeersRequest_descriptor =
       getDescriptor().getMessageTypes().get(44);
-    internal_static_GetPeersRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetPeersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetPeersRequest_descriptor,
+        internal_static_brs_api_GetPeersRequest_descriptor,
         new java.lang.String[] { "Active", "State", });
-    internal_static_Peer_descriptor =
+    internal_static_brs_api_Peer_descriptor =
       getDescriptor().getMessageTypes().get(45);
-    internal_static_Peer_fieldAccessorTable = new
+    internal_static_brs_api_Peer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Peer_descriptor,
+        internal_static_brs_api_Peer_descriptor,
         new java.lang.String[] { "State", "AnnouncedAddress", "ShareAddress", "DownloadedVolume", "UploadedVolume", "Application", "Version", "Platform", "Blacklisted", "LastUpdated", });
-    internal_static_Peers_descriptor =
+    internal_static_brs_api_Peers_descriptor =
       getDescriptor().getMessageTypes().get(46);
-    internal_static_Peers_fieldAccessorTable = new
+    internal_static_brs_api_Peers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Peers_descriptor,
+        internal_static_brs_api_Peers_descriptor,
         new java.lang.String[] { "PeerAddresses", });
-    internal_static_GetAliasRequest_descriptor =
+    internal_static_brs_api_GetAliasRequest_descriptor =
       getDescriptor().getMessageTypes().get(47);
-    internal_static_GetAliasRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAliasRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAliasRequest_descriptor,
+        internal_static_brs_api_GetAliasRequest_descriptor,
         new java.lang.String[] { "Id", "Name", });
-    internal_static_Alias_descriptor =
+    internal_static_brs_api_Alias_descriptor =
       getDescriptor().getMessageTypes().get(48);
-    internal_static_Alias_fieldAccessorTable = new
+    internal_static_brs_api_Alias_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Alias_descriptor,
+        internal_static_brs_api_Alias_descriptor,
         new java.lang.String[] { "Id", "Owner", "Name", "Uri", "Timestamp", "Offered", "Price", "Buyer", });
-    internal_static_Time_descriptor =
+    internal_static_brs_api_Time_descriptor =
       getDescriptor().getMessageTypes().get(49);
-    internal_static_Time_fieldAccessorTable = new
+    internal_static_brs_api_Time_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Time_descriptor,
+        internal_static_brs_api_Time_descriptor,
         new java.lang.String[] { "Time", });
-    internal_static_State_descriptor =
+    internal_static_brs_api_State_descriptor =
       getDescriptor().getMessageTypes().get(50);
-    internal_static_State_fieldAccessorTable = new
+    internal_static_brs_api_State_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_State_descriptor,
+        internal_static_brs_api_State_descriptor,
         new java.lang.String[] { "Application", "Version", "Time", "LastBlock", "LastHeight", "CumulativeDifficulty", "NumberOfPeers", "NumberOfActivePeers", "NumberOfForgers", "LastBlockchainFeeder", "LastBlockchainFeederHeight", "AvailableProcessors", "MaxMemory", "TotalMemory", "FreeMemory", });
-    internal_static_FeeSuggestion_descriptor =
+    internal_static_brs_api_FeeSuggestion_descriptor =
       getDescriptor().getMessageTypes().get(51);
-    internal_static_FeeSuggestion_fieldAccessorTable = new
+    internal_static_brs_api_FeeSuggestion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_FeeSuggestion_descriptor,
+        internal_static_brs_api_FeeSuggestion_descriptor,
         new java.lang.String[] { "Cheap", "Standard", "Priority", });
-    internal_static_TransactionBroadcastResult_descriptor =
+    internal_static_brs_api_TransactionBroadcastResult_descriptor =
       getDescriptor().getMessageTypes().get(52);
-    internal_static_TransactionBroadcastResult_fieldAccessorTable = new
+    internal_static_brs_api_TransactionBroadcastResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_TransactionBroadcastResult_descriptor,
+        internal_static_brs_api_TransactionBroadcastResult_descriptor,
         new java.lang.String[] { "NumberOfPeersSentTo", });
-    internal_static_GetBlockRequest_descriptor =
+    internal_static_brs_api_GetBlockRequest_descriptor =
       getDescriptor().getMessageTypes().get(53);
-    internal_static_GetBlockRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetBlockRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetBlockRequest_descriptor,
+        internal_static_brs_api_GetBlockRequest_descriptor,
         new java.lang.String[] { "BlockId", "Height", "Timestamp", "IncludeTransactions", });
-    internal_static_GetAccountRequest_descriptor =
+    internal_static_brs_api_GetAccountRequest_descriptor =
       getDescriptor().getMessageTypes().get(54);
-    internal_static_GetAccountRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAccountRequest_descriptor,
+        internal_static_brs_api_GetAccountRequest_descriptor,
         new java.lang.String[] { "AccountId", });
-    internal_static_GetAccountsRequest_descriptor =
+    internal_static_brs_api_GetAccountsRequest_descriptor =
       getDescriptor().getMessageTypes().get(55);
-    internal_static_GetAccountsRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetAccountsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetAccountsRequest_descriptor,
+        internal_static_brs_api_GetAccountsRequest_descriptor,
         new java.lang.String[] { "RewardRecipient", "Name", "IncludeAccounts", });
-    internal_static_GetTransactionRequest_descriptor =
+    internal_static_brs_api_GetTransactionRequest_descriptor =
       getDescriptor().getMessageTypes().get(56);
-    internal_static_GetTransactionRequest_fieldAccessorTable = new
+    internal_static_brs_api_GetTransactionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetTransactionRequest_descriptor,
+        internal_static_brs_api_GetTransactionRequest_descriptor,
         new java.lang.String[] { "TransactionId", "FullHash", });
-    internal_static_SubmitNonceRequest_descriptor =
+    internal_static_brs_api_SubmitNonceRequest_descriptor =
       getDescriptor().getMessageTypes().get(57);
-    internal_static_SubmitNonceRequest_fieldAccessorTable = new
+    internal_static_brs_api_SubmitNonceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SubmitNonceRequest_descriptor,
+        internal_static_brs_api_SubmitNonceRequest_descriptor,
         new java.lang.String[] { "SecretPhrase", "Nonce", "Account", "BlockHeight", });
-    internal_static_SubmitNonceResponse_descriptor =
+    internal_static_brs_api_SubmitNonceResponse_descriptor =
       getDescriptor().getMessageTypes().get(58);
-    internal_static_SubmitNonceResponse_fieldAccessorTable = new
+    internal_static_brs_api_SubmitNonceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SubmitNonceResponse_descriptor,
+        internal_static_brs_api_SubmitNonceResponse_descriptor,
         new java.lang.String[] { "Deadline", });
-    internal_static_Block_descriptor =
+    internal_static_brs_api_Block_descriptor =
       getDescriptor().getMessageTypes().get(59);
-    internal_static_Block_fieldAccessorTable = new
+    internal_static_brs_api_Block_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Block_descriptor,
+        internal_static_brs_api_Block_descriptor,
         new java.lang.String[] { "Id", "Height", "NumberOfTransactions", "TotalAmount", "TotalFee", "BlockReward", "PayloadLength", "Version", "BaseTarget", "Timestamp", "GenerationSignature", "BlockSignature", "PayloadHash", "Transactions", "TransactionIds", "GeneratorPublicKey", "Nonce", "Scoop", "PreviousBlockHash", "NextBlockId", });
-    internal_static_Transaction_descriptor =
+    internal_static_brs_api_Transaction_descriptor =
       getDescriptor().getMessageTypes().get(60);
-    internal_static_Transaction_fieldAccessorTable = new
+    internal_static_brs_api_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Transaction_descriptor,
+        internal_static_brs_api_Transaction_descriptor,
         new java.lang.String[] { "Transaction", "Id", "TransactionBytes", "Block", "BlockHeight", "BlockTimestamp", "Signature", "FullHash", "Confirmations", });
-    internal_static_MessageAppendix_descriptor =
+    internal_static_brs_api_MessageAppendix_descriptor =
       getDescriptor().getMessageTypes().get(61);
-    internal_static_MessageAppendix_fieldAccessorTable = new
+    internal_static_brs_api_MessageAppendix_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MessageAppendix_descriptor,
+        internal_static_brs_api_MessageAppendix_descriptor,
         new java.lang.String[] { "Version", "Message", "IsText", });
-    internal_static_EncryptedMessageAppendix_descriptor =
+    internal_static_brs_api_EncryptedMessageAppendix_descriptor =
       getDescriptor().getMessageTypes().get(62);
-    internal_static_EncryptedMessageAppendix_fieldAccessorTable = new
+    internal_static_brs_api_EncryptedMessageAppendix_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EncryptedMessageAppendix_descriptor,
+        internal_static_brs_api_EncryptedMessageAppendix_descriptor,
         new java.lang.String[] { "Version", "EncryptedData", "IsText", "Type", });
-    internal_static_PublicKeyAnnouncementAppendix_descriptor =
+    internal_static_brs_api_PublicKeyAnnouncementAppendix_descriptor =
       getDescriptor().getMessageTypes().get(63);
-    internal_static_PublicKeyAnnouncementAppendix_fieldAccessorTable = new
+    internal_static_brs_api_PublicKeyAnnouncementAppendix_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PublicKeyAnnouncementAppendix_descriptor,
+        internal_static_brs_api_PublicKeyAnnouncementAppendix_descriptor,
         new java.lang.String[] { "Version", "RecipientPublicKey", });
-    internal_static_MultiOutAttachment_descriptor =
+    internal_static_brs_api_MultiOutAttachment_descriptor =
       getDescriptor().getMessageTypes().get(64);
-    internal_static_MultiOutAttachment_fieldAccessorTable = new
+    internal_static_brs_api_MultiOutAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MultiOutAttachment_descriptor,
+        internal_static_brs_api_MultiOutAttachment_descriptor,
         new java.lang.String[] { "Version", "Recipients", });
-    internal_static_MultiOutAttachment_MultiOutRecipient_descriptor =
-      internal_static_MultiOutAttachment_descriptor.getNestedTypes().get(0);
-    internal_static_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable = new
+    internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_descriptor =
+      internal_static_brs_api_MultiOutAttachment_descriptor.getNestedTypes().get(0);
+    internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MultiOutAttachment_MultiOutRecipient_descriptor,
+        internal_static_brs_api_MultiOutAttachment_MultiOutRecipient_descriptor,
         new java.lang.String[] { "Recipient", "Amount", });
-    internal_static_MultiOutSameAttachment_descriptor =
+    internal_static_brs_api_MultiOutSameAttachment_descriptor =
       getDescriptor().getMessageTypes().get(65);
-    internal_static_MultiOutSameAttachment_fieldAccessorTable = new
+    internal_static_brs_api_MultiOutSameAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MultiOutSameAttachment_descriptor,
+        internal_static_brs_api_MultiOutSameAttachment_descriptor,
         new java.lang.String[] { "Version", "Recipients", });
-    internal_static_AliasAssignmentAttachment_descriptor =
+    internal_static_brs_api_AliasAssignmentAttachment_descriptor =
       getDescriptor().getMessageTypes().get(66);
-    internal_static_AliasAssignmentAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AliasAssignmentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AliasAssignmentAttachment_descriptor,
+        internal_static_brs_api_AliasAssignmentAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Uri", });
-    internal_static_AliasSellAttachment_descriptor =
+    internal_static_brs_api_AliasSellAttachment_descriptor =
       getDescriptor().getMessageTypes().get(67);
-    internal_static_AliasSellAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AliasSellAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AliasSellAttachment_descriptor,
+        internal_static_brs_api_AliasSellAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Price", });
-    internal_static_AliasBuyAttachment_descriptor =
+    internal_static_brs_api_AliasBuyAttachment_descriptor =
       getDescriptor().getMessageTypes().get(68);
-    internal_static_AliasBuyAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AliasBuyAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AliasBuyAttachment_descriptor,
+        internal_static_brs_api_AliasBuyAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", });
-    internal_static_AccountInfoAttachment_descriptor =
+    internal_static_brs_api_AccountInfoAttachment_descriptor =
       getDescriptor().getMessageTypes().get(69);
-    internal_static_AccountInfoAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AccountInfoAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AccountInfoAttachment_descriptor,
+        internal_static_brs_api_AccountInfoAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Description", });
-    internal_static_AssetIssuanceAttachment_descriptor =
+    internal_static_brs_api_AssetIssuanceAttachment_descriptor =
       getDescriptor().getMessageTypes().get(70);
-    internal_static_AssetIssuanceAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AssetIssuanceAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetIssuanceAttachment_descriptor,
+        internal_static_brs_api_AssetIssuanceAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Description", "Quantity", "Decimals", });
-    internal_static_AssetTransferAttachment_descriptor =
+    internal_static_brs_api_AssetTransferAttachment_descriptor =
       getDescriptor().getMessageTypes().get(71);
-    internal_static_AssetTransferAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AssetTransferAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetTransferAttachment_descriptor,
+        internal_static_brs_api_AssetTransferAttachment_descriptor,
         new java.lang.String[] { "Version", "Asset", "Quantity", "Comment", });
-    internal_static_AssetOrderPlacementAttachment_descriptor =
+    internal_static_brs_api_AssetOrderPlacementAttachment_descriptor =
       getDescriptor().getMessageTypes().get(72);
-    internal_static_AssetOrderPlacementAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AssetOrderPlacementAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetOrderPlacementAttachment_descriptor,
+        internal_static_brs_api_AssetOrderPlacementAttachment_descriptor,
         new java.lang.String[] { "Version", "Asset", "Quantity", "Price", "Type", });
-    internal_static_AssetOrderCancellationAttachment_descriptor =
+    internal_static_brs_api_AssetOrderCancellationAttachment_descriptor =
       getDescriptor().getMessageTypes().get(73);
-    internal_static_AssetOrderCancellationAttachment_fieldAccessorTable = new
+    internal_static_brs_api_AssetOrderCancellationAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetOrderCancellationAttachment_descriptor,
+        internal_static_brs_api_AssetOrderCancellationAttachment_descriptor,
         new java.lang.String[] { "Version", "Order", "Type", });
-    internal_static_DigitalGoodsListingAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsListingAttachment_descriptor =
       getDescriptor().getMessageTypes().get(74);
-    internal_static_DigitalGoodsListingAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsListingAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsListingAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsListingAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Description", "Tags", "Quantity", "Price", });
-    internal_static_DigitalGoodsDelistingAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsDelistingAttachment_descriptor =
       getDescriptor().getMessageTypes().get(75);
-    internal_static_DigitalGoodsDelistingAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsDelistingAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsDelistingAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsDelistingAttachment_descriptor,
         new java.lang.String[] { "Version", "Goods", });
-    internal_static_DigitalGoodsPriceChangeAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsPriceChangeAttachment_descriptor =
       getDescriptor().getMessageTypes().get(76);
-    internal_static_DigitalGoodsPriceChangeAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsPriceChangeAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsPriceChangeAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsPriceChangeAttachment_descriptor,
         new java.lang.String[] { "Version", "Goods", "Price", });
-    internal_static_DigitalGoodsQuantityChangeAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_descriptor =
       getDescriptor().getMessageTypes().get(77);
-    internal_static_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsQuantityChangeAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsQuantityChangeAttachment_descriptor,
         new java.lang.String[] { "Version", "Goods", "DeltaQuantity", });
-    internal_static_DigitalGoodsPurchaseAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsPurchaseAttachment_descriptor =
       getDescriptor().getMessageTypes().get(78);
-    internal_static_DigitalGoodsPurchaseAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsPurchaseAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsPurchaseAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsPurchaseAttachment_descriptor,
         new java.lang.String[] { "Version", "Goods", "Quantity", "Price", "DeliveryDeadlineTimestmap", });
-    internal_static_DigitalGoodsDeliveryAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsDeliveryAttachment_descriptor =
       getDescriptor().getMessageTypes().get(79);
-    internal_static_DigitalGoodsDeliveryAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsDeliveryAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsDeliveryAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsDeliveryAttachment_descriptor,
         new java.lang.String[] { "Version", "Purchase", "Discount", "Goods", "IsText", });
-    internal_static_DigitalGoodsFeedbackAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsFeedbackAttachment_descriptor =
       getDescriptor().getMessageTypes().get(80);
-    internal_static_DigitalGoodsFeedbackAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsFeedbackAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsFeedbackAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsFeedbackAttachment_descriptor,
         new java.lang.String[] { "Version", "Purchase", });
-    internal_static_DigitalGoodsRefundAttachment_descriptor =
+    internal_static_brs_api_DigitalGoodsRefundAttachment_descriptor =
       getDescriptor().getMessageTypes().get(81);
-    internal_static_DigitalGoodsRefundAttachment_fieldAccessorTable = new
+    internal_static_brs_api_DigitalGoodsRefundAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DigitalGoodsRefundAttachment_descriptor,
+        internal_static_brs_api_DigitalGoodsRefundAttachment_descriptor,
         new java.lang.String[] { "Version", "Purchase", "Refund", });
-    internal_static_RewardRecipientAssignmentAttachment_descriptor =
+    internal_static_brs_api_RewardRecipientAssignmentAttachment_descriptor =
       getDescriptor().getMessageTypes().get(82);
-    internal_static_RewardRecipientAssignmentAttachment_fieldAccessorTable = new
+    internal_static_brs_api_RewardRecipientAssignmentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RewardRecipientAssignmentAttachment_descriptor,
+        internal_static_brs_api_RewardRecipientAssignmentAttachment_descriptor,
         new java.lang.String[] { "Version", });
-    internal_static_EscrowCreationAttachment_descriptor =
+    internal_static_brs_api_EscrowCreationAttachment_descriptor =
       getDescriptor().getMessageTypes().get(83);
-    internal_static_EscrowCreationAttachment_fieldAccessorTable = new
+    internal_static_brs_api_EscrowCreationAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EscrowCreationAttachment_descriptor,
+        internal_static_brs_api_EscrowCreationAttachment_descriptor,
         new java.lang.String[] { "Version", "Amount", "RequiredSigners", "Signers", "Deadline", "DeadlineAction", });
-    internal_static_EscrowSignAttachment_descriptor =
+    internal_static_brs_api_EscrowSignAttachment_descriptor =
       getDescriptor().getMessageTypes().get(84);
-    internal_static_EscrowSignAttachment_fieldAccessorTable = new
+    internal_static_brs_api_EscrowSignAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EscrowSignAttachment_descriptor,
+        internal_static_brs_api_EscrowSignAttachment_descriptor,
         new java.lang.String[] { "Version", "Escrow", "Decision", });
-    internal_static_EscrowResultAttachment_descriptor =
+    internal_static_brs_api_EscrowResultAttachment_descriptor =
       getDescriptor().getMessageTypes().get(85);
-    internal_static_EscrowResultAttachment_fieldAccessorTable = new
+    internal_static_brs_api_EscrowResultAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EscrowResultAttachment_descriptor,
+        internal_static_brs_api_EscrowResultAttachment_descriptor,
         new java.lang.String[] { "Version", "Escrow", "Decision", });
-    internal_static_SubscriptionSubscribeAttachment_descriptor =
+    internal_static_brs_api_SubscriptionSubscribeAttachment_descriptor =
       getDescriptor().getMessageTypes().get(86);
-    internal_static_SubscriptionSubscribeAttachment_fieldAccessorTable = new
+    internal_static_brs_api_SubscriptionSubscribeAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SubscriptionSubscribeAttachment_descriptor,
+        internal_static_brs_api_SubscriptionSubscribeAttachment_descriptor,
         new java.lang.String[] { "Version", "Frequency", });
-    internal_static_SubscriptionCancelAttachment_descriptor =
+    internal_static_brs_api_SubscriptionCancelAttachment_descriptor =
       getDescriptor().getMessageTypes().get(87);
-    internal_static_SubscriptionCancelAttachment_fieldAccessorTable = new
+    internal_static_brs_api_SubscriptionCancelAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SubscriptionCancelAttachment_descriptor,
+        internal_static_brs_api_SubscriptionCancelAttachment_descriptor,
         new java.lang.String[] { "Version", "Subscription", });
-    internal_static_SubscriptionPaymentAttachment_descriptor =
+    internal_static_brs_api_SubscriptionPaymentAttachment_descriptor =
       getDescriptor().getMessageTypes().get(88);
-    internal_static_SubscriptionPaymentAttachment_fieldAccessorTable = new
+    internal_static_brs_api_SubscriptionPaymentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SubscriptionPaymentAttachment_descriptor,
+        internal_static_brs_api_SubscriptionPaymentAttachment_descriptor,
         new java.lang.String[] { "Version", "Subscription", });
-    internal_static_ATCreationAttachment_descriptor =
+    internal_static_brs_api_ATCreationAttachment_descriptor =
       getDescriptor().getMessageTypes().get(89);
-    internal_static_ATCreationAttachment_fieldAccessorTable = new
+    internal_static_brs_api_ATCreationAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ATCreationAttachment_descriptor,
+        internal_static_brs_api_ATCreationAttachment_descriptor,
         new java.lang.String[] { "Version", "Name", "Description", "CreationBytes", });
-    internal_static_Accounts_descriptor =
+    internal_static_brs_api_Accounts_descriptor =
       getDescriptor().getMessageTypes().get(90);
-    internal_static_Accounts_fieldAccessorTable = new
+    internal_static_brs_api_Accounts_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Accounts_descriptor,
+        internal_static_brs_api_Accounts_descriptor,
         new java.lang.String[] { "Ids", "Accounts", });
-    internal_static_Account_descriptor =
+    internal_static_brs_api_Account_descriptor =
       getDescriptor().getMessageTypes().get(91);
-    internal_static_Account_fieldAccessorTable = new
+    internal_static_brs_api_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Account_descriptor,
+        internal_static_brs_api_Account_descriptor,
         new java.lang.String[] { "Id", "PublicKey", "Balance", "UnconfirmedBalance", "ForgedBalance", "Name", "Description", "RewardRecipient", "AssetBalances", });
-    internal_static_AssetBalances_descriptor =
+    internal_static_brs_api_AssetBalances_descriptor =
       getDescriptor().getMessageTypes().get(92);
-    internal_static_AssetBalances_fieldAccessorTable = new
+    internal_static_brs_api_AssetBalances_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetBalances_descriptor,
+        internal_static_brs_api_AssetBalances_descriptor,
         new java.lang.String[] { "AssetBalances", });
-    internal_static_AssetBalance_descriptor =
+    internal_static_brs_api_AssetBalance_descriptor =
       getDescriptor().getMessageTypes().get(93);
-    internal_static_AssetBalance_fieldAccessorTable = new
+    internal_static_brs_api_AssetBalance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AssetBalance_descriptor,
+        internal_static_brs_api_AssetBalance_descriptor,
         new java.lang.String[] { "Asset", "Account", "Balance", "UnconfirmedBalance", });
-    internal_static_MiningInfo_descriptor =
+    internal_static_brs_api_MiningInfo_descriptor =
       getDescriptor().getMessageTypes().get(94);
-    internal_static_MiningInfo_fieldAccessorTable = new
+    internal_static_brs_api_MiningInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MiningInfo_descriptor,
+        internal_static_brs_api_MiningInfo_descriptor,
         new java.lang.String[] { "Height", "GenerationSignature", "BaseTarget", });
-    internal_static_TransactionBytes_descriptor =
+    internal_static_brs_api_TransactionBytes_descriptor =
       getDescriptor().getMessageTypes().get(95);
-    internal_static_TransactionBytes_fieldAccessorTable = new
+    internal_static_brs_api_TransactionBytes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_TransactionBytes_descriptor,
+        internal_static_brs_api_TransactionBytes_descriptor,
         new java.lang.String[] { "TransactionBytes", });
-    internal_static_OrdinaryPaymentAttachment_descriptor =
+    internal_static_brs_api_OrdinaryPaymentAttachment_descriptor =
       getDescriptor().getMessageTypes().get(96);
-    internal_static_OrdinaryPaymentAttachment_fieldAccessorTable = new
+    internal_static_brs_api_OrdinaryPaymentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_OrdinaryPaymentAttachment_descriptor,
+        internal_static_brs_api_OrdinaryPaymentAttachment_descriptor,
         new java.lang.String[] { });
-    internal_static_ArbitraryMessageAttachment_descriptor =
+    internal_static_brs_api_ArbitraryMessageAttachment_descriptor =
       getDescriptor().getMessageTypes().get(97);
-    internal_static_ArbitraryMessageAttachment_fieldAccessorTable = new
+    internal_static_brs_api_ArbitraryMessageAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ArbitraryMessageAttachment_descriptor,
+        internal_static_brs_api_ArbitraryMessageAttachment_descriptor,
         new java.lang.String[] { });
-    internal_static_ATPaymentAttachment_descriptor =
+    internal_static_brs_api_ATPaymentAttachment_descriptor =
       getDescriptor().getMessageTypes().get(98);
-    internal_static_ATPaymentAttachment_fieldAccessorTable = new
+    internal_static_brs_api_ATPaymentAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ATPaymentAttachment_descriptor,
+        internal_static_brs_api_ATPaymentAttachment_descriptor,
         new java.lang.String[] { });
-    internal_static_EffectiveBalanceLeasingAttachment_descriptor =
+    internal_static_brs_api_EffectiveBalanceLeasingAttachment_descriptor =
       getDescriptor().getMessageTypes().get(99);
-    internal_static_EffectiveBalanceLeasingAttachment_fieldAccessorTable = new
+    internal_static_brs_api_EffectiveBalanceLeasingAttachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_EffectiveBalanceLeasingAttachment_descriptor,
+        internal_static_brs_api_EffectiveBalanceLeasingAttachment_descriptor,
         new java.lang.String[] { "Version", "Period", });
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.AnyProto.getDescriptor();

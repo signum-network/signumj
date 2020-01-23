@@ -239,7 +239,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
         return assign(() -> brsGrpc.getOrders(
                 BrsApi.GetOrdersRequest.newBuilder()
                         .setAsset(assetId.getSignedLongId())
-                        .setOrderType(BrsApi.OrderType.ASK)
+                        .setOrderType(BrsApi.AssetOrderType.ASK)
                         .build()))
                 .map(orders -> orders.getOrdersList()
                         .stream()
@@ -252,7 +252,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
         return assign(() -> brsGrpc.getOrders(
                 BrsApi.GetOrdersRequest.newBuilder()
                         .setAsset(assetId.getSignedLongId())
-                        .setOrderType(BrsApi.OrderType.BID)
+                        .setOrderType(BrsApi.AssetOrderType.BID)
                         .build()))
                 .map(orders -> orders.getOrdersList()
                         .stream()

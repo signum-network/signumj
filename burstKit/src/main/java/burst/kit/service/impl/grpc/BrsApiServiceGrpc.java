@@ -24,7 +24,7 @@ public final class BrsApiServiceGrpc {
 
   private BrsApiServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "BrsApiService";
+  public static final String SERVICE_NAME = "brs.api.BrsApiService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<burst.kit.service.impl.grpc.BrsApi.BasicTransaction,

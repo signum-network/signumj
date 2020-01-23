@@ -96,7 +96,7 @@ public class AssetOrder {
             }
         }
 
-        public static OrderType parse(BrsApi.OrderType orderType) {
+        public static OrderType parse(BrsApi.AssetOrderType orderType) {
             switch (orderType) {
                 case ASK: return ASK;
                 case BID: return BID;

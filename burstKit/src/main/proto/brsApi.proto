@@ -4,76 +4,78 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 option java_package = "burst.kit.service.impl.grpc";
 
+package brs.api;
+
 service BrsApiService {
     // Broadcast a transaction to the network.
-    rpc BroadcastTransaction(BasicTransaction) returns (TransactionBroadcastResult) {}
+    rpc BroadcastTransaction (BasicTransaction) returns (TransactionBroadcastResult);
     // Broadcast a transaction to the network. Takes transaction bytes instead of a BasicTransaction
-    rpc BroadcastTransactionBytes(TransactionBytes) returns (TransactionBroadcastResult) {}
+    rpc BroadcastTransactionBytes (TransactionBytes) returns (TransactionBroadcastResult);
     // Automatically fills in the following fields: Version (based on current transaction version), type and subtype (based on specified attachment), timestamp (current time). Additionally sets attachment to ordinary payment if it was not set
-    rpc CompleteBasicTransaction(BasicTransaction) returns (BasicTransaction) {}
-    rpc GetAccount(GetAccountRequest) returns (Account) {}
+    rpc CompleteBasicTransaction (BasicTransaction) returns (BasicTransaction);
+    rpc GetAccount (GetAccountRequest) returns (Account);
     // Get the ATs that an account is the creator of, by the creator's account ID
-    rpc GetAccountATs(GetAccountRequest) returns (AccountATs) {}
+    rpc GetAccountATs (GetAccountRequest) returns (AccountATs);
     // Get the blocks that an account has forged, by the forger's ID
-    rpc GetAccountBlocks(GetAccountBlocksRequest) returns (Blocks) {}
-    rpc GetAccountCurrentOrders(GetAccountOrdersRequest) returns (Orders) {}
-    rpc GetAccountEscrowTransactions(GetAccountRequest) returns (EscrowTransactions) {}
+    rpc GetAccountBlocks (GetAccountBlocksRequest) returns (Blocks);
+    rpc GetAccountCurrentOrders (GetAccountOrdersRequest) returns (Orders);
+    rpc GetAccountEscrowTransactions (GetAccountRequest) returns (EscrowTransactions);
     // Get multiple accounts based on the criteria described in GetAccountsRequest. The criteria is an OR selection - I.E. if you specified a reward recipient and a name it would include accounts that have that recipient and that name, including duplicates. Therefore it is recommended to only select one criteria
-    rpc GetAccounts(GetAccountsRequest) returns (Accounts) {}
-    rpc GetAccountSubscriptions(GetAccountRequest) returns (Subscriptions) {}
-    rpc GetAccountTransactions(GetAccountTransactionsRequest) returns (Transactions) {}
-    rpc GetAlias(GetAliasRequest) returns (Alias) {}
-    rpc GetAliases(GetAliasesRequest) returns (Aliases) {}
-    rpc GetAsset(GetByIdRequest) returns (Asset) {}
+    rpc GetAccounts (GetAccountsRequest) returns (Accounts);
+    rpc GetAccountSubscriptions (GetAccountRequest) returns (Subscriptions);
+    rpc GetAccountTransactions (GetAccountTransactionsRequest) returns (Transactions);
+    rpc GetAlias (GetAliasRequest) returns (Alias);
+    rpc GetAliases (GetAliasesRequest) returns (Aliases);
+    rpc GetAsset (GetByIdRequest) returns (Asset);
     // Get an asset's holders and their balances
-    rpc GetAssetBalances(GetAssetBalancesRequest) returns (AssetBalances) {}
+    rpc GetAssetBalances (GetAssetBalancesRequest) returns (AssetBalances);
     // Get multiple assets in one go.
-    rpc GetAssets(GetAssetsRequest) returns (Assets) {}
+    rpc GetAssets (GetAssetsRequest) returns (Assets);
     // Get all assets issued by an account
-    rpc GetAssetsByIssuer(GetAccountRequest) returns (Assets) {}
+    rpc GetAssetsByIssuer (GetAccountRequest) returns (Assets);
     // Get all asset trades made by an account
-    rpc GetAssetTrades(GetAssetTransfersRequest) returns (AssetTrades) {}
+    rpc GetAssetTrades (GetAssetTransfersRequest) returns (AssetTrades);
     // Get all asset transfers made by an account
-    rpc GetAssetTransfers(GetAssetTransfersRequest) returns (AssetTransfers) {}
-    rpc GetAT(GetByIdRequest) returns (AT) {}
+    rpc GetAssetTransfers (GetAssetTransfersRequest) returns (AssetTransfers);
+    rpc GetAT (GetByIdRequest) returns (AT);
     // Get all active AT IDs
-    rpc GetATIds(google.protobuf.Empty) returns (ATIds) {}
+    rpc GetATIds (google.protobuf.Empty) returns (ATIds);
     // Get a block by ID, height or timestamp
-    rpc GetBlock(GetBlockRequest) returns (Block) {}
+    rpc GetBlock (GetBlockRequest) returns (Block);
     // Get the most recent blocks
-    rpc GetBlocks(GetBlocksRequest) returns (Blocks) {}
+    rpc GetBlocks (GetBlocksRequest) returns (Blocks);
     // Get the current blockchain constants
-    rpc GetConstants(google.protobuf.Empty) returns (Constants) {}
+    rpc GetConstants (google.protobuf.Empty) returns (Constants);
     // Get the counts of different blockchain entities
-    rpc GetCounts(google.protobuf.Empty) returns (Counts) {}
+    rpc GetCounts (google.protobuf.Empty) returns (Counts);
     // Get the current Burst time (number of seconds since Burst epoch)
-    rpc GetCurrentTime(google.protobuf.Empty) returns (Time) {}
-    rpc GetDgsGood(GetByIdRequest) returns (DgsGood) {}
-    rpc GetDgsGoods(GetDgsGoodsRequest) returns (DgsGoods) {}
-    rpc GetDgsPendingPurchases(GetDgsPendingPurchasesRequest) returns (DgsPurchases) {}
-    rpc GetDgsPurchase(GetByIdRequest) returns (DgsPurchase) {}
-    rpc GetDgsPurchases(GetDgsPurchasesRequest) returns (DgsPurchases) {}
-    rpc GetEscrowTransaction(GetByIdRequest) returns (EscrowTransaction) {}
+    rpc GetCurrentTime (google.protobuf.Empty) returns (Time);
+    rpc GetDgsGood (GetByIdRequest) returns (DgsGood);
+    rpc GetDgsGoods (GetDgsGoodsRequest) returns (DgsGoods);
+    rpc GetDgsPendingPurchases (GetDgsPendingPurchasesRequest) returns (DgsPurchases);
+    rpc GetDgsPurchase (GetByIdRequest) returns (DgsPurchase);
+    rpc GetDgsPurchases (GetDgsPurchasesRequest) returns (DgsPurchases);
+    rpc GetEscrowTransaction (GetByIdRequest) returns (EscrowTransaction);
     // Get the mining info for the next block. This is needed to mine.
-    rpc GetMiningInfo(google.protobuf.Empty) returns (stream MiningInfo) {}
-    rpc GetOrder(GetOrderRequest) returns (Order) {}
-    rpc GetOrders(GetOrdersRequest) returns (Orders) {}
-    rpc GetPeer(GetPeerRequest) returns (Peer) {}
-    rpc GetPeers(GetPeersRequest) returns (Peers) {}
+    rpc GetMiningInfo (google.protobuf.Empty) returns (stream MiningInfo);
+    rpc GetOrder (GetOrderRequest) returns (Order);
+    rpc GetOrders (GetOrdersRequest) returns (Orders);
+    rpc GetPeer (GetPeerRequest) returns (Peer);
+    rpc GetPeers (GetPeersRequest) returns (Peers);
     // Get the current server state
-    rpc GetState(google.protobuf.Empty) returns (State) {}
-    rpc GetSubscription(GetByIdRequest) returns (Subscription) {}
-    rpc GetSubscriptionsToAccount(GetAccountRequest) returns (Subscriptions) {}
-    rpc GetTransaction(GetTransactionRequest) returns (Transaction) {}
+    rpc GetState (google.protobuf.Empty) returns (State);
+    rpc GetSubscription (GetByIdRequest) returns (Subscription);
+    rpc GetSubscriptionsToAccount (GetAccountRequest) returns (Subscriptions);
+    rpc GetTransaction (GetTransactionRequest) returns (Transaction);
     // Convert a BasicTranscation into its transaction bytes, to be signed. This theoretically can be done offline so will be removed in the future.
-    rpc GetTransactionBytes(BasicTransaction) returns (TransactionBytes) {}
-    rpc GetUnconfirmedTransactions(GetAccountRequest) returns (UnconfirmedTransactions) {}
+    rpc GetTransactionBytes (BasicTransaction) returns (TransactionBytes);
+    rpc GetUnconfirmedTransactions (GetAccountRequest) returns (UnconfirmedTransactions);
     // Convert TransactionBytes into a BasicTransaction. This theoretically can be done offline so will be removed in the future.
-    rpc ParseTransaction(TransactionBytes) returns (BasicTransaction) {}
+    rpc ParseTransaction (TransactionBytes) returns (BasicTransaction);
     // Submit a nonce to try to forge a block. This requires the passphrase to be sent to the server so should only be performed on local nodes.
-    rpc SubmitNonce(SubmitNonceRequest) returns (SubmitNonceResponse) {}
+    rpc SubmitNonce (SubmitNonceRequest) returns (SubmitNonceResponse);
     // Suggest a fee to use for a transaction
-    rpc SuggestFee(google.protobuf.Empty) returns (FeeSuggestion) {}
+    rpc SuggestFee (google.protobuf.Empty) returns (FeeSuggestion);
 }
 
 message GetAccountTransactionsRequest {
@@ -216,17 +218,17 @@ message AssetTrade {
 
 message GetOrdersRequest {
     uint64 asset = 1; // If 0 returns all open orders.
-    OrderType orderType = 2;
+    AssetOrderType orderType = 2;
     IndexRange indexRange = 3;
 }
 
 message GetOrderRequest {
     uint64 orderId = 1;
-    OrderType orderType = 2;
+    AssetOrderType orderType = 2;
 }
 
 message GetOpenOrdersRequest {
-    OrderType orderType = 1;
+    AssetOrderType orderType = 1;
     IndexRange indexRange = 2;
 }
 
@@ -333,14 +335,14 @@ message Order {
     uint64 quantity = 4;
     uint64 price = 5;
     uint32 height = 6;
-    OrderType type = 7;
+    AssetOrderType type = 7;
 }
 
 message GetAccountOrdersRequest {
     uint64 account = 1;
     uint64 asset = 2;
     IndexRange indexRange = 3;
-    OrderType orderType = 4;
+    AssetOrderType orderType = 4;
 }
 
 message IndexRange {
@@ -650,7 +652,7 @@ message AssetTransferAttachment {
     string comment = 4;
 }
 
-enum OrderType {
+enum AssetOrderType {
     OrderType_UNSET = 0;
     ASK = 1;
     BID = 2;
@@ -661,13 +663,13 @@ message AssetOrderPlacementAttachment {
     uint64 asset = 2;
     uint64 quantity = 3;
     uint64 price = 4;
-    OrderType type = 5;
+    AssetOrderType type = 5;
 }
 
 message AssetOrderCancellationAttachment {
     uint32 version = 1;
     uint64 order = 2;
-    OrderType type = 3;
+    AssetOrderType type = 3;
 }
 
 message DigitalGoodsListingAttachment {
@@ -827,7 +829,7 @@ message ArbitraryMessageAttachment {
 }
 
 message ATPaymentAttachment { // TODO version
-    // Empty.
+                              // Empty.
 }
 
 message EffectiveBalanceLeasingAttachment {
