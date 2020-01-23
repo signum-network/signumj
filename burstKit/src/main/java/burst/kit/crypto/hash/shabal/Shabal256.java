@@ -193,6 +193,7 @@ public class Shabal256 extends MessageDigest implements Cloneable {
     }
 
     private void core(byte[] data, int off, int num) {
+        // Extracting state vars like this yields rougly a 10%+ performance improvement
         int A0 = state[ 0];
         int A1 = state[ 1];
         int A2 = state[ 2];
@@ -241,52 +242,52 @@ public class Shabal256 extends MessageDigest implements Cloneable {
         int CF = state[43];
 
         while (num-- > 0) {
-            int M0 = decodeLEInt(data, off);
+            final int M0 = decodeLEInt(data, off);
             B0 += M0;
             B0 = (B0 << 17) | (B0 >>> 15);
-            int M1 = decodeLEInt(data, off +  4);
+            final int M1 = decodeLEInt(data, off +  4);
             B1 += M1;
             B1 = (B1 << 17) | (B1 >>> 15);
-            int M2 = decodeLEInt(data, off +  8);
+            final int M2 = decodeLEInt(data, off +  8);
             B2 += M2;
             B2 = (B2 << 17) | (B2 >>> 15);
-            int M3 = decodeLEInt(data, off + 12);
+            final int M3 = decodeLEInt(data, off + 12);
             B3 += M3;
             B3 = (B3 << 17) | (B3 >>> 15);
-            int M4 = decodeLEInt(data, off + 16);
+            final int M4 = decodeLEInt(data, off + 16);
             B4 += M4;
             B4 = (B4 << 17) | (B4 >>> 15);
-            int M5 = decodeLEInt(data, off + 20);
+            final int M5 = decodeLEInt(data, off + 20);
             B5 += M5;
             B5 = (B5 << 17) | (B5 >>> 15);
-            int M6 = decodeLEInt(data, off + 24);
+            final int M6 = decodeLEInt(data, off + 24);
             B6 += M6;
             B6 = (B6 << 17) | (B6 >>> 15);
-            int M7 = decodeLEInt(data, off + 28);
+            final int M7 = decodeLEInt(data, off + 28);
             B7 += M7;
             B7 = (B7 << 17) | (B7 >>> 15);
-            int M8 = decodeLEInt(data, off + 32);
+            final int M8 = decodeLEInt(data, off + 32);
             B8 += M8;
             B8 = (B8 << 17) | (B8 >>> 15);
-            int M9 = decodeLEInt(data, off + 36);
+            final int M9 = decodeLEInt(data, off + 36);
             B9 += M9;
             B9 = (B9 << 17) | (B9 >>> 15);
-            int MA = decodeLEInt(data, off + 40);
+            final int MA = decodeLEInt(data, off + 40);
             BA += MA;
             BA = (BA << 17) | (BA >>> 15);
-            int MB = decodeLEInt(data, off + 44);
+            final int MB = decodeLEInt(data, off + 44);
             BB += MB;
             BB = (BB << 17) | (BB >>> 15);
-            int MC = decodeLEInt(data, off + 48);
+            final int MC = decodeLEInt(data, off + 48);
             BC += MC;
             BC = (BC << 17) | (BC >>> 15);
-            int MD = decodeLEInt(data, off + 52);
+            final int MD = decodeLEInt(data, off + 52);
             BD += MD;
             BD = (BD << 17) | (BD >>> 15);
-            int ME = decodeLEInt(data, off + 56);
+            final int ME = decodeLEInt(data, off + 56);
             BE += ME;
             BE = (BE << 17) | (BE >>> 15);
-            int MF = decodeLEInt(data, off + 60);
+            final int MF = decodeLEInt(data, off + 60);
             BF += MF;
             BF = (BF << 17) | (BF >>> 15);
 
