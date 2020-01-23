@@ -186,7 +186,7 @@ public class Shabal256 extends MessageDigest implements Cloneable {
     }
 
     private static int decodeLEInt(byte[] data, int off) {
-        return (data[off]     & 0xFF)
+        return (data[off] & 0xFF)
                 | ((data[off + 1] & 0xFF) << 8)
                 | ((data[off + 2] & 0xFF) << 16)
                 | ((data[off + 3] & 0xFF) << 24);

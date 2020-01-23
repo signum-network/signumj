@@ -488,18 +488,38 @@ public interface BurstCrypto {
     int currentBurstTime();
 
     /**
-     * Converts up to the first 8 bytes of a byte array to a long.
+     * Converts the first 8 bytes of a byte array into a long.
      * @param bytes The byte array, in big endian order
      * @return The long representation of the first 8 bytes
+     * @throws IndexOutOfBoundsException if the array is not at least 8 bytes long
      */
     long bytesToLongBE(byte[] bytes);
 
     /**
-     * Converts up to the first 8 bytes of a byte array to a long.
+     * Converts the first 8 bytes of a byte array into a long.
      * @param bytes The byte array, in little endian order
      * @return The long representation of the first 8 bytes
+     * @throws IndexOutOfBoundsException if the array is not at least 8 bytes long
      */
     long bytesToLongLE(byte[] bytes);
+
+    /**
+     * Converts 8 bytes of a byte array into a long.
+     * @param bytes The byte array, in big endian order
+     * @param offset The offset into the array where the long should be decoded from
+     * @return The long representation of the first 8 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 8) bytes long
+     */
+    long bytesToLongBE(byte[] bytes, int offset);
+
+    /**
+     * Converts 8 bytes of a byte array into a long.
+     * @param bytes The byte array, in little endian order
+     * @param offset The offset into the array where the long should be decoded from
+     * @return The long representation of the first 8 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 8) bytes long
+     */
+    long bytesToLongLE(byte[] bytes, int offset);
 
     /**
      * Converts up to the first 8 bytes of a byte array to a long.
@@ -534,18 +554,36 @@ public interface BurstCrypto {
     byte[] longToBytesLE(long l);
 
     /**
-     * Converts up to the first 4 bytes of a byte array to a long.
+     * Converts the first 4 bytes of a byte array into an int.
      * @param bytes The byte array, in big endian order
      * @return The int representation of the first 4 bytes
      */
     int bytesToIntBE(byte[] bytes);
 
     /**
-     * Converts up to the first 4 bytes of a byte array to a long.
+     * Converts the first 4 bytes of a byte array into an int.
      * @param bytes The byte array, in little endian order
      * @return The int representation of the first 4 bytes
      */
     int bytesToIntLE(byte[] bytes);
+
+    /**
+     * Converts 4 bytes of a byte array into an int.
+     * @param bytes The byte array, in big endian order
+     * @param offset The offset into the array where the int should be decoded from
+     * @return The long representation of the first 4 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 4) bytes long
+     */
+    int bytesToIntBE(byte[] bytes, int offset);
+
+    /**
+     * Converts 8 bytes of a byte array into a long.
+     * @param bytes The byte array, in little endian order
+     * @param offset The offset into the array where the int should be decoded from
+     * @return The long representation of the first 4 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 4) bytes long
+     */
+    int bytesToIntLE(byte[] bytes, int offset);
 
     /**
      * Converts up to the first 4 bytes of a byte array to a long.

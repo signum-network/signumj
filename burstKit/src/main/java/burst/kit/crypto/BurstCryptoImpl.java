@@ -289,79 +289,43 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public long bytesToLongBE(byte[] bytes) {
-        if (bytes.length >= 8) {
-            return ((long) (bytes[7]     & 0xFF))
-                    | (((long) (bytes[6] & 0xFF)) << 8)
-                    | (((long) (bytes[5] & 0xFF)) << 16)
-                    | (((long) (bytes[4] & 0xFF)) << 24)
-                    | (((long) (bytes[3] & 0xFF)) << 32)
-                    | (((long) (bytes[2] & 0xFF)) << 40)
-                    | (((long) (bytes[1] & 0xFF)) << 48)
-                    | (((long) (bytes[0] & 0xFF)) << 56);
-        } else {
-            long result = 0;
-            for (int i = 0, length = Math.min(8, bytes.length) - 1; i <= length; i++) {
-                result <<= 8;
-                result |= (bytes[i] & 0xFF);
-            }
-            return result;
-        }
+    public long bytesToLongBE(byte[] bytes, int offset) {
+        return ((long) (bytes[offset + 7] & 0xFF))
+                | (((long) (bytes[offset + 6] & 0xFF)) << 8)
+                | (((long) (bytes[offset + 5] & 0xFF)) << 16)
+                | (((long) (bytes[offset + 4] & 0xFF)) << 24)
+                | (((long) (bytes[offset + 3] & 0xFF)) << 32)
+                | (((long) (bytes[offset + 2] & 0xFF)) << 40)
+                | (((long) (bytes[offset + 1] & 0xFF)) << 48)
+                | (((long) (bytes[offset] & 0xFF)) << 56);
     }
 
     @Override
-    public long bytesToLongLE(byte[] bytes) {
-        if (bytes.length >= 8) {
-            return ((long) (bytes[0]     & 0xFF))
-                    | (((long) (bytes[1] & 0xFF)) << 8)
-                    | (((long) (bytes[2] & 0xFF)) << 16)
-                    | (((long) (bytes[3] & 0xFF)) << 24)
-                    | (((long) (bytes[4] & 0xFF)) << 32)
-                    | (((long) (bytes[5] & 0xFF)) << 40)
-                    | (((long) (bytes[6] & 0xFF)) << 48)
-                    | (((long) (bytes[7] & 0xFF)) << 56);
-        } else {
-            long result = 0;
-            for (int i = 0, length = Math.min(8, bytes.length) - 1; i <= length; i++) {
-                result <<= 8;
-                result |= (bytes[length - i] & 0xFF);
-            }
-            return result;
-        }
+    public long bytesToLongLE(byte[] bytes, int offset) {
+        return ((long) (bytes[offset] & 0xFF))
+                | (((long) (bytes[offset + 1] & 0xFF)) << 8)
+                | (((long) (bytes[offset + 2] & 0xFF)) << 16)
+                | (((long) (bytes[offset + 3] & 0xFF)) << 24)
+                | (((long) (bytes[offset + 4] & 0xFF)) << 32)
+                | (((long) (bytes[offset + 5] & 0xFF)) << 40)
+                | (((long) (bytes[offset + 6] & 0xFF)) << 48)
+                | (((long) (bytes[offset + 7] & 0xFF)) << 56);
     }
 
     @Override
-    public int bytesToIntBE(byte[] bytes) {
-        if (bytes.length >= 8) {
-            return (bytes[3]     & 0xFF)
-                    | ((bytes[2] & 0xFF) << 8)
-                    | ((bytes[1] & 0xFF) << 16)
-                    | ((bytes[0] & 0xFF) << 24);
-        } else {
-            int result = 0;
-            for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
-                result <<= 8;
-                result |= (bytes[i] & 0xFF);
-            }
-            return result;
-        }
+    public int bytesToIntBE(byte[] bytes, int offset) {
+        return (bytes[offset + 3] & 0xFF)
+                | ((bytes[offset + 2] & 0xFF) << 8)
+                | ((bytes[offset + 1] & 0xFF) << 16)
+                | ((bytes[offset] & 0xFF) << 24);
     }
 
     @Override
-    public int bytesToIntLE(byte[] bytes) {
-        if (bytes.length >= 8) {
-            return (bytes[0]     & 0xFF)
-                    | ((bytes[1] & 0xFF) << 8)
-                    | ((bytes[2] & 0xFF) << 16)
-                    | ((bytes[3] & 0xFF) << 24);
-        } else {
-            int result = 0;
-            for (int i = 0, length = Math.min(4, bytes.length) - 1; i <= length; i++) {
-                result <<= 8;
-                result |= (bytes[length - i] & 0xFF);
-            }
-            return result;
-        }
+    public int bytesToIntLE(byte[] bytes, int offset) {
+        return (bytes[offset] & 0xFF)
+                | ((bytes[offset + 1] & 0xFF) << 8)
+                | ((bytes[offset + 2] & 0xFF) << 16)
+                | ((bytes[offset + 3] & 0xFF) << 24);
     }
 
     @Override

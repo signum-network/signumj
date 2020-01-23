@@ -85,9 +85,13 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals("48fe9ca8e71d7334f4566909aef4350d", Hex.toHexString(md5.digest(stringToBytes("Burst Apps Team"))));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testBytesToLongBE_tooShortArray() {
+        assertEquals(0x0000000000000000L, burstCrypto.bytesToLongBE(new byte[7]));
+    }
+
     @Test
     public void testBytesToLongBE() {
-        assertEquals(0x0000000000000000L, burstCrypto.bytesToLongBE(new byte[0]));
         assertEquals(0x0100000000000000L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0100000000000000")));
         assertEquals(0x0123000000000000L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123000000000000")));
         assertEquals(0x0123450000000000L, burstCrypto.bytesToLongBE(burstCrypto.parseHexString("0123450000000000")));
@@ -108,9 +112,13 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals(Long.parseUnsignedLong("efcdab8967452301", 16), burstCrypto.bytesToLongBE(burstCrypto.parseHexString("efcdab8967452301")));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testBytesToLongLE_tooShortArray() {
+        assertEquals(0x0000000000000000L, burstCrypto.bytesToLongLE(new byte[7]));
+    }
+
     @Test
     public void testBytesToLongLE() {
-        assertEquals(0x0000000000000000L, burstCrypto.bytesToLongLE(new byte[0]));
         assertEquals(0x0000000000000001L, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0100000000000000")));
         assertEquals(0x0000000000002301L, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123000000000000")));
         assertEquals(0x0000000000452301L, burstCrypto.bytesToLongLE(burstCrypto.parseHexString("0123450000000000")));
@@ -175,18 +183,26 @@ public class BurstCryptoTest { // TODO more unit tests
         assertEquals("0123456789abcdef", burstCrypto.toHexString(burstCrypto.longToBytesLE(Long.parseUnsignedLong("efcdab8967452301", 16))));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testBytesToIntBE_tooShortArray() {
+        assertEquals(0x00000000, burstCrypto.bytesToIntBE(new byte[3]));
+    }
+
     @Test
     public void testBytesToIntBE() {
-        assertEquals(0x00000000, burstCrypto.bytesToIntBE(new byte[0]));
         assertEquals(0x89000000, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89000000")));
         assertEquals(0x89ab0000, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89ab0000")));
         assertEquals(0x89abcd00, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89abcd00")));
         assertEquals(0x89abcdef, burstCrypto.bytesToIntBE(burstCrypto.parseHexString("89abcdef")));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testBytesToIntLE_tooShortArray() {
+        assertEquals(0x00000000, burstCrypto.bytesToIntLE(new byte[3]));
+    }
+
     @Test
     public void testBytesToIntLE() {
-        assertEquals(0x00000000, burstCrypto.bytesToIntLE(new byte[0]));
         assertEquals(0x00000001, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01000000")));
         assertEquals(0x00002301, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01230000")));
         assertEquals(0x00452301, burstCrypto.bytesToIntLE(burstCrypto.parseHexString("01234500")));
