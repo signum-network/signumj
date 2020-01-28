@@ -66,36 +66,36 @@ public class Shabal256 extends MessageDigest implements Cloneable {
     }
 
     @Override
-    protected void engineUpdate(byte in) {
-        buf[ptr++] = in;
+    protected void engineUpdate(byte input) {
+        buf[ptr++] = input;
         if (ptr == 64) {
-            core1(buf);
+            core1();
             ptr = 0;
         }
     }
 
     @Override
-    protected void engineUpdate(byte[] inbuf, int off, int len) {
+    protected void engineUpdate(byte[] input, int offset, int len) {
         if (ptr != 0) {
             int rlen = 64 - ptr;
             if (len < rlen) {
-                System.arraycopy(inbuf, off, buf, ptr, len);
+                System.arraycopy(input, offset, buf, ptr, len);
                 ptr += len;
                 return;
             }
 
-            System.arraycopy(inbuf, off, buf, ptr, rlen);
-            off += rlen;
+            System.arraycopy(input, offset, buf, ptr, rlen);
+            offset += rlen;
             len -= rlen;
-            core1(buf);
+            core1();
         }
         int num = len >>> 6;
         if (num > 0) {
-            core(inbuf, off, num);
-            off += num << 6;
+            core(input, offset, num);
+            offset += num << 6;
             len &= 63;
         }
-        System.arraycopy(inbuf, off, buf, 0, len);
+        System.arraycopy(input, offset, buf, 0, len);
         ptr = len;
     }
 
@@ -106,10 +106,10 @@ public class Shabal256 extends MessageDigest implements Cloneable {
         for (int i = ptr; i < 64; i++)
             buf[i] = 0;
 
-        core1(buf); W--;
-        core1(buf); W--;
-        core1(buf); W--;
-        core1(buf); W--;
+        core1(); W--;
+        core1(); W--;
+        core1(); W--;
+        core1(); W--;
 
         int j = 36;
         int w = 0;
@@ -149,7 +149,7 @@ public class Shabal256 extends MessageDigest implements Cloneable {
             sg.buf[60] = 15; sg.buf[61] = 1;
 
             sg.W = -1L;
-            sg.core1(sg.buf);
+            sg.core1();
 
             sg.buf[ 0] = 16;
             sg.buf[ 4] = 17;
@@ -168,13 +168,14 @@ public class Shabal256 extends MessageDigest implements Cloneable {
             sg.buf[56] = 30;
             sg.buf[60] = 31;
 
-            sg.core1(sg.buf);
+            sg.core1();
             int[] IV = new int[sg.state.length];
             System.arraycopy(sg.state, 0, IV, 0, IV.length);
         }
         return IV;
     }
 
+    @SuppressWarnings({"MethodDoesntCallSuperMethod", "squid:S1182", "squid:S2975"})
     @Override
     public Shabal256 clone() {
         Shabal256 d = new Shabal256();
@@ -474,9 +475,9 @@ public class Shabal256 extends MessageDigest implements Cloneable {
     }
 
     /**
-     * Same as core(data, 0, 1);
+     * Same as core(0, 1);
      */
-    private void core1(byte[] data) {
+    private void core1() {
         int A0 = state[ 0];
         int A1 = state[ 1];
         int A2 = state[ 2];
@@ -524,52 +525,52 @@ public class Shabal256 extends MessageDigest implements Cloneable {
         int CE = state[42];
         int CF = state[43];
 
-        final int M0 = decodeLEInt(data, 0);
+        final int M0 = decodeLEInt(buf, 0);
         B0 += M0;
         B0 = (B0 << 17) | (B0 >>> 15);
-        final int M1 = decodeLEInt(data, 4);
+        final int M1 = decodeLEInt(buf, 4);
         B1 += M1;
         B1 = (B1 << 17) | (B1 >>> 15);
-        final int M2 = decodeLEInt(data, 8);
+        final int M2 = decodeLEInt(buf, 8);
         B2 += M2;
         B2 = (B2 << 17) | (B2 >>> 15);
-        final int M3 = decodeLEInt(data, 12);
+        final int M3 = decodeLEInt(buf, 12);
         B3 += M3;
         B3 = (B3 << 17) | (B3 >>> 15);
-        final int M4 = decodeLEInt(data, 16);
+        final int M4 = decodeLEInt(buf, 16);
         B4 += M4;
         B4 = (B4 << 17) | (B4 >>> 15);
-        final int M5 = decodeLEInt(data, 20);
+        final int M5 = decodeLEInt(buf, 20);
         B5 += M5;
         B5 = (B5 << 17) | (B5 >>> 15);
-        final int M6 = decodeLEInt(data, 24);
+        final int M6 = decodeLEInt(buf, 24);
         B6 += M6;
         B6 = (B6 << 17) | (B6 >>> 15);
-        final int M7 = decodeLEInt(data, 28);
+        final int M7 = decodeLEInt(buf, 28);
         B7 += M7;
         B7 = (B7 << 17) | (B7 >>> 15);
-        final int M8 = decodeLEInt(data, 32);
+        final int M8 = decodeLEInt(buf, 32);
         B8 += M8;
         B8 = (B8 << 17) | (B8 >>> 15);
-        final int M9 = decodeLEInt(data, 36);
+        final int M9 = decodeLEInt(buf, 36);
         B9 += M9;
         B9 = (B9 << 17) | (B9 >>> 15);
-        final int MA = decodeLEInt(data, 40);
+        final int MA = decodeLEInt(buf, 40);
         BA += MA;
         BA = (BA << 17) | (BA >>> 15);
-        final int MB = decodeLEInt(data, 44);
+        final int MB = decodeLEInt(buf, 44);
         BB += MB;
         BB = (BB << 17) | (BB >>> 15);
-        final int MC = decodeLEInt(data, 48);
+        final int MC = decodeLEInt(buf, 48);
         BC += MC;
         BC = (BC << 17) | (BC >>> 15);
-        final int MD = decodeLEInt(data, 52);
+        final int MD = decodeLEInt(buf, 52);
         BD += MD;
         BD = (BD << 17) | (BD >>> 15);
-        final int ME = decodeLEInt(data, 56);
+        final int ME = decodeLEInt(buf, 56);
         BE += ME;
         BE = (BE << 17) | (BE >>> 15);
-        final int MF = decodeLEInt(data, 60);
+        final int MF = decodeLEInt(buf, 60);
         BF += MF;
         BF = (BF << 17) | (BF >>> 15);
 
