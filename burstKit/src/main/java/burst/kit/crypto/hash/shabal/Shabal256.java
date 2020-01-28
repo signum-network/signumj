@@ -1,5 +1,6 @@
 package burst.kit.crypto.hash.shabal;
 
+import java.security.DigestException;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.List;
@@ -101,7 +102,24 @@ public class Shabal256 extends MessageDigest implements Cloneable {
 
     @Override
     protected byte[] engineDigest() {
-        byte[] out = new byte[32];
+        byte[] output = new byte[32];
+        shabalDigest(output, 0);
+        return output;
+    }
+
+    @Override
+    protected int engineDigest(byte[] buf, int offset, int len) throws DigestException {
+        if (len < 32)
+            throw new DigestException("partial digests not returned");
+        if (buf.length - offset < 32)
+            throw new DigestException("insufficient space in the output buffer to store the digest");
+
+        shabalDigest(buf, offset);
+
+        return 32;
+    }
+
+    private void shabalDigest(byte[] out, int offset) {
         buf[ptr++] = (byte) 0x80;
         for (int i = ptr; i < 64; i++)
             buf[i] = 0;
@@ -114,14 +132,13 @@ public class Shabal256 extends MessageDigest implements Cloneable {
         int j = 36;
         int w = 0;
         for (int i = 0; i < 32; i++) {
-            if ((i & 3) == 0) { // 0 4 8 12 16 20 ...
+            if ((i & 3) == 0) { // 0, 4, 8, 12, 16, 20...
                 w = state[j++];
             }
-            out[i] = (byte) w;
+            out[offset + i] = (byte) w;
             w >>>= 8;
         }
-        reset();
-        return out;
+        engineReset();
     }
 
     /**
@@ -475,7 +492,7 @@ public class Shabal256 extends MessageDigest implements Cloneable {
     }
 
     /**
-     * Same as core(0, 1);
+     * Same as core(buf, 0, 1);
      */
     private void core1() {
         int A0 = state[ 0];
