@@ -1,6 +1,8 @@
 package burst.kit.crypto.hash;
 
 import burst.kit.crypto.hash.shabal.Shabal256;
+import burst.kit.crypto.hash.shabal.Shabal256Native;
+import burst.kit.util.LibShabalLoader;
 import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 
 import java.security.Provider;
@@ -32,7 +34,13 @@ public class BurstHashProvider extends Provider {
 
         @Override
         public Object newInstance(Object constructorParameter) {
-            return new Shabal256();
+            try { // TODO don't check load every single time
+                LibShabalLoader.ensureLoaded();
+                return new Shabal256Native();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new Shabal256();
+            }
         }
     }
 

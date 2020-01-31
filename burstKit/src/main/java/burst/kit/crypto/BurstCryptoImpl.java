@@ -6,6 +6,7 @@ import burst.kit.crypto.hash.BurstHashProvider;
 import burst.kit.crypto.hash.shabal.Shabal256;
 import burst.kit.crypto.plot.PlotCalculator;
 import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
+import burst.kit.crypto.plot.impl.PlotCalculatorNativeImpl;
 import burst.kit.crypto.rs.ReedSolomon;
 import burst.kit.crypto.rs.ReedSolomonImpl;
 import burst.kit.entity.BurstAddress;
@@ -55,7 +56,14 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private BurstCryptoImpl() {
         this.curve25519 = new Curve25519Impl(this::getSha256);
         this.reedSolomon = new ReedSolomonImpl();
-        this.plotCalculator = new PlotCalculatorImpl(this::getShabal256);
+        PlotCalculator plotCalculator;
+        try {
+            plotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
+        } catch (Exception e) {
+            e.printStackTrace();
+            plotCalculator = new PlotCalculatorImpl(this::getShabal256);
+        }
+        this.plotCalculator = plotCalculator;
         this.epochBeginning = calculateEpochBeginning();
         BurstHashProvider.init();
     }
