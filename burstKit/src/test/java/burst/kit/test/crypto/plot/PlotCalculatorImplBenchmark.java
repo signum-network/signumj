@@ -3,6 +3,7 @@ package burst.kit.test.crypto.plot;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.PlotCalculator;
 import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
+import burst.kit.crypto.plot.impl.PlotCalculatorNativeImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -18,7 +19,7 @@ public class PlotCalculatorImplBenchmark {
     }
 
     private void runBenchmark(int numberOfIterations) {
-        PlotCalculator plotCalculator = new PlotCalculatorImpl(BurstCrypto.getInstance()::getShabal256);
+        PlotCalculator plotCalculator = new PlotCalculatorNativeImpl(BurstCrypto.getInstance()::getShabal256);
         byte[] myGenSig = "abcdefghijklmnopqrstuvwxyzabcdef".getBytes(StandardCharsets.UTF_8);
         long start = System.currentTimeMillis();
         for (int i = 0; i < numberOfIterations; i++) {

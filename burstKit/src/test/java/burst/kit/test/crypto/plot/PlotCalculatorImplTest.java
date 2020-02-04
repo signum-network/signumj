@@ -3,6 +3,7 @@ package burst.kit.test.crypto.plot;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.PlotCalculator;
 import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
+import burst.kit.crypto.plot.impl.PlotCalculatorNativeImpl;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -10,6 +11,6 @@ import org.junit.runners.JUnit4;
 public class PlotCalculatorImplTest extends PlotCalculatorTest {
     @Override
     protected PlotCalculator getPlotCalculator() {
-        return new PlotCalculatorImpl(() -> BurstCrypto.getInstance().getShabal256());
+        return new PlotCalculatorNativeImpl(() -> BurstCrypto.getInstance().getShabal256());
     }
 }
