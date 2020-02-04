@@ -28,17 +28,24 @@ public class BurstHashProvider extends Provider {
     }
 
     private static class ShabalService extends Service {
+        private final boolean canLoad;
+
         private ShabalService(Provider provider) {
             super(provider, "MessageDigest", Shabal256.ALGORITHM, Shabal256.class.toString(), Shabal256.ALIASES, Collections.emptyMap());
+            try {
+                LibShabalLoader.ensureLoaded();
+            } catch (Exception e) {
+                canLoad = false;
+                return;
+            }
+            canLoad = true;
         }
 
         @Override
         public Object newInstance(Object constructorParameter) {
-            try { // TODO don't check load every single time
-                LibShabalLoader.ensureLoaded();
+            if (canLoad) {
                 return new Shabal256Native();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else {
                 return new Shabal256();
             }
         }

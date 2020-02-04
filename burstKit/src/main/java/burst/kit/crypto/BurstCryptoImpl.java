@@ -60,7 +60,6 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         try {
             plotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
         } catch (Exception e) {
-            e.printStackTrace();
             plotCalculator = new PlotCalculatorImpl(this::getShabal256);
         }
         this.plotCalculator = plotCalculator;
