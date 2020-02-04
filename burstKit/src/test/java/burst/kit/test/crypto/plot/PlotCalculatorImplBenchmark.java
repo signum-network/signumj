@@ -15,11 +15,15 @@ import java.nio.charset.StandardCharsets;
 public class PlotCalculatorImplBenchmark {
     @Test
     public void benchmark50Reps() {
-        runBenchmark(50);
+        runBenchmark(new PlotCalculatorImpl(BurstCrypto.getInstance()::getShabal256), 50);
     }
 
-    private void runBenchmark(int numberOfIterations) {
-        PlotCalculator plotCalculator = new PlotCalculatorNativeImpl(BurstCrypto.getInstance()::getShabal256);
+    @Test
+    public void benchmark50RepsNative() {
+        runBenchmark(new PlotCalculatorNativeImpl(BurstCrypto.getInstance()::getShabal256), 50);
+    }
+
+    private void runBenchmark(PlotCalculator plotCalculator, int numberOfIterations) {
         byte[] myGenSig = "abcdefghijklmnopqrstuvwxyzabcdef".getBytes(StandardCharsets.UTF_8);
         long start = System.currentTimeMillis();
         for (int i = 0; i < numberOfIterations; i++) {

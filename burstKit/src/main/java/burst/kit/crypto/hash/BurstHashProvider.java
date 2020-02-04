@@ -44,7 +44,8 @@ public class BurstHashProvider extends Provider {
         @Override
         public Object newInstance(Object constructorParameter) {
             if (canLoad) {
-                return new Shabal256Native();
+//                return new Shabal256Native(); TODO put this back in when the native version is faster... it's about 10x slower at the moment :(
+                return new Shabal256();
             } else {
                 return new Shabal256();
             }
