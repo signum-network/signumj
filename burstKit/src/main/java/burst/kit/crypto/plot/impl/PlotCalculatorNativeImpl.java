@@ -15,7 +15,7 @@ public class PlotCalculatorNativeImpl extends PlotCalculatorImpl {
     @Override
     public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
         byte[] scoopBuffer = new byte[MiningPlot.SCOOP_SIZE];
-        LibShabalLoader.getInstance().create_scoop(accountId, nonce, scoop, (byte) pocVersion, scoopBuffer);
+        LibShabalLoader.getInstance().create_scoop(accountId, nonce, scoop, (byte) pocVersion, scoopBuffer, 0);
         return calculateHit(accountId, nonce, genSig, scoopBuffer);
     }
 }

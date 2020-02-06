@@ -735,6 +735,33 @@ public interface BurstCrypto {
     byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, short dPages, short csPages, short usPages, BurstValue minActivationAmount);
 
     /**
+     * Plots a single nonce into the given buffer.
+     * @param accountId The account ID used to derive the nonce
+     * @param nonce The nonce number
+     * @param pocVersion The PoC version (1 or 2) of the nonce
+     * @param buffer The buffer into which to store the plotted nonce
+     * @param offset The offset into the buffer to store the plotted nonce at
+     * @throws IllegalArgumentException if buffer.length < offset + 262144 (if the buffer does not have enough space in which to store the nonce)
+     */
+    void plotNonce(long accountId, long nonce, byte pocVersion, byte[] buffer, int offset);
+
+    /**
+     * Plots a series of nonces into the given buffer, starting with startNonce, then startNonce + 1, startNonce + 2 etc
+     * @param accountId The account ID used to derive the nonces
+     * @param startNonce The first nonce number
+     * @param nonceCount The number of nonces to plot
+     * @param pocVersion The PoC version (1 or 2) of the nonce
+     * @param buffer The buffer into which to store the plotted nonce
+     * @param offset The offset into the buffer to store the plotted nonce at
+     * @throws IllegalArgumentException if buffer.length < offset + (nonceCount * 262144) (if the buffer does not have enough space in which to store the nonces)
+     */
+    void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset);
+
+    boolean nativeEnabled(); // TODO
+
+    void setNativeEnabled(boolean enabled); // TODO
+
+    /**
      * Get a singleton instance of this class
      * @return Singleton instance of this class.
      */

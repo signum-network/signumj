@@ -1,6 +1,7 @@
 package burst.kit.test;
 
 import burst.kit.crypto.BurstCrypto;
+import burst.kit.crypto.plot.impl.MiningPlot;
 import burst.kit.entity.BurstEncryptedMessage;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnit4.class)

@@ -33,7 +33,7 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
 
     @Override
     public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
-        MiningPlot plot = new MiningPlot(shabal256Supplier, accountId, nonce, pocVersion);
+        MiningPlot plot = new MiningPlot(shabal256Supplier.get(), accountId, nonce, pocVersion);
         MessageDigest shabal256 = shabal256Supplier.get();
         shabal256.update(genSig);
         plot.hashScoop(shabal256, scoop);

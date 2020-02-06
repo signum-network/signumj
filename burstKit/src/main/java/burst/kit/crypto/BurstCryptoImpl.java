@@ -5,6 +5,7 @@ import burst.kit.crypto.ec.Curve25519Impl;
 import burst.kit.crypto.hash.BurstHashProvider;
 import burst.kit.crypto.hash.shabal.Shabal256;
 import burst.kit.crypto.plot.PlotCalculator;
+import burst.kit.crypto.plot.impl.MiningPlot;
 import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
 import burst.kit.crypto.plot.impl.PlotCalculatorNativeImpl;
 import burst.kit.crypto.rs.ReedSolomon;
@@ -13,6 +14,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
+import burst.kit.util.LibShabalLoader;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.engines.AESEngine;
@@ -37,6 +39,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -52,6 +55,8 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
      * The Burst Epoch, as a unix time
      */
     private final long epochBeginning;
+
+    private final AtomicBoolean nativeEnabled = new AtomicBoolean(true);
 
     private BurstCryptoImpl() {
         this.curve25519 = new Curve25519Impl(this::getSha256);
@@ -450,5 +455,45 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         putLength(dPages, data.length, creation);
         creation.put(data);
         return creation.array();
+    }
+
+    @Override
+    public void plotNonce(long accountId, long nonce, byte pocVersion, byte[] buffer, int offset) {
+        if (buffer.length - offset < MiningPlot.PLOT_SIZE) {
+            throw new IllegalArgumentException("Buffer does not have enough space to store plot"); // TODO better message
+        }
+        try {
+            // TODO don't check like this!
+            LibShabalLoader.ensureLoaded();
+            LibShabalLoader.getInstance().create_plot(accountId, nonce, pocVersion, buffer, offset);
+        } catch (Exception e) {
+            new MiningPlot(getShabal256(), accountId, nonce, pocVersion, buffer, offset);
+        }
+    }
+
+    @Override
+    public void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset) {
+        if (buffer.length - offset < nonceCount * MiningPlot.PLOT_SIZE) {
+//            throw new IllegalArgumentException("Buffer does not have enough space to store plots"); // TODO better message
+        }
+        try {
+            // TODO don't check like this!
+            LibShabalLoader.ensureLoaded();
+            LibShabalLoader.getInstance().create_plots(accountId, startNonce, nonceCount, pocVersion, buffer, offset);
+        } catch (Exception e) {
+            for (long i = 0; i < nonceCount; i++) {
+                plotNonce(accountId, startNonce + i, pocVersion, buffer, offset + ((int) i) * MiningPlot.PLOT_SIZE);
+            }
+        }
+    }
+
+    @Override
+    public boolean nativeEnabled() {
+        return false; // TODO
+    }
+
+    @Override
+    public void setNativeEnabled(boolean enabled) {
+        // TODO these
     }
 }
