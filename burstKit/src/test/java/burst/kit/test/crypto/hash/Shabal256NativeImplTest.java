@@ -1,6 +1,5 @@
 package burst.kit.test.crypto.hash;
 
-import burst.kit.crypto.hash.shabal.Shabal256;
 import burst.kit.crypto.hash.shabal.Shabal256Native;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

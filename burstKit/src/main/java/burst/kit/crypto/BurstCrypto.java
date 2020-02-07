@@ -757,9 +757,9 @@ public interface BurstCrypto {
      */
     void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset);
 
-    boolean nativeEnabled(); // TODO
+    boolean nativeEnabled();
 
-    void setNativeEnabled(boolean enabled); // TODO
+    void setNativeEnabled(boolean enabled);
 
     /**
      * Get a singleton instance of this class

@@ -1,8 +1,7 @@
 package burst.kit.crypto.hash;
 
 import burst.kit.crypto.hash.shabal.Shabal256;
-import burst.kit.crypto.hash.shabal.Shabal256Native;
-import burst.kit.util.LibShabalLoader;
+import burst.kit.util.LibShabal;
 import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 
 import java.security.Provider;
@@ -28,22 +27,13 @@ public class BurstHashProvider extends Provider {
     }
 
     private static class ShabalService extends Service {
-        private final boolean canLoad;
-
         private ShabalService(Provider provider) {
             super(provider, "MessageDigest", Shabal256.ALGORITHM, Shabal256.class.toString(), Shabal256.ALIASES, Collections.emptyMap());
-            try {
-                LibShabalLoader.ensureLoaded();
-            } catch (Exception e) {
-                canLoad = false;
-                return;
-            }
-            canLoad = true;
         }
 
         @Override
         public Object newInstance(Object constructorParameter) {
-            if (canLoad) {
+            if (LibShabal.INSTANCE != null) {
 //                return new Shabal256Native(); TODO put this back in when the native version is faster... it's about 10x slower at the moment :(
                 return new Shabal256();
             } else {

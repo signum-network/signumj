@@ -14,13 +14,13 @@ import java.nio.charset.StandardCharsets;
 @RunWith(JUnit4.class)
 public class PlotCalculatorImplBenchmark {
     @Test
-    public void benchmark50Reps() {
-        runBenchmark(new PlotCalculatorImpl(BurstCrypto.getInstance()::getShabal256), 50);
+    public void benchmark64Reps() {
+        runBenchmark(new PlotCalculatorImpl(BurstCrypto.getInstance()::getShabal256), 64);
     }
 
     @Test
-    public void benchmark50RepsNative() {
-        runBenchmark(new PlotCalculatorNativeImpl(BurstCrypto.getInstance()::getShabal256), 50);
+    public void benchmark64RepsNative() {
+        runBenchmark(new PlotCalculatorNativeImpl(BurstCrypto.getInstance()::getShabal256), 64);
     }
 
     private void runBenchmark(PlotCalculator plotCalculator, int numberOfIterations) {

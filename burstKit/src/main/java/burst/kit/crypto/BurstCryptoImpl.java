@@ -14,7 +14,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
-import burst.kit.util.LibShabalLoader;
+import burst.kit.util.LibShabal;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.engines.AESEngine;
@@ -51,6 +51,8 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private final Curve25519 curve25519;
     private final ReedSolomon reedSolomon;
     private final PlotCalculator plotCalculator;
+    private final PlotCalculator nativePlotCalculator;
+
     /**
      * The Burst Epoch, as a unix time
      */
@@ -61,13 +63,8 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private BurstCryptoImpl() {
         this.curve25519 = new Curve25519Impl(this::getSha256);
         this.reedSolomon = new ReedSolomonImpl();
-        PlotCalculator plotCalculator;
-        try {
-            plotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
-        } catch (Exception e) {
-            plotCalculator = new PlotCalculatorImpl(this::getShabal256);
-        }
-        this.plotCalculator = plotCalculator;
+        this.plotCalculator = new PlotCalculatorImpl(this::getShabal256);
+        this.nativePlotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
         this.epochBeginning = calculateEpochBeginning();
         BurstHashProvider.init();
     }
@@ -382,27 +379,47 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId) {
-        return plotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+        } else {
+            return plotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+        }
     }
 
     @Override
     public int calculateScoop(byte[] genSig, long height) {
-        return plotCalculator.calculateScoop(genSig, height);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateScoop(genSig, height);
+        } else {
+            return plotCalculator.calculateScoop(genSig, height);
+        }
     }
 
     @Override
     public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
-        return plotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+        } else {
+            return plotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+        }
     }
 
     @Override
     public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData) {
-        return plotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+        } else {
+            return plotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+        }
     }
 
     @Override
     public BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
-        return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+        } else {
+            return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+        }
     }
 
     private int pageSize(short nPages) {
@@ -462,11 +479,9 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         if (buffer.length - offset < MiningPlot.PLOT_SIZE) {
             throw new IllegalArgumentException("Buffer does not have enough space to store plot"); // TODO better message
         }
-        try {
-            // TODO don't check like this!
-            LibShabalLoader.ensureLoaded();
-            LibShabalLoader.getInstance().create_plot(accountId, nonce, pocVersion, buffer, offset);
-        } catch (Exception e) {
+        if (nativeEnabled()) {
+            LibShabal.INSTANCE.create_plot(accountId, nonce, pocVersion, buffer, offset);
+        } else {
             new MiningPlot(getShabal256(), accountId, nonce, pocVersion, buffer, offset);
         }
     }
@@ -474,13 +489,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     @Override
     public void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset) {
         if (buffer.length - offset < nonceCount * MiningPlot.PLOT_SIZE) {
-//            throw new IllegalArgumentException("Buffer does not have enough space to store plots"); // TODO better message
+            throw new IllegalArgumentException("Buffer does not have enough space to store plots. " + (nonceCount * MiningPlot.PLOT_SIZE) + " bytes required, length of provided buffer from offset is " + (buffer.length - offset));
         }
-        try {
-            // TODO don't check like this!
-            LibShabalLoader.ensureLoaded();
-            LibShabalLoader.getInstance().create_plots(accountId, startNonce, nonceCount, pocVersion, buffer, offset);
-        } catch (Exception e) {
+        if (nativeEnabled()) {
+            LibShabal.INSTANCE.create_plots(accountId, startNonce, nonceCount, pocVersion, buffer, offset);
+        } else {
             for (long i = 0; i < nonceCount; i++) {
                 plotNonce(accountId, startNonce + i, pocVersion, buffer, offset + ((int) i) * MiningPlot.PLOT_SIZE);
             }
@@ -489,11 +502,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public boolean nativeEnabled() {
-        return false; // TODO
+        return nativeEnabled.get() && LibShabal.INSTANCE != null;
     }
 
     @Override
     public void setNativeEnabled(boolean enabled) {
-        // TODO these
+        nativeEnabled.set(enabled);
     }
 }
