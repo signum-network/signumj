@@ -15,7 +15,7 @@ public class Shabal256Native extends MessageDigest {
 
     public Shabal256Native() {
         super(Shabal256.ALGORITHM);
-        nativeObject = LibShabal.INSTANCE.shabal256_new();
+        nativeObject = LibShabal.shabal256_new();
     }
 
     @Override
@@ -25,13 +25,13 @@ public class Shabal256Native extends MessageDigest {
 
     @Override
     protected void engineUpdate(byte[] input, int offset, int len) {
-        LibShabal.INSTANCE.shabal256_update(nativeObject, input, offset, len);
+        LibShabal.shabal256_update(nativeObject, input, offset, len);
     }
 
     @Override
     protected byte[] engineDigest() {
         byte[] buffer = new byte[32];
-        LibShabal.INSTANCE.shabal256_digest(nativeObject, buffer, 0);
+        LibShabal.shabal256_digest(nativeObject, buffer, 0);
         return buffer;
     }
 
@@ -42,17 +42,17 @@ public class Shabal256Native extends MessageDigest {
         if (buf.length - offset < 32)
             throw new DigestException("insufficient space in the output buffer to store the digest");
 
-        LibShabal.INSTANCE.shabal256_digest(nativeObject, buf, offset);
+        LibShabal.shabal256_digest(nativeObject, buf, offset);
         return 32;
     }
 
     @Override
     protected void finalize() {
-        LibShabal.INSTANCE.shabal256_destroy(nativeObject);
+        LibShabal.shabal256_destroy(nativeObject);
     }
 
     @Override
     protected void engineReset() {
-        LibShabal.INSTANCE.shabal256_reset(nativeObject);
+        LibShabal.shabal256_reset(nativeObject);
     }
 }

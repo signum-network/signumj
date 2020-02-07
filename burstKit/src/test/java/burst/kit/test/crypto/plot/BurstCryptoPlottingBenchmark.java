@@ -1,4 +1,4 @@
-package burst.kit.test;
+package burst.kit.test.crypto.plot;
 
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.impl.MiningPlot;
@@ -31,8 +31,9 @@ public class BurstCryptoPlottingBenchmark {
     @Test
     public void benchmarkBulkPlot_native() {
         burstCrypto.setNativeEnabled(true);
-        if (LibShabal.INSTANCE == null) {
+        if (LibShabal.LOAD_ERROR != null) {
             System.out.println("LibShabal not loaded, can't benchmark native implementation");
+            LibShabal.LOAD_ERROR.printStackTrace();
             return;
         }
         runBenchmark(64);

@@ -480,7 +480,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             throw new IllegalArgumentException("Buffer does not have enough space to store plot"); // TODO better message
         }
         if (nativeEnabled()) {
-            LibShabal.INSTANCE.create_plot(accountId, nonce, pocVersion, buffer, offset);
+            LibShabal.create_plot(accountId, nonce, pocVersion, buffer, offset);
         } else {
             new MiningPlot(getShabal256(), accountId, nonce, pocVersion, buffer, offset);
         }
@@ -492,7 +492,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
             throw new IllegalArgumentException("Buffer does not have enough space to store plots. " + (nonceCount * MiningPlot.PLOT_SIZE) + " bytes required, length of provided buffer from offset is " + (buffer.length - offset));
         }
         if (nativeEnabled()) {
-            LibShabal.INSTANCE.create_plots(accountId, startNonce, nonceCount, pocVersion, buffer, offset);
+            LibShabal.create_plots(accountId, startNonce, nonceCount, pocVersion, buffer, offset);
         } else {
             for (long i = 0; i < nonceCount; i++) {
                 plotNonce(accountId, startNonce + i, pocVersion, buffer, offset + ((int) i) * MiningPlot.PLOT_SIZE);
@@ -502,7 +502,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public boolean nativeEnabled() {
-        return nativeEnabled.get() && LibShabal.INSTANCE != null;
+        return nativeEnabled.get() && LibShabal.LOAD_ERROR == null;
     }
 
     @Override
