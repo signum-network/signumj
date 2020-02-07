@@ -13,7 +13,7 @@ public class LibShabal {
         Throwable loadError = null;
         String version = "";
         try {
-            Native.register(NativeLibrary.getInstance("libshabal"));
+            Native.register(NativeLibrary.getInstance("shabal"));
             shabal_init();
             version = libshabal_version();
         } catch (Throwable error) {
