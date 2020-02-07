@@ -56,3 +56,9 @@ protobuf {
     }
     generatedFilesBaseDir = "$projectDir/src/"
 }
+
+test {
+    testLogging {
+        showStandardStreams = true
+    }
+}
