@@ -42,7 +42,7 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
     }
 
     @Override
-    public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData) {
+    public BigInteger calculateHit(byte[] genSig, byte[] scoopData) {
         MessageDigest shabal256 = shabal256Supplier.get();
         shabal256.update(genSig);
         shabal256.update(scoopData);

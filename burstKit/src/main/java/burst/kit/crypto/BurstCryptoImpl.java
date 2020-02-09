@@ -405,11 +405,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData) {
+    public BigInteger calculateHit(byte[] genSig, byte[] scoopData) {
         if (nativeEnabled()) {
-            return nativePlotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+            return nativePlotCalculator.calculateHit(genSig, scoopData);
         } else {
-            return plotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+            return plotCalculator.calculateHit(genSig, scoopData);
         }
     }
 

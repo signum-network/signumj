@@ -253,11 +253,6 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     }
 
     @Override
-    public BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, byte[] scoopData) {
-        return calculateHit(accountId.getSignedLongId(), nonce, genSig, scoopData);
-    }
-
-    @Override
     public BigInteger calculateDeadline(BurstAddress accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
         return calculateDeadline(accountId.getSignedLongId(), nonce, genSig, scoop, baseTarget, pocVersion);
     }

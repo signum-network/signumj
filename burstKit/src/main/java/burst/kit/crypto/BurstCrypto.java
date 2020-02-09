@@ -679,23 +679,11 @@ public interface BurstCrypto {
 
     /**
      * Calculate the hit (raw value obtained from a scoop)
-     * @param accountId The account ID
-     * @param nonce The nonce
      * @param genSig The generation signature
      * @param scoopData The scoop data, usually read from a disk.
      * @return The hit of that scoop
      */
-    BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData);
-
-    /**
-     * Calculate the hit (raw value obtained from a scoop)
-     * @param accountId The account ID
-     * @param nonce The nonce
-     * @param genSig The generation signature
-     * @param scoopData The scoop data, usually read from a disk.
-     * @return The hit of that scoop
-     */
-    BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, byte[] scoopData);
+    BigInteger calculateHit(byte[] genSig, byte[] scoopData);
 
     /**
      * Calculate the deadline (hit / baseTarget)
@@ -757,6 +745,9 @@ public interface BurstCrypto {
      */
     void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset);
 
+    /**
+     * @return whether native acceleration is in use or not
+     */
     boolean nativeEnabled();
 
     void setNativeEnabled(boolean enabled);
