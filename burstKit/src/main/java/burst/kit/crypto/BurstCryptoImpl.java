@@ -2,6 +2,7 @@ package burst.kit.crypto;
 
 import burst.kit.crypto.ec.Curve25519;
 import burst.kit.crypto.ec.Curve25519Impl;
+import burst.kit.crypto.ec.Curve25519NativeImpl;
 import burst.kit.crypto.hash.BurstHashProvider;
 import burst.kit.crypto.hash.shabal.Shabal256;
 import burst.kit.crypto.plot.PlotCalculator;
@@ -48,8 +49,9 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     static final BurstCryptoImpl INSTANCE = new BurstCryptoImpl();
 
     private final SecureRandom secureRandom = new SecureRandom();
-    private final Curve25519 curve25519;
     private final ReedSolomon reedSolomon;
+    private final Curve25519 curve25519;
+    private final Curve25519 nativeCurve25519;
     private final PlotCalculator plotCalculator;
     private final PlotCalculator nativePlotCalculator;
 
@@ -61,8 +63,9 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private final AtomicBoolean nativeEnabled = new AtomicBoolean(true);
 
     private BurstCryptoImpl() {
-        this.curve25519 = new Curve25519Impl(this::getSha256);
         this.reedSolomon = new ReedSolomonImpl();
+        this.curve25519 = new Curve25519Impl(this::getSha256);
+        this.nativeCurve25519 = new Curve25519Impl(this::getSha256);
         this.plotCalculator = new PlotCalculatorImpl(this::getShabal256);
         this.nativePlotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
         this.epochBeginning = calculateEpochBeginning();
@@ -120,13 +123,21 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     @Override
     public byte[] getPrivateKey(String passphrase) {
         byte[] privateKey = getSha256().digest(stringToBytes(passphrase));
-        curve25519.clampPrivateKey(privateKey);
+        if (nativeEnabled()) {
+            nativeCurve25519.clampPrivateKey(privateKey);
+        } else {
+            curve25519.clampPrivateKey(privateKey);
+        }
         return privateKey;
     }
 
     @Override
     public byte[] getPublicKey(byte[] privateKey) {
-        return curve25519.getPublicKey(privateKey);
+        if (nativeEnabled()) {
+            return nativeCurve25519.getPublicKey(privateKey);
+        } else {
+            return curve25519.getPublicKey(privateKey);
+        }
     }
 
     @Override
@@ -144,12 +155,20 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] getSharedSecret(byte[] myPrivateKey, byte[] theirPublicKey) {
-        return curve25519.getSharedSecret(myPrivateKey, theirPublicKey);
+        if (nativeEnabled()) {
+            return nativeCurve25519.getSharedSecret(myPrivateKey, theirPublicKey);
+        } else {
+            return curve25519.getSharedSecret(myPrivateKey, theirPublicKey);
+        }
     }
 
     @Override
     public byte[] sign(byte[] message, byte[] privateKey) {
-        return curve25519.sign(message, privateKey);
+        if (nativeEnabled()) {
+            return nativeCurve25519.sign(message, privateKey);
+        } else {
+            return curve25519.sign(message, privateKey);
+        }
     }
 
     @Override
@@ -163,7 +182,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical) {
-        return curve25519.verify(message, signature, publicKey, enforceCanonical);
+        if (nativeEnabled()) {
+            return nativeCurve25519.verify(message, signature, publicKey, enforceCanonical);
+        } else {
+            return curve25519.verify(message, signature, publicKey, enforceCanonical);
+        }
     }
 
     @Override
