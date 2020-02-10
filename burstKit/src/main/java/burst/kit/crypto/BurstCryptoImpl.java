@@ -65,7 +65,7 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     private BurstCryptoImpl() {
         this.reedSolomon = new ReedSolomonImpl();
         this.curve25519 = new Curve25519Impl(this::getSha256);
-        this.nativeCurve25519 = new Curve25519Impl(this::getSha256);
+        this.nativeCurve25519 = new Curve25519NativeImpl();
         this.plotCalculator = new PlotCalculatorImpl(this::getShabal256);
         this.nativePlotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
         this.epochBeginning = calculateEpochBeginning();
@@ -164,10 +164,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] sign(byte[] message, byte[] privateKey) {
+        byte[] messageSha256 = getSha256().digest(message);
         if (nativeEnabled()) {
-            return nativeCurve25519.sign(message, privateKey);
+            return nativeCurve25519.sign(messageSha256, privateKey);
         } else {
-            return curve25519.sign(message, privateKey);
+            return curve25519.sign(messageSha256, privateKey);
         }
     }
 
@@ -182,10 +183,11 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical) {
+        byte[] messageSha256 = getSha256().digest(message);
         if (nativeEnabled()) {
-            return nativeCurve25519.verify(message, signature, publicKey, enforceCanonical);
+            return nativeCurve25519.verify(messageSha256, signature, publicKey, enforceCanonical);
         } else {
-            return curve25519.verify(message, signature, publicKey, enforceCanonical);
+            return curve25519.verify(messageSha256, signature, publicKey, enforceCanonical);
         }
     }
 

@@ -32,20 +32,19 @@ public class Curve25519Impl implements Curve25519 {
     }
 
     @Override
-    public byte[] sign(byte[] message, byte[] privateKey) {
+    public byte[] sign(byte[] messageSha256, byte[] privateKey) {
         byte[] publicKey = new byte[32];
         byte[] sharedKey = new byte[32];
         MessageDigest digest = sha256Supplier.get();
         Curve25519.keygen(publicKey, sharedKey, privateKey);
-        byte[] messageDigest = digest.digest(message);
 
-        digest.update(messageDigest);
+        digest.update(messageSha256);
         byte[] x = digest.digest(sharedKey);
 
         byte[] y = new byte[32];
         Curve25519.keygen(y, null, x);
 
-        digest.update(messageDigest);
+        digest.update(messageSha256);
         byte[] h = digest.digest(y);
 
         byte[] signature = new byte[64];
@@ -56,7 +55,7 @@ public class Curve25519Impl implements Curve25519 {
     }
 
     @Override
-    public boolean verify(byte[] message, byte[] signature, byte[] publicKey, boolean enforceCanonical) {
+    public boolean verify(byte[] messageSha256, byte[] signature, byte[] publicKey, boolean enforceCanonical) {
         if (enforceCanonical && !Curve25519.isCanonicalSignature(signature)) {
             return false;
         }
@@ -73,8 +72,7 @@ public class Curve25519Impl implements Curve25519 {
         Curve25519.verify(Y, v, h, publicKey);
 
         MessageDigest digest = sha256Supplier.get();
-        byte[] m = digest.digest(message);
-        digest.update(m);
+        digest.update(messageSha256);
         byte[] h2 = digest.digest(Y);
 
         return Arrays.equals(h, h2);
