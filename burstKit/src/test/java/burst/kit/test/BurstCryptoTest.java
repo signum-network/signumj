@@ -12,6 +12,7 @@ import org.junit.runners.JUnit4;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -28,32 +29,56 @@ public class BurstCryptoTest { // TODO more unit tests
     public void testEncryptTextMessage() {
         String message = "Test message";
 
-        byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
-        byte[] myPublicKey = BurstCrypto.getInstance().getPublicKey(myPrivateKey);
-        byte[] theirPrivateKey = BurstCrypto.getInstance().getPrivateKey("example2");
-        byte[] theirPublicKey = BurstCrypto.getInstance().getPublicKey(theirPrivateKey);
+        byte[] myPrivateKey = burstCrypto.getPrivateKey("example1");
+        byte[] myPublicKey = burstCrypto.getPublicKey(myPrivateKey);
+        byte[] theirPrivateKey = burstCrypto.getPrivateKey("example2");
+        byte[] theirPublicKey = burstCrypto.getPublicKey(theirPrivateKey);
 
-        BurstEncryptedMessage burstEncryptedMessage = BurstCrypto.getInstance().encryptTextMessage(message, myPrivateKey, theirPublicKey);
+        BurstEncryptedMessage burstEncryptedMessage = burstCrypto.encryptTextMessage(message, myPrivateKey, theirPublicKey);
 
-        String result1 = new String(BurstCrypto.getInstance().decryptMessage(burstEncryptedMessage, myPrivateKey, theirPublicKey));
-        String result2 = new String(BurstCrypto.getInstance().decryptMessage(burstEncryptedMessage, theirPrivateKey, myPublicKey));
+        String result1 = new String(burstCrypto.decryptMessage(burstEncryptedMessage, myPrivateKey, theirPublicKey));
+        String result2 = new String(burstCrypto.decryptMessage(burstEncryptedMessage, theirPrivateKey, myPublicKey));
 
         assertEquals(message, result1);
         assertEquals(message, result2);
     }
 
+    private void reverse(byte[] array) {
+        for(int i = 0; i < array.length / 2; i++)
+        {
+            int temp = array[i];
+            array[i] = array[array.length - i - 1];
+            array[array.length - i - 1] = (byte) temp;
+        }
+    }
+
     @Test
     public void testSignAndVerify() {
+        burstCrypto.setNativeEnabled(false);
         byte[] myMessage = "A Message".getBytes(StandardCharsets.UTF_8);
-        byte[] myPrivateKey = BurstCrypto.getInstance().getPrivateKey("example1");
-        byte[] myPublic = BurstCrypto.getInstance().getPublicKey(myPrivateKey);
-        byte[] signature = BurstCrypto.getInstance().sign(myMessage, myPrivateKey);
-        Assert.assertTrue(BurstCrypto.getInstance().verify(signature, myMessage, myPublic, true));
+        byte[] myPrivateKey = burstCrypto.getPrivateKey("example1");
+        byte[] myPublic = burstCrypto.getPublicKey(myPrivateKey);
+        byte[] signature = burstCrypto.sign(myMessage, myPrivateKey);
+        Assert.assertTrue(burstCrypto.verify(signature, myMessage, myPublic, true));
+        reverse(signature);
+        Assert.assertFalse(burstCrypto.verify(signature, myMessage, myPublic, true));
+
+        burstCrypto.setNativeEnabled(true);
+        if (burstCrypto.nativeEnabled()) {
+            reverse(signature); // Undo previous reverse
+            byte[] nativeSignature = burstCrypto.sign(myMessage, myPrivateKey);
+            byte[] nativePublicKey = burstCrypto.getPublicKey(myPrivateKey);
+            Assert.assertArrayEquals(myPublic, nativePublicKey);
+            Assert.assertArrayEquals(signature, nativeSignature);
+            Assert.assertTrue(burstCrypto.verify(signature, myMessage, myPublic, true));
+            reverse(signature);
+            Assert.assertFalse(burstCrypto.verify(signature, myMessage, myPublic, true));
+        }
     }
 
     @Test
     public void testCryptoSha256() {
-        MessageDigest sha256 = BurstCrypto.getInstance().getSha256();
+        MessageDigest sha256 = burstCrypto.getSha256();
         assertEquals("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", Hex.toHexString(sha256.digest(stringToBytes(""))));
         assertEquals("e806a291cfc3e61f83b98d344ee57e3e8933cccece4fb45e1481f1f560e70eb1", Hex.toHexString(sha256.digest(stringToBytes("Testing"))));
         assertEquals("6de732f18e99e18ac25c609d6942f06f6ed7ab3f261ca46668d3a0e19fbc9e80", Hex.toHexString(sha256.digest(stringToBytes("Burstcoin!"))));
@@ -62,7 +87,7 @@ public class BurstCryptoTest { // TODO more unit tests
 
     @Test
     public void testCryptoShabal256() {
-        MessageDigest shabal256 = BurstCrypto.getInstance().getShabal256();
+        MessageDigest shabal256 = burstCrypto.getShabal256();
         assertEquals("aec750d11feee9f16271922fbaf5a9be142f62019ef8d720f858940070889014", Hex.toHexString(shabal256.digest(stringToBytes(""))));
         assertEquals("10e237979a7233aa6a9377ff6a4b2541f890f67107fe0c89008fdd2c48e4cfe5", Hex.toHexString(shabal256.digest(stringToBytes("Testing"))));
         assertEquals("9beec9e237da7542a045b89c709b5d423b22faa99d5f01abab67261e1a9de6b8", Hex.toHexString(shabal256.digest(stringToBytes("Burstcoin!"))));
@@ -71,7 +96,7 @@ public class BurstCryptoTest { // TODO more unit tests
 
     @Test
     public void testCryptoRipemd160() {
-        MessageDigest ripemd160 = BurstCrypto.getInstance().getRipeMD160();
+        MessageDigest ripemd160 = burstCrypto.getRipeMD160();
         assertEquals("9c1185a5c5e9fc54612808977ee8f548b2258d31", Hex.toHexString(ripemd160.digest(stringToBytes(""))));
         assertEquals("01743c6e71742ed72d6c51537f1790a462b82c82", Hex.toHexString(ripemd160.digest(stringToBytes("Testing"))));
         assertEquals("9b7e20c53c6e77ed8d9768d8a5a813d02c0a0d6a", Hex.toHexString(ripemd160.digest(stringToBytes("Burstcoin!"))));
@@ -80,7 +105,7 @@ public class BurstCryptoTest { // TODO more unit tests
 
     @Test
     public void testCryptoMd5() {
-        MessageDigest md5 = BurstCrypto.getInstance().getMD5();
+        MessageDigest md5 = burstCrypto.getMD5();
         assertEquals("d41d8cd98f00b204e9800998ecf8427e", Hex.toHexString(md5.digest(stringToBytes(""))));
         assertEquals("fa6a5a3224d7da66d9e0bdec25f62cf0", Hex.toHexString(md5.digest(stringToBytes("Testing"))));
         assertEquals("5251a8a65a96abd2bf344f84c64b7d71", Hex.toHexString(md5.digest(stringToBytes("Burstcoin!"))));

@@ -35,9 +35,9 @@ public class Curve25519Impl implements Curve25519 {
     public byte[] sign(byte[] messageSha256, byte[] privateKey) {
         byte[] publicKey = new byte[32];
         byte[] sharedKey = new byte[32];
-        MessageDigest digest = sha256Supplier.get();
         Curve25519.keygen(publicKey, sharedKey, privateKey);
 
+        MessageDigest digest = sha256Supplier.get();
         digest.update(messageSha256);
         byte[] x = digest.digest(sharedKey);
 
