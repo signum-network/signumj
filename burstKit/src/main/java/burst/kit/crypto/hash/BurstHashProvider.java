@@ -1,8 +1,6 @@
 package burst.kit.crypto.hash;
 
 import burst.kit.crypto.hash.shabal.Shabal256;
-import burst.kit.crypto.hash.shabal.Shabal256Native;
-import burst.kit.util.LibShabal;
 import org.bouncycastle.jcajce.provider.digest.RIPEMD160;
 
 import java.security.Provider;
@@ -34,12 +32,7 @@ public class BurstHashProvider extends Provider {
 
         @Override
         public Object newInstance(Object constructorParameter) {
-            if (LibShabal.LOAD_ERROR == null) {
-//                return new Shabal256Native(); TODO put this back in when the native version is faster... it's about 10x slower at the moment :(
-                return new Shabal256();
-            } else {
-                return new Shabal256();
-            }
+            return new Shabal256();
         }
     }
 

@@ -29,10 +29,24 @@ public class BurstCryptoTest { // TODO more unit tests
     public void testEncryptTextMessage() {
         String message = "Test message";
 
+        burstCrypto.setNativeEnabled(false);
         byte[] myPrivateKey = burstCrypto.getPrivateKey("example1");
         byte[] myPublicKey = burstCrypto.getPublicKey(myPrivateKey);
         byte[] theirPrivateKey = burstCrypto.getPrivateKey("example2");
         byte[] theirPublicKey = burstCrypto.getPublicKey(theirPrivateKey);
+
+        burstCrypto.setNativeEnabled(true);
+        if (burstCrypto.nativeEnabled()) {
+            byte[] myPrivateKey_native = burstCrypto.getPrivateKey("example1");
+            byte[] myPublicKey_native = burstCrypto.getPublicKey(myPrivateKey);
+            byte[] theirPrivateKey_native = burstCrypto.getPrivateKey("example2");
+            byte[] theirPublicKey_native = burstCrypto.getPublicKey(theirPrivateKey);
+
+            assertArrayEquals(myPrivateKey, myPrivateKey_native);
+            assertArrayEquals(myPublicKey, myPublicKey_native);
+            assertArrayEquals(theirPrivateKey, theirPrivateKey_native);
+            assertArrayEquals(theirPublicKey, theirPublicKey_native);
+        }
 
         BurstEncryptedMessage burstEncryptedMessage = burstCrypto.encryptTextMessage(message, myPrivateKey, theirPublicKey);
 
@@ -49,6 +63,30 @@ public class BurstCryptoTest { // TODO more unit tests
             int temp = array[i];
             array[i] = array[array.length - i - 1];
             array[array.length - i - 1] = (byte) temp;
+        }
+    }
+
+    @Test
+    public void testGetSharedKey() {
+        byte[] sharedKey = burstCrypto.parseHexString("f057d9854fa4d7cf86a822500dae7b6c3325a21a1f13f5fc98b587bc0569113a");
+
+        byte[] privateKey1 = burstCrypto.getPrivateKey("passphrase1");
+        byte[] privateKey2 = burstCrypto.getPrivateKey("passphrase2");
+        byte[] publicKey1 = burstCrypto.getPublicKey(privateKey1);
+        byte[] publicKey2 = burstCrypto.getPublicKey(privateKey2);
+
+        burstCrypto.setNativeEnabled(false);
+        byte[] sharedKey1 = burstCrypto.getSharedSecret(privateKey1, publicKey2);
+        byte[] sharedKey2 = burstCrypto.getSharedSecret(privateKey2, publicKey1);
+        assertArrayEquals(sharedKey, sharedKey1);
+        assertArrayEquals(sharedKey, sharedKey2);
+
+        burstCrypto.setNativeEnabled(true);
+        if (burstCrypto.nativeEnabled()) {
+            byte[] sharedKey1_native = burstCrypto.getSharedSecret(privateKey1, publicKey2);
+            byte[] sharedKey2_native = burstCrypto.getSharedSecret(privateKey2, publicKey1);
+            assertArrayEquals(sharedKey1, sharedKey1_native);
+            assertArrayEquals(sharedKey2, sharedKey2_native);
         }
     }
 
