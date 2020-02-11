@@ -22,14 +22,14 @@ public class Curve25519Benchmark {
         byte[] privateKey = sha256("Super secret passphrase");
 
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 10000; i++) {
             byte[] publicKey = curve25519.getPublicKey(privateKey);
             byte[] signature = curve25519.sign(messageDigest, privateKey);
             boolean verifySuccess = curve25519.verify(messageDigest, signature, publicKey, true);
             if (!verifySuccess) throw new IllegalStateException("Curve failed to verify");
         }
         long duration = System.currentTimeMillis() - start;
-        System.out.println((isNative ? "Native" : "Java") + " Curve25519: 50000 iterations of get public key -> sign -> verify took " + duration + "ms");
+        System.out.println((isNative ? "Native" : "Java") + " Curve25519: 10000 iterations of get public key -> sign -> verify took " + duration + "ms");
     }
 
     @Test

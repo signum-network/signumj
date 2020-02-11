@@ -3,6 +3,7 @@ package burst.kit.test;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.impl.MiningPlot;
 import burst.kit.entity.BurstEncryptedMessage;
+import burst.kit.util.LibShabal;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Assert;
 import org.junit.Test;
