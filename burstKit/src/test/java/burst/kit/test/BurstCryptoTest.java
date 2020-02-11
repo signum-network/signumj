@@ -1,19 +1,15 @@
 package burst.kit.test;
 
 import burst.kit.crypto.BurstCrypto;
-import burst.kit.crypto.plot.impl.MiningPlot;
 import burst.kit.entity.BurstEncryptedMessage;
-import burst.kit.util.LibShabal;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

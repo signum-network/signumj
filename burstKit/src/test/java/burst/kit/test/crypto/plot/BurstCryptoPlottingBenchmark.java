@@ -3,12 +3,9 @@ package burst.kit.test.crypto.plot;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.impl.MiningPlot;
 import burst.kit.util.LibShabal;
-import org.bouncycastle.util.encoders.Hex;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import static org.junit.Assert.assertArrayEquals;
 
 @RunWith(JUnit4.class)
 public class BurstCryptoPlottingBenchmark {

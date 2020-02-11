@@ -6,7 +6,6 @@ import java.math.BigInteger;
 import java.security.DigestException;
 import java.security.MessageDigest;
 import java.util.Arrays;
-import java.util.function.Supplier;
 
 public class MiningPlot {
     public static final int HASH_SIZE = 32;

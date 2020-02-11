@@ -9,7 +9,6 @@ import burst.kit.entity.response.attachment.ATCreationAttachment;
 import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstNodeService;
-
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Ignore;
 import org.junit.Test;

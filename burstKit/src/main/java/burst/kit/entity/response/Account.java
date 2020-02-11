@@ -1,7 +1,6 @@
 package burst.kit.entity.response;
 
 import burst.kit.entity.BurstAddress;
-import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.AccountResponse;
 import burst.kit.service.impl.grpc.BrsApi;

@@ -3,7 +3,6 @@ package burst.kit.test.crypto.plot;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.crypto.plot.PlotCalculator;
 import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
-import burst.kit.crypto.plot.impl.PlotCalculatorNativeImpl;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
