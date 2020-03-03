@@ -405,11 +405,12 @@ public interface BurstNodeService {
         return getInstance(nodeAddress, null);
     }
 
-    static BurstNodeService getInstance(String nodeAddress, String httpUserAgent) {
+    static BurstNodeService getInstance(String nodeAddress, String userAgent) {
+        if (userAgent == null) userAgent = "burstkit4j/" + burst.kit.Constants.VERSION;
         if (nodeAddress.startsWith("grpc://")) {
-            return new GrpcBurstNodeService(nodeAddress);
+            return new GrpcBurstNodeService(nodeAddress, userAgent);
         } else {
-            return new HttpBurstNodeService(nodeAddress, httpUserAgent);
+            return new HttpBurstNodeService(nodeAddress, userAgent);
         }
     }
 
@@ -417,10 +418,11 @@ public interface BurstNodeService {
         return getCompositeInstanceWithUserAgent(null, nodeAddresses);
     }
 
-    static BurstNodeService getCompositeInstanceWithUserAgent(String httpUserAgent, String... nodeAddresses) {
-        if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], httpUserAgent);
+    static BurstNodeService getCompositeInstanceWithUserAgent(String userAgent, String... nodeAddresses) {
+        if (nodeAddresses.length == 0) throw new IllegalArgumentException("No node addresses specified");
+        if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], userAgent);
         return new CompositeBurstNodeService(Arrays.stream(nodeAddresses)
-                .map(nodeAddress -> getInstance(nodeAddress, httpUserAgent))
+                .map(nodeAddress -> getInstance(nodeAddress, userAgent))
                 .toArray(BurstNodeService[]::new));
     }
 }

@@ -28,9 +28,13 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     private final BrsApiServiceGrpc.BrsApiServiceBlockingStub brsGrpc;
 
-    public GrpcBurstNodeService(String nodeAddress) {
+    public GrpcBurstNodeService(String nodeAddress, String userAgent) {
         if (nodeAddress.startsWith("grpc://")) nodeAddress = nodeAddress.substring(7);
-        this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());
+        this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder
+                .forTarget(nodeAddress)
+                .userAgent(userAgent)
+                .usePlaintext()
+                .build());
     }
 
     private <T> Observable<T> assign(Iterator<T> iterable) {

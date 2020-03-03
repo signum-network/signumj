@@ -30,9 +30,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     private BlockchainService blockchainService;
 
-    public HttpBurstNodeService(String nodeAddress, String providedUserAgent) {
-        String userAgent = providedUserAgent == null ? "burstkit4j/" + burst.kit.Constants.VERSION : providedUserAgent;
-
+    public HttpBurstNodeService(String nodeAddress, String userAgent) {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(chain -> chain.proceed(chain.request().newBuilder().header("User-Agent", userAgent).build()))
                 .build();
