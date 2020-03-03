@@ -330,4 +330,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId, BurstValue fee, int deadline) {
         return performFastest(service -> service.generateCancelBidOrderTransaction(senderPublicKey, orderId, fee, deadline));
     }
+
+    @Override
+    public void close() throws Exception {
+        for (BurstNodeService burstNodeService : burstNodeServices) {
+            burstNodeService.close();
+        }
+    }
 }

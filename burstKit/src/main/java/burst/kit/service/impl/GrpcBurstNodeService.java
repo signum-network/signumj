@@ -11,6 +11,7 @@ import burst.kit.util.BurstKitUtils;
 import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Empty;
+import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
@@ -23,18 +24,20 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 public class GrpcBurstNodeService implements BurstNodeService {
-
     private final BrsApiServiceGrpc.BrsApiServiceBlockingStub brsGrpc;
+    private final ManagedChannel connection;
 
     public GrpcBurstNodeService(String nodeAddress, String userAgent) {
         if (nodeAddress.startsWith("grpc://")) nodeAddress = nodeAddress.substring(7);
-        this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder
+        this.connection = ManagedChannelBuilder
                 .forTarget(nodeAddress)
                 .userAgent(userAgent)
                 .usePlaintext()
-                .build());
+                .build();
+        this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(connection);
     }
 
     private <T> Observable<T> assign(Iterator<T> iterable) {
@@ -537,5 +540,14 @@ public class GrpcBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public void close() throws Exception {
+        connection.shutdown();
+        connection.awaitTermination(10, TimeUnit.SECONDS);
+        while (!connection.isTerminated()) {
+            connection.shutdownNow();
+        }
     }
 }

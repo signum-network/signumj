@@ -10,6 +10,8 @@ import burst.kit.entity.response.attachment.MultiOutAttachment;
 import burst.kit.entity.response.attachment.MultiOutSameAttachment;
 import burst.kit.service.BurstNodeService;
 import org.bouncycastle.util.encoders.Hex;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -22,9 +24,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public abstract class BurstNodeServiceTest {
-
-    private final BurstNodeService burstNodeService = getBurstNodeService();
+    private BurstNodeService burstNodeService;
     private final BurstCrypto burstCrypto = BurstCrypto.getInstance();
+
+    @Before
+    public void setUp() {
+        burstNodeService = getBurstNodeService();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        burstNodeService.close();
+    }
 
     protected abstract BurstNodeService getBurstNodeService();
 

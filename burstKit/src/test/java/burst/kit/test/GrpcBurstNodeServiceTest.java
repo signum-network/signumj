@@ -11,6 +11,6 @@ import org.junit.runners.JUnit4;
 public class GrpcBurstNodeServiceTest extends BurstNodeServiceTest {
     @Override
     protected BurstNodeService getBurstNodeService() {
-        return new GrpcBurstNodeService(TestVariables.GRPC_API_ENDPOINT);
+        return new GrpcBurstNodeService(TestVariables.GRPC_API_ENDPOINT, "burstkit4j-TEST");
     }
 }

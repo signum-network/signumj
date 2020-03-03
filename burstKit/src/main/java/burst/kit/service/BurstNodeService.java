@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
-public interface BurstNodeService {
+public interface BurstNodeService extends AutoCloseable {
     /**
      * Get a block via a block ID
      * @param block The block ID of the requested block
