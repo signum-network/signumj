@@ -5,9 +5,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.attachment.ATCreationAttachment;
-import burst.kit.entity.response.attachment.MultiOutAttachment;
-import burst.kit.entity.response.attachment.MultiOutSameAttachment;
+import burst.kit.entity.response.attachment.*;
 import burst.kit.service.BurstNodeService;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.After;
@@ -145,6 +143,39 @@ public abstract class BurstNodeServiceTest {
 
         Transaction atCreationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_AT_CREATION_TRANSACTION_ID));
         assertEquals(ATCreationAttachment.class, atCreationTransactionResponse.getAttachment().getClass());
+
+        Transaction assetTransferTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_TRANSFER_TRANSACTION_ID));
+        assertEquals(AssetTransferAttachment.class, assetTransferTransactionResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getAsset());
+        assertEquals("431762560000", ((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getQuantityQNT());
+
+        Transaction bidOrderPlacementTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_BID_ORDER_PLACEMENT_TRANSACTION_ID));
+        assertEquals(BidOrderPlacementAttachment.class, bidOrderPlacementTransactionResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540", ((BidOrderPlacementAttachment) bidOrderPlacementTransactionResponse.getAttachment()).getAsset());
+        assertEquals("99990000", ((BidOrderPlacementAttachment) bidOrderPlacementTransactionResponse.getAttachment()).getQuantityQNT());
+        assertEquals("1000", ((BidOrderPlacementAttachment) bidOrderPlacementTransactionResponse.getAttachment()).getPriceNQT());
+
+        Transaction askOrderPlacementTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASK_ORDER_PLACEMENT_TRANSACTION_ID));
+        assertEquals(AskOrderPlacementAttachment.class, askOrderPlacementTransactionResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540", ((AskOrderPlacementAttachment) askOrderPlacementTransactionResponse.getAttachment()).getAsset());
+        assertEquals("10000", ((AskOrderPlacementAttachment) askOrderPlacementTransactionResponse.getAttachment()).getQuantityQNT());
+        assertEquals("1960", ((AskOrderPlacementAttachment) askOrderPlacementTransactionResponse.getAttachment()).getPriceNQT());
+
+        Transaction bidOrderCancellationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_BID_ORDER_CANCELLATION_TRANSACTION_ID));
+        assertEquals(BidOrderCancellationAttachment.class, bidOrderCancellationTransactionResponse.getAttachment().getClass());
+        assertEquals("8067384309114314901", ((BidOrderCancellationAttachment) bidOrderCancellationTransactionResponse.getAttachment()).getOrder());
+
+        Transaction askOrderCancellationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASK_ORDER_CANCELLATION_TRANSACTION_ID));
+        assertEquals(AskOrderCancellationAttachment.class, askOrderCancellationTransactionResponse.getAttachment().getClass());
+        assertEquals("12656175013072880629", ((AskOrderCancellationAttachment) askOrderCancellationTransactionResponse.getAttachment()).getOrder());
+
+        Transaction assetIssuanceTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_ISSUANCE_TRANSACTION_ID));
+        assertEquals(AssetIssuanceAttachment.class, assetIssuanceTransactionResponse.getAttachment().getClass());
+        assertEquals("TRT", ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getName());
+        assertEquals(159, ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getDescription().length());
+        assertEquals("21588128000000", ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getQuantityQNT());
+        assertEquals(4, ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getDecimals());
+
     }
 
     @Test

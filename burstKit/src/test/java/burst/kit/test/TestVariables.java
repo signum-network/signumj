@@ -19,6 +19,12 @@ public class TestVariables {
     public static final BurstID EXAMPLE_AT_CREATION_TRANSACTION_ID = BurstID.fromLong("3474457271106823767");
     public static final BurstID EXAMPLE_MULTI_OUT_TRANSACTION_ID = BurstID.fromLong("3631659512270044993");
     public static final BurstID EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID = BurstID.fromLong("5032020914938737522");
+    public static final BurstID EXAMPLE_ASSET_TRANSFER_TRANSACTION_ID = BurstID.fromLong("3725433067123077435");
+    public static final BurstID EXAMPLE_BID_ORDER_PLACEMENT_TRANSACTION_ID = BurstID.fromLong("10996076067714048792");
+    public static final BurstID EXAMPLE_BID_ORDER_CANCELLATION_TRANSACTION_ID = BurstID.fromLong("17400712483103268921");
+    public static final BurstID EXAMPLE_ASK_ORDER_PLACEMENT_TRANSACTION_ID = BurstID.fromLong("12656175013072880629");
+    public static final BurstID EXAMPLE_ASK_ORDER_CANCELLATION_TRANSACTION_ID = BurstID.fromLong("2146184374862030896");
+    public static final BurstID EXAMPLE_ASSET_ISSUANCE_TRANSACTION_ID = BurstID.fromLong("12402415494995249540");
     public static final byte[] EXAMPLE_TRANSACTION_FULL_HASH = Hex.decode("e475946429c220d33f414a9d6106452547abe23ee1379fc38f571cac1c037c6f");
 
     public static final BurstAddress EXAMPLE_AT_ID = BurstAddress.fromId("3474457271106823767");
