@@ -53,6 +53,10 @@ public class TransactionAttachmentAndAppendagesResponse {
             attachment = gson.fromJson(source, ATCreationAttachmentResponse.class);
         } else if (source.has("version.AssetTransfer")) {
             attachment = gson.fromJson(source, AssetTransferAttachmentResponse.class);
+        } else if (source.has("version.AskOrderPlacement")) {
+            attachment = gson.fromJson(source, AskOrderPlacementAttachmentResponse.class);
+        } else if (source.has("version.BidOrderPlacement")) {
+            attachment = gson.fromJson(source, BidOrderPlacementAttachmentResponse.class);
         }
         if (attachment == null) attachment = new OrdinaryPaymentAttachmentResponse();
 
