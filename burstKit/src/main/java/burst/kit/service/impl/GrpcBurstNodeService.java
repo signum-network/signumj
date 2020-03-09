@@ -523,7 +523,17 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 

@@ -361,6 +361,34 @@ public interface BurstNodeService extends AutoCloseable {
      * @param price The order price
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The encrypted message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST

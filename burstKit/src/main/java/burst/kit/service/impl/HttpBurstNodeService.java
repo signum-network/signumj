@@ -266,6 +266,21 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message) {
+        return assign(burstAPIService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(burstAPIService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null,
+                 message.isText(), Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce()), null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
         return assign(burstAPIService.placeAskOrder(BurstKitUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
