@@ -5,6 +5,7 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.*;
+import burst.kit.entity.response.appendix.*;
 import burst.kit.entity.response.attachment.*;
 import burst.kit.service.BurstNodeService;
 import org.bouncycastle.util.encoders.Hex;
@@ -148,6 +149,19 @@ public abstract class BurstNodeServiceTest {
         assertEquals(AssetTransferAttachment.class, assetTransferTransactionResponse.getAttachment().getClass());
         assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getAsset());
         assertEquals("431762560000", ((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getQuantityQNT());
+
+        Transaction assetTransferTransactionWithMessageResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_TRANSFER_WITH_MESSAGE_TRANSACTION_ID));
+        assertEquals(AssetTransferAttachment.class, assetTransferTransactionWithMessageResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getAsset());
+        assertEquals("1000", ((AssetTransferAttachment) assetTransferTransactionWithMessageResponse.getAttachment()).getQuantityQNT());
+        assertEquals(PlaintextMessageAppendix.class, assetTransferTransactionWithMessageResponse.getAppendages()[0].getClass());
+        assertEquals(48, ((PlaintextMessageAppendix) assetTransferTransactionWithMessageResponse.getAppendages()[0]).getMessage().length());
+
+        Transaction assetTransferTransactionWithEncryptedMessageResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_TRANSFER_WITH_ENCRYPTED_MESSAGE_TRANSACTION_ID));
+        assertEquals(AssetTransferAttachment.class, assetTransferTransactionWithEncryptedMessageResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionWithEncryptedMessageResponse.getAttachment()).getAsset());
+        assertEquals(96, ((EncryptedMessageAppendix) assetTransferTransactionWithEncryptedMessageResponse.getAppendages()[0]).getEncryptedMessage().getSize());
+
 
         Transaction bidOrderPlacementTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_BID_ORDER_PLACEMENT_TRANSACTION_ID));
         assertEquals(BidOrderPlacementAttachment.class, bidOrderPlacementTransactionResponse.getAttachment().getClass());
