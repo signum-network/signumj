@@ -5,7 +5,7 @@ buildscript {
 }
 
 apply plugin: 'com.google.protobuf'
-def grpcVersion = '1.26.0'
+def grpcVersion = '1.28.0'
 
 dependencies {
     // Gson
