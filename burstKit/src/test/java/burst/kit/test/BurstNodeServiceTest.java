@@ -3,9 +3,11 @@ package burst.kit.test;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
+import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.appendix.*;
+import burst.kit.entity.response.appendix.EncryptedMessageAppendix;
+import burst.kit.entity.response.appendix.PlaintextMessageAppendix;
 import burst.kit.entity.response.attachment.*;
 import burst.kit.service.BurstNodeService;
 import org.bouncycastle.util.encoders.Hex;
@@ -41,8 +43,11 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetBlock() {
         Block blockIDResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_ID));
+        assertEquals(TestVariables.EXAMPLE_BLOCK_ID, blockIDResponse.getId());
         Block blockHeightResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_HEIGHT));
+        assertEquals(TestVariables.EXAMPLE_BLOCK_HEIGHT, blockHeightResponse.getHeight());
         Block blockTimestampResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_TIMESTAMP));
+        assertEquals(BurstTimestamp.fromBurstTimestamp(126143826), blockTimestampResponse.getTimestamp());
     }
 
     @Test
@@ -53,22 +58,25 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetBlocks() {
         Block[] blocksResponse = RxTestUtils.testSingle(burstNodeService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
-        //assertEquals(100, blocksResponse.getBlocks().length);
+        assertEquals(100, blocksResponse.length);
     }
 
     @Test
     public void testBurstServiceGetConstants() {
         Constants constantsResponse = RxTestUtils.testSingle(burstNodeService.getConstants());
+        assertEquals(Constants.class, constantsResponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetAccount() {
         Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
     }
 
     @Test
     public void testBurstServiceGetAccountATs() {
         AT[] accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(0, accountATsResponse.length);
     }
 
     @Test
@@ -79,18 +87,19 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetAccountBlocks() {
         Block[] accountBlocksResponse = RxTestUtils.testSingle(burstNodeService.getAccountBlocks(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(3, accountBlocksResponse.length);
     }
 
     @Test
-    @Ignore // TODO
     public void testBurstServiceGetAccountTransactionIDs() {
         BurstID[] accountTransactionIDsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactionIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(37, accountTransactionIDsResponse.length);
     }
 
     @Test
-    @Ignore // TODO
     public void testBurstServiceGetAccountTransactions() {
         Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(37, accountTransactionsResponse.length);
     }
 
     @Test
@@ -102,36 +111,43 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetAskOrders() {
         AssetOrder[] ordersResponse = RxTestUtils.testSingle(burstNodeService.getAskOrders(TestVariables.EXAMPLE_ASSET_ID));
+        assertEquals(0, ordersResponse.length);
     }
 
     @Test
     public void testBurstServiceGetBidOrders() {
         AssetOrder[] ordersResponse = RxTestUtils.testSingle(burstNodeService.getBidOrders(TestVariables.EXAMPLE_ASSET_ID));
+        assertEquals(0, ordersResponse.length);
     }
 
     @Test
-    public void testBurstServiceGetAccountWithRewardRecipient() {
+    public void testBurstServiceGetAccountsWithRewardRecipient() {
         BurstAddress[] accountsWithRewardRecipientResponse = RxTestUtils.testSingle(burstNodeService.getAccountsWithRewardRecipient(TestVariables.EXAMPLE_POOL_ACCOUNT_ID));
+        assertEquals(BurstAddress[].class, accountsWithRewardRecipientResponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetAT() {
         AT accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAt(TestVariables.EXAMPLE_AT_ID));
+        assertEquals(TestVariables.EXAMPLE_AT_ID, accountATsResponse.getId());
     }
 
     @Test
     public void testBurstServiceGetAtIDs() {
         BurstAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
+        assertEquals(BurstAddress[].class, atIDsResponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetUnconfirmedTransactions() {
         Transaction[] unconfReponse = RxTestUtils.testSingle(burstNodeService.getUnconfirmedTransactions(null));
+        assertEquals(Transaction[].class, unconfReponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetTransaction() {
         Transaction transactionIdTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
+        assertEquals(TestVariables.EXAMPLE_TRANSACTION_ID, transactionIdTransactionResponse.getId());
         Transaction fullHashTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));
 
         Transaction multiOutTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
