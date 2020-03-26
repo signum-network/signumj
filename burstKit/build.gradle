@@ -17,7 +17,7 @@ dependencies {
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
 
     // gRPC
     implementation "io.grpc:grpc-protobuf:${grpcVersion}"
