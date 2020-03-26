@@ -1,6 +1,5 @@
 package burst.kit.entity.response.http.attachment;
 
-import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.response.TransactionAppendix;
 import burst.kit.entity.response.appendix.EncryptedMessageAppendix;
 import burst.kit.entity.response.http.EncryptedMessageResponse;

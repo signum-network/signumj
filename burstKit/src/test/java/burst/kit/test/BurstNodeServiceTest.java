@@ -3,14 +3,16 @@ package burst.kit.test;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
+import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.attachment.ATCreationAttachment;
-import burst.kit.entity.response.attachment.MultiOutAttachment;
-import burst.kit.entity.response.attachment.MultiOutSameAttachment;
+import burst.kit.entity.response.appendix.EncryptedMessageAppendix;
+import burst.kit.entity.response.appendix.PlaintextMessageAppendix;
+import burst.kit.entity.response.attachment.*;
 import burst.kit.service.BurstNodeService;
-
 import org.bouncycastle.util.encoders.Hex;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -23,17 +25,29 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public abstract class BurstNodeServiceTest {
-
-    private final BurstNodeService burstNodeService = getBurstNodeService();
+    private BurstNodeService burstNodeService;
     private final BurstCrypto burstCrypto = BurstCrypto.getInstance();
+
+    @Before
+    public void setUp() {
+        burstNodeService = getBurstNodeService();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        burstNodeService.close();
+    }
 
     protected abstract BurstNodeService getBurstNodeService();
 
     @Test
     public void testBurstServiceGetBlock() {
         Block blockIDResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_ID));
+        assertEquals(TestVariables.EXAMPLE_BLOCK_ID, blockIDResponse.getId());
         Block blockHeightResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_BLOCK_HEIGHT));
+        assertEquals(TestVariables.EXAMPLE_BLOCK_HEIGHT, blockHeightResponse.getHeight());
         Block blockTimestampResponse = RxTestUtils.testSingle(burstNodeService.getBlock(TestVariables.EXAMPLE_TIMESTAMP));
+        assertEquals(BurstTimestamp.fromBurstTimestamp(126143826), blockTimestampResponse.getTimestamp());
     }
 
     @Test
@@ -44,22 +58,25 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetBlocks() {
         Block[] blocksResponse = RxTestUtils.testSingle(burstNodeService.getBlocks(0, 99)); // BRS caps this call at 99 blocks.
-        //assertEquals(100, blocksResponse.getBlocks().length);
+        assertEquals(100, blocksResponse.length);
     }
 
     @Test
     public void testBurstServiceGetConstants() {
         Constants constantsResponse = RxTestUtils.testSingle(burstNodeService.getConstants());
+        assertEquals(Constants.class, constantsResponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetAccount() {
         Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
     }
 
     @Test
     public void testBurstServiceGetAccountATs() {
         AT[] accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(0, accountATsResponse.length);
     }
 
     @Test
@@ -70,18 +87,19 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetAccountBlocks() {
         Block[] accountBlocksResponse = RxTestUtils.testSingle(burstNodeService.getAccountBlocks(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(3, accountBlocksResponse.length);
     }
 
     @Test
-    @Ignore // TODO
     public void testBurstServiceGetAccountTransactionIDs() {
         BurstID[] accountTransactionIDsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactionIDs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(37, accountTransactionIDsResponse.length);
     }
 
     @Test
-    @Ignore // TODO
     public void testBurstServiceGetAccountTransactions() {
         Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
+        assertEquals(37, accountTransactionsResponse.length);
     }
 
     @Test
@@ -93,36 +111,43 @@ public abstract class BurstNodeServiceTest {
     @Test
     public void testBurstServiceGetAskOrders() {
         AssetOrder[] ordersResponse = RxTestUtils.testSingle(burstNodeService.getAskOrders(TestVariables.EXAMPLE_ASSET_ID));
+        assertEquals(0, ordersResponse.length);
     }
 
     @Test
     public void testBurstServiceGetBidOrders() {
         AssetOrder[] ordersResponse = RxTestUtils.testSingle(burstNodeService.getBidOrders(TestVariables.EXAMPLE_ASSET_ID));
+        assertEquals(0, ordersResponse.length);
     }
 
     @Test
-    public void testBurstServiceGetAccountWithRewardRecipient() {
+    public void testBurstServiceGetAccountsWithRewardRecipient() {
         BurstAddress[] accountsWithRewardRecipientResponse = RxTestUtils.testSingle(burstNodeService.getAccountsWithRewardRecipient(TestVariables.EXAMPLE_POOL_ACCOUNT_ID));
+        assertEquals(BurstAddress[].class, accountsWithRewardRecipientResponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetAT() {
         AT accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAt(TestVariables.EXAMPLE_AT_ID));
+        assertEquals(TestVariables.EXAMPLE_AT_ID, accountATsResponse.getId());
     }
 
     @Test
     public void testBurstServiceGetAtIDs() {
         BurstAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
+        assertEquals(BurstAddress[].class, atIDsResponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetUnconfirmedTransactions() {
         Transaction[] unconfReponse = RxTestUtils.testSingle(burstNodeService.getUnconfirmedTransactions(null));
+        assertEquals(Transaction[].class, unconfReponse.getClass());
     }
 
     @Test
     public void testBurstServiceGetTransaction() {
         Transaction transactionIdTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_ID));
+        assertEquals(TestVariables.EXAMPLE_TRANSACTION_ID, transactionIdTransactionResponse.getId());
         Transaction fullHashTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH));
 
         Transaction multiOutTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
@@ -135,6 +160,52 @@ public abstract class BurstNodeServiceTest {
 
         Transaction atCreationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_AT_CREATION_TRANSACTION_ID));
         assertEquals(ATCreationAttachment.class, atCreationTransactionResponse.getAttachment().getClass());
+
+        Transaction assetTransferTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_TRANSFER_TRANSACTION_ID));
+        assertEquals(AssetTransferAttachment.class, assetTransferTransactionResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getAsset());
+        assertEquals("431762560000", ((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getQuantityQNT());
+
+        Transaction assetTransferTransactionWithMessageResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_TRANSFER_WITH_MESSAGE_TRANSACTION_ID));
+        assertEquals(AssetTransferAttachment.class, assetTransferTransactionWithMessageResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionResponse.getAttachment()).getAsset());
+        assertEquals("1000", ((AssetTransferAttachment) assetTransferTransactionWithMessageResponse.getAttachment()).getQuantityQNT());
+        assertEquals(PlaintextMessageAppendix.class, assetTransferTransactionWithMessageResponse.getAppendages()[0].getClass());
+        assertEquals(48, ((PlaintextMessageAppendix) assetTransferTransactionWithMessageResponse.getAppendages()[0]).getMessage().length());
+
+        Transaction assetTransferTransactionWithEncryptedMessageResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_TRANSFER_WITH_ENCRYPTED_MESSAGE_TRANSACTION_ID));
+        assertEquals(AssetTransferAttachment.class, assetTransferTransactionWithEncryptedMessageResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540",((AssetTransferAttachment) assetTransferTransactionWithEncryptedMessageResponse.getAttachment()).getAsset());
+        assertEquals(96, ((EncryptedMessageAppendix) assetTransferTransactionWithEncryptedMessageResponse.getAppendages()[0]).getEncryptedMessage().getSize());
+
+
+        Transaction bidOrderPlacementTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_BID_ORDER_PLACEMENT_TRANSACTION_ID));
+        assertEquals(BidOrderPlacementAttachment.class, bidOrderPlacementTransactionResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540", ((BidOrderPlacementAttachment) bidOrderPlacementTransactionResponse.getAttachment()).getAsset());
+        assertEquals("99990000", ((BidOrderPlacementAttachment) bidOrderPlacementTransactionResponse.getAttachment()).getQuantityQNT());
+        assertEquals("1000", ((BidOrderPlacementAttachment) bidOrderPlacementTransactionResponse.getAttachment()).getPriceNQT());
+
+        Transaction askOrderPlacementTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASK_ORDER_PLACEMENT_TRANSACTION_ID));
+        assertEquals(AskOrderPlacementAttachment.class, askOrderPlacementTransactionResponse.getAttachment().getClass());
+        assertEquals("12402415494995249540", ((AskOrderPlacementAttachment) askOrderPlacementTransactionResponse.getAttachment()).getAsset());
+        assertEquals("10000", ((AskOrderPlacementAttachment) askOrderPlacementTransactionResponse.getAttachment()).getQuantityQNT());
+        assertEquals("1960", ((AskOrderPlacementAttachment) askOrderPlacementTransactionResponse.getAttachment()).getPriceNQT());
+
+        Transaction bidOrderCancellationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_BID_ORDER_CANCELLATION_TRANSACTION_ID));
+        assertEquals(BidOrderCancellationAttachment.class, bidOrderCancellationTransactionResponse.getAttachment().getClass());
+        assertEquals("8067384309114314901", ((BidOrderCancellationAttachment) bidOrderCancellationTransactionResponse.getAttachment()).getOrder());
+
+        Transaction askOrderCancellationTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASK_ORDER_CANCELLATION_TRANSACTION_ID));
+        assertEquals(AskOrderCancellationAttachment.class, askOrderCancellationTransactionResponse.getAttachment().getClass());
+        assertEquals("12656175013072880629", ((AskOrderCancellationAttachment) askOrderCancellationTransactionResponse.getAttachment()).getOrder());
+
+        Transaction assetIssuanceTransactionResponse = RxTestUtils.testSingle(burstNodeService.getTransaction(TestVariables.EXAMPLE_ASSET_ISSUANCE_TRANSACTION_ID));
+        assertEquals(AssetIssuanceAttachment.class, assetIssuanceTransactionResponse.getAttachment().getClass());
+        assertEquals("TRT", ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getName());
+        assertEquals(159, ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getDescription().length());
+        assertEquals("21588128000000", ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getQuantityQNT());
+        assertEquals(4, ((AssetIssuanceAttachment) assetIssuanceTransactionResponse.getAttachment()).getDecimals());
+
     }
 
     @Test

@@ -27,6 +27,9 @@ dependencies {
     // Bouncy Castle
     implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
 
+    // JNA
+    implementation 'net.java.dev.jna:jna:5.5.0'
+
     // Testing
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.5.2'
@@ -52,4 +55,10 @@ protobuf {
         }
     }
     generatedFilesBaseDir = "$projectDir/src/"
+}
+
+test {
+    testLogging {
+        showStandardStreams = true
+    }
 }

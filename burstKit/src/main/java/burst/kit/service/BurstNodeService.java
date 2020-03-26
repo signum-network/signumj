@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
-public interface BurstNodeService {
+public interface BurstNodeService extends AutoCloseable {
     /**
      * Get a block via a block ID
      * @param block The block ID of the requested block
@@ -361,6 +361,34 @@ public interface BurstNodeService {
      * @param price The order price
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The encrypted message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
@@ -405,11 +433,12 @@ public interface BurstNodeService {
         return getInstance(nodeAddress, null);
     }
 
-    static BurstNodeService getInstance(String nodeAddress, String httpUserAgent) {
+    static BurstNodeService getInstance(String nodeAddress, String userAgent) {
+        if (userAgent == null) userAgent = "burstkit4j/" + burst.kit.Constants.VERSION;
         if (nodeAddress.startsWith("grpc://")) {
-            return new GrpcBurstNodeService(nodeAddress);
+            return new GrpcBurstNodeService(nodeAddress, userAgent);
         } else {
-            return new HttpBurstNodeService(nodeAddress, httpUserAgent);
+            return new HttpBurstNodeService(nodeAddress, userAgent);
         }
     }
 
@@ -417,10 +446,11 @@ public interface BurstNodeService {
         return getCompositeInstanceWithUserAgent(null, nodeAddresses);
     }
 
-    static BurstNodeService getCompositeInstanceWithUserAgent(String httpUserAgent, String... nodeAddresses) {
-        if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], httpUserAgent);
+    static BurstNodeService getCompositeInstanceWithUserAgent(String userAgent, String... nodeAddresses) {
+        if (nodeAddresses.length == 0) throw new IllegalArgumentException("No node addresses specified");
+        if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], userAgent);
         return new CompositeBurstNodeService(Arrays.stream(nodeAddresses)
-                .map(nodeAddress -> getInstance(nodeAddress, httpUserAgent))
+                .map(nodeAddress -> getInstance(nodeAddress, userAgent))
                 .toArray(BurstNodeService[]::new));
     }
 }

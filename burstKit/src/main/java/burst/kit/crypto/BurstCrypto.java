@@ -488,18 +488,38 @@ public interface BurstCrypto {
     int currentBurstTime();
 
     /**
-     * Converts up to the first 8 bytes of a byte array to a long.
+     * Converts the first 8 bytes of a byte array into a long.
      * @param bytes The byte array, in big endian order
      * @return The long representation of the first 8 bytes
+     * @throws IndexOutOfBoundsException if the array is not at least 8 bytes long
      */
     long bytesToLongBE(byte[] bytes);
 
     /**
-     * Converts up to the first 8 bytes of a byte array to a long.
+     * Converts the first 8 bytes of a byte array into a long.
      * @param bytes The byte array, in little endian order
      * @return The long representation of the first 8 bytes
+     * @throws IndexOutOfBoundsException if the array is not at least 8 bytes long
      */
     long bytesToLongLE(byte[] bytes);
+
+    /**
+     * Converts 8 bytes of a byte array into a long.
+     * @param bytes The byte array, in big endian order
+     * @param offset The offset into the array where the long should be decoded from
+     * @return The long representation of the first 8 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 8) bytes long
+     */
+    long bytesToLongBE(byte[] bytes, int offset);
+
+    /**
+     * Converts 8 bytes of a byte array into a long.
+     * @param bytes The byte array, in little endian order
+     * @param offset The offset into the array where the long should be decoded from
+     * @return The long representation of the first 8 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 8) bytes long
+     */
+    long bytesToLongLE(byte[] bytes, int offset);
 
     /**
      * Converts up to the first 8 bytes of a byte array to a long.
@@ -534,18 +554,36 @@ public interface BurstCrypto {
     byte[] longToBytesLE(long l);
 
     /**
-     * Converts up to the first 4 bytes of a byte array to a long.
+     * Converts the first 4 bytes of a byte array into an int.
      * @param bytes The byte array, in big endian order
      * @return The int representation of the first 4 bytes
      */
     int bytesToIntBE(byte[] bytes);
 
     /**
-     * Converts up to the first 4 bytes of a byte array to a long.
+     * Converts the first 4 bytes of a byte array into an int.
      * @param bytes The byte array, in little endian order
      * @return The int representation of the first 4 bytes
      */
     int bytesToIntLE(byte[] bytes);
+
+    /**
+     * Converts 4 bytes of a byte array into an int.
+     * @param bytes The byte array, in big endian order
+     * @param offset The offset into the array where the int should be decoded from
+     * @return The long representation of the first 4 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 4) bytes long
+     */
+    int bytesToIntBE(byte[] bytes, int offset);
+
+    /**
+     * Converts 8 bytes of a byte array into a long.
+     * @param bytes The byte array, in little endian order
+     * @param offset The offset into the array where the int should be decoded from
+     * @return The long representation of the first 4 bytes starting from the offset
+     * @throws IndexOutOfBoundsException if the array is not at least (offset + 4) bytes long
+     */
+    int bytesToIntLE(byte[] bytes, int offset);
 
     /**
      * Converts up to the first 4 bytes of a byte array to a long.
@@ -641,23 +679,11 @@ public interface BurstCrypto {
 
     /**
      * Calculate the hit (raw value obtained from a scoop)
-     * @param accountId The account ID
-     * @param nonce The nonce
      * @param genSig The generation signature
      * @param scoopData The scoop data, usually read from a disk.
      * @return The hit of that scoop
      */
-    BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData);
-
-    /**
-     * Calculate the hit (raw value obtained from a scoop)
-     * @param accountId The account ID
-     * @param nonce The nonce
-     * @param genSig The generation signature
-     * @param scoopData The scoop data, usually read from a disk.
-     * @return The hit of that scoop
-     */
-    BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, byte[] scoopData);
+    BigInteger calculateHit(byte[] genSig, byte[] scoopData);
 
     /**
      * Calculate the deadline (hit / baseTarget)
@@ -695,6 +721,36 @@ public interface BurstCrypto {
      * @return
      */
     byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, short dPages, short csPages, short usPages, BurstValue minActivationAmount);
+
+    /**
+     * Plots a single nonce into the given buffer.
+     * @param accountId The account ID used to derive the nonce
+     * @param nonce The nonce number
+     * @param pocVersion The PoC version (1 or 2) of the nonce
+     * @param buffer The buffer into which to store the plotted nonce
+     * @param offset The offset into the buffer to store the plotted nonce at
+     * @throws IllegalArgumentException if buffer.length < offset + 262144 (if the buffer does not have enough space in which to store the nonce)
+     */
+    void plotNonce(long accountId, long nonce, byte pocVersion, byte[] buffer, int offset);
+
+    /**
+     * Plots a series of nonces into the given buffer, starting with startNonce, then startNonce + 1, startNonce + 2 etc
+     * @param accountId The account ID used to derive the nonces
+     * @param startNonce The first nonce number
+     * @param nonceCount The number of nonces to plot
+     * @param pocVersion The PoC version (1 or 2) of the nonce
+     * @param buffer The buffer into which to store the plotted nonce
+     * @param offset The offset into the buffer to store the plotted nonce at
+     * @throws IllegalArgumentException if buffer.length < offset + (nonceCount * 262144) (if the buffer does not have enough space in which to store the nonces)
+     */
+    void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset);
+
+    /**
+     * @return whether native acceleration is in use or not
+     */
+    boolean nativeEnabled();
+
+    void setNativeEnabled(boolean enabled);
 
     /**
      * Get a singleton instance of this class

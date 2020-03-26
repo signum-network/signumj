@@ -195,6 +195,16 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     }
 
     @Override
+    public long bytesToLongBE(byte[] bytes) {
+        return bytesToLongBE(bytes, 0);
+    }
+
+    @Override
+    public long bytesToLongLE(byte[] bytes) {
+        return bytesToLongLE(bytes, 0);
+    }
+
+    @Override
     public byte[] longToBytesBE(long l) {
         byte[] result = new byte[8];
         longToBytesBE(l, result, 0);
@@ -206,6 +216,16 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
         byte[] result = new byte[8];
         longToBytesLE(l, result, 0);
         return result;
+    }
+
+    @Override
+    public int bytesToIntBE(byte[] bytes) {
+        return bytesToIntBE(bytes, 0);
+    }
+
+    @Override
+    public int bytesToIntLE(byte[] bytes) {
+        return bytesToIntLE(bytes, 0);
     }
 
     @Override
@@ -230,11 +250,6 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
     @Override
     public BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
         return calculateHit(accountId.getSignedLongId(), nonce, genSig, scoop, pocVersion);
-    }
-
-    @Override
-    public BigInteger calculateHit(BurstAddress accountId, long nonce, byte[] genSig, byte[] scoopData) {
-        return calculateHit(accountId.getSignedLongId(), nonce, genSig, scoopData);
     }
 
     @Override

@@ -2,16 +2,20 @@ package burst.kit.crypto;
 
 import burst.kit.crypto.ec.Curve25519;
 import burst.kit.crypto.ec.Curve25519Impl;
+import burst.kit.crypto.ec.Curve25519NativeImpl;
 import burst.kit.crypto.hash.BurstHashProvider;
 import burst.kit.crypto.hash.shabal.Shabal256;
 import burst.kit.crypto.plot.PlotCalculator;
+import burst.kit.crypto.plot.impl.MiningPlot;
 import burst.kit.crypto.plot.impl.PlotCalculatorImpl;
+import burst.kit.crypto.plot.impl.PlotCalculatorNativeImpl;
 import burst.kit.crypto.rs.ReedSolomon;
 import burst.kit.crypto.rs.ReedSolomonImpl;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstEncryptedMessage;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
+import burst.kit.util.LibShabal;
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.engines.AESEngine;
@@ -36,6 +40,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -44,18 +49,25 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     static final BurstCryptoImpl INSTANCE = new BurstCryptoImpl();
 
     private final SecureRandom secureRandom = new SecureRandom();
-    private final Curve25519 curve25519;
     private final ReedSolomon reedSolomon;
+    private final Curve25519 curve25519;
+    private final Curve25519 nativeCurve25519;
     private final PlotCalculator plotCalculator;
+    private final PlotCalculator nativePlotCalculator;
+
     /**
      * The Burst Epoch, as a unix time
      */
     private final long epochBeginning;
 
+    private final AtomicBoolean nativeEnabled = new AtomicBoolean(true);
+
     private BurstCryptoImpl() {
-        this.curve25519 = new Curve25519Impl(this::getSha256);
         this.reedSolomon = new ReedSolomonImpl();
+        this.curve25519 = new Curve25519Impl(this::getSha256);
+        this.nativeCurve25519 = new Curve25519NativeImpl();
         this.plotCalculator = new PlotCalculatorImpl(this::getShabal256);
+        this.nativePlotCalculator = new PlotCalculatorNativeImpl(this::getShabal256);
         this.epochBeginning = calculateEpochBeginning();
         BurstHashProvider.init();
     }
@@ -111,13 +123,21 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     @Override
     public byte[] getPrivateKey(String passphrase) {
         byte[] privateKey = getSha256().digest(stringToBytes(passphrase));
-        curve25519.clampPrivateKey(privateKey);
+        if (nativeEnabled()) {
+            nativeCurve25519.clampPrivateKey(privateKey);
+        } else {
+            curve25519.clampPrivateKey(privateKey);
+        }
         return privateKey;
     }
 
     @Override
     public byte[] getPublicKey(byte[] privateKey) {
-        return curve25519.getPublicKey(privateKey);
+        if (nativeEnabled()) {
+            return nativeCurve25519.getPublicKey(privateKey);
+        } else {
+            return curve25519.getPublicKey(privateKey);
+        }
     }
 
     @Override
@@ -135,12 +155,21 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] getSharedSecret(byte[] myPrivateKey, byte[] theirPublicKey) {
-        return curve25519.getSharedSecret(myPrivateKey, theirPublicKey);
+        if (nativeEnabled()) {
+            return nativeCurve25519.getSharedSecret(myPrivateKey, theirPublicKey);
+        } else {
+            return curve25519.getSharedSecret(myPrivateKey, theirPublicKey);
+        }
     }
 
     @Override
     public byte[] sign(byte[] message, byte[] privateKey) {
-        return curve25519.sign(message, privateKey);
+        byte[] messageSha256 = getSha256().digest(message);
+        if (nativeEnabled()) {
+            return nativeCurve25519.sign(messageSha256, privateKey);
+        } else {
+            return curve25519.sign(messageSha256, privateKey);
+        }
     }
 
     @Override
@@ -154,7 +183,12 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public boolean verify(byte[] signature, byte[] message, byte[] publicKey, boolean enforceCanonical) {
-        return curve25519.verify(message, signature, publicKey, enforceCanonical);
+        byte[] messageSha256 = getSha256().digest(message);
+        if (nativeEnabled()) {
+            return nativeCurve25519.verify(messageSha256, signature, publicKey, enforceCanonical);
+        } else {
+            return curve25519.verify(messageSha256, signature, publicKey, enforceCanonical);
+        }
     }
 
     @Override
@@ -289,74 +323,72 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     }
 
     @Override
-    public long bytesToLongBE(byte[] bytes) {
-        long result = 0;
-        for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[i] & 0xFF);
-        }
-        return result;
+    public long bytesToLongBE(byte[] bytes, int offset) {
+        return ((long) (bytes[offset + 7] & 0xFF))
+                | (((long) (bytes[offset + 6] & 0xFF)) << 8)
+                | (((long) (bytes[offset + 5] & 0xFF)) << 16)
+                | (((long) (bytes[offset + 4] & 0xFF)) << 24)
+                | (((long) (bytes[offset + 3] & 0xFF)) << 32)
+                | (((long) (bytes[offset + 2] & 0xFF)) << 40)
+                | (((long) (bytes[offset + 1] & 0xFF)) << 48)
+                | (((long) (bytes[offset] & 0xFF)) << 56);
     }
 
     @Override
-    public long bytesToLongLE(byte[] bytes) {
-        long result = 0;
-        for (int i = 0, length = Math.min(8, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[length-i] & 0xFF);
-        }
-        return result;
+    public long bytesToLongLE(byte[] bytes, int offset) {
+        return ((long) (bytes[offset] & 0xFF))
+                | (((long) (bytes[offset + 1] & 0xFF)) << 8)
+                | (((long) (bytes[offset + 2] & 0xFF)) << 16)
+                | (((long) (bytes[offset + 3] & 0xFF)) << 24)
+                | (((long) (bytes[offset + 4] & 0xFF)) << 32)
+                | (((long) (bytes[offset + 5] & 0xFF)) << 40)
+                | (((long) (bytes[offset + 6] & 0xFF)) << 48)
+                | (((long) (bytes[offset + 7] & 0xFF)) << 56);
     }
 
     @Override
-    public int bytesToIntBE(byte[] bytes) {
-        int result = 0;
-        for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[i] & 0xFF);
-        }
-        return result;
+    public int bytesToIntBE(byte[] bytes, int offset) {
+        return (bytes[offset + 3] & 0xFF)
+                | ((bytes[offset + 2] & 0xFF) << 8)
+                | ((bytes[offset + 1] & 0xFF) << 16)
+                | ((bytes[offset] & 0xFF) << 24);
     }
 
     @Override
-    public int bytesToIntLE(byte[] bytes) {
-        int result = 0;
-        for (int i = 0, length = Math.min(4, bytes.length)-1; i <= length; i++) {
-            result <<= 8;
-            result |= (bytes[length-i] & 0xFF);
-        }
-        return result;
+    public int bytesToIntLE(byte[] bytes, int offset) {
+        return (bytes[offset] & 0xFF)
+                | ((bytes[offset + 1] & 0xFF) << 8)
+                | ((bytes[offset + 2] & 0xFF) << 16)
+                | ((bytes[offset + 3] & 0xFF) << 24);
     }
 
     @Override
     public void longToBytesBE(long l, byte[] target, int offset) {
-        for (int i = 7; i >= 0; i--) {
-            target[offset + i] = (byte)(l & 0xFF);
-            l >>= 8;
+        offset += 7;
+        for (int i = 0; i <= 7; i++) {
+            target[offset - i] = (byte)((l>>(8*i)) & 0xFF);
         }
     }
 
     @Override
     public void longToBytesLE(long l, byte[] target, int offset) {
-        for (int index = 0; index < 8; index++) {
-            target[offset + index] = (byte)(l & 0xFF);
-            l >>= 8;
+        for (int i = 0; i < 8; i++) {
+            target[offset + i] = (byte)((l>>(8*i)) & 0xFF);
         }
     }
 
     @Override
     public void intToBytesBE(int i, byte[] target, int offset) {
-        for (int index = 3; index >= 0; index--) {
-            target[offset + index] = (byte)(i & 0xFF);
-            i >>= 8;
+        offset += 3;
+        for (int index = 0; index < 4; index++) {
+            target[offset - index] = (byte)((i>>(8*index)) & 0xFF);
         }
     }
 
     @Override
     public void intToBytesLE(int i, byte[] target, int offset) {
         for (int index = 0; index < 4; index++) {
-            target[offset + index] = (byte)(i & 0xFF);
-            i >>= 8;
+            target[offset + index] = (byte)((i>>(8*index)) & 0xFF);
         }
     }
 
@@ -372,27 +404,47 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public byte[] calculateGenerationSignature(byte[] lastGenSig, long lastGenId) {
-        return plotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+        } else {
+            return plotCalculator.calculateGenerationSignature(lastGenSig, lastGenId);
+        }
     }
 
     @Override
     public int calculateScoop(byte[] genSig, long height) {
-        return plotCalculator.calculateScoop(genSig, height);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateScoop(genSig, height);
+        } else {
+            return plotCalculator.calculateScoop(genSig, height);
+        }
     }
 
     @Override
     public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, int scoop, int pocVersion) {
-        return plotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+        } else {
+            return plotCalculator.calculateHit(accountId, nonce, genSig, scoop, pocVersion);
+        }
     }
 
     @Override
-    public BigInteger calculateHit(long accountId, long nonce, byte[] genSig, byte[] scoopData) {
-        return plotCalculator.calculateHit(accountId, nonce, genSig, scoopData);
+    public BigInteger calculateHit(byte[] genSig, byte[] scoopData) {
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateHit(genSig, scoopData);
+        } else {
+            return plotCalculator.calculateHit(genSig, scoopData);
+        }
     }
 
     @Override
     public BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
-        return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+        } else {
+            return plotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
+        }
     }
 
     private int pageSize(short nPages) {
@@ -445,5 +497,41 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
         putLength(dPages, data.length, creation);
         creation.put(data);
         return creation.array();
+    }
+
+    @Override
+    public void plotNonce(long accountId, long nonce, byte pocVersion, byte[] buffer, int offset) {
+        if (buffer.length - offset < MiningPlot.PLOT_SIZE) {
+            throw new IllegalArgumentException("Buffer does not have enough space to store plot"); // TODO better message
+        }
+        if (nativeEnabled()) {
+            LibShabal.create_plot(accountId, nonce, pocVersion, buffer, offset);
+        } else {
+            new MiningPlot(getShabal256(), accountId, nonce, pocVersion, buffer, offset);
+        }
+    }
+
+    @Override
+    public void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset) {
+        if (buffer.length - offset < nonceCount * MiningPlot.PLOT_SIZE) {
+            throw new IllegalArgumentException("Buffer does not have enough space to store plots. " + (nonceCount * MiningPlot.PLOT_SIZE) + " bytes required, length of provided buffer from offset is " + (buffer.length - offset));
+        }
+        if (nativeEnabled()) {
+            LibShabal.create_plots(accountId, startNonce, nonceCount, pocVersion, buffer, offset);
+        } else {
+            for (long i = 0; i < nonceCount; i++) {
+                plotNonce(accountId, startNonce + i, pocVersion, buffer, offset + ((int) i) * MiningPlot.PLOT_SIZE);
+            }
+        }
+    }
+
+    @Override
+    public boolean nativeEnabled() {
+        return nativeEnabled.get() && LibShabal.LOAD_ERROR == null;
+    }
+
+    @Override
+    public void setNativeEnabled(boolean enabled) {
+        nativeEnabled.set(enabled);
     }
 }

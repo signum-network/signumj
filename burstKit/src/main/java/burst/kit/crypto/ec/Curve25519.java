@@ -5,6 +5,6 @@ public interface Curve25519 {
     byte[] getPublicKey(byte[] privateKey);
     byte[] getSharedSecret(byte[] privateKey, byte[] publicKey);
 
-    byte[] sign(byte[] message, byte[] privateKey);
-    boolean verify(byte[] message, byte[] signature, byte[] publicKey, boolean enforceCanonical);
+    byte[] sign(byte[] messageSha256, byte[] privateKey);
+    boolean verify(byte[] messageSha256, byte[] signature, byte[] publicKey, boolean enforceCanonical);
 }

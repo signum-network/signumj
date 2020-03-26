@@ -11,6 +11,7 @@ import burst.kit.util.BurstKitUtils;
 import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Empty;
+import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
@@ -23,14 +24,20 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 public class GrpcBurstNodeService implements BurstNodeService {
-
     private final BrsApiServiceGrpc.BrsApiServiceBlockingStub brsGrpc;
+    private final ManagedChannel connection;
 
-    public GrpcBurstNodeService(String nodeAddress) {
+    public GrpcBurstNodeService(String nodeAddress, String userAgent) {
         if (nodeAddress.startsWith("grpc://")) nodeAddress = nodeAddress.substring(7);
-        this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(ManagedChannelBuilder.forTarget(nodeAddress).usePlaintext().build());
+        this.connection = ManagedChannelBuilder
+                .forTarget(nodeAddress)
+                .userAgent(userAgent)
+                .usePlaintext()
+                .build();
+        this.brsGrpc = BrsApiServiceGrpc.newBlockingStub(connection);
     }
 
     private <T> Observable<T> assign(Iterator<T> iterable) {
@@ -239,7 +246,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
         return assign(() -> brsGrpc.getOrders(
                 BrsApi.GetOrdersRequest.newBuilder()
                         .setAsset(assetId.getSignedLongId())
-                        .setOrderType(BrsApi.OrderType.ASK)
+                        .setOrderType(BrsApi.AssetOrderType.ASK)
                         .build()))
                 .map(orders -> orders.getOrdersList()
                         .stream()
@@ -252,7 +259,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
         return assign(() -> brsGrpc.getOrders(
                 BrsApi.GetOrdersRequest.newBuilder()
                         .setAsset(assetId.getSignedLongId())
-                        .setOrderType(BrsApi.OrderType.BID)
+                        .setOrderType(BrsApi.AssetOrderType.BID)
                         .build()))
                 .map(orders -> orders.getOrdersList()
                         .stream()
@@ -516,7 +523,17 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
@@ -533,5 +550,14 @@ public class GrpcBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public void close() throws Exception {
+        connection.shutdown();
+        connection.awaitTermination(10, TimeUnit.SECONDS);
+        while (!connection.isTerminated()) {
+            connection.shutdownNow();
+        }
     }
 }
