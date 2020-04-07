@@ -7,6 +7,12 @@ buildscript {
 apply plugin: 'com.google.protobuf'
 def grpcVersion = '1.26.0'
 
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+}
+
 dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.6'
@@ -29,6 +35,9 @@ dependencies {
 
     // JNA
     implementation 'net.java.dev.jna:jna:5.5.0'
+    
+    // Tor
+    implementation 'com.github.JesusMcCloud.netlayer:tor.native:0.6.7'
 
     // Testing
     testCompileOnly 'junit:junit:4.12'
