@@ -77,26 +77,27 @@ public class TorSocketFactory extends SocketFactory {
 
 	@Override
 	public Socket createSocket(String host, int port) throws IOException, UnknownHostException {
+		// not used
 		return null;
 	}
 
 	@Override
 	public Socket createSocket(InetAddress host, int port) throws IOException {
-		// TODO Auto-generated method stub
+		// not used
 		return null;
 	}
 
 	@Override
 	public Socket createSocket(String host, int port, InetAddress localHost, int localPort)
 			throws IOException, UnknownHostException {
-		// TODO Auto-generated method stub
+		// not used
 		return null;
 	}
 
 	@Override
 	public Socket createSocket(InetAddress address, int port, InetAddress localAddress, int localPort)
 			throws IOException {
-		// TODO Auto-generated method stub
+		// not used
 		return null;
 	}
 
