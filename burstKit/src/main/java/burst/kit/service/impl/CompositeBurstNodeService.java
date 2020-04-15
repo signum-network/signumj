@@ -2,6 +2,7 @@ package burst.kit.service.impl;
 
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
+import burst.kit.entity.response.http.AssetResponse;
 import burst.kit.service.BurstNodeService;
 import burst.kit.util.BurstKitUtils;
 import io.reactivex.Observable;
@@ -189,6 +190,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
     @Override
     public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
         return performFastest(service -> service.getAssetBalances(assetId));
+    }
+
+    @Override
+    public Single<AssetResponse> getAsset(BurstID assetId) {
+        return performFastest(service -> service.getAsset(assetId));
     }
 
     @Override

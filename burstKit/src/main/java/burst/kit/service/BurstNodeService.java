@@ -116,6 +116,13 @@ public interface BurstNodeService extends AutoCloseable {
     Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId);
 
     /**
+     * Get the given asset
+     * @param assetId The asset id
+     * @return The asset, wrapped in a single
+     */
+    Single<Asset> getAsset(BurstID assetId);
+
+    /**
      * Get the accounts holding the given asset
      * @param assetId The asset id
      * @return The asset balances of accounts holding the asset, wrapped in a single

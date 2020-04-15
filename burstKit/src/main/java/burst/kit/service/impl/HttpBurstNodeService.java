@@ -148,6 +148,11 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Asset> getAsset(BurstID assetId) {
+        return assign(burstAPIService.getAsset(BurstKitUtils.getEndpoint(), assetId.getID())).map(Asset::new);
+    }
+
+    @Override
     public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
         return assign(burstAPIService.getAssetAccounts(BurstKitUtils.getEndpoint(), assetId.getID()))
                 .map(response -> Arrays.stream(response.getAccountsAsset()).map(AssetBalance::new)
@@ -504,6 +509,9 @@ public final class HttpBurstNodeService implements BurstNodeService {
         @GET("{endpoint}?requestType=getAccountsWithRewardRecipient")
         Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(@Path("endpoint") String endpoint,
                 @Query("account") String accountId);
+
+        @GET("{endpoint}?requestType=getAsset")
+        Single<AssetResponse> getAsset(@Path("endpoint") String endpoint, @Query("asset") String assetId);
 
         @GET("{endpoint}?requestType=getAssetAccounts")
         Single<AccountsAssetResponse> getAssetAccounts(@Path("endpoint") String endpoint,

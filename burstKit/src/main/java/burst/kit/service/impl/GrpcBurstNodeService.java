@@ -3,6 +3,7 @@ package burst.kit.service.impl;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
+import burst.kit.entity.response.http.AssetResponse;
 import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
@@ -575,6 +576,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<Asset> getAsset(BurstID assetID) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
