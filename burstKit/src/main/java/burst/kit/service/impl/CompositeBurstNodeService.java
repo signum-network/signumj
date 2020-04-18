@@ -372,6 +372,16 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateSubscriptionCreationTransaction(senderPublicKey, amount, frequency, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateSubscriptionCancelTransaction(senderPublicKey, subscription, fee, deadline));
+    }
+
+    @Override
     public void close() throws Exception {
         for (BurstNodeService burstNodeService : burstNodeServices) {
             burstNodeService.close();

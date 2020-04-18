@@ -357,6 +357,21 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline) {
+        return assign(burstAPIService.createSubscription(BurstKitUtils.getEndpoint(),
+                null, null, amount.toPlanck().toString(), frequency,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline) {
+        return assign(burstAPIService.cancelSubscription(BurstKitUtils.getEndpoint(), subscription.getID(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<FeeSuggestion> suggestFee() {
         return assign(burstAPIService.suggestFee(BurstKitUtils.getEndpoint())).map(FeeSuggestion::new);
     }
@@ -668,7 +683,40 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
                 @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
-        
+
+        @POST("{endpoint}?requestType=sendMoneySubscription")
+        Single<GenerateTransactionResponse> createSubscription(@Path("endpoint") String endpoint,
+                @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("amountNQT") String amount, @Query("frequency") int frequency,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=subscriptionCancel")
+        Single<GenerateTransactionResponse> cancelSubscription(@Path("endpoint") String endpoint,
+                @Query("subscription") String subscription,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
         @GET("{endpoint}?requestType=suggestFee")
         Single<SuggestFeeResponse> suggestFee(@Path("endpoint") String endpoint);
 
