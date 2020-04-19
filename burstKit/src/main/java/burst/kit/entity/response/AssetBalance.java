@@ -11,12 +11,12 @@ public class AssetBalance {
     private final BurstID assetId;
     /**
      * Quantity of the asset owned by the account. Not actually in Burst; The BurstValue class is used as a utility.
-     * Actually measured in terms of now many of the specific asset there are.
+     * Actually measured in terms of how many of the specific asset there are.
      */
     private final BurstValue balance;
     /**
      * Unconfirmed quantity of the asset owned by the account. Not actually in Burst; The BurstValue class is used as a utility.
-     * Actually measured in terms of now many of the specific asset there are.
+     * Actually measured in terms of how many of the specific asset there are.
      */
     private final BurstValue unconfirmedBalance;
 

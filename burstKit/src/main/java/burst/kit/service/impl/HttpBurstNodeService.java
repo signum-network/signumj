@@ -148,6 +148,11 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Asset> getAsset(BurstID assetId) {
+        return assign(burstAPIService.getAsset(BurstKitUtils.getEndpoint(), assetId.getID())).map(Asset::new);
+    }
+
+    @Override
     public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
         return assign(burstAPIService.getAssetAccounts(BurstKitUtils.getEndpoint(), assetId.getID()))
                 .map(response -> Arrays.stream(response.getAccountsAsset()).map(AssetBalance::new)
@@ -218,6 +223,14 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
@@ -226,11 +239,28 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+
+    @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message) {
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
@@ -243,12 +273,30 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
+                Hex.toHexString(message.getNonce()), null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, null, null, null, null, null, null, null, message.isText(),
+                Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
@@ -263,6 +311,21 @@ public final class HttpBurstNodeService implements BurstNodeService {
         return assign(burstAPIService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message) {
+        return assign(burstAPIService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return assign(burstAPIService.transferAsset(BurstKitUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null,
+                 message.isText(), Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce()), null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
@@ -291,6 +354,21 @@ public final class HttpBurstNodeService implements BurstNodeService {
         return assign(burstAPIService.cancelBidOrder(BurstKitUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline) {
+        return assign(burstAPIService.createSubscription(BurstKitUtils.getEndpoint(),
+                null, null, amount.toPlanck().toString(), frequency,
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline) {
+        return assign(burstAPIService.cancelSubscription(BurstKitUtils.getEndpoint(), subscription.getID(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
@@ -447,6 +525,9 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<AccountsWithRewardRecipientResponse> getAccountsWithRewardRecipient(@Path("endpoint") String endpoint,
                 @Query("account") String accountId);
 
+        @GET("{endpoint}?requestType=getAsset")
+        Single<AssetResponse> getAsset(@Path("endpoint") String endpoint, @Query("asset") String assetId);
+
         @GET("{endpoint}?requestType=getAssetAccounts")
         Single<AccountsAssetResponse> getAssetAccounts(@Path("endpoint") String endpoint,
                 @Query("asset") String assetId);
@@ -478,6 +559,22 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<GenerateTransactionResponse> sendMoney(@Path("endpoint") String endpoint,
                 @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
                 @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=sendMessage")
+        Single<GenerateTransactionResponse> sendMessage(
+                @Path("endpoint") String endpoint, @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("message") String message,
@@ -586,7 +683,40 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
                 @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
-        
+
+        @POST("{endpoint}?requestType=sendMoneySubscription")
+        Single<GenerateTransactionResponse> createSubscription(@Path("endpoint") String endpoint,
+                @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("amountNQT") String amount, @Query("frequency") int frequency,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=subscriptionCancel")
+        Single<GenerateTransactionResponse> cancelSubscription(@Path("endpoint") String endpoint,
+                @Query("subscription") String subscription,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
         @GET("{endpoint}?requestType=suggestFee")
         Single<SuggestFeeResponse> suggestFee(@Path("endpoint") String endpoint);
 

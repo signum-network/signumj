@@ -3,6 +3,7 @@ package burst.kit.service.impl;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
+import burst.kit.entity.response.http.AssetResponse;
 import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
@@ -361,6 +362,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipientAddress, senderPublicKey, amount, fee, deadline, attachment)
@@ -378,6 +384,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
@@ -389,6 +400,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(brsGrpc::completeBasicTransaction)
                 .map(brsGrpc::getTransactionBytes)
                 .map(bytes -> bytes.getTransactionBytes().toByteArray());
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
     @Override
@@ -410,6 +426,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+
+    }
+
+    @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
@@ -425,6 +447,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
                 .map(brsGrpc::completeBasicTransaction)
                 .map(brsGrpc::getTransactionBytes)
                 .map(bytes -> bytes.getTransactionBytes().toByteArray());
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
     @Override
@@ -523,7 +550,17 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, BurstID assetId, BurstValue quantity, BurstValue price, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
@@ -539,6 +576,21 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline) {
+        return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
+    }
+
+    @Override
+    public Single<Asset> getAsset(BurstID assetID) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 

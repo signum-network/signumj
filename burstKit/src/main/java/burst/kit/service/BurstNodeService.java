@@ -116,6 +116,13 @@ public interface BurstNodeService extends AutoCloseable {
     Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId);
 
     /**
+     * Get the given asset
+     * @param assetId The asset id
+     * @return The asset, wrapped in a single
+     */
+    Single<Asset> getAsset(BurstID assetId);
+
+    /**
      * Get the accounts holding the given asset
      * @param assetId The asset id
      * @return The asset balances of accounts holding the asset, wrapped in a single
@@ -209,6 +216,17 @@ public interface BurstNodeService extends AutoCloseable {
     Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
 
     /**
+     * Generate a transaction with a plaintext message
+     * @param recipient The recipient
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message);
+
+    /**
      * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain.
      * @param recipientAddress The recipient's address
      * @param recipientPublicKey The public key of the recipient, to be set in the chain
@@ -220,6 +238,18 @@ public interface BurstNodeService extends AutoCloseable {
      * @return The unsigned transaction bytes, wrapped in a single
      */
     Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message);
+
+    /**
+     * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain.
+     * @param recipientAddress The recipient's address
+     * @param recipientPublicKey The public key of the recipient, to be set in the chain
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message);
 
     /**
      * Generate a transaction with a plaintext message
@@ -234,6 +264,17 @@ public interface BurstNodeService extends AutoCloseable {
     Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message);
 
     /**
+     * Generate a transaction with a plaintext message
+     * @param recipient The recipient
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message);
+
+    /**
      * Generate a transaction with an encrypted message (can be read by sender and recipient)
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
@@ -246,6 +287,17 @@ public interface BurstNodeService extends AutoCloseable {
     Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     /**
+     * Generate a transaction with an encrypted message (can be read by sender and recipient)
+     * @param recipient The recipient
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The encrypted message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message);
+
+    /**
      * Generate a transaction with an encrypted-to-self message (can be read by only sender)
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
@@ -256,6 +308,17 @@ public interface BurstNodeService extends AutoCloseable {
      * @return The unsigned transaction bytes, wrapped in a single
      */
     Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message);
+
+    /**
+     * Generate a transaction with an encrypted-to-self message (can be read by only sender)
+     * @param recipient The recipient
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The encrypted message to include in the transaction (Use sender public key and sender private key to encrypt)
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message);
 
     /**
      * Get the currently suggested transaction fees, which are calculated based on current network congestion -
@@ -361,6 +424,34 @@ public interface BurstNodeService extends AutoCloseable {
      * @param price The order price
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, String message);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The encrypted message to include in the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, BurstAddress recipient, BurstID assetId, BurstValue quantity, BurstValue fee, int deadline, BurstEncryptedMessage message);
+
+    /**
+     * Generate the transaction for an ask order
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param price The order price
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
@@ -400,6 +491,29 @@ public interface BurstNodeService extends AutoCloseable {
      */
     // TODO TEST
     Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for creating subscription
+     * @param senderPublicKey The public key of the sender
+     * @param amount Amount of subscription in plancks
+     * @param frequency Frequency in which you send amount, seconds
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for cancelling a subscription
+     * @param senderPublicKey The public key of the sender
+     * @param subscription The ID of the subscription you want to cancel
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline);
 
     static BurstNodeService getInstance(String nodeAddress) {
         return getInstance(nodeAddress, null);
