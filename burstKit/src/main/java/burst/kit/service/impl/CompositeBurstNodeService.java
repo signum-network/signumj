@@ -192,6 +192,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Asset> getAsset(BurstID assetId) {
+        return performFastest(service -> service.getAsset(assetId));
+    }
+
+    @Override
     public Single<AssetTrade[]> getAssetTrades(BurstID assetId, BurstAddress account, Integer firstIndex, Integer lastIndex) {
         return performFastest(service -> service.getAssetTrades(assetId, account, firstIndex, lastIndex));
     }
@@ -364,6 +369,16 @@ public class CompositeBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderId, BurstValue fee, int deadline) {
         return performFastest(service -> service.generateCancelBidOrderTransaction(senderPublicKey, orderId, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateSubscriptionCreationTransaction(senderPublicKey, amount, frequency, fee, deadline));
+    }
+
+    @Override
+    public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline) {
+        return performFastest(service -> service.generateSubscriptionCancelTransaction(senderPublicKey, subscription, fee, deadline));
     }
 
     @Override

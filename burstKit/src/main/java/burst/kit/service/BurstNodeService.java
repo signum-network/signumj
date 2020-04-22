@@ -116,6 +116,13 @@ public interface BurstNodeService extends AutoCloseable {
     Single<BurstAddress[]> getAccountsWithRewardRecipient(BurstAddress accountId);
 
     /**
+     * Get the given asset
+     * @param assetId The asset id
+     * @return The asset, wrapped in a single
+     */
+    Single<Asset> getAsset(BurstID assetId);
+
+    /**
      * Get the accounts holding the given asset
      * @param assetId The asset id
      * @return The asset balances of accounts holding the asset, wrapped in a single
@@ -484,6 +491,29 @@ public interface BurstNodeService extends AutoCloseable {
      */
     // TODO TEST
     Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, BurstID orderID, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for creating subscription
+     * @param senderPublicKey The public key of the sender
+     * @param amount Amount of subscription in plancks
+     * @param frequency Frequency in which you send amount, seconds
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, BurstValue amount, int frequency, BurstValue fee, int deadline);
+
+    /**
+     * Generate the transaction for cancelling a subscription
+     * @param senderPublicKey The public key of the sender
+     * @param subscription The ID of the subscription you want to cancel
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, BurstID subscription, BurstValue fee, int deadline);
 
     static BurstNodeService getInstance(String nodeAddress) {
         return getInstance(nodeAddress, null);
