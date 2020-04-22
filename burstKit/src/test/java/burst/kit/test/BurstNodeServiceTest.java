@@ -105,7 +105,7 @@ public abstract class BurstNodeServiceTest {
     @Test
     @Ignore // TODO this is due to a bug that is fixed in 3.0, remove once server uses this version
     public void testBurstServiceGetAssetAccounts() {
-        AssetBalance[] assetBalancesResponse = RxTestUtils.testSingle(burstNodeService.getAssetBalances(TestVariables.EXAMPLE_ASSET_ID));
+        AssetBalance[] assetBalancesResponse = RxTestUtils.testSingle(burstNodeService.getAssetBalances(TestVariables.EXAMPLE_ASSET_ID, 0, 100));
     }
 
     @Test

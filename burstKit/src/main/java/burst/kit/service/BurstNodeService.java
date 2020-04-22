@@ -127,7 +127,7 @@ public interface BurstNodeService extends AutoCloseable {
      * @param assetId The asset id
      * @return The asset balances of accounts holding the asset, wrapped in a single
      */
-    Single<AssetBalance[]> getAssetBalances(BurstID assetId);
+    Single<AssetBalance[]> getAssetBalances(BurstID assetId, Integer firstIndex, Integer lastIndex);
 
     /**
      * Get the trades for a given asset

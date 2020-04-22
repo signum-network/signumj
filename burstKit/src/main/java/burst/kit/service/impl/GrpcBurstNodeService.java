@@ -3,7 +3,6 @@ package burst.kit.service.impl;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.http.AssetResponse;
 import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
@@ -217,10 +216,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
+    public Single<AssetBalance[]> getAssetBalances(BurstID assetId, Integer firstIndex, Integer lastIndex) {
         return assign(() -> brsGrpc.getAssetBalances(
                 BrsApi.GetAssetBalancesRequest.newBuilder()
                         .setAsset(assetId.getSignedLongId())
+                        .setIndexRange((firstIndex == null || lastIndex == null) ? BrsApi.IndexRange.getDefaultInstance() : BrsApi.IndexRange.newBuilder().setFirstIndex(firstIndex).setLastIndex(lastIndex).build())
                         .build()))
                 .map(assetBalances -> assetBalances.getAssetBalancesList()
                         .stream()
