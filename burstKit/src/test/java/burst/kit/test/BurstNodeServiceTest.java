@@ -98,7 +98,7 @@ public abstract class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAccountTransactions() {
-        Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
+        Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID, null, null));
         assertEquals(37, accountTransactionsResponse.length);
     }
 

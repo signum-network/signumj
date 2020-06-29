@@ -126,9 +126,9 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex) {
         return assign(burstAPIService.getAccountTransactions(BurstKitUtils.getEndpoint(), accountId.getID(), null,
-                null, null, null, null, null))
+                null, null, firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null))
                         .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
                                 .toArray(Transaction[]::new));
     }

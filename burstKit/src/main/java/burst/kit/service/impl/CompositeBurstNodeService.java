@@ -172,8 +172,8 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
-        return performFastest(service -> service.getAccountTransactions(accountId));
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex) {
+        return performFastest(service -> service.getAccountTransactions(accountId, firstIndex, lastIndex));
     }
 
     @Override
