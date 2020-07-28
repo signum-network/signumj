@@ -99,7 +99,7 @@ public interface BurstNodeService extends AutoCloseable {
      * @param accountId The address of the account
      * @return The account's transactions, wrapped in a single
      */
-    Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex);
+    Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect);
 
     /**
      * Get the unconfirmed transactions of an account

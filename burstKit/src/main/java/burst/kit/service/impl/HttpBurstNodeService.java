@@ -126,9 +126,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex) {
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
         return assign(burstAPIService.getAccountTransactions(BurstKitUtils.getEndpoint(), accountId.getID(), null,
-                null, null, firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null))
+                null, null, firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
+                		includeIndirect!=null && includeIndirect ? "true" : "false"))
                         .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
                                 .toArray(Transaction[]::new));
     }
@@ -515,7 +516,8 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<AccountTransactionsResponse> getAccountTransactions(@Path("endpoint") String endpoint,
                 @Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type,
                 @Query("subtype") String subtype, @Query("firstIndex") String firstIndex,
-                @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
+                @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations,
+                @Query("includeIndirect") String includeIndirect);
 
         @GET("{endpoint}?requestType=getUnconfirmedTransactions")
         Single<AccountUnconfirmedTransactionsResponse> getUnconfirmedTransactions(@Path("endpoint") String endpoint,
