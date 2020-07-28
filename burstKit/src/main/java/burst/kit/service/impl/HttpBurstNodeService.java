@@ -1,23 +1,5 @@
 package burst.kit.service.impl;
 
-import burst.kit.entity.*;
-import burst.kit.entity.response.*;
-import burst.kit.entity.response.http.*;
-import burst.kit.service.BurstApiException;
-import burst.kit.service.BurstNodeService;
-import burst.kit.util.BurstKitUtils;
-import io.reactivex.Observable;
-import io.reactivex.Single;
-import okhttp3.OkHttpClient;
-import org.bouncycastle.util.encoders.Hex;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
-
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
@@ -26,11 +8,46 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
+import javax.net.SocketFactory;
+
+import org.bouncycastle.util.encoders.Hex;
+
+import burst.kit.entity.*;
+import burst.kit.entity.response.*;
+import burst.kit.entity.response.http.*;
+import burst.kit.service.BurstApiException;
+import burst.kit.service.BurstNodeService;
+import burst.kit.util.BurstKitUtils;
+import io.reactivex.Observable;
+import io.reactivex.Single;
+import okhttp3.Dns;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+
 public final class HttpBurstNodeService implements BurstNodeService {
     private BurstAPIService burstAPIService;
 
     public HttpBurstNodeService(String nodeAddress, String userAgent) {
+    	
+    	SocketFactory socketFactory = SocketFactory.getDefault();
+    	Dns dns = Dns.SYSTEM;
+    	if(nodeAddress.contains(TorSocketFactory.ONION_EXTENSION)) {
+    		// User the Tor socket factory, we are expecting an address like 'http://hiddenserveraddress.onion:port'
+    		String address[] = nodeAddress.split(":");
+    		TorSocketFactory tsf = new TorSocketFactory(address[1].substring(2), Integer.parseInt(address[2]));
+    		socketFactory = tsf;
+    		dns = tsf.getDns();
+    	}
+    	
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
+        		.socketFactory(socketFactory)
+        		.dns(dns)
                 .addInterceptor(chain -> chain.proceed(chain.request().newBuilder().header("User-Agent", userAgent).build()))
                 .build();
 
@@ -154,8 +171,8 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
-        return assign(burstAPIService.getAssetAccounts(BurstKitUtils.getEndpoint(), assetId.getID()))
+    public Single<AssetBalance[]> getAssetBalances(BurstID assetId, Integer firstIndex, Integer lastIndex) {
+        return assign(burstAPIService.getAssetAccounts(BurstKitUtils.getEndpoint(), assetId.getID(), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getAccountsAsset()).map(AssetBalance::new)
                         .toArray(AssetBalance[]::new));
     }
@@ -218,7 +235,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -234,7 +251,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -251,7 +268,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -532,7 +549,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
         @GET("{endpoint}?requestType=getAssetAccounts")
         Single<AccountsAssetResponse> getAssetAccounts(@Path("endpoint") String endpoint,
-                @Query("asset") String assetId);
+                @Query("asset") String assetId, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
 
         @GET("{endpoint}?requestType=getTrades")
         Single<AssetTradesResponse> getAssetTrades(@Path("endpoint") String endpoint, @Query("asset") String assetId, @Query("account") String account, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
