@@ -25,6 +25,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -476,6 +477,16 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
+        // TODO: making it backward compatible for small AT codes
+        if (creationBytes.length >= 2560) {
+          return assign(burstAPIService.createATProgramBig(BurstKitUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
+              fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
+              null, 0, 0, 0, null)).map(response -> {
+                  if (response.getError() != null)
+                      throw new IllegalArgumentException(response.getError());
+                  return response;
+              }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));          
+        }
         return assign(burstAPIService.createATProgram(BurstKitUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
                 null, 0, 0, 0, null)).map(response -> {
@@ -775,6 +786,15 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("broadcast") boolean broadcast, @Query("name") String name,
                 @Query("description") String description, @Query("creationBytes") String creationBytes,
+                @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
+                @Query("cspages") int cspages, @Query("uspages") int uspages,
+                @Query("minActivationAmountNQT") String minActivationAmountNQT);
+        
+        @POST("{endpoint}?requestType=createATProgram")
+        Single<CreateATResponse> createATProgramBig(@Path("endpoint") String endpoint,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("broadcast") boolean broadcast, @Query("name") String name,
+                @Query("description") String description, @Body String creationBytes,                
                 @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
                 @Query("cspages") int cspages, @Query("uspages") int uspages,
                 @Query("minActivationAmountNQT") String minActivationAmountNQT);
