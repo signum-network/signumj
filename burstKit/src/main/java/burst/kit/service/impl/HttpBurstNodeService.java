@@ -417,6 +417,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
+        if (transactionBytes.length >= 2560) {
+          return assign(burstAPIService.broadcastTransactionBig(BurstKitUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
+              .map(TransactionBroadcast::new);          
+        }
         return assign(burstAPIService.broadcastTransaction(BurstKitUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
                         .map(TransactionBroadcast::new);
     }
@@ -756,6 +760,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
         @POST("{endpoint}?requestType=broadcastTransaction")
         Single<BroadcastTransactionResponse> broadcastTransaction(@Path("endpoint") String endpoint,
                 @Query("transactionBytes") String transactionBytes);
+
+        @POST("{endpoint}?requestType=broadcastTransaction")
+        Single<BroadcastTransactionResponse> broadcastTransactionBig(@Path("endpoint") String endpoint,
+                @Body String transactionBytes);
 
         @GET("{endpoint}?requestType=getRewardRecipient")
         Single<RewardRecipientResponse> getRewardRecipient(@Path("endpoint") String endpoint,
