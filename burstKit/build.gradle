@@ -25,7 +25,7 @@ dependencies {
     implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
 
     // Bouncy Castle
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.68'
 
     // JNA
     implementation 'net.java.dev.jna:jna:5.5.0'
