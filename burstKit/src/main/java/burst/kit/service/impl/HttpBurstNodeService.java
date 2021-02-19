@@ -37,13 +37,6 @@ public final class HttpBurstNodeService implements BurstNodeService {
     	
     	SocketFactory socketFactory = SocketFactory.getDefault();
     	Dns dns = Dns.SYSTEM;
-    	if(nodeAddress.contains(TorSocketFactory.ONION_EXTENSION)) {
-    		// User the Tor socket factory, we are expecting an address like 'http://hiddenserveraddress.onion:port'
-    		String address[] = nodeAddress.split(":");
-    		TorSocketFactory tsf = new TorSocketFactory(address[1].substring(2), Integer.parseInt(address[2]));
-    		socketFactory = tsf;
-    		dns = tsf.getDns();
-    	}
     	
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
         		.socketFactory(socketFactory)
