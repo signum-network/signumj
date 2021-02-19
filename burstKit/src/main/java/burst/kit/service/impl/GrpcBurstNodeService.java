@@ -172,17 +172,19 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<BurstID[]> getAccountTransactionIDs(BurstAddress accountId) { // TODO should this be deprecated?
-        return getAccountTransactions(accountId)
+        return getAccountTransactions(accountId, null, null, null)
                 .map(transactions -> Arrays.stream(transactions)
                         .map(Transaction::getId)
                         .toArray(BurstID[]::new));
     }
 
     @Override
-    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+    	// TODO includeIndirect is not taken into account
         return assign(() -> brsGrpc.getAccountTransactions(
                 BrsApi.GetAccountTransactionsRequest.newBuilder()
                         .setAccountId(accountId.getBurstID().getSignedLongId())
+                        .setIndexRange((firstIndex == null || lastIndex == null) ? BrsApi.IndexRange.getDefaultInstance() : BrsApi.IndexRange.newBuilder().setFirstIndex(firstIndex).setLastIndex(lastIndex).build())
                         .build()))
                 .map(transactions -> transactions.getTransactionsList()
                         .stream()

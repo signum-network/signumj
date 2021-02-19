@@ -25,6 +25,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -136,9 +137,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
         return assign(burstAPIService.getAccountTransactions(BurstKitUtils.getEndpoint(), accountId.getID(), null,
-                null, null, null, null, null))
+                null, null, firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
+                		includeIndirect!=null && includeIndirect ? "true" : "false"))
                         .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
                                 .toArray(Transaction[]::new));
     }
@@ -408,6 +410,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
+        if (transactionBytes.length >= 2560) {
+          return assign(burstAPIService.broadcastTransactionBig(BurstKitUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
+              .map(TransactionBroadcast::new);          
+        }
         return assign(burstAPIService.broadcastTransaction(BurstKitUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
                         .map(TransactionBroadcast::new);
     }
@@ -468,6 +474,16 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, BurstValue fee, int deadline, String name, String description, byte[] creationBytes) {
+        // TODO: making it backward compatible for small AT codes
+        if (creationBytes.length >= 2560) {
+          return assign(burstAPIService.createATProgramBig(BurstKitUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
+              fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
+              null, 0, 0, 0, null)).map(response -> {
+                  if (response.getError() != null)
+                      throw new IllegalArgumentException(response.getError());
+                  return response;
+              }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));          
+        }
         return assign(burstAPIService.createATProgram(BurstKitUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
                 null, 0, 0, 0, null)).map(response -> {
@@ -525,7 +541,8 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<AccountTransactionsResponse> getAccountTransactions(@Path("endpoint") String endpoint,
                 @Query("account") String accountId, @Query("timestamp") String timestamp, @Query("type") String type,
                 @Query("subtype") String subtype, @Query("firstIndex") String firstIndex,
-                @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations);
+                @Query("lastIndex") String lastIndex, @Query("numberOfConfirmations") String numberOfConfirmations,
+                @Query("includeIndirect") String includeIndirect);
 
         @GET("{endpoint}?requestType=getUnconfirmedTransactions")
         Single<AccountUnconfirmedTransactionsResponse> getUnconfirmedTransactions(@Path("endpoint") String endpoint,
@@ -737,6 +754,10 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<BroadcastTransactionResponse> broadcastTransaction(@Path("endpoint") String endpoint,
                 @Query("transactionBytes") String transactionBytes);
 
+        @POST("{endpoint}?requestType=broadcastTransaction")
+        Single<BroadcastTransactionResponse> broadcastTransactionBig(@Path("endpoint") String endpoint,
+                @Body String transactionBytes);
+
         @GET("{endpoint}?requestType=getRewardRecipient")
         Single<RewardRecipientResponse> getRewardRecipient(@Path("endpoint") String endpoint,
                 @Query("account") String account);
@@ -766,6 +787,15 @@ public final class HttpBurstNodeService implements BurstNodeService {
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("broadcast") boolean broadcast, @Query("name") String name,
                 @Query("description") String description, @Query("creationBytes") String creationBytes,
+                @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
+                @Query("cspages") int cspages, @Query("uspages") int uspages,
+                @Query("minActivationAmountNQT") String minActivationAmountNQT);
+        
+        @POST("{endpoint}?requestType=createATProgram")
+        Single<CreateATResponse> createATProgramBig(@Path("endpoint") String endpoint,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("broadcast") boolean broadcast, @Query("name") String name,
+                @Query("description") String description, @Body String creationBytes,                
                 @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
                 @Query("cspages") int cspages, @Query("uspages") int uspages,
                 @Query("minActivationAmountNQT") String minActivationAmountNQT);
