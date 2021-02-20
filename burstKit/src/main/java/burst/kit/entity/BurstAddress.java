@@ -5,6 +5,8 @@ import burst.kit.util.BurstKitUtils;
 
 import java.util.Objects;
 
+import org.bouncycastle.util.encoders.Hex;
+
 public final class BurstAddress {
 
     /**
@@ -120,6 +122,13 @@ public final class BurstAddress {
      */
     public byte[] getPublicKey() {
         return publicKey;
+    }
+    
+    /**
+     * @return The public key or null if not set 
+     */
+    public String getPublicKeyString() {
+        return publicKey == null ? null : Hex.toHexString(publicKey);
     }
 
     /**

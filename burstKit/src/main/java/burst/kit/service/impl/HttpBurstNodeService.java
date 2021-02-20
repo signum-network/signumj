@@ -220,7 +220,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
-        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -228,7 +228,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
-        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -236,7 +236,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
-        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -261,7 +261,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
-        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -269,7 +269,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message) {
-        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -277,7 +277,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
@@ -286,7 +286,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
@@ -295,7 +295,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
@@ -304,7 +304,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
-        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), null,
+        return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                  null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
