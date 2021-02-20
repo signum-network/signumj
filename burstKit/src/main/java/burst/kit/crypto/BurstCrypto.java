@@ -632,7 +632,7 @@ public interface BurstCrypto {
     byte[] parseHexString(String string);
     
     /**
-     * Base36-encode a byte array
+     * Base36-encode a 256 bit byte array (unsigned)
      * 
      * @param bytes
      * @return
@@ -640,7 +640,7 @@ public interface BurstCrypto {
     String toBase36String(byte[] bytes);
     
     /**
-     * Decode a base36 to a byte array
+     * Decode a base36 256 bit (unsigned) to a byte array
      * @param string
      * @return
      */
