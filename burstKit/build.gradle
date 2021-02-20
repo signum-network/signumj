@@ -7,12 +7,6 @@ buildscript {
 apply plugin: 'com.google.protobuf'
 def grpcVersion = '1.26.0'
 
-allprojects {
-	repositories {
-		maven { url 'https://jitpack.io' }
-	}
-}
-
 dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.6'
