@@ -534,16 +534,23 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
     public void setNativeEnabled(boolean enabled) {
         nativeEnabled.set(enabled);
     }
-
+    
+    private static final BigInteger COMPL_REF = BigInteger.ONE.shiftLeft(256);
+    private static final BigInteger MAX_VALUE = BigInteger.ONE.shiftLeft(255);
+    
     @Override
     public String toBase36String(byte[] bytes) {
         BigInteger big = new BigInteger(bytes);
+        if (big.compareTo(BigInteger.ZERO) < 0)
+           big = big.add(COMPL_REF);
         return big.toString(36).toUpperCase();
     }
 
     @Override
     public byte[] parseBase36String(String string) {
         BigInteger base = new BigInteger(string, 36);
+        if(base.compareTo(MAX_VALUE) > 0)
+            base = base.subtract(COMPL_REF);
         return base.toByteArray();
     }
 }
