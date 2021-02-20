@@ -122,7 +122,10 @@ public final class BurstAddress {
         return publicKey;
     }
 
-    private void setPublicKey(byte []publicKey) {
+    /**
+     * @param publicKey
+     */
+    public void setPublicKey(byte []publicKey) {
         this.publicKey = publicKey;
     }
 
@@ -142,6 +145,18 @@ public final class BurstAddress {
         } else {
             return BurstKitUtils.getAddressPrefix() +  "-" + address;
         }
+    }
+    
+    /**
+     * @return The ReedSolomon encoded address, with the prefix and base36 encoded public key suffix
+     */
+    public String getExtendedAddress() {
+    	String extendedAddress = getFullAddress();
+    	if(publicKey != null) {
+    		extendedAddress += "-" + BurstCrypto.getInstance().toBase36String(publicKey);
+    	}
+    	
+    	return extendedAddress;
     }
 
     @Override

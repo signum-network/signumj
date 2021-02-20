@@ -142,7 +142,9 @@ class BurstCryptoImpl extends AbstractBurstCrypto {
 
     @Override
     public BurstAddress getBurstAddressFromPublic(byte[] publicKey) {
-        return BurstAddress.fromId(hashToId(getSha256().digest(publicKey)));
+        BurstAddress address = BurstAddress.fromId(hashToId(getSha256().digest(publicKey)));
+        address.setPublicKey(publicKey);
+        return address;
     }
 
     @Override
