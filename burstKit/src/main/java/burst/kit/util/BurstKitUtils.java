@@ -6,12 +6,16 @@ import com.google.gson.GsonBuilder;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
-@SuppressWarnings("WeakerAccess")
 public final class BurstKitUtils {
     private static final AtomicReference<String> endpoint = new AtomicReference<>("burst");
     private static final AtomicReference<String> addressPrefix = new AtomicReference<>("BURST");
+    private static final ArrayList<String> validAddressPrefixes = new ArrayList<String>();
+    static {
+        validAddressPrefixes.add(addressPrefix.get());
+    }
     private static final AtomicReference<String> valueSuffix = new AtomicReference<>("BURST");
 
     public static GsonBuilder buildGson(GsonBuilder builder) {
@@ -37,11 +41,20 @@ public final class BurstKitUtils {
     public static String getAddressPrefix() {
         return addressPrefix.get();
     }
+    
+    public static ArrayList<String> getValidAddressPrefixes() {
+        return validAddressPrefixes;
+    }
 
     public static void setAddressPrefix(String newAddressPrefix) {
         if (newAddressPrefix != null) {
             addressPrefix.set(newAddressPrefix);
         }
+        addAddressPrefix(newAddressPrefix);
+    }
+    
+    public static void addAddressPrefix(String newAddressPrefix) {
+        validAddressPrefixes.add(newAddressPrefix);
     }
 
     public static String getValueSuffix() {
