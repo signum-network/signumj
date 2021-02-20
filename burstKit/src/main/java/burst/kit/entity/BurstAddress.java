@@ -5,7 +5,6 @@ import burst.kit.util.BurstKitUtils;
 
 import java.util.Objects;
 
-@SuppressWarnings("WeakerAccess")
 public final class BurstAddress {
 
     /**
@@ -13,6 +12,7 @@ public final class BurstAddress {
      */
     private final String address;
     private final BurstID numericID;
+    private byte[] publicKey;
 
     private BurstAddress(BurstID burstID) {
         this.numericID = burstID;
@@ -50,11 +50,29 @@ public final class BurstAddress {
     }
 
     public static BurstAddress fromRs(String RS) throws IllegalArgumentException {
-        String addressPrefix = BurstKitUtils.getAddressPrefix();
-        if (RS.startsWith(addressPrefix+"-")) {
-            RS = RS.substring(addressPrefix.length() + 1);
+        for(String addressPrefix : BurstKitUtils.getValidAddressPrefixes()) {
+            if (RS.startsWith(addressPrefix+"-")) {
+                RS = RS.substring(addressPrefix.length() + 1);
+                break;
+            }
         }
-        return new BurstAddress(BurstCrypto.getInstance().rsDecode(RS));
+        // Remove the public key if present
+        String shortRS = RS.substring(0, 20);
+        BurstAddress address = new BurstAddress(BurstCrypto.getInstance().rsDecode(shortRS));
+        
+        if(RS.length() > 21) {
+            // check if there is a public key
+            String publicKeyBase36 = RS.substring(21);
+            byte []publicKey = BurstCrypto.getInstance().parseBase36String(publicKeyBase36);
+            
+            BurstAddress addressCheck = BurstCrypto.getInstance().getBurstAddressFromPublic(publicKey);
+            if(addressCheck.getBurstID().getSignedLongId() != address.getBurstID().getSignedLongId()) {
+                throw new IllegalArgumentException("Reed-Solomon address and public key mismatch");
+            }
+            address.setPublicKey(publicKey);
+        }
+        
+        return address;
     }
 
     /**
@@ -95,6 +113,17 @@ public final class BurstAddress {
      */
     public long getSignedLongId() {
         return numericID.getSignedLongId();
+    }
+    
+    /**
+     * @return The public key or null if not set 
+     */
+    public byte[] getPublicKey() {
+        return publicKey;
+    }
+
+    private void setPublicKey(byte []publicKey) {
+        this.publicKey = publicKey;
     }
 
     /**

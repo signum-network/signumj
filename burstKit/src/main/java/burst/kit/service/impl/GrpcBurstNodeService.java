@@ -3,7 +3,6 @@ package burst.kit.service.impl;
 import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
-import burst.kit.entity.response.http.AssetResponse;
 import burst.kit.service.BurstApiException;
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.grpc.BrsApi;
@@ -173,17 +172,19 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<BurstID[]> getAccountTransactionIDs(BurstAddress accountId) { // TODO should this be deprecated?
-        return getAccountTransactions(accountId)
+        return getAccountTransactions(accountId, null, null, null)
                 .map(transactions -> Arrays.stream(transactions)
                         .map(Transaction::getId)
                         .toArray(BurstID[]::new));
     }
 
     @Override
-    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId) {
+    public Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+    	// TODO includeIndirect is not taken into account
         return assign(() -> brsGrpc.getAccountTransactions(
                 BrsApi.GetAccountTransactionsRequest.newBuilder()
                         .setAccountId(accountId.getBurstID().getSignedLongId())
+                        .setIndexRange((firstIndex == null || lastIndex == null) ? BrsApi.IndexRange.getDefaultInstance() : BrsApi.IndexRange.newBuilder().setFirstIndex(firstIndex).setLastIndex(lastIndex).build())
                         .build()))
                 .map(transactions -> transactions.getTransactionsList()
                         .stream()
@@ -217,10 +218,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<AssetBalance[]> getAssetBalances(BurstID assetId) {
+    public Single<AssetBalance[]> getAssetBalances(BurstID assetId, Integer firstIndex, Integer lastIndex) {
         return assign(() -> brsGrpc.getAssetBalances(
                 BrsApi.GetAssetBalancesRequest.newBuilder()
                         .setAsset(assetId.getSignedLongId())
+                        .setIndexRange((firstIndex == null || lastIndex == null) ? BrsApi.IndexRange.getDefaultInstance() : BrsApi.IndexRange.newBuilder().setFirstIndex(firstIndex).setLastIndex(lastIndex).build())
                         .build()))
                 .map(assetBalances -> assetBalances.getAssetBalancesList()
                         .stream()

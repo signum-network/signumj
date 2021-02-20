@@ -630,6 +630,21 @@ public interface BurstCrypto {
      * @return The decoded bytes
      */
     byte[] parseHexString(String string);
+    
+    /**
+     * Base36-encode a byte array
+     * 
+     * @param bytes
+     * @return
+     */
+    String toBase36String(byte[] bytes);
+    
+    /**
+     * Decode a base36 to a byte array
+     * @param string
+     * @return
+     */
+    byte[] parseBase36String(String string);
 
     /**
      * Calculate the generation signature of a block

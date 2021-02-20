@@ -99,7 +99,7 @@ public interface BurstNodeService extends AutoCloseable {
      * @param accountId The address of the account
      * @return The account's transactions, wrapped in a single
      */
-    Single<Transaction[]> getAccountTransactions(BurstAddress accountId); // TODO filtering
+    Single<Transaction[]> getAccountTransactions(BurstAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect);
 
     /**
      * Get the unconfirmed transactions of an account
@@ -127,7 +127,7 @@ public interface BurstNodeService extends AutoCloseable {
      * @param assetId The asset id
      * @return The asset balances of accounts holding the asset, wrapped in a single
      */
-    Single<AssetBalance[]> getAssetBalances(BurstID assetId);
+    Single<AssetBalance[]> getAssetBalances(BurstID assetId, Integer firstIndex, Integer lastIndex);
 
     /**
      * Get the trades for a given asset

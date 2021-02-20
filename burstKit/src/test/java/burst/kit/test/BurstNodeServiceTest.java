@@ -98,14 +98,14 @@ public abstract class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAccountTransactions() {
-        Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID));
+        Transaction[] accountTransactionsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(TestVariables.EXAMPLE_ACCOUNT_ID, null, null, null));
         assertEquals(37, accountTransactionsResponse.length);
     }
 
     @Test
     @Ignore // TODO this is due to a bug that is fixed in 3.0, remove once server uses this version
     public void testBurstServiceGetAssetAccounts() {
-        AssetBalance[] assetBalancesResponse = RxTestUtils.testSingle(burstNodeService.getAssetBalances(TestVariables.EXAMPLE_ASSET_ID));
+        AssetBalance[] assetBalancesResponse = RxTestUtils.testSingle(burstNodeService.getAssetBalances(TestVariables.EXAMPLE_ASSET_ID, 0, 100));
     }
 
     @Test
