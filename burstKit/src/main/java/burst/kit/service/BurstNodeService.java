@@ -35,15 +35,6 @@ public interface BurstNodeService extends AutoCloseable {
     Single<Block> getBlock(BurstTimestamp timestamp);
 
     /**
-     * Get the block ID at a specified height
-     * @param height The height of the block
-     * @return The Block ID response, wrapped in a single
-     * @deprecated Just use getBlock and then getId instead
-     */
-    @Deprecated
-    Single<BurstID> getBlockId(int height);
-
-    /**
      * Gets all the blocks between the first index and last index.
      * @param firstIndex The index from the most recent blocks (0 would be the most recent block)
      * @param lastIndex The end index from the most recent blocks
@@ -62,7 +53,7 @@ public interface BurstNodeService extends AutoCloseable {
      * @param accountId The address of the account
      * @return The block details, wrapped in a single
      */
-    Single<Account> getAccount(BurstAddress accountId);
+    Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment);
 
     /**
      * Get the ATs created by the account
@@ -70,15 +61,6 @@ public interface BurstNodeService extends AutoCloseable {
      * @return A list of the ATs, wrapped in a single
      */
     Single<AT[]> getAccountATs(BurstAddress accountId);
-
-    /**
-     * Get the IDs of the blocks forged by an account
-     * @param accountId The address of the account
-     * @return The block IDs, wrapped in a single
-     * @deprecated Just use getAccountBlocks and then getId instead
-     */
-    @Deprecated
-    Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId); // TODO timestamp, firstIndex, lastIndex
 
     /**
      * Get the blocks forged by an account

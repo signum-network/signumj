@@ -86,12 +86,6 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<BurstID> getBlockId(int height) {
-        return assign(burstAPIService.getBlockID(BurstKitUtils.getEndpoint(), String.valueOf(height)))
-                .map(response -> BurstID.fromLong(response.getBlockID()));
-    }
-
-    @Override
     public Single<Block[]> getBlocks(int firstIndex, int lastIndex) {
         return assign(burstAPIService.getBlocks(BurstKitUtils.getEndpoint(), String.valueOf(firstIndex),
                 String.valueOf(lastIndex), null))
@@ -105,21 +99,15 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId) {
-        return assign(burstAPIService.getAccount(BurstKitUtils.getEndpoint(), accountId.getID())).map(Account::new);
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
+        return assign(burstAPIService.getAccount(BurstKitUtils.getEndpoint(), accountId.getID(),
+        		height==null ? null : String.valueOf(height), calculateCommitment==null ? null : String.valueOf(calculateCommitment))).map(Account::new);
     }
 
     @Override
     public Single<AT[]> getAccountATs(BurstAddress accountId) {
         return assign(burstAPIService.getAccountATs(BurstKitUtils.getEndpoint(), accountId.getID()))
                 .map(response -> Arrays.stream(response.getATs()).map(AT::new).toArray(AT[]::new));
-    }
-
-    @Override
-    public Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId) {
-        return assign(burstAPIService.getAccountBlockIDs(BurstKitUtils.getEndpoint(), accountId.getID(), null, null, null))
-                        .map(response -> Arrays.stream(response.getBlockIds()).map(BurstID::fromLong)
-                                .toArray(BurstID[]::new));
     }
 
     @Override
@@ -515,7 +503,8 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<ConstantsResponse> getConstants(@Path("endpoint") String endpoint);
 
         @GET("{endpoint}?requestType=getAccount")
-        Single<AccountResponse> getAccount(@Path("endpoint") String endpoint, @Query("account") String accountId);
+        Single<AccountResponse> getAccount(@Path("endpoint") String endpoint, @Query("account") String accountId,
+        		@Query("height") String height, @Query("calculateCommitment") String calculateCommitment);
 
         @GET("{endpoint}?requestType=getAccountATs")
         Single<AccountATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId);

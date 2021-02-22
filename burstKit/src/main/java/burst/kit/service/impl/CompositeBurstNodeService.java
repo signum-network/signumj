@@ -132,11 +132,6 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<BurstID> getBlockId(int height) {
-        return performFastest(service -> service.getBlockId(height));
-    }
-
-    @Override
     public Single<Block[]> getBlocks(int firstIndex, int lastIndex) {
         return performFastest(service -> service.getBlocks(firstIndex, lastIndex));
     }
@@ -147,18 +142,13 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId) {
-        return performFastest(service -> service.getAccount(accountId));
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
+        return performFastest(service -> service.getAccount(accountId, height, calculateCommitment));
     }
 
     @Override
     public Single<AT[]> getAccountATs(BurstAddress accountId) {
         return performFastest(service -> service.getAccountATs(accountId));
-    }
-
-    @Override
-    public Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId) {
-        return performFastest(service -> service.getAccountBlockIDs(accountId));
     }
 
     @Override

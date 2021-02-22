@@ -106,12 +106,6 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<BurstID> getBlockId(int height) {
-        return getBlock(height)
-                .map(Block::getId);
-    }
-
-    @Override
     public Single<Block[]> getBlocks(int firstIndex, int lastIndex) {
         return assign(() -> brsGrpc.getBlocks(
                 BrsApi.GetBlocksRequest.newBuilder()
@@ -135,7 +129,8 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId) {
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
+    	// FIXME: adjust grpc arguments
         return assign(() -> brsGrpc.getAccount(getAccountRequestFromId(accountId)))
                 .map(Account::new);
     }
@@ -147,14 +142,6 @@ public class GrpcBurstNodeService implements BurstNodeService {
                         .stream()
                         .map(AT::new)
                         .toArray(AT[]::new));
-    }
-
-    @Override
-    public Single<BurstID[]> getAccountBlockIDs(BurstAddress accountId) {
-        return getAccountBlocks(accountId)
-                .map(blocks -> Arrays.stream(blocks)
-                        .map(Block::getId)
-                        .toArray(BurstID[]::new));
     }
 
     @Override

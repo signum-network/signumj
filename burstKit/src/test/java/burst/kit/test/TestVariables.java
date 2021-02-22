@@ -31,6 +31,6 @@ public class TestVariables {
 
     public static final BurstAddress EXAMPLE_AT_ID = BurstAddress.fromId("3474457271106823767");
 
-    public static final String HTTP_API_ENDPOINT = "https://wallet.burst-alliance.org:8125";
+    public static final String HTTP_API_ENDPOINT = "https://wallet.burstcoin.ro";
     public static final String GRPC_API_ENDPOINT = "grpc://wallet.burst-alliance.org:8121";
 }
