@@ -327,7 +327,8 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
+    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String referencedTransactionFullHash) {
+    	// FIXME: handle the ref transaction here and in other methods
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
                         .build())
@@ -337,7 +338,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
                         .addAppendages(Any.pack(BrsApi.MessageAppendix.newBuilder()
@@ -351,12 +352,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipientAddress, senderPublicKey, amount, fee, deadline, attachment)
                         .addAppendages(Any.pack(BrsApi.MessageAppendix.newBuilder()
@@ -373,12 +374,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
                         .addAppendages(Any.pack(BrsApi.MessageAppendix.newBuilder()
@@ -392,12 +393,12 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
                         .addAppendages(Any.pack(BrsApi.EncryptedMessageAppendix.newBuilder()
@@ -415,13 +416,13 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
 
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return ordinaryTransactionOrArbitraryMessage(amount)
                 .map(attachment -> basicTransaction(recipient, senderPublicKey, amount, fee, deadline, attachment)
                         .addAppendages(Any.pack(BrsApi.EncryptedMessageAppendix.newBuilder()
@@ -439,7 +440,7 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return Single.error(new UnsupportedOperationException("GRPC Client does not support this API call yet")); // TODO
     }
 

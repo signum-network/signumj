@@ -207,94 +207,94 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
+    public Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
                 amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message) {
+    public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
+                deadline, referencedTransactionFullHash, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
+                deadline, referencedTransactionFullHash, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
+                deadline, referencedTransactionFullHash, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, null, null, null, null, null, null, null, message.isText(),
+                deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message) {
+    public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline, BurstEncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                  null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
-                deadline, null, false, null, null, null, null, null, null, null, message.isText(),
+                deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
