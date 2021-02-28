@@ -142,8 +142,13 @@ public class CompositeBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
-        return performFastest(service -> service.getAccount(accountId, height, calculateCommitment));
+    public Single<Account> getAccount(BurstAddress accountId) {
+        return getAccount(accountId, null, null);
+    }
+
+    @Override
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment) {
+        return performFastest(service -> service.getAccount(accountId, height, estimateCommitment));
     }
 
     @Override

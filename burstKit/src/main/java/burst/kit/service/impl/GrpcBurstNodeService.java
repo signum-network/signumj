@@ -129,6 +129,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<Account> getAccount(BurstAddress accountId) {
+    	return getAccount(accountId, null, null);
+    }
+
+    @Override
     public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
     	// FIXME: adjust grpc arguments
         return assign(() -> brsGrpc.getAccount(getAccountRequestFromId(accountId)))

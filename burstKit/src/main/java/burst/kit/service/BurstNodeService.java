@@ -51,9 +51,18 @@ public interface BurstNodeService extends AutoCloseable {
     /**
      * Get the account details of the specified account
      * @param accountId The address of the account
-     * @return The block details, wrapped in a single
+     * @param height
+     * @param estimateCommitment
+     * @return The account details, wrapped in a single
      */
-    Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment);
+    Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment);
+    
+    /**
+     * Get the account details of the specified account
+     * @param accountId The address of the account
+     * @return The account details, wrapped in a single
+     */
+    Single<Account> getAccount(BurstAddress accountId);
 
     /**
      * Get the ATs created by the account

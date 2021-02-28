@@ -99,9 +99,14 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
+    public Single<Account> getAccount(BurstAddress accountId) {
+    	return getAccount(accountId, null, null);
+    }
+
+    @Override
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment) {
         return assign(burstAPIService.getAccount(BurstKitUtils.getEndpoint(), accountId.getID(),
-        		height==null ? null : String.valueOf(height), calculateCommitment==null ? null : String.valueOf(calculateCommitment))).map(Account::new);
+        		height==null ? null : String.valueOf(height), estimateCommitment==null ? null : String.valueOf(estimateCommitment))).map(Account::new);
     }
 
     @Override
@@ -504,7 +509,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
         @GET("{endpoint}?requestType=getAccount")
         Single<AccountResponse> getAccount(@Path("endpoint") String endpoint, @Query("account") String accountId,
-        		@Query("height") String height, @Query("calculateCommitment") String calculateCommitment);
+        		@Query("height") String height, @Query("estimateCommitment") String calculateCommitment);
 
         @GET("{endpoint}?requestType=getAccountATs")
         Single<AccountATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId);
