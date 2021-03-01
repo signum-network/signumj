@@ -561,6 +561,7 @@ message Block {
     uint32 scoop = 18;
     bytes previousBlockHash = 19;
     uint64 nextBlockId = 20;
+    uint64 averageCommitmentNQT = 21;
 }
 
 message Transaction {

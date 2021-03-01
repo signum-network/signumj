@@ -33,8 +33,9 @@ public class Block {
     private final int scoopNum;
     private final int version;
     private final long baseTarget;
+    private final long averageCommitmentNQT;
 
-    public Block(BigInteger nonce, BurstAddress generator, BurstID id, BurstID nextBlock, BurstID previousBlock, BurstID[] transactions, BurstTimestamp timestamp, BurstValue blockReward, BurstValue totalAmount, BurstValue totalFee, byte[] generationSignature, byte[] generatorPublicKey, byte[] payloadHash, byte[] previousBlockHash, byte[] signature, int height, int payloadLength, int scoopNum, int version, long baseTarget) {
+    public Block(BigInteger nonce, BurstAddress generator, BurstID id, BurstID nextBlock, BurstID previousBlock, BurstID[] transactions, BurstTimestamp timestamp, BurstValue blockReward, BurstValue totalAmount, BurstValue totalFee, byte[] generationSignature, byte[] generatorPublicKey, byte[] payloadHash, byte[] previousBlockHash, byte[] signature, int height, int payloadLength, int scoopNum, int version, long baseTarget, long averageCommitmentNQT) {
         this.nonce = nonce;
         this.generator = generator;
         this.id = id;
@@ -55,6 +56,7 @@ public class Block {
         this.scoopNum = scoopNum;
         this.version = version;
         this.baseTarget = baseTarget;
+        this.averageCommitmentNQT = averageCommitmentNQT;
     }
 
     public Block(BlockResponse blockResponse) {
@@ -80,6 +82,7 @@ public class Block {
         this.scoopNum = blockResponse.getScoopNum();
         this.version = blockResponse.getVersion();
         this.baseTarget = blockResponse.getBaseTarget();
+        this.averageCommitmentNQT = blockResponse.getAverageCommitmentNQT();
     }
 
     public Block(BrsApi.Block block) {
@@ -107,6 +110,7 @@ public class Block {
         this.scoopNum = block.getScoop();
         this.version = block.getVersion();
         this.baseTarget = block.getBaseTarget();
+        this.averageCommitmentNQT = block.getAverageCommitmentNQT();
     }
 
     public BigInteger getNonce() {
@@ -188,4 +192,8 @@ public class Block {
     public long getBaseTarget() {
         return baseTarget;
     }
+    
+    public long getAverageCommitmentNQT() {
+		return averageCommitmentNQT;
+	}
 }
