@@ -8,27 +8,27 @@ public class MiningInfo {
     private final byte[] generationSignature;
     private final long baseTarget;
     private final long height;
-    private final long averageCommitment;
+    private final long averageCommitmentNQT;
 
-    public MiningInfo(byte[] generationSignature, long baseTarget, long height, long averageCommitment) {
+    public MiningInfo(byte[] generationSignature, long baseTarget, long height, long averageCommitmentNQT) {
         this.generationSignature = generationSignature;
         this.baseTarget = baseTarget;
         this.height = height;
-        this.averageCommitment = averageCommitment;
+        this.averageCommitmentNQT = averageCommitmentNQT;
     }
 
     public MiningInfo(MiningInfoResponse miningInfoResponse) {
         this.generationSignature = Hex.decode(miningInfoResponse.getGenerationSignature());
         this.baseTarget = miningInfoResponse.getBaseTarget();
         this.height = miningInfoResponse.getHeight();
-        this.averageCommitment = miningInfoResponse.getAverageCommitment();
+        this.averageCommitmentNQT = miningInfoResponse.getAverageCommitmentNQT();
     }
 
     public MiningInfo(BrsApi.MiningInfo miningInfo) {
         this.generationSignature = miningInfo.getGenerationSignature().toByteArray();
         this.baseTarget = miningInfo.getBaseTarget();
         this.height = miningInfo.getHeight();
-        this.averageCommitment = miningInfo.getAverageCommitment();
+        this.averageCommitmentNQT = miningInfo.getAverageCommitment();
     }
 
     public byte[] getGenerationSignature() {
@@ -43,7 +43,7 @@ public class MiningInfo {
         return height;
     }
     
-    public long getAverageCommitment() {
-    	return averageCommitment;
+    public long getAverageCommitmentNQT() {
+    	return averageCommitmentNQT;
     }
 }

@@ -239,7 +239,7 @@ public abstract class BurstNodeServiceTest {
     public void testBurstServiceGetMiningInfoCommitment() {
         MiningInfo miningInfoResponse = RxTestUtils.testObservable(burstNodeService.getMiningInfo(), 1).get(0);
         assertNotNull(miningInfoResponse);
-        assertNotNull(miningInfoResponse.getAverageCommitment());
+        assertNotNull(miningInfoResponse.getAverageCommitmentNQT());
     }
 
     @Test

@@ -797,7 +797,7 @@ message Account {
     string description = 7;
     uint64 rewardRecipient = 8;
     repeated AssetBalance assetBalances = 9;
-    uint64 commitment = 10;
+    uint64 commitmentNQT = 10;
 }
 
 message AssetBalances {
@@ -815,7 +815,7 @@ message MiningInfo {
     uint32 height = 1;
     bytes generationSignature = 2;
     uint64 baseTarget = 3;
-    uint64 averageCommitment = 4;
+    uint64 averageCommitmentNQT = 4;
 }
 
 message TransactionBytes {
