@@ -9,17 +9,17 @@ import org.bouncycastle.util.encoders.Hex;
 public class Account {
     private final BurstAddress id;
     private final BurstValue balance;
-    private final BurstValue commitment;
+    private final BurstValue commitmentNQT;
     private final BurstValue forgedBalance;
     private final BurstValue unconfirmedBalance;
     private final byte[] publicKey;
     private final String description;
     private final String name;
 
-    public Account(BurstAddress id, BurstValue balance, BurstValue commitment, BurstValue forgedBalance, BurstValue unconfirmedBalance, byte[] publicKey, String description, String name) {
+    public Account(BurstAddress id, BurstValue balance, BurstValue commitmentNQT, BurstValue forgedBalance, BurstValue unconfirmedBalance, byte[] publicKey, String description, String name) {
         this.id = id;
         this.balance = balance;
-        this.commitment = commitment;
+        this.commitmentNQT = commitmentNQT;
         this.forgedBalance = forgedBalance;
         this.unconfirmedBalance = unconfirmedBalance;
         this.publicKey = publicKey;
@@ -30,7 +30,7 @@ public class Account {
     public Account(AccountResponse accountResponse) {
         this.id = BurstAddress.fromEither(accountResponse.getAccount());
         this.balance = BurstValue.fromPlanck(accountResponse.getBalanceNQT());
-        this.commitment = BurstValue.fromPlanck(accountResponse.getCommitmentNQT());
+        this.commitmentNQT = BurstValue.fromPlanck(accountResponse.getCommitmentNQT());
         this.forgedBalance = BurstValue.fromPlanck(accountResponse.getForgedBalanceNQT());
         this.unconfirmedBalance = BurstValue.fromPlanck(accountResponse.getUnconfirmedBalanceNQT());
         this.publicKey = accountResponse.getPublicKey() == null ? new byte[32] : Hex.decode(accountResponse.getPublicKey());
@@ -41,7 +41,7 @@ public class Account {
     public Account(BrsApi.Account account) {
         this.id = BurstAddress.fromId(account.getId());
         this.balance = BurstValue.fromPlanck(account.getBalance());
-        this.commitment = BurstValue.fromPlanck(account.getCommitment());
+        this.commitmentNQT = BurstValue.fromPlanck(account.getCommitmentNQT());
         this.forgedBalance = BurstValue.fromPlanck(account.getForgedBalance());
         this.unconfirmedBalance = BurstValue.fromPlanck(account.getUnconfirmedBalance());
         this.publicKey = account.getPublicKey().toByteArray();
@@ -58,7 +58,7 @@ public class Account {
     }
     
     public BurstValue getCommitment() {
-        return commitment;
+        return commitmentNQT;
     }
 
     public BurstValue getForgedBalance() {

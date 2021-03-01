@@ -28,7 +28,7 @@ public class MiningInfo {
         this.generationSignature = miningInfo.getGenerationSignature().toByteArray();
         this.baseTarget = miningInfo.getBaseTarget();
         this.height = miningInfo.getHeight();
-        this.averageCommitmentNQT = miningInfo.getAverageCommitment();
+        this.averageCommitmentNQT = miningInfo.getAverageCommitmentNQT();
     }
 
     public byte[] getGenerationSignature() {
