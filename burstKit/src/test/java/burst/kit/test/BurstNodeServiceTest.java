@@ -65,16 +65,19 @@ public abstract class BurstNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAccount() {
-        Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID, null, null));
+        Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID));
         assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
     }
 
     @Test
     @Ignore // point to a node with support for it
-    public void testBurstServiceGetAccountCommitment() {
-        Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID, null, true));
+    public void testBurstServiceCommitment() {
+        Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID, null, true, true));
         assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
         assertNotNull(accountResponse.getCommitment());
+        
+        byte[] addCommitmentMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionAddCommitment(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
+        assertNotNull(addCommitmentMessage);        
     }
 
     @Test

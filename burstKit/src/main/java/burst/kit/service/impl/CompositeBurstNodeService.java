@@ -143,12 +143,12 @@ public class CompositeBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Account> getAccount(BurstAddress accountId) {
-        return getAccount(accountId, null, null);
+        return getAccount(accountId, null, null, null);
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment) {
-        return performFastest(service -> service.getAccount(accountId, height, estimateCommitment));
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment, Boolean getCommittedAmount) {
+        return performFastest(service -> service.getAccount(accountId, height, estimateCommitment, getCommittedAmount));
     }
 
     @Override
@@ -386,6 +386,20 @@ public class CompositeBurstNodeService implements BurstNodeService {
 	@Override
 	public Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey,
 			BurstValue fee, int deadline) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
+			int deadline) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
+			int deadline) {
 		// TODO Auto-generated method stub
 		return null;
 	}

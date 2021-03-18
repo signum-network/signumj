@@ -100,13 +100,14 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Account> getAccount(BurstAddress accountId) {
-    	return getAccount(accountId, null, null);
+    	return getAccount(accountId, null, null, null);
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment) {
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment, Boolean getCommittedAmount) {
         return assign(burstAPIService.getAccount(BurstKitUtils.getEndpoint(), accountId.getID(),
-        		height==null ? null : String.valueOf(height), estimateCommitment==null ? null : String.valueOf(estimateCommitment))).map(Account::new);
+        		height==null ? null : String.valueOf(height), estimateCommitment==null ? null : String.valueOf(estimateCommitment),
+        				getCommittedAmount==null ? null : String.valueOf(getCommittedAmount) )).map(Account::new);
     }
 
     @Override
@@ -216,6 +217,22 @@ public final class HttpBurstNodeService implements BurstNodeService {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
+        return assign(burstAPIService.addCommitment(BurstKitUtils.getEndpoint(),
+                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline) {
+        return assign(burstAPIService.removeCommitment(BurstKitUtils.getEndpoint(),
+                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
@@ -517,7 +534,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
         @GET("{endpoint}?requestType=getAccount")
         Single<AccountResponse> getAccount(@Path("endpoint") String endpoint, @Query("account") String accountId,
-        		@Query("height") String height, @Query("estimateCommitment") String calculateCommitment);
+        		@Query("height") String height, @Query("estimateCommitment") String calculateCommitment, @Query("getCommittedAmount") String getCommittedAmount);
 
         @GET("{endpoint}?requestType=getAccountATs")
         Single<AccountATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId);
@@ -587,6 +604,36 @@ public final class HttpBurstNodeService implements BurstNodeService {
         @POST("{endpoint}?requestType=sendMoney")
         Single<GenerateTransactionResponse> sendMoney(@Path("endpoint") String endpoint,
                 @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=addCommitment")
+        Single<GenerateTransactionResponse> addCommitment(@Path("endpoint") String endpoint,
+                @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=removeCommitment")
+        Single<GenerateTransactionResponse> removeCommitment(@Path("endpoint") String endpoint,
                 @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,

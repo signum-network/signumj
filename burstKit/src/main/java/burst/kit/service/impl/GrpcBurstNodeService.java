@@ -130,11 +130,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<Account> getAccount(BurstAddress accountId) {
-    	return getAccount(accountId, null, null);
+    	return getAccount(accountId, null, null, null);
     }
 
     @Override
-    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment) {
+    public Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean calculateCommitment, Boolean getCommittedAmount) {
     	// FIXME: adjust grpc arguments
         return assign(() -> brsGrpc.getAccount(getAccountRequestFromId(accountId)))
                 .map(Account::new);
@@ -601,6 +601,20 @@ public class GrpcBurstNodeService implements BurstNodeService {
 	@Override
 	public Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey,
 			BurstValue fee, int deadline) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
+			int deadline) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
+			int deadline) {
 		// TODO Auto-generated method stub
 		return null;
 	}

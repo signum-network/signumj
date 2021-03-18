@@ -47,15 +47,16 @@ public interface BurstNodeService extends AutoCloseable {
      * @return The constants, wrapped in a single
      */
     Single<Constants> getConstants();
-
+    
     /**
      * Get the account details of the specified account
      * @param accountId The address of the account
      * @param height
      * @param estimateCommitment
+     * @param getCommittedAmount
      * @return The account details, wrapped in a single
      */
-    Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment);
+    Single<Account> getAccount(BurstAddress accountId, Integer height, Boolean estimateCommitment, Boolean getCommittedAmount);
     
     /**
      * Get the account details of the specified account
@@ -182,6 +183,26 @@ public interface BurstNodeService extends AutoCloseable {
      * @return The transaction bytes, wrapped in a single
      */
     Single<byte[]> getTransactionBytes(BurstID transactionId);
+
+    /**
+     * Generate a add commitment transaction
+     * @param senderPublicKey The public key of the sender
+     * @param amount The amount to commit
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
+
+    /**
+     * Generate a add commitment transaction
+     * @param senderPublicKey The public key of the sender
+     * @param amount The amount to remove
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline);
 
     /**
      * Generate a simple transaction (only sending money)

@@ -799,6 +799,7 @@ message Account {
     uint64 rewardRecipient = 8;
     repeated AssetBalance assetBalances = 9;
     uint64 commitmentNQT = 10;
+    uint64 committedBalanceNQT = 11;
 }
 
 message AssetBalances {

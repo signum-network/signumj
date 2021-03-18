@@ -80631,6 +80631,12 @@ public final class BrsApi {
      * @return The commitmentNQT.
      */
     long getCommitmentNQT();
+
+    /**
+     * <code>uint64 committedBalanceNQT = 11;</code>
+     * @return The committedBalanceNQT.
+     */
+    long getCommittedBalanceNQT();
   }
   /**
    * Protobuf type {@code brs.api.Account}
@@ -80736,6 +80742,11 @@ public final class BrsApi {
             case 80: {
 
               commitmentNQT_ = input.readUInt64();
+              break;
+            }
+            case 88: {
+
+              committedBalanceNQT_ = input.readUInt64();
               break;
             }
             default: {
@@ -80950,6 +80961,16 @@ public final class BrsApi {
       return commitmentNQT_;
     }
 
+    public static final int COMMITTEDBALANCENQT_FIELD_NUMBER = 11;
+    private long committedBalanceNQT_;
+    /**
+     * <code>uint64 committedBalanceNQT = 11;</code>
+     * @return The committedBalanceNQT.
+     */
+    public long getCommittedBalanceNQT() {
+      return committedBalanceNQT_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -80993,6 +81014,9 @@ public final class BrsApi {
       }
       if (commitmentNQT_ != 0L) {
         output.writeUInt64(10, commitmentNQT_);
+      }
+      if (committedBalanceNQT_ != 0L) {
+        output.writeUInt64(11, committedBalanceNQT_);
       }
       unknownFields.writeTo(output);
     }
@@ -81041,6 +81065,10 @@ public final class BrsApi {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(10, commitmentNQT_);
       }
+      if (committedBalanceNQT_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(11, committedBalanceNQT_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -81076,6 +81104,8 @@ public final class BrsApi {
           .equals(other.getAssetBalancesList())) return false;
       if (getCommitmentNQT()
           != other.getCommitmentNQT()) return false;
+      if (getCommittedBalanceNQT()
+          != other.getCommittedBalanceNQT()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -81115,6 +81145,9 @@ public final class BrsApi {
       hash = (37 * hash) + COMMITMENTNQT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCommitmentNQT());
+      hash = (37 * hash) + COMMITTEDBALANCENQT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCommittedBalanceNQT());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -81273,6 +81306,8 @@ public final class BrsApi {
         }
         commitmentNQT_ = 0L;
 
+        committedBalanceNQT_ = 0L;
+
         return this;
       }
 
@@ -81318,6 +81353,7 @@ public final class BrsApi {
           result.assetBalances_ = assetBalancesBuilder_.build();
         }
         result.commitmentNQT_ = commitmentNQT_;
+        result.committedBalanceNQT_ = committedBalanceNQT_;
         onBuilt();
         return result;
       }
@@ -81420,6 +81456,9 @@ public final class BrsApi {
         }
         if (other.getCommitmentNQT() != 0L) {
           setCommitmentNQT(other.getCommitmentNQT());
+        }
+        if (other.getCommittedBalanceNQT() != 0L) {
+          setCommittedBalanceNQT(other.getCommittedBalanceNQT());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -82052,6 +82091,36 @@ public final class BrsApi {
       public Builder clearCommitmentNQT() {
         
         commitmentNQT_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long committedBalanceNQT_ ;
+      /**
+       * <code>uint64 committedBalanceNQT = 11;</code>
+       * @return The committedBalanceNQT.
+       */
+      public long getCommittedBalanceNQT() {
+        return committedBalanceNQT_;
+      }
+      /**
+       * <code>uint64 committedBalanceNQT = 11;</code>
+       * @param value The committedBalanceNQT to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommittedBalanceNQT(long value) {
+        
+        committedBalanceNQT_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 committedBalanceNQT = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCommittedBalanceNQT() {
+        
+        committedBalanceNQT_ = 0L;
         onChanged();
         return this;
       }
@@ -87402,112 +87471,113 @@ public final class BrsApi {
       "CreationAttachment\022\017\n\007version\030\001 \001(\r\022\014\n\004n" +
       "ame\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\025\n\rcreati" +
       "onBytes\030\004 \001(\014\";\n\010Accounts\022\013\n\003ids\030\001 \003(\004\022\"" +
-      "\n\010accounts\030\002 \003(\0132\020.brs.api.Account\"\355\001\n\007A" +
+      "\n\010accounts\030\002 \003(\0132\020.brs.api.Account\"\212\002\n\007A" +
       "ccount\022\n\n\002id\030\001 \001(\004\022\021\n\tpublicKey\030\002 \001(\014\022\017\n" +
       "\007balance\030\003 \001(\004\022\032\n\022unconfirmedBalance\030\004 \001" +
       "(\004\022\025\n\rforgedBalance\030\005 \001(\004\022\014\n\004name\030\006 \001(\t\022" +
       "\023\n\013description\030\007 \001(\t\022\027\n\017rewardRecipient\030" +
       "\010 \001(\004\022,\n\rassetBalances\030\t \003(\0132\025.brs.api.A" +
-      "ssetBalance\022\025\n\rcommitmentNQT\030\n \001(\004\"=\n\rAs" +
-      "setBalances\022,\n\rassetBalances\030\001 \003(\0132\025.brs" +
-      ".api.AssetBalance\"[\n\014AssetBalance\022\r\n\005ass" +
-      "et\030\001 \001(\004\022\017\n\007account\030\002 \001(\004\022\017\n\007balance\030\003 \001" +
-      "(\004\022\032\n\022unconfirmedBalance\030\004 \001(\004\"k\n\nMining" +
-      "Info\022\016\n\006height\030\001 \001(\r\022\033\n\023generationSignat" +
-      "ure\030\002 \001(\014\022\022\n\nbaseTarget\030\003 \001(\004\022\034\n\024average" +
-      "CommitmentNQT\030\004 \001(\004\",\n\020TransactionBytes\022" +
-      "\030\n\020transactionBytes\030\001 \001(\014\"\033\n\031OrdinaryPay" +
-      "mentAttachment\"\034\n\032ArbitraryMessageAttach" +
-      "ment\"\025\n\023ATPaymentAttachment\"D\n!Effective" +
-      "BalanceLeasingAttachment\022\017\n\007version\030\001 \001(" +
-      "\r\022\016\n\006period\030\002 \001(\r*=\n\016AssetTradeType\022\030\n\024A" +
-      "ssetTradeType_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004SELL\020\002" +
-      "*T\n\tPeerState\022\023\n\017PeerState_UNSET\020\000\022\021\n\rNO" +
-      "N_CONNECTED\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DISCONNE" +
-      "CTED\020\003*7\n\016AssetOrderType\022\023\n\017OrderType_UN" +
-      "SET\020\000\022\007\n\003ASK\020\001\022\007\n\003BID\020\002*e\n\022EscrowDecisio" +
-      "nType\022\034\n\030EscrowDecisionType_UNSET\020\000\022\r\n\tU" +
-      "NDECIDED\020\001\022\013\n\007RELEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005S" +
-      "PLIT\020\0042\277\030\n\rBrsApiService\022V\n\024BroadcastTra" +
-      "nsaction\022\031.brs.api.BasicTransaction\032#.br" +
-      "s.api.TransactionBroadcastResult\022[\n\031Broa" +
-      "dcastTransactionBytes\022\031.brs.api.Transact" +
-      "ionBytes\032#.brs.api.TransactionBroadcastR" +
-      "esult\022P\n\030CompleteBasicTransaction\022\031.brs." +
-      "api.BasicTransaction\032\031.brs.api.BasicTran" +
-      "saction\022:\n\nGetAccount\022\032.brs.api.GetAccou" +
-      "ntRequest\032\020.brs.api.Account\022@\n\rGetAccoun" +
-      "tATs\022\032.brs.api.GetAccountRequest\032\023.brs.a" +
-      "pi.AccountATs\022E\n\020GetAccountBlocks\022 .brs." +
-      "api.GetAccountBlocksRequest\032\017.brs.api.Bl" +
-      "ocks\022L\n\027GetAccountCurrentOrders\022 .brs.ap" +
-      "i.GetAccountOrdersRequest\032\017.brs.api.Orde" +
-      "rs\022W\n\034GetAccountEscrowTransactions\022\032.brs" +
-      ".api.GetAccountRequest\032\033.brs.api.EscrowT" +
-      "ransactions\022=\n\013GetAccounts\022\033.brs.api.Get" +
-      "AccountsRequest\032\021.brs.api.Accounts\022M\n\027Ge" +
-      "tAccountSubscriptions\022\032.brs.api.GetAccou" +
-      "ntRequest\032\026.brs.api.Subscriptions\022W\n\026Get" +
-      "AccountTransactions\022&.brs.api.GetAccount" +
-      "TransactionsRequest\032\025.brs.api.Transactio" +
-      "ns\0224\n\010GetAlias\022\030.brs.api.GetAliasRequest" +
-      "\032\016.brs.api.Alias\022:\n\nGetAliases\022\032.brs.api" +
-      ".GetAliasesRequest\032\020.brs.api.Aliases\0223\n\010" +
-      "GetAsset\022\027.brs.api.GetByIdRequest\032\016.brs." +
-      "api.Asset\022L\n\020GetAssetBalances\022 .brs.api." +
-      "GetAssetBalancesRequest\032\026.brs.api.AssetB" +
-      "alances\0227\n\tGetAssets\022\031.brs.api.GetAssets" +
-      "Request\032\017.brs.api.Assets\022@\n\021GetAssetsByI" +
-      "ssuer\022\032.brs.api.GetAccountRequest\032\017.brs." +
-      "api.Assets\022I\n\016GetAssetTrades\022!.brs.api.G" +
-      "etAssetTransfersRequest\032\024.brs.api.AssetT" +
-      "rades\022O\n\021GetAssetTransfers\022!.brs.api.Get" +
-      "AssetTransfersRequest\032\027.brs.api.AssetTra" +
-      "nsfers\022-\n\005GetAT\022\027.brs.api.GetByIdRequest" +
-      "\032\013.brs.api.AT\0222\n\010GetATIds\022\026.google.proto" +
-      "buf.Empty\032\016.brs.api.ATIds\0224\n\010GetBlock\022\030." +
-      "brs.api.GetBlockRequest\032\016.brs.api.Block\022" +
-      "7\n\tGetBlocks\022\031.brs.api.GetBlocksRequest\032" +
-      "\017.brs.api.Blocks\022:\n\014GetConstants\022\026.googl" +
-      "e.protobuf.Empty\032\022.brs.api.Constants\0224\n\t" +
-      "GetCounts\022\026.google.protobuf.Empty\032\017.brs." +
-      "api.Counts\0227\n\016GetCurrentTime\022\026.google.pr" +
-      "otobuf.Empty\032\r.brs.api.Time\0227\n\nGetDgsGoo" +
-      "d\022\027.brs.api.GetByIdRequest\032\020.brs.api.Dgs" +
-      "Good\022=\n\013GetDgsGoods\022\033.brs.api.GetDgsGood" +
-      "sRequest\032\021.brs.api.DgsGoods\022W\n\026GetDgsPen" +
-      "dingPurchases\022&.brs.api.GetDgsPendingPur" +
-      "chasesRequest\032\025.brs.api.DgsPurchases\022?\n\016" +
-      "GetDgsPurchase\022\027.brs.api.GetByIdRequest\032" +
-      "\024.brs.api.DgsPurchase\022I\n\017GetDgsPurchases" +
-      "\022\037.brs.api.GetDgsPurchasesRequest\032\025.brs." +
-      "api.DgsPurchases\022K\n\024GetEscrowTransaction" +
-      "\022\027.brs.api.GetByIdRequest\032\032.brs.api.Escr" +
-      "owTransaction\022>\n\rGetMiningInfo\022\026.google." +
-      "protobuf.Empty\032\023.brs.api.MiningInfo0\001\0224\n" +
-      "\010GetOrder\022\030.brs.api.GetOrderRequest\032\016.br" +
-      "s.api.Order\0227\n\tGetOrders\022\031.brs.api.GetOr" +
-      "dersRequest\032\017.brs.api.Orders\0221\n\007GetPeer\022" +
-      "\027.brs.api.GetPeerRequest\032\r.brs.api.Peer\022" +
-      "4\n\010GetPeers\022\030.brs.api.GetPeersRequest\032\016." +
-      "brs.api.Peers\0222\n\010GetState\022\026.google.proto" +
-      "buf.Empty\032\016.brs.api.State\022A\n\017GetSubscrip" +
-      "tion\022\027.brs.api.GetByIdRequest\032\025.brs.api." +
-      "Subscription\022O\n\031GetSubscriptionsToAccoun" +
-      "t\022\032.brs.api.GetAccountRequest\032\026.brs.api." +
-      "Subscriptions\022F\n\016GetTransaction\022\036.brs.ap" +
-      "i.GetTransactionRequest\032\024.brs.api.Transa" +
-      "ction\022K\n\023GetTransactionBytes\022\031.brs.api.B" +
-      "asicTransaction\032\031.brs.api.TransactionByt" +
-      "es\022Z\n\032GetUnconfirmedTransactions\022\032.brs.a" +
-      "pi.GetAccountRequest\032 .brs.api.Unconfirm" +
-      "edTransactions\022H\n\020ParseTransaction\022\031.brs" +
-      ".api.TransactionBytes\032\031.brs.api.BasicTra" +
-      "nsaction\022H\n\013SubmitNonce\022\033.brs.api.Submit" +
-      "NonceRequest\032\034.brs.api.SubmitNonceRespon" +
-      "se\022<\n\nSuggestFee\022\026.google.protobuf.Empty" +
-      "\032\026.brs.api.FeeSuggestionB\035\n\033burst.kit.se" +
-      "rvice.impl.grpcb\006proto3"
+      "ssetBalance\022\025\n\rcommitmentNQT\030\n \001(\004\022\033\n\023co" +
+      "mmittedBalanceNQT\030\013 \001(\004\"=\n\rAssetBalances" +
+      "\022,\n\rassetBalances\030\001 \003(\0132\025.brs.api.AssetB" +
+      "alance\"[\n\014AssetBalance\022\r\n\005asset\030\001 \001(\004\022\017\n" +
+      "\007account\030\002 \001(\004\022\017\n\007balance\030\003 \001(\004\022\032\n\022uncon" +
+      "firmedBalance\030\004 \001(\004\"k\n\nMiningInfo\022\016\n\006hei" +
+      "ght\030\001 \001(\r\022\033\n\023generationSignature\030\002 \001(\014\022\022" +
+      "\n\nbaseTarget\030\003 \001(\004\022\034\n\024averageCommitmentN" +
+      "QT\030\004 \001(\004\",\n\020TransactionBytes\022\030\n\020transact" +
+      "ionBytes\030\001 \001(\014\"\033\n\031OrdinaryPaymentAttachm" +
+      "ent\"\034\n\032ArbitraryMessageAttachment\"\025\n\023ATP" +
+      "aymentAttachment\"D\n!EffectiveBalanceLeas" +
+      "ingAttachment\022\017\n\007version\030\001 \001(\r\022\016\n\006period" +
+      "\030\002 \001(\r*=\n\016AssetTradeType\022\030\n\024AssetTradeTy" +
+      "pe_UNSET\020\000\022\007\n\003BUY\020\001\022\010\n\004SELL\020\002*T\n\tPeerSta" +
+      "te\022\023\n\017PeerState_UNSET\020\000\022\021\n\rNON_CONNECTED" +
+      "\020\001\022\r\n\tCONNECTED\020\002\022\020\n\014DISCONNECTED\020\003*7\n\016A" +
+      "ssetOrderType\022\023\n\017OrderType_UNSET\020\000\022\007\n\003AS" +
+      "K\020\001\022\007\n\003BID\020\002*e\n\022EscrowDecisionType\022\034\n\030Es" +
+      "crowDecisionType_UNSET\020\000\022\r\n\tUNDECIDED\020\001\022" +
+      "\013\n\007RELEASE\020\002\022\n\n\006REFUND\020\003\022\t\n\005SPLIT\020\0042\277\030\n\r" +
+      "BrsApiService\022V\n\024BroadcastTransaction\022\031." +
+      "brs.api.BasicTransaction\032#.brs.api.Trans" +
+      "actionBroadcastResult\022[\n\031BroadcastTransa" +
+      "ctionBytes\022\031.brs.api.TransactionBytes\032#." +
+      "brs.api.TransactionBroadcastResult\022P\n\030Co" +
+      "mpleteBasicTransaction\022\031.brs.api.BasicTr" +
+      "ansaction\032\031.brs.api.BasicTransaction\022:\n\n" +
+      "GetAccount\022\032.brs.api.GetAccountRequest\032\020" +
+      ".brs.api.Account\022@\n\rGetAccountATs\022\032.brs." +
+      "api.GetAccountRequest\032\023.brs.api.AccountA" +
+      "Ts\022E\n\020GetAccountBlocks\022 .brs.api.GetAcco" +
+      "untBlocksRequest\032\017.brs.api.Blocks\022L\n\027Get" +
+      "AccountCurrentOrders\022 .brs.api.GetAccoun" +
+      "tOrdersRequest\032\017.brs.api.Orders\022W\n\034GetAc" +
+      "countEscrowTransactions\022\032.brs.api.GetAcc" +
+      "ountRequest\032\033.brs.api.EscrowTransactions" +
+      "\022=\n\013GetAccounts\022\033.brs.api.GetAccountsReq" +
+      "uest\032\021.brs.api.Accounts\022M\n\027GetAccountSub" +
+      "scriptions\022\032.brs.api.GetAccountRequest\032\026" +
+      ".brs.api.Subscriptions\022W\n\026GetAccountTran" +
+      "sactions\022&.brs.api.GetAccountTransaction" +
+      "sRequest\032\025.brs.api.Transactions\0224\n\010GetAl" +
+      "ias\022\030.brs.api.GetAliasRequest\032\016.brs.api." +
+      "Alias\022:\n\nGetAliases\022\032.brs.api.GetAliases" +
+      "Request\032\020.brs.api.Aliases\0223\n\010GetAsset\022\027." +
+      "brs.api.GetByIdRequest\032\016.brs.api.Asset\022L" +
+      "\n\020GetAssetBalances\022 .brs.api.GetAssetBal" +
+      "ancesRequest\032\026.brs.api.AssetBalances\0227\n\t" +
+      "GetAssets\022\031.brs.api.GetAssetsRequest\032\017.b" +
+      "rs.api.Assets\022@\n\021GetAssetsByIssuer\022\032.brs" +
+      ".api.GetAccountRequest\032\017.brs.api.Assets\022" +
+      "I\n\016GetAssetTrades\022!.brs.api.GetAssetTran" +
+      "sfersRequest\032\024.brs.api.AssetTrades\022O\n\021Ge" +
+      "tAssetTransfers\022!.brs.api.GetAssetTransf" +
+      "ersRequest\032\027.brs.api.AssetTransfers\022-\n\005G" +
+      "etAT\022\027.brs.api.GetByIdRequest\032\013.brs.api." +
+      "AT\0222\n\010GetATIds\022\026.google.protobuf.Empty\032\016" +
+      ".brs.api.ATIds\0224\n\010GetBlock\022\030.brs.api.Get" +
+      "BlockRequest\032\016.brs.api.Block\0227\n\tGetBlock" +
+      "s\022\031.brs.api.GetBlocksRequest\032\017.brs.api.B" +
+      "locks\022:\n\014GetConstants\022\026.google.protobuf." +
+      "Empty\032\022.brs.api.Constants\0224\n\tGetCounts\022\026" +
+      ".google.protobuf.Empty\032\017.brs.api.Counts\022" +
+      "7\n\016GetCurrentTime\022\026.google.protobuf.Empt" +
+      "y\032\r.brs.api.Time\0227\n\nGetDgsGood\022\027.brs.api" +
+      ".GetByIdRequest\032\020.brs.api.DgsGood\022=\n\013Get" +
+      "DgsGoods\022\033.brs.api.GetDgsGoodsRequest\032\021." +
+      "brs.api.DgsGoods\022W\n\026GetDgsPendingPurchas" +
+      "es\022&.brs.api.GetDgsPendingPurchasesReque" +
+      "st\032\025.brs.api.DgsPurchases\022?\n\016GetDgsPurch" +
+      "ase\022\027.brs.api.GetByIdRequest\032\024.brs.api.D" +
+      "gsPurchase\022I\n\017GetDgsPurchases\022\037.brs.api." +
+      "GetDgsPurchasesRequest\032\025.brs.api.DgsPurc" +
+      "hases\022K\n\024GetEscrowTransaction\022\027.brs.api." +
+      "GetByIdRequest\032\032.brs.api.EscrowTransacti" +
+      "on\022>\n\rGetMiningInfo\022\026.google.protobuf.Em" +
+      "pty\032\023.brs.api.MiningInfo0\001\0224\n\010GetOrder\022\030" +
+      ".brs.api.GetOrderRequest\032\016.brs.api.Order" +
+      "\0227\n\tGetOrders\022\031.brs.api.GetOrdersRequest" +
+      "\032\017.brs.api.Orders\0221\n\007GetPeer\022\027.brs.api.G" +
+      "etPeerRequest\032\r.brs.api.Peer\0224\n\010GetPeers" +
+      "\022\030.brs.api.GetPeersRequest\032\016.brs.api.Pee" +
+      "rs\0222\n\010GetState\022\026.google.protobuf.Empty\032\016" +
+      ".brs.api.State\022A\n\017GetSubscription\022\027.brs." +
+      "api.GetByIdRequest\032\025.brs.api.Subscriptio" +
+      "n\022O\n\031GetSubscriptionsToAccount\022\032.brs.api" +
+      ".GetAccountRequest\032\026.brs.api.Subscriptio" +
+      "ns\022F\n\016GetTransaction\022\036.brs.api.GetTransa" +
+      "ctionRequest\032\024.brs.api.Transaction\022K\n\023Ge" +
+      "tTransactionBytes\022\031.brs.api.BasicTransac" +
+      "tion\032\031.brs.api.TransactionBytes\022Z\n\032GetUn" +
+      "confirmedTransactions\022\032.brs.api.GetAccou" +
+      "ntRequest\032 .brs.api.UnconfirmedTransacti" +
+      "ons\022H\n\020ParseTransaction\022\031.brs.api.Transa" +
+      "ctionBytes\032\031.brs.api.BasicTransaction\022H\n" +
+      "\013SubmitNonce\022\033.brs.api.SubmitNonceReques" +
+      "t\032\034.brs.api.SubmitNonceResponse\022<\n\nSugge" +
+      "stFee\022\026.google.protobuf.Empty\032\026.brs.api." +
+      "FeeSuggestionB\035\n\033burst.kit.service.impl." +
+      "grpcb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -88084,7 +88154,7 @@ public final class BrsApi {
     internal_static_brs_api_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_brs_api_Account_descriptor,
-        new java.lang.String[] { "Id", "PublicKey", "Balance", "UnconfirmedBalance", "ForgedBalance", "Name", "Description", "RewardRecipient", "AssetBalances", "CommitmentNQT", });
+        new java.lang.String[] { "Id", "PublicKey", "Balance", "UnconfirmedBalance", "ForgedBalance", "Name", "Description", "RewardRecipient", "AssetBalances", "CommitmentNQT", "CommittedBalanceNQT", });
     internal_static_brs_api_AssetBalances_descriptor =
       getDescriptor().getMessageTypes().get(92);
     internal_static_brs_api_AssetBalances_fieldAccessorTable = new
