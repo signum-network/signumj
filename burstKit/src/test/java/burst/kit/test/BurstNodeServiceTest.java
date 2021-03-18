@@ -75,6 +75,7 @@ public abstract class BurstNodeServiceTest {
         Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID, null, true, true));
         assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
         assertNotNull(accountResponse.getCommitment());
+        assertNotNull(accountResponse.getCommittedBalance());
         
         byte[] addCommitmentMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionAddCommitment(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, BurstValue.fromBurst(1), BurstValue.fromBurst(1), 1440));
         assertNotNull(addCommitmentMessage);        
