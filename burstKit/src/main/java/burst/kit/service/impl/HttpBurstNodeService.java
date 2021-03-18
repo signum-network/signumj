@@ -220,6 +220,14 @@ public final class HttpBurstNodeService implements BurstNodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline) {
+        return assign(burstAPIService.setRewardRecipient(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<byte[]> generateTransactionWithMessage(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(BurstKitUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
@@ -580,6 +588,22 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<GenerateTransactionResponse> sendMoney(@Path("endpoint") String endpoint,
                 @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
                 @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=setRewardRecipient")
+        Single<GenerateTransactionResponse> setRewardRecipient(@Path("endpoint") String endpoint,
+                @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("message") String message,

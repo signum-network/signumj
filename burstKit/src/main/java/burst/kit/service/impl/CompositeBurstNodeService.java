@@ -382,4 +382,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
             burstNodeService.close();
         }
     }
+
+	@Override
+	public Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey,
+			BurstValue fee, int deadline) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -597,4 +597,11 @@ public class GrpcBurstNodeService implements BurstNodeService {
             connection.shutdownNow();
         }
     }
+
+	@Override
+	public Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey,
+			BurstValue fee, int deadline) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -195,6 +195,16 @@ public interface BurstNodeService extends AutoCloseable {
     Single<byte[]> generateTransaction(BurstAddress recipient, byte[] senderPublicKey, BurstValue amount, BurstValue fee, int deadline, String referencedTransactionFullHash);
 
     /**
+     * Generate a transaction to set the reward recipient
+     * @param recipient The recipient
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey, BurstValue fee, int deadline);
+
+    /**
      * Generate a transaction with a plaintext message
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
