@@ -25,11 +25,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
 
-    // gRPC
-    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
-    implementation "io.grpc:grpc-stub:${grpcVersion}"
-    implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
-
     // Bouncy Castle
     implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
 
@@ -39,28 +34,6 @@ dependencies {
     // Testing
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.5.2'
-}
-
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:3.11.2"
-    }
-    plugins {
-        grpc {
-            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
-        }
-    }
-    generateProtoTasks {
-        all().each { task ->
-            task.onlyIf {System.getProperty("runProtoc") == "true"}
-        }
-        all()*.plugins {
-            grpc {
-                outputSubDir = 'java'
-            }
-        }
-    }
-    generatedFilesBaseDir = "$projectDir/src/"
 }
 
 test {

@@ -1,12 +1,10 @@
 package burst.kit.entity.response;
 
-import burst.kit.crypto.BurstCrypto;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.BlockResponse;
-import burst.kit.service.impl.grpc.BrsApi;
 import org.bouncycastle.util.encoders.Hex;
 
 import java.math.BigInteger;
@@ -83,34 +81,6 @@ public class Block {
         this.version = blockResponse.getVersion();
         this.baseTarget = blockResponse.getBaseTarget();
         this.averageCommitmentNQT = blockResponse.getAverageCommitmentNQT();
-    }
-
-    public Block(BrsApi.Block block) {
-        BurstCrypto burstCrypto = BurstCrypto.getInstance();
-        this.nonce = new BigInteger(Long.toUnsignedString(block.getNonce()));
-        this.generator = burstCrypto.getBurstAddressFromPublic(block.getGeneratorPublicKey().toByteArray());
-        this.id = BurstID.fromLong(block.getId());
-        this.nextBlock = BurstID.fromLong(block.getNextBlockId());
-        this.previousBlock = block.getPreviousBlockHash().size() == 0 ? BurstID.fromLong(0) : burstCrypto.hashToId(block.getPreviousBlockHash().toByteArray());
-        this.transactions = block.getTransactionIdsList()
-                .stream()
-                .map(BurstID::fromLong)
-                .toArray(BurstID[]::new);
-        this.timestamp = BurstTimestamp.fromBurstTimestamp(block.getTimestamp());
-        this.blockReward = BurstValue.fromPlanck(block.getBlockReward());
-        this.totalAmount = BurstValue.fromPlanck(block.getTotalAmount());
-        this.totalFee = BurstValue.fromPlanck(block.getTotalFee());
-        this.generationSignature = block.getGenerationSignature().toByteArray();
-        this.generatorPublicKey = block.getGeneratorPublicKey().toByteArray();
-        this.payloadHash = block.getPayloadHash().toByteArray();
-        this.previousBlockHash = block.getPreviousBlockHash().toByteArray();
-        this.signature = block.getBlockSignature().toByteArray();
-        this.height = block.getHeight();
-        this.payloadLength = block.getPayloadLength();
-        this.scoopNum = block.getScoop();
-        this.version = block.getVersion();
-        this.baseTarget = block.getBaseTarget();
-        this.averageCommitmentNQT = block.getAverageCommitmentNQT();
     }
 
     public BigInteger getNonce() {

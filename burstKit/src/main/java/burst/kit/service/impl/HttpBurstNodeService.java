@@ -185,7 +185,12 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<AT> getAt(BurstAddress atId) {
-        return assign(burstAPIService.getAt(BurstKitUtils.getEndpoint(), atId.getID())).map(AT::new);
+        return getAt(atId, true);
+    }
+    
+    @Override
+    public Single<AT> getAt(BurstAddress atId, boolean includeDetails) {
+        return assign(burstAPIService.getAt(BurstKitUtils.getEndpoint(), atId.getID(), includeDetails)).map(AT::new);
     }
 
     @Override
@@ -588,7 +593,7 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<BidOrdersResponse> getBidOrders(@Path("endpoint") String endpoint, @Query("asset") String assetId);
         
         @GET("{endpoint}?requestType=getAT")
-        Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId);
+        Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") boolean includeDetails);
 
         @GET("{endpoint}?requestType=getATIds")
         Single<AtIDsResponse> getAtIds(@Path("endpoint") String endpoint);

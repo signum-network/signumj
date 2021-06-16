@@ -6,7 +6,6 @@ import burst.kit.entity.BurstTimestamp;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.TradeResponse;
 import burst.kit.service.BurstApiException;
-import burst.kit.service.impl.grpc.BrsApi;
 
 import java.util.Locale;
 
@@ -67,24 +66,6 @@ public class AssetTrade {
         this.assetDecimals = tradeResponse.getDecimals();
     }
     
-    public AssetTrade(BrsApi.AssetTrade trade) {
-        this.timestamp = BurstTimestamp.fromBurstTimestamp(trade.getTimestamp());
-        this.quantity = BurstValue.fromPlanck(trade.getQuantity());
-        this.price = BurstValue.fromPlanck(trade.getPrice());
-        this.assetId = BurstID.fromLong(trade.getAsset());
-        this.askOrderId = BurstID.fromLong(trade.getAskOrder());
-        this.bidOrderId = BurstID.fromLong(trade.getBidOrder());
-        this.askOrderHeight = trade.getAskOrderHeight();
-        this.sellerAddress = BurstAddress.fromId(trade.getSeller());
-        this.buyerAddress = BurstAddress.fromId(trade.getBuyer());
-        this.blockId = BurstID.fromLong(trade.getBlock());
-        this.height = trade.getHeight();
-        this.type = TradeType.parse(trade.getTradeType());
-        this.assetName = trade.getAssetName();
-        // Description is ignored
-        this.assetDecimals = trade.getAssetDecimals();
-    }
-
     public BurstTimestamp getTimestamp() {
         return timestamp;
     }
@@ -150,14 +131,6 @@ public class AssetTrade {
             switch (tradeType.toLowerCase(Locale.ENGLISH).trim()) {
                 case "buy": return BUY;
                 case "sell": return SELL;
-                default: throw new BurstApiException("Could not parse Trade Type " + tradeType);
-            }
-        }
-
-        public static TradeType parse(BrsApi.AssetTradeType tradeType) {
-            switch (tradeType) {
-                case BUY: return BUY;
-                case SELL: return SELL;
                 default: throw new BurstApiException("Could not parse Trade Type " + tradeType);
             }
         }

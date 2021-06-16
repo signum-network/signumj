@@ -208,8 +208,13 @@ public class CompositeBurstNodeService implements BurstNodeService {
 
     @Override
     public Single<AT> getAt(BurstAddress at) {
-        return performFastest(service -> service.getAt(at));
+    	return getAt(at, true);
     }
+
+	@Override
+	public Single<AT> getAt(BurstAddress at, boolean includeDetails) {
+        return performFastest(service -> service.getAt(at, includeDetails));
+	}
 
     @Override
     public Single<BurstAddress[]> getAtIds() {

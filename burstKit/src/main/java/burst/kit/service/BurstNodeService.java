@@ -3,7 +3,6 @@ package burst.kit.service;
 import burst.kit.entity.*;
 import burst.kit.entity.response.*;
 import burst.kit.service.impl.CompositeBurstNodeService;
-import burst.kit.service.impl.GrpcBurstNodeService;
 import burst.kit.service.impl.HttpBurstNodeService;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -156,6 +155,14 @@ public interface BurstNodeService extends AutoCloseable {
      * @return The details of the AT, wrapped in a single
      */
     Single<AT> getAt(BurstAddress at);
+    
+    /**
+     * Get the details of an AT
+     * @param at The address of the AT
+     * @param includedDetails If the immutable details should also be included
+     * @return The details of the AT, wrapped in a single
+     */
+    Single<AT> getAt(BurstAddress at, boolean includeDetails);
 
     /**
      * Get the list of addresses of all ATs
@@ -543,11 +550,7 @@ public interface BurstNodeService extends AutoCloseable {
 
     static BurstNodeService getInstance(String nodeAddress, String userAgent) {
         if (userAgent == null) userAgent = "burstkit4j/" + burst.kit.Constants.VERSION;
-        if (nodeAddress.startsWith("grpc://")) {
-            return new GrpcBurstNodeService(nodeAddress, userAgent);
-        } else {
-            return new HttpBurstNodeService(nodeAddress, userAgent);
-        }
+        return new HttpBurstNodeService(nodeAddress, userAgent);
     }
 
     static BurstNodeService getCompositeInstance(String... nodeAddresses) {

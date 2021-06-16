@@ -3,7 +3,6 @@ package burst.kit.entity.response;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.ATResponse;
-import burst.kit.service.impl.grpc.BrsApi;
 import org.bouncycastle.util.encoders.Hex;
 
 public class AT {
@@ -63,26 +62,6 @@ public class AT {
         this.version = atResponse.getAtVersion();
         this.description = atResponse.getDescription();
         this.name = atResponse.getName();
-    }
-
-    public AT(BrsApi.AT at) {
-        this.dead = at.getDead();
-        this.finished = at.getFinished();
-        this.frozen = at.getFrozen();
-        this.running = at.getRunning();
-        this.stopped = at.getStopped();
-        this.creator = BurstAddress.fromId(at.getCreator());
-        this.id = BurstAddress.fromId(at.getId());
-        this.balance = BurstValue.fromPlanck(at.getBalance());
-        this.minimumActivation = BurstValue.fromPlanck(at.getMinActivation());
-        this.previousBalance = BurstValue.fromPlanck(at.getPreviousBalance());
-        this.machineCode = at.getMachineCode().toByteArray();
-        this.machineData = at.getMachineData().toByteArray();
-        this.creationHeight = at.getCreationBlock();
-        this.nextBlockHeight = at.getNextBlock();
-        this.version = at.getVersion();
-        this.description = at.getDescription();
-        this.name = at.getName();
     }
 
     public boolean isDead() {

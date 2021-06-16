@@ -4,7 +4,6 @@ import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.AssetAccountResponse;
-import burst.kit.service.impl.grpc.BrsApi;
 
 public class AssetBalance {
     private final BurstAddress accountAddress;
@@ -32,13 +31,6 @@ public class AssetBalance {
         this.assetId = BurstID.fromLong(accountResponse.getAsset());
         this.balance = BurstValue.fromPlanck(accountResponse.getQuantityQNT());
         this.unconfirmedBalance = BurstValue.fromPlanck(accountResponse.getUnconfirmedQuantityQNT());
-    }
-
-    public AssetBalance(BrsApi.AssetBalance assetBalance) {
-        this.accountAddress = BurstAddress.fromId(assetBalance.getAccount());
-        this.assetId = BurstID.fromLong(assetBalance.getAsset());
-        this.balance = BurstValue.fromPlanck(assetBalance.getBalance());
-        this.unconfirmedBalance = BurstValue.fromPlanck(assetBalance.getUnconfirmedBalance());
     }
 
     public BurstAddress getAccountAddress() {

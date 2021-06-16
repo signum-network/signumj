@@ -5,7 +5,6 @@ import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.OrderResponse;
 import burst.kit.service.BurstApiException;
-import burst.kit.service.impl.grpc.BrsApi;
 
 import java.util.Locale;
 
@@ -45,16 +44,6 @@ public class AssetOrder {
         this.type = OrderType.parse(orderResponse.getType());
     }
 
-    public AssetOrder(BrsApi.Order order) {
-        this.id = BurstID.fromLong(order.getId());
-        this.assetId = BurstID.fromLong(order.getAsset());
-        this.accountAddress = BurstAddress.fromId(order.getAccount());
-        this.quantity = BurstValue.fromPlanck(order.getQuantity());
-        this.price = BurstValue.fromPlanck(order.getPrice());
-        this.height = order.getHeight();
-        this.type = OrderType.parse(order.getType());
-    }
-
     public BurstID getId() {
         return id;
     }
@@ -92,14 +81,6 @@ public class AssetOrder {
             switch (orderType.toLowerCase(Locale.ENGLISH).trim()) {
                 case "ask": return ASK;
                 case "bid": return BID;
-                default: throw new BurstApiException("Could not parse Order Type " + orderType);
-            }
-        }
-
-        public static OrderType parse(BrsApi.AssetOrderType orderType) {
-            switch (orderType) {
-                case ASK: return ASK;
-                case BID: return BID;
                 default: throw new BurstApiException("Could not parse Order Type " + orderType);
             }
         }

@@ -2,7 +2,6 @@ package burst.kit.test;
 
 import burst.kit.service.BurstNodeService;
 import burst.kit.service.impl.CompositeBurstNodeService;
-import burst.kit.service.impl.GrpcBurstNodeService;
 import burst.kit.service.impl.HttpBurstNodeService;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
@@ -14,7 +13,6 @@ public class CompositeBurstNodeServiceTest extends BurstNodeServiceTest {
     @Override
     protected BurstNodeService getBurstNodeService() {
         BurstNodeService http = new HttpBurstNodeService(TestVariables.HTTP_API_ENDPOINT, "burstkit4j-TEST");
-        BurstNodeService grpc = new GrpcBurstNodeService(TestVariables.GRPC_API_ENDPOINT, "burstkit4j-TEST");
-        return new CompositeBurstNodeService(http, grpc);
+        return new CompositeBurstNodeService(http);
     }
 }

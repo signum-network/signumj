@@ -1,7 +1,6 @@
 package burst.kit.entity.response;
 
 import burst.kit.entity.response.http.MiningInfoResponse;
-import burst.kit.service.impl.grpc.BrsApi;
 import org.bouncycastle.util.encoders.Hex;
 
 public class MiningInfo {
@@ -22,13 +21,6 @@ public class MiningInfo {
         this.baseTarget = miningInfoResponse.getBaseTarget();
         this.height = miningInfoResponse.getHeight();
         this.averageCommitmentNQT = miningInfoResponse.getAverageCommitmentNQT();
-    }
-
-    public MiningInfo(BrsApi.MiningInfo miningInfo) {
-        this.generationSignature = miningInfo.getGenerationSignature().toByteArray();
-        this.baseTarget = miningInfo.getBaseTarget();
-        this.height = miningInfo.getHeight();
-        this.averageCommitmentNQT = miningInfo.getAverageCommitmentNQT();
     }
 
     public byte[] getGenerationSignature() {

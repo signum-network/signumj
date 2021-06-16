@@ -3,7 +3,6 @@ package burst.kit.entity.response;
 import burst.kit.entity.BurstAddress;
 import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.AccountResponse;
-import burst.kit.service.impl.grpc.BrsApi;
 import org.bouncycastle.util.encoders.Hex;
 
 public class Account {
@@ -39,18 +38,6 @@ public class Account {
         this.publicKey = accountResponse.getPublicKey() == null ? new byte[32] : Hex.decode(accountResponse.getPublicKey());
         this.description = accountResponse.getDescription();
         this.name = accountResponse.getName();
-    }
-
-    public Account(BrsApi.Account account) {
-        this.id = BurstAddress.fromId(account.getId());
-        this.balance = BurstValue.fromPlanck(account.getBalance());
-        this.commitmentNQT = BurstValue.fromPlanck(account.getCommitmentNQT());
-        this.committedBalanceNQT = BurstValue.fromPlanck(account.getCommittedBalanceNQT());
-        this.forgedBalance = BurstValue.fromPlanck(account.getForgedBalance());
-        this.unconfirmedBalance = BurstValue.fromPlanck(account.getUnconfirmedBalance());
-        this.publicKey = account.getPublicKey().toByteArray();
-        this.description = account.getDescription();
-        this.name = account.getName();
     }
 
     public BurstAddress getId() {
