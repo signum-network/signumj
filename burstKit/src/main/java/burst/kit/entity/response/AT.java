@@ -50,12 +50,12 @@ public class AT {
         this.frozen = atResponse.isFrozen();
         this.running = atResponse.isRunning();
         this.stopped = atResponse.isStopped();
-        this.creator = BurstAddress.fromEither(atResponse.getCreator());
         this.id = BurstAddress.fromEither(atResponse.getAt());
         this.balance = BurstValue.fromPlanck(atResponse.getBalanceNQT());
-        this.minimumActivation = BurstValue.fromPlanck(atResponse.getMinActivation());
+        this.creator = atResponse.getCreator() == null ? null : BurstAddress.fromEither(atResponse.getCreator());
+        this.minimumActivation = atResponse.getMinActivation() == null ? null : BurstValue.fromPlanck(atResponse.getMinActivation());
         this.previousBalance = BurstValue.fromPlanck(atResponse.getPrevBalanceNQT());
-        this.machineCode = Hex.decode(atResponse.getMachineCode());
+        this.machineCode = atResponse.getMachineCode() == null ? null : Hex.decode(atResponse.getMachineCode());
         this.machineData = Hex.decode(atResponse.getMachineData());
         this.creationHeight = atResponse.getCreationBlock();
         this.nextBlockHeight = atResponse.getNextBlock();
