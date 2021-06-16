@@ -1,17 +1,5 @@
 // Build with:
 // $ ./gradlew build
-//
-// If the protoc needs to be updated:
-// $ ./gradlew -DrunProtoc=true build
-
-buildscript {
-    dependencies {
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.11'
-    }
-}
-
-apply plugin: 'com.google.protobuf'
-def grpcVersion = '1.26.0'
 
 dependencies {
     // Gson
