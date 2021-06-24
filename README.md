@@ -1,13 +1,12 @@
-# burstkit4j
+# SignumJ
 
-Burstcoin Java Development Framework
+Signum Java Development Framework
 
-[![Build Status](https://travis-ci.com/burst-apps-team/burstkit4j.svg?branch=master)](https://travis-ci.com/burst-apps-team/burstkit4j)
-[![](https://jitpack.io/v/burst-apps-team/burstkit4j.svg)](https://jitpack.io/#burst-apps-team/burstkit4j)
+[![](https://jitpack.io/v/burst-apps-team/burstkit4j.svg)](https://jitpack.io/#signum-network/signumj)
 
 ## Beta Status
 
-This project is currently in beta. Please report any issues through the GitHub [issue tracker](https://github.com/burst-apps-team/burstkit4j/issues).
+This project is currently in beta. Please report any issues through the GitHub [issue tracker](https://github.com/signum-network/signumj/issues).
 
 ## Including in your project
 
@@ -22,8 +21,8 @@ This project is currently in beta. Please report any issues through the GitHub [
 </repositories>
 <dependencies>
     <dependency>
-	    <groupId>com.github.burst-apps-team</groupId>
-	    <artifactId>burstkit4j</artifactId>
+	    <groupId>com.github.signum-network</groupId>
+	    <artifactId>signumj</artifactId>
 	    <version>v0.9-beta1</version>
 	</dependency>
 </dependencies>
@@ -36,17 +35,17 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 dependencies {
-	implementation 'com.github.burst-apps-team:burstkit4j:v0.9-beta1'
+	implementation 'com.github.signum-network:signumj:v0.9-beta1'
 }
 ```
 
 ## Usage
 
-* Commonly used Burst objects / entities / helper classes can be found in the [entity](burstKit/src/main/java/burst/kit/entity) package.
+* Commonly used Signum objects / entities / helper classes can be found in the [entity](burstKit/src/main/java/burst/kit/entity) package.
 
 * For locally-performed cryptographic operations such as encrypting/decrypting, signing/verifying, etc please see the [BurstCrypto](burstKit/src/main/java/burst/kit/burst/BurstCrypto.java) interface (Use `BurstCrypto.getInstance()` to obtain a singleton instance)
 
-* For Burst Node API calls such as making transactions and looking at blocks/accounts/transactions, please see the [BurstNodeService](burstKit/src/main/java/burst/kit/service/BurstNodeService.java) interface. (Use `BurstNodeService.getInstance("http://nodeAddress.com:8125")` to obtain an instance.)
+* For Singum Node API calls such as making transactions and looking at blocks/accounts/transactions, please see the [BurstNodeService](burstKit/src/main/java/burst/kit/service/BurstNodeService.java) interface. (Use `BurstNodeService.getInstance("http://nodeAddress.com:8125")` to obtain an instance.)
 
 The `BurstNodeService` wraps the returned values in RxJava Singles. You can create your own `SchedulerAssigner` to automatically make all returned values subscribe on the specified schedulers. If you don't want to use RxJava, call `toFuture()` on any Single.
 
