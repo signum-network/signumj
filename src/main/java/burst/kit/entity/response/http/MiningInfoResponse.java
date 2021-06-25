@@ -6,12 +6,14 @@ public class MiningInfoResponse extends BRSResponse {
     private final long baseTarget;
     private final long height;
     private final long averageCommitmentNQT;
+    private final int timestamp;
 
-    public MiningInfoResponse(String generationSignature, long baseTarget, long height, long averageCommitmentNQT) {
+    public MiningInfoResponse(String generationSignature, long baseTarget, long height, long averageCommitmentNQT, int timestamp) {
         this.generationSignature = generationSignature;
         this.baseTarget = baseTarget;
         this.height = height;
         this.averageCommitmentNQT = averageCommitmentNQT;
+        this.timestamp = timestamp;
     }
 
     public String getGenerationSignature() {
@@ -28,5 +30,9 @@ public class MiningInfoResponse extends BRSResponse {
     
     public long getAverageCommitmentNQT() {
     	return averageCommitmentNQT;
+    }
+    
+    public int getTimestamp() {
+    	return timestamp;
     }
 }
