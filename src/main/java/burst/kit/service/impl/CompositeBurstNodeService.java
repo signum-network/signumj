@@ -391,21 +391,19 @@ public class CompositeBurstNodeService implements BurstNodeService {
 	@Override
 	public Single<byte[]> generateTransactionSetRewardRecipient(BurstAddress recipient, byte[] senderPublicKey,
 			BurstValue fee, int deadline) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return performFastest(service -> service.generateTransactionSetRewardRecipient(recipient, senderPublicKey, fee, deadline));
 	}
 
 	@Override
 	public Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
 			int deadline) {
-		// TODO Auto-generated method stub
-		return null;
+		return performFastest(service -> service.generateTransactionAddCommitment(senderPublicKey, amount, fee, deadline));
 	}
 
 	@Override
 	public Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, BurstValue amount, BurstValue fee,
 			int deadline) {
-		// TODO Auto-generated method stub
-		return null;
+		return performFastest(service -> service.generateTransactionRemoveCommitment(senderPublicKey, amount, fee, deadline));
 	}
 }
