@@ -18,6 +18,11 @@ public interface BurstNodeService extends AutoCloseable {
      * @return The block details, wrapped in a Single
      */
     Single<Block> getBlock(BurstID block);
+    
+    /**
+     * @return the blockchain status
+     */
+    Single<BlockchainStatus> getBlockChainStatus();
 
     /**
      * Get the block at a specific height

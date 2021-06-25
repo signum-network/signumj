@@ -406,4 +406,9 @@ public class CompositeBurstNodeService implements BurstNodeService {
 			int deadline) {
 		return performFastest(service -> service.generateTransactionRemoveCommitment(senderPublicKey, amount, fee, deadline));
 	}
+
+	@Override
+	public Single<BlockchainStatus> getBlockChainStatus() {
+		return performFastest(service -> service.getBlockChainStatus());
+	}
 }

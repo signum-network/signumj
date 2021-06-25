@@ -92,6 +92,11 @@ public final class HttpBurstNodeService implements BurstNodeService {
                         .map(response -> Arrays.stream(response.getBlocks()).map(Block::new)
                                 .collect(Collectors.toList()).toArray(new Block[0]));
     }
+    
+	@Override
+	public Single<BlockchainStatus> getBlockChainStatus() {
+        return assign(burstAPIService.getBlockchainStatus(BurstKitUtils.getEndpoint()).map(BlockchainStatus::new));
+	}
 
     @Override
     public Single<Constants> getConstants() {
@@ -526,6 +531,9 @@ public final class HttpBurstNodeService implements BurstNodeService {
         Single<BlockResponse> getBlock(@Path("endpoint") String endpoint, @Query("block") String blockId,
                 @Query("height") String blockHeight, @Query("timestamp") String timestamp,
                 @Query("includeTransactions") boolean includeTransactions);
+
+        @GET("{endpoint}?requestType=getBlockchainStatus")
+        Single<BlockchainStatusResponse> getBlockchainStatus(@Path("endpoint") String endpoint);
 
         @GET("{endpoint}?requestType=getBlockId")
         Single<BlockIDResponse> getBlockID(@Path("endpoint") String endpoint, @Query("height") String blockHeight);

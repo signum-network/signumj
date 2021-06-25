@@ -1,33 +1,34 @@
 package burst.kit.entity.response.http;
 
-import java.math.BigInteger;
-
-@SuppressWarnings("unused")
 public final class BlockchainStatusResponse extends BRSResponse {
-    private final String lastBlock;
+    private final int lastBlock;
     private final String application;
     private final boolean isScanning;
-    private final BigInteger cumulativeDifficulty;
-    private final long lastBlockchainFeederHeight;
-    private final long numberOfBlocks;
+    private final String cumulativeDifficulty;
+    private final String averageCommitment;
+    private final int lastBlockchainFeederHeight;
+    private final int numberOfBlocks;
     private final int time;
     private final String version;
     private final String lastBlockchainFeeder;
+    private final int lastBlockTimestamp;
 
-    public BlockchainStatusResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String lastBlock, String application, boolean isScanning, BigInteger cumulativeDifficulty, long lastBlockchainFeederHeight, long numberOfBlocks, int time, String version, String lastBlockchainFeeder) {
+    public BlockchainStatusResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int lastBlock, String application, boolean isScanning, String cumulativeDifficulty, int lastBlockchainFeederHeight, int numberOfBlocks, int time, String version, String lastBlockchainFeeder, String averageCommitment, int lastBlockTimestamp) {
         super(errorDescription, errorCode, requestProcessingTime);
         this.lastBlock = lastBlock;
         this.application = application;
         this.isScanning = isScanning;
         this.cumulativeDifficulty = cumulativeDifficulty;
+        this.averageCommitment = averageCommitment;
         this.lastBlockchainFeederHeight = lastBlockchainFeederHeight;
         this.numberOfBlocks = numberOfBlocks;
         this.time = time;
         this.version = version;
         this.lastBlockchainFeeder = lastBlockchainFeeder;
+        this.lastBlockTimestamp = lastBlockTimestamp;
     }
 
-    public String getLastBlock() {
+    public int getLastBlock() {
         return lastBlock;
     }
 
@@ -39,15 +40,15 @@ public final class BlockchainStatusResponse extends BRSResponse {
         return isScanning;
     }
 
-    public BigInteger getCumulativeDifficulty() {
+    public String getCumulativeDifficulty() {
         return cumulativeDifficulty;
     }
 
-    public long getLastBlockchainFeederHeight() {
+    public int getLastBlockchainFeederHeight() {
         return lastBlockchainFeederHeight;
     }
 
-    public long getNumberOfBlocks() {
+    public int getNumberOfBlocks() {
         return numberOfBlocks;
     }
 
@@ -61,5 +62,13 @@ public final class BlockchainStatusResponse extends BRSResponse {
 
     public String getLastBlockchainFeeder() {
         return lastBlockchainFeeder;
+    }
+    
+    public int getLastBlockTimestamp() {
+    	return lastBlockTimestamp;
+    }
+    
+    public String getAverageCommitment() {
+    	return averageCommitment;
     }
 }
