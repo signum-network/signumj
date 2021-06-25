@@ -1,33 +1,62 @@
-allprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-        }
-    }
-    repositories {
-        mavenCentral()
+
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.15'
+    
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+
+    // Bouncy Castle
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+
+    // JNA
+    implementation 'net.java.dev.jna:jna:5.7.0'
+    
+    // Testing
+    testCompileOnly 'junit:junit:4.12'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.5.2'
+}
+
+test {
+    testLogging {
+        showStandardStreams = true
     }
 }
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'maven'
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
 
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
-
-    task javadocJar(type: Jar, dependsOn: javadoc) {
-        classifier = 'javadoc'
-        from javadoc.destinationDir
-    }
-
-    artifacts {
-        archives sourcesJar
-        archives javadocJar
-    }
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }
