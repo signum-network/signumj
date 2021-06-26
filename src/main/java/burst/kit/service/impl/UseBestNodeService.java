@@ -43,6 +43,7 @@ import io.reactivex.Single;
 public class UseBestNodeService implements BurstNodeService {
 	
     private final List<BurstNodeService> burstNodeServices;
+    private BurstNodeService firstWorkingNode;
     private AtomicReference<BurstNodeService> bestNode = new AtomicReference<>();
     private AtomicLong lastCheck = new AtomicLong(0L);
 	private boolean checkUpToDate;
@@ -105,6 +106,12 @@ public class UseBestNodeService implements BurstNodeService {
     					if(elapsed < bestElapsed) {
     						newNode = node;
     						bestElapsed = elapsed;
+    					}
+    					
+    					if(firstWorkingNode == null) {
+    						// let's have at least a working node as soon as possible
+    						firstWorkingNode = node;
+    						bestNode.set(node);
     					}
     				}
     				catch (Exception ignored) {
