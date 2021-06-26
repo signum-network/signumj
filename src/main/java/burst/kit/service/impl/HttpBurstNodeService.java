@@ -33,9 +33,11 @@ import retrofit2.http.Query;
 
 public final class HttpBurstNodeService implements BurstNodeService {
     private BurstAPIService burstAPIService;
+    private String nodeAddress;
 
     public HttpBurstNodeService(String nodeAddress, String userAgent) {
     	
+    	this.nodeAddress = nodeAddress;
     	SocketFactory socketFactory = SocketFactory.getDefault();
     	Dns dns = Dns.SYSTEM;
     	
@@ -51,6 +53,11 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
         burstAPIService = retrofit.create(BurstAPIService.class);
     }
+    
+	@Override
+	public String getAddress() {
+		return nodeAddress;
+	}
 
     private <T> Single<T> assign(Single<T> source) {
         return source.map(this::checkBrsResponse).subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());

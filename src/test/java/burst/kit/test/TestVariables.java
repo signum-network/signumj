@@ -31,5 +31,12 @@ public class TestVariables {
 
     public static final BurstAddress EXAMPLE_AT_ID = BurstAddress.fromId("3474457271106823767");
 
-    public static final String HTTP_API_ENDPOINT = "https://europe1.signum.network";
+    public static final String HTTP_NODE = "https://europe1.signum.network";
+    public static final String HTTP_NODE2 = "https://europe.signum.network";
+    public static final String HTTP_NODE3 = "https://europe2.signum.network";
+    public static final String HTTP_NODE4 = "https://canada.signum.network";
+    public static final String HTTP_NODE5 = "https://brazil.signum.network";
+    public static final String HTTP_NODE6 = "http://localhost:8125";
+
+    public static final String TEST_USER_AGENT = "signumJ-TEST";
 }

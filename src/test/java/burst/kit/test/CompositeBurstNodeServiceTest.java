@@ -12,7 +12,7 @@ import org.junit.runners.JUnit4;
 public class CompositeBurstNodeServiceTest extends BurstNodeServiceTest {
     @Override
     protected BurstNodeService getBurstNodeService() {
-        BurstNodeService http = new HttpBurstNodeService(TestVariables.HTTP_API_ENDPOINT, "burstkit4j-TEST");
+        BurstNodeService http = new HttpBurstNodeService(TestVariables.HTTP_NODE, TestVariables.TEST_USER_AGENT);
         return new CompositeBurstNodeService(http);
     }
 }

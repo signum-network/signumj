@@ -45,6 +45,11 @@ public class CompositeBurstNodeService implements BurstNodeService {
         })
                 .subscribeOn(BurstKitUtils.defaultBurstNodeServiceScheduler());
     }
+    
+	@Override
+	public String getAddress() {
+		return burstNodeServices[0].getAddress();
+	}
 
     private synchronized <T> void doIfUsedObservable(ObservableEmitter<T> emitter, AtomicInteger usedObservable, AtomicReferenceArray<Disposable> disposables, int myI, Runnable runnable) {
         int used = usedObservable.get();

@@ -40,6 +40,12 @@ public abstract class BurstNodeServiceTest {
     }
 
     protected abstract BurstNodeService getBurstNodeService();
+    
+    @Test
+    public void testBurstServiceGetAccountTxs() {
+        Transaction[] txsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(BurstAddress.fromEither("BURST-GBQ6-ZHHN-5TSQ-5URAM"), 0, 100, false));
+        assertNotNull(txsResponse);
+    }
 
     @Test
     public void testBurstServiceGetBlock() {
@@ -70,7 +76,6 @@ public abstract class BurstNodeServiceTest {
     }
 
     @Test
-    @Ignore // point to a node with support for it
     public void testBurstServiceCommitment() {
         Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID, null, true, true));
         assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
@@ -130,6 +135,7 @@ public abstract class BurstNodeServiceTest {
     }
 
     @Test
+    @Ignore // until we have 3.1.1 out
     public void testBurstServiceGetAT() {
         AT accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAt(TestVariables.EXAMPLE_AT_ID));
         assertEquals(TestVariables.EXAMPLE_AT_ID, accountATsResponse.getId());
