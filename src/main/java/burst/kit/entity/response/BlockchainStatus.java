@@ -2,15 +2,17 @@ package burst.kit.entity.response;
 
 import java.math.BigInteger;
 
+import burst.kit.entity.BurstID;
 import burst.kit.entity.BurstTimestamp;
+import burst.kit.entity.BurstValue;
 import burst.kit.entity.response.http.BlockchainStatusResponse;
 
 public class BlockchainStatus {
-    private final int lastBlock;
+    private final BurstID lastBlock;
 	private final String application;
     private final boolean isScanning;
     private final BigInteger cumulativeDifficulty;
-    private final BigInteger averageCommitment;
+    private final BurstValue averageCommitment;
     private final long lastBlockchainFeederHeight;
     private final long numberOfBlocks;
     private final BurstTimestamp time;
@@ -19,11 +21,11 @@ public class BlockchainStatus {
     private final BurstTimestamp lastBlockTimestamp;
 
     public BlockchainStatus(BlockchainStatusResponse blockchainStatusResponse) {
-        lastBlock = blockchainStatusResponse.getLastBlock();
+        lastBlock = BurstID.fromLong(blockchainStatusResponse.getLastBlock());
         application = blockchainStatusResponse.getApplication();
         isScanning = blockchainStatusResponse.isScanning();
         cumulativeDifficulty = new BigInteger(blockchainStatusResponse.getCumulativeDifficulty());
-        averageCommitment = new BigInteger(blockchainStatusResponse.getAverageCommitment());
+        averageCommitment = BurstValue.fromPlanck(blockchainStatusResponse.getAverageCommitmentNQT());
         lastBlockchainFeederHeight = blockchainStatusResponse.getLastBlockchainFeederHeight();
         numberOfBlocks = blockchainStatusResponse.getNumberOfBlocks();
         time = BurstTimestamp.fromBurstTimestamp(blockchainStatusResponse.getTime());
@@ -32,7 +34,7 @@ public class BlockchainStatus {
         lastBlockTimestamp = BurstTimestamp.fromBurstTimestamp(blockchainStatusResponse.getLastBlockTimestamp());
     }
     
-    public int getLastBlock() {
+    public BurstID getLastBlock() {
 		return lastBlock;
 	}
 
@@ -48,7 +50,7 @@ public class BlockchainStatus {
 		return cumulativeDifficulty;
 	}
 
-	public BigInteger getAverageCommitment() {
+	public BurstValue getAverageCommitment() {
 		return averageCommitment;
 	}
 

@@ -1,11 +1,11 @@
 package burst.kit.entity.response.http;
 
 public final class BlockchainStatusResponse extends BRSResponse {
-    private final int lastBlock;
+    private final String lastBlock;
     private final String application;
     private final boolean isScanning;
     private final String cumulativeDifficulty;
-    private final String averageCommitment;
+    private final String averageCommitmentNQT;
     private final int lastBlockchainFeederHeight;
     private final int numberOfBlocks;
     private final int time;
@@ -13,13 +13,13 @@ public final class BlockchainStatusResponse extends BRSResponse {
     private final String lastBlockchainFeeder;
     private final int lastBlockTimestamp;
 
-    public BlockchainStatusResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int lastBlock, String application, boolean isScanning, String cumulativeDifficulty, int lastBlockchainFeederHeight, int numberOfBlocks, int time, String version, String lastBlockchainFeeder, String averageCommitment, int lastBlockTimestamp) {
+    public BlockchainStatusResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String lastBlock, String application, boolean isScanning, String cumulativeDifficulty, int lastBlockchainFeederHeight, int numberOfBlocks, int time, String version, String lastBlockchainFeeder, String averageCommitmentNQT, int lastBlockTimestamp) {
         super(errorDescription, errorCode, requestProcessingTime);
         this.lastBlock = lastBlock;
         this.application = application;
         this.isScanning = isScanning;
         this.cumulativeDifficulty = cumulativeDifficulty;
-        this.averageCommitment = averageCommitment;
+        this.averageCommitmentNQT = averageCommitmentNQT;
         this.lastBlockchainFeederHeight = lastBlockchainFeederHeight;
         this.numberOfBlocks = numberOfBlocks;
         this.time = time;
@@ -28,7 +28,7 @@ public final class BlockchainStatusResponse extends BRSResponse {
         this.lastBlockTimestamp = lastBlockTimestamp;
     }
 
-    public int getLastBlock() {
+    public String getLastBlock() {
         return lastBlock;
     }
 
@@ -68,7 +68,7 @@ public final class BlockchainStatusResponse extends BRSResponse {
     	return lastBlockTimestamp;
     }
     
-    public String getAverageCommitment() {
-    	return averageCommitment;
+    public String getAverageCommitmentNQT() {
+    	return averageCommitmentNQT;
     }
 }
