@@ -237,11 +237,11 @@ public class UseBestNodeService implements BurstNodeService {
 
     @Override
     public Single<AT> getAt(BurstAddress at) {
-    	return getAt(at, true);
+    	return getAt(at, /* the default is to include */ null);
     }
 
 	@Override
-	public Single<AT> getAt(BurstAddress at, boolean includeDetails) {
+	public Single<AT> getAt(BurstAddress at, Boolean includeDetails) {
         return performOnBest(service -> service.getAt(at, includeDetails));
 	}
 

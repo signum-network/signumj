@@ -173,7 +173,7 @@ public interface BurstNodeService extends AutoCloseable {
      * @param includedDetails If the immutable details should also be included
      * @return The details of the AT, wrapped in a single
      */
-    Single<AT> getAt(BurstAddress at, boolean includeDetails);
+    Single<AT> getAt(BurstAddress at, Boolean includeDetails);
 
     /**
      * Get the list of addresses of all ATs
