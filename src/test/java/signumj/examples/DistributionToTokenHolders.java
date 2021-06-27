@@ -16,7 +16,9 @@ import signumj.entity.response.TransactionBroadcast;
 import signumj.service.NodeService;
 
 /**
- * Distribute a given amount of SIGNA for token holders according to their current shares.
+ * Distribute the entire balance of a given account to token holders according to their shares.
+ * 
+ * There is also a list of addresses that should be ignored in the distribution.
  * 
  */
 public class DistributionToTokenHolders {
