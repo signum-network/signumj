@@ -170,7 +170,7 @@ public interface BurstNodeService extends AutoCloseable {
     /**
      * Get the details of an AT
      * @param at The address of the AT
-     * @param includedDetails If the immutable details should also be included
+     * @param includeDetails If the immutable details should also be included
      * @return The details of the AT, wrapped in a single
      */
     Single<AT> getAt(BurstAddress at, Boolean includeDetails);
@@ -433,18 +433,19 @@ public interface BurstNodeService extends AutoCloseable {
     /**
      * Generate the transaction for transfering assets
      * @param senderPublicKey The public key of the sender
-     * @param recipient The recipient
+     * @param name The token name
+     * @param description The token description
+     * @param quantity The total token supply
+     * @param decimals The number of decimals
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
-     * @param assetId The ID of the asset being transfered
-     * @param quantity The quantity to transfer
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
     Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, BurstValue quantity, int decimals, BurstValue fee, int deadline);
 
     /**
-     * Generate the transaction for transfering assets
+     * Generate the transaction for transferring assets
      * @param senderPublicKey The public key of the sender
      * @param recipient The recipient
      * @param fee The transaction fee
@@ -461,7 +462,6 @@ public interface BurstNodeService extends AutoCloseable {
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
-     * @param price The order price
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The message to include in the transaction
@@ -475,7 +475,6 @@ public interface BurstNodeService extends AutoCloseable {
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
-     * @param price The order price
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The encrypted message to include in the transaction
@@ -513,7 +512,7 @@ public interface BurstNodeService extends AutoCloseable {
     /**
      * Generate the transaction for cancelling an ask order
      * @param senderPublicKey The public key of the sender
-     * @param orderId The ID of the asset being transfered
+     * @param orderID The ID of the asset being transfered
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
@@ -524,7 +523,7 @@ public interface BurstNodeService extends AutoCloseable {
     /**
      * Generate the transaction for cancelling a bid order
      * @param senderPublicKey The public key of the sender
-     * @param orderId The ID of the asset being transfered
+     * @param orderID The ID of the asset being transfered
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
