@@ -1,5 +1,6 @@
-[![](https://jitpack.io/v/burst-apps-team/burstkit4j.svg)](https://jitpack.io/#signum-network/signumj)
 # SignumJ
+[![GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
+[![](https://jitpack.io/v/burst-apps-team/burstkit4j.svg)](https://jitpack.io/#signum-network/signumj)
 
 Signum Java Development Framework
 
