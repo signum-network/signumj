@@ -48,7 +48,7 @@ public final class MultiOutAttachmentResponse extends TransactionAttachmentRespo
         private static JsonArray serialize(MultiOutRecipient source) {
             JsonArray array = new JsonArray(2);
             array.add(source.getRecipient().getID());
-            array.add(source.getAmount().toPlanck());
+            array.add(source.getAmount().toNQT());
             return array;
         }
 
@@ -65,7 +65,7 @@ public final class MultiOutAttachmentResponse extends TransactionAttachmentRespo
         }
 
         public SignumValue getAmount() {
-            return SignumValue.fromPlanck(amount);
+            return SignumValue.fromNQT(amount);
         }
     }
 }

@@ -68,9 +68,9 @@ public class Block {
                 .map(SignumID::fromLong)
                 .toArray(SignumID[]::new);
         this.timestamp = SignumTimestamp.fromBurstTimestamp(blockResponse.getTimestamp());
-        this.blockReward = SignumValue.fromBurst(blockResponse.getBlockReward());
-        this.totalAmount = SignumValue.fromPlanck(blockResponse.getTotalAmountNQT());
-        this.totalFee = SignumValue.fromPlanck(blockResponse.getTotalFeeNQT());
+        this.blockReward = SignumValue.fromSigna(blockResponse.getBlockReward());
+        this.totalAmount = SignumValue.fromNQT(blockResponse.getTotalAmountNQT());
+        this.totalFee = SignumValue.fromNQT(blockResponse.getTotalFeeNQT());
         this.generationSignature = Hex.decode(blockResponse.getGenerationSignature());
         this.generatorPublicKey = Hex.decode(blockResponse.getGeneratorPublicKey());
         this.payloadHash = Hex.decode(blockResponse.getPayloadHash());

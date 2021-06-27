@@ -29,8 +29,8 @@ public class AssetBalance {
     public AssetBalance(AssetAccountResponse accountResponse) {
         this.accountAddress = SignumAddress.fromEither(accountResponse.getAccount());
         this.assetId = SignumID.fromLong(accountResponse.getAsset());
-        this.balance = SignumValue.fromPlanck(accountResponse.getQuantityQNT());
-        this.unconfirmedBalance = SignumValue.fromPlanck(accountResponse.getUnconfirmedQuantityQNT());
+        this.balance = SignumValue.fromNQT(accountResponse.getQuantityQNT());
+        this.unconfirmedBalance = SignumValue.fromNQT(accountResponse.getUnconfirmedQuantityQNT());
     }
 
     public SignumAddress getAccountAddress() {

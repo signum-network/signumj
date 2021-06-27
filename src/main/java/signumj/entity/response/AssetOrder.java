@@ -38,8 +38,8 @@ public class AssetOrder {
         this.id = SignumID.fromLong(orderResponse.getOrder());
         this.assetId = SignumID.fromLong(orderResponse.getAsset());
         this.accountAddress = SignumAddress.fromId(orderResponse.getAccount());
-        this.quantity = SignumValue.fromPlanck(orderResponse.getQuantityQNT());
-        this.price = SignumValue.fromPlanck(orderResponse.getPriceNQT());
+        this.quantity = SignumValue.fromNQT(orderResponse.getQuantityQNT());
+        this.price = SignumValue.fromNQT(orderResponse.getPriceNQT());
         this.height = orderResponse.getHeight();
         this.type = OrderType.parse(orderResponse.getType());
     }

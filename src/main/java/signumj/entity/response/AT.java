@@ -52,10 +52,10 @@ public class AT {
         this.running = atResponse.isRunning();
         this.stopped = atResponse.isStopped();
         this.id = SignumAddress.fromEither(atResponse.getAt());
-        this.balance = SignumValue.fromPlanck(atResponse.getBalanceNQT());
+        this.balance = SignumValue.fromNQT(atResponse.getBalanceNQT());
         this.creator = atResponse.getCreator() == null ? null : SignumAddress.fromEither(atResponse.getCreator());
-        this.minimumActivation = atResponse.getMinActivation() == null ? null : SignumValue.fromPlanck(atResponse.getMinActivation());
-        this.previousBalance = SignumValue.fromPlanck(atResponse.getPrevBalanceNQT());
+        this.minimumActivation = atResponse.getMinActivation() == null ? null : SignumValue.fromNQT(atResponse.getMinActivation());
+        this.previousBalance = SignumValue.fromNQT(atResponse.getPrevBalanceNQT());
         this.machineCode = atResponse.getMachineCode() == null ? null : Hex.decode(atResponse.getMachineCode());
         this.machineData = Hex.decode(atResponse.getMachineData());
         this.creationHeight = atResponse.getCreationBlock();

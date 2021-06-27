@@ -51,8 +51,8 @@ public class AssetTrade {
 
     public AssetTrade(TradeResponse tradeResponse) {
         this.timestamp = SignumTimestamp.fromBurstTimestamp(tradeResponse.getTimestamp());
-        this.quantity = SignumValue.fromPlanck(tradeResponse.getQuantityQNT());
-        this.price = SignumValue.fromPlanck(tradeResponse.getPriceNQT());
+        this.quantity = SignumValue.fromNQT(tradeResponse.getQuantityQNT());
+        this.price = SignumValue.fromNQT(tradeResponse.getPriceNQT());
         this.assetId = SignumID.fromLong(tradeResponse.getAsset());
         this.askOrderId = SignumID.fromLong(tradeResponse.getAskOrder());
         this.bidOrderId = SignumID.fromLong(tradeResponse.getBidOrder());

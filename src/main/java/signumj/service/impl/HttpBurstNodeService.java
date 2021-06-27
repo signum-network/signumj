@@ -232,7 +232,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -240,7 +240,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline) {
         return assign(burstAPIService.addCommitment(SignumUtils.getEndpoint(),
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -248,7 +248,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline) {
         return assign(burstAPIService.removeCommitment(SignumUtils.getEndpoint(),
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -256,7 +256,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline) {
         return assign(burstAPIService.setRewardRecipient(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -264,7 +264,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount != null ? amount.toNQT().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -272,7 +272,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -280,7 +280,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
-                amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount != null ? amount.toNQT().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -288,7 +288,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -297,7 +297,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                amount != null ? amount.toPlanck().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount != null ? amount.toNQT().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -305,7 +305,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -313,7 +313,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -322,7 +322,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -331,7 +331,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                amount.toPlanck().toString(), null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -340,7 +340,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
         return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
-                 null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(),
+                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -348,73 +348,73 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline) {
-        return assign(burstAPIService.issueAsset(SignumUtils.getEndpoint(), name, description, quantity.toPlanck().toString(),
-                decimals, null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+        return assign(burstAPIService.issueAsset(SignumUtils.getEndpoint(), name, description, quantity.toNQT().toString(),
+                decimals, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline, String message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, message, true, null, null, null, null, null, null, null, null))
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline, EncryptedMessage message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toPlanck().toString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null,
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null,
                  message.isText(), Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce()), null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, SignumID assetId, SignumValue quantity, SignumValue price, SignumValue fee, int deadline) {
-        return assign(burstAPIService.placeAskOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+        return assign(burstAPIService.placeAskOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toNQT().toString(), price.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, SignumID assetId, SignumValue quantity, SignumValue price, SignumValue fee, int deadline) {
-        return assign(burstAPIService.placeBidOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toPlanck().toString(), price.toPlanck().toString(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+        return assign(burstAPIService.placeBidOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toNQT().toString(), price.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
         return assign(burstAPIService.cancelAskOrder(SignumUtils.getEndpoint(), orderId.getID(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
         return assign(burstAPIService.cancelBidOrder(SignumUtils.getEndpoint(), orderId.getID(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline) {
         return assign(burstAPIService.createSubscription(SignumUtils.getEndpoint(),
-                null, null, amount.toPlanck().toString(), frequency,
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                null, null, amount.toNQT().toString(), frequency,
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, SignumID subscription, SignumValue fee, int deadline) {
         return assign(burstAPIService.cancelSubscription(SignumUtils.getEndpoint(), subscription.getID(),
-                null, Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
@@ -478,14 +478,14 @@ public final class HttpBurstNodeService implements NodeService {
                 throw new IllegalArgumentException("Must have 2-64 recipients, had " + recipients.size());
             }
             for (Map.Entry<SignumAddress, SignumValue> recipient : recipients.entrySet()) {
-                recipientsString.append(recipient.getKey().getID()).append(":").append(recipient.getValue().toPlanck())
+                recipientsString.append(recipient.getKey().getID()).append(":").append(recipient.getValue().toNQT())
                         .append(";");
             }
             recipientsString.setLength(recipientsString.length() - 1);
             return recipientsString;
         }).flatMap(recipientsString -> assign(
                 burstAPIService.sendMoneyMulti(SignumUtils.getEndpoint(), null, Hex.toHexString(senderPublicKey),
-                        fee.toPlanck().toString(), String.valueOf(deadline), null, false, recipientsString.toString()))
+                        fee.toNQT().toString(), String.valueOf(deadline), null, false, recipientsString.toString()))
                                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes())));
     }
 
@@ -502,8 +502,8 @@ public final class HttpBurstNodeService implements NodeService {
             recipientsString.setLength(recipientsString.length() - 1);
             return recipientsString;
         }).flatMap(recipientsString -> assign(burstAPIService.sendMoneyMultiSame(SignumUtils.getEndpoint(), null,
-                Hex.toHexString(senderPublicKey), fee.toPlanck().toString(), String.valueOf(deadline), null, false,
-                recipientsString.toString(), amount.toPlanck().toString()))
+                Hex.toHexString(senderPublicKey), fee.toNQT().toString(), String.valueOf(deadline), null, false,
+                recipientsString.toString(), amount.toNQT().toString()))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes())));
     }
 
@@ -512,7 +512,7 @@ public final class HttpBurstNodeService implements NodeService {
         // TODO: making it backward compatible for small AT codes
         if (creationBytes.length >= 2560) {
           return assign(burstAPIService.createATProgramBig(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
-              fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
+              fee.toNQT().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
               null, 0, 0, 0, null)).map(response -> {
                   if (response.getError() != null)
                       throw new IllegalArgumentException(response.getError());
@@ -520,7 +520,7 @@ public final class HttpBurstNodeService implements NodeService {
               }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));          
         }
         return assign(burstAPIService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
-                fee.toPlanck().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
+                fee.toNQT().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
                 null, 0, 0, 0, null)).map(response -> {
                     if (response.getError() != null)
                         throw new IllegalArgumentException(response.getError());

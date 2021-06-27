@@ -31,11 +31,11 @@ public class Account {
 
     public Account(AccountResponse accountResponse) {
         this.id = SignumAddress.fromEither(accountResponse.getAccount());
-        this.balance = SignumValue.fromPlanck(accountResponse.getBalanceNQT());
-        this.commitmentNQT = SignumValue.fromPlanck(accountResponse.getCommitmentNQT());
-        this.committedBalanceNQT = SignumValue.fromPlanck(accountResponse.getCommittedBalanceNQT());
-        this.forgedBalance = SignumValue.fromPlanck(accountResponse.getForgedBalanceNQT());
-        this.unconfirmedBalance = SignumValue.fromPlanck(accountResponse.getUnconfirmedBalanceNQT());
+        this.balance = SignumValue.fromNQT(accountResponse.getBalanceNQT());
+        this.commitmentNQT = SignumValue.fromNQT(accountResponse.getCommitmentNQT());
+        this.committedBalanceNQT = SignumValue.fromNQT(accountResponse.getCommittedBalanceNQT());
+        this.forgedBalance = SignumValue.fromNQT(accountResponse.getForgedBalanceNQT());
+        this.unconfirmedBalance = SignumValue.fromNQT(accountResponse.getUnconfirmedBalanceNQT());
         this.publicKey = accountResponse.getPublicKey() == null ? new byte[32] : Hex.decode(accountResponse.getPublicKey());
         this.description = accountResponse.getDescription();
         this.name = accountResponse.getName();

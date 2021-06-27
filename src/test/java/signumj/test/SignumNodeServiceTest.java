@@ -83,7 +83,7 @@ public abstract class SignumNodeServiceTest {
         assertNotNull(accountResponse.getCommitment());
         assertNotNull(accountResponse.getCommittedBalance());
         
-        byte[] addCommitmentMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionAddCommitment(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), SignumValue.fromBurst(1), 1440));
+        byte[] addCommitmentMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionAddCommitment(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440));
         assertNotNull(addCommitmentMessage);        
     }
 
@@ -234,11 +234,11 @@ public abstract class SignumNodeServiceTest {
     @Test
     public void testBurstServiceGenerateTransaction() {
         // TODO test with zero amounts
-        byte[] withoutMessageAmount = RxTestUtils.testSingle(burstNodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), SignumValue.fromBurst(1), 1440, null));
-        byte[] withStringMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), SignumValue.fromBurst(1), 1440, "Test Transaction", null));
-        byte[] withBytesMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), SignumValue.fromBurst(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, null));
+        byte[] withoutMessageAmount = RxTestUtils.testSingle(burstNodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, null));
+        byte[] withStringMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, "Test Transaction", null));
+        byte[] withBytesMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, null));
         
-        byte[] rewardRecipientMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionSetRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), 1440));
+        byte[] rewardRecipientMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionSetRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), 1440));
         
         assertNotNull(withoutMessageAmount);
         assertNotNull(withStringMessage);
@@ -281,9 +281,9 @@ public abstract class SignumNodeServiceTest {
     @Test
     public void testBurstServiceGenerateMultiOut() {
         Map<SignumAddress, SignumValue> recipients = new HashMap<>();
-        recipients.put(burstCrypto.getAddressFromPassphrase("example1"), SignumValue.fromBurst(1));
-        recipients.put(burstCrypto.getAddressFromPassphrase("example2"), SignumValue.fromBurst(2));
-        byte[] multiOutResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromPlanck(753000), 1440, recipients));
+        recipients.put(burstCrypto.getAddressFromPassphrase("example1"), SignumValue.fromSigna(1));
+        recipients.put(burstCrypto.getAddressFromPassphrase("example2"), SignumValue.fromSigna(2));
+        byte[] multiOutResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromNQT(753000), 1440, recipients));
         assertNotNull(multiOutResponse);
     }
 
@@ -292,21 +292,21 @@ public abstract class SignumNodeServiceTest {
         Set<SignumAddress> recipients = new HashSet<>();
         recipients.add(burstCrypto.getAddressFromPassphrase("example1"));
         recipients.add(burstCrypto.getAddressFromPassphrase("example2"));
-        byte[] multiOutSameResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), SignumValue.fromPlanck(753000), 1440, recipients));
+        byte[] multiOutSameResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromNQT(753000), 1440, recipients));
         assertNotNull(multiOutSameResponse);
     }
 
     @Test
     public void testBurstServiceGenerateCreateATTransaction() {
         byte[] lotteryAtCode = Hex.decode("1e000000003901090000006400000000000000351400000000000201000000000000000104000000803a0900000000000601000000040000003615000200000000000000260200000036160003000000020000001f030000000100000072361b0008000000020000002308000000090000000f1af3000000361c0004000000020000001e0400000035361700040000000200000026040000007f2004000000050000001e02050000000400000036180006000000020000000200000000030000001a39000000352000070000001b07000000181b0500000012332100060000001a310100000200000000030000001a1a0000003618000a0000000200000020080000000900000023070800000009000000341f00080000000a0000001a78000000341f00080000000a0000001ab800000002000000000400000003050000001a1a000000");
-        byte[] lotteryAtCreationBytes = SignumCrypto.getInstance().getATCreationBytes((short) 2, lotteryAtCode, new byte[0], (short) 1, (short) 1, (short) 1, SignumValue.fromBurst(2));
+        byte[] lotteryAtCreationBytes = SignumCrypto.getInstance().getATCreationBytes((short) 2, lotteryAtCode, new byte[0], (short) 1, (short) 1, (short) 1, SignumValue.fromSigna(2));
         assertEquals("02000000020001000100010000c2eb0b0000000044011e000000003901090000006400000000000000351400000000000201000000000000000104000000803a0900000000000601000000040000003615000200000000000000260200000036160003000000020000001f030000000100000072361b0008000000020000002308000000090000000f1af3000000361c0004000000020000001e0400000035361700040000000200000026040000007f2004000000050000001e02050000000400000036180006000000020000000200000000030000001a39000000352000070000001b07000000181b0500000012332100060000001a310100000200000000030000001a1a0000003618000a0000000200000020080000000900000023070800000009000000341f00080000000a0000001a78000000341f00080000000a0000001ab800000002000000000400000003050000001a1a00000000", Hex.toHexString(lotteryAtCreationBytes));
-        byte[] createATResponse = RxTestUtils.testSingle(burstNodeService.generateCreateATTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(5), 1440, "TestAT", "An AT For Testing", lotteryAtCreationBytes));
+        byte[] createATResponse = RxTestUtils.testSingle(burstNodeService.generateCreateATTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(5), 1440, "TestAT", "An AT For Testing", lotteryAtCreationBytes));
         assertNotNull(createATResponse);
 
-        byte[] fatLotteryAtCreationBytes = SignumCrypto.getInstance().getATCreationBytes((short) 2, lotteryAtCode, new byte[0], (short) 10, (short) 10, (short) 10, SignumValue.fromBurst(2));
+        byte[] fatLotteryAtCreationBytes = SignumCrypto.getInstance().getATCreationBytes((short) 2, lotteryAtCode, new byte[0], (short) 10, (short) 10, (short) 10, SignumValue.fromSigna(2));
         assertEquals("0200000002000a000a000a0000c2eb0b0000000044011e000000003901090000006400000000000000351400000000000201000000000000000104000000803a0900000000000601000000040000003615000200000000000000260200000036160003000000020000001f030000000100000072361b0008000000020000002308000000090000000f1af3000000361c0004000000020000001e0400000035361700040000000200000026040000007f2004000000050000001e02050000000400000036180006000000020000000200000000030000001a39000000352000070000001b07000000181b0500000012332100060000001a310100000200000000030000001a1a0000003618000a0000000200000020080000000900000023070800000009000000341f00080000000a0000001a78000000341f00080000000a0000001ab800000002000000000400000003050000001a1a0000000000", Hex.toHexString(fatLotteryAtCreationBytes));
-        byte[] fatCreateATResponse = RxTestUtils.testSingle(burstNodeService.generateCreateATTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(5), 1440, "TestAT", "An AT For Testing", lotteryAtCreationBytes));
+        byte[] fatCreateATResponse = RxTestUtils.testSingle(burstNodeService.generateCreateATTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(5), 1440, "TestAT", "An AT For Testing", lotteryAtCreationBytes));
         assertNotNull(fatCreateATResponse);
     }
 }

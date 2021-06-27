@@ -36,7 +36,7 @@ public class Asset {
         this.assetAddress = SignumAddress.fromRs(assetResponse.getAccountRS());
         this.name = assetResponse.getName();
         this.decimals = assetResponse.getDecimals();
-        this.quantity = SignumValue.fromPlanck(assetResponse.getQuantityQNT());
+        this.quantity = SignumValue.fromNQT(assetResponse.getQuantityQNT());
         this.assetId = SignumID.fromLong(assetResponse.getAsset());
         this.numberOfTrades = assetResponse.getNumberOfTrades();
         this.numberOfTransfers = assetResponse.getNumberOfTrades();

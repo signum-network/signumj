@@ -71,8 +71,8 @@ public class Transaction {
         this.id = SignumID.fromLong(transactionResponse.getTransaction());
         this.blockTimestamp = SignumTimestamp.fromBurstTimestamp(transactionResponse.getBlockTimestamp());
         this.timestamp = SignumTimestamp.fromBurstTimestamp(transactionResponse.getTimestamp());
-        this.amount = SignumValue.fromPlanck(transactionResponse.getAmountNQT());
-        this.fee = SignumValue.fromPlanck(transactionResponse.getFeeNQT());
+        this.amount = SignumValue.fromNQT(transactionResponse.getAmountNQT());
+        this.fee = SignumValue.fromNQT(transactionResponse.getFeeNQT());
         this.fullHash = Hex.decode(transactionResponse.getFullHash());
         this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash() == null ? null : Hex.decode(transactionResponse.getReferencedTransactionFullHash());
         this.senderPublicKey = Hex.decode(transactionResponse.getSenderPublicKey());

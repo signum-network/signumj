@@ -25,7 +25,7 @@ public class BlockchainStatus {
         application = blockchainStatusResponse.getApplication();
         isScanning = blockchainStatusResponse.isScanning();
         cumulativeDifficulty = new BigInteger(blockchainStatusResponse.getCumulativeDifficulty());
-        averageCommitment = SignumValue.fromPlanck(blockchainStatusResponse.getAverageCommitmentNQT());
+        averageCommitment = SignumValue.fromNQT(blockchainStatusResponse.getAverageCommitmentNQT());
         lastBlockchainFeederHeight = blockchainStatusResponse.getLastBlockchainFeederHeight();
         numberOfBlocks = blockchainStatusResponse.getNumberOfBlocks();
         time = SignumTimestamp.fromBurstTimestamp(blockchainStatusResponse.getTime());

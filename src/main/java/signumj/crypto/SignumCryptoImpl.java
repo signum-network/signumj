@@ -476,7 +476,7 @@ class SignumCryptoImpl extends AbstractSignumCrypto {
             throw new IllegalArgumentException();
         }
 
-        long minActivationAmountPlanck = minActivationAmount.toPlanck().longValueExact();
+        long minActivationAmountPlanck = minActivationAmount.toNQT().longValueExact();
 
         int creationLength = 4; // version + reserved
         creationLength += 8; // pages

@@ -68,7 +68,7 @@ public final class SignumAddress {
             byte []publicKey = SignumCrypto.getInstance().parseBase36String(publicKeyBase36);
             
             SignumAddress addressCheck = SignumCrypto.getInstance().getAddressFromPublic(publicKey);
-            if(addressCheck.getBurstID().getSignedLongId() != address.getBurstID().getSignedLongId()) {
+            if(addressCheck.getSignumID().getSignedLongId() != address.getSignumID().getSignedLongId()) {
                 throw new IllegalArgumentException("Reed-Solomon address and public key mismatch");
             }
             address.setPublicKey(publicKey);
@@ -97,14 +97,14 @@ public final class SignumAddress {
     }
 
     /**
-     * @return The BurstID of this address
+     * @return The SignumID of this address
      */
-    public SignumID getBurstID() {
+    public SignumID getSignumID() {
         return numericID;
     }
 
     /**
-     * @return The unsigned long numeric ID this BurstAddress points to
+     * @return The unsigned long numeric ID this address points to
      */
     public String getID() {
         return numericID.getID();

@@ -15,9 +15,9 @@ public class FeeSuggestion {
     }
 
     public FeeSuggestion(SuggestFeeResponse suggestFeeResponse) {
-        this.cheapFee = SignumValue.fromPlanck(suggestFeeResponse.getCheap());
-        this.standardFee = SignumValue.fromPlanck(suggestFeeResponse.getStandard());
-        this.priorityFee = SignumValue.fromPlanck(suggestFeeResponse.getPriority());
+        this.cheapFee = SignumValue.fromNQT(suggestFeeResponse.getCheap());
+        this.standardFee = SignumValue.fromNQT(suggestFeeResponse.getStandard());
+        this.priorityFee = SignumValue.fromNQT(suggestFeeResponse.getPriority());
     }
 
     public SignumValue getCheapFee() {
