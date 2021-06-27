@@ -63,3 +63,8 @@ release/
 
 # Keystore
 keystore/
+
+# Eclipse
+.project
+.classpath
+org.eclipse*
