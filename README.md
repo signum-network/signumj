@@ -47,6 +47,10 @@ The `NodeService` wraps the returned values in RxJava Singles. You can create yo
 
 GSON is used for JSON serialization/deserialization. To obtain a `GsonBuilder` customized to serialize/deserialize the entities, call `SignumUtils.buildGson()`.
 
+### SignumJ badge
+
+If you use SignumJ on your project, please consider using one the badges available on the [style guide](https://signum.network/styleguide.html).
+
 ## Examples
 
 Please see the [examples folder](src/test/java/signumj/examples).
