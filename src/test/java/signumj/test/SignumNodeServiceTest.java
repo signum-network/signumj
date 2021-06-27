@@ -281,8 +281,8 @@ public abstract class SignumNodeServiceTest {
     @Test
     public void testBurstServiceGenerateMultiOut() {
         Map<SignumAddress, SignumValue> recipients = new HashMap<>();
-        recipients.put(burstCrypto.getBurstAddressFromPassphrase("example1"), SignumValue.fromBurst(1));
-        recipients.put(burstCrypto.getBurstAddressFromPassphrase("example2"), SignumValue.fromBurst(2));
+        recipients.put(burstCrypto.getAddressFromPassphrase("example1"), SignumValue.fromBurst(1));
+        recipients.put(burstCrypto.getAddressFromPassphrase("example2"), SignumValue.fromBurst(2));
         byte[] multiOutResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromPlanck(753000), 1440, recipients));
         assertNotNull(multiOutResponse);
     }
@@ -290,8 +290,8 @@ public abstract class SignumNodeServiceTest {
     @Test
     public void testBurstServiceGenerateMultiOutSame() {
         Set<SignumAddress> recipients = new HashSet<>();
-        recipients.add(burstCrypto.getBurstAddressFromPassphrase("example1"));
-        recipients.add(burstCrypto.getBurstAddressFromPassphrase("example2"));
+        recipients.add(burstCrypto.getAddressFromPassphrase("example1"));
+        recipients.add(burstCrypto.getAddressFromPassphrase("example2"));
         byte[] multiOutSameResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromBurst(1), SignumValue.fromPlanck(753000), 1440, recipients));
         assertNotNull(multiOutSameResponse);
     }

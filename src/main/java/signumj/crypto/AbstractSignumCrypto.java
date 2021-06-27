@@ -19,13 +19,13 @@ abstract class AbstractSignumCrypto implements SignumCrypto {
     }
 
     @Override
-    public SignumAddress getBurstAddressFromPassphrase(String passphrase) {
-        return getBurstAddressFromPrivate(getPrivateKey(passphrase));
+    public SignumAddress getAddressFromPassphrase(String passphrase) {
+        return getAddressFromPrivate(getPrivateKey(passphrase));
     }
 
     @Override
-    public SignumAddress getBurstAddressFromPrivate(byte[] privateKey) {
-        return getBurstAddressFromPublic(getPublicKey(privateKey));
+    public SignumAddress getAddressFromPrivate(byte[] privateKey) {
+        return getAddressFromPublic(getPublicKey(privateKey));
     }
 
     @Override
@@ -179,18 +179,18 @@ abstract class AbstractSignumCrypto implements SignumCrypto {
     }
 
     @Override
-    public Date fromBurstTimeToDate(int burstTime) {
-        return new Date(fromBurstTime(burstTime));
+    public Date fromSignumTimeToDate(int burstTime) {
+        return new Date(fromSignumTime(burstTime));
     }
 
     @Override
-    public int toBurstTime(Date date) {
-        return toBurstTime(date.getTime());
+    public int toSignumTime(Date date) {
+        return toSignumTime(date.getTime());
     }
 
     @Override
-    public int currentBurstTime() {
-        return toBurstTime(System.currentTimeMillis());
+    public int currentSignumTime() {
+        return toSignumTime(System.currentTimeMillis());
     }
 
     @Override

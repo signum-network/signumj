@@ -142,7 +142,7 @@ class SignumCryptoImpl extends AbstractSignumCrypto {
     }
 
     @Override
-    public SignumAddress getBurstAddressFromPublic(byte[] publicKey) {
+    public SignumAddress getAddressFromPublic(byte[] publicKey) {
         SignumAddress address = SignumAddress.fromId(hashToId(getSha256().digest(publicKey)));
         address.setPublicKey(publicKey);
         return address;
@@ -316,12 +316,12 @@ class SignumCryptoImpl extends AbstractSignumCrypto {
     }
 
     @Override
-    public long fromBurstTime(int burstTime) {
+    public long fromSignumTime(int burstTime) {
         return epochBeginning + (burstTime * 1000L);
     }
 
     @Override
-    public int toBurstTime(long unixTime) {
+    public int toSignumTime(long unixTime) {
         return Math.toIntExact((unixTime - epochBeginning) / 1000);
     }
 

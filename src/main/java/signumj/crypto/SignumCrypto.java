@@ -53,30 +53,30 @@ public interface SignumCrypto {
     byte[] getPublicKey(byte[] privateKey);
 
     /**
-     * Derive the burst address of the passphrase
+     * Derive the address of the passphrase
      * @param passphrase The passphrase
-     * @return The burst address
+     * @return The address
      */
-    SignumAddress getBurstAddressFromPassphrase(String passphrase);
+    SignumAddress getAddressFromPassphrase(String passphrase);
 
     /**
-     * Derive the burst address of the private key
+     * Derive the address of the private key
      * @param privateKey The private key
-     * @return The burst address
+     * @return The address
      */
-    SignumAddress getBurstAddressFromPrivate(byte[] privateKey);
+    SignumAddress getAddressFromPrivate(byte[] privateKey);
 
     /**
-     * Derive the burst address of the public key
+     * Derive the address of the public key
      * @param publicKey The public key
-     * @return The burst address
+     * @return The address
      */
-    SignumAddress getBurstAddressFromPublic(byte[] publicKey);
+    SignumAddress getAddressFromPublic(byte[] publicKey);
 
     /**
      * Convert a full hash to an ID
      * @param hash The hash of an account, block, transaction etc
-     * @return The Burst ID of the account, block, transaction etc
+     * @return The ID of the account, block, transaction etc
      * @throws IllegalArgumentException if the hash is invalid
      */
     SignumID hashToId(byte[] hash) throws IllegalArgumentException;
@@ -438,54 +438,54 @@ public interface SignumCrypto {
     byte[] decryptMessage(EncryptedMessage message, byte[] myPrivateKey, byte[] theirPublicKey);
 
     /**
-     * Get the Reed-Solomon encoding of a Burst address. Does not include the "BURST-" prefix.
-     * @param burstID The Burst ID
-     * @return The Reed-Solomon encoding of the address, not including the "BURST-" prefix.
+     * Get the Reed-Solomon encoding of an address. Does not include the prefix.
+     * @param signumID The ID
+     * @return The Reed-Solomon encoding of the address, not including the prefix.
      */
-    String rsEncode(SignumID burstID);
+    String rsEncode(SignumID signumID);
 
     /**
      * Get the account ID associated with a Reed-Solomon encoded address
-     * @param rs The Reed-Solomon encoded address, not including the "BURST-" prefix
+     * @param rs The Reed-Solomon encoded address, not including the prefix
      * @return The ID of that RS address
      * @throws IllegalArgumentException If the RS address was invalid and could not be decoded.
      */
     SignumID rsDecode(String rs) throws IllegalArgumentException;
 
     /**
-     * Translate a number of seconds since the Burst Epoch to a Java Date object
-     * @param burstTime The number of seconds since the Burst Epoch
+     * Translate a number of seconds since the Signum Epoch to a Java Date object
+     * @param signumTime The number of seconds since the Signum Epoch
      * @return This time represented as a Java Date object
      */
-    Date fromBurstTimeToDate(int burstTime);
+    Date fromSignumTimeToDate(int signumTime);
 
     /**
-     * Translate a number of seconds since the Burst Epoch to a Unix time (number of milliseconds since Unix Epoch)
-     * @param burstTime The number of seconds since the Burst Epoch
+     * Translate a number of seconds since the Signum Epoch to a Unix time (number of milliseconds since Unix Epoch)
+     * @param signumTime The number of seconds since the Signum Epoch
      * @return This time represented as a Unix time (number of milliseconds since Unix Epoch)
      */
-    long fromBurstTime(int burstTime);
+    long fromSignumTime(int signumTime);
 
     /**
-     * Converts a Date to the number of seconds since the Burst Epoch
+     * Converts a Date to the number of seconds since the Signum Epoch
      * @param date The target time
-     * @return The number of seconds from the Burst Epoch to this time.
+     * @return The number of seconds from the Signum Epoch to this time.
      */
-    int toBurstTime(Date date);
+    int toSignumTime(Date date);
 
     /**
      * Converts a number of milliseconds since the Unix epoch
-     * to the number of seconds since the Burst Epoch
+     * to the number of seconds since the Signum Epoch
      * @param unixTime The target time, as a unix epoch - for example from System.currentTimeMillis()
-     * @return The number of seconds from the Burst Epoch to this time.
+     * @return The number of seconds from the Signum Epoch to this time.
      */
-    int toBurstTime(long unixTime);
+    int toSignumTime(long unixTime);
 
     /**
-     * Gets the current Burst Time - the number of seconds since the Burst Epoch.
-     * @return The number of seconds since the Burst Epoch
+     * Gets the current Signum Time - the number of seconds since the Signum Epoch.
+     * @return The number of seconds since the Signum Epoch
      */
-    int currentBurstTime();
+    int currentSignumTime();
 
     /**
      * Converts the first 8 bytes of a byte array into a long.

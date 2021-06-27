@@ -67,7 +67,7 @@ public final class SignumAddress {
             String publicKeyBase36 = RS.substring(21);
             byte []publicKey = SignumCrypto.getInstance().parseBase36String(publicKeyBase36);
             
-            SignumAddress addressCheck = SignumCrypto.getInstance().getBurstAddressFromPublic(publicKey);
+            SignumAddress addressCheck = SignumCrypto.getInstance().getAddressFromPublic(publicKey);
             if(addressCheck.getBurstID().getSignedLongId() != address.getBurstID().getSignedLongId()) {
                 throw new IllegalArgumentException("Reed-Solomon address and public key mismatch");
             }

@@ -15,14 +15,14 @@ public final class SignumTimestamp {
      */
     private SignumTimestamp(int timestamp) {
         this.timestamp = timestamp;
-        this.date = SignumCrypto.getInstance().fromBurstTimeToDate(timestamp);
+        this.date = SignumCrypto.getInstance().fromSignumTimeToDate(timestamp);
     }
 
     /**
      * @param date The Java Date object to be represented
      */
     private SignumTimestamp(Date date) {
-        this.timestamp = SignumCrypto.getInstance().toBurstTime(date);
+        this.timestamp = SignumCrypto.getInstance().toSignumTime(date);
         this.date = date;
     }
 
@@ -41,7 +41,7 @@ public final class SignumTimestamp {
     }
 
     public static SignumTimestamp now() {
-        return new SignumTimestamp(SignumCrypto.getInstance().currentBurstTime());
+        return new SignumTimestamp(SignumCrypto.getInstance().currentSignumTime());
     }
 
     /**
