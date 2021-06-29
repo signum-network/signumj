@@ -533,6 +533,7 @@ public interface NodeService extends AutoCloseable {
 
     /**
      * Generate the transaction for creating subscription
+     * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount Amount of subscription in plancks
      * @param frequency Frequency in which you send amount, seconds
@@ -541,7 +542,7 @@ public interface NodeService extends AutoCloseable {
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
-    Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline);
+    Single<byte[]> generateSubscriptionCreationTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline);
 
     /**
      * Generate the transaction for cancelling a subscription

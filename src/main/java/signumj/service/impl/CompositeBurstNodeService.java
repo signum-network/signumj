@@ -377,8 +377,8 @@ public class CompositeBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline) {
-        return performFastest(service -> service.generateSubscriptionCreationTransaction(senderPublicKey, amount, frequency, fee, deadline));
+    public Single<byte[]> generateSubscriptionCreationTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline) {
+        return performFastest(service -> service.generateSubscriptionCreationTransaction(recipient, senderPublicKey, amount, frequency, fee, deadline));
     }
 
     @Override

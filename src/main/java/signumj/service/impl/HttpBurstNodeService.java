@@ -404,9 +404,9 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<byte[]> generateSubscriptionCreationTransaction(byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline) {
+    public Single<byte[]> generateSubscriptionCreationTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline) {
         return assign(burstAPIService.createSubscription(SignumUtils.getEndpoint(),
-                null, null, amount.toNQT().toString(), frequency,
+                recipient.getID(), null, amount.toNQT().toString(), frequency,
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
