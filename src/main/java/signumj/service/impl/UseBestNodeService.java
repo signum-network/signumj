@@ -3,16 +3,17 @@ package signumj.service.impl;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.Single;
-import signumj.entity.SignumAddress;
 import signumj.entity.EncryptedMessage;
+import signumj.entity.SignumAddress;
 import signumj.entity.SignumID;
 import signumj.entity.SignumTimestamp;
 import signumj.entity.SignumValue;
@@ -30,6 +31,7 @@ import signumj.entity.response.MiningInfo;
 import signumj.entity.response.Transaction;
 import signumj.entity.response.TransactionBroadcast;
 import signumj.service.NodeService;
+import signumj.util.SignumUtils;
 
 /**
  * A node server using the 'best' of a list of nodes.
@@ -129,20 +131,10 @@ public class UseBestNodeService implements NodeService {
     }
     
     private <T> Single<T> performOnBest(Function<NodeService, Single<T>> function) {
-    	return function.apply(bestNode.get()).doOnError(
+    	return function.apply(bestNode.get()).doOnError(throwable -> 
     			// if this node fails, we reset the timer so we re-evaluate the nodes ASAP
-    			throwable -> lastCheck.set(0L)
+    			lastCheck.set(0L)
     			);
-    }
-
-    private <T> Observable<T> performOnBestObservable(Function<NodeService, Observable<T>> function) {
-    	Observable<T> obs = Observable.create((ObservableEmitter<T> emitter) -> {
-    		emitter.onNext(function.apply(bestNode.get())
-    				.doOnError(throwable -> lastCheck.set(0L))
-    				.blockingFirst());
-    	});
-
-    	return obs;
     }
 
     @Override
@@ -327,7 +319,24 @@ public class UseBestNodeService implements NodeService {
 
     @Override
     public Observable<MiningInfo> getMiningInfo() {
-        return performOnBestObservable(NodeService::getMiningInfo);
+    	AtomicReference<MiningInfo> miningInfo = new AtomicReference<>();
+        Observable<MiningInfo> obs = Observable.interval(0, 1, TimeUnit.SECONDS)        
+                .flatMap(l -> bestNode.get().getMiningInfo())
+                .filter(newMiningInfo -> {
+                    synchronized (miningInfo) {
+                        if (miningInfo.get() == null
+                                || !Objects.equals(miningInfo.get().getGenerationSignature(),
+                                        newMiningInfo.getGenerationSignature())
+                                || !Objects.equals(miningInfo.get().getHeight(), newMiningInfo.getHeight())) {
+                            miningInfo.set(newMiningInfo);
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                });
+        
+        return obs.subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
 
     @Override

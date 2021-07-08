@@ -68,7 +68,17 @@ public final class SignumUtils {
         }
     }
 
+    /**
+     * Use {@link #defaultNodeServiceScheduler()} instead.
+     * 
+     * @return the default scheduler
+     */
+    @Deprecated
     public static Scheduler defaultBurstNodeServiceScheduler() {
+        return Schedulers.io();
+    }
+    
+    public static Scheduler defaultNodeServiceScheduler() {
         return Schedulers.io();
     }
 

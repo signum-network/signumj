@@ -1,1 +1,1 @@
-include ':burstKit'
+rootProject.name = 'signumj'

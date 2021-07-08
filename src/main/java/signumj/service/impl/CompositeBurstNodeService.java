@@ -43,7 +43,7 @@ public class CompositeBurstNodeService implements NodeService {
                 }));
             }
         })
-                .subscribeOn(SignumUtils.defaultBurstNodeServiceScheduler());
+                .subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
     
 	@Override
@@ -96,7 +96,7 @@ public class CompositeBurstNodeService implements NodeService {
                         () -> doIfUsedObservable(emitter, usedObservable, disposables, myI, emitter::onComplete)));
             }
         })
-                .subscribeOn(SignumUtils.defaultBurstNodeServiceScheduler());
+                .subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
 
     private <T, U> List<U> map(T[] ts, Function<T, U> mapper) {
