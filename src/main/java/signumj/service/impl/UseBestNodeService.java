@@ -1,9 +1,9 @@
 package signumj.service.impl;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
@@ -329,10 +329,9 @@ public class UseBestNodeService implements NodeService {
                 .flatMapSingle(l -> bestNode.get().getMiningInfoSingle())
                 .filter(newMiningInfo -> {
                     synchronized (miningInfo) {
-                        if (miningInfo.get() == null
-                                || !Objects.equals(miningInfo.get().getGenerationSignature(),
-                                        newMiningInfo.getGenerationSignature())
-                                || !Objects.equals(miningInfo.get().getHeight(), newMiningInfo.getHeight())) {
+                    	MiningInfo oldMiningInfo = miningInfo.get();
+                        if (oldMiningInfo == null || !Arrays.equals(oldMiningInfo.getGenerationSignature(),
+                                        newMiningInfo.getGenerationSignature())) {
                             miningInfo.set(newMiningInfo);
                             return true;
                         } else {
