@@ -302,6 +302,11 @@ public class CompositeBurstNodeService implements NodeService {
     }
 
     @Override
+    public Single<MiningInfo> getMiningInfoSingle() {
+        return performFastest(NodeService::getMiningInfoSingle);
+    }
+
+    @Override
     public Observable<MiningInfo> getMiningInfo() {
         return performFastestObservable(NodeService::getMiningInfo);
     }

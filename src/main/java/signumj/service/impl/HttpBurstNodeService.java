@@ -60,11 +60,11 @@ public final class HttpBurstNodeService implements NodeService {
 	}
 
     private <T> Single<T> assign(Single<T> source) {
-        return source.map(this::checkBrsResponse).subscribeOn(SignumUtils.defaultBurstNodeServiceScheduler());
+        return source.map(this::checkBrsResponse).subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
 
     private <T> Observable<T> assign(Observable<T> source) {
-        return source.subscribeOn(SignumUtils.defaultBurstNodeServiceScheduler());
+        return source.subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
 
     private <T> T checkBrsResponse(T source) throws BRSError {
@@ -425,9 +425,9 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Observable<MiningInfo> getMiningInfo() {
-        AtomicReference<MiningInfoResponse> miningInfo = new AtomicReference<>();
+        AtomicReference<MiningInfo> miningInfo = new AtomicReference<>();
         return assign(Observable.interval(0, 1, TimeUnit.SECONDS)
-                .flatMapSingle(l -> burstAPIService.getMiningInfo(SignumUtils.getEndpoint()).map(this::checkBrsResponse))
+                .flatMapSingle(l -> getMiningInfoSingle())
                 .filter(newMiningInfo -> {
                     synchronized (miningInfo) {
                         if (miningInfo.get() == null
@@ -440,7 +440,12 @@ public final class HttpBurstNodeService implements NodeService {
                             return false;
                         }
                     }
-                }).map(MiningInfo::new));
+                }));
+    }
+    
+    @Override
+    public Single<MiningInfo> getMiningInfoSingle() {
+        return burstAPIService.getMiningInfo(SignumUtils.getEndpoint()).map(this::checkBrsResponse).map(MiningInfo::new);
     }
 
     @Override

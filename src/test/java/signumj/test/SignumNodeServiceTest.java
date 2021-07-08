@@ -254,6 +254,12 @@ public abstract class SignumNodeServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetMiningInfoSingle() {
+        MiningInfo miningInfoResponse = RxTestUtils.testSingle(burstNodeService.getMiningInfoSingle());
+        assertNotNull(miningInfoResponse);
+    }
+
+    @Test
     public void testBurstServiceGetMiningInfo() {
         MiningInfo miningInfoResponse = RxTestUtils.testObservable(burstNodeService.getMiningInfo(), 1).get(0);
         assertNotNull(miningInfoResponse);

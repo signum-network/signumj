@@ -318,10 +318,15 @@ public class UseBestNodeService implements NodeService {
     }
 
     @Override
+    public Single<MiningInfo> getMiningInfoSingle() {
+        return performOnBest(NodeService::getMiningInfoSingle);
+    }
+
+    @Override
     public Observable<MiningInfo> getMiningInfo() {
     	AtomicReference<MiningInfo> miningInfo = new AtomicReference<>();
-        Observable<MiningInfo> obs = Observable.interval(0, 1, TimeUnit.SECONDS)        
-                .flatMap(l -> bestNode.get().getMiningInfo())
+        Observable<MiningInfo> obs = Observable.interval(0, 1, TimeUnit.SECONDS)
+                .flatMapSingle(l -> bestNode.get().getMiningInfoSingle())
                 .filter(newMiningInfo -> {
                     synchronized (miningInfo) {
                         if (miningInfo.get() == null

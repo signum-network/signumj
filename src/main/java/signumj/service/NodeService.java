@@ -375,6 +375,12 @@ public interface NodeService extends AutoCloseable {
     Observable<MiningInfo> getMiningInfo();
 
     /**
+     * Get the current mining info
+     * @return An observable that returns the current mining info when it changes.
+     */
+    Single<MiningInfo> getMiningInfoSingle();
+
+    /**
      * Broadcast a transaction on the network
      * @param transactionBytes The signed transaction bytes
      * @return The number of peers this transaction was broadcast to, wrapped in a single
