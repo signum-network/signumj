@@ -6,7 +6,9 @@ import signumj.entity.*;
 import signumj.entity.response.*;
 import signumj.service.impl.CompositeBurstNodeService;
 import signumj.service.impl.HttpBurstNodeService;
+import signumj.service.impl.UseBestNodeService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
@@ -566,6 +568,22 @@ public interface NodeService extends AutoCloseable {
 
     static NodeService getCompositeInstance(String... nodeAddresses) {
         return getCompositeInstanceWithUserAgent(null, nodeAddresses);
+    }
+    
+    /**
+     * Returns a node service instance that will use the best node of a list.
+     * 
+     * @param checkUpToDate check from time to time if the node is up-to-date or not (recent block)
+     * @param userAgent the user agent
+     * @param nodeAddresses the list of node addresses to choose the best one
+     * @return a new node service instance
+     */
+    static NodeService getUseBestInstance(boolean checkUpToDate, String userAgent, String... nodeAddresses) {
+    	ArrayList<NodeService> nodeList = new ArrayList<>();
+    	for(String address : nodeAddresses) {
+    		nodeList.add(getInstance(address, userAgent));
+    	}
+    	return new UseBestNodeService(checkUpToDate, nodeList);
     }
 
     static NodeService getCompositeInstanceWithUserAgent(String userAgent, String... nodeAddresses) {
