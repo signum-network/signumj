@@ -35,5 +35,5 @@ public class LibShabal {
     public static native void curve25519_sign(byte[] private_key, byte[] message_sha256, byte[] signature_buffer);
     public static native byte curve25519_verify(byte[] public_key, byte[] signature, byte[] message_sha256, byte enforce_canonical);
     
-    private static native long shabal_findBestDeadline(byte[] scoops, long numScoops, byte[] gensig);
+    public static native long shabal_findBestDeadline(byte[] scoops, long numScoops, byte[] gensig);
 }
