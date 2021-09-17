@@ -635,14 +635,14 @@ public interface SignumCrypto {
      * Base36-encode a 256 bit byte array (unsigned)
      * 
      * @param bytes
-     * @return
+     * @return The encoded bytes
      */
     String toBase36String(byte[] bytes);
     
     /**
      * Decode a base36 256 bit (unsigned) to a byte array
      * @param string
-     * @return
+     * @return The decoded bytes
      */
     byte[] parseBase36String(String string);
 
@@ -733,7 +733,7 @@ public interface SignumCrypto {
      * @param csPages
      * @param usPages
      * @param minActivationAmount
-     * @return
+     * @return the AT creation bytes
      */
     byte[] getATCreationBytes(short atVersion, byte[] code, byte[] data, short dPages, short csPages, short usPages, SignumValue minActivationAmount);
 
