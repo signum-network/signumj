@@ -179,7 +179,7 @@ public interface NodeService extends AutoCloseable {
 
     /**
      * Get the list of addresses of all ATs
-     * @param The code hash ID to be used as filter criteria
+     * @param codeHashId The code hash ID to be used as filter criteria
      * @return The list of AT addresses, wrapped in a single
      */
     Single<SignumAddress[]> getAtIds(SignumID codeHashId);
