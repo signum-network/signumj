@@ -173,8 +173,8 @@ public class UseBestNodeService implements NodeService {
     }
 
     @Override
-    public Single<AT[]> getAccountATs(SignumAddress accountId) {
-        return performOnBest(service -> service.getAccountATs(accountId));
+    public Single<AT[]> getAccountATs(SignumAddress accountId, SignumID machineCodeHashId) {
+        return performOnBest(service -> service.getAccountATs(accountId, machineCodeHashId));
     }
 
     @Override
@@ -238,8 +238,8 @@ public class UseBestNodeService implements NodeService {
 	}
 
     @Override
-    public Single<SignumAddress[]> getAtIds() {
-        return performOnBest(service -> service.getAtIds());
+    public Single<SignumAddress[]> getAtIds(SignumID codeHashId) {
+        return performOnBest(service -> service.getAtIds(codeHashId));
     }
 
     @Override

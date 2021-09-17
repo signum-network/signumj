@@ -89,7 +89,7 @@ public abstract class SignumNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAccountATs() {
-        AT[] accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID));
+        AT[] accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID, null));
         assertEquals(0, accountATsResponse.length);
     }
 
@@ -150,7 +150,7 @@ public abstract class SignumNodeServiceTest {
 
     @Test
     public void testBurstServiceGetAtIDs() {
-        SignumAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds());
+        SignumAddress[] atIDsResponse = RxTestUtils.testSingle(burstNodeService.getAtIds(null));
         assertEquals(SignumAddress[].class, atIDsResponse.getClass());
     }
 

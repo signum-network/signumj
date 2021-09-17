@@ -82,7 +82,7 @@ public interface NodeService extends AutoCloseable {
      * @param accountId The address of the account
      * @return A list of the ATs, wrapped in a single
      */
-    Single<AT[]> getAccountATs(SignumAddress accountId);
+    Single<AT[]> getAccountATs(SignumAddress accountId, SignumID machineCodeHashId);
 
     /**
      * Get the blocks forged by an account
@@ -179,9 +179,10 @@ public interface NodeService extends AutoCloseable {
 
     /**
      * Get the list of addresses of all ATs
+     * @param The code hash ID to be used as filter criteria
      * @return The list of AT addresses, wrapped in a single
      */
-    Single<SignumAddress[]> getAtIds();
+    Single<SignumAddress[]> getAtIds(SignumID codeHashId);
 
     /**
      * Get the details of a transaction

@@ -157,8 +157,8 @@ public class CompositeBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<AT[]> getAccountATs(SignumAddress accountId) {
-        return performFastest(service -> service.getAccountATs(accountId));
+    public Single<AT[]> getAccountATs(SignumAddress accountId, SignumID machineCodeHashId) {
+        return performFastest(service -> service.getAccountATs(accountId, machineCodeHashId));
     }
 
     @Override
@@ -222,8 +222,8 @@ public class CompositeBurstNodeService implements NodeService {
 	}
 
     @Override
-    public Single<SignumAddress[]> getAtIds() {
-        return performFastest(service -> service.getAtIds());
+    public Single<SignumAddress[]> getAtIds(SignumID codeHashId) {
+        return performFastest(service -> service.getAtIds(codeHashId));
     }
 
     @Override

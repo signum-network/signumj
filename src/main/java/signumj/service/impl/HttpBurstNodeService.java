@@ -128,8 +128,9 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<AT[]> getAccountATs(SignumAddress accountId) {
-        return assign(burstAPIService.getAccountATs(SignumUtils.getEndpoint(), accountId.getID()))
+    public Single<AT[]> getAccountATs(SignumAddress accountId, SignumID machineCodeHashId) {
+        return assign(burstAPIService.getAccountATs(SignumUtils.getEndpoint(), accountId.getID(),
+        		machineCodeHashId == null ? null : machineCodeHashId.getID()))
                 .map(response -> Arrays.stream(response.getATs()).map(AT::new).toArray(AT[]::new));
     }
 
@@ -211,8 +212,8 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<SignumAddress[]> getAtIds() {
-        return assign(burstAPIService.getAtIds(SignumUtils.getEndpoint())).map(
+    public Single<SignumAddress[]> getAtIds(SignumID codeHashId) {
+        return assign(burstAPIService.getAtIds(SignumUtils.getEndpoint(), codeHashId == null ? null : codeHashId.getID())).map(
                 response -> Arrays.stream(response.getAtIds()).map(SignumAddress::fromId).toArray(SignumAddress[]::new));
     }
 
@@ -578,7 +579,7 @@ public final class HttpBurstNodeService implements NodeService {
         		@Query("height") String height, @Query("estimateCommitment") String calculateCommitment, @Query("getCommittedAmount") String getCommittedAmount);
 
         @GET("{endpoint}?requestType=getAccountATs")
-        Single<AccountATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId);
+        Single<AccountATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId, @Query("machineCodeHashId") String machineCodeHashId);
 
         @GET("{endpoint}?requestType=getAccountBlockIds")
         Single<AccountBlockIDsResponse> getAccountBlockIDs(@Path("endpoint") String endpoint,
@@ -632,7 +633,7 @@ public final class HttpBurstNodeService implements NodeService {
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") Boolean includeDetails);
 
         @GET("{endpoint}?requestType=getATIds")
-        Single<AtIDsResponse> getAtIds(@Path("endpoint") String endpoint);
+        Single<AtIDsResponse> getAtIds(@Path("endpoint") String endpoint, @Query("machineCodeHashId") String machineCodeHashId);
 
         @GET("{endpoint}?requestType=getTransaction")
         Single<TransactionResponse> getTransaction(@Path("endpoint") String endpoint,
