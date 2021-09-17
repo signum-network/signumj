@@ -436,7 +436,25 @@ public interface NodeService extends AutoCloseable {
      * @param creationBytes The creation bytes of the AT (if pre-calculated and not using the following fields)
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes);
+    Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash);
+
+    /**
+     * Generate the transaction for creating an AT
+     * @param senderPublicKey The public key of the sender
+     * @param fee The transaction fee
+     * @param minActivation The activation amount
+     * @param deadline The deadline for the transaction
+     * @param name The name of the AT
+     * @param description The description of the AT
+     * @param code The contract code
+     * @param data The creation data
+     * @param dpages Number of pages for data
+     * @param cspages Call stack pages
+     * @param uspages User stack pages
+     * @param referencedTransactionFullHash A reference transaction full hash
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[]data, int dpages, int cspages, int uspages, String referencedTransactionFullHash);
 
     /**
      * Generate the transaction for transfering assets

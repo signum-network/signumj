@@ -337,9 +337,16 @@ public class CompositeBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes) {
-        return performFastest(service -> service.generateCreateATTransaction(senderPublicKey, fee, deadline, name, description, creationBytes));
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash) {
+        return performFastest(service -> service.generateCreateATTransaction(senderPublicKey, fee, deadline, name, description, creationBytes, referencedTransactionFullHash));
     }
+    
+	@Override
+	public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee,
+			SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[] data,
+			int dpages, int cspages, int uspages, String referencedTransactionFullHash) {
+        return performFastest(service -> service.generateCreateATTransaction(senderPublicKey, fee, minActivation, deadline, name, description, code, data, dpages, cspages, uspages, referencedTransactionFullHash));
+	}
 
     @Override
     public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline) {
@@ -421,4 +428,5 @@ public class CompositeBurstNodeService implements NodeService {
 	public Single<BlockchainStatus> getBlockChainStatus() {
 		return performFastest(service -> service.getBlockChainStatus());
 	}
+
 }

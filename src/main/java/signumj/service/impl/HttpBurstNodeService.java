@@ -36,12 +36,17 @@ public final class HttpBurstNodeService implements NodeService {
     private String nodeAddress;
 
     public HttpBurstNodeService(String nodeAddress, String userAgent) {
+    	this(nodeAddress, userAgent, 10);
+    }
+    	
+    public HttpBurstNodeService(String nodeAddress, String userAgent, int readTimeout) {
     	
     	this.nodeAddress = nodeAddress;
     	SocketFactory socketFactory = SocketFactory.getDefault();
     	Dns dns = Dns.SYSTEM;
     	
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
+        		.readTimeout(readTimeout, TimeUnit.SECONDS)
         		.socketFactory(socketFactory)
         		.dns(dns)
                 .addInterceptor(chain -> chain.proceed(chain.request().newBuilder().header("User-Agent", userAgent).build()))
@@ -513,11 +518,11 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes) {
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash) {
         // TODO: making it backward compatible for small AT codes
         if (creationBytes.length >= 2560) {
           return assign(burstAPIService.createATProgramBig(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
-              fee.toNQT().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
+              fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, Hex.toHexString(creationBytes), null,
               null, 0, 0, 0, null)).map(response -> {
                   if (response.getError() != null)
                       throw new IllegalArgumentException(response.getError());
@@ -525,8 +530,19 @@ public final class HttpBurstNodeService implements NodeService {
               }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));          
         }
         return assign(burstAPIService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
-                fee.toNQT().toString(), deadline, false, name, description, Hex.toHexString(creationBytes), null,
+                fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, Hex.toHexString(creationBytes), null,
                 null, 0, 0, 0, null)).map(response -> {
+                    if (response.getError() != null)
+                        throw new IllegalArgumentException(response.getError());
+                    return response;
+                }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
+    public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[] data, int dpages, int cspages, int uspages, String referencedTransactionFullHash) {
+        return assign(burstAPIService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
+                fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, null,
+                Hex.toHexString(code), Hex.toHexString(data), dpages, cspages, uspages, minActivation.toNQT().toString())).map(response -> {
                     if (response.getError() != null)
                         throw new IllegalArgumentException(response.getError());
                     return response;
@@ -875,6 +891,7 @@ public final class HttpBurstNodeService implements NodeService {
         @POST("{endpoint}?requestType=createATProgram")
         Single<CreateATResponse> createATProgram(@Path("endpoint") String endpoint,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("name") String name,
                 @Query("description") String description, @Query("creationBytes") String creationBytes,
                 @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
@@ -884,6 +901,7 @@ public final class HttpBurstNodeService implements NodeService {
         @POST("{endpoint}?requestType=createATProgram")
         Single<CreateATResponse> createATProgramBig(@Path("endpoint") String endpoint,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("name") String name,
                 @Query("description") String description, @Body String creationBytes,                
                 @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
