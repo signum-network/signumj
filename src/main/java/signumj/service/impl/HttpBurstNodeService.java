@@ -542,7 +542,7 @@ public final class HttpBurstNodeService implements NodeService {
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[] data, int dpages, int cspages, int uspages, String referencedTransactionFullHash) {
         return assign(burstAPIService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, null,
-                Hex.toHexString(code), Hex.toHexString(data), dpages, cspages, uspages, minActivation.toNQT().toString())).map(response -> {
+                code == null ? null : Hex.toHexString(code), Hex.toHexString(data), dpages, cspages, uspages, minActivation.toNQT().toString())).map(response -> {
                     if (response.getError() != null)
                         throw new IllegalArgumentException(response.getError());
                     return response;
