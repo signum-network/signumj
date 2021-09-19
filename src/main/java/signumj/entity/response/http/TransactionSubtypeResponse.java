@@ -6,10 +6,14 @@ package signumj.entity.response.http;
 public final class TransactionSubtypeResponse {
     private final String description;
     private final int value;
+    private final long minimumFeeConstantNQT;
+    private final long minimumFeeAppendagesNQT;
 
-    public TransactionSubtypeResponse(String description, int value) {
+    public TransactionSubtypeResponse(String description, int value, long minimumFeeConstantNQT, long minimumFeeAppendagesNQT) {
         this.description = description;
         this.value = value;
+        this.minimumFeeConstantNQT = minimumFeeConstantNQT;
+        this.minimumFeeAppendagesNQT = minimumFeeAppendagesNQT;
     }
 
     public String getDescription() {
@@ -18,5 +22,13 @@ public final class TransactionSubtypeResponse {
 
     public int getValue() {
         return value;
+    }
+    
+    public long getMinimumFeeAppendagesNQT() {
+    	return minimumFeeAppendagesNQT;
+    }
+    
+    public long getMinimumFeeConstantNQT() {
+    	return minimumFeeConstantNQT;
     }
 }

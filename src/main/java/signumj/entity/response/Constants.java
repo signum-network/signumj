@@ -2,6 +2,7 @@ package signumj.entity.response;
 
 import signumj.entity.SignumAddress;
 import signumj.entity.SignumID;
+import signumj.entity.SignumValue;
 import signumj.entity.response.http.ConstantsResponse;
 import signumj.entity.response.http.TransactionSubtypeResponse;
 import signumj.entity.response.http.TransactionTypeResponse;
@@ -14,20 +15,16 @@ public class Constants {
     private final SignumID genesisBlockId;
     private final SignumAddress genesisAccountId;
     private final TransactionType[] transactionTypes;
-
-    public Constants(int maxBlockPayloadLength, int maxArbitraryMessageLength, SignumAddress genesisAccountId, SignumID genesisBlockId, TransactionType[] transactionTypes) {
-        this.maxBlockPayloadLength = maxBlockPayloadLength;
-        this.maxArbitraryMessageLength = maxArbitraryMessageLength;
-        this.genesisAccountId = genesisAccountId;
-        this.genesisBlockId = genesisBlockId;
-        this.transactionTypes = transactionTypes;
-    }
+    private final String addressPrefix;
+	private final String valueSuffix;
 
     public Constants(ConstantsResponse constantsResponse) {
         this.maxBlockPayloadLength = constantsResponse.getMaxBlockPayloadLength();
         this.maxArbitraryMessageLength = constantsResponse.getMaxArbitraryMessageLength();
         this.genesisBlockId = SignumID.fromLong(constantsResponse.getGenesisBlockId());
         this.genesisAccountId = SignumAddress.fromEither(constantsResponse.getGenesisAccountId());
+        this.addressPrefix = constantsResponse.getAddressPrefix();
+        this.valueSuffix = constantsResponse.getValueSuffix();
         this.transactionTypes = Arrays.stream(constantsResponse.getTransactionTypes())
                 .map(TransactionType::new)
                 .toArray(TransactionType[]::new);
@@ -48,6 +45,14 @@ public class Constants {
     public SignumID getGenesisBlockId() {
         return genesisBlockId;
     }
+    
+    public String getAddressPrefix() {
+		return addressPrefix;
+	}
+
+	public String getValueSuffix() {
+		return valueSuffix;
+	}
 
     public TransactionType[] getTransactionTypes() {
         return transactionTypes;
@@ -87,15 +92,14 @@ public class Constants {
         public static class Subtype {
             private final String description;
             private final int subtype;
-
-            public Subtype(String description, int subtype) {
-                this.description = description;
-                this.subtype = subtype;
-            }
+            private final SignumValue minimumFeeConstant;
+            private final SignumValue minimumFeeAppendages;
 
             public Subtype(TransactionSubtypeResponse transactionSubtypeResponse) {
                 this.description = transactionSubtypeResponse.getDescription();
                 this.subtype = transactionSubtypeResponse.getValue();
+                this.minimumFeeConstant = SignumValue.fromNQT(transactionSubtypeResponse.getMinimumFeeConstantNQT());
+                this.minimumFeeAppendages = SignumValue.fromNQT(transactionSubtypeResponse.getMinimumFeeAppendagesNQT());
             }
 
             public String getDescription() {
@@ -104,6 +108,14 @@ public class Constants {
 
             public int getSubtype() {
                 return subtype;
+            }
+            
+            public SignumValue getMinimumFeeConstant() {
+                return minimumFeeConstant;
+            }
+            
+            public SignumValue getMinimumFeeAppendages() {
+                return minimumFeeAppendages;
             }
         }
     }

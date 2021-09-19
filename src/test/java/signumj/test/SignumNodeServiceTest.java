@@ -6,6 +6,8 @@ import signumj.entity.SignumID;
 import signumj.entity.SignumTimestamp;
 import signumj.entity.SignumValue;
 import signumj.entity.response.*;
+import signumj.entity.response.Constants.TransactionType;
+import signumj.entity.response.Constants.TransactionType.Subtype;
 import signumj.response.appendix.EncryptedMessageAppendix;
 import signumj.response.appendix.PlaintextMessageAppendix;
 import signumj.response.attachment.*;
@@ -68,6 +70,17 @@ public abstract class SignumNodeServiceTest {
     public void testBurstServiceGetConstants() {
         Constants constantsResponse = RxTestUtils.testSingle(burstNodeService.getConstants());
         assertEquals(Constants.class, constantsResponse.getClass());
+        assertTrue(constantsResponse.getGenesisBlockId().getSignedLongId() > 0L);
+    }
+
+    @Test
+    public void testBurstServiceGetConstantsFees() {
+        Constants constantsResponse = RxTestUtils.testSingle(burstNodeService.getConstants());
+        for(TransactionType type : constantsResponse.getTransactionTypes()) {
+        	for(Subtype subtype : type.getSubtypes()) {
+        		assertTrue(subtype.getMinimumFeeConstant().longValue() > 0L);
+        	}
+        }
     }
 
     @Test
