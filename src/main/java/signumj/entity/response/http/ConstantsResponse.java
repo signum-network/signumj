@@ -9,10 +9,12 @@ public final class ConstantsResponse extends BRSResponse {
     private final TransactionTypeResponse[] transactionTypes;
     private final PeerStateResponse[] peerStates;
     private final int maxArbitraryMessageLength;
+    private final int ordinaryTransactionLength;
     // TODO requestTypes
 
     public ConstantsResponse(int maxBlockPayloadLength, String genesisAccountId, String genesisBlockId,
-    		String addressPrefix, String valueSuffix, TransactionTypeResponse[] transactionTypes, PeerStateResponse[] peerStates, int maxArbitraryMessageLength) {
+    		String addressPrefix, String valueSuffix, TransactionTypeResponse[] transactionTypes, PeerStateResponse[] peerStates,
+    		int maxArbitraryMessageLength, int ordinaryTransactionLength) {
         this.maxBlockPayloadLength = maxBlockPayloadLength;
         this.genesisAccountId = genesisAccountId;
         this.genesisBlockId = genesisBlockId;
@@ -21,6 +23,7 @@ public final class ConstantsResponse extends BRSResponse {
         this.transactionTypes = transactionTypes;
         this.peerStates = peerStates;
         this.maxArbitraryMessageLength = maxArbitraryMessageLength;
+        this.ordinaryTransactionLength = ordinaryTransactionLength;
     }
 
     public int getMaxBlockPayloadLength() {
@@ -53,5 +56,9 @@ public final class ConstantsResponse extends BRSResponse {
 
     public int getMaxArbitraryMessageLength() {
         return maxArbitraryMessageLength;
+    }
+
+    public int getOrdinaryTransactionLength() {
+        return ordinaryTransactionLength;
     }
 }

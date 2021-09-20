@@ -12,6 +12,7 @@ import java.util.Arrays;
 public class Constants {
     private final int maxBlockPayloadLength;
     private final int maxArbitraryMessageLength;
+    private final int ordinaryTransactionLength;
     private final SignumID genesisBlockId;
     private final SignumAddress genesisAccountId;
     private final TransactionType[] transactionTypes;
@@ -21,6 +22,7 @@ public class Constants {
     public Constants(ConstantsResponse constantsResponse) {
         this.maxBlockPayloadLength = constantsResponse.getMaxBlockPayloadLength();
         this.maxArbitraryMessageLength = constantsResponse.getMaxArbitraryMessageLength();
+        this.ordinaryTransactionLength = constantsResponse.getOrdinaryTransactionLength();
         this.genesisBlockId = SignumID.fromLong(constantsResponse.getGenesisBlockId());
         this.genesisAccountId = SignumAddress.fromEither(constantsResponse.getGenesisAccountId());
         this.addressPrefix = constantsResponse.getAddressPrefix();
@@ -34,6 +36,10 @@ public class Constants {
         return maxBlockPayloadLength;
     }
 
+    public int getOrdinaryTransactionLength() {
+        return ordinaryTransactionLength;
+    }
+    
     public int getMaxArbitraryMessageLength() {
         return maxArbitraryMessageLength;
     }
