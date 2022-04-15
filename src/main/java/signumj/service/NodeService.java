@@ -479,10 +479,11 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @param assetId The ID of the asset being transfered
      * @param quantity The quantity to transfer
+     * @param amount The SIGNA amount to send along with this transfer (optional)
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
-    Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline);
+    Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline);
 
     /**
      * Generate the transaction for an ask order
@@ -492,10 +493,11 @@ public interface NodeService extends AutoCloseable {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The message to include in the transaction
+     * @param amount The SIGNA amount to send along with this transfer (optional)
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
-    Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline, String message);
+    Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, String message);
 
     /**
      * Generate the transaction for an ask order
@@ -505,10 +507,12 @@ public interface NodeService extends AutoCloseable {
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @param message The encrypted message to include in the transaction
+     * @param amount The SIGNA amount to send along with this transfer (optional)
+     * 
      * @return The unsigned transaction bytes, wrapped in a single
      */
     // TODO TEST
-    Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline, EncryptedMessage message);
+    Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message);
 
     /**
      * Generate the transaction for an ask order

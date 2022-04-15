@@ -360,22 +360,22 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
-    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(),
+    public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline) {
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline, String message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(),
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, SignumValue amount, int deadline, String message) {
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
-    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, int deadline, EncryptedMessage message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(),
+    public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message) {
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null,
                  message.isText(), Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce()), null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -740,7 +740,7 @@ public final class HttpBurstNodeService implements NodeService {
         @POST("{endpoint}?requestType=transferAsset")
         Single<GenerateTransactionResponse> transferAsset(@Path("endpoint") String endpoint,
                 @Query("recipient") String recipient, @Query("asset") String asset, @Query("recipientPublicKey") String recipientPublicKey,
-                @Query("quantityQNT") String quantity, @Query("secretPhrase") String secretPhrase,
+                @Query("quantityQNT") String quantity, @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("message") String message,
