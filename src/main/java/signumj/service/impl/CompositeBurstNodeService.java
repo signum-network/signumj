@@ -364,6 +364,11 @@ public class CompositeBurstNodeService implements NodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, byte[] message) {
+        return performFastest(service -> service.generateTransferAssetTransactionWithMessage(senderPublicKey, recipient, assetId, quantity, amount, fee, deadline, message));
+    }
+
+    @Override
     public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message) {
         return performFastest(service -> service.generateTransferAssetTransactionWithEncryptedMessage(senderPublicKey, recipient, assetId, quantity, amount, fee, deadline, message));
     }

@@ -486,7 +486,7 @@ public interface NodeService extends AutoCloseable {
     Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for an ask order
+     * Generate the transaction for an asset transfer with a message
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
@@ -498,6 +498,20 @@ public interface NodeService extends AutoCloseable {
      */
     // TODO TEST
     Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, String message);
+
+    /**
+     * Generate the transaction for an asset transfer with a message
+     * @param senderPublicKey The public key of the sender
+     * @param assetId The ID of the asset being transfered
+     * @param quantity The order quantity
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param message The message to include in the transaction
+     * @param amount The SIGNA amount to send along with this transfer (optional)
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    // TODO TEST
+    Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, byte[] message);
 
     /**
      * Generate the transaction for an ask order

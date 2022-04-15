@@ -374,6 +374,13 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue fee, SignumValue amount, int deadline, byte[] message) {
+        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
+                .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
+
+    @Override
     public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message) {
         return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null,

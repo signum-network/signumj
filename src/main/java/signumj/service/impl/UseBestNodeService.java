@@ -396,6 +396,11 @@ public class UseBestNodeService implements NodeService {
     }
 
     @Override
+    public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, byte[] message) {
+        return performOnBest(service -> service.generateTransferAssetTransactionWithMessage(senderPublicKey, recipient, assetId, quantity, amount, fee, deadline, message));
+    }
+
+    @Override
     public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message) {
         return performOnBest(service -> service.generateTransferAssetTransactionWithEncryptedMessage(senderPublicKey, recipient, assetId, quantity, amount, fee, deadline, message));
     }
