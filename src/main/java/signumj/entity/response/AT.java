@@ -1,6 +1,7 @@
 package signumj.entity.response;
 
 import signumj.entity.SignumAddress;
+import signumj.entity.SignumID;
 import signumj.entity.SignumValue;
 import signumj.entity.response.http.ATResponse;
 
@@ -14,6 +15,7 @@ public class AT {
     private final boolean stopped;
     private final SignumAddress creator;
     private final SignumAddress id;
+    private final SignumID machineCodeHashId;
     private final SignumValue balance;
     private final SignumValue minimumActivation;
     private final SignumValue previousBalance;
@@ -25,7 +27,7 @@ public class AT {
     private final String description;
     private final String name;
 
-    public AT(boolean dead, boolean finished, boolean frozen, boolean running, boolean stopped, SignumAddress creator, SignumAddress id, SignumValue balance, SignumValue minimumActivation, SignumValue previousBalance, byte[] machineCode, byte[] machineData, int creationHeight, int nextBlockHeight, int version, String description, String name) {
+    public AT(boolean dead, boolean finished, boolean frozen, boolean running, boolean stopped, SignumAddress creator, SignumAddress id, SignumValue balance, SignumValue minimumActivation, SignumValue previousBalance, byte[] machineCode, byte[] machineData, long machineCodeHashId, int creationHeight, int nextBlockHeight, int version, String description, String name) {
         this.dead = dead;
         this.finished = finished;
         this.frozen = frozen;
@@ -38,6 +40,7 @@ public class AT {
         this.previousBalance = previousBalance;
         this.machineCode = machineCode;
         this.machineData = machineData;
+        this.machineCodeHashId = SignumID.fromLong(machineCodeHashId);
         this.creationHeight = creationHeight;
         this.nextBlockHeight = nextBlockHeight;
         this.version = version;
@@ -58,6 +61,7 @@ public class AT {
         this.previousBalance = SignumValue.fromNQT(atResponse.getPrevBalanceNQT());
         this.machineCode = atResponse.getMachineCode() == null ? null : Hex.decode(atResponse.getMachineCode());
         this.machineData = Hex.decode(atResponse.getMachineData());
+        this.machineCodeHashId = SignumID.fromLong(atResponse.getMachineCodeHashId());
         this.creationHeight = atResponse.getCreationBlock();
         this.nextBlockHeight = atResponse.getNextBlock();
         this.version = atResponse.getAtVersion();
@@ -91,6 +95,10 @@ public class AT {
 
     public SignumAddress getId() {
         return id;
+    }
+    
+    public SignumID getMachineCodeHashId() {
+        return machineCodeHashId;
     }
 
     public SignumValue getBalance() {

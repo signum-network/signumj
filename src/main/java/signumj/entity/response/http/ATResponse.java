@@ -10,6 +10,7 @@ public final class ATResponse extends BRSResponse {
     private final boolean frozen;
     private final boolean finished;
     private final boolean dead;
+    private final String machineCodeHashId;
     private final String balanceNQT;
     private final int nextBlock;
     private final String minActivation;
@@ -20,7 +21,7 @@ public final class ATResponse extends BRSResponse {
     private final String prevBalanceNQT;
     private final int creationBlock;
 
-    public ATResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int atVersion, String creator, boolean stopped, String machineCode, String description, String machineData, boolean frozen, boolean finished, boolean dead, String balanceNQT, int nextBlock, String minActivation, boolean running, String at, String atRS, String name, String prevBalanceNQT, int creationBlock) {
+    public ATResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, int atVersion, String creator, boolean stopped, String machineCode, String description, String machineData, boolean frozen, boolean finished, boolean dead, String machineCodeHashId, String balanceNQT, int nextBlock, String minActivation, boolean running, String at, String atRS, String name, String prevBalanceNQT, int creationBlock) {
         super(errorDescription, errorCode, requestProcessingTime);
         this.atVersion = atVersion;
         this.creator = creator;
@@ -31,6 +32,7 @@ public final class ATResponse extends BRSResponse {
         this.frozen = frozen;
         this.finished = finished;
         this.dead = dead;
+        this.machineCodeHashId = machineCodeHashId;
         this.balanceNQT = balanceNQT;
         this.nextBlock = nextBlock;
         this.minActivation = minActivation;
@@ -78,6 +80,10 @@ public final class ATResponse extends BRSResponse {
         return dead;
     }
 
+    public String getMachineCodeHashId() {
+        return machineCodeHashId;
+    }
+    
     public String getBalanceNQT() {
         return balanceNQT;
     }
