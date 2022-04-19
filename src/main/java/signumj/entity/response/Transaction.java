@@ -73,7 +73,7 @@ public class Transaction {
         this.timestamp = SignumTimestamp.fromBurstTimestamp(transactionResponse.getTimestamp());
         this.amount = SignumValue.fromNQT(transactionResponse.getAmountNQT());
         this.fee = SignumValue.fromNQT(transactionResponse.getFeeNQT());
-        this.fullHash = Hex.decode(transactionResponse.getFullHash());
+        this.fullHash = transactionResponse.getFullHash() == null ? null : Hex.decode(transactionResponse.getFullHash());
         this.referencedTransactionFullHash = transactionResponse.getReferencedTransactionFullHash() == null ? null : Hex.decode(transactionResponse.getReferencedTransactionFullHash());
         this.senderPublicKey = Hex.decode(transactionResponse.getSenderPublicKey());
         this.signature = transactionResponse.getSignature() == null ? null : Hex.decode(transactionResponse.getSignature());
