@@ -654,7 +654,7 @@ public final class HttpBurstNodeService implements NodeService {
 
         @GET("{endpoint}?requestType=getIndirectIncoming")
         Single<IndirectIncomingResponse> getIndirectIncoming(@Path("endpoint") String endpoint,
-                @Query("transaction") String transaction, @Query("account") String account);
+        		@Query("account") String account, @Query("transaction") String transaction);
 
         @GET("{endpoint}?requestType=getTransactionBytes")
         Single<TransactionBytesResponse> getTransactionBytes(@Path("endpoint") String endpoint,
