@@ -46,8 +46,10 @@ public class Account {
         this.assetBalances = new AssetBalance[accountResponse.getAssetBalances() == null ? 0 : accountResponse.getAssetBalances().length];
         for(int i = 0; i < this.assetBalances.length; i++) {
         	AssetBalanceResponse b = accountResponse.getAssetBalances()[i];
+        	AssetBalanceResponse ub = accountResponse.getUnconfirmedAssetBalances()[i];
         	SignumValue quantity = SignumValue.fromNQT(b.getBalanceQNT());
-        	this.assetBalances[i++] = new AssetBalance(id, SignumID.fromLong(b.getAsset()), quantity, quantity);
+        	SignumValue unconfirmedQuantity = SignumValue.fromNQT(ub.getBalanceQNT());
+        	this.assetBalances[i++] = new AssetBalance(id, SignumID.fromLong(b.getAsset()), quantity, unconfirmedQuantity);
         }
     }
 

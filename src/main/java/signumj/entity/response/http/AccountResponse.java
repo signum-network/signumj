@@ -12,7 +12,8 @@ public final class AccountResponse extends BRSResponse {
     private final String balanceNQT;
     private final String publicKey;
     private final String account;
-    private final AssetBalanceResponse[] assetBalances; 
+    private final AssetBalanceResponse[] assetBalances;
+    private final AssetBalanceResponse[] unconfirmedAssetBalances;
     
     public static final class AssetBalanceResponse {
     	private final String asset;
@@ -33,7 +34,7 @@ public final class AccountResponse extends BRSResponse {
     }
 
 
-    public AccountResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String unconfirmedBalanceNQT, String guaranteedBalanceNQT, String effectiveBalanceNQT, String name, String description, String forgedBalanceNQT, String balanceNQT, String commitmentNQT, String committedBalanceNQT, String publicKey, String account, AssetBalanceResponse[] assetBalances) {
+    public AccountResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String unconfirmedBalanceNQT, String guaranteedBalanceNQT, String effectiveBalanceNQT, String name, String description, String forgedBalanceNQT, String balanceNQT, String commitmentNQT, String committedBalanceNQT, String publicKey, String account, AssetBalanceResponse[] assetBalances, AssetBalanceResponse[] unconfirmedAssetBalances) {
         super(errorDescription, errorCode, requestProcessingTime);
         this.unconfirmedBalanceNQT = unconfirmedBalanceNQT;
         this.guaranteedBalanceNQT = guaranteedBalanceNQT;
@@ -47,6 +48,7 @@ public final class AccountResponse extends BRSResponse {
         this.publicKey = publicKey;
         this.account = account;
         this.assetBalances = assetBalances;
+        this.unconfirmedAssetBalances = unconfirmedAssetBalances;
     }
 
     public String getUnconfirmedBalanceNQT() {
@@ -95,5 +97,9 @@ public final class AccountResponse extends BRSResponse {
     
     public AssetBalanceResponse[] getAssetBalances() {
     	return assetBalances;
+    }
+    
+    public AssetBalanceResponse[] getUnconfirmedAssetBalances() {
+    	return unconfirmedAssetBalances;
     }
 }
