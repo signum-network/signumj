@@ -1,8 +1,10 @@
 package signumj.entity.response;
 
 import signumj.entity.SignumAddress;
+import signumj.entity.SignumID;
 import signumj.entity.SignumValue;
 import signumj.entity.response.http.AccountResponse;
+import signumj.entity.response.http.AccountResponse.AssetBalanceResponse;
 
 import org.bouncycastle.util.encoders.Hex;
 
@@ -16,8 +18,9 @@ public class Account {
     private final byte[] publicKey;
     private final String description;
     private final String name;
+    private final AssetBalance[] assetBalances;
 
-    public Account(SignumAddress id, SignumValue balance, SignumValue commitmentNQT, SignumValue committedBalanceNQT, SignumValue forgedBalance, SignumValue unconfirmedBalance, byte[] publicKey, String description, String name) {
+    public Account(SignumAddress id, SignumValue balance, SignumValue commitmentNQT, SignumValue committedBalanceNQT, SignumValue forgedBalance, SignumValue unconfirmedBalance, byte[] publicKey, String description, String name, AssetBalance[] assetBalances) {
         this.id = id;
         this.balance = balance;
         this.commitmentNQT = commitmentNQT;
@@ -27,6 +30,7 @@ public class Account {
         this.publicKey = publicKey;
         this.description = description;
         this.name = name;
+        this.assetBalances = assetBalances;
     }
 
     public Account(AccountResponse accountResponse) {
@@ -39,6 +43,12 @@ public class Account {
         this.publicKey = accountResponse.getPublicKey() == null ? new byte[32] : Hex.decode(accountResponse.getPublicKey());
         this.description = accountResponse.getDescription();
         this.name = accountResponse.getName();
+        this.assetBalances = new AssetBalance[accountResponse.getAssetBalances() == null ? 0 : accountResponse.getAssetBalances().length];
+        for(int i = 0; i < this.assetBalances.length; i++) {
+        	AssetBalanceResponse b = accountResponse.getAssetBalances()[i];
+        	SignumValue quantity = SignumValue.fromNQT(b.getBalanceQNT());
+        	this.assetBalances[i++] = new AssetBalance(id, SignumID.fromLong(b.getAsset()), quantity, quantity);
+        }
     }
 
     public SignumAddress getId() {
@@ -75,5 +85,9 @@ public class Account {
 
     public String getName() {
         return name;
+    }
+    
+    public AssetBalance[] getAssetBalances() {
+    	return assetBalances;
     }
 }

@@ -16,7 +16,6 @@ import signumj.service.NodeService;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -90,6 +89,13 @@ public abstract class SignumNodeServiceTest {
     }
 
     @Test
+    public void testBurstServiceGetAccountWithAssets() {
+        Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID_WITH_ASSET));
+        assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID_WITH_ASSET, accountResponse.getId());
+        assertTrue(accountResponse.getAssetBalances().length >= 1);
+    }
+
+    @Test
     public void testBurstServiceCommitment() {
         Account accountResponse = RxTestUtils.testSingle(burstNodeService.getAccount(TestVariables.EXAMPLE_ACCOUNT_ID, null, true, true));
         assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
@@ -155,7 +161,6 @@ public abstract class SignumNodeServiceTest {
     }
 
     @Test
-    @Ignore // TODO: turn on when we have 3.1.1 nodes 
     public void testBurstServiceGetATNoDetails() {
         AT accountATsResponse = RxTestUtils.testSingle(burstNodeService.getAt(TestVariables.EXAMPLE_AT_ID, false));
         assertEquals(TestVariables.EXAMPLE_AT_ID, accountATsResponse.getId());

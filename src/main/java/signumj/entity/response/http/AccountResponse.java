@@ -12,8 +12,28 @@ public final class AccountResponse extends BRSResponse {
     private final String balanceNQT;
     private final String publicKey;
     private final String account;
+    private final AssetBalanceResponse[] assetBalances; 
+    
+    public static final class AssetBalanceResponse {
+    	private final String asset;
+        private final String balanceQNT;
 
-    public AccountResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String unconfirmedBalanceNQT, String guaranteedBalanceNQT, String effectiveBalanceNQT, String name, String description, String forgedBalanceNQT, String balanceNQT, String commitmentNQT, String committedBalanceNQT, String publicKey, String account) {
+        public AssetBalanceResponse(String asset, String balanceQNT) {
+            this.asset = asset;
+            this.balanceQNT = balanceQNT;
+        }
+
+        public String getAsset() {
+            return asset;
+        }
+
+        public String getBalanceQNT() {
+            return balanceQNT;
+        }
+    }
+
+
+    public AccountResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String unconfirmedBalanceNQT, String guaranteedBalanceNQT, String effectiveBalanceNQT, String name, String description, String forgedBalanceNQT, String balanceNQT, String commitmentNQT, String committedBalanceNQT, String publicKey, String account, AssetBalanceResponse[] assetBalances) {
         super(errorDescription, errorCode, requestProcessingTime);
         this.unconfirmedBalanceNQT = unconfirmedBalanceNQT;
         this.guaranteedBalanceNQT = guaranteedBalanceNQT;
@@ -26,6 +46,7 @@ public final class AccountResponse extends BRSResponse {
         this.committedBalanceNQT = committedBalanceNQT;
         this.publicKey = publicKey;
         this.account = account;
+        this.assetBalances = assetBalances;
     }
 
     public String getUnconfirmedBalanceNQT() {
@@ -70,5 +91,9 @@ public final class AccountResponse extends BRSResponse {
 
     public String getAccount() {
         return account;
+    }
+    
+    public AssetBalanceResponse[] getAssetBalances() {
+    	return assetBalances;
     }
 }
