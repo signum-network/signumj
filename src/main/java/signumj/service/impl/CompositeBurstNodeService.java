@@ -434,4 +434,9 @@ public class CompositeBurstNodeService implements NodeService {
 		return performFastest(service -> service.getBlockChainStatus());
 	}
 
+	@Override
+	public Single<IndirectIncoming> getIndirectIncoming(SignumAddress account, SignumID transaction) {
+		return performFastest(service -> service.getIndirectIncoming(account, transaction));
+	}
+
 }

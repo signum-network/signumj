@@ -197,6 +197,15 @@ public interface NodeService extends AutoCloseable {
      * @return The transaction details, wrapped in a single
      */
     Single<Transaction> getTransaction(byte[] fullHash);
+    
+    
+    /**
+     * Get the indirect incoming details for the given account and transaction
+     * @param account
+     * @param transaction
+     * @return the indirect incoming details, wrapped in a single
+     */
+    Single<IndirectIncoming> getIndirectIncoming(SignumAddress account, SignumID transaction);
 
     /**
      * Get the transaction bytes

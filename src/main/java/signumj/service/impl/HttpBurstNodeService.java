@@ -230,6 +230,12 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
+    public Single<IndirectIncoming> getIndirectIncoming(SignumAddress account, SignumID transaction) {
+        return assign(burstAPIService.getIndirectIncoming(SignumUtils.getEndpoint(), account.getID(), transaction.getID()))
+                .map(IndirectIncoming::new);
+    }
+
+    @Override
     public Single<byte[]> getTransactionBytes(SignumID transactionId) {
         return assign(burstAPIService.getTransactionBytes(SignumUtils.getEndpoint(), transactionId.getID()))
                 .map(response -> Hex.decode(response.getTransactionBytes()));
@@ -645,6 +651,10 @@ public final class HttpBurstNodeService implements NodeService {
         @GET("{endpoint}?requestType=getTransaction")
         Single<TransactionResponse> getTransaction(@Path("endpoint") String endpoint,
                 @Query("transaction") String transaction, @Query("fullHash") String fullHash);
+
+        @GET("{endpoint}?requestType=getIndirectIncoming")
+        Single<IndirectIncomingResponse> getIndirectIncoming(@Path("endpoint") String endpoint,
+                @Query("transaction") String transaction, @Query("account") String account);
 
         @GET("{endpoint}?requestType=getTransactionBytes")
         Single<TransactionBytesResponse> getTransactionBytes(@Path("endpoint") String endpoint,

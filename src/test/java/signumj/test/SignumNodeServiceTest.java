@@ -16,6 +16,7 @@ import signumj.service.NodeService;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -247,6 +248,14 @@ public abstract class SignumNodeServiceTest {
     public void testBurstServiceGetTransactionBytes() {
         byte[] transactionBytesResponse = RxTestUtils.testSingle(burstNodeService.getTransactionBytes(TestVariables.EXAMPLE_TRANSACTION_ID));
         assertNotNull(transactionBytesResponse);
+    }
+
+    @Test
+    @Ignore // while we don't have 3.4 nodes running
+    public void testIndirectIncoming() {
+        IndirectIncoming indirect = RxTestUtils.testSingle(burstNodeService.getIndirectIncoming(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID_RECEIVER,
+        		TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
+        assertNotNull(indirect);
     }
 
     @Test

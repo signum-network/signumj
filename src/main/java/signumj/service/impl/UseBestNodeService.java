@@ -27,6 +27,7 @@ import signumj.entity.response.Block;
 import signumj.entity.response.BlockchainStatus;
 import signumj.entity.response.Constants;
 import signumj.entity.response.FeeSuggestion;
+import signumj.entity.response.IndirectIncoming;
 import signumj.entity.response.MiningInfo;
 import signumj.entity.response.Transaction;
 import signumj.entity.response.TransactionBroadcast;
@@ -463,5 +464,10 @@ public class UseBestNodeService implements NodeService {
 	@Override
 	public Single<BlockchainStatus> getBlockChainStatus() {
 		return performOnBest(service -> service.getBlockChainStatus());
+	}
+
+	@Override
+	public Single<IndirectIncoming> getIndirectIncoming(SignumAddress account, SignumID transaction) {
+		return performOnBest(service -> service.getIndirectIncoming(account, transaction));
 	}
 }

@@ -21,6 +21,7 @@ public class TestVariables {
     public static final SignumID EXAMPLE_TRANSACTION_ID = SignumID.fromLong("10489995701880641892");
     public static final SignumID EXAMPLE_AT_CREATION_TRANSACTION_ID = SignumID.fromLong("3474457271106823767");
     public static final SignumID EXAMPLE_MULTI_OUT_TRANSACTION_ID = SignumID.fromLong("3631659512270044993");
+    public static final SignumAddress EXAMPLE_MULTI_OUT_TRANSACTION_ID_RECEIVER = SignumAddress.fromId("13799371438913080421");
     public static final SignumID EXAMPLE_MULTI_OUT_SAME_TRANSACTION_ID = SignumID.fromLong("5032020914938737522");
     public static final SignumID EXAMPLE_ASSET_TRANSFER_TRANSACTION_ID = SignumID.fromLong("3725433067123077435");
     public static final SignumID EXAMPLE_ASSET_TRANSFER_WITH_MESSAGE_TRANSACTION_ID = SignumID.fromLong("5878005582089732590");
