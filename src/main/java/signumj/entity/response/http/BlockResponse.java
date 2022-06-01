@@ -18,13 +18,15 @@ public final class BlockResponse extends BRSResponse {
     private final String nonce;
     private final int version;
     private final String totalFeeNQT;
+    private final String totalFeeCashBackNQT;
+    private final String totalFeeBurntNQT;
     private final String previousBlock;
     private final String block;
     private final int height;
     private final int timestamp;
     private final long averageCommitmentNQT;
 
-    public BlockResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String previousBlockHash, int payloadLength, String totalAmountNQT, String generationSignature, String generator, String generatorPublicKey, long baseTarget, String payloadHash, String blockReward, String nextBlock, int scoopNum, int numberOfTransactions, String blockSignature, String[] transactions, String nonce, int version, String totalFeeNQT, String previousBlock, String block, int height, int timestamp, long averageCommitmentNQT) {
+    public BlockResponse(String errorDescription, Integer errorCode, Integer requestProcessingTime, String previousBlockHash, int payloadLength, String totalAmountNQT, String totalFeeCashBackNQT, String totalFeeBurntNQT, String generationSignature, String generator, String generatorPublicKey, long baseTarget, String payloadHash, String blockReward, String nextBlock, int scoopNum, int numberOfTransactions, String blockSignature, String[] transactions, String nonce, int version, String totalFeeNQT, String previousBlock, String block, int height, int timestamp, long averageCommitmentNQT) {
         super(errorDescription, errorCode, requestProcessingTime);
         this.previousBlockHash = previousBlockHash;
         this.payloadLength = payloadLength;
@@ -43,6 +45,8 @@ public final class BlockResponse extends BRSResponse {
         this.nonce = nonce;
         this.version = version;
         this.totalFeeNQT = totalFeeNQT;
+        this.totalFeeCashBackNQT = totalFeeCashBackNQT;
+        this.totalFeeBurntNQT = totalFeeBurntNQT;
         this.previousBlock = previousBlock;
         this.block = block;
         this.height = height;
@@ -116,6 +120,14 @@ public final class BlockResponse extends BRSResponse {
 
     public String getTotalFeeNQT() {
         return totalFeeNQT;
+    }
+
+    public String getTotalFeeCashBackNQT() {
+        return totalFeeCashBackNQT;
+    }
+
+    public String getTotalFeeBurntNQT() {
+        return totalFeeBurntNQT;
     }
 
     public String getPreviousBlock() {

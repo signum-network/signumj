@@ -22,6 +22,8 @@ public class Block {
     private final SignumValue blockReward;
     private final SignumValue totalAmount;
     private final SignumValue totalFee;
+    private final SignumValue totalFeeCashBack;
+    private final SignumValue totalFeeBurnt;
     private final byte[] generationSignature;
     private final byte[] generatorPublicKey;
     private final byte[] payloadHash;
@@ -34,7 +36,7 @@ public class Block {
     private final long baseTarget;
     private final long averageCommitmentNQT;
 
-    public Block(BigInteger nonce, SignumAddress generator, SignumID id, SignumID nextBlock, SignumID previousBlock, SignumID[] transactions, SignumTimestamp timestamp, SignumValue blockReward, SignumValue totalAmount, SignumValue totalFee, byte[] generationSignature, byte[] generatorPublicKey, byte[] payloadHash, byte[] previousBlockHash, byte[] signature, int height, int payloadLength, int scoopNum, int version, long baseTarget, long averageCommitmentNQT) {
+    public Block(BigInteger nonce, SignumAddress generator, SignumID id, SignumID nextBlock, SignumID previousBlock, SignumID[] transactions, SignumTimestamp timestamp, SignumValue blockReward, SignumValue totalAmount, SignumValue totalFee, SignumValue totalFeeCashBack, SignumValue totalFeeBurnt, byte[] generationSignature, byte[] generatorPublicKey, byte[] payloadHash, byte[] previousBlockHash, byte[] signature, int height, int payloadLength, int scoopNum, int version, long baseTarget, long averageCommitmentNQT) {
         this.nonce = nonce;
         this.generator = generator;
         this.id = id;
@@ -45,6 +47,8 @@ public class Block {
         this.blockReward = blockReward;
         this.totalAmount = totalAmount;
         this.totalFee = totalFee;
+        this.totalFeeBurnt = totalFeeBurnt;
+        this.totalFeeCashBack = totalFeeCashBack;
         this.generationSignature = generationSignature;
         this.generatorPublicKey = generatorPublicKey;
         this.payloadHash = payloadHash;
@@ -71,6 +75,8 @@ public class Block {
         this.blockReward = SignumValue.fromSigna(blockResponse.getBlockReward());
         this.totalAmount = SignumValue.fromNQT(blockResponse.getTotalAmountNQT());
         this.totalFee = SignumValue.fromNQT(blockResponse.getTotalFeeNQT());
+        this.totalFeeCashBack = SignumValue.fromNQT(blockResponse.getTotalFeeCashBackNQT());
+        this.totalFeeBurnt = SignumValue.fromNQT(blockResponse.getTotalFeeBurntNQT());
         this.generationSignature = Hex.decode(blockResponse.getGenerationSignature());
         this.generatorPublicKey = Hex.decode(blockResponse.getGeneratorPublicKey());
         this.payloadHash = Hex.decode(blockResponse.getPayloadHash());
