@@ -130,6 +130,18 @@ public class Block {
         return totalFee;
     }
 
+    public SignumValue getRewardFee() {
+        return totalFee.subtract(totalFeeBurnt).subtract(totalFeeCashBack);
+    }
+
+    public SignumValue getTotalFeeBurnt() {
+        return totalFeeBurnt;
+    }
+
+    public SignumValue getTotalFeeCashBack() {
+        return totalFeeCashBack;
+    }
+
     public byte[] getGenerationSignature() {
         return generationSignature;
     }
