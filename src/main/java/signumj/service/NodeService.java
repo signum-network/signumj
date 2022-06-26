@@ -254,7 +254,7 @@ public interface NodeService extends AutoCloseable {
      * @return The unsigned transaction bytes, wrapped in a single
      */
     Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline);
-
+    
     /**
      * Generate a transaction with a plaintext message
      * @param recipient The recipient
@@ -479,6 +479,17 @@ public interface NodeService extends AutoCloseable {
      */
     // TODO TEST
     Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline);
+
+    /**
+     * Adds the recipient account as a treasury account of the asset issued by the given full hash
+     * @param recipient the treasury account to be added
+     * @param senderPublicKey
+     * @param referencedTransactionFullHash the full hash of the transaction that created the asset
+     * @param fee
+     * @param deadline
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateAddAssetTreasuryAccountTransaction(SignumAddress recipient, byte[] senderPublicKey, String referencedTransactionFullHash, SignumValue fee, int deadline);
 
     /**
      * Generate the transaction for transferring assets
