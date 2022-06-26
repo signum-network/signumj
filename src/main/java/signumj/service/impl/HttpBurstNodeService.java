@@ -372,6 +372,18 @@ public final class HttpBurstNodeService implements NodeService {
         		fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, null, false, null, false, null, null, null, false, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
+    
+    @Override
+    public Single<byte[]> generateDistributeToAssetHolders(byte[] senderPublicKey, SignumID assetId,
+    		SignumValue quantityMinimumQNT, SignumValue amount, SignumID assetToDistribute, SignumValue quantityQNT,
+    		SignumValue fee, int deadline) {
+        return assign(burstAPIService.distributeToAssetHolders(SignumUtils.getEndpoint(),
+        		assetId.getID(), quantityMinimumQNT.toNQT().toString(), amount.toNQT().toString(),
+        		assetToDistribute.getID(), quantityQNT.toNQT().toString(),
+        		null, Hex.toHexString(senderPublicKey),
+        		fee.toNQT().toString(), deadline, null, false, null, false, null, false, null, null, null, false, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
 
     @Override
     public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline) {
@@ -765,6 +777,26 @@ public final class HttpBurstNodeService implements NodeService {
         @POST("{endpoint}?requestType=addAssetTreasuryAccount")
         Single<GenerateTransactionResponse> addAssetTreasuryAccount(@Path("endpoint") String endpoint,
         		@Query("recipient") String recipient,
+                @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+        
+        @POST("{endpoint}?requestType=distributeToAssetHolders")
+        Single<GenerateTransactionResponse> distributeToAssetHolders(@Path("endpoint") String endpoint,
+        		@Query("asset") String asset,
+        		@Query("quantityMinimumQNT") String quantityMinimumQNT,
+        		@Query("amountNQT") String amountNQT,
+        		@Query("assetToDistribute") String assetToDistribute,
+        		@Query("quantityQNT") String quantityQNT,
                 @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
