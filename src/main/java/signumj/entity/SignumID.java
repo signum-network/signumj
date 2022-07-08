@@ -1,9 +1,11 @@
 package signumj.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public final class SignumID {
-    /**
+public final class SignumID implements Serializable  {
+    private static final long serialVersionUID = 3847812016088041346L;
+	/**
      * Stored as a signed long (because java) but should be used as an unsigned long
      * using Convert.toUnsignedLong and Convert.parseUnsignedLong (BRS methods)
      */

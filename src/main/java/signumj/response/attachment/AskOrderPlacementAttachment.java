@@ -3,7 +3,8 @@ package signumj.response.attachment;
 import signumj.entity.response.TransactionAttachment;
 
 public class AskOrderPlacementAttachment extends TransactionAttachment {
-    private String asset;
+    private static final long serialVersionUID = -1756442388893825574L;
+	private String asset;
     private String quantityQNT;
     private String priceNQT;
 

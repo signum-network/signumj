@@ -1,5 +1,6 @@
 package signumj.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
@@ -7,8 +8,10 @@ import java.util.Locale;
 
 import signumj.util.SignumUtils;
 
-public final class SignumValue implements Comparable<SignumValue> {
-    private static final int decimals = 8;
+public final class SignumValue implements Comparable<SignumValue> , Serializable  {
+    private static final long serialVersionUID = -3996971561121327315L;
+
+	private static final int decimals = 8;
 
     public static final SignumValue ZERO = SignumValue.fromNQT(0);
     

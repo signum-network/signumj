@@ -1,13 +1,17 @@
 package signumj.entity.response;
 
-public abstract class TransactionAppendix { // TODO add missing appendixes
-    private final int version;
+import java.io.Serializable;
 
-    protected TransactionAppendix(int version) {
-        this.version = version;
-    }
+public abstract class TransactionAppendix implements Serializable {
+	private static final long serialVersionUID = -9188226066830349454L;
+// TODO add missing appendixes
+	private final int version;
 
-    public int getVersion() {
-        return version;
-    }
+	protected TransactionAppendix(int version) {
+		this.version = version;
+	}
+
+	public int getVersion() {
+		return version;
+	}
 }

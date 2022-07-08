@@ -10,10 +10,12 @@ import signumj.response.attachment.OrdinaryPaymentAttachment;
 
 import org.bouncycastle.util.encoders.Hex;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Transaction {
-    private final SignumAddress recipient;
+public class Transaction implements Serializable  {
+    private static final long serialVersionUID = -5549045405809223307L;
+	private final SignumAddress recipient;
     private final SignumAddress sender;
     private final SignumID blockId;
     private final SignumID ecBlockId;

@@ -3,7 +3,8 @@ package signumj.response.attachment;
 import signumj.entity.response.TransactionAttachment;
 
 public class AccountInfoAttachment extends TransactionAttachment {
-    private final String name;
+    private static final long serialVersionUID = -633629384697575012L;
+	private final String name;
     private final String description;
 
     public AccountInfoAttachment(int version, String name, String description) {

@@ -3,7 +3,8 @@ package signumj.response.attachment;
 import signumj.entity.response.TransactionAttachment;
 
 public class AskOrderCancellationAttachment extends TransactionAttachment {
-    private String order;
+    private static final long serialVersionUID = -3555385322580877866L;
+	private String order;
 
     public AskOrderCancellationAttachment(int version, String order) {
         super(version);
