@@ -18,6 +18,7 @@ public class Asset {
     private int numberOfTrades;
     private int numberOfTransfers;
     private int numberOfAccounts;
+    private String description;
 
     public Asset(SignumID accountId, SignumAddress assetAddress, String name, int decimals, SignumValue quantity, SignumID assetId, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
         this.accountId = accountId;
@@ -41,6 +42,7 @@ public class Asset {
         this.numberOfTrades = assetResponse.getNumberOfTrades();
         this.numberOfTransfers = assetResponse.getNumberOfTrades();
         this.numberOfAccounts = assetResponse.getNumberOfAccounts();
+        this.description = assetResponse.getDescription();
     }
 
     public SignumID getAccountId() {
@@ -78,4 +80,8 @@ public class Asset {
     public int getNumberOfAccounts() {
         return numberOfAccounts;
     }
+
+	public String getDescription() {
+		return description;
+	}
 }

@@ -1,9 +1,12 @@
 package signumj.entity;
 
+import java.io.Serializable;
+
 import signumj.crypto.SignumCrypto;
 
-public final class EncryptedMessage {
-    private final byte[] data;
+public final class EncryptedMessage  implements Serializable {
+    private static final long serialVersionUID = -8984498133840928101L;
+	private final byte[] data;
     private final byte[] nonce;
 
     private final boolean isText;
