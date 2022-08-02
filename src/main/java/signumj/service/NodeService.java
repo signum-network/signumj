@@ -106,6 +106,14 @@ public interface NodeService extends AutoCloseable {
     Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect);
 
     /**
+     * Get the transactions of an account
+     * @param accountId The address of the account
+     * @return The account's transactions, wrapped in a single
+     */
+    Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect,
+    		int type, int subtype);
+
+    /**
      * Get the unconfirmed transactions of an account
      * @param accountId The address of the account
      * @return The account's transactions, wrapped in a single

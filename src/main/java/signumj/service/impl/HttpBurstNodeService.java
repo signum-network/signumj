@@ -158,6 +158,15 @@ public final class HttpBurstNodeService implements NodeService {
     }
 
     @Override
+    public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
+        return assign(burstAPIService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
+                Integer.toString(type), Integer.toString(subtype), firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
+                		includeIndirect!=null && includeIndirect ? "true" : "false"))
+                        .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
+                                .toArray(Transaction[]::new));
+    }
+    
+    @Override
     public Single<Transaction[]> getUnconfirmedTransactions(SignumAddress accountId) {
         return assign(burstAPIService.getUnconfirmedTransactions(SignumUtils.getEndpoint(), accountId==null ? null : accountId.getID()))
                 .map(response -> Arrays.stream(response.getUnconfirmedTransactions()).map(Transaction::new)

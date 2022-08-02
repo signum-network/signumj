@@ -194,6 +194,11 @@ public class UseBestNodeService implements NodeService {
     }
 
     @Override
+    public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
+        return performOnBest(service -> service.getAccountTransactions(accountId, firstIndex, lastIndex, includeIndirect, type, subtype));
+    }
+
+    @Override
     public Single<Transaction[]> getUnconfirmedTransactions(SignumAddress accountId) {
         return performOnBest(service -> service.getUnconfirmedTransactions(accountId));
     }
