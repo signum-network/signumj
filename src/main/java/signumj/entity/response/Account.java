@@ -49,7 +49,7 @@ public class Account {
         	AssetBalanceResponse ub = accountResponse.getUnconfirmedAssetBalances()[i];
         	SignumValue quantity = SignumValue.fromNQT(b.getBalanceQNT());
         	SignumValue unconfirmedQuantity = SignumValue.fromNQT(ub.getBalanceQNT());
-        	this.assetBalances[i++] = new AssetBalance(id, SignumID.fromLong(b.getAsset()), quantity, unconfirmedQuantity);
+        	this.assetBalances[i] = new AssetBalance(id, SignumID.fromLong(b.getAsset()), quantity, unconfirmedQuantity);
         }
     }
 
