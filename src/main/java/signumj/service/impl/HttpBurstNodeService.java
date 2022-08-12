@@ -400,6 +400,24 @@ public final class HttpBurstNodeService implements NodeService {
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
+    
+    @Override
+    public Single<byte[]> generateTransferAssetMultiTransaction(byte[] senderPublicKey, SignumAddress recipient, Map<SignumID, SignumValue> assetIdAndQuantity, SignumValue amount, SignumValue fee, int deadline) {
+    	
+        StringBuilder assetIdAndQuantityString = new StringBuilder();
+        if (assetIdAndQuantity.size() > 4 || assetIdAndQuantity.size() < 2) {
+            throw new IllegalArgumentException("Must have 2-4 assets, had " + assetIdAndQuantity.size());
+        }
+        for (Map.Entry<SignumID, SignumValue> entry : assetIdAndQuantity.entrySet()) {
+        	assetIdAndQuantityString.append(entry.getKey().getID()).append(":").append(entry.getValue().toNQT())
+                    .append(";");
+        }
+        assetIdAndQuantityString.setLength(assetIdAndQuantityString.length() - 1);
+        
+        return assign(burstAPIService.transferAssetMulti(SignumUtils.getEndpoint(), recipient.getID(),null, assetIdAndQuantityString.toString(), amount == null ? null : amount.toNQT().toString(),
+                null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+    }
 
     @Override
     public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, String message) {
@@ -823,6 +841,22 @@ public final class HttpBurstNodeService implements NodeService {
         Single<GenerateTransactionResponse> transferAsset(@Path("endpoint") String endpoint,
                 @Query("recipient") String recipient, @Query("asset") String asset, @Query("recipientPublicKey") String recipientPublicKey,
                 @Query("quantityQNT") String quantity, @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
+                @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
+                @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
+                @Query("broadcast") boolean broadcast, @Query("message") String message,
+                @Query("messageIsText") Boolean messageIsText, @Query("messageToEncrypt") String messageToEncrypt,
+                @Query("messageToEncryptIsText") Boolean messageToEncryptIsText,
+                @Query("encryptedMessageData") String encryptedMessageData,
+                @Query("encryptedMessageNonce") String encryptedMessageNonce,
+                @Query("messageToEncryptToSelf") String messageToEncryptToSelf,
+                @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
+                @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
+                @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
+
+        @POST("{endpoint}?requestType=transferAssetMulti")
+        Single<GenerateTransactionResponse> transferAssetMulti(@Path("endpoint") String endpoint,
+                @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
+                @Query("assetIdsAnQuantity") String assetIdsAndQuantity, @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("message") String message,
