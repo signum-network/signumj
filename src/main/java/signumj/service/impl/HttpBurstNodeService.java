@@ -856,7 +856,7 @@ public final class HttpBurstNodeService implements NodeService {
         @POST("{endpoint}?requestType=transferAssetMulti")
         Single<GenerateTransactionResponse> transferAssetMulti(@Path("endpoint") String endpoint,
                 @Query("recipient") String recipient, @Query("recipientPublicKey") String recipientPublicKey,
-                @Query("assetIdsAnQuantity") String assetIdsAndQuantity, @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
+                @Query("assetIdsAndQuantity") String assetIdsAndQuantity, @Query("amountNQT") String amount, @Query("secretPhrase") String secretPhrase,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("message") String message,
