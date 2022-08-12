@@ -501,9 +501,12 @@ public interface NodeService extends AutoCloseable {
 
     /**
      * Adds the recipient account as a treasury account of the asset issued by the given full hash
-     * @param recipient the treasury account to be added
      * @param senderPublicKey
-     * @param referencedTransactionFullHash the full hash of the transaction that created the asset
+     * @param assetId the asset ID accounts have to hold to receive
+     * @param quantityMinimumQNT minimum quantity to be eligible for the distribution
+     * @param amount the amount being distributed
+     * @param assetToDistribute the asset being also distributed
+     * @param quantityQNT quantity of the asset being distributed
      * @param fee
      * @param deadline
      * @return The unsigned transaction bytes, wrapped in a single
