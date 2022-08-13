@@ -528,7 +528,17 @@ public interface NodeService extends AutoCloseable {
     // TODO TEST
     Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline);
 
-    Single<byte[]> generateTransferAssetMultiTransaction(byte[] senderPublicKey, SignumAddress recipient, Map<SignumID, SignumValue> assetAndQuantity, SignumValue amount, SignumValue fee, int deadline);
+    /**
+     * Generate the transaction for transferring assets
+     * @param senderPublicKey The public key of the sender
+     * @param recipient The recipient
+     * @param assetIdsAndQuantities the asset ids and quantities being sent
+     * @param fee The transaction fee
+     * @param deadline The deadline for the transaction
+     * @param amount The SIGNA amount to send along with this transfer (optional)
+     * @return The unsigned transaction bytes, wrapped in a single
+     */
+    Single<byte[]> generateTransferAssetMultiTransaction(byte[] senderPublicKey, SignumAddress recipient, Map<SignumID, SignumValue> assetIdsAndQuantities, SignumValue amount, SignumValue fee, int deadline);
 
     /**
      * Generate the transaction for an asset transfer with a message
