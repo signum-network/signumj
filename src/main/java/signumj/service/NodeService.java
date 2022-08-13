@@ -485,7 +485,6 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
     Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline);
 
     /**
