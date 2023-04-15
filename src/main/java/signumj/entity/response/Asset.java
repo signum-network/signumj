@@ -9,6 +9,7 @@ public class Asset {
     private final SignumAddress issuer;
     private final SignumAddress account;
     private final String name;
+    private final String description;
     private final int decimals;
     private final boolean mintable;
     /**
@@ -20,10 +21,11 @@ public class Asset {
     private int numberOfTransfers;
     private int numberOfAccounts;
 
-    public Asset(SignumAddress issuer, SignumAddress account, String name, int decimals, SignumValue quantity, SignumID assetId, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
+    public Asset(SignumAddress issuer, SignumAddress account, String name, String description, int decimals, SignumValue quantity, SignumID assetId, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
         this.issuer = issuer;
         this.account = account;
         this.name = name;
+        this.description = description;
         this.decimals = decimals;
         this.quantity = quantity;
         this.assetId = assetId;
@@ -37,6 +39,7 @@ public class Asset {
         this.account = SignumAddress.fromId(assetResponse.getAccount());
         this.issuer = SignumAddress.fromId(assetResponse.getIssuer());
         this.name = assetResponse.getName();
+        this.description = assetResponse.getDescription();
         this.decimals = assetResponse.getDecimals();
         this.quantity = SignumValue.fromNQT(assetResponse.getQuantityQNT());
         this.mintable = assetResponse.getMintable();
@@ -60,6 +63,10 @@ public class Asset {
 
     public String getName() {
         return name;
+    }
+    
+    public String getDescription() {
+        return description;
     }
 
     public int getDecimals() {

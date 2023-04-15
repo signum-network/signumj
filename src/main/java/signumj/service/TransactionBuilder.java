@@ -253,6 +253,7 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder asset(SignumID asset) {
+		this.asset = asset;
 		params.put("asset", asset.getID());
 		return this;
 	}
