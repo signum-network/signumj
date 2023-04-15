@@ -19,7 +19,7 @@ Signum Java Development Framework
     <dependency>
 	    <groupId>com.github.signum-network</groupId>
 	    <artifactId>signumj</artifactId>
-	    <version>v1.1.0</version>
+	    <version>v1.2.0</version>
 	</dependency>
 </dependencies>
 ```
@@ -31,7 +31,7 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 dependencies {
-	implementation 'com.github.signum-network:signumj:v1.1.0'
+	implementation 'com.github.signum-network:signumj:v1.2.0'
 }
 ```
 
