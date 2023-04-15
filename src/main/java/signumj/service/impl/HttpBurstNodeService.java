@@ -212,6 +212,14 @@ public final class HttpBurstNodeService implements NodeService {
         return assign(burstAPIService.getBidOrders(SignumUtils.getEndpoint(), assetId.getID()))
                 .map(response -> Arrays.stream(response.getOrders()).map(AssetOrder::new).toArray(AssetOrder[]::new));
     }
+    
+    @Override
+    public Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp, Integer firstIndex,
+    		Integer lastIndex) {
+        return assign(burstAPIService.getAliases(SignumUtils.getEndpoint(), account.getID(), aliasName, tld,
+        		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
+                .map(response -> Arrays.stream(response.getAliases()).map(Alias::new).toArray(Alias[]::new));
+    }
 
     @Override
     public Single<AT> getAt(SignumAddress atId) {
@@ -698,6 +706,10 @@ public final class HttpBurstNodeService implements NodeService {
         
         @GET("{endpoint}?requestType=getBidOrders")
         Single<BidOrdersResponse> getBidOrders(@Path("endpoint") String endpoint, @Query("asset") String assetId);
+
+        @GET("{endpoint}?requestType=getAliases")
+        Single<AliasesResponse> getAliases(@Path("endpoint") String endpoint, @Query("account") String accountId,
+        		@Query("aliasName") String aliasName, @Query("tld") String tld, @Query("timestamp") String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
         
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") Boolean includeDetails);

@@ -19,6 +19,7 @@ import signumj.entity.SignumTimestamp;
 import signumj.entity.SignumValue;
 import signumj.entity.response.AT;
 import signumj.entity.response.Account;
+import signumj.entity.response.Alias;
 import signumj.entity.response.Asset;
 import signumj.entity.response.AssetBalance;
 import signumj.entity.response.AssetOrder;
@@ -498,5 +499,11 @@ public class UseBestNodeService implements NodeService {
 	@Override
 	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
 		return performOnBest(service -> service.generateTransaction(builder));
+	}
+
+	@Override
+	public Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp,
+			Integer firstIndex, Integer lastIndex) {
+		return performOnBest(service -> service.getAliases(account, aliasName, tld, timestamp, firstIndex, lastIndex));
 	}
 }

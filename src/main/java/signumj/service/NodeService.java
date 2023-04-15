@@ -169,6 +169,13 @@ public interface NodeService extends AutoCloseable {
      * @return A list trades, wrapped in a single
      */
     Single<AssetOrder[]> getBidOrders(SignumID assetId);
+    
+    /**
+     * Get the aliases
+     * 
+     * @return A list of aliases, wrapped in a single
+     */
+    Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex);
 
     /**
      * Get the details of an AT

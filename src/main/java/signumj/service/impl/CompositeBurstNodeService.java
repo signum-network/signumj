@@ -468,4 +468,10 @@ public class CompositeBurstNodeService implements NodeService {
 		return performFastest(service -> service.getIndirectIncoming(account, transaction));
 	}
 
+	@Override
+	public Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp,
+			Integer firstIndex, Integer lastIndex) {
+		return performFastest(service -> service.getAliases(account, aliasName, tld, timestamp, firstIndex, lastIndex));
+	}
+
 }
