@@ -1,32 +1,48 @@
 package signumj.test;
 
-import signumj.crypto.SignumCrypto;
-import signumj.entity.SignumAddress;
-import signumj.entity.SignumID;
-import signumj.entity.SignumTimestamp;
-import signumj.entity.SignumValue;
-import signumj.entity.response.*;
-import signumj.entity.response.Constants.TransactionType;
-import signumj.entity.response.Constants.TransactionType.Subtype;
-import signumj.response.appendix.EncryptedMessageAppendix;
-import signumj.response.appendix.PlaintextMessageAppendix;
-import signumj.response.attachment.*;
-import signumj.service.NodeService;
-
-import org.bouncycastle.util.encoders.Hex;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.bouncycastle.util.encoders.Hex;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import signumj.crypto.SignumCrypto;
+import signumj.entity.SignumAddress;
+import signumj.entity.SignumID;
+import signumj.entity.SignumTimestamp;
+import signumj.entity.SignumValue;
+import signumj.entity.response.AT;
+import signumj.entity.response.Account;
+import signumj.entity.response.AssetBalance;
+import signumj.entity.response.AssetOrder;
+import signumj.entity.response.Block;
+import signumj.entity.response.Constants;
+import signumj.entity.response.Constants.TransactionType;
+import signumj.entity.response.Constants.TransactionType.Subtype;
+import signumj.entity.response.FeeSuggestion;
+import signumj.entity.response.IndirectIncoming;
+import signumj.entity.response.MiningInfo;
+import signumj.entity.response.Transaction;
+import signumj.response.appendix.EncryptedMessageAppendix;
+import signumj.response.appendix.PlaintextMessageAppendix;
+import signumj.response.attachment.ATCreationAttachment;
+import signumj.response.attachment.AskOrderCancellationAttachment;
+import signumj.response.attachment.AskOrderPlacementAttachment;
+import signumj.response.attachment.AssetIssuanceAttachment;
+import signumj.response.attachment.AssetTransferAttachment;
+import signumj.response.attachment.BidOrderCancellationAttachment;
+import signumj.response.attachment.BidOrderPlacementAttachment;
+import signumj.response.attachment.MultiOutAttachment;
+import signumj.response.attachment.MultiOutSameAttachment;
+import signumj.service.NodeService;
 
 public abstract class SignumNodeServiceTest {
     private NodeService burstNodeService;
@@ -43,7 +59,7 @@ public abstract class SignumNodeServiceTest {
     }
 
     protected abstract NodeService getBurstNodeService();
-    
+
     @Test
     public void testBurstServiceGetAccountTxs() {
         Transaction[] txsResponse = RxTestUtils.testSingle(burstNodeService.getAccountTransactions(SignumAddress.fromEither("BURST-GBQ6-ZHHN-5TSQ-5URAM"), 0, 100, false));
@@ -102,9 +118,9 @@ public abstract class SignumNodeServiceTest {
         assertEquals(TestVariables.EXAMPLE_ACCOUNT_ID, accountResponse.getId());
         assertNotNull(accountResponse.getCommitment());
         assertNotNull(accountResponse.getCommittedBalance());
-        
+
         byte[] addCommitmentMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionAddCommitment(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440));
-        assertNotNull(addCommitmentMessage);        
+        assertNotNull(addCommitmentMessage);
     }
 
     @Test
@@ -251,7 +267,6 @@ public abstract class SignumNodeServiceTest {
     }
 
     @Test
-    @Ignore // while we don't have 3.4 nodes running
     public void testIndirectIncoming() {
         IndirectIncoming indirect = RxTestUtils.testSingle(burstNodeService.getIndirectIncoming(TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID_RECEIVER,
         		TestVariables.EXAMPLE_MULTI_OUT_TRANSACTION_ID));
@@ -264,9 +279,9 @@ public abstract class SignumNodeServiceTest {
         byte[] withoutMessageAmount = RxTestUtils.testSingle(burstNodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, null));
         byte[] withStringMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, "Test Transaction", null));
         byte[] withBytesMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, null));
-        
+
         byte[] rewardRecipientMessage = RxTestUtils.testSingle(burstNodeService.generateTransactionSetRewardRecipient(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), 1440));
-        
+
         assertNotNull(withoutMessageAmount);
         assertNotNull(withStringMessage);
         assertNotNull(withBytesMessage);
@@ -316,7 +331,7 @@ public abstract class SignumNodeServiceTest {
         Map<SignumAddress, SignumValue> recipients = new HashMap<>();
         recipients.put(burstCrypto.getAddressFromPassphrase("example1"), SignumValue.fromSigna(1));
         recipients.put(burstCrypto.getAddressFromPassphrase("example2"), SignumValue.fromSigna(2));
-        byte[] multiOutResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromNQT(753000), 1440, recipients));
+        byte[] multiOutResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(0.1), 1440, recipients));
         assertNotNull(multiOutResponse);
     }
 
@@ -325,7 +340,7 @@ public abstract class SignumNodeServiceTest {
         Set<SignumAddress> recipients = new HashSet<>();
         recipients.add(burstCrypto.getAddressFromPassphrase("example1"));
         recipients.add(burstCrypto.getAddressFromPassphrase("example2"));
-        byte[] multiOutSameResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromNQT(753000), 1440, recipients));
+        byte[] multiOutSameResponse = RxTestUtils.testSingle(burstNodeService.generateMultiOutSameTransaction(TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(0.1), 1440, recipients));
         assertNotNull(multiOutSameResponse);
     }
 

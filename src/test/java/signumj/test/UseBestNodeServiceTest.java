@@ -14,9 +14,9 @@ import signumj.service.impl.UseBestNodeService;
 @RunWith(JUnit4.class)
 @Ignore // for faster automated build
 public class UseBestNodeServiceTest extends SignumNodeServiceTest {
-	
+
 	private static UseBestNodeService instance;
-	
+
     @Override
     protected NodeService getBurstNodeService() {
     	if(instance == null) {

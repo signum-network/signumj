@@ -5,6 +5,7 @@ import signumj.crypto.SignumCrypto;
 import signumj.entity.SignumAddress;
 import signumj.entity.SignumValue;
 import signumj.service.NodeService;
+import signumj.service.TransactionBuilder;
 
 /**
  * Example which sends 1 SIGNA to another account with a fee of 0.1 SIGNA.
@@ -24,10 +25,18 @@ public class SendTransactionBlockingGet {
         SignumValue amountToSend = SignumValue.fromSigna(1);
         SignumValue fee = SignumValue.fromSigna(0.1);
         int deadline = 1440; // deadline in minutes before this transaction becomes invalid
+        
+        TransactionBuilder tb = new TransactionBuilder(TransactionBuilder.SEND_MONEY,
+        		SignumCrypto.getInstance().getPublicKey(passphrase), fee, deadline)
+        		.recipient(recipient)
+        		.amount(amountToSend);
 
         // Generate the transaction without signing it
-        byte[] unsignedTransactionBytes = node.generateTransaction(recipient,
-        		SignumCrypto.getInstance().getPublicKey(passphrase), amountToSend, fee, deadline, null).blockingGet();
+        byte[] unsignedTransactionBytes = node.generateTransaction(tb).blockingGet();
+        if(!tb.verify(unsignedTransactionBytes)) {
+        	System.err.println("Transaction bytes mismatch!");
+        	return;
+        }
         
         // Locally sign the transaction using our passphrase
         byte[] signedTransactionBytes = SignumCrypto.getInstance().signTransaction(passphrase, unsignedTransactionBytes);

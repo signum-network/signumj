@@ -32,6 +32,7 @@ import signumj.entity.response.MiningInfo;
 import signumj.entity.response.Transaction;
 import signumj.entity.response.TransactionBroadcast;
 import signumj.service.NodeService;
+import signumj.service.TransactionBuilder;
 import signumj.util.SignumUtils;
 
 /**
@@ -492,5 +493,10 @@ public class UseBestNodeService implements NodeService {
 	@Override
 	public Single<IndirectIncoming> getIndirectIncoming(SignumAddress account, SignumID transaction) {
 		return performOnBest(service -> service.getIndirectIncoming(account, transaction));
+	}
+
+	@Override
+	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
+		return performOnBest(service -> service.generateTransaction(builder));
 	}
 }

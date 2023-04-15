@@ -1,5 +1,6 @@
 package signumj.test;
 
+import signumj.Constants;
 import signumj.service.NodeService;
 import signumj.service.impl.HttpBurstNodeService;
 
@@ -10,6 +11,6 @@ import org.junit.runners.JUnit4;
 public class HttpSignumNodeServiceTest extends SignumNodeServiceTest {
     @Override
     protected NodeService getBurstNodeService() {
-        return new HttpBurstNodeService(TestVariables.HTTP_NODE, TestVariables.TEST_USER_AGENT);
+        return new HttpBurstNodeService(Constants.HTTP_NODE_TESTNET, TestVariables.TEST_USER_AGENT);
     }
 }

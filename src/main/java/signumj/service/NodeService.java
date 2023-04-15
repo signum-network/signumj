@@ -380,6 +380,8 @@ public interface NodeService extends AutoCloseable {
      */
     Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash);
 
+    Single<byte[]> generateTransaction(TransactionBuilder builder);
+
     /**
      * Get the currently suggested transaction fees, which are calculated based on current network congestion -
      * @return Suggested transaction fees - Priority, standard and cheap in descending speed and cost, wrapped in a single

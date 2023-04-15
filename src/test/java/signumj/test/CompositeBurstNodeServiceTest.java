@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-@Ignore // TODO
+@Ignore // for faster automated build
 public class CompositeBurstNodeServiceTest extends SignumNodeServiceTest {
     @Override
     protected NodeService getBurstNodeService() {

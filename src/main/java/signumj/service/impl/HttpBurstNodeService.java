@@ -24,11 +24,14 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
+import retrofit2.http.Url;
 import signumj.entity.*;
 import signumj.entity.response.*;
 import signumj.entity.response.http.*;
 import signumj.service.ApiException;
 import signumj.service.NodeService;
+import signumj.service.TransactionBuilder;
 import signumj.util.SignumUtils;
 
 public final class HttpBurstNodeService implements NodeService {
@@ -249,6 +252,13 @@ public final class HttpBurstNodeService implements NodeService {
         return assign(burstAPIService.getTransactionBytes(SignumUtils.getEndpoint(), transactionId.getID()))
                 .map(response -> Hex.decode(response.getTransactionBytes()));
     }
+    
+	@Override
+	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
+		String url = SignumUtils.getEndpoint() + "?requestType=" + builder.getRequestType();
+        return assign(burstAPIService.generateTransaction(url, builder.getParams(), builder.getBody()))
+                        .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
+	}
 
     @Override
     public Single<byte[]> generateTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String referencedTransactionFullHash) {
@@ -706,6 +716,9 @@ public final class HttpBurstNodeService implements NodeService {
         @GET("{endpoint}?requestType=getTransactionBytes")
         Single<TransactionBytesResponse> getTransactionBytes(@Path("endpoint") String endpoint,
                 @Query("transaction") String transaction);
+        
+        @POST
+        Single<GenerateTransactionResponse> generateTransaction(@Url String url, @QueryMap Map<String, String> params, @Body String body);
 
         @POST("{endpoint}?requestType=sendMoney")
         Single<GenerateTransactionResponse> sendMoney(@Path("endpoint") String endpoint,

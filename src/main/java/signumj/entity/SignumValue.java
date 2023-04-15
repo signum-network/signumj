@@ -11,13 +11,13 @@ public final class SignumValue implements Comparable<SignumValue> {
     private static final int decimals = 8;
 
     public static final SignumValue ZERO = SignumValue.fromNQT(0);
-    
+
     private final BigInteger planck;
 
     private SignumValue(BigInteger planck) {
         this.planck = planck;
     }
-    
+
     /**
      * @param planck The number of quant
      * @return The SignumValue representing this number of planck, or a SignumValue representing 0 Burst if the string could not be parsed
@@ -39,7 +39,7 @@ public final class SignumValue implements Comparable<SignumValue> {
             return fromNQT(BigInteger.ZERO);
         }
     }
-    
+
     /**
      * @param planck The number of planck
      * @return The SignumValue representing this number of quant
@@ -73,13 +73,13 @@ public final class SignumValue implements Comparable<SignumValue> {
      * @param burst The number of burst
      * @return The SignumValue representing this number of burst
      */
-    public static SignumValue fromSigna(double burst) {
-        return fromSigna(BigDecimal.valueOf(burst));
+    public static SignumValue fromSigna(double signa) {
+        return fromSigna(BigDecimal.valueOf(signa));
     }
 
-    public static SignumValue fromSigna(BigDecimal burst) {
-        if (burst == null) return ZERO;
-        return new SignumValue(burst.multiply(BigDecimal.TEN.pow(decimals)).toBigInteger());
+    public static SignumValue fromSigna(BigDecimal signa) {
+        if (signa == null) return ZERO;
+        return new SignumValue(signa.multiply(BigDecimal.TEN.pow(decimals)).toBigInteger());
     }
 
     private static BigDecimal roundToThreeDP(BigDecimal in) {
@@ -108,7 +108,7 @@ public final class SignumValue implements Comparable<SignumValue> {
     public String toUnformattedString() {
         return toSigna().stripTrailingZeros().toPlainString();
     }
-    
+
     /**
      * @return A BigInteger representing the number of quant
      */
@@ -151,7 +151,7 @@ public final class SignumValue implements Comparable<SignumValue> {
     public SignumValue divide(double divisor) {
         return fromSigna(toSigna().divide(BigDecimal.valueOf(divisor), decimals, RoundingMode.HALF_UP));
     }
-    
+
     public SignumValue divide(BigInteger divisor) {
         return fromNQT(planck.divide(divisor));
     }

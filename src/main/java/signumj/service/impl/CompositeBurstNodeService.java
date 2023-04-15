@@ -9,6 +9,7 @@ import io.reactivex.disposables.Disposable;
 import signumj.entity.*;
 import signumj.entity.response.*;
 import signumj.service.NodeService;
+import signumj.service.TransactionBuilder;
 import signumj.util.SignumUtils;
 
 import java.util.*;
@@ -432,6 +433,11 @@ public class CompositeBurstNodeService implements NodeService {
             burstNodeService.close();
         }
     }
+    
+	@Override
+	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
+		return performFastest(service -> service.generateTransaction(builder));
+	}
 
 	@Override
 	public Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey,
