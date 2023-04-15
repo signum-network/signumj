@@ -744,7 +744,7 @@ public interface SignumCrypto {
      * @param pocVersion The PoC version (1 or 2) of the nonce
      * @param buffer The buffer into which to store the plotted nonce
      * @param offset The offset into the buffer to store the plotted nonce at
-     * @throws IllegalArgumentException if buffer.length < offset + 262144 (if the buffer does not have enough space in which to store the nonce)
+     * @throws IllegalArgumentException if buffer.length smaller than offset + 262144 (if the buffer does not have enough space in which to store the nonce)
      */
     void plotNonce(long accountId, long nonce, byte pocVersion, byte[] buffer, int offset);
 
@@ -756,7 +756,7 @@ public interface SignumCrypto {
      * @param pocVersion The PoC version (1 or 2) of the nonce
      * @param buffer The buffer into which to store the plotted nonce
      * @param offset The offset into the buffer to store the plotted nonce at
-     * @throws IllegalArgumentException if buffer.length < offset + (nonceCount * 262144) (if the buffer does not have enough space in which to store the nonces)
+     * @throws IllegalArgumentException if buffer.length smaller than offset + (nonceCount * 262144) (if the buffer does not have enough space in which to store the nonces)
      */
     void plotNonces(long accountId, long startNonce, long nonceCount, byte pocVersion, byte[] buffer, int offset);
 

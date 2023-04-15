@@ -70,8 +70,8 @@ public final class SignumValue implements Comparable<SignumValue> {
     }
 
     /**
-     * @param burst The number of burst
-     * @return The SignumValue representing this number of burst
+     * @param signa The number of signa
+     * @return The SignumValue representing this number of signa
      */
     public static SignumValue fromSigna(double signa) {
         return fromSigna(BigDecimal.valueOf(signa));
