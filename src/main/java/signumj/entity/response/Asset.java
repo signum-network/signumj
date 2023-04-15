@@ -16,18 +16,20 @@ public class Asset {
      * Quantity of the asset. Not actually in Burst; The BurstValue class is used as a utility.
      */
     private final SignumValue quantity;
+    private final SignumValue quantityBurnt;
     private final SignumID assetId;
     private int numberOfTrades;
     private int numberOfTransfers;
     private int numberOfAccounts;
 
-    public Asset(SignumAddress issuer, SignumAddress account, String name, String description, int decimals, SignumValue quantity, SignumID assetId, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
+    public Asset(SignumAddress issuer, SignumAddress account, String name, String description, int decimals, SignumValue quantity, SignumValue quantityBurnt, SignumID assetId, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
         this.issuer = issuer;
         this.account = account;
         this.name = name;
         this.description = description;
         this.decimals = decimals;
         this.quantity = quantity;
+        this.quantityBurnt = quantityBurnt;
         this.assetId = assetId;
         this.mintable = mintable;
         this.numberOfTrades = numberOfTrades;
@@ -42,6 +44,7 @@ public class Asset {
         this.description = assetResponse.getDescription();
         this.decimals = assetResponse.getDecimals();
         this.quantity = SignumValue.fromNQT(assetResponse.getQuantityQNT());
+        this.quantityBurnt = SignumValue.fromNQT(assetResponse.getQuantityBurntQNT());
         this.mintable = assetResponse.getMintable();
         this.assetId = SignumID.fromLong(assetResponse.getAsset());
         this.numberOfTrades = assetResponse.getNumberOfTrades();
@@ -75,6 +78,10 @@ public class Asset {
 
     public SignumValue getQuantity() {
         return quantity;
+    }
+
+    public SignumValue getQuantityBurnt() {
+        return quantityBurnt;
     }
 
     public SignumID getAssetId() {

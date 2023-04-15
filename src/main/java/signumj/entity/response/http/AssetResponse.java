@@ -9,13 +9,14 @@ public class AssetResponse extends BRSResponse  {
     private final String description;
     private final int decimals;
     private final String quantityQNT;
+    private final String quantityBurntQNT;
     private final String asset;
     private final boolean mintable;
     private final int numberOfTrades;
     private final int numberOfTransfers;
     private final int numberOfAccounts;
 
-    public AssetResponse(String issuer, String issuerRS, String account, String accountRS, String name, String description, int decimals, String quantityQNT, String asset, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
+    public AssetResponse(String issuer, String issuerRS, String account, String accountRS, String name, String description, int decimals, String quantityQNT, String quantityBurntQNT, String asset, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
         this.issuer = issuer;
         this.issuerRS = issuerRS;
         this.account = account;
@@ -24,6 +25,7 @@ public class AssetResponse extends BRSResponse  {
         this.description = description;
         this.decimals = decimals;
         this.quantityQNT = quantityQNT;
+        this.quantityBurntQNT = quantityBurntQNT;
         this.asset = asset;
         this.mintable = mintable;
         this.numberOfTrades = numberOfTrades;
@@ -65,6 +67,10 @@ public class AssetResponse extends BRSResponse  {
 
     public String getQuantityQNT() {
         return quantityQNT;
+    }
+
+    public String getQuantityBurntQNT() {
+        return quantityBurntQNT;
     }
 
     public String getAsset() {
