@@ -562,9 +562,12 @@ public class TransactionBuilder {
 			long minimumAssetQuantityQNT = buffer.getLong();
 			long assetIdToDistribute = buffer.getLong();
 			long quantityQNT = buffer.getLong();
-			if(this.asset.getSignedLongId() != assetId || this.quantity.longValue() != quantityQNT
-					|| this.quantityMinimum.longValue() != minimumAssetQuantityQNT
-					|| this.assetToDistribute.getSignedLongId() != assetIdToDistribute) {
+			if(this.asset.getSignedLongId() != assetId
+					|| (this.quantity==null && quantityQNT!=0L)
+					|| (this.quantity!=null && this.quantity.longValue() != quantityQNT)
+					|| (this.assetToDistribute==null && assetIdToDistribute!=0L)
+					|| (this.assetToDistribute!=null && this.assetToDistribute.getSignedLongId() != assetIdToDistribute)
+					|| this.quantityMinimum.longValue() != minimumAssetQuantityQNT ){
 				return false;
 			}
 		}
