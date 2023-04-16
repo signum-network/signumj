@@ -14,6 +14,7 @@ public class TestVariables {
     public static final SignumID EXAMPLE_ASSET_ID = SignumID.fromLong("2864220132438361643");
     public static final SignumAddress EXAMPLE_ACCOUNT_ID = SignumAddress.fromId(SignumID.fromLong("7009665667967103287"));
     public static final SignumAddress EXAMPLE_ACCOUNT_ID_WITH_ASSET = SignumAddress.fromId(SignumID.fromLong("10483186162341119402"));
+    public static final SignumAddress EXAMPLE_ACCOUNT_WITH_ATS = SignumAddress.fromId(SignumID.fromLong("15531783970570580600"));
     public static final SignumAddress EXAMPLE_POOL_ACCOUNT_ID = SignumAddress.fromId(SignumID.fromLong("888561138747819634"));
     public static final byte[] EXAMPLE_ACCOUNT_PUBKEY = Hex.decode("34d010e80c0d6dc409f8d7a99d0815bfbff9387909a9fca4c65253ec44fad360");
     public static final byte[] EXAMPLE_ACCOUNT_PUBKEY_FRESH = Hex.decode("d0d010e80c0d6dc409f8d7a99d0815bfbff9387909a9fca4c65253ec44fad360");

@@ -240,7 +240,7 @@ public final class HttpNodeService implements NodeService {
     @Override
     public Single<AT[]> getAts(SignumID codeHashId, Boolean includeDetails, Integer firstIndex, Integer lastIndex) {
         return assign(apiService.getAts(SignumUtils.getEndpoint(), codeHashId.getID(), includeDetails, firstIndex, lastIndex).map(
-        		response -> Arrays.stream(response.getAts()).map(AT::new).toArray(AT[]::new)));
+        		response -> Arrays.stream(response.getATs()).map(AT::new).toArray(AT[]::new)));
     }
 
     @Override
@@ -663,7 +663,7 @@ public final class HttpNodeService implements NodeService {
         		@Query("height") String height, @Query("estimateCommitment") String calculateCommitment, @Query("getCommittedAmount") String getCommittedAmount);
 
         @GET("{endpoint}?requestType=getAccountATs")
-        Single<AccountATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId, @Query("machineCodeHashId") String machineCodeHashId);
+        Single<ATsResponse> getAccountATs(@Path("endpoint") String endpoint, @Query("account") String accountId, @Query("machineCodeHashId") String machineCodeHashId);
 
         @GET("{endpoint}?requestType=getAccountBlockIds")
         Single<AccountBlockIDsResponse> getAccountBlockIDs(@Path("endpoint") String endpoint,
@@ -724,7 +724,7 @@ public final class HttpNodeService implements NodeService {
         Single<AtIDsResponse> getAtIds(@Path("endpoint") String endpoint, @Query("machineCodeHashId") String machineCodeHashId);
 
         @GET("{endpoint}?requestType=getATs")
-        Single<AtsResponse> getAts(@Path("endpoint") String endpoint, @Query("machineCodeHashId") String machineCodeHashId,
+        Single<ATsResponse> getAts(@Path("endpoint") String endpoint, @Query("machineCodeHashId") String machineCodeHashId,
         		@Query("includeDetails") Boolean includeDetails, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
 
         @GET("{endpoint}?requestType=getTransaction")

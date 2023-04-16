@@ -1,9 +1,9 @@
 package signumj.entity.response.http;
 
-public final class AccountATsResponse extends BRSResponse {
+public final class ATsResponse extends BRSResponse {
     private final ATResponse[] ats;
 
-    public AccountATsResponse(ATResponse[] ats) {
+    public ATsResponse(ATResponse[] ats) {
         this.ats = ats;
     }
 

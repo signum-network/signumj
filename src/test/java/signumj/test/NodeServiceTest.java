@@ -130,8 +130,8 @@ public class NodeServiceTest {
 
     @Test
     public void testGetAccountATs() {
-        AT[] accountATsResponse = RxTestUtils.testSingle(nodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_ID, null));
-        assertEquals(0, accountATsResponse.length);
+        AT[] accountATsResponse = RxTestUtils.testSingle(nodeService.getAccountATs(TestVariables.EXAMPLE_ACCOUNT_WITH_ATS, null));
+        assertTrue(accountATsResponse.length > 0);
     }
 
     @Test
