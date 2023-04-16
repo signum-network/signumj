@@ -19,7 +19,7 @@ import signumj.entity.SignumAddress;
 import signumj.entity.SignumValue;
 import signumj.service.NodeService;
 import signumj.service.TransactionBuilder;
-import signumj.service.impl.HttpBurstNodeService;
+import signumj.service.impl.HttpNodeService;
 
 public class TransactionBuilderTest {
     private NodeService nodeService;
@@ -36,7 +36,7 @@ public class TransactionBuilderTest {
     }
 
     protected NodeService getNodeService() {
-    	return new HttpBurstNodeService(Constants.HTTP_NODE_TESTNET, TestVariables.TEST_USER_AGENT);
+    	return new HttpNodeService(Constants.HTTP_NODE_TESTNET, TestVariables.TEST_USER_AGENT);
     }
 
     @Test

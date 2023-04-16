@@ -18,13 +18,13 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class CompositeBurstNodeService implements NodeService {
+public class CompositeNodeService implements NodeService {
     private final NodeService[] burstNodeServices;
 
     /**
      * @param burstNodeServices The burst node services this will wrap, in order of priority
      */
-    public CompositeBurstNodeService(NodeService... burstNodeServices) {
+    public CompositeNodeService(NodeService... burstNodeServices) {
         if (burstNodeServices == null || burstNodeServices.length == 0) throw new IllegalArgumentException("No Burst Node Services Provided");
         this.burstNodeServices = burstNodeServices;
     }

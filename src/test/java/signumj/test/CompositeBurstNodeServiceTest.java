@@ -1,8 +1,8 @@
 package signumj.test;
 
 import signumj.service.NodeService;
-import signumj.service.impl.CompositeBurstNodeService;
-import signumj.service.impl.HttpBurstNodeService;
+import signumj.service.impl.CompositeNodeService;
+import signumj.service.impl.HttpNodeService;
 
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
@@ -13,7 +13,7 @@ import org.junit.runners.JUnit4;
 public class CompositeBurstNodeServiceTest extends NodeServiceTest {
     @Override
     protected NodeService getNodeService() {
-        NodeService http = new HttpBurstNodeService(TestVariables.HTTP_NODE, TestVariables.TEST_USER_AGENT);
-        return new CompositeBurstNodeService(http);
+        NodeService http = new HttpNodeService(TestVariables.HTTP_NODE, TestVariables.TEST_USER_AGENT);
+        return new CompositeNodeService(http);
     }
 }

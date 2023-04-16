@@ -44,7 +44,7 @@ import signumj.response.attachment.BidOrderPlacementAttachment;
 import signumj.response.attachment.MultiOutAttachment;
 import signumj.response.attachment.MultiOutSameAttachment;
 import signumj.service.NodeService;
-import signumj.service.impl.HttpBurstNodeService;
+import signumj.service.impl.HttpNodeService;
 
 public class NodeServiceTest {
     private NodeService nodeService;
@@ -61,7 +61,7 @@ public class NodeServiceTest {
     }
 
     protected NodeService getNodeService() {
-        return new HttpBurstNodeService(signumj.Constants.HTTP_NODE_EUROPE2, TestVariables.TEST_USER_AGENT);
+        return new HttpNodeService(signumj.Constants.HTTP_NODE_EUROPE2, TestVariables.TEST_USER_AGENT);
         // return new HttpBurstNodeService(signumj.Constants.HTTP_NODE_TESTNET, TestVariables.TEST_USER_AGENT);
     }
 

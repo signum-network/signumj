@@ -4,8 +4,8 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 import signumj.entity.*;
 import signumj.entity.response.*;
-import signumj.service.impl.CompositeBurstNodeService;
-import signumj.service.impl.HttpBurstNodeService;
+import signumj.service.impl.CompositeNodeService;
+import signumj.service.impl.HttpNodeService;
 import signumj.service.impl.UseBestNodeService;
 
 import java.util.ArrayList;
@@ -678,7 +678,7 @@ public interface NodeService extends AutoCloseable {
 
     static NodeService getInstance(String nodeAddress, String userAgent) {
         if (userAgent == null) userAgent = "burstkit4j/" + signumj.Constants.VERSION;
-        return new HttpBurstNodeService(nodeAddress, userAgent);
+        return new HttpNodeService(nodeAddress, userAgent);
     }
 
     static NodeService getCompositeInstance(String... nodeAddresses) {
@@ -704,7 +704,7 @@ public interface NodeService extends AutoCloseable {
     static NodeService getCompositeInstanceWithUserAgent(String userAgent, String... nodeAddresses) {
         if (nodeAddresses.length == 0) throw new IllegalArgumentException("No node addresses specified");
         if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], userAgent);
-        return new CompositeBurstNodeService(Arrays.stream(nodeAddresses)
+        return new CompositeNodeService(Arrays.stream(nodeAddresses)
                 .map(nodeAddress -> getInstance(nodeAddress, userAgent))
                 .toArray(NodeService[]::new));
     }

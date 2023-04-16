@@ -34,15 +34,15 @@ import signumj.service.NodeService;
 import signumj.service.TransactionBuilder;
 import signumj.util.SignumUtils;
 
-public final class HttpBurstNodeService implements NodeService {
-    private BurstAPIService burstAPIService;
+public final class HttpNodeService implements NodeService {
+    private SignumAPIService apiService;
     private String nodeAddress;
 
-    public HttpBurstNodeService(String nodeAddress, String userAgent) {
+    public HttpNodeService(String nodeAddress, String userAgent) {
     	this(nodeAddress, userAgent, 10);
     }
     	
-    public HttpBurstNodeService(String nodeAddress, String userAgent, int readTimeout) {
+    public HttpNodeService(String nodeAddress, String userAgent, int readTimeout) {
     	
     	this.nodeAddress = nodeAddress;
     	SocketFactory socketFactory = SocketFactory.getDefault();
@@ -59,7 +59,7 @@ public final class HttpBurstNodeService implements NodeService {
                 .addConverterFactory(GsonConverterFactory.create(SignumUtils.buildGson().create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
 
-        burstAPIService = retrofit.create(BurstAPIService.class);
+        apiService = retrofit.create(SignumAPIService.class);
     }
     
 	@Override
@@ -84,25 +84,25 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<Block> getBlock(SignumID block) {
-        return assign(burstAPIService.getBlock(SignumUtils.getEndpoint(), block.getID(), null, null, false))
+        return assign(apiService.getBlock(SignumUtils.getEndpoint(), block.getID(), null, null, false))
                 .map(Block::new);
     }
 
     @Override
     public Single<Block> getBlock(int height) {
-        return assign(burstAPIService.getBlock(SignumUtils.getEndpoint(), null, String.valueOf(height), null, false))
+        return assign(apiService.getBlock(SignumUtils.getEndpoint(), null, String.valueOf(height), null, false))
                         .map(Block::new);
     }
 
     @Override
     public Single<Block> getBlock(SignumTimestamp timestamp) {
-        return assign(burstAPIService.getBlock(SignumUtils.getEndpoint(), null, null,
+        return assign(apiService.getBlock(SignumUtils.getEndpoint(), null, null,
                 String.valueOf(timestamp.getTimestamp()), false)).map(Block::new);
     }
 
     @Override
     public Single<Block[]> getBlocks(int firstIndex, int lastIndex) {
-        return assign(burstAPIService.getBlocks(SignumUtils.getEndpoint(), String.valueOf(firstIndex),
+        return assign(apiService.getBlocks(SignumUtils.getEndpoint(), String.valueOf(firstIndex),
                 String.valueOf(lastIndex), null))
                         .map(response -> Arrays.stream(response.getBlocks()).map(Block::new)
                                 .collect(Collectors.toList()).toArray(new Block[0]));
@@ -110,12 +110,12 @@ public final class HttpBurstNodeService implements NodeService {
     
 	@Override
 	public Single<BlockchainStatus> getBlockChainStatus() {
-        return assign(burstAPIService.getBlockchainStatus(SignumUtils.getEndpoint()).map(BlockchainStatus::new));
+        return assign(apiService.getBlockchainStatus(SignumUtils.getEndpoint()).map(BlockchainStatus::new));
 	}
 
     @Override
     public Single<Constants> getConstants() {
-        return assign(burstAPIService.getConstants(SignumUtils.getEndpoint())).map(Constants::new);
+        return assign(apiService.getConstants(SignumUtils.getEndpoint())).map(Constants::new);
     }
 
     @Override
@@ -125,27 +125,27 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<Account> getAccount(SignumAddress accountId, Integer height, Boolean estimateCommitment, Boolean getCommittedAmount) {
-        return assign(burstAPIService.getAccount(SignumUtils.getEndpoint(), accountId.getID(),
+        return assign(apiService.getAccount(SignumUtils.getEndpoint(), accountId.getID(),
         		height==null ? null : String.valueOf(height), estimateCommitment==null ? null : String.valueOf(estimateCommitment),
         				getCommittedAmount==null ? null : String.valueOf(getCommittedAmount) )).map(Account::new);
     }
 
     @Override
     public Single<AT[]> getAccountATs(SignumAddress accountId, SignumID machineCodeHashId) {
-        return assign(burstAPIService.getAccountATs(SignumUtils.getEndpoint(), accountId.getID(),
+        return assign(apiService.getAccountATs(SignumUtils.getEndpoint(), accountId.getID(),
         		machineCodeHashId == null ? null : machineCodeHashId.getID()))
                 .map(response -> Arrays.stream(response.getATs()).map(AT::new).toArray(AT[]::new));
     }
 
     @Override
     public Single<Block[]> getAccountBlocks(SignumAddress accountId) {
-        return assign(burstAPIService.getAccountBlocks(SignumUtils.getEndpoint(), accountId.getID(), null, null,
+        return assign(apiService.getAccountBlocks(SignumUtils.getEndpoint(), accountId.getID(), null, null,
                 null, null)).map(response -> Arrays.stream(response.getBlocks()).map(Block::new).toArray(Block[]::new));
     }
 
     @Override
     public Single<SignumID[]> getAccountTransactionIDs(SignumAddress accountId) {
-        return assign(burstAPIService.getAccountTransactionIDs(SignumUtils.getEndpoint(), accountId.getID(), null,
+        return assign(apiService.getAccountTransactionIDs(SignumUtils.getEndpoint(), accountId.getID(), null,
                 null, null, null, null, null))
                         .map(response -> Arrays.stream(response.getTransactionIds()).map(SignumID::fromLong)
                                 .toArray(SignumID[]::new));
@@ -153,7 +153,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
-        return assign(burstAPIService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
+        return assign(apiService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
                 null, null, firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
                 		includeIndirect!=null && includeIndirect ? "true" : "false"))
                         .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
@@ -162,7 +162,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
-        return assign(burstAPIService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
+        return assign(apiService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
                 Integer.toString(type), Integer.toString(subtype), firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
                 		includeIndirect!=null && includeIndirect ? "true" : "false"))
                         .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
@@ -171,52 +171,52 @@ public final class HttpBurstNodeService implements NodeService {
     
     @Override
     public Single<Transaction[]> getUnconfirmedTransactions(SignumAddress accountId) {
-        return assign(burstAPIService.getUnconfirmedTransactions(SignumUtils.getEndpoint(), accountId==null ? null : accountId.getID()))
+        return assign(apiService.getUnconfirmedTransactions(SignumUtils.getEndpoint(), accountId==null ? null : accountId.getID()))
                 .map(response -> Arrays.stream(response.getUnconfirmedTransactions()).map(Transaction::new)
                         .toArray(Transaction[]::new));
     }
 
     @Override
     public Single<SignumAddress[]> getAccountsWithRewardRecipient(SignumAddress accountId) {
-        return assign(burstAPIService.getAccountsWithRewardRecipient(SignumUtils.getEndpoint(), accountId.getID()))
+        return assign(apiService.getAccountsWithRewardRecipient(SignumUtils.getEndpoint(), accountId.getID()))
                 .map(response -> Arrays.stream(response.getAccounts()).map(SignumAddress::fromEither)
                         .toArray(SignumAddress[]::new));
     }
 
     @Override
     public Single<Asset> getAsset(SignumID assetId) {
-        return assign(burstAPIService.getAsset(SignumUtils.getEndpoint(), assetId.getID())).map(Asset::new);
+        return assign(apiService.getAsset(SignumUtils.getEndpoint(), assetId.getID())).map(Asset::new);
     }
 
     @Override
     public Single<AssetBalance[]> getAssetBalances(SignumID assetId, Integer firstIndex, Integer lastIndex) {
-        return assign(burstAPIService.getAssetAccounts(SignumUtils.getEndpoint(), assetId.getID(), firstIndex, lastIndex))
+        return assign(apiService.getAssetAccounts(SignumUtils.getEndpoint(), assetId.getID(), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getAccountsAsset()).map(AssetBalance::new)
                         .toArray(AssetBalance[]::new));
     }
 
     @Override
     public Single<AssetTrade[]> getAssetTrades(SignumID assetId, SignumAddress account, Integer firstIndex, Integer lastIndex) {
-        return assign(burstAPIService.getAssetTrades(SignumUtils.getEndpoint(), assetId.getID(), account!=null ? account.getID() : null, firstIndex, lastIndex))
+        return assign(apiService.getAssetTrades(SignumUtils.getEndpoint(), assetId.getID(), account!=null ? account.getID() : null, firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getTrades()).map(AssetTrade::new).toArray(AssetTrade[]::new));
     }
 
     @Override
     public Single<AssetOrder[]> getAskOrders(SignumID assetId) {
-        return assign(burstAPIService.getAskOrders(SignumUtils.getEndpoint(), assetId.getID()))
+        return assign(apiService.getAskOrders(SignumUtils.getEndpoint(), assetId.getID()))
                 .map(response -> Arrays.stream(response.getOrders()).map(AssetOrder::new).toArray(AssetOrder[]::new));
     }
 
     @Override
     public Single<AssetOrder[]> getBidOrders(SignumID assetId) {
-        return assign(burstAPIService.getBidOrders(SignumUtils.getEndpoint(), assetId.getID()))
+        return assign(apiService.getBidOrders(SignumUtils.getEndpoint(), assetId.getID()))
                 .map(response -> Arrays.stream(response.getOrders()).map(AssetOrder::new).toArray(AssetOrder[]::new));
     }
     
     @Override
     public Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp, Integer firstIndex,
     		Integer lastIndex) {
-        return assign(burstAPIService.getAliases(SignumUtils.getEndpoint(), account.getID(), aliasName, tld,
+        return assign(apiService.getAliases(SignumUtils.getEndpoint(), account.getID(), aliasName, tld,
         		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getAliases()).map(Alias::new).toArray(Alias[]::new));
     }
@@ -228,55 +228,55 @@ public final class HttpBurstNodeService implements NodeService {
     
     @Override
     public Single<AT> getAt(SignumAddress atId, Boolean includeDetails) {
-        return assign(burstAPIService.getAt(SignumUtils.getEndpoint(), atId.getID(), includeDetails)).map(AT::new);
+        return assign(apiService.getAt(SignumUtils.getEndpoint(), atId.getID(), includeDetails)).map(AT::new);
     }
 
     @Override
     public Single<SignumAddress[]> getAtIds(SignumID codeHashId) {
-        return assign(burstAPIService.getAtIds(SignumUtils.getEndpoint(), codeHashId == null ? null : codeHashId.getID())).map(
+        return assign(apiService.getAtIds(SignumUtils.getEndpoint(), codeHashId == null ? null : codeHashId.getID())).map(
                 response -> Arrays.stream(response.getAtIds()).map(SignumAddress::fromId).toArray(SignumAddress[]::new));
     }
     
     @Override
     public Single<AT[]> getAts(SignumID codeHashId, Boolean includeDetails, Integer firstIndex, Integer lastIndex) {
-        return assign(burstAPIService.getAts(SignumUtils.getEndpoint(), codeHashId.getID(), includeDetails, firstIndex, lastIndex).map(
+        return assign(apiService.getAts(SignumUtils.getEndpoint(), codeHashId.getID(), includeDetails, firstIndex, lastIndex).map(
         		response -> Arrays.stream(response.getAts()).map(AT::new).toArray(AT[]::new)));
     }
 
     @Override
     public Single<Transaction> getTransaction(SignumID transactionId) {
-        return assign(burstAPIService.getTransaction(SignumUtils.getEndpoint(), transactionId.getID(), null))
+        return assign(apiService.getTransaction(SignumUtils.getEndpoint(), transactionId.getID(), null))
                 .map(Transaction::new);
     }
 
     @Override
     public Single<Transaction> getTransaction(byte[] fullHash) {
-        return assign(burstAPIService.getTransaction(SignumUtils.getEndpoint(), null, Hex.toHexString(fullHash)))
+        return assign(apiService.getTransaction(SignumUtils.getEndpoint(), null, Hex.toHexString(fullHash)))
                 .map(Transaction::new);
     }
 
     @Override
     public Single<IndirectIncoming> getIndirectIncoming(SignumAddress account, SignumID transaction) {
-        return assign(burstAPIService.getIndirectIncoming(SignumUtils.getEndpoint(), account.getID(), transaction.getID()))
+        return assign(apiService.getIndirectIncoming(SignumUtils.getEndpoint(), account.getID(), transaction.getID()))
                 .map(IndirectIncoming::new);
     }
 
     @Override
     public Single<byte[]> getTransactionBytes(SignumID transactionId) {
-        return assign(burstAPIService.getTransactionBytes(SignumUtils.getEndpoint(), transactionId.getID()))
+        return assign(apiService.getTransactionBytes(SignumUtils.getEndpoint(), transactionId.getID()))
                 .map(response -> Hex.decode(response.getTransactionBytes()));
     }
     
 	@Override
 	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
 		String url = SignumUtils.getEndpoint() + "?requestType=" + builder.getRequestType();
-        return assign(burstAPIService.generateTransaction(url, builder.getParams(), builder.getBody()))
+        return assign(apiService.generateTransaction(url, builder.getParams(), builder.getBody()))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
 	}
 
     @Override
     public Single<byte[]> generateTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -284,7 +284,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline) {
-        return assign(burstAPIService.addCommitment(SignumUtils.getEndpoint(),
+        return assign(apiService.addCommitment(SignumUtils.getEndpoint(),
                 amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -292,7 +292,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline) {
-        return assign(burstAPIService.removeCommitment(SignumUtils.getEndpoint(),
+        return assign(apiService.removeCommitment(SignumUtils.getEndpoint(),
                 amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -300,7 +300,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline) {
-        return assign(burstAPIService.setRewardRecipient(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.setRewardRecipient(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -308,7 +308,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toNQT().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -316,7 +316,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -324,7 +324,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
+        return assign(apiService.sendMoney(SignumUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
                 amount != null ? amount.toNQT().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -332,7 +332,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, SignumValue fee, int deadline, String message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
+        return assign(apiService.sendMessage(SignumUtils.getEndpoint(), recipientAddress.getID(), Hex.toHexString(recipientPublicKey),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -341,7 +341,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount != null ? amount.toNQT().toString() : null, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -349,7 +349,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, byte[] message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -357,7 +357,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
@@ -366,7 +366,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, message.isText(), Hex.toHexString(message.getData()),
                 Hex.toHexString(message.getNonce()), null, null, null, null))
@@ -375,7 +375,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMoney(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                 amount.toNQT().toString(), null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
@@ -384,7 +384,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash) {
-        return assign(burstAPIService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
+        return assign(apiService.sendMessage(SignumUtils.getEndpoint(), recipient.getID(), recipient.getPublicKeyString(),
                  null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(),
                 deadline, referencedTransactionFullHash, false, null, null, null, null, null, null, null, message.isText(),
                 Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce())))
@@ -393,7 +393,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline) {
-        return assign(burstAPIService.issueAsset(SignumUtils.getEndpoint(), name, description, quantity.toNQT().toString(),
+        return assign(apiService.issueAsset(SignumUtils.getEndpoint(), name, description, quantity.toNQT().toString(),
                 decimals, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -401,7 +401,7 @@ public final class HttpBurstNodeService implements NodeService {
     @Override
     public Single<byte[]> generateAddAssetTreasuryAccountTransaction(SignumAddress recipient, byte[] senderPublicKey,
     		String referencedTransactionFullHash, SignumValue fee, int deadline) {
-        return assign(burstAPIService.addAssetTreasuryAccount(SignumUtils.getEndpoint(), recipient.getID(), null, Hex.toHexString(senderPublicKey),
+        return assign(apiService.addAssetTreasuryAccount(SignumUtils.getEndpoint(), recipient.getID(), null, Hex.toHexString(senderPublicKey),
         		fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, null, false, null, false, null, null, null, false, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -410,7 +410,7 @@ public final class HttpBurstNodeService implements NodeService {
     public Single<byte[]> generateDistributeToAssetHolders(byte[] senderPublicKey, SignumID assetId,
     		SignumValue quantityMinimumQNT, SignumValue amount, SignumID assetToDistribute, SignumValue quantityQNT,
     		SignumValue fee, int deadline) {
-        return assign(burstAPIService.distributeToAssetHolders(SignumUtils.getEndpoint(),
+        return assign(apiService.distributeToAssetHolders(SignumUtils.getEndpoint(),
         		assetId.getID(), quantityMinimumQNT.toNQT().toString(), amount.toNQT().toString(),
         		assetToDistribute.getID(), quantityQNT.toNQT().toString(),
         		null, Hex.toHexString(senderPublicKey),
@@ -420,7 +420,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
+        return assign(apiService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
@@ -438,28 +438,28 @@ public final class HttpBurstNodeService implements NodeService {
         }
         assetIdAndQuantityString.setLength(assetIdAndQuantityString.length() - 1);
         
-        return assign(burstAPIService.transferAssetMulti(SignumUtils.getEndpoint(), recipient.getID(),null, assetIdAndQuantityString.toString(), amount == null ? null : amount.toNQT().toString(),
+        return assign(apiService.transferAssetMulti(SignumUtils.getEndpoint(), recipient.getID(),null, assetIdAndQuantityString.toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, String message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
+        return assign(apiService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, message, true, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, byte[] message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
+        return assign(apiService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, Hex.toHexString(message), false, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message) {
-        return assign(burstAPIService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
+        return assign(apiService.transferAsset(SignumUtils.getEndpoint(), recipient.getID(), assetId.getID(), null, quantity.toNQT().toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null,
                  message.isText(), Hex.toHexString(message.getData()), Hex.toHexString(message.getNonce()), null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -467,35 +467,35 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, SignumID assetId, SignumValue quantity, SignumValue price, SignumValue fee, int deadline) {
-        return assign(burstAPIService.placeAskOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toNQT().toString(), price.toNQT().toString(),
+        return assign(apiService.placeAskOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toNQT().toString(), price.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, SignumID assetId, SignumValue quantity, SignumValue price, SignumValue fee, int deadline) {
-        return assign(burstAPIService.placeBidOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toNQT().toString(), price.toNQT().toString(),
+        return assign(apiService.placeBidOrder(SignumUtils.getEndpoint(), assetId.getID(), null, quantity.toNQT().toString(), price.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
-        return assign(burstAPIService.cancelAskOrder(SignumUtils.getEndpoint(), orderId.getID(),
+        return assign(apiService.cancelAskOrder(SignumUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
-        return assign(burstAPIService.cancelBidOrder(SignumUtils.getEndpoint(), orderId.getID(),
+        return assign(apiService.cancelBidOrder(SignumUtils.getEndpoint(), orderId.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<byte[]> generateSubscriptionCreationTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline) {
-        return assign(burstAPIService.createSubscription(SignumUtils.getEndpoint(),
+        return assign(apiService.createSubscription(SignumUtils.getEndpoint(),
                 recipient.getID(), null, amount.toNQT().toString(), frequency,
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -503,14 +503,14 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, SignumID subscription, SignumValue fee, int deadline) {
-        return assign(burstAPIService.cancelSubscription(SignumUtils.getEndpoint(), subscription.getID(),
+        return assign(apiService.cancelSubscription(SignumUtils.getEndpoint(), subscription.getID(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
 
     @Override
     public Single<FeeSuggestion> suggestFee() {
-        return assign(burstAPIService.suggestFee(SignumUtils.getEndpoint())).map(FeeSuggestion::new);
+        return assign(apiService.suggestFee(SignumUtils.getEndpoint())).map(FeeSuggestion::new);
     }
 
     @Override
@@ -535,28 +535,28 @@ public final class HttpBurstNodeService implements NodeService {
     
     @Override
     public Single<MiningInfo> getMiningInfoSingle() {
-        return burstAPIService.getMiningInfo(SignumUtils.getEndpoint()).map(this::checkBrsResponse).map(MiningInfo::new);
+        return apiService.getMiningInfo(SignumUtils.getEndpoint()).map(this::checkBrsResponse).map(MiningInfo::new);
     }
 
     @Override
     public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
         if (transactionBytes.length >= 2560) {
-          return assign(burstAPIService.broadcastTransactionBig(SignumUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
+          return assign(apiService.broadcastTransactionBig(SignumUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
               .map(TransactionBroadcast::new);          
         }
-        return assign(burstAPIService.broadcastTransaction(SignumUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
+        return assign(apiService.broadcastTransaction(SignumUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
                         .map(TransactionBroadcast::new);
     }
 
     @Override
     public Single<SignumAddress> getRewardRecipient(SignumAddress account) {
-        return assign(burstAPIService.getRewardRecipient(SignumUtils.getEndpoint(), account.getID()))
+        return assign(apiService.getRewardRecipient(SignumUtils.getEndpoint(), account.getID()))
                 .map(response -> SignumAddress.fromEither(response.getRewardRecipient()));
     }
 
     @Override
     public Single<Long> submitNonce(String passphrase, String nonce, SignumID accountId) {
-        return assign(burstAPIService.submitNonce(SignumUtils.getEndpoint(), passphrase, nonce,
+        return assign(apiService.submitNonce(SignumUtils.getEndpoint(), passphrase, nonce,
                 accountId == null ? null : accountId.getID(), "")).map(submitNonceResponse -> {
                     if (!Objects.equals(submitNonceResponse.getResult(), "success")) {
                         throw new ApiException("Failed to submit nonce: " + submitNonceResponse.getResult());
@@ -579,7 +579,7 @@ public final class HttpBurstNodeService implements NodeService {
             recipientsString.setLength(recipientsString.length() - 1);
             return recipientsString;
         }).flatMap(recipientsString -> assign(
-                burstAPIService.sendMoneyMulti(SignumUtils.getEndpoint(), null, Hex.toHexString(senderPublicKey),
+                apiService.sendMoneyMulti(SignumUtils.getEndpoint(), null, Hex.toHexString(senderPublicKey),
                         fee.toNQT().toString(), String.valueOf(deadline), null, false, recipientsString.toString()))
                                 .map(response -> Hex.decode(response.getUnsignedTransactionBytes())));
     }
@@ -596,7 +596,7 @@ public final class HttpBurstNodeService implements NodeService {
             }
             recipientsString.setLength(recipientsString.length() - 1);
             return recipientsString;
-        }).flatMap(recipientsString -> assign(burstAPIService.sendMoneyMultiSame(SignumUtils.getEndpoint(), null,
+        }).flatMap(recipientsString -> assign(apiService.sendMoneyMultiSame(SignumUtils.getEndpoint(), null,
                 Hex.toHexString(senderPublicKey), fee.toNQT().toString(), String.valueOf(deadline), null, false,
                 recipientsString.toString(), amount.toNQT().toString()))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes())));
@@ -606,7 +606,7 @@ public final class HttpBurstNodeService implements NodeService {
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash) {
         // TODO: making it backward compatible for small AT codes
         if (creationBytes.length >= 2560) {
-          return assign(burstAPIService.createATProgramBig(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
+          return assign(apiService.createATProgramBig(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
               fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, Hex.toHexString(creationBytes), null,
               null, 0, 0, 0, null)).map(response -> {
                   if (response.getError() != null)
@@ -614,7 +614,7 @@ public final class HttpBurstNodeService implements NodeService {
                   return response;
               }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));          
         }
-        return assign(burstAPIService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
+        return assign(apiService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, Hex.toHexString(creationBytes), null,
                 null, 0, 0, 0, null)).map(response -> {
                     if (response.getError() != null)
@@ -625,7 +625,7 @@ public final class HttpBurstNodeService implements NodeService {
 
     @Override
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[] data, int dpages, int cspages, int uspages, String referencedTransactionFullHash) {
-        return assign(burstAPIService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
+        return assign(apiService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, null,
                 code == null ? null : Hex.toHexString(code), Hex.toHexString(data), dpages, cspages, uspages, minActivation.toNQT().toString())).map(response -> {
                     if (response.getError() != null)
@@ -639,7 +639,7 @@ public final class HttpBurstNodeService implements NodeService {
         // Nothing to close.
     }
 
-    private interface BurstAPIService {
+    private interface SignumAPIService {
         @GET("{endpoint}?requestType=getBlock")
         Single<BlockResponse> getBlock(@Path("endpoint") String endpoint, @Query("block") String blockId,
                 @Query("height") String blockHeight, @Query("timestamp") String timestamp,
