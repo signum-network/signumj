@@ -13,12 +13,12 @@ import signumj.service.impl.UseBestNodeService;
 
 @RunWith(JUnit4.class)
 @Ignore // for faster automated build
-public class UseBestNodeServiceTest extends SignumNodeServiceTest {
+public class UseBestNodeServiceTest extends NodeServiceTest {
 
 	private static UseBestNodeService instance;
 
     @Override
-    protected NodeService getBurstNodeService() {
+    protected NodeService getNodeService() {
     	if(instance == null) {
     		ArrayList<NodeService> nodeList = new ArrayList<NodeService>();
     		nodeList.add(new HttpBurstNodeService(Constants.HTTP_NODE_EUROPE1, TestVariables.TEST_USER_AGENT));

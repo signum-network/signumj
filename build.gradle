@@ -28,7 +28,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
 
     // Bouncy Castle
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.69'
 
     // JNA
     implementation 'net.java.dev.jna:jna:5.7.0'
@@ -36,9 +36,13 @@ dependencies {
     // Testing
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.5.2'
+    
+    testImplementation("org.junit.platform:junit-platform-engine:1.5.1")
+    testImplementation("org.junit.platform:junit-platform-launcher:1.5.1")
 }
 
 test {
+    useJUnitPlatform()
     testLogging {
         showStandardStreams = true
     }

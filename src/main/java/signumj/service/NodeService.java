@@ -185,9 +185,17 @@ public interface NodeService extends AutoCloseable {
     Single<AT> getAt(SignumAddress at);
     
     /**
+     * Get the details for all ATs matching the given code hash Id
+     * @param codeHashId The code hash ID we are filtering for
+     * @param includeDetails If all the information should be returned (more expensive)
+     * @return The AT array
+     */
+    Single<AT[]> getAts(SignumID codeHashId, Boolean includeDetails, Integer firstIndex, Integer lastIndex);
+    
+    /**
      * Get the details of an AT
      * @param at The address of the AT
-     * @param includeDetails If the immutable details should also be included
+     * @param includeDetails If all the information should be returned (more expensive)
      * @return The details of the AT, wrapped in a single
      */
     Single<AT> getAt(SignumAddress at, Boolean includeDetails);

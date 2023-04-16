@@ -10,9 +10,9 @@ import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
 @Ignore // for faster automated build
-public class CompositeBurstNodeServiceTest extends SignumNodeServiceTest {
+public class CompositeBurstNodeServiceTest extends NodeServiceTest {
     @Override
-    protected NodeService getBurstNodeService() {
+    protected NodeService getNodeService() {
         NodeService http = new HttpBurstNodeService(TestVariables.HTTP_NODE, TestVariables.TEST_USER_AGENT);
         return new CompositeBurstNodeService(http);
     }

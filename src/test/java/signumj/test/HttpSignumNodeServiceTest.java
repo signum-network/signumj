@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-public class HttpSignumNodeServiceTest extends SignumNodeServiceTest {
+public class HttpSignumNodeServiceTest extends NodeServiceTest {
     @Override
-    protected NodeService getBurstNodeService() {
+    protected NodeService getNodeService() {
         return new HttpBurstNodeService(Constants.HTTP_NODE_TESTNET, TestVariables.TEST_USER_AGENT);
     }
 }

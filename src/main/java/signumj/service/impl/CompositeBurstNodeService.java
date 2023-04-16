@@ -474,4 +474,9 @@ public class CompositeBurstNodeService implements NodeService {
 		return performFastest(service -> service.getAliases(account, aliasName, tld, timestamp, firstIndex, lastIndex));
 	}
 
+	@Override
+	public Single<AT[]> getAts(SignumID codeHashId, Boolean includeDetails, Integer firstIndex, Integer lastIndex) {
+		return performFastest(service -> service.getAts(codeHashId, includeDetails, firstIndex, lastIndex));
+	}
+
 }

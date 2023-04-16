@@ -35,6 +35,7 @@ public class TestVariables {
     public static final byte[] EXAMPLE_TRANSACTION_FULL_HASH = Hex.decode("e475946429c220d33f414a9d6106452547abe23ee1379fc38f571cac1c037c6f");
 
     public static final SignumAddress EXAMPLE_AT_ID = SignumAddress.fromId("3474457271106823767");
+    public static final SignumID EXAMPLE_AT_CODE_HASH_ID = SignumID.fromLong("15155055045342098571");
 
     public static final String HTTP_NODE = Constants.HTTP_NODE_EUROPE1;
 
