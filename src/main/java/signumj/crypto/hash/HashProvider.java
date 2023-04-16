@@ -14,7 +14,7 @@ import java.util.List;
 public class HashProvider extends Provider {
 
     private static final String NAME = "SignumHashProvider";
-    private static final double VERSION = 1.0;
+    private static final String VERSION = "1.0";
     private static final String INFO = "A Shabal-256 MessageDigest provider";
 
     public static void init() {

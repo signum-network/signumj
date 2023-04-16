@@ -68,3 +68,7 @@ keystore/
 .project
 .classpath
 org.eclipse*
+
+# My local tests
+src/test/java/mytests*
+
