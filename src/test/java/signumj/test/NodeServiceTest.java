@@ -22,6 +22,7 @@ import signumj.entity.SignumTimestamp;
 import signumj.entity.SignumValue;
 import signumj.entity.response.AT;
 import signumj.entity.response.Account;
+import signumj.entity.response.Asset;
 import signumj.entity.response.AssetBalance;
 import signumj.entity.response.AssetOrder;
 import signumj.entity.response.AssetTrade;
@@ -170,6 +171,12 @@ public class NodeServiceTest {
     public void testGetBidOrders() {
         AssetOrder[] ordersResponse = RxTestUtils.testSingle(nodeService.getBidOrders(TestVariables.EXAMPLE_ASSET_ID));
         assertNotNull(ordersResponse);
+    }
+    
+    @Test
+    public void testGetAsset() {
+        Asset asset = RxTestUtils.testSingle(nodeService.getAsset(TestVariables.EXAMPLE_ASSET_ID, null, null, null));
+        assertEquals(TestVariables.EXAMPLE_ASSET_ID, asset.getAssetId());
     }
     
     @Test

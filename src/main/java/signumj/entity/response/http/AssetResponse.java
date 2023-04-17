@@ -1,39 +1,48 @@
 package signumj.entity.response.http;
 
 public class AssetResponse extends BRSResponse  {
-    private final String issuer;
-    private final String issuerRS;
-    private final String account;
-    private final String accountRS;
-    private final String name;
-    private final String description;
-    private final int decimals;
-    private final String quantityQNT;
-    private final String quantityBurntQNT;
-    private final String asset;
-    private final boolean mintable;
-    private final int numberOfTrades;
-    private final int numberOfTransfers;
-    private final int numberOfAccounts;
+    private String issuer;
+    private String issuerRS;
+    private String account;
+    private String accountRS;
+    private String name;
+    private String description;
+    private int decimals;
+    private boolean mintable;
+    private String quantityQNT;
+    private String quantityBurntQNT;
+    private String asset;
+    private String quantityCirculatingQNT;
+	private int numberOfTrades;
+    private int numberOfTransfers;
+    private int numberOfAccounts;
+    private String volumeQNT;
+    private String priceHigh;
+    private String priceLow;
+    private String priceOpen;
+    private String priceClose;
 
-    public AssetResponse(String issuer, String issuerRS, String account, String accountRS, String name, String description, int decimals, String quantityQNT, String quantityBurntQNT, String asset, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
-        this.issuer = issuer;
-        this.issuerRS = issuerRS;
-        this.account = account;
-        this.accountRS = accountRS;
-        this.name = name;
-        this.description = description;
-        this.decimals = decimals;
-        this.quantityQNT = quantityQNT;
-        this.quantityBurntQNT = quantityBurntQNT;
-        this.asset = asset;
-        this.mintable = mintable;
-        this.numberOfTrades = numberOfTrades;
-        this.numberOfTransfers = numberOfTransfers;
-        this.numberOfAccounts = numberOfAccounts;
-    }
+    public String getVolumeQNT() {
+		return volumeQNT;
+	}
 
-    public String getIssuer() {
+	public String getPriceHigh() {
+		return priceHigh;
+	}
+
+	public String getPriceLow() {
+		return priceLow;
+	}
+
+	public String getPriceOpen() {
+		return priceOpen;
+	}
+
+	public String getPriceClose() {
+		return priceClose;
+	}
+
+	public String getIssuer() {
         return issuer;
     }
 
@@ -88,4 +97,8 @@ public class AssetResponse extends BRSResponse  {
     public int getNumberOfAccounts() {
         return numberOfAccounts;
     }
+    
+    public String getQuantityCirculatingQNT() {
+		return quantityCirculatingQNT;
+	}
 }

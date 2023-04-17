@@ -131,9 +131,13 @@ public interface NodeService extends AutoCloseable {
     /**
      * Get the given asset
      * @param assetId The asset id
+     * @param quantityMinimum the minimum quantity for the number of accounts count (0 if null)
+     * @param heightStart the height start for the volume and price statistics (past 24h if null)
+     * @param heightEnd the height start for the volume and price statistics (past 24h if null)
+     * 
      * @return The asset, wrapped in a single
      */
-    Single<Asset> getAsset(SignumID assetId);
+    Single<Asset> getAsset(SignumID assetId, SignumValue quantityMinimum, Integer heightStart, Integer heightEnd);
 
     /**
      * Get the accounts holding the given asset
@@ -484,7 +488,7 @@ public interface NodeService extends AutoCloseable {
     Single<byte[]> generateMultiOutSameTransaction(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, Set<SignumAddress> recipients);
 
     /**
-     * Generate the transaction for creating an AT
+     * Generate the transaction for creating an AT, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
@@ -493,10 +497,11 @@ public interface NodeService extends AutoCloseable {
      * @param creationBytes The creation bytes of the AT (if pre-calculated and not using the following fields)
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash);
 
     /**
-     * Generate the transaction for creating an AT
+     * Generate the transaction for creating an AT, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
      * @param minActivation The activation amount
@@ -511,10 +516,11 @@ public interface NodeService extends AutoCloseable {
      * @param referencedTransactionFullHash A reference transaction full hash
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[]data, int dpages, int cspages, int uspages, String referencedTransactionFullHash);
 
     /**
-     * Generate the transaction for transfering assets
+     * Generate the transaction for transfering assets, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param name The token name
      * @param description The token description
@@ -524,10 +530,11 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline);
 
     /**
-     * Adds the recipient account as a treasury account of the asset issued by the given full hash
+     * Adds the recipient account as a treasury account of the asset issued by the given full hash, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient the treasury account to be added
      * @param senderPublicKey
      * @param referencedTransactionFullHash the full hash of the transaction that created the asset
@@ -535,10 +542,11 @@ public interface NodeService extends AutoCloseable {
      * @param deadline
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateAddAssetTreasuryAccountTransaction(SignumAddress recipient, byte[] senderPublicKey, String referencedTransactionFullHash, SignumValue fee, int deadline);
 
     /**
-     * Adds the recipient account as a treasury account of the asset issued by the given full hash
+     * Adds the recipient account as a treasury account of the asset issued by the given full hash, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey
      * @param assetId the asset ID accounts have to hold to receive
      * @param quantityMinimumQNT minimum quantity to be eligible for the distribution
@@ -549,12 +557,12 @@ public interface NodeService extends AutoCloseable {
      * @param deadline
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateDistributeToAssetHolders(byte[] senderPublicKey, SignumID assetId, SignumValue quantityMinimumQNT,
     		SignumValue amount, SignumID assetToDistribute, SignumValue quantityQNT, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for transferring assets
+     * Generate the transaction for transferring assets, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param recipient The recipient
      * @param fee The transaction fee
@@ -564,11 +572,11 @@ public interface NodeService extends AutoCloseable {
      * @param amount The SIGNA amount to send along with this transfer (optional)
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateTransferAssetTransaction(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for transferring assets
+     * Generate the transaction for transferring assets, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param recipient The recipient
      * @param assetIdsAndQuantities the asset ids and quantities being sent
@@ -577,10 +585,11 @@ public interface NodeService extends AutoCloseable {
      * @param amount The SIGNA amount to send along with this transfer (optional)
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransferAssetMultiTransaction(byte[] senderPublicKey, SignumAddress recipient, Map<SignumID, SignumValue> assetIdsAndQuantities, SignumValue amount, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for an asset transfer with a message
+     * Generate the transaction for an asset transfer with a message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
@@ -590,11 +599,11 @@ public interface NodeService extends AutoCloseable {
      * @param amount The SIGNA amount to send along with this transfer (optional)
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, String message);
 
     /**
-     * Generate the transaction for an asset transfer with a message
+     * Generate the transaction for an asset transfer with a message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
@@ -604,11 +613,11 @@ public interface NodeService extends AutoCloseable {
      * @param amount The SIGNA amount to send along with this transfer (optional)
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateTransferAssetTransactionWithMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, byte[] message);
 
     /**
-     * Generate the transaction for an ask order
+     * Generate the transaction for an ask order, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
@@ -619,11 +628,11 @@ public interface NodeService extends AutoCloseable {
      * 
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateTransferAssetTransactionWithEncryptedMessage(byte[] senderPublicKey, SignumAddress recipient, SignumID assetId, SignumValue quantity, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message);
 
     /**
-     * Generate the transaction for an ask order
+     * Generate the transaction for an ask order, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
@@ -632,11 +641,11 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generatePlaceAskOrderTransaction(byte[] senderPublicKey, SignumID assetId, SignumValue quantity, SignumValue price, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for a bid order
+     * Generate the transaction for a bid order, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param assetId The ID of the asset being transfered
      * @param quantity The order quantity
@@ -645,33 +654,33 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generatePlaceBidOrderTransaction(byte[] senderPublicKey, SignumID assetId, SignumValue quantity, SignumValue price, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for cancelling an ask order
+     * Generate the transaction for cancelling an ask order, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param orderID The ID of the asset being transfered
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, SignumID orderID, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for cancelling a bid order
+     * Generate the transaction for cancelling a bid order, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param orderID The ID of the asset being transfered
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, SignumID orderID, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for creating subscription
+     * Generate the transaction for creating subscription, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount Amount of subscription in plancks
@@ -680,18 +689,18 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateSubscriptionCreationTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, int frequency, SignumValue fee, int deadline);
 
     /**
-     * Generate the transaction for cancelling a subscription
+     * Generate the transaction for cancelling a subscription, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param subscription The ID of the subscription you want to cancel
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
-    // TODO TEST
+    @Deprecated
     Single<byte[]> generateSubscriptionCancelTransaction(byte[] senderPublicKey, SignumID subscription, SignumValue fee, int deadline);
 
     static NodeService getInstance(String nodeAddress) {

@@ -184,8 +184,9 @@ public final class HttpNodeService implements NodeService {
     }
 
     @Override
-    public Single<Asset> getAsset(SignumID assetId) {
-        return assign(apiService.getAsset(SignumUtils.getEndpoint(), assetId.getID())).map(Asset::new);
+    public Single<Asset> getAsset(SignumID assetId, SignumValue quantityMinimum, Integer heightStart, Integer heightEnd) {
+        return assign(apiService.getAsset(SignumUtils.getEndpoint(), assetId.getID(),
+        		quantityMinimum == null ? null : quantityMinimum.toNQT().toString(), heightStart, heightEnd)).map(Asset::new);
     }
 
     @Override
@@ -698,7 +699,8 @@ public final class HttpNodeService implements NodeService {
                 @Query("account") String accountId);
 
         @GET("{endpoint}?requestType=getAsset")
-        Single<AssetResponse> getAsset(@Path("endpoint") String endpoint, @Query("asset") String assetId);
+        Single<AssetResponse> getAsset(@Path("endpoint") String endpoint, @Query("asset") String assetId,
+        		@Query("quantityMinimumQNT") String quantityMinimumQNT, @Query("heightStart") Integer heightStart, @Query("heightEnd") Integer heightEnd);
 
         @GET("{endpoint}?requestType=getAssetAccounts")
         Single<AccountsAssetResponse> getAssetAccounts(@Path("endpoint") String endpoint,

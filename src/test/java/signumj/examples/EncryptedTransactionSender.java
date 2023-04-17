@@ -16,6 +16,7 @@ import signumj.service.NodeService;
  * and signing the transaction) offline so does not send the passphrase
  * to the node (which would be a huge security risk!)
  */
+@SuppressWarnings("deprecation") // TODO: remove when we cleanup the deprecated methods
 public class EncryptedTransactionSender {
 	
     public Disposable sendTransactionWithEncryptedMessage(NodeService node, String passphrase, String recipientPublicKey,
@@ -25,7 +26,7 @@ public class EncryptedTransactionSender {
         byte[] recipientPublicKeyBytes = Hex.decode(recipientPublicKey);
 
         // Generate the transaction without signing it
-        Disposable disposable = node.generateTransactionWithEncryptedMessage(
+		Disposable disposable = node.generateTransactionWithEncryptedMessage(
         		crypto.getAddressFromPublic(recipientPublicKeyBytes),
         		crypto.getPublicKey(passphrase), amountToSend, fee, deadline,
         		crypto.encryptTextMessage("Sent from SignumJ!", passphrase, recipientPublicKeyBytes), null)

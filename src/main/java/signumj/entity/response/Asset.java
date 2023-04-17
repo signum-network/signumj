@@ -12,34 +12,22 @@ public class Asset {
     private final String description;
     private final int decimals;
     private final boolean mintable;
-    /**
-     * Quantity of the asset. Not actually in Burst; The BurstValue class is used as a utility.
-     */
     private final SignumValue quantity;
     private final SignumValue quantityBurnt;
     private final SignumID assetId;
-    private int numberOfTrades;
-    private int numberOfTransfers;
-    private int numberOfAccounts;
-
-    public Asset(SignumAddress issuer, SignumAddress account, String name, String description, int decimals, SignumValue quantity, SignumValue quantityBurnt, SignumID assetId, boolean mintable, int numberOfTrades, int numberOfTransfers, int numberOfAccounts) {
-        this.issuer = issuer;
-        this.account = account;
-        this.name = name;
-        this.description = description;
-        this.decimals = decimals;
-        this.quantity = quantity;
-        this.quantityBurnt = quantityBurnt;
-        this.assetId = assetId;
-        this.mintable = mintable;
-        this.numberOfTrades = numberOfTrades;
-        this.numberOfTransfers = numberOfTransfers;
-        this.numberOfAccounts = numberOfAccounts;
-    }
+    private final SignumValue quantityCirculating;
+    private final int numberOfTrades;
+    private final int numberOfTransfers;
+    private final int numberOfAccounts;
+    private final SignumValue volume;
+    private final SignumValue priceHigh;
+    private final SignumValue priceLow;
+    private final SignumValue priceOpen;
+    private final SignumValue priceClose;
 
     public Asset(AssetResponse assetResponse) {
         this.account = SignumAddress.fromId(assetResponse.getAccount());
-        this.issuer = SignumAddress.fromId(assetResponse.getIssuer());
+        this.issuer = assetResponse.getIssuer() == null ? this.account : SignumAddress.fromId(assetResponse.getIssuer());
         this.name = assetResponse.getName();
         this.description = assetResponse.getDescription();
         this.decimals = assetResponse.getDecimals();
@@ -47,12 +35,42 @@ public class Asset {
         this.quantityBurnt = SignumValue.fromNQT(assetResponse.getQuantityBurntQNT());
         this.mintable = assetResponse.getMintable();
         this.assetId = SignumID.fromLong(assetResponse.getAsset());
+        this.quantityCirculating = SignumValue.fromNQT(assetResponse.getQuantityCirculatingQNT());
         this.numberOfTrades = assetResponse.getNumberOfTrades();
         this.numberOfTransfers = assetResponse.getNumberOfTrades();
         this.numberOfAccounts = assetResponse.getNumberOfAccounts();
+        this.volume = SignumValue.fromNQT(assetResponse.getVolumeQNT());
+        this.priceHigh = SignumValue.fromNQT(assetResponse.getPriceHigh());
+        this.priceLow = SignumValue.fromNQT(assetResponse.getPriceLow());
+        this.priceOpen = SignumValue.fromNQT(assetResponse.getPriceOpen());
+        this.priceClose = SignumValue.fromNQT(assetResponse.getPriceClose());
     }
 
-    public SignumAddress getAccount() {
+    public SignumValue getQuantityCirculating() {
+		return quantityCirculating;
+	}
+
+	public SignumValue getVolume() {
+		return volume;
+	}
+
+	public SignumValue getPriceHigh() {
+		return priceHigh;
+	}
+
+	public SignumValue getPriceLow() {
+		return priceLow;
+	}
+
+	public SignumValue getPriceOpen() {
+		return priceOpen;
+	}
+
+	public SignumValue getPriceClose() {
+		return priceClose;
+	}
+
+	public SignumAddress getAccount() {
         return account;
     }
 

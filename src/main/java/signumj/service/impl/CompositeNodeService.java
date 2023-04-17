@@ -199,8 +199,8 @@ public class CompositeNodeService implements NodeService {
     }
 
     @Override
-    public Single<Asset> getAsset(SignumID assetId) {
-        return performFastest(service -> service.getAsset(assetId));
+    public Single<Asset> getAsset(SignumID assetId, SignumValue quantityMinimum, Integer heightStart, Integer heightEnd) {
+        return performFastest(service -> service.getAsset(assetId, quantityMinimum, heightStart, heightStart));
     }
 
     @Override

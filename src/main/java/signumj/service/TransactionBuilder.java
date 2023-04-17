@@ -93,7 +93,7 @@ public class TransactionBuilder {
 	SignumAddress recipient;
 	SignumValue amount;
 	SignumValue quantity;
-	String referencedTransactionFullHash;
+	byte[] referencedTransactionFullHash;
 	int frequency;
 	boolean mintable = false;
 
@@ -167,8 +167,14 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder referencedTransactionFullHash(String referencedTransactionFullHash) {
-		this.referencedTransactionFullHash = referencedTransactionFullHash;
+		this.referencedTransactionFullHash = Hex.decode(referencedTransactionFullHash);
 		params.put("referencedTransactionFullHash", referencedTransactionFullHash);
+		return this;
+	}
+	
+	public TransactionBuilder referencedTransactionFullHash(byte []referencedTransactionFullHash) {
+		this.referencedTransactionFullHash = referencedTransactionFullHash;
+		params.put("referencedTransactionFullHash", Hex.toHexString(referencedTransactionFullHash));
 		return this;
 	}
 
@@ -454,10 +460,8 @@ public class TransactionBuilder {
 		long recipientId = buffer.getLong();
 		long amountNQT = buffer.getLong();
 		long feeNQT = buffer.getLong();
-		String referencedTransactionFullHash = null;
 		byte[] referencedTransactionFullHashBytes = new byte[32];
 		buffer.get(referencedTransactionFullHashBytes);
-		referencedTransactionFullHash = Hex.toHexString(referencedTransactionFullHashBytes);
 		byte[] signature = new byte[64];
 		buffer.get(signature);
 		int flags = 0;
@@ -468,6 +472,10 @@ public class TransactionBuilder {
 			if (txversion > 1){
 				buffer.getLong(); // cashBackId
 			}
+		}
+		
+		if(this.referencedTransactionFullHash!=null && !Arrays.equals(this.referencedTransactionFullHash, referencedTransactionFullHashBytes)) {
+			return false;
 		}
 
 		if(this.type == ADD_COMMITMENT || this.type == REMOVE_COMMITMENT) {

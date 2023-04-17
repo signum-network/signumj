@@ -217,8 +217,8 @@ public class UseBestNodeService implements NodeService {
     }
 
     @Override
-    public Single<Asset> getAsset(SignumID assetId) {
-        return performOnBest(service -> service.getAsset(assetId));
+    public Single<Asset> getAsset(SignumID assetId, SignumValue quantityMinimum, Integer heightStart, Integer heightEnd) {
+        return performOnBest(service -> service.getAsset(assetId, quantityMinimum, heightStart, heightEnd));
     }
 
     @Override
