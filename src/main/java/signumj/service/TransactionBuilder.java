@@ -134,14 +134,29 @@ public class TransactionBuilder {
 	public TransactionBuilder(String requestType, int type, int subType, byte[] senderPublicKey, SignumValue fee, int deadline) {
 		this(new Type(requestType, type, subType), senderPublicKey, fee, deadline);
 	}
+	
+	private void checkValid(String param, Type... validTypes) throws IllegalArgumentException {
+		for(Type t : validTypes) {
+			if(this.type == t) {
+				// found a valid type
+				return;
+			}
+		}
+		throw new IllegalArgumentException(param + " is not a valid parameter for " + this.type.getRequestType());
+	}
 
 	public TransactionBuilder amount(SignumValue amount) {
+		checkValid("amount", SEND_MONEY, SEND_MONEY_MULTI, SEND_MONEY_MULTI_SAME, BUY_ALIAS, SET_TLD,
+				TRANSFER_ASSET, DISTRIBUTE_TO_ASSET_HOLDERS, TRANSFER_ASSET_MULTI, ADD_COMMITMENT, SUBSCRIPTION);
+		
 		this.amount = amount;
 		params.put("amountNQT", amount.toNQT().toString());
 		return this;
 	}
 
 	public TransactionBuilder recipient(SignumAddress recipient) {
+		checkValid("recipient", SEND_MONEY, SEND_MESSAGE, SET_REWARD_RECIPIENT, TRANSFER_ASSET, SUBSCRIPTION);
+		
 		this.recipient = recipient;
 		params.put("recipient", recipient.getID());
 		if(recipient.getPublicKey() != null) {
@@ -187,6 +202,8 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder recipients(Map<SignumAddress, SignumValue> recipients) {
+		checkValid("recipients", SEND_MONEY_MULTI);
+
 		StringBuilder recipientsString = new StringBuilder();
 		if (recipients.size() > 64 || recipients.size() < 2) {
 			throw new IllegalArgumentException("Must have 2-64 recipients, received " + recipients.size());
@@ -206,6 +223,8 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder recipients(Set<SignumAddress> recipients) {
+		checkValid("recipients", SEND_MONEY_MULTI_SAME);
+
 		StringBuilder recipientsString = new StringBuilder();
 		if (recipients.size() > 128 || recipients.size() < 2) {
 			throw new IllegalArgumentException("Must have 2-128 recipients, received " + recipients.size());
@@ -225,6 +244,8 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder creationBytes(byte[] creationBytes) {
+		checkValid("creationBytes", CREATE_AT);
+
 		this.creationBytes = creationBytes;
 		if (creationBytes.length >= 2560) {
 			body = Hex.toHexString(creationBytes);
@@ -234,16 +255,22 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder name(String name) {
+		checkValid("name", SET_ACCOUNT_INFO, ISSUE_ASSET, CREATE_AT);
+		
 		params.put("name", this.name = name);
 		return this;
 	}
 
 	public TransactionBuilder description(String description) {
+		checkValid("description", SET_ACCOUNT_INFO, ISSUE_ASSET, CREATE_AT);
+		
 		params.put("description", this.description = description);
 		return this;
 	}
 
 	public TransactionBuilder mintable(boolean mintable) {
+		checkValid("mintable", ISSUE_ASSET);
+
 		params.put("mintable", Boolean.toString(this.mintable = mintable));
 		return this;
 	}
@@ -254,40 +281,54 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder subscription(SignumID subscription) {
+		checkValid("subscription", SUBSCRIPTION_CANCEL);
+
 		this.subscription = subscription;
 		params.put("subscription", subscription.getID());
 		return this;
 	}
 
 	public TransactionBuilder frequency(int frequency) {
+		checkValid("frequency", SUBSCRIPTION);
+		
 		params.put("frequency", Integer.toString(this.frequency = frequency));
 		return this;
 	}
 
 	public TransactionBuilder order(SignumID order) {
+		checkValid("order", CANCEL_ASK_ORDER, CANCEL_BID_ORDER);
+		
 		params.put("order", order.getID());
 		return this;
 	}
 
 	public TransactionBuilder asset(SignumID asset) {
+		checkValid("asset", TRANSFER_ASSET, MINT_ASSET);
+		
 		this.asset = asset;
 		params.put("asset", asset.getID());
 		return this;
 	}
 
 	public TransactionBuilder quantity(SignumValue quantity) {
+		checkValid("quantity", ISSUE_ASSET, TRANSFER_ASSET, MINT_ASSET, DISTRIBUTE_TO_ASSET_HOLDERS);
+		
 		this.quantity = quantity;
 		params.put("quantityQNT", quantity.toNQT().toString());
 		return this;
 	}
 
 	public TransactionBuilder price(SignumValue price) {
+		checkValid("price", PLACE_BID_ORDER, PLACE_ASK_ORDER, SELL_ALIAS);
+		
 		this.price = price;
 		params.put("priceQNT", price.toNQT().toString());
 		return this;
 	}
 
 	public TransactionBuilder assetIdsAndQuantities(Map<SignumID, SignumValue> assetIdsAndQuantities) {
+		checkValid("assetIdsAndQuantities", TRANSFER_ASSET_MULTI);
+		
 		this.assetIdsAndQuantities = assetIdsAndQuantities;
 		StringBuilder assetIdAndQuantityString = new StringBuilder();
 		if (assetIdsAndQuantities.size() > 4 || assetIdsAndQuantities.size() < 2) {
@@ -304,18 +345,24 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder quantityMinimum(SignumValue quantityMinimum) {
+		checkValid("quantityMinimum", DISTRIBUTE_TO_ASSET_HOLDERS);
+		
 		this.quantityMinimum = quantityMinimum;
 		params.put("quantityMinimumQNT", quantityMinimum.toNQT().toString());
 		return this;
 	}
 
 	public TransactionBuilder assetToDistribute(SignumID assetToDistribute) {
+		checkValid("assetToDistribute", DISTRIBUTE_TO_ASSET_HOLDERS);
+		
 		this.assetToDistribute = assetToDistribute;
 		params.put("assetToDistribute", assetToDistribute.getID());
 		return this;
 	}
 
 	public TransactionBuilder decimals(int decimals) {
+		checkValid("decimals", ISSUE_ASSET);
+		
 		if (decimals < 0 || decimals > 8) {
 			throw new IllegalArgumentException("Decimals must be between 0-8");
 		}
@@ -329,6 +376,8 @@ public class TransactionBuilder {
 	 * @return
 	 */
 	public TransactionBuilder alias(String aliasName, SignumID alias) {
+		checkValid("alias", SET_ALIAS, SELL_ALIAS);
+
 		this.alias = alias;
 		if(alias != null) {
 			params.put("alias", alias.getID());
@@ -338,6 +387,8 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder aliasURI(String aliasURI) {
+		checkValid("aliasURI", SET_ALIAS);
+
 		params.put("aliasURI", this.aliasURI = aliasURI);
 		return this;
 	}
@@ -348,6 +399,8 @@ public class TransactionBuilder {
 	 * @return
 	 */
 	public TransactionBuilder tld(String tld, SignumID tldId) {
+		checkValid("tld", SET_ALIAS, SELL_ALIAS, BUY_ALIAS, SET_TLD);
+
 		this.tld = tld;
 		this.tldId = tldId;
 		params.put("tld", tld);
