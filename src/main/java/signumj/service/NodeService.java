@@ -2,6 +2,7 @@ package signumj.service;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import signumj.crypto.SignumCrypto;
 import signumj.entity.*;
 import signumj.entity.response.*;
 import signumj.service.impl.CompositeNodeService;
@@ -151,7 +152,6 @@ public interface NodeService extends AutoCloseable {
      * 
      * @return A list trades, wrapped in a single
      */
-    // TODO TEST
     Single<AssetTrade[]> getAssetTrades(SignumID assetId, SignumAddress account, Integer firstIndex, Integer lastIndex);
 
     /**
@@ -238,27 +238,29 @@ public interface NodeService extends AutoCloseable {
     Single<byte[]> getTransactionBytes(SignumID transactionId);
 
     /**
-     * Generate a add commitment transaction
+     * Generate a add commitment transaction, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to commit
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionAddCommitment(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline);
 
     /**
-     * Generate a add commitment transaction
+     * Generate a add commitment transaction, please use {@link #generateTransaction(TransactionBuilder)}
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to remove
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionRemoveCommitment(byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline);
 
     /**
-     * Generate a simple transaction (only sending money)
+     * Generate a simple transaction (only sending money), please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to send
@@ -266,20 +268,22 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction to set the reward recipient
+     * Generate a transaction to set the reward recipient, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
      * @param deadline The deadline for the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline);
     
     /**
-     * Generate a transaction with a plaintext message
+     * Generate a transaction with a plaintext message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to send
@@ -288,10 +292,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with a plaintext message
+     * Generate a transaction with a plaintext message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
@@ -299,10 +304,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, String message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain.
+     * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipientAddress The recipient's address
      * @param recipientPublicKey The public key of the recipient, to be set in the chain
      * @param senderPublicKey The public key of the sender
@@ -312,10 +318,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithMessage(SignumAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain.
+     * Generate a transaction with a plaintext message which also sets the recipient's public key in the chain, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipientAddress The recipient's address
      * @param recipientPublicKey The public key of the recipient, to be set in the chain
      * @param senderPublicKey The public key of the sender
@@ -324,10 +331,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithMessage(SignumAddress recipientAddress, byte[] recipientPublicKey, byte[] senderPublicKey, SignumValue fee, int deadline, String message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with a plaintext message
+     * Generate a transaction with a plaintext message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to send
@@ -336,10 +344,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, byte[] message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with a plaintext message
+     * Generate a transaction with a plaintext message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
@@ -347,10 +356,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, byte[] message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with an encrypted message (can be read by sender and recipient)
+     * Generate a transaction with an encrypted message (can be read by sender and recipient), please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to send
@@ -359,10 +369,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The encrypted message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithEncryptedMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with an encrypted message (can be read by sender and recipient)
+     * Generate a transaction with an encrypted message (can be read by sender and recipient), please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
@@ -370,10 +381,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The encrypted message to include in the transaction
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithEncryptedMessage(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with an encrypted-to-self message (can be read by only sender)
+     * Generate a transaction with an encrypted-to-self message (can be read by only sender), please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param amount The amount to send
@@ -382,10 +394,11 @@ public interface NodeService extends AutoCloseable {
      * @param message The encrypted message to include in the transaction (Use sender public key and sender private key to encrypt)
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash);
 
     /**
-     * Generate a transaction with an encrypted-to-self message (can be read by only sender)
+     * Generate a transaction with an encrypted-to-self message (can be read by only sender), please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
      * @param senderPublicKey The public key of the sender
      * @param fee The transaction fee
@@ -393,8 +406,17 @@ public interface NodeService extends AutoCloseable {
      * @param message The encrypted message to include in the transaction (Use sender public key and sender private key to encrypt)
      * @return The unsigned transaction bytes, wrapped in a single
      */
+    @Deprecated
     Single<byte[]> generateTransactionWithEncryptedMessageToSelf(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline, EncryptedMessage message, String referencedTransactionFullHash);
 
+    /**
+     * Ask the node service to generate the unsigned bytes for the given transaction builder.
+     * 
+     * To sign the transaction, use {@link SignumCrypto#signTransaction(byte[], byte[])}.
+     * 
+     * @param builder the transaction builder
+     * @return the unsigned bytes for the transaction
+     */
     Single<byte[]> generateTransaction(TransactionBuilder builder);
 
     /**

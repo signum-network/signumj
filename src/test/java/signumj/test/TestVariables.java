@@ -11,7 +11,7 @@ public class TestVariables {
     public static final int EXAMPLE_BLOCK_HEIGHT = 470000;
     public static final SignumTimestamp EXAMPLE_TIMESTAMP = SignumTimestamp.fromBurstTimestamp(126144000); // 4 years
     public static final SignumID EXAMPLE_BLOCK_ID = SignumID.fromLong("9466704733664017405");
-    public static final SignumID EXAMPLE_ASSET_ID = SignumID.fromLong("2864220132438361643");
+    public static final SignumID EXAMPLE_ASSET_ID = SignumID.fromLong("12402415494995249540");
     public static final SignumAddress EXAMPLE_ACCOUNT_ID = SignumAddress.fromId(SignumID.fromLong("7009665667967103287"));
     public static final SignumAddress EXAMPLE_ACCOUNT_ID_WITH_ASSET = SignumAddress.fromId(SignumID.fromLong("10483186162341119402"));
     public static final SignumAddress EXAMPLE_ACCOUNT_WITH_ATS = SignumAddress.fromId(SignumID.fromLong("15531783970570580600"));

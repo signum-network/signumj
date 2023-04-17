@@ -45,6 +45,7 @@ import signumj.util.SignumUtils;
  * current best one fails.
  * 
  */
+@SuppressWarnings("deprecation") // TODO: remove after the deprecated methods are removed
 public class UseBestNodeService implements NodeService {
 	
     private final List<NodeService> burstNodeServices;

@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("deprecation") // TODO: remove this when the deprecated methods are cleaned up
 public class CompositeNodeService implements NodeService {
     private final NodeService[] burstNodeServices;
 
@@ -247,7 +248,7 @@ public class CompositeNodeService implements NodeService {
         return performFastest(service -> service.getTransactionBytes(transactionId));
     }
 
-    @Override
+	@Override
     public Single<byte[]> generateTransaction(SignumAddress recipient, byte[] senderPublicKey, SignumValue amount, SignumValue fee, int deadline, String referencedTransactionFullHash) {
         return performFastest(service -> service.generateTransaction(recipient, senderPublicKey, amount, fee, deadline, referencedTransactionFullHash));
     }

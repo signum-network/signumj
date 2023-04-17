@@ -24,6 +24,7 @@ import signumj.entity.response.AT;
 import signumj.entity.response.Account;
 import signumj.entity.response.AssetBalance;
 import signumj.entity.response.AssetOrder;
+import signumj.entity.response.AssetTrade;
 import signumj.entity.response.Block;
 import signumj.entity.response.Constants;
 import signumj.entity.response.Constants.TransactionType;
@@ -46,6 +47,7 @@ import signumj.response.attachment.MultiOutSameAttachment;
 import signumj.service.NodeService;
 import signumj.service.impl.HttpNodeService;
 
+@SuppressWarnings("deprecation") // TODO: remove after the deprecated methods are removed
 public class NodeServiceTest {
     private NodeService nodeService;
     private final SignumCrypto burstCrypto = SignumCrypto.getInstance();
@@ -169,6 +171,16 @@ public class NodeServiceTest {
         AssetOrder[] ordersResponse = RxTestUtils.testSingle(nodeService.getBidOrders(TestVariables.EXAMPLE_ASSET_ID));
         assertNotNull(ordersResponse);
     }
+    
+    @Test
+    public void testGetAssetTrades() {
+        AssetTrade[] trades = RxTestUtils.testSingle(nodeService.getAssetTrades(TestVariables.EXAMPLE_ASSET_ID, null, 0, 10));
+        assertNotNull(trades);
+        assertTrue(trades.length > 0);
+        for(AssetTrade trade : trades) {
+        	assertEquals(TestVariables.EXAMPLE_ASSET_ID, trade.getAssetId());
+        }
+    }
 
     @Test
     public void testGetAccountsWithRewardRecipient() {
@@ -289,7 +301,7 @@ public class NodeServiceTest {
     @Test
     public void testGenerateTransaction() {
         // TODO test with zero amounts
-        byte[] withoutMessageAmount = RxTestUtils.testSingle(nodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, null));
+		byte[] withoutMessageAmount = RxTestUtils.testSingle(nodeService.generateTransaction(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, null));
         byte[] withStringMessage = RxTestUtils.testSingle(nodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, "Test Transaction", null));
         byte[] withBytesMessage = RxTestUtils.testSingle(nodeService.generateTransactionWithMessage(TestVariables.EXAMPLE_ACCOUNT_ID, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(1), SignumValue.fromSigna(1), 1440, TestVariables.EXAMPLE_ACCOUNT_PUBKEY, null));
 
