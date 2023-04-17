@@ -10,11 +10,23 @@ import java.util.Set;
 
 import org.bouncycastle.util.encoders.Hex;
 
+import signumj.crypto.SignumCrypto;
 import signumj.entity.EncryptedMessage;
 import signumj.entity.SignumAddress;
 import signumj.entity.SignumID;
 import signumj.entity.SignumValue;
 
+/**
+ * A transaction builder object.
+ * 
+ * An instance of this object should be used with {@link NodeService#generateTransaction(TransactionBuilder)}
+ * to get the unsigned transaction bytes.
+ * 
+ * The bytes returned by the node can be locally verified by {@link #verify(byte[])}. If the bytes
+ * are verified the transaction can be signed by {@link SignumCrypto#signTransaction(byte[], byte[])}
+ * and finally broadcast with {@link NodeService#broadcastTransaction(byte[])}.
+ *
+ */
 public class TransactionBuilder {
 
 	static class Type {
@@ -105,6 +117,9 @@ public class TransactionBuilder {
 	private SignumID tldId;
 	private SignumID alias;
 	private String tld;
+	private EncryptedMessage encryptedMessage;
+	private EncryptedMessage encryptedMessageToSelf;
+	private Map<SignumID, SignumValue> assetIdsAndQuantities;
 
 	public TransactionBuilder(Type type, byte[] senderPublicKey, SignumValue fee, int deadline) {
 		this.type = type;
@@ -156,6 +171,7 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder encryptedMessage(EncryptedMessage message) {
+		this.encryptedMessage = message;
 		params.put("messageToEncryptIsText", Boolean.toString(message.isText()));
 		params.put("encryptedMessageData", Hex.toHexString(message.getData()));
 		params.put("encryptedMessageNonce", Hex.toHexString(message.getNonce()));
@@ -163,16 +179,17 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder encryptedMessageToSelf(EncryptedMessage message) {
+		this.encryptedMessageToSelf = message;
 		params.put("messageToEncryptToSelfIsText", Boolean.toString(message.isText()));
-		params.put("encryptedToSelfMessageData", Hex.toHexString(message.getData()));
-		params.put("encryptedToSelfMessageNonce", Hex.toHexString(message.getNonce()));
+		params.put("encryptToSelfMessageData", Hex.toHexString(message.getData()));
+		params.put("encryptToSelfMessageNonce", Hex.toHexString(message.getNonce()));
 		return this;
 	}
 
 	public TransactionBuilder recipients(Map<SignumAddress, SignumValue> recipients) {
 		StringBuilder recipientsString = new StringBuilder();
 		if (recipients.size() > 64 || recipients.size() < 2) {
-			throw new IllegalArgumentException("Must have 2-64 recipients, had " + recipients.size());
+			throw new IllegalArgumentException("Must have 2-64 recipients, received " + recipients.size());
 		}
 		long total = 0L;
 		for (Map.Entry<SignumAddress, SignumValue> recipient : recipients.entrySet()) {
@@ -270,12 +287,13 @@ public class TransactionBuilder {
 		return this;
 	}
 
-	public TransactionBuilder assetIdsAndQuantities(Map<SignumID, SignumValue> assetIdAndQuantity) {
+	public TransactionBuilder assetIdsAndQuantities(Map<SignumID, SignumValue> assetIdsAndQuantities) {
+		this.assetIdsAndQuantities = assetIdsAndQuantities;
 		StringBuilder assetIdAndQuantityString = new StringBuilder();
-		if (assetIdAndQuantity.size() > 4 || assetIdAndQuantity.size() < 2) {
-			throw new IllegalArgumentException("Must have 2-4 assets, recieved " + assetIdAndQuantity.size());
+		if (assetIdsAndQuantities.size() > 4 || assetIdsAndQuantities.size() < 2) {
+			throw new IllegalArgumentException("Must have 2-4 assets, recieved " + assetIdsAndQuantities.size());
 		}
-		for (Map.Entry<SignumID, SignumValue> entry : assetIdAndQuantity.entrySet()) {
+		for (Map.Entry<SignumID, SignumValue> entry : assetIdsAndQuantities.entrySet()) {
 			assetIdAndQuantityString.append(entry.getKey().getID()).append(":").append(entry.getValue().toNQT())
 			.append(";");
 		}
@@ -363,7 +381,7 @@ public class TransactionBuilder {
 	/**
 	 * Verifies if the given byte array is compatible with the information sent to the node.
 	 *
-	 * TODO: still not verifying encrypted appendices
+	 * The attachment as well as the appendices are checked.
 	 *
 	 * @param bytes the byte array of this transaction
 	 * @return true if the byte array matches the transaction data
@@ -537,6 +555,22 @@ public class TransactionBuilder {
 				return false;
 			}
 		}
+		else if(this.type == TRANSFER_ASSET_MULTI) {
+			buffer.get(); // version
+			int numberOfAssets = Byte.toUnsignedInt(buffer.get());
+			if (numberOfAssets != assetIdsAndQuantities.size()) {
+				return false;
+			}
+			for(int i=0; i < numberOfAssets; i++){
+				SignumID assetId = SignumID.fromLong(buffer.getLong());
+				long quantity = buffer.getLong();
+
+				if(!assetIdsAndQuantities.containsKey(assetId)
+						|| assetIdsAndQuantities.get(assetId).longValue() != quantity){
+					return false;
+				}
+			}
+		}
 		else if(this.type == PLACE_ASK_ORDER || this.type == PLACE_BID_ORDER) {
 			buffer.get(); // version
 			long assetId = buffer.getLong();
@@ -680,6 +714,7 @@ public class TransactionBuilder {
 		// Parsing the appendices
 	    int position = 1;
 	    if ((flags & position) != 0) {
+	    	// has a message
 	    	if(txversion != 0) buffer.get();
 	        int messageLength = buffer.getInt();
 	        boolean isText = messageLength < 0; // ugly hack
@@ -695,22 +730,26 @@ public class TransactionBuilder {
 	    }
 	    position <<= 1;
 	    if ((flags & position) != 0) {
+	    	// has an encrypted message
 	    	if(txversion != 0) buffer.get();
 	    	int length = buffer.getInt();
-	    	// boolean isText = length < 0;
+	    	boolean isText = length < 0;
 	    	if (length < 0) {
 	    		length &= Integer.MAX_VALUE;
 	    	}
-	    	if (length > 0) {
-	    		byte[] noteBytes = new byte[length];
-	    		buffer.get(noteBytes);
-	    		byte[] noteNonceBytes = new byte[32];
-	    		buffer.get(noteNonceBytes);
-	    		// TODO: actually check the encrypted data
+	    	byte[] data = new byte[length];
+	    	buffer.get(data);
+	    	byte[] nonceBytes = new byte[32];
+	    	buffer.get(nonceBytes);
+	    	
+	    	if(this.encryptedMessage.isText()!=isText || !Arrays.equals(this.encryptedMessage.getData(), data)
+	    		|| !Arrays.equals(this.encryptedMessage.getNonce(), nonceBytes)){
+	    		return false;
 	    	}
 	    }
 	    position <<= 1;
 	    if ((flags & position) != 0) {
+	    	// has a public key announcement
 	    	if(txversion != 0) buffer.get();
 	        byte publicKey[] = new byte[32];
 	        buffer.get(publicKey);
@@ -720,7 +759,22 @@ public class TransactionBuilder {
 	    }
 	    position <<= 1;
 	    if ((flags & position) != 0) {
-	    	// TODO: actually check the encrypted data
+	    	// has an encrypted to self message
+	    	if(txversion != 0) buffer.get();
+	    	int length = buffer.getInt();
+	    	boolean isText = length < 0;
+	    	if (length < 0) {
+	    		length &= Integer.MAX_VALUE;
+	    	}
+	    	byte[] data = new byte[length];
+	    	buffer.get(data);
+	    	byte[] nonceBytes = new byte[32];
+	    	buffer.get(nonceBytes);
+	    	
+	    	if(this.encryptedMessageToSelf.isText()!=isText || !Arrays.equals(this.encryptedMessageToSelf.getData(), data)
+	    		|| !Arrays.equals(this.encryptedMessageToSelf.getNonce(), nonceBytes)){
+	    		return false;
+	    	}
 	    }
 
 		return true;

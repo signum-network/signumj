@@ -15,6 +15,7 @@ import org.junit.Test;
 
 import signumj.Constants;
 import signumj.crypto.SignumCrypto;
+import signumj.entity.EncryptedMessage;
 import signumj.entity.SignumAddress;
 import signumj.entity.SignumValue;
 import signumj.service.NodeService;
@@ -56,6 +57,30 @@ public class TransactionBuilderTest {
     			TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(0.01), 1440)
     			.recipient(TestVariables.EXAMPLE_ACCOUNT_ID)
 				.message("Test message");
+
+    	byte []utx = RxTestUtils.testSingle(nodeService.generateTransaction(tb));
+    	assertTrue(tb.verify(utx));
+    }
+	
+	@Test
+    public void testSendEncryptedMessage() {
+		EncryptedMessage message = new EncryptedMessage(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH, new byte[32], true);
+    	TransactionBuilder tb = new TransactionBuilder(TransactionBuilder.SEND_MESSAGE,
+    			TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(0.01), 1440)
+    			.recipient(TestVariables.EXAMPLE_ACCOUNT_ID)
+    			.encryptedMessage(message);
+
+    	byte []utx = RxTestUtils.testSingle(nodeService.generateTransaction(tb));
+    	assertTrue(tb.verify(utx));
+    }
+	
+	@Test
+    public void testSendEncryptedMessageToSelf() {
+		EncryptedMessage message = new EncryptedMessage(TestVariables.EXAMPLE_TRANSACTION_FULL_HASH, new byte[32], true);
+    	TransactionBuilder tb = new TransactionBuilder(TransactionBuilder.SEND_MESSAGE,
+    			TestVariables.EXAMPLE_ACCOUNT_PUBKEY, SignumValue.fromSigna(0.01), 1440)
+    			.recipient(TestVariables.EXAMPLE_ACCOUNT_ID)
+    			.encryptedMessageToSelf(message);
 
     	byte []utx = RxTestUtils.testSingle(nodeService.generateTransaction(tb));
     	assertTrue(tb.verify(utx));
