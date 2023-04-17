@@ -155,7 +155,7 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder recipient(SignumAddress recipient) {
-		checkValid("recipient", SEND_MONEY, SEND_MESSAGE, SET_REWARD_RECIPIENT, TRANSFER_ASSET, SUBSCRIPTION);
+		checkValid("recipient", SEND_MONEY, SEND_MESSAGE, SET_REWARD_RECIPIENT, TRANSFER_ASSET, TRANSFER_ASSET_MULTI, SUBSCRIPTION);
 		
 		this.recipient = recipient;
 		params.put("recipient", recipient.getID());
@@ -303,7 +303,7 @@ public class TransactionBuilder {
 	}
 
 	public TransactionBuilder asset(SignumID asset) {
-		checkValid("asset", TRANSFER_ASSET, MINT_ASSET);
+		checkValid("asset", TRANSFER_ASSET, MINT_ASSET, DISTRIBUTE_TO_ASSET_HOLDERS);
 		
 		this.asset = asset;
 		params.put("asset", asset.getID());
