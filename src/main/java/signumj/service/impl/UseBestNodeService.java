@@ -30,6 +30,7 @@ import signumj.entity.response.Constants;
 import signumj.entity.response.FeeSuggestion;
 import signumj.entity.response.IndirectIncoming;
 import signumj.entity.response.MiningInfo;
+import signumj.entity.response.Subscription;
 import signumj.entity.response.TLD;
 import signumj.entity.response.Transaction;
 import signumj.entity.response.TransactionBroadcast;
@@ -517,5 +518,10 @@ public class UseBestNodeService implements NodeService {
 	@Override
 	public Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex) {
 		return performOnBest(service -> service.getTLDs(timestamp, firstIndex, lastIndex));
+	}
+
+	@Override
+	public Single<Subscription[]> getAccountSubscriptions(SignumAddress account) {
+		return performOnBest(service -> service.getAccountSubscriptions(account));
 	}
 }

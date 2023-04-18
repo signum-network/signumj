@@ -15,14 +15,14 @@ public class TLD {
     private final SignumAddress buyer;
     private final int numberOfAliases;
     
-    public TLD(TLDResponse aliasResponse) {
-        this.account = SignumAddress.fromEither(aliasResponse.getAccount());
-        this.aliasName = aliasResponse.getAliasName();
-        this.alias = SignumID.fromLong(aliasResponse.getAlias());
-        this.timestamp = SignumTimestamp.fromBurstTimestamp(aliasResponse.getTimestamp());
-        this.price = SignumValue.fromNQT(aliasResponse.getPriceNQT());
-        this.buyer = SignumAddress.fromEither(aliasResponse.getBuyer());
-        this.numberOfAliases = aliasResponse.getNumberOfAliases();
+    public TLD(TLDResponse response) {
+        this.account = SignumAddress.fromEither(response.getAccount());
+        this.aliasName = response.getAliasName();
+        this.alias = SignumID.fromLong(response.getAlias());
+        this.timestamp = SignumTimestamp.fromBurstTimestamp(response.getTimestamp());
+        this.price = SignumValue.fromNQT(response.getPriceNQT());
+        this.buyer = SignumAddress.fromEither(response.getBuyer());
+        this.numberOfAliases = response.getNumberOfAliases();
     }
 
 	public SignumAddress getAccount() {

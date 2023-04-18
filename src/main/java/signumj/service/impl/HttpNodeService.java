@@ -228,7 +228,12 @@ public final class HttpNodeService implements NodeService {
         		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getTLDs()).map(TLD::new).toArray(TLD[]::new));
 	}
-
+	
+	@Override
+	public Single<Subscription[]> getAccountSubscriptions(SignumAddress account) {
+        return assign(apiService.getAccountSubscriptions(SignumUtils.getEndpoint(), account))
+                .map(response -> Arrays.stream(response.getSubscriptions()).map(Subscription::new).toArray(Subscription[]::new));
+	}
 
     @Override
     public Single<AT> getAt(SignumAddress atId) {
@@ -730,6 +735,10 @@ public final class HttpNodeService implements NodeService {
         @GET("{endpoint}?requestType=getTLDs")
         Single<TLDsResponse> getTLDs(@Path("endpoint") String endpoint,
         		@Query("timestamp") String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
+        
+        @GET("{endpoint}?requestType=getAccountSubscriptions")
+        Single<SubscriptionsResponse> getAccountSubscriptions(@Path("endpoint") String endpoint,
+        		@Query("account") SignumAddress account);
         
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") Boolean includeDetails);

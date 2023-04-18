@@ -189,6 +189,15 @@ public interface NodeService extends AutoCloseable {
     Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex);
 
     /**
+     * Get the subscriptions of a given account
+     * 
+     * @param account
+     * 
+     * @return A list of subscriptions, wrapped in a single
+     */
+    Single<Subscription[]> getAccountSubscriptions(SignumAddress account);
+
+    /**
      * Get the details of an AT
      * @param at The address of the AT
      * @return The details of the AT, wrapped in a single

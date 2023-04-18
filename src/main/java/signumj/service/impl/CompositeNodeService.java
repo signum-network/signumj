@@ -485,4 +485,9 @@ public class CompositeNodeService implements NodeService {
 		return performFastest(service -> service.getTLDs(timestamp, firstIndex, lastIndex));
 	}
 
+	@Override
+	public Single<Subscription[]> getAccountSubscriptions(SignumAddress account) {
+		return performFastest(service -> service.getAccountSubscriptions(account));
+	}
+
 }
