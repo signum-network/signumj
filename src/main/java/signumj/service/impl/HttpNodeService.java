@@ -729,7 +729,7 @@ public final class HttpNodeService implements NodeService {
         
         @GET("{endpoint}?requestType=getTLDs")
         Single<TLDsResponse> getTLDs(@Path("endpoint") String endpoint,
-        		String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
+        		@Query("timestamp") String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
         
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") Boolean includeDetails);
