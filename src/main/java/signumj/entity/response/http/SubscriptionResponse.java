@@ -7,6 +7,10 @@ public final class SubscriptionResponse extends BRSResponse {
     private String recipient;
     private String recipientRS;
     private String amountNQT;
+    private String alias;
+    private String aliasName;
+    private String tld;
+    private String tldName;
     private int freqency;
     private int timeNext;
 	
@@ -40,5 +44,21 @@ public final class SubscriptionResponse extends BRSResponse {
 
 	public String getAmountNQT() {
 		return amountNQT;
+	}
+
+	public String getAlias() {
+		return alias;
+	}
+
+	public String getAliasName() {
+		return aliasName;
+	}
+
+	public String getTLD() {
+		return tld;
+	}
+
+	public String getTldName() {
+		return tldName;
 	}
 }
