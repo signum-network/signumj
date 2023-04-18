@@ -221,6 +221,14 @@ public final class HttpNodeService implements NodeService {
         		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getAliases()).map(Alias::new).toArray(Alias[]::new));
     }
+    
+	@Override
+	public Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex) {
+        return assign(apiService.getTLDs(SignumUtils.getEndpoint(),
+        		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
+                .map(response -> Arrays.stream(response.getTLDs()).map(TLD::new).toArray(TLD[]::new));
+	}
+
 
     @Override
     public Single<AT> getAt(SignumAddress atId) {
@@ -718,6 +726,10 @@ public final class HttpNodeService implements NodeService {
         @GET("{endpoint}?requestType=getAliases")
         Single<AliasesResponse> getAliases(@Path("endpoint") String endpoint, @Query("account") String accountId,
         		@Query("aliasName") String aliasName, @Query("tld") String tld, @Query("timestamp") String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
+        
+        @GET("{endpoint}?requestType=getTLDs")
+        Single<TLDsResponse> getTLDs(@Path("endpoint") String endpoint,
+        		String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
         
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") Boolean includeDetails);

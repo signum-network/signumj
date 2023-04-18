@@ -480,4 +480,9 @@ public class CompositeNodeService implements NodeService {
 		return performFastest(service -> service.getAts(codeHashId, includeDetails, firstIndex, lastIndex));
 	}
 
+	@Override
+	public Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex) {
+		return performFastest(service -> service.getTLDs(timestamp, firstIndex, lastIndex));
+	}
+
 }

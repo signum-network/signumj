@@ -182,6 +182,13 @@ public interface NodeService extends AutoCloseable {
     Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex);
 
     /**
+     * Get the TLDs.
+     * 
+     * @return all the Top Level Domains/Namespaces of the alias system.
+     */
+    Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex);
+
+    /**
      * Get the details of an AT
      * @param at The address of the AT
      * @return The details of the AT, wrapped in a single
