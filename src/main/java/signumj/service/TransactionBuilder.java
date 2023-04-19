@@ -387,7 +387,7 @@ public class TransactionBuilder {
 	 * @return
 	 */
 	public TransactionBuilder alias(String aliasName, SignumID alias) {
-		checkValid("alias", SET_ALIAS, SELL_ALIAS);
+		checkValid("alias", SET_ALIAS, SELL_ALIAS, BUY_ALIAS);
 
 		this.alias = alias;
 		if(alias != null) {
