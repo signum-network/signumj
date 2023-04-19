@@ -329,7 +329,11 @@ public class TransactionBuilder {
 		checkValid("price", PLACE_BID_ORDER, PLACE_ASK_ORDER, SELL_ALIAS);
 		
 		this.price = price;
-		params.put("priceQNT", price.toNQT().toString());
+		String param = "priceQNT";
+		if(this.type == SELL_ALIAS) {
+			param = "priceNQT";
+		}
+		params.put(param, price.toNQT().toString());
 		return this;
 	}
 
