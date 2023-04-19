@@ -496,8 +496,9 @@ public class TransactionBuilder {
 				(this.amount!=null && this.amount.longValue()!=amountNQT) ||
 				(this.amount==null && amountNQT!=0L) ||
 				(this.referencedTransactionFullHash!=null && !this.referencedTransactionFullHash.equals(referencedTransactionFullHash)) ||
-				(this.recipient!=null && recipient.getSignedLongId()!=recipientId)
-				|| (this.recipient==null && recipientId != 0l)) {
+				(this.recipient!=null && recipient.getSignedLongId()!=recipientId) ||
+				// sell alias will fill the recipient as the alias seller, it is enough to check the alias ID on the sell
+				(this.recipient==null && recipientId != 0l && this.type!=SELL_ALIAS)) {
 			return false;
 		}
 
