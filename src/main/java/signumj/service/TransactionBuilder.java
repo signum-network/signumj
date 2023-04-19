@@ -156,7 +156,7 @@ public class TransactionBuilder {
 
 	public TransactionBuilder recipient(SignumAddress recipient) {
 		checkValid("recipient", SEND_MONEY, SEND_MESSAGE, SET_REWARD_RECIPIENT, TRANSFER_ASSET, TRANSFER_ASSET_MULTI,
-				TRANSFER_ASSET_OWNERSHIP, SUBSCRIPTION, ADD_ASSET_TREASURY);
+				TRANSFER_ASSET_OWNERSHIP, SUBSCRIPTION, ADD_ASSET_TREASURY, SELL_ALIAS);
 		
 		this.recipient = recipient;
 		params.put("recipient", recipient.getID());
