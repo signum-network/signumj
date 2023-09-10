@@ -3,11 +3,12 @@ package signumj.entity;
 import signumj.crypto.SignumCrypto;
 import signumj.util.SignumUtils;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import org.bouncycastle.util.encoders.Hex;
 
-public final class SignumAddress {
+public final class SignumAddress implements Serializable{
 
     /**
      * Stored without "BURST-" prefix.

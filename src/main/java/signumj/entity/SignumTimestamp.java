@@ -1,12 +1,13 @@
 package signumj.entity;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 
 import signumj.crypto.SignumCrypto;
 
-public final class SignumTimestamp {
+public final class SignumTimestamp implements Serializable{
     private final int timestamp;
     private final Date date;
 

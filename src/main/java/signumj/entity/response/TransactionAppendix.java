@@ -1,6 +1,8 @@
 package signumj.entity.response;
 
-public abstract class TransactionAppendix { // TODO add missing appendixes
+import java.io.Serializable;
+
+public abstract class TransactionAppendix implements Serializable{ // TODO add missing appendixes
     private final int version;
 
     protected TransactionAppendix(int version) {
