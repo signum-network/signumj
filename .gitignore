@@ -69,3 +69,4 @@ keystore/
 .classpath
 org.eclipse*
 /target/
+/.DS_Store
