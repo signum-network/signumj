@@ -13,4 +13,6 @@ public class Constants {
     public static final String HTTP_NODE_LOCAL_TESTNET = "http://localhost:6876";
 
     public static final String HTTP_NODE_TESTNET = "https://europe3.testnet.signum.network";
+
+	public static final int HTTP_REQUEST_TIMEOUT_SECS = 30;
 }

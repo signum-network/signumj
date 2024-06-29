@@ -40,38 +40,38 @@ import signumj.util.SignumUtils;
 
 /**
  * A node server using the 'best' of a list of nodes.
- * 
+ *
  * The best one is the one responding faster and that is up-to-date.
- * 
+ *
  * The best node is updated from time to time or when a call to the
  * current best one fails.
- * 
+ *
  */
 @SuppressWarnings("deprecation") // TODO: remove after the deprecated methods are removed
 public class UseBestNodeService implements NodeService {
-	
+
     private final List<NodeService> burstNodeServices;
     private NodeService firstWorkingNode;
     private AtomicReference<NodeService> bestNode = new AtomicReference<>();
     private AtomicLong lastCheck = new AtomicLong(0L);
 	private boolean checkUpToDate;
-    
+
     private static final int LATE_BLOCK_MINUTES = 8;
     private final static long NODE_CHECK_INTERVAL_MILLIS = 4 * 60_000L;
 
     /**
      * A node server using a list of nodes, priority is given to the one responding faster and that is up-to-date.
-     * 
+     *
      * @param burstNodeServices The burst node services this will wrap
      * @param checkUpToDate if true nodes that are not up-to-date have a lower priority
      */
     public UseBestNodeService(boolean checkUpToDate, List<NodeService> burstNodeServices) {
-        if (burstNodeServices == null || burstNodeServices.size() == 0)
+        if (burstNodeServices == null || burstNodeServices.isEmpty())
         	throw new IllegalArgumentException("No Node Services Provided");
         this.burstNodeServices = burstNodeServices;
         this.checkUpToDate = checkUpToDate;
         this.bestNode.set(burstNodeServices.get(0));
-        
+
         // Keep checking on nodes and adjusting the list
         Thread nodeChecker = new Thread("node-checker") {
         	public void run() {
@@ -80,7 +80,7 @@ public class UseBestNodeService implements NodeService {
         };
         nodeChecker.start();
     }
-    
+
 	@Override
 	public String getAddress() {
 		return bestNode.get().getAddress();
@@ -110,12 +110,12 @@ public class UseBestNodeService implements NodeService {
     						// lowest priority for late nodes
     						elapsed += 1000;
     					}
-    					
+
     					if(elapsed < bestElapsed) {
     						newNode = node;
     						bestElapsed = elapsed;
     					}
-    					
+
     					if(firstWorkingNode == null) {
     						// let's have at least a working node as soon as possible
     						firstWorkingNode = node;
@@ -127,7 +127,7 @@ public class UseBestNodeService implements NodeService {
     			}
     			bestNode.set(newNode);
     		}
-    		
+
     		try {
 				Thread.sleep(10);
 			} catch (InterruptedException ignored) {
@@ -135,9 +135,9 @@ public class UseBestNodeService implements NodeService {
 			}
     	}
     }
-    
+
     private <T> Single<T> performOnBest(Function<NodeService, Single<T>> function) {
-    	return function.apply(bestNode.get()).doOnError(throwable -> 
+    	return function.apply(bestNode.get()).doOnError(throwable ->
     			// if this node fails, we reset the timer so we re-evaluate the nodes ASAP
     			lastCheck.set(0L)
     			);
@@ -350,7 +350,7 @@ public class UseBestNodeService implements NodeService {
                         }
                     }
                 });
-        
+
         return obs.subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
 
@@ -383,7 +383,7 @@ public class UseBestNodeService implements NodeService {
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash) {
         return performOnBest(service -> service.generateCreateATTransaction(senderPublicKey, fee, deadline, name, description, creationBytes, referencedTransactionFullHash));
     }
-    
+
 	@Override
 	public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee,
 			SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[] data,
@@ -405,13 +405,13 @@ public class UseBestNodeService implements NodeService {
     public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline) {
         return performOnBest(service -> service.generateIssueAssetTransaction(senderPublicKey, name, description, quantity, decimals, fee, deadline));
     }
-    
+
     @Override
     public Single<byte[]> generateAddAssetTreasuryAccountTransaction(SignumAddress recipient, byte[] senderPublicKey,
     		String referencedTransactionFullHash, SignumValue fee, int deadline) {
         return performOnBest(service -> service.generateAddAssetTreasuryAccountTransaction(recipient, senderPublicKey, referencedTransactionFullHash, fee, deadline));
     }
-    
+
     @Override
     public Single<byte[]> generateDistributeToAssetHolders(byte[] senderPublicKey, SignumID assetId,
     		SignumValue quantityMinimumQNT, SignumValue amount, SignumID assetToDistribute, SignumValue quantityQNT,
@@ -448,7 +448,7 @@ public class UseBestNodeService implements NodeService {
     public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
         return performOnBest(service -> service.generateCancelAskOrderTransaction(senderPublicKey, orderId, fee, deadline));
     }
-    
+
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
         return performOnBest(service -> service.generateCancelBidOrderTransaction(senderPublicKey, orderId, fee, deadline));
@@ -491,7 +491,7 @@ public class UseBestNodeService implements NodeService {
 
 	@Override
 	public Single<BlockchainStatus> getBlockChainStatus() {
-		return performOnBest(service -> service.getBlockChainStatus());
+		return performOnBest(NodeService::getBlockChainStatus);
 	}
 
 	@Override
