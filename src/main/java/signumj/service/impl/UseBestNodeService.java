@@ -491,7 +491,7 @@ public class UseBestNodeService implements NodeService {
 
 	@Override
 	public Single<BlockchainStatus> getBlockChainStatus() {
-		return performOnBest(service -> service.getBlockChainStatus());
+		return performOnBest(NodeService::getBlockChainStatus);
 	}
 
 	@Override
