@@ -39,15 +39,15 @@ public final class HttpNodeService implements NodeService {
     private String nodeAddress;
 
     public HttpNodeService(String nodeAddress, String userAgent) {
-    	this(nodeAddress, userAgent, 10);
+    	this(nodeAddress, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT);
     }
-    	
+
     public HttpNodeService(String nodeAddress, String userAgent, int readTimeout) {
-    	
+
     	this.nodeAddress = nodeAddress;
     	SocketFactory socketFactory = SocketFactory.getDefault();
     	Dns dns = Dns.SYSTEM;
-    	
+
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
         		.readTimeout(readTimeout, TimeUnit.SECONDS)
         		.socketFactory(socketFactory)
@@ -61,7 +61,7 @@ public final class HttpNodeService implements NodeService {
 
         apiService = retrofit.create(SignumAPIService.class);
     }
-    
+
 	@Override
 	public String getAddress() {
 		return nodeAddress;
@@ -107,7 +107,7 @@ public final class HttpNodeService implements NodeService {
                         .map(response -> Arrays.stream(response.getBlocks()).map(Block::new)
                                 .collect(Collectors.toList()).toArray(new Block[0]));
     }
-    
+
 	@Override
 	public Single<BlockchainStatus> getBlockChainStatus() {
         return assign(apiService.getBlockchainStatus(SignumUtils.getEndpoint()).map(BlockchainStatus::new));
@@ -168,7 +168,7 @@ public final class HttpNodeService implements NodeService {
                         .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
                                 .toArray(Transaction[]::new));
     }
-    
+
     @Override
     public Single<Transaction[]> getUnconfirmedTransactions(SignumAddress accountId) {
         return assign(apiService.getUnconfirmedTransactions(SignumUtils.getEndpoint(), accountId==null ? null : accountId.getID()))
@@ -213,7 +213,7 @@ public final class HttpNodeService implements NodeService {
         return assign(apiService.getBidOrders(SignumUtils.getEndpoint(), assetId.getID()))
                 .map(response -> Arrays.stream(response.getOrders()).map(AssetOrder::new).toArray(AssetOrder[]::new));
     }
-    
+
     @Override
     public Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp, Integer firstIndex,
     		Integer lastIndex) {
@@ -221,14 +221,14 @@ public final class HttpNodeService implements NodeService {
         		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getAliases()).map(Alias::new).toArray(Alias[]::new));
     }
-    
+
 	@Override
 	public Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex) {
         return assign(apiService.getTLDs(SignumUtils.getEndpoint(),
         		timestamp == null ? null : String.valueOf(timestamp.getTimestamp()), firstIndex, lastIndex))
                 .map(response -> Arrays.stream(response.getTLDs()).map(TLD::new).toArray(TLD[]::new));
 	}
-	
+
 	@Override
 	public Single<Subscription[]> getAccountSubscriptions(SignumAddress account) {
         return assign(apiService.getAccountSubscriptions(SignumUtils.getEndpoint(), account))
@@ -239,7 +239,7 @@ public final class HttpNodeService implements NodeService {
     public Single<AT> getAt(SignumAddress atId) {
         return getAt(atId, null);
     }
-    
+
     @Override
     public Single<AT> getAt(SignumAddress atId, Boolean includeDetails) {
         return assign(apiService.getAt(SignumUtils.getEndpoint(), atId.getID(), includeDetails)).map(AT::new);
@@ -250,7 +250,7 @@ public final class HttpNodeService implements NodeService {
         return assign(apiService.getAtIds(SignumUtils.getEndpoint(), codeHashId == null ? null : codeHashId.getID())).map(
                 response -> Arrays.stream(response.getAtIds()).map(SignumAddress::fromId).toArray(SignumAddress[]::new));
     }
-    
+
     @Override
     public Single<AT[]> getAts(SignumID codeHashId, Boolean includeDetails, Integer firstIndex, Integer lastIndex) {
         return assign(apiService.getAts(SignumUtils.getEndpoint(), codeHashId.getID(), includeDetails, firstIndex, lastIndex).map(
@@ -280,7 +280,7 @@ public final class HttpNodeService implements NodeService {
         return assign(apiService.getTransactionBytes(SignumUtils.getEndpoint(), transactionId.getID()))
                 .map(response -> Hex.decode(response.getTransactionBytes()));
     }
-    
+
 	@Override
 	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
 		String url = SignumUtils.getEndpoint() + "?requestType=" + builder.getRequestType();
@@ -411,7 +411,7 @@ public final class HttpNodeService implements NodeService {
                 decimals, null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
-    
+
     @Override
     public Single<byte[]> generateAddAssetTreasuryAccountTransaction(SignumAddress recipient, byte[] senderPublicKey,
     		String referencedTransactionFullHash, SignumValue fee, int deadline) {
@@ -419,7 +419,7 @@ public final class HttpNodeService implements NodeService {
         		fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, null, false, null, false, null, null, null, false, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
-    
+
     @Override
     public Single<byte[]> generateDistributeToAssetHolders(byte[] senderPublicKey, SignumID assetId,
     		SignumValue quantityMinimumQNT, SignumValue amount, SignumID assetToDistribute, SignumValue quantityQNT,
@@ -438,10 +438,10 @@ public final class HttpNodeService implements NodeService {
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
     }
-    
+
     @Override
     public Single<byte[]> generateTransferAssetMultiTransaction(byte[] senderPublicKey, SignumAddress recipient, Map<SignumID, SignumValue> assetIdAndQuantity, SignumValue amount, SignumValue fee, int deadline) {
-    	
+
         StringBuilder assetIdAndQuantityString = new StringBuilder();
         if (assetIdAndQuantity.size() > 4 || assetIdAndQuantity.size() < 2) {
             throw new IllegalArgumentException("Must have 2-4 assets, had " + assetIdAndQuantity.size());
@@ -451,7 +451,7 @@ public final class HttpNodeService implements NodeService {
                     .append(";");
         }
         assetIdAndQuantityString.setLength(assetIdAndQuantityString.length() - 1);
-        
+
         return assign(apiService.transferAssetMulti(SignumUtils.getEndpoint(), recipient.getID(),null, assetIdAndQuantityString.toString(), amount == null ? null : amount.toNQT().toString(),
                 null, Hex.toHexString(senderPublicKey), fee.toNQT().toString(), deadline, null, false, null, null, null, null, null, null, null, null, null, null))
                         .map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
@@ -546,7 +546,7 @@ public final class HttpNodeService implements NodeService {
                     }
                 }));
     }
-    
+
     @Override
     public Single<MiningInfo> getMiningInfoSingle() {
         return apiService.getMiningInfo(SignumUtils.getEndpoint()).map(this::checkBrsResponse).map(MiningInfo::new);
@@ -556,7 +556,7 @@ public final class HttpNodeService implements NodeService {
     public Single<TransactionBroadcast> broadcastTransaction(byte[] transactionBytes) {
         if (transactionBytes.length >= 2560) {
           return assign(apiService.broadcastTransactionBig(SignumUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
-              .map(TransactionBroadcast::new);          
+              .map(TransactionBroadcast::new);
         }
         return assign(apiService.broadcastTransaction(SignumUtils.getEndpoint(), Hex.toHexString(transactionBytes)))
                         .map(TransactionBroadcast::new);
@@ -626,7 +626,7 @@ public final class HttpNodeService implements NodeService {
                   if (response.getError() != null)
                       throw new IllegalArgumentException(response.getError());
                   return response;
-              }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));          
+              }).map(response -> Hex.decode(response.getUnsignedTransactionBytes()));
         }
         return assign(apiService.createATProgram(SignumUtils.getEndpoint(), Hex.toHexString(senderPublicKey),
                 fee.toNQT().toString(), deadline, referencedTransactionFullHash, false, name, description, Hex.toHexString(creationBytes), null,
@@ -721,25 +721,25 @@ public final class HttpNodeService implements NodeService {
 
         @GET("{endpoint}?requestType=getTrades")
         Single<AssetTradesResponse> getAssetTrades(@Path("endpoint") String endpoint, @Query("asset") String assetId, @Query("account") String account, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
-        
+
         @GET("{endpoint}?requestType=getAskOrders")
         Single<AskOrdersResponse> getAskOrders(@Path("endpoint") String endpoint, @Query("asset") String assetId);
-        
+
         @GET("{endpoint}?requestType=getBidOrders")
         Single<BidOrdersResponse> getBidOrders(@Path("endpoint") String endpoint, @Query("asset") String assetId);
 
         @GET("{endpoint}?requestType=getAliases")
         Single<AliasesResponse> getAliases(@Path("endpoint") String endpoint, @Query("account") String accountId,
         		@Query("aliasName") String aliasName, @Query("tld") String tld, @Query("timestamp") String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
-        
+
         @GET("{endpoint}?requestType=getTLDs")
         Single<TLDsResponse> getTLDs(@Path("endpoint") String endpoint,
         		@Query("timestamp") String timestamp, @Query("firstIndex") Integer firstIndex, @Query("lastIndex") Integer lastIndex);
-        
+
         @GET("{endpoint}?requestType=getAccountSubscriptions")
         Single<SubscriptionsResponse> getAccountSubscriptions(@Path("endpoint") String endpoint,
         		@Query("account") SignumAddress account);
-        
+
         @GET("{endpoint}?requestType=getAT")
         Single<ATResponse> getAt(@Path("endpoint") String endpoint, @Query("at") String atId, @Query("includeDetails") Boolean includeDetails);
 
@@ -761,7 +761,7 @@ public final class HttpNodeService implements NodeService {
         @GET("{endpoint}?requestType=getTransactionBytes")
         Single<TransactionBytesResponse> getTransactionBytes(@Path("endpoint") String endpoint,
                 @Query("transaction") String transaction);
-        
+
         @POST
         Single<GenerateTransactionResponse> generateTransaction(@Url String url, @QueryMap Map<String, String> params, @Body String body);
 
@@ -874,7 +874,7 @@ public final class HttpNodeService implements NodeService {
                 @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
                 @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
-        
+
         @POST("{endpoint}?requestType=distributeToAssetHolders")
         Single<GenerateTransactionResponse> distributeToAssetHolders(@Path("endpoint") String endpoint,
         		@Query("asset") String asset,
@@ -974,8 +974,8 @@ public final class HttpNodeService implements NodeService {
                 @Query("messageToEncryptToSelfIsText") Boolean messageToEncryptToSelfIsText,
                 @Query("encryptedToSelfMessageData") String encryptedToSelfMessageData,
                 @Query("encryptedToSelfMessageNonce") String encryptedToSelfMessageNonce);
-                
-        
+
+
         @POST("{endpoint}?requestType=cancelBidOrder")
         Single<GenerateTransactionResponse> cancelBidOrder(@Path("endpoint") String endpoint,
                 @Query("order") String order,
@@ -1072,13 +1072,13 @@ public final class HttpNodeService implements NodeService {
                 @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
                 @Query("cspages") int cspages, @Query("uspages") int uspages,
                 @Query("minActivationAmountNQT") String minActivationAmountNQT);
-        
+
         @POST("{endpoint}?requestType=createATProgram")
         Single<CreateATResponse> createATProgramBig(@Path("endpoint") String endpoint,
                 @Query("publicKey") String publicKey, @Query("feeNQT") String fee, @Query("deadline") int deadline,
                 @Query("referencedTransactionFullHash") String referencedTransactionFullHash,
                 @Query("broadcast") boolean broadcast, @Query("name") String name,
-                @Query("description") String description, @Body String creationBytes,                
+                @Query("description") String description, @Body String creationBytes,
                 @Query("code") String code, @Query("data") String data, @Query("dpages") int dpages,
                 @Query("cspages") int cspages, @Query("uspages") int uspages,
                 @Query("minActivationAmountNQT") String minActivationAmountNQT);
