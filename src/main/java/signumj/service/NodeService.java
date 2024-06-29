@@ -15,19 +15,19 @@ import java.util.Map;
 import java.util.Set;
 
 public interface NodeService extends AutoCloseable {
-	
+
 	/**
 	 * @return the address of this node service
 	 */
 	String getAddress();
-	
+
     /**
      * Get a block via a block ID
      * @param block The block ID of the requested block
      * @return The block details, wrapped in a Single
      */
     Single<Block> getBlock(SignumID block);
-    
+
     /**
      * @return the blockchain status
      */
@@ -60,7 +60,7 @@ public interface NodeService extends AutoCloseable {
      * @return The constants, wrapped in a single
      */
     Single<Constants> getConstants();
-    
+
     /**
      * Get the account details of the specified account
      * @param accountId The address of the account
@@ -70,7 +70,7 @@ public interface NodeService extends AutoCloseable {
      * @return The account details, wrapped in a single
      */
     Single<Account> getAccount(SignumAddress accountId, Integer height, Boolean estimateCommitment, Boolean getCommittedAmount);
-    
+
     /**
      * Get the account details of the specified account
      * @param accountId The address of the account
@@ -134,7 +134,7 @@ public interface NodeService extends AutoCloseable {
      * @param quantityMinimum the minimum quantity for the number of accounts count (0 if null)
      * @param heightStart the height start for the volume and price statistics (past 24h if null)
      * @param heightEnd the height start for the volume and price statistics (past 24h if null)
-     * 
+     *
      * @return The asset, wrapped in a single
      */
     Single<Asset> getAsset(SignumID assetId, SignumValue quantityMinimum, Integer heightStart, Integer heightEnd);
@@ -148,12 +148,12 @@ public interface NodeService extends AutoCloseable {
 
     /**
      * Get the trades for a given asset
-     * 
+     *
      * @param assetId The asset id
      * @param account The account of interest (optional)
      * @param firstIndex The first index (optional for pagination)
      * @param lastIndex The last index (optional for pagination)
-     * 
+     *
      * @return A list trades, wrapped in a single
      */
     Single<AssetTrade[]> getAssetTrades(SignumID assetId, SignumAddress account, Integer firstIndex, Integer lastIndex);
@@ -161,7 +161,7 @@ public interface NodeService extends AutoCloseable {
     /**
      * Get the ask orders for a given asset
      * @param assetId The asset id
-     * 
+     *
      * @return A list trades, wrapped in a single
      */
     Single<AssetOrder[]> getAskOrders(SignumID assetId);
@@ -169,30 +169,30 @@ public interface NodeService extends AutoCloseable {
     /**
      * Get the bid orders for a given asset
      * @param assetId The asset id
-     * 
+     *
      * @return A list trades, wrapped in a single
      */
     Single<AssetOrder[]> getBidOrders(SignumID assetId);
-    
+
     /**
      * Get the aliases
-     * 
+     *
      * @return A list of aliases, wrapped in a single
      */
     Single<Alias[]> getAliases(SignumAddress account, String aliasName, String tld, SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex);
 
     /**
      * Get the TLDs.
-     * 
+     *
      * @return all the Top Level Domains/Namespaces of the alias system.
      */
     Single<TLD[]> getTLDs(SignumTimestamp timestamp, Integer firstIndex, Integer lastIndex);
 
     /**
      * Get the subscriptions of a given account
-     * 
+     *
      * @param account
-     * 
+     *
      * @return A list of subscriptions, wrapped in a single
      */
     Single<Subscription[]> getAccountSubscriptions(SignumAddress account);
@@ -203,7 +203,7 @@ public interface NodeService extends AutoCloseable {
      * @return The details of the AT, wrapped in a single
      */
     Single<AT> getAt(SignumAddress at);
-    
+
     /**
      * Get the details for all ATs matching the given code hash Id
      * @param codeHashId The code hash ID we are filtering for
@@ -211,7 +211,7 @@ public interface NodeService extends AutoCloseable {
      * @return The AT array
      */
     Single<AT[]> getAts(SignumID codeHashId, Boolean includeDetails, Integer firstIndex, Integer lastIndex);
-    
+
     /**
      * Get the details of an AT
      * @param at The address of the AT
@@ -240,8 +240,8 @@ public interface NodeService extends AutoCloseable {
      * @return The transaction details, wrapped in a single
      */
     Single<Transaction> getTransaction(byte[] fullHash);
-    
-    
+
+
     /**
      * Get the indirect incoming details for the given account and transaction
      * @param account
@@ -301,7 +301,7 @@ public interface NodeService extends AutoCloseable {
      */
     @Deprecated
     Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey, SignumValue fee, int deadline);
-    
+
     /**
      * Generate a transaction with a plaintext message, please use {@link #generateTransaction(TransactionBuilder)}
      * @param recipient The recipient
@@ -431,9 +431,9 @@ public interface NodeService extends AutoCloseable {
 
     /**
      * Ask the node service to generate the unsigned bytes for the given transaction builder.
-     * 
+     *
      * To sign the transaction, use {@link SignumCrypto#signTransaction(byte[], byte[])}.
-     * 
+     *
      * @param builder the transaction builder
      * @return the unsigned bytes for the transaction
      */
@@ -641,7 +641,7 @@ public interface NodeService extends AutoCloseable {
      * @param deadline The deadline for the transaction
      * @param message The encrypted message to include in the transaction
      * @param amount The SIGNA amount to send along with this transfer (optional)
-     * 
+     *
      * @return The unsigned transaction bytes, wrapped in a single
      */
     @Deprecated
@@ -724,31 +724,48 @@ public interface NodeService extends AutoCloseable {
     }
 
     static NodeService getInstance(String nodeAddress, String userAgent) {
+        return getInstance(nodeAddress, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT);
+    }
+
+    static NodeService getInstance(String nodeAddress, String userAgent, int requestTimeoutSecs) {
         if (userAgent == null) userAgent = "burstkit4j/" + signumj.Constants.VERSION;
-        return new HttpNodeService(nodeAddress, userAgent);
+        return new HttpNodeService(nodeAddress, userAgent, requestTimeoutSecs);
     }
 
     static NodeService getCompositeInstance(String... nodeAddresses) {
         return getCompositeInstanceWithUserAgent(null, nodeAddresses);
     }
-    
+
     /**
      * Returns a node service instance that will use the best node of a list.
-     * 
+     *
      * @param checkUpToDate check from time to time if the node is up-to-date or not (recent block)
      * @param userAgent the user agent
      * @param nodeAddresses the list of node addresses to choose the best one
      * @return a new node service instance
      */
     static NodeService getUseBestInstance(boolean checkUpToDate, String userAgent, String... nodeAddresses) {
-    	ArrayList<NodeService> nodeList = new ArrayList<>();
-    	for(String address : nodeAddresses) {
-    		nodeList.add(getInstance(address, userAgent));
-    	}
-    	return new UseBestNodeService(checkUpToDate, nodeList);
+		return getUseBestInstance(checkUpToDate, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT, nodeAddresses);
     }
 
-    static NodeService getCompositeInstanceWithUserAgent(String userAgent, String... nodeAddresses) {
+	/**
+	 * Returns a node service instance that will use the best node of a list.
+	 *
+	 * @param checkUpToDate check from time to time if the node is up-to-date or not (recent block)
+	 * @param userAgent the user agent
+	 * @param requestTimeoutSecs Timeout for requests to node
+	 * @param nodeAddresses the list of node addresses to choose the best one
+	 * @return a new node service instance
+	 */
+	static NodeService getUseBestInstance(boolean checkUpToDate, String userAgent, int requestTimeoutSecs, String... nodeAddresses) {
+		ArrayList<NodeService> nodeList = new ArrayList<>();
+		for(String address : nodeAddresses) {
+			nodeList.add(getInstance(address, userAgent, requestTimeoutSecs));
+		}
+		return new UseBestNodeService(checkUpToDate, nodeList);
+	}
+
+	static NodeService getCompositeInstanceWithUserAgent(String userAgent, String... nodeAddresses) {
         if (nodeAddresses.length == 0) throw new IllegalArgumentException("No node addresses specified");
         if (nodeAddresses.length == 1) return getInstance(nodeAddresses[0], userAgent);
         return new CompositeNodeService(Arrays.stream(nodeAddresses)
