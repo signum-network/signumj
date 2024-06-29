@@ -39,7 +39,7 @@ public final class HttpNodeService implements NodeService {
     private String nodeAddress;
 
     public HttpNodeService(String nodeAddress, String userAgent) {
-    	this(nodeAddress, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT);
+    	this(nodeAddress, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT_SECS);
     }
 
     public HttpNodeService(String nodeAddress, String userAgent, int readTimeout) {

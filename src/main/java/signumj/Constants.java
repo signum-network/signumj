@@ -14,5 +14,5 @@ public class Constants {
 
     public static final String HTTP_NODE_TESTNET = "https://europe3.testnet.signum.network";
 
-	public static final int HTTP_REQUEST_TIMEOUT = 30_000;
+	public static final int HTTP_REQUEST_TIMEOUT_SECS = 30;
 }

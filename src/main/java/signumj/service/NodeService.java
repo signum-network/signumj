@@ -724,7 +724,7 @@ public interface NodeService extends AutoCloseable {
     }
 
     static NodeService getInstance(String nodeAddress, String userAgent) {
-        return getInstance(nodeAddress, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT);
+        return getInstance(nodeAddress, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT_SECS);
     }
 
     static NodeService getInstance(String nodeAddress, String userAgent, int requestTimeoutSecs) {
@@ -745,7 +745,7 @@ public interface NodeService extends AutoCloseable {
      * @return a new node service instance
      */
     static NodeService getUseBestInstance(boolean checkUpToDate, String userAgent, String... nodeAddresses) {
-		return getUseBestInstance(checkUpToDate, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT, nodeAddresses);
+		return getUseBestInstance(checkUpToDate, userAgent, signumj.Constants.HTTP_REQUEST_TIMEOUT_SECS, nodeAddresses);
     }
 
 	/**
