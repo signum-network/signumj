@@ -99,19 +99,52 @@ public interface NodeService extends AutoCloseable {
      */
     Single<SignumID[]> getAccountTransactionIDs(SignumAddress accountId); // TODO filtering
 
-    /**
-     * Get the transactions of an account
-     * @param accountId The address of the account
-     * @return The account's transactions, wrapped in a single
-     */
+	/**
+	 * Get the transactions of an account
+	 * @param accountId The address of the account
+	 * @param firstIndex The first index (for pagination), i.e. offset
+	 * @param lastIndex The last index (for pagination), i.e. limit
+	 * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+	 * @return The account's transactions, wrapped in a single
+	 */
     Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect);
+
+	/**
+	 * Get the transactions of an account
+	 * @param accountId The address of the account
+	 * @param sinceTimestamp The timestamp from where to start looking for transactions. This can significantly speed up lookups.
+	 * @param firstIndex The first index (for pagination), i.e. offset
+	 * @param lastIndex The last index (for pagination), i.e. limit
+	 * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+	 * @return The account's transactions, wrapped in a single
+	 */
+    Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect);
+
+	/**
+	 * Get the transactions of an account
+	 * @param accountId The address of the account
+	 * @param firstIndex The first index (for pagination), i.e. offset
+	 * @param lastIndex The last index (for pagination), i.e. limit
+	 * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+	 * @param type filters for transaction type
+	 * @param subtype filters for transaction subttype
+	 * @return The account's transactions, wrapped in a single
+	 */
+    Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect,
+    		int type, int subtype);
 
     /**
      * Get the transactions of an account
      * @param accountId The address of the account
-     * @return The account's transactions, wrapped in a single
+     * @param sinceTimestamp The timestamp from where to start looking for transactions. This can significantly speed up lookups.
+     * @param firstIndex The first index (for pagination), i.e. offset
+     * @param lastIndex The last index (for pagination), i.e. limit
+     * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+     * @param type filters for transaction type
+     * @param subtype filters for transaction subttype
+	 * @return The account's transactions, wrapped in a single
      */
-    Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect,
+    Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect,
     		int type, int subtype);
 
     /**
@@ -728,7 +761,7 @@ public interface NodeService extends AutoCloseable {
     }
 
     static NodeService getInstance(String nodeAddress, String userAgent, int requestTimeoutSecs) {
-        if (userAgent == null) userAgent = "burstkit4j/" + signumj.Constants.VERSION;
+        if (userAgent == null) userAgent = "signumj/" + signumj.Constants.VERSION;
         return new HttpNodeService(nodeAddress, userAgent, requestTimeoutSecs);
     }
 

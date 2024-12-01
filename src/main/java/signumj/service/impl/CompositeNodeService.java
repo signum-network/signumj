@@ -47,7 +47,7 @@ public class CompositeNodeService implements NodeService {
         })
                 .subscribeOn(SignumUtils.defaultNodeServiceScheduler());
     }
-    
+
 	@Override
 	public String getAddress() {
 		return burstNodeServices[0].getAddress();
@@ -178,12 +178,22 @@ public class CompositeNodeService implements NodeService {
         return performFastest(service -> service.getAccountTransactions(accountId, firstIndex, lastIndex, includeIndirect));
     }
 
-    @Override
+	@Override
+	public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+		return performFastest(service -> service.getAccountTransactions(accountId, sinceTimestamp, firstIndex, lastIndex, includeIndirect));
+	}
+
+	@Override
     public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
         return performFastest(service -> service.getAccountTransactions(accountId, firstIndex, lastIndex, includeIndirect, type, subtype));
     }
 
-    @Override
+	@Override
+	public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
+		return performFastest(service -> service.getAccountTransactions(accountId, sinceTimestamp, firstIndex, lastIndex, includeIndirect, type, subtype));
+	}
+
+	@Override
     public Single<Transaction[]> getUnconfirmedTransactions(SignumAddress accountId) {
         return performFastest(service -> service.getUnconfirmedTransactions(accountId));
     }
@@ -347,7 +357,7 @@ public class CompositeNodeService implements NodeService {
     public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee, int deadline, String name, String description, byte[] creationBytes, String referencedTransactionFullHash) {
         return performFastest(service -> service.generateCreateATTransaction(senderPublicKey, fee, deadline, name, description, creationBytes, referencedTransactionFullHash));
     }
-    
+
 	@Override
 	public Single<byte[]> generateCreateATTransaction(byte[] senderPublicKey, SignumValue fee,
 			SignumValue minActivation, int deadline, String name, String description, byte[] code, byte[] data,
@@ -369,13 +379,13 @@ public class CompositeNodeService implements NodeService {
     public Single<byte[]> generateIssueAssetTransaction(byte[] senderPublicKey, String name, String description, SignumValue quantity, int decimals, SignumValue fee, int deadline) {
         return performFastest(service -> service.generateIssueAssetTransaction(senderPublicKey, name, description, quantity, decimals, fee, deadline));
     }
-    
+
     @Override
     public Single<byte[]> generateAddAssetTreasuryAccountTransaction(SignumAddress recipient, byte[] senderPublicKey,
     		String referencedTransactionFullHash, SignumValue fee, int deadline) {
         return performFastest(service -> service.generateAddAssetTreasuryAccountTransaction(recipient, senderPublicKey, referencedTransactionFullHash, fee, deadline));
     }
-    
+
     @Override
     public Single<byte[]> generateDistributeToAssetHolders(byte[] senderPublicKey, SignumID assetId,
     		SignumValue quantityMinimumQNT, SignumValue amount, SignumID assetToDistribute, SignumValue quantityQNT,
@@ -412,7 +422,7 @@ public class CompositeNodeService implements NodeService {
     public Single<byte[]> generateCancelAskOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
         return performFastest(service -> service.generateCancelAskOrderTransaction(senderPublicKey, orderId, fee, deadline));
     }
-    
+
     @Override
     public Single<byte[]> generateCancelBidOrderTransaction(byte[] senderPublicKey, SignumID orderId, SignumValue fee, int deadline) {
         return performFastest(service -> service.generateCancelBidOrderTransaction(senderPublicKey, orderId, fee, deadline));
@@ -434,7 +444,7 @@ public class CompositeNodeService implements NodeService {
             burstNodeService.close();
         }
     }
-    
+
 	@Override
 	public Single<byte[]> generateTransaction(TransactionBuilder builder) {
 		return performFastest(service -> service.generateTransaction(builder));
@@ -443,7 +453,7 @@ public class CompositeNodeService implements NodeService {
 	@Override
 	public Single<byte[]> generateTransactionSetRewardRecipient(SignumAddress recipient, byte[] senderPublicKey,
 			SignumValue fee, int deadline) {
-		
+
 		return performFastest(service -> service.generateTransactionSetRewardRecipient(recipient, senderPublicKey, fee, deadline));
 	}
 

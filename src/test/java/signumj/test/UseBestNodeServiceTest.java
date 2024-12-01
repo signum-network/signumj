@@ -23,10 +23,12 @@ public class UseBestNodeServiceTest extends NodeServiceTest {
     		ArrayList<NodeService> nodeList = new ArrayList<NodeService>();
     		nodeList.add(new HttpNodeService(Constants.HTTP_NODE_EUROPE1, TestVariables.TEST_USER_AGENT));
     		nodeList.add(new HttpNodeService(Constants.HTTP_NODE_EUROPE2, TestVariables.TEST_USER_AGENT));
-    		nodeList.add(new HttpNodeService(Constants.HTTP_NODE_EUROPE, TestVariables.TEST_USER_AGENT));
-    		nodeList.add(new HttpNodeService(Constants.HTTP_NODE_CANADA, TestVariables.TEST_USER_AGENT));
-    		nodeList.add(new HttpNodeService(Constants.HTTP_NODE_BRAZIL, TestVariables.TEST_USER_AGENT));
-    		nodeList.add(new HttpNodeService(Constants.HTTP_NODE_LOCAL, TestVariables.TEST_USER_AGENT));
+			nodeList.add(new HttpNodeService(Constants.HTTP_NODE_EUROPE, TestVariables.TEST_USER_AGENT));
+			nodeList.add(new HttpNodeService(Constants.HTTP_NODE_RUSSIA, TestVariables.TEST_USER_AGENT));
+			nodeList.add(new HttpNodeService(Constants.HTTP_NODE_CANADA, TestVariables.TEST_USER_AGENT));
+			nodeList.add(new HttpNodeService(Constants.HTTP_NODE_BRAZIL, TestVariables.TEST_USER_AGENT));
+			nodeList.add(new HttpNodeService(Constants.HTTP_NODE_US_EAST, TestVariables.TEST_USER_AGENT));
+			nodeList.add(new HttpNodeService(Constants.HTTP_NODE_LOCAL, TestVariables.TEST_USER_AGENT));
     		instance =  new UseBestNodeService(true, nodeList);
     	}
  		return instance;
