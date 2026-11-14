@@ -1,0 +1,60 @@
+name: Build signumj
+
+# Builds signumj and runs the tests on every platform that has a bundled libshabal,
+# so a broken or missing native library fails here instead of falling back to the
+# slow Java implementation unnoticed on users' machines.
+#
+# Also called by release.yml, so a tag is only released when this passes.
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: linux-x86-64
+            runner: ubuntu-latest
+          - name: linux-aarch64
+            runner: ubuntu-24.04-arm
+          - name: darwin-arm64
+            runner: macos-latest
+          # the x86_64 slice of the universal darwin library is only exercised here
+          - name: darwin-x86-64
+            runner: macos-15-intel
+          - name: win32-x86-64
+            runner: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'zulu'
+          # same JDK as jitpack.yml; the bytecode targets Java 8 via options.release
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Build and run the tests
+        shell: bash
+        run: ./gradlew build
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: test-reports-${{ matrix.name }}
+          path: build/reports/tests/
+          retention-days: 7
