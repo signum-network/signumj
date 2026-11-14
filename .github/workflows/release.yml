@@ -1,0 +1,97 @@
+name: Release signumj
+
+# Push a tag like v1.4.0 to release. The tag name is the version consumers use:
+#   implementation 'com.github.signum-network:signumj:v1.4.0'
+#
+# 1. runs the full build matrix (build.yml) on the tagged commit
+# 2. builds the jars with the tag as version and checks that every native library is inside
+# 3. triggers the JitPack build and waits for it, so the release only exists once the
+#    artifact can actually be resolved
+# 4. creates a draft GitHub release with the jars and generated notes; review and publish it
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the draft release and upload the jars
+    env:
+      TAG: ${{ github.ref_name }}
+    steps:
+      - name: Check tag format
+        shell: bash
+        run: |
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]]; then
+            echo "Tag '$TAG' is not a version tag like v1.4.0" >&2
+            exit 1
+          fi
+
+      - uses: actions/checkout@v7
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Build the jars
+        run: ./gradlew assemble -Pversion="$TAG"
+
+      - name: Check the bundled native libraries
+        shell: bash
+        run: |
+          JAR="build/libs/signumj-$TAG.jar"
+          for lib in darwin/libshabal.dylib linux-x86-64/libshabal.so \
+                     linux-aarch64/libshabal.so win32-x86-64/shabal.dll; do
+            if ! unzip -l "$JAR" "$lib" >/dev/null; then
+              echo "$lib is missing from $JAR" >&2
+              exit 1
+            fi
+          done
+          unzip -l "$JAR" '*shabal*'
+
+      - name: Build on JitPack
+        shell: bash
+        run: |
+          # requesting an artifact makes JitPack build the tag; a request can return
+          # before the build is done, so poll until the pom is served
+          POM="https://jitpack.io/com/github/${GITHUB_REPOSITORY}/${TAG}/signumj-${TAG}.pom"
+          LOG="https://jitpack.io/com/github/${GITHUB_REPOSITORY}/${TAG}/build.log"
+          for attempt in $(seq 1 30); do
+            STATUS=$(curl -s -o /dev/null -w '%{http_code}' --max-time 120 "$POM" || true)
+            echo "attempt $attempt: HTTP $STATUS"
+            if [ "$STATUS" = "200" ]; then
+              echo "JitPack build done: $LOG"
+              exit 0
+            fi
+            sleep 30
+          done
+          echo "JitPack did not serve $POM; see $LOG" >&2
+          curl -s --max-time 60 "$LOG" | tail -50 || true
+          exit 1
+
+      - name: Create draft release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$TAG" \
+            "build/libs/signumj-$TAG.jar" \
+            "build/libs/signumj-$TAG-sources.jar" \
+            "build/libs/signumj-$TAG-javadoc.jar" \
+            --draft \
+            --verify-tag \
+            --title "Version ${TAG#v}" \
+            --generate-notes

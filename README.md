@@ -94,3 +94,13 @@ public class SendTransactionBlockingGet {
     }
 }
 ``` 
+
+## Development
+
+* `./gradlew build` compiles, builds the javadoc and runs the tests. CI runs it on Linux (x86-64, aarch64), macOS (arm64, x86-64) and Windows, one per bundled native library.
+* `./gradlew networkTest` runs the tests that call a public Signum node. They are not part of `build`, because their result depends on that node.
+* The native libraries in `src/main/resources` come from a [libShabal release](https://github.com/signum-network/libShabal/releases). Replace all four together and name the release in the PR.
+
+## Releasing
+
+Push a version tag, for example `git tag v1.4.0 && git push origin v1.4.0`. The release workflow runs the build on all platforms, waits for JitPack to build the tag and then creates a draft GitHub release with the jars. Review the notes and publish it.

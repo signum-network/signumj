@@ -56,6 +56,22 @@ test {
     testLogging {
         showStandardStreams = true
     }
+    // calls a public mainnet node, so its result depends on that node; run it with networkTest
+    exclude 'signumj/test/NodeServiceTest.class'
+}
+
+tasks.register('networkTest', Test) {
+    description = 'Runs the tests that call a public Signum node.'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
+    filter {
+        includeTestsMatching 'signumj.test.NodeServiceTest'
+    }
 }
 
 // JitPack builds with publishToMavenLocal
