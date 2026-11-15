@@ -62,6 +62,24 @@ jobs:
           done
           unzip -l "$JAR" '*shabal*'
 
+      - name: Check the version reported by the jar
+        shell: bash
+        run: |
+          # Constants.VERSION goes into the default user agent; it must be the tag
+          cat > "$RUNNER_TEMP/PrintVersion.java" <<'EOF'
+          public class PrintVersion {
+              public static void main(String[] args) {
+                  System.out.print(signumj.Constants.VERSION);
+              }
+          }
+          EOF
+          ACTUAL=$(java -cp "build/libs/signumj-$TAG.jar" "$RUNNER_TEMP/PrintVersion.java")
+          if [ "$ACTUAL" != "$TAG" ]; then
+            echo "Constants.VERSION is '$ACTUAL', expected '$TAG'" >&2
+            exit 1
+          fi
+          echo "Constants.VERSION = $ACTUAL"
+
       - name: Build on JitPack
         shell: bash
         run: |
