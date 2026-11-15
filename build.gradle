@@ -42,9 +42,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.11.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.12.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.12.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.12.0'
 
     // Bouncy Castle
     implementation 'org.bouncycastle:bcprov-jdk18on:1.87'
@@ -54,8 +54,8 @@ dependencies {
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.10.2'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.14.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.14.4'
 }
 
 test {
