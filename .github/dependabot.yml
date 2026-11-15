@@ -18,6 +18,11 @@ updates:
       # JUnit 5 migration is a separate change; keep the JUnit 4 tests on 4.x
       - dependency-name: "junit:junit"
         versions: [">= 5.0.0"]
+      # JUnit 6 needs Java 17 at runtime, but the build targets Java 8 (options.release = 8)
+      - dependency-name: "org.junit.vintage:junit-vintage-engine"
+        versions: [">= 6.0.0"]
+      - dependency-name: "org.junit.platform:junit-platform-launcher"
+        versions: [">= 6.0.0"]
 
   - package-ecosystem: "github-actions"
     directory: "/"

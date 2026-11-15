@@ -103,4 +103,4 @@ public class SendTransactionBlockingGet {
 
 ## Releasing
 
-Push a version tag, for example `git tag v1.4.0 && git push origin v1.4.0`. The release workflow runs the build on all platforms, waits for JitPack to build the tag and then creates a draft GitHub release with the jars. Review the notes and publish it.
+Push a version tag, for example `git tag v1.4.0 && git push origin v1.4.0`. The release workflow runs the build on all platforms, waits for JitPack to build the tag and then creates a draft GitHub release with the jars. Review the notes and publish it. The version (`Constants.VERSION`, sent in the default user agent) comes from the tag, so there is nothing to bump before tagging.
