@@ -1,0 +1,29 @@
+# Dependency updates, checked by the build matrix in build.yml.
+# Updates are grouped into one PR per ecosystem to keep the review load low.
+version: 2
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      gradle-dependencies:
+        patterns:
+          - "*"
+    ignore:
+      # Retrofit 3 / OkHttp 4+ pull in the Kotlin stdlib; that move needs its own decision
+      - dependency-name: "com.squareup.retrofit2:*"
+        versions: [">= 3.0.0"]
+      # JUnit 5 migration is a separate change; keep the JUnit 4 tests on 4.x
+      - dependency-name: "junit:junit"
+        versions: [">= 5.0.0"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
