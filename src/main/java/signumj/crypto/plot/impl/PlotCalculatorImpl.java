@@ -55,4 +55,27 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
         BigInteger hit = calculateHit(accountId, nonce, genSig, scoop, pocVersion);
         return hit.divide(BigInteger.valueOf(baseTarget));
     }
+
+    @Override
+    public byte[] calculateScoops(long[] accountIds, long[] nonces, int[] scoops, int pocVersion) {
+        validateScoopsInput(accountIds, nonces, scoops);
+        byte[] result = new byte[accountIds.length * MiningPlot.SCOOP_SIZE];
+        for (int i = 0; i < accountIds.length; i++) {
+            byte[] scoop = new MiningPlot(shabal256Supplier.get(), accountIds[i], nonces[i], pocVersion).getScoop(scoops[i]);
+            System.arraycopy(scoop, 0, result, i * MiningPlot.SCOOP_SIZE, MiningPlot.SCOOP_SIZE);
+        }
+        return result;
+    }
+
+    protected static void validateScoopsInput(long[] accountIds, long[] nonces, int[] scoops) {
+        if (accountIds.length != nonces.length || accountIds.length != scoops.length) {
+            throw new IllegalArgumentException("accountIds, nonces and scoops must have the same length, got "
+                    + accountIds.length + ", " + nonces.length + " and " + scoops.length);
+        }
+        for (int scoop : scoops) {
+            if (scoop < 0 || scoop >= MiningPlot.SCOOPS_PER_PLOT) {
+                throw new IllegalArgumentException("Scoop must be in [0, " + MiningPlot.SCOOPS_PER_PLOT + "), got " + scoop);
+            }
+        }
+    }
 }

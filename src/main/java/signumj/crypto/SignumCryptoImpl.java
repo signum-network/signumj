@@ -442,6 +442,15 @@ class SignumCryptoImpl extends AbstractSignumCrypto {
     }
 
     @Override
+    public byte[] calculateScoops(long[] accountIds, long[] nonces, int[] scoops, int pocVersion) {
+        if (nativeEnabled()) {
+            return nativePlotCalculator.calculateScoops(accountIds, nonces, scoops, pocVersion);
+        } else {
+            return plotCalculator.calculateScoops(accountIds, nonces, scoops, pocVersion);
+        }
+    }
+
+    @Override
     public BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
         if (nativeEnabled()) {
             return nativePlotCalculator.calculateDeadline(accountId, nonce, genSig, scoop, baseTarget, pocVersion);
