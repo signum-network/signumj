@@ -29,21 +29,21 @@ repositories {
 
 dependencies {
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.15.0'
 
     // RxJava
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.15'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.11.0'
 
     // Bouncy Castle
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.69'
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.87'
 
     // JNA
-    implementation 'net.java.dev.jna:jna:5.7.0'
+    implementation 'net.java.dev.jna:jna:5.19.1'
 
     // Testing
     testImplementation 'junit:junit:4.13.2'

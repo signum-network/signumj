@@ -64,7 +64,7 @@ public class NodeServiceTest {
     }
 
     protected NodeService getNodeService() {
-        return new HttpNodeService(signumj.Constants.HTTP_NODE_EUROPE2, TestVariables.TEST_USER_AGENT);
+        return new HttpNodeService(signumj.Constants.HTTP_NODE_EUROPE, TestVariables.TEST_USER_AGENT);
         // return new HttpBurstNodeService(signumj.Constants.HTTP_NODE_TESTNET, TestVariables.TEST_USER_AGENT);
     }
 
