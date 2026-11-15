@@ -1,8 +1,7 @@
 package signumj;
 
 public class Constants {
-    public static final String VERSION = "v1.0.0";
-
+    public static final String VERSION = "v1.4.0";
 
     public static final String HTTP_NODE_EUROPE = "https://europe.signum.network";
     public static final String HTTP_NODE_EUROPE1 = "https://europe1.signum.network";

@@ -179,8 +179,18 @@ public class CompositeNodeService implements NodeService {
     }
 
     @Override
+    public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+        return performFastest(service -> service.getAccountTransactions(accountId, sinceTimestamp, firstIndex, lastIndex, includeIndirect));
+    }
+
+    @Override
     public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
         return performFastest(service -> service.getAccountTransactions(accountId, firstIndex, lastIndex, includeIndirect, type, subtype));
+    }
+
+    @Override
+    public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
+        return performFastest(service -> service.getAccountTransactions(accountId, sinceTimestamp, firstIndex, lastIndex, includeIndirect, type, subtype));
     }
 
     @Override

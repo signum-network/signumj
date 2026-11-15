@@ -102,6 +102,9 @@ public interface NodeService extends AutoCloseable {
     /**
      * Get the transactions of an account
      * @param accountId The address of the account
+     * @param firstIndex The first index (for pagination), i.e. offset
+     * @param lastIndex The last index (for pagination), i.e. limit
+     * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
      * @return The account's transactions, wrapped in a single
      */
     Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect);
@@ -109,10 +112,46 @@ public interface NodeService extends AutoCloseable {
     /**
      * Get the transactions of an account
      * @param accountId The address of the account
+     * @param sinceTimestamp Only transactions from this timestamp on, or null for all. This can significantly speed up lookups.
+     * @param firstIndex The first index (for pagination), i.e. offset
+     * @param lastIndex The last index (for pagination), i.e. limit
+     * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+     * @return The account's transactions, wrapped in a single
+     */
+    default Single<Transaction[]> getAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+        // default only so implementations outside signumj keep compiling
+        return Single.error(new UnsupportedOperationException("getAccountTransactions with sinceTimestamp is not implemented by " + getClass().getName()));
+    }
+
+    /**
+     * Get the transactions of an account
+     * @param accountId The address of the account
+     * @param firstIndex The first index (for pagination), i.e. offset
+     * @param lastIndex The last index (for pagination), i.e. limit
+     * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+     * @param type filters for transaction type
+     * @param subtype filters for transaction subtype
      * @return The account's transactions, wrapped in a single
      */
     Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect,
     		int type, int subtype);
+
+    /**
+     * Get the transactions of an account
+     * @param accountId The address of the account
+     * @param sinceTimestamp Only transactions from this timestamp on, or null for all. This can significantly speed up lookups.
+     * @param firstIndex The first index (for pagination), i.e. offset
+     * @param lastIndex The last index (for pagination), i.e. limit
+     * @param includeIndirect Whether indirect incoming transactions (multi out and distributions) should be included in the list
+     * @param type filters for transaction type
+     * @param subtype filters for transaction subtype
+     * @return The account's transactions, wrapped in a single
+     */
+    default Single<Transaction[]> getAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect,
+    		int type, int subtype) {
+        // default only so implementations outside signumj keep compiling
+        return Single.error(new UnsupportedOperationException("getAccountTransactions with sinceTimestamp is not implemented by " + getClass().getName()));
+    }
 
     /**
      * Get the unconfirmed transactions of an account
@@ -728,7 +767,7 @@ public interface NodeService extends AutoCloseable {
     }
 
     static NodeService getInstance(String nodeAddress, String userAgent, int requestTimeoutSecs) {
-        if (userAgent == null) userAgent = "burstkit4j/" + signumj.Constants.VERSION;
+        if (userAgent == null) userAgent = "signumj/" + signumj.Constants.VERSION;
         return new HttpNodeService(nodeAddress, userAgent, requestTimeoutSecs);
     }
 

@@ -153,20 +153,33 @@ public final class HttpNodeService implements NodeService {
 
     @Override
     public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
-        return assign(apiService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
-                null, null, firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
-                		includeIndirect!=null && includeIndirect ? "true" : "false"))
-                        .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
-                                .toArray(Transaction[]::new));
+        return requestAccountTransactions(accountId, null, null, null, firstIndex, lastIndex, includeIndirect);
+    }
+
+    @Override
+    public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+        return requestAccountTransactions(accountId, sinceTimestamp, null, null, firstIndex, lastIndex, includeIndirect);
     }
 
     @Override
     public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
-        return assign(apiService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(), null,
-                Integer.toString(type), Integer.toString(subtype), firstIndex!=null ? firstIndex.toString() : null, lastIndex!=null ? lastIndex.toString() : null, null,
-                		includeIndirect!=null && includeIndirect ? "true" : "false"))
-                        .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
-                                .toArray(Transaction[]::new));
+        return requestAccountTransactions(accountId, null, type, subtype, firstIndex, lastIndex, includeIndirect);
+    }
+
+    @Override
+    public Single<Transaction[]> getAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer firstIndex, Integer lastIndex, Boolean includeIndirect, int type, int subtype) {
+        return requestAccountTransactions(accountId, sinceTimestamp, type, subtype, firstIndex, lastIndex, includeIndirect);
+    }
+
+    private Single<Transaction[]> requestAccountTransactions(SignumAddress accountId, SignumTimestamp sinceTimestamp, Integer type, Integer subtype,
+                                                             Integer firstIndex, Integer lastIndex, Boolean includeIndirect) {
+        return assign(apiService.getAccountTransactions(SignumUtils.getEndpoint(), accountId.getID(),
+                sinceTimestamp != null ? String.valueOf(sinceTimestamp.getTimestamp()) : null,
+                type != null ? type.toString() : null, subtype != null ? subtype.toString() : null,
+                firstIndex != null ? firstIndex.toString() : null, lastIndex != null ? lastIndex.toString() : null, null,
+                includeIndirect != null && includeIndirect ? "true" : "false"))
+                .map(response -> Arrays.stream(response.getTransactions()).map(Transaction::new)
+                        .toArray(Transaction[]::new));
     }
 
     @Override
