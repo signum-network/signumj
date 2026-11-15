@@ -701,6 +701,20 @@ public interface SignumCrypto {
     BigInteger calculateHit(byte[] genSig, byte[] scoopData);
 
     /**
+     * Calculate one scoop for each (account id, nonce, scoop) triple, e.g. to verify a batch of blocks.
+     * Uses SIMD instructions if the native library supports them, which is several times faster than
+     * calculating the scoops one by one.
+     * @param accountIds The account IDs
+     * @param nonces The nonces, one per account ID
+     * @param scoops The scoops, one per account ID, each in [0, 4096)
+     * @param pocVersion The PoC version. If unsure, use 2.
+     * @return {@code accountIds.length * 64} bytes, scoop {@code i} starts at offset {@code i * 64}.
+     * The hit of entry {@code i} is {@code calculateHit(genSig, scoop i)}.
+     * @throws IllegalArgumentException if the arrays differ in length or a scoop is out of range
+     */
+    byte[] calculateScoops(long[] accountIds, long[] nonces, int[] scoops, int pocVersion);
+
+    /**
      * Calculate the deadline (hit / baseTarget)
      * @param accountId The account ID
      * @param nonce The nonce
